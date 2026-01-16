@@ -1,0 +1,32 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Conda / venv
+.env
+.venv
+conda-meta/
+
+# Logs & outputs
+logs/
+wandb/
+runs/
+*.log
+
+# Checkpoints / models
+*.pt
+*.ckpt
+*.bin
+*.safetensors
+
+# Datasets
+data/
+datasets/
+*.jsonl
+*.csv
+*.parquet
+
+# OS
+.DS_Store
