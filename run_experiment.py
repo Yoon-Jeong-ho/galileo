@@ -77,53 +77,47 @@ def run_initial_evaluation(
         prompt = INSTRUCTION_TEMPLATE.format(question=prob["question"])
         prompts.append(prompt)
     
-    # Generate with beam search
+    # Generate with beam search - vLLM handles batching internally
     print("Generating responses with beam search...")
-    batch_size = 16
     all_results = []
     
-    for i in tqdm(range(0, len(prompts), batch_size), desc="Initial eval"):
-        batch_prompts = prompts[i:i+batch_size]
-        batch_problems = problems[i:i+batch_size]
+    outputs = engine.generate_beam_search(
+        prompts=prompts,
+        n=config.beam_search_n,
+        temperature=config.beam_search_temperature,
+        max_tokens=MAX_TOKENS,
+        system_prompt=SYSTEM_PROMPT,
+    )
+    
+    for prob, beam_outputs in tqdm(zip(problems, outputs), total=len(problems), desc="Processing results"):
+        # Check each beam for correct answer
+        best_response = None
+        is_correct = False
+        extracted_answer = None
         
-        batch_outputs = engine.generate_beam_search(
-            prompts=batch_prompts,
-            n=config.beam_search_n,
-            temperature=config.beam_search_temperature,
-            max_tokens=MAX_TOKENS,
-            system_prompt=SYSTEM_PROMPT,
-        )
+        for output in beam_outputs:
+            ans, correct = evaluate_response(output.response, prob["answer"])
+            if correct:
+                best_response = output.response
+                is_correct = True
+                extracted_answer = ans
+                break
         
-        for prob, outputs in zip(batch_problems, batch_outputs):
-            # Check each beam for correct answer
-            best_response = None
-            is_correct = False
-            extracted_answer = None
-            
-            for output in outputs:
-                ans, correct = evaluate_response(output.response, prob["answer"])
-                if correct:
-                    best_response = output.response
-                    is_correct = True
-                    extracted_answer = ans
-                    break
-            
-            # If no correct answer found, use first response
-            if best_response is None:
-                best_response = outputs[0].response
-                extracted_answer, is_correct = evaluate_response(best_response, prob["answer"])
-            
-            result = {
-                "question": prob["question"],
-                "ground_truth": prob["answer"],
-                "model_response": best_response,
-                "extracted_answer": extracted_answer,
-                "is_correct": is_correct,
-                "test_name": test_name,
-                "model": engine.model_short_name,
-                "phase": "initial",
-            }
-            all_results.append(result)
+        if best_response is None:
+            best_response = beam_outputs[0].response
+            extracted_answer, is_correct = evaluate_response(best_response, prob["answer"])
+        
+        result = {
+            "question": prob["question"],
+            "ground_truth": prob["answer"],
+            "model_response": best_response,
+            "extracted_answer": extracted_answer,
+            "is_correct": is_correct,
+            "test_name": test_name,
+            "model": engine.model_short_name,
+            "phase": "initial",
+        }
+        all_results.append(result)
     
     # Report accuracy
     correct = sum(1 for r in all_results if r["is_correct"])
@@ -189,18 +183,13 @@ def run_adversarial_testing(
                 conversations.append(messages)
                 problem_map.append(prob)
             
-            # Generate responses
-            batch_size = 16
-            responses = []
-            for i in range(0, len(conversations), batch_size):
-                batch = conversations[i:i+batch_size]
-                batch_outputs = engine.generate_multi_turn(
-                    conversations=batch,
-                    temperature=config.greedy_temperature,
-                    max_tokens=MAX_TOKENS,
-                    system_prompt=SYSTEM_PROMPT,
-                )
-                responses.extend(batch_outputs)
+            # Generate responses - vLLM handles batching internally
+            responses = engine.generate_multi_turn(
+                conversations=conversations,
+                temperature=config.greedy_temperature,
+                max_tokens=MAX_TOKENS,
+                system_prompt=SYSTEM_PROMPT,
+            )
             
             # Evaluate responses
             still_correct = []
@@ -290,18 +279,13 @@ def run_recovery_testing(
         ]
         conversations.append(messages)
     
-    # Generate responses
-    batch_size = 16
-    responses = []
-    for i in range(0, len(conversations), batch_size):
-        batch = conversations[i:i+batch_size]
-        batch_outputs = engine.generate_multi_turn(
-            conversations=batch,
-            temperature=config.greedy_temperature,
-            max_tokens=MAX_TOKENS,
-            system_prompt=SYSTEM_PROMPT,
-        )
-        responses.extend(batch_outputs)
+    # Generate responses - vLLM handles batching internally
+    responses = engine.generate_multi_turn(
+        conversations=conversations,
+        temperature=config.greedy_temperature,
+        max_tokens=MAX_TOKENS,
+        system_prompt=SYSTEM_PROMPT,
+    )
     
     # Evaluate recovery
     recovery_results = []
