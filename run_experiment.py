@@ -19,6 +19,9 @@ from datetime import datetime
 from typing import List, Dict, Any, Optional, Tuple
 from collections import defaultdict
 from tqdm import tqdm
+from setproctitle import setproctitle
+
+setproctitle("aa007878")
 
 # Set GPU visibility before importing torch/vllm
 os.environ["CUDA_VISIBLE_DEVICES"] = "3,4,5,6"

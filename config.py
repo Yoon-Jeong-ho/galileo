@@ -45,9 +45,7 @@ ANSWER_PATTERNS = [
 SYSTEM_PROMPT = """You are a helpful math assistant. Solve the given problem step by step and provide your final answer in \\boxed{} format. For example, if the answer is 42, write \\boxed{42}."""
 
 # Instruction template for initial evaluation
-INSTRUCTION_TEMPLATE = """Solve the following math problem step by step. Put your final numerical answer inside \\boxed{}.
-
-Problem: {question}"""
+INSTRUCTION_TEMPLATE = """Solve the following math problem step by step. Put your final numerical answer inside \\boxed{{}}.\n\nProblem: {question}"""
 
 # Paths
 DATA_DIR = "/data_x/aa007878/galileo/data"

@@ -27,6 +27,7 @@ datasets/
 *.jsonl
 *.csv
 *.parquet
+results/
 
 # OS
 .DS_Store
