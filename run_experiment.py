@@ -463,8 +463,8 @@ def save_results_to_csv(
                     survived = sum(1 for r in results 
                                    if r["rounds_completed"] >= round_num and 
                                    (r["final_correct"] or 
-                                    any(rr["round"] == round_num and rr["is_correct"] 
-                                        for rr in r["round_results"])))
+                                    any(rr["turn"] == round_num and rr["is_correct"] 
+                                        for rr in r["turns"])))
                     rate = survived / total * 100 if total > 0 else 0
                     writer.writerow([model, test, get_persona_name(persona), round_num, survived, total, f"{rate:.2f}"])
     

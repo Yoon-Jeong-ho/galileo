@@ -7,19 +7,19 @@ from dataclasses import dataclass, field
 from typing import List, Dict
 
 # GPU Configuration
-CUDA_VISIBLE_DEVICES = "3,4,5,6"
+CUDA_VISIBLE_DEVICES = "4,5,6,7"
 os.environ["CUDA_VISIBLE_DEVICES"] = CUDA_VISIBLE_DEVICES
 TENSOR_PARALLEL_SIZE = 4
 
 # Models to evaluate
 MODELS = [
-    "meta-llama/Llama-3.3-70B-Instruct",
     "Qwen/Qwen3-30B-A3B-Instruct-2507",
     "deepseek-ai/DeepSeek-R1-Distill-Qwen-32B",
+    "meta-llama/Llama-3.3-70B-Instruct",
 ]
 
 # Generation parameters
-MAX_TOKENS = 16384
+MAX_TOKENS = 32768
 
 # Beam search for initial evaluation
 BEAM_SEARCH_N = 10
