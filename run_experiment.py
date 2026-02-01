@@ -31,7 +31,7 @@ except ImportError:
     pass
 
 # Set GPU visibility before importing torch/vllm
-os.environ["CUDA_VISIBLE_DEVICES"] = "3,4,5,6"
+os.environ.setdefault("CUDA_VISIBLE_DEVICES", "3,4,5,6")
 
 from config import (
     MODELS,
