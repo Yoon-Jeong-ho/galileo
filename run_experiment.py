@@ -39,6 +39,7 @@ from config import (
     INSTRUCTION_TEMPLATE,
     RESULTS_DIR,
     MAX_TOKENS,
+    MAX_MODEL_LEN,
     BEAM_SEARCH_N,
     BEAM_SEARCH_TEMPERATURE,
     GREEDY_TEMPERATURE,
@@ -92,7 +93,7 @@ def run_initial_evaluation(
         prompts=prompts,
         n=config.beam_search_n,
         temperature=config.beam_search_temperature,
-        max_tokens=MAX_TOKENS,
+        max_tokens=config.max_tokens,
         system_prompt=SYSTEM_PROMPT,
     )
     
@@ -253,7 +254,7 @@ def run_adversarial_testing(
         retry_responses = engine.generate_multi_turn(
             conversations=retry_conversations,
             temperature=config.greedy_temperature,
-            max_tokens=MAX_TOKENS,
+            max_tokens=config.max_tokens,
             system_prompt=SYSTEM_PROMPT,
         )
         
@@ -371,7 +372,7 @@ def run_recovery_testing(
     responses = engine.generate_multi_turn(
         conversations=conversations,
         temperature=config.greedy_temperature,
-        max_tokens=MAX_TOKENS,
+        max_tokens=config.max_tokens,
         system_prompt=SYSTEM_PROMPT,
     )
     
@@ -513,7 +514,7 @@ def run_experiment(config: ExperimentConfig) -> None:
         engine = InferenceEngine(
             model_name=model_name,
             tensor_parallel_size=config.tensor_parallel_size,
-            max_model_len=MAX_TOKENS,
+            max_model_len=config.max_model_len,
         )
         
         model_short = model_name.split("/")[-1]
@@ -567,29 +568,62 @@ def run_experiment(config: ExperimentConfig) -> None:
 
 def main():
     parser = argparse.ArgumentParser(description="Galileo Adversarial Persona Experiment")
+
+    # run control
     parser.add_argument("--test_mode", action="store_true", help="Run in test mode with fewer samples")
     parser.add_argument("--num_samples", type=int, default=-1, help="Number of samples (-1 for all)")
-    parser.add_argument("--model", type=str, help="Run only specific model")
-    parser.add_argument("--data_file", type=str, help="Run only specific data file")
-    parser.add_argument("--results_dir", type=str, default=RESULTS_DIR, help="Results directory")
-    
+
+    # scope
+    parser.add_argument("--model", type=str, default=None, help="Run only a specific model (HuggingFace name)")
+    parser.add_argument("--data_file", type=str, default=None, help="Run only a specific JSONL data file")
+
+    # paths
+    parser.add_argument("--data_dir", type=str, default=None, help="Override DATA_DIR (expects JSONL files)")
+    parser.add_argument("--results_dir", type=str, default=None, help="Override RESULTS_DIR")
+
+    # vLLM / generation
+    parser.add_argument("--max_tokens", type=int, default=None, help="Max new tokens per generation (overrides config)")
+    parser.add_argument("--max_model_len", type=int, default=None, help="Max context length for vLLM (overrides config)")
+    parser.add_argument("--tensor_parallel_size", type=int, default=None, help="Tensor parallel size (overrides config)")
+
     args = parser.parse_args()
-    
+
     config = ExperimentConfig()
+
+    # CLI overrides
     config.test_mode = args.test_mode
-    config.results_dir = args.results_dir
-    
+
     if args.num_samples > 0:
         config.num_samples = args.num_samples
     elif args.test_mode:
         config.num_samples = 10
-    
+
     if args.model:
         config.models = [args.model]
-    
+
     if args.data_file:
         config.data_files = [args.data_file]
-    
+
+    if args.data_dir is not None:
+        import os as _os
+        config.data_files = [
+            _os.path.join(args.data_dir, f)
+            for f in _os.listdir(args.data_dir)
+            if f.endswith(".jsonl")
+        ]
+
+    if args.results_dir is not None:
+        config.results_dir = args.results_dir
+
+    if args.max_tokens is not None:
+        config.max_tokens = args.max_tokens
+
+    if args.max_model_len is not None:
+        config.max_model_len = args.max_model_len
+
+    if args.tensor_parallel_size is not None:
+        config.tensor_parallel_size = args.tensor_parallel_size
+
     run_experiment(config)
 
 
