@@ -1,0 +1,9 @@
+# Core
+tqdm
+setproctitle
+
+# LLM inference
+vllm==0.13.0
+
+# NOTE: torch is environment-specific (CUDA version). Install via official PyTorch selector.
+# torch

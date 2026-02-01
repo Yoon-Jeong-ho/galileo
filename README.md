@@ -203,17 +203,35 @@ GALILEO는 “동조(sycophancy) 측정” 계열 연구의 흐름 위에 서되
 
 ### 7.1 환경
 
-* Python 3.8+
-* PyTorch 2.0+
-* vLLM 0.13.0+
-* (권장) 70B급 모델은 다중 GPU 필요
+- Python 3.10+ (권장)
+- CUDA가 설치된 NVIDIA GPU 환경
+- PyTorch (CUDA 빌드)
+- vLLM 0.13.0+
 
-### 7.2 Quick Start
+> 참고: `torch`는 CUDA 버전에 따라 설치 명령이 달라서 `requirements.txt`에 고정하지 않았습니다.
+> PyTorch 공식 설치 가이드를 따라 CUDA 버전에 맞는 wheel을 설치하세요.
+
+### 7.2 설치
 
 ```bash
-# Activate environment
-conda activate galileo
+# (권장) 가상환경 생성
+python -m venv .venv
+source .venv/bin/activate
 
+# PyTorch (CUDA 버전에 맞게 설치)
+# 예시(환경에 따라 다름):
+# pip install --index-url https://download.pytorch.org/whl/cu121 torch
+
+# 나머지 의존성
+pip install -r requirements.txt
+```
+
+### 7.3 Quick Start
+
+> `run_experiment.py`는 기본으로 GPU `3,4,5,6`을 사용하도록 설정되어 있습니다.
+> 다른 GPU를 쓰고 싶으면 실행 전에 `CUDA_VISIBLE_DEVICES`를 지정하세요(지정값이 있으면 그걸 우선 사용).
+
+```bash
 # Test run (10 samples, single model)
 CUDA_VISIBLE_DEVICES=3,4,5,6 python run_experiment.py --test_mode
 
