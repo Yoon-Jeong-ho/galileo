@@ -1,8 +1,4 @@
-아래는 **현재 `galileo` 코드(Phase 1~3, 5개 페르소나, 최대 5라운드, CSV/JSONL 출력 구조)**를 그대로 수용하면서, **EMNLP 제출 수준의 문제정의·선행연구 포지셔닝·실험설계·한계/향후과제**까지 “논문을 바로 쓰기 좋은 형태”로 재구성한 **README.md 전체 초안**입니다. (그대로 `README.md`로 교체해도 동작/재현 흐름이 깨지지 않도록 설계했습니다.)
 
----
-
-````markdown
 # GALILEO: Ground-truth Adversarial persona pressure benchmark for multI-turn bElief cOnsistency
 
 > **목표**: 정답(ground-truth)이 존재하는 문제에서, LLM이 **사용자(또는 페르소나)의 지속적인 반박/권위/심리적 압박**에 의해
