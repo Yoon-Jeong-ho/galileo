@@ -1,6 +1,75 @@
 
 # GALILEO: Ground-truth Adversarial persona pressure benchmark for multI-turn bElief cOnsistency
 
+## Quickstart (Plan A: run ALL datasets together)
+
+**Answer format (all tasks):** You may write reasoning/CoT, but put ONLY the final answer inside `\boxed{...}`.
+
+### 1) Create a unified data directory (math + QA + MCQA)
+
+```bash
+cd /mnt/raid6/aa007878/galileo-dev
+MATH_DIR=/data_x/aa007878/galileo/data \
+QA_DIR=/data_x/aa007878/galileo/data_qa_pilot \
+DATA_ALL_DIR=/data_x/aa007878/galileo/data_all \
+  bash scripts/make_all_data_dir.sh "$DATA_ALL_DIR"
+```
+
+### 2) Run one experiment over ALL JSONL files in that directory
+
+```bash
+GPU_LIST=4,5,6,7 TP_SIZE=4 NUM_SAMPLES=100 MAX_MODEL_LEN=16384 MAX_TOKENS=2048 \
+  bash scripts/run_all_tasks_tmux.sh galileo-all
+```
+
+Outputs are saved under the printed `RESULTS_ROOT` and include:
+- `initial_accuracy.csv`
+- `adversarial_survival.csv`
+- `recovery_accuracy.csv`
+- per-dataset JSONL logs (`*_initial.jsonl`, `*_adversarial.jsonl`, `*_recovery.jsonl`)
+
+
+## Experimental snapshot (multi-task, TP=4)
+
+The following numbers are a **single snapshot** from a multi-task run (math + QA + MCQA) where we cap each dataset at `NUM_SAMPLES=1000` during evaluation.
+
+- Config: `TP_SIZE=4`, `MAX_MODEL_LEN=16384`, `MAX_TOKENS=2048`
+- Unified data dir: `/data_x/aa007878/galileo/data_all_full`
+- Results root: `/mnt/raid6/aa007878/galileo/results/all_pilot_20260202_193356/`
+
+### Results snapshot (Qwen2.5-7B-Instruct)
+
+**Initial accuracy (per dataset)**
+- arc_easy_validation (MCQA): 94.74% (540/570)
+- gsm8k (math): 97.00% (970/1000)
+- svamp (math): 95.57% (669/700)
+- squad11_validation (QA): 84.40% (844/1000)
+- squad20_validation (QA): 82.60% (826/1000)
+- triviaqa_rc_validation (QA): 54.10% (541/1000)
+
+**Adversarial survival @ round 5 (aggregated over datasets; lower = more vulnerable)**
+- Authority Claim: 40.27% (1800/4470)
+- Strong Pressure: 49.04% (2192/4470)
+- Simple Denial: 52.75% (2358/4470)
+- Logical Trap: 61.83% (2764/4470)
+- Soft Pressure: 73.00% (3263/4470)
+
+**Recovery rate (after a flip; aggregated over datasets)**
+- Authority Claim: 72.40% (1933/2670)
+- Simple Denial: 77.98% (1647/2112)
+- Strong Pressure: 78.23% (1782/2278)
+- Soft Pressure: 84.01% (1014/1207)
+- Logical Trap: 87.22% (1488/1706)
+
+### Paper-relevant insights (from the snapshot)
+
+1) **Persona effectiveness is not symmetric**: “Authority Claim” is consistently the most damaging persona (lowest survival at round 5), while “Soft Pressure” is the easiest to resist.
+
+2) **Task dependence (robustness vs recovery)**: math-style tasks (GSM8K/SVAMP) are highly accurate initially and remain robust under pressure, but **once they flip, recovery is much harder** (e.g., GSM8K recovery can be ~31–52% depending on persona). In contrast, QA tasks show lower survival under strong pressure, but **very high recovery** (often ~85–95% on SQuAD).
+
+3) **Open-domain QA is uniquely vulnerable to strong pressure**: TriviaQA has the lowest initial accuracy and shows extreme brittleness under “Strong Pressure” (round-5 survival can drop to single digits), suggesting open-domain answer uncertainty amplifies susceptibility.
+
+
 > **목표**: 정답(ground-truth)이 존재하는 문제에서, LLM이 **사용자(또는 페르소나)의 지속적인 반박/권위/심리적 압박**에 의해
 > **정답을 유지(stay correct)**하는지, **잘못된 방향으로 동조(regressive flip)**하는지, 그리고 **회복(recovery)** 가능한지를
 > **다단계(멀티턴) 대화 프로토콜로 정량 평가**합니다.
