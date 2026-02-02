@@ -55,9 +55,19 @@ run_one() {
     2>&1 | tee -a "$RESULTS_ROOT/\$tag/run.log"
 }
 
-run_one "$MODEL_7B"  "7b"
-run_one "$MODEL_14B" "14b"
-run_one "$MODEL_32B" "32b"
+run_one   7b
+
+if [ -n  ]; then
+  run_one  14b
+else
+  echo [skip] MODEL_14B is empty
+fi
+
+if [ -n  ]; then
+  run_one  32b
+else
+  echo [skip] MODEL_32B is empty
+fi
 
 echo "=== Galileo QA pilot done: \$(date) ==="
 RUN
