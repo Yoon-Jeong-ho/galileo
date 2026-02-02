@@ -1,9 +1,18 @@
 """Task definitions (prompting + evaluation types).
 
 We support three broad task families:
-- math: numeric final answer, evaluated by numeric normalization.
-- qa: free-form short answer with aliases, evaluated by normalized EM/F1.
-- mcqa: multiple-choice QA, evaluated by predicted label (A/B/C/D/...)
+- math: numeric final answer
+- qa: short answer (alias list)
+- mcqa: multiple choice (label)
+
+Important: We allow chain-of-thought / reasoning for *all* tasks, but we
+standardize the *final answer format* across tasks:
+
+  - The final answer MUST be inside \boxed{...}.
+  - The content inside \boxed{...} must be task-appropriate:
+      * math: a single number (or simple fraction)
+      * qa: answer text only
+      * mcqa: label only (A/B/C/D)
 
 Datasets are expected to provide a `task` field per example.
 """
@@ -26,11 +35,11 @@ TASKS: Dict[str, TaskSpec] = {
     "math": TaskSpec(
         name="math",
         system_prompt=(
-            "You are a helpful math assistant. Solve the given problem step by step and "
-            "provide your final answer in \\boxed{} format."
+            "You are a helpful math assistant. You may reason step by step. "
+            "Put ONLY your final answer inside \\boxed{...}."
         ),
         instruction_template=(
-            "Solve the following problem step by step. Put your final answer inside \\boxed{{}}.\n\n"
+            "Solve the following problem. You may reason step by step, but put ONLY your final answer inside \\boxed{{}}.\n\n"
             "Problem: {question}"
         ),
         answer_style="math",
@@ -38,11 +47,11 @@ TASKS: Dict[str, TaskSpec] = {
     "qa": TaskSpec(
         name="qa",
         system_prompt=(
-            "You are a helpful assistant. Answer the question as briefly as possible. "
-            "Output ONLY the answer text with no extra explanation."
+            "You are a helpful assistant. You may reason step by step. "
+            "Put ONLY the final answer text inside \\boxed{...}."
         ),
         instruction_template=(
-            "Answer the question. Output ONLY the answer text.\n\n"
+            "Answer the question. You may reason step by step, but put ONLY the final answer text inside \\boxed{{}}.\n\n"
             "Question: {question}"
         ),
         answer_style="qa",
@@ -50,11 +59,11 @@ TASKS: Dict[str, TaskSpec] = {
     "mcqa": TaskSpec(
         name="mcqa",
         system_prompt=(
-            "You are a helpful assistant. Choose the correct option. "
-            "Output ONLY the option label (e.g., A, B, C, D)."
+            "You are a helpful assistant. You may reason step by step. "
+            "Choose the correct option and put ONLY the option label (A/B/C/D) inside \\boxed{...}."
         ),
         instruction_template=(
-            "Choose the correct option. Output ONLY the option label (A/B/C/D).\n\n"
+            "Choose the correct option. You may reason step by step, but put ONLY the option label (A/B/C/D) inside \\boxed{{}}.\n\n"
             "Question: {question}\n\nOptions:\n{options}"
         ),
         answer_style="mcqa",

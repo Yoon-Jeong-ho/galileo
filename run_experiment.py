@@ -344,6 +344,7 @@ def run_adversarial_testing(
             "turns": turns,
             "test_name": track["test_name"],
             "model": track["model"],
+            "task": track.get("task", "math"),
             # Keep conversation for recovery testing (internal use)
             "conversation": track["conversation"],
         }

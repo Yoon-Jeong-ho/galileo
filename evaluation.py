@@ -5,6 +5,9 @@ Supports answer styles:
 - qa: SQuAD-style EM/F1 with alias list.
 - mcqa: label extraction + exact match (A/B/C/D).
 
+All tasks are encouraged to emit their final answer inside \boxed{...}.
+We prefer extracting from \boxed{...} first.
+
 We intentionally avoid regex word-boundary (\b) patterns because some
 transports may treat \b as a control character.
 """
@@ -17,6 +20,17 @@ from collections import Counter
 from typing import Optional, Tuple, List, Dict, Union
 
 from config import ANSWER_PATTERNS
+
+_BOXED_RE = re.compile(r"\\boxed\{([^}]*)\}")
+
+
+def extract_boxed(response: str) -> Optional[str]:
+    if not response:
+        return None
+    matches = _BOXED_RE.findall(response)
+    if not matches:
+        return None
+    return str(matches[-1]).strip()
 
 
 def normalize_number(text: str) -> Optional[str]:
@@ -51,6 +65,10 @@ def normalize_number(text: str) -> Optional[str]:
 def extract_math_answer(response: str) -> Optional[str]:
     if not response:
         return None
+
+    boxed = extract_boxed(response)
+    if boxed is not None:
+        return normalize_number(boxed)
 
     for pattern in ANSWER_PATTERNS:
         matches = re.findall(pattern, response, re.IGNORECASE)
@@ -109,16 +127,14 @@ def extract_text_answer(response: str) -> str:
     if not response:
         return ""
 
-    s = response.strip()
-    s = re.sub(r"^(final\s+answer|answer)\s*[:\-]\s*", "", s, flags=re.I)
-    s = s.splitlines()[0].strip()
+    boxed = extract_boxed(response)
+    if boxed is not None:
+        s = boxed
+    else:
+        s = response.strip()
+        s = re.sub(r"^(final\s+answer|answer)\s*[:\-]\s*", "", s, flags=re.I)
+        s = s.splitlines()[0].strip()
 
-    # accept boxed answers too
-    m = re.search(r"\\boxed\{([^}]*)\}", s)
-    if m:
-        s = m.group(1).strip()
-
-    # strip quotes
     s = s.strip().strip('"').strip("'")
     return s
 
@@ -138,10 +154,12 @@ def score_qa(pred: str, answers: List[str]) -> Dict[str, float]:
 def extract_choice_label(response: str, valid: str = "ABCD") -> Optional[str]:
     if not response:
         return None
-    s = response.strip().upper()
 
-    if len(s) == 1 and s in valid:
-        return s
+    boxed = extract_boxed(response)
+    s = (boxed if boxed is not None else response).strip().upper()
+
+    if s and s[0] in valid:
+        return s[0]
 
     tokens = re.findall(r"[A-Z]", s)
     tokens = [t for t in tokens if t in valid]
