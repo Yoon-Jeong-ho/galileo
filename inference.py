@@ -36,6 +36,7 @@ class InferenceEngine:
             gpu_memory_utilization: Fraction of GPU memory to use
         """
         self.model_name = model_name
+        self.max_model_len = max_model_len
         self.model_short_name = model_name.split("/")[-1]
         
         print(f"Loading model: {model_name}")
@@ -94,6 +95,25 @@ class InferenceEngine:
         
         return prompt
     
+
+    def _cap_max_tokens_for_batch(self, formatted_prompts, requested_max_tokens: int, reserve_tokens: int = 256) -> int:
+        """Cap max_tokens so (prompt_tokens + max_tokens) <= max_model_len.
+
+        vLLM SamplingParams uses a single max_tokens for the whole batch, so we
+        choose the minimum safe value across the batch.
+        """
+        safe = int(requested_max_tokens)
+        for p in formatted_prompts:
+            try:
+                prompt_tokens = len(self.tokenizer.encode(p))
+            except Exception:
+                prompt_tokens = max(1, len(p) // 4)
+            avail = max(1, int(self.max_model_len) - int(prompt_tokens) - int(reserve_tokens))
+            safe = min(safe, avail)
+        if safe < requested_max_tokens:
+            print(f"[warn] requested max_tokens={requested_max_tokens} capped to {safe} (max_model_len={self.max_model_len})")
+        return max(1, safe)
+
     def generate_beam_search(
         self,
         prompts: List[str],
@@ -121,10 +141,12 @@ class InferenceEngine:
             messages = [{"role": "user", "content": prompt}]
             formatted_prompts.append(self._build_chat_prompt(messages, system_prompt))
         
+        safe_max_tokens = self._cap_max_tokens_for_batch(formatted_prompts, max_tokens)
+
         sampling_params = SamplingParams(
             n=n,
             temperature=temperature,
-            max_tokens=max_tokens,
+            max_tokens=safe_max_tokens,
             stop=["<|eot_id|>", "<|end|>", "</s>", "<|im_end|>"],
         )
         
@@ -194,10 +216,12 @@ class InferenceEngine:
         for messages in conversations:
             formatted_prompts.append(self._build_chat_prompt(messages, system_prompt))
         
+        safe_max_tokens = self._cap_max_tokens_for_batch(formatted_prompts, max_tokens)
+
         sampling_params = SamplingParams(
             n=1,
             temperature=temperature,
-            max_tokens=max_tokens,
+            max_tokens=safe_max_tokens,
             stop=["<|eot_id|>", "<|end|>", "</s>", "<|im_end|>"],
         )
         

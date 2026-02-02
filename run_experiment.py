@@ -39,6 +39,7 @@ from config import (
     INSTRUCTION_TEMPLATE,
     RESULTS_DIR,
     MAX_TOKENS,
+    MAX_MODEL_LEN,
     BEAM_SEARCH_N,
     BEAM_SEARCH_TEMPERATURE,
     GREEDY_TEMPERATURE,
@@ -47,7 +48,7 @@ from config import (
     ExperimentConfig,
 )
 from inference import InferenceEngine
-from evaluation import evaluate_response, extract_answer
+from evaluation import evaluate_response
 from personas import (
     get_claim_generation_prompt, 
     get_retry_suffix,
@@ -56,6 +57,7 @@ from personas import (
     get_persona_name,
 )
 from data_loader import load_dataset, save_jsonl, get_test_name, prepare_problem
+from tasks import get_task, format_mcqa_options
 
 
 def setup_results_dir(config: ExperimentConfig) -> None:
@@ -83,8 +85,18 @@ def run_initial_evaluation(
     print(f"Beam search n={config.beam_search_n}, temp={config.beam_search_temperature}")
     print(f"{'='*60}")
     
+    # Task spec (assume single task per dataset file)
+    task_name = problems[0].get("task", "math") if problems else "math"
+    task_spec = get_task(task_name)
+
     # Prepare prompts
-    prompts = [INSTRUCTION_TEMPLATE.format(question=prob["question"]) for prob in problems]
+    prompts = []
+    for prob in problems:
+        if task_spec.answer_style == "mcqa":
+            opts = format_mcqa_options(prob.get("choices", []))
+            prompts.append(task_spec.instruction_template.format(question=prob["question"], options=opts))
+        else:
+            prompts.append(task_spec.instruction_template.format(question=prob["question"]))
     
     # Generate with beam search - vLLM handles batching internally
     print("Generating responses with beam search...")
@@ -92,8 +104,8 @@ def run_initial_evaluation(
         prompts=prompts,
         n=config.beam_search_n,
         temperature=config.beam_search_temperature,
-        max_tokens=MAX_TOKENS,
-        system_prompt=SYSTEM_PROMPT,
+        max_tokens=config.max_tokens,
+        system_prompt=task_spec.system_prompt,
     )
     
     all_results = []
@@ -104,7 +116,7 @@ def run_initial_evaluation(
         extracted_answer = None
         
         for output in beam_outputs:
-            ans, correct = evaluate_response(output.response, prob["answer"])
+            ans, correct, _metrics = evaluate_response(output.response, prob["ground_truth"], answer_style=task_spec.answer_style)
             if correct:
                 best_response = output.response
                 is_correct = True
@@ -113,16 +125,17 @@ def run_initial_evaluation(
         
         if best_response is None:
             best_response = beam_outputs[0].response
-            extracted_answer, is_correct = evaluate_response(best_response, prob["answer"])
+            extracted_answer, is_correct, _metrics = evaluate_response(best_response, prob["ground_truth"], answer_style=task_spec.answer_style)
         
         result = {
             "question": prob["question"],
-            "ground_truth": prob["answer"],
+            "ground_truth": prob["ground_truth"],
             "initial_response": best_response,
             "extracted_answer": extracted_answer,
             "is_correct": is_correct,
             "test_name": test_name,
             "model": engine.model_short_name,
+            "task": prob.get("task", "math"),
         }
         all_results.append(result)
     
@@ -156,6 +169,9 @@ def run_adversarial_testing(
         return []
     
     print(f"\n{'='*60}")
+    # Task spec (single task per dataset file)
+    task_spec = get_task(correct_results[0].get("task", "math"))
+
     print(f"Adversarial Testing (Dynamic Claim Generation)")
     print(f"Model: {engine.model_short_name}")
     print(f"Correct answers to challenge: {len(correct_results)}")
@@ -179,8 +195,17 @@ def run_adversarial_testing(
                 "persona": persona_key,
                 "test_name": result["test_name"],
                 "model": result["model"],
+                "task": result.get("task", "math"),
+                "choices": result.get("choices", []),
                 "conversation": [
-                    {"role": "user", "content": INSTRUCTION_TEMPLATE.format(question=result["question"])},
+                    {"role": "user", "content": (
+                        task_spec.instruction_template.format(
+                            question=result["question"],
+                            options=format_mcqa_options(result.get("choices", [])),
+                        )
+                        if task_spec.answer_style == "mcqa"
+                        else task_spec.instruction_template.format(question=result["question"])
+                    )},
                     {"role": "assistant", "content": result["initial_response"]},
                 ],
                 "initial_response": result["initial_response"],
@@ -224,7 +249,7 @@ def run_adversarial_testing(
             conversations=claim_conversations,
             temperature=0.7,  # Slightly creative for claim generation
             max_tokens=256,   # Claims should be short
-            system_prompt=SYSTEM_PROMPT,
+            system_prompt=task_spec.system_prompt,
         )
         
         # Step 2: Generate retry answers with the claims
@@ -241,7 +266,7 @@ def run_adversarial_testing(
             generated_claims[key] = claim_text
             
             # Add claim + retry suffix to conversation
-            full_claim = claim_text + get_retry_suffix()
+            full_claim = claim_text + get_retry_suffix(task_spec.answer_style)
             
             conv = deepcopy(track["conversation"])
             conv.append({"role": "user", "content": full_claim})
@@ -253,8 +278,8 @@ def run_adversarial_testing(
         retry_responses = engine.generate_multi_turn(
             conversations=retry_conversations,
             temperature=config.greedy_temperature,
-            max_tokens=MAX_TOKENS,
-            system_prompt=SYSTEM_PROMPT,
+            max_tokens=config.max_tokens,
+            system_prompt=task_spec.system_prompt,
         )
         
         # Step 3: Evaluate and update tracks
@@ -264,11 +289,11 @@ def run_adversarial_testing(
         for key, retry_resp in zip(retry_keys, retry_responses):
             track = active_tracks[key]
             claim_text = generated_claims[key]
-            full_claim = claim_text + get_retry_suffix()
+            full_claim = claim_text + get_retry_suffix(task_spec.answer_style)
             retry_text = retry_resp.response.strip()
             
             # Evaluate
-            extracted, is_correct = evaluate_response(retry_text, track["ground_truth"])
+            extracted, is_correct, _metrics = evaluate_response(retry_text, track["ground_truth"], answer_style=task_spec.answer_style)
             
             # Update conversation history
             track["conversation"].append({"role": "user", "content": full_claim})
@@ -353,6 +378,9 @@ def run_recovery_testing(
         return []
     
     print(f"\n{'='*60}")
+    # Task spec (single task per dataset file)
+    task_spec = get_task(failed_results[0].get("task", "math"))
+
     print(f"Recovery Testing")
     print(f"Model: {engine.model_short_name}")
     print(f"Failed cases to recover: {len(failed_results)}")
@@ -363,7 +391,7 @@ def run_recovery_testing(
     for result in failed_results:
         # Use full conversation history + recovery prompt
         conv = deepcopy(result["conversation"])
-        conv.append({"role": "user", "content": get_recovery_prompt()})
+        conv.append({"role": "user", "content": get_recovery_prompt(task_spec.answer_style)})
         conversations.append(conv)
     
     # Generate recovery responses
@@ -371,8 +399,8 @@ def run_recovery_testing(
     responses = engine.generate_multi_turn(
         conversations=conversations,
         temperature=config.greedy_temperature,
-        max_tokens=MAX_TOKENS,
-        system_prompt=SYSTEM_PROMPT,
+        max_tokens=config.max_tokens,
+        system_prompt=task_spec.system_prompt,
     )
     
     # Evaluate recovery
@@ -381,7 +409,7 @@ def run_recovery_testing(
     
     for result, response in zip(failed_results, responses):
         recovery_text = response.response.strip()
-        extracted, is_correct = evaluate_response(recovery_text, result["ground_truth"])
+        extracted, is_correct, _metrics = evaluate_response(recovery_text, result["ground_truth"], answer_style=task_spec.answer_style)
         
         if is_correct:
             recovered_count += 1
@@ -393,12 +421,13 @@ def run_recovery_testing(
             "persona_name": result["persona_name"],
             "test_name": result["test_name"],
             "model": result["model"],
+            "task": result.get("task", "math"),
             "failed_at_round": result["rounds_completed"],
             "recovery_response": recovery_text,
             "extracted_answer": extracted,
             "recovered": is_correct,
             "full_conversation": result["conversation"] + [
-                {"role": "user", "content": get_recovery_prompt()},
+                {"role": "user", "content": get_recovery_prompt(task_spec.answer_style)},
                 {"role": "assistant", "content": recovery_text},
             ],
         }
@@ -513,7 +542,7 @@ def run_experiment(config: ExperimentConfig) -> None:
         engine = InferenceEngine(
             model_name=model_name,
             tensor_parallel_size=config.tensor_parallel_size,
-            max_model_len=MAX_TOKENS,
+            max_model_len=config.max_model_len,
         )
         
         model_short = model_name.split("/")[-1]
@@ -567,29 +596,62 @@ def run_experiment(config: ExperimentConfig) -> None:
 
 def main():
     parser = argparse.ArgumentParser(description="Galileo Adversarial Persona Experiment")
+
+    # run control
     parser.add_argument("--test_mode", action="store_true", help="Run in test mode with fewer samples")
     parser.add_argument("--num_samples", type=int, default=-1, help="Number of samples (-1 for all)")
-    parser.add_argument("--model", type=str, help="Run only specific model")
-    parser.add_argument("--data_file", type=str, help="Run only specific data file")
-    parser.add_argument("--results_dir", type=str, default=RESULTS_DIR, help="Results directory")
-    
+
+    # scope
+    parser.add_argument("--model", type=str, default=None, help="Run only a specific model (HuggingFace name)")
+    parser.add_argument("--data_file", type=str, default=None, help="Run only a specific JSONL data file")
+
+    # paths
+    parser.add_argument("--data_dir", type=str, default=None, help="Override DATA_DIR (expects JSONL files)")
+    parser.add_argument("--results_dir", type=str, default=None, help="Override RESULTS_DIR")
+
+    # vLLM / generation
+    parser.add_argument("--max_tokens", type=int, default=None, help="Max new tokens per generation (overrides config)")
+    parser.add_argument("--max_model_len", type=int, default=None, help="Max context length for vLLM (overrides config)")
+    parser.add_argument("--tensor_parallel_size", type=int, default=None, help="Tensor parallel size (overrides config)")
+
     args = parser.parse_args()
-    
+
     config = ExperimentConfig()
+
+    # CLI overrides
     config.test_mode = args.test_mode
-    config.results_dir = args.results_dir
-    
+
     if args.num_samples > 0:
         config.num_samples = args.num_samples
     elif args.test_mode:
         config.num_samples = 10
-    
+
     if args.model:
         config.models = [args.model]
-    
+
     if args.data_file:
         config.data_files = [args.data_file]
-    
+
+    if args.data_dir is not None:
+        import os as _os
+        config.data_files = [
+            _os.path.join(args.data_dir, f)
+            for f in _os.listdir(args.data_dir)
+            if f.endswith(".jsonl")
+        ]
+
+    if args.results_dir is not None:
+        config.results_dir = args.results_dir
+
+    if args.max_tokens is not None:
+        config.max_tokens = args.max_tokens
+
+    if args.max_model_len is not None:
+        config.max_model_len = args.max_model_len
+
+    if args.tensor_parallel_size is not None:
+        config.tensor_parallel_size = args.tensor_parallel_size
+
     run_experiment(config)
 
 
