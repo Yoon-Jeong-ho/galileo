@@ -55,16 +55,16 @@ run_one() {
     2>&1 | tee -a "$RESULTS_ROOT/\$tag/run.log"
 }
 
-run_one   7b
+run_one $MODEL_7B  7b
 
-if [ -n  ]; then
-  run_one  14b
+if [ -n ${MODEL_14B:-} ]; then
+  run_one $MODEL_14B 14b
 else
   echo [skip] MODEL_14B is empty
 fi
 
-if [ -n  ]; then
-  run_one  32b
+if [ -n ${MODEL_32B:-} ]; then
+  run_one $MODEL_32B 32b
 else
   echo [skip] MODEL_32B is empty
 fi
