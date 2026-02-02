@@ -12,8 +12,8 @@ TP_SIZE=${TP_SIZE:-4}
 DATA_DIR=${DATA_DIR:-/data_x/aa007878/galileo/data_qa_pilot}
 RESULTS_ROOT=${RESULTS_ROOT:-/mnt/raid6/aa007878/galileo/results/qa_pilot_$(date +%Y%m%d_%H%M%S)}
 NUM_SAMPLES=${NUM_SAMPLES:-100}
-MAX_MODEL_LEN=${MAX_MODEL_LEN:-8192}
-MAX_TOKENS=${MAX_TOKENS:-512}
+MAX_MODEL_LEN=${MAX_MODEL_LEN:-16384}
+MAX_TOKENS=${MAX_TOKENS:-2048}
 
 CONDA_ENV=${CONDA_ENV:-galileo}
 CONDA_BIN=${CONDA_BIN:-/data_x/aa007878/miniconda3/bin/conda}
