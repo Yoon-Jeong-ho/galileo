@@ -27,7 +27,7 @@ MODELS = [
 ]
 
 # vLLM model context window
-MAX_MODEL_LEN = 8192
+MAX_MODEL_LEN = 16384
 
 # Max new tokens per generation
 MAX_TOKENS = 2048

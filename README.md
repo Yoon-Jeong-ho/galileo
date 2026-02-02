@@ -5,6 +5,34 @@
 ````markdown
 # GALILEO: Ground-truth Adversarial persona pressure benchmark for multI-turn bElief cOnsistency
 
+## Quickstart (Plan A: run ALL datasets together)
+
+**Answer format (all tasks):** You may write reasoning/CoT, but put ONLY the final answer inside `\boxed{...}`.
+
+### 1) Create a unified data directory (math + QA + MCQA)
+
+```bash
+cd /mnt/raid6/aa007878/galileo-dev
+MATH_DIR=/data_x/aa007878/galileo/data \
+QA_DIR=/data_x/aa007878/galileo/data_qa_pilot \
+DATA_ALL_DIR=/data_x/aa007878/galileo/data_all \
+  bash scripts/make_all_data_dir.sh "$DATA_ALL_DIR"
+```
+
+### 2) Run one experiment over ALL JSONL files in that directory
+
+```bash
+GPU_LIST=4,5,6,7 TP_SIZE=4 NUM_SAMPLES=100 MAX_MODEL_LEN=16384 MAX_TOKENS=2048 \
+  bash scripts/run_all_tasks_tmux.sh galileo-all
+```
+
+Outputs are saved under the printed `RESULTS_ROOT` and include:
+- `initial_accuracy.csv`
+- `adversarial_survival.csv`
+- `recovery_accuracy.csv`
+- per-dataset JSONL logs (`*_initial.jsonl`, `*_adversarial.jsonl`, `*_recovery.jsonl`)
+
+
 > **목표**: 정답(ground-truth)이 존재하는 문제에서, LLM이 **사용자(또는 페르소나)의 지속적인 반박/권위/심리적 압박**에 의해
 > **정답을 유지(stay correct)**하는지, **잘못된 방향으로 동조(regressive flip)**하는지, 그리고 **회복(recovery)** 가능한지를
 > **다단계(멀티턴) 대화 프로토콜로 정량 평가**합니다.
