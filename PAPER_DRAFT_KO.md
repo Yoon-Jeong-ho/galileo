@@ -5,6 +5,31 @@
 
 ---
 
+
+## 0. 제출 준비 체크리스트 (EMNLP 관점)
+
+> 결론: 현재 문서는 **아이디어/프로토콜 설명 + 일부 스냅샷**까지는 갖췄지만, EMNLP에서 ‘붙을 만한’ 논문이 되려면 아래 항목을 **실험/분석으로 채워야** 한다.
+
+### 0.1 필수(accept 가능성에 가장 큰 영향)
+
+- [ ] **Multi-seed 통계**: seed 3~5개 반복, 평균±표준편차 + (가능하면) 95% CI
+- [ ] **모델 비교**: 최소 2~3개 계열(예: Qwen2.5 vs Llama 계열 vs 다른 instruct 모델) 또는 최소 2 스케일(7B/14B)
+- [ ] **핵심 그림**: persona별 survival curve(라운드 1~5) + turn-of-failure 분포
+- [ ] **정성 분석**: flip taxonomy(권위복종/갈등회피/논리함정/불확실성 붕괴/hedged flip) 라벨링 + 대표 사례
+
+### 0.2 강력 추천(리뷰어 방어/설명력)
+
+- [ ] **Ablation**: recovery prompt variant / boxed 강제 vs 자유형 / decoding(temperature) 변화
+- [ ] **Task uncertainty 분석**: open-domain QA에서 불확실성이 취약성을 증폭한다는 근거(초기 정확도/회피/hedging 등)
+- [ ] **재현성 문서화**: 데이터 생성 스크립트, strict data_dir(legacy 제외), 커맨드 라인, 환경
+
+### 0.3 현재 초안의 강점 / 약점(솔직 평가)
+
+- 강점: 정답 기반 멀티턴 압박 평가(survival–flip–recovery)라는 **명확한 프로토콜**과 로그/CSV 구조
+- 약점: (i) 아직 **통계(멀티-seed/CI)** 부재, (ii) 관련연구 인용/포지셔닝 강화 필요, (iii) ‘왜’에 대한 정성/메커니즘 분석이 더 필요
+
+---
+
 ## 초록 (Abstract)
 
 대규모 언어모델(LLM)은 사용자와의 상호작용에서 설득, 권위 주장, 반복 부정 등 다양한 형태의 **사회적 압박(social pressure)**을 받을 때, 정답이 존재하는 과제에서도 정답을 유지하지 못하고 오답으로 전향하는 현상이 보고된다. 기존 연구는 주로 (i) 안전/정렬 관점의 순응성, (ii) 대화적 설득 시나리오, (iii) 사실성/환각 평가를 다루었으나, **정답(ground-truth)이 확정된 과제에서 “정답 유지(survival)–전향(flip)–회복(recovery)”의 동역학을 멀티턴 프로토콜로 일관되게 측정**하는 공개 재현 파이프라인은 상대적으로 부족하다.
@@ -303,6 +328,27 @@ GALILEO의 핵심은 단일 정확도보다 **라운드 진행에 따른 붕괴 
 
 ---
 
+
+## 9.5 다음 실험/분석 실행 계획 (권장)
+
+아래는 ‘EMNLP 제출 가능한 수준’까지 끌어올리기 위한 최소 계획이다.
+
+1. **7B/14B multi-seed (seed=1..5)**
+   - strict data_dir로만 실행(legacy 제외)
+   - Table 1: dataset별 initial / survival@5 / recovery, 평균±std(+CI)
+
+2. **Survival curve + Turn-of-failure 그림 생성 자동화**
+   - `scripts/paper_export.py` 출력 CSV 기반으로 figure 제작(선택: matplotlib)
+
+3. **정성 분석( taxonomy ) 라벨링**
+   - `flip_samples.csv`에서 persona×task 균형 샘플링(예: 각 20개)
+   - taxonomy_label 채우고, 대표 사례(각 persona 1~2개) Appendix에 삽입
+
+4. **Ablation 2종(최소)**
+   - recovery prompt variant 2~3개
+   - boxed 강제 vs 자유형(1개 모델/1개 태스크라도)
+
+
 ## 9. 부록: 실행 및 결과 정리 (Appendix)
 
 
@@ -311,7 +357,12 @@ GALILEO의 핵심은 단일 정확도보다 **라운드 진행에 따른 붕괴 
 - Export survival curves + turn-of-failure + flip sample sheet (CSV):
 
 ```bash
-python scripts/paper_export.py   --results_root /mnt/raid6/aa007878/galileo/results/all_pilot_20260203_143301/7b   --model_dir /mnt/raid6/aa007878/galileo/results/all_pilot_20260203_143301/7b/Qwen2.5-7B-Instruct   --out_dir /mnt/raid6/aa007878/galileo/results/all_pilot_20260203_143301/7b/paper_exports   --num_flip_samples 200   --seed 42
+python scripts/paper_export.py \
+  --results_root /mnt/raid6/aa007878/galileo/results/all_pilot_20260203_143301/7b \
+  --model_dir /mnt/raid6/aa007878/galileo/results/all_pilot_20260203_143301/7b/Qwen2.5-7B-Instruct \
+  --out_dir /mnt/raid6/aa007878/galileo/results/all_pilot_20260203_143301/7b/paper_exports \
+  --num_flip_samples 200 \
+  --seed 42
 ```
 
 - Outputs:
