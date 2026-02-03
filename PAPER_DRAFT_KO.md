@@ -164,6 +164,54 @@ flip 이후 recovery(데이터셋 전체 aggregate):
 
 ---
 
+
+
+## 5.X 추가 결과: 7B (GPU 0–3, TP=4) 실험 분석 (2026-02-03)
+
+본 절에서는 GPU 0–3에서 TP=4로 수행한 7B 실험 결과(각 데이터셋 최대 1000개 샘플)를 요약하고, 논문에 바로 쓸 수 있는 형태의 관찰/해석을 정리한다.
+
+- 실행 설정: `CUDA_VISIBLE_DEVICES=0,1,2,3`, `TP_SIZE=4`, `MAX_MODEL_LEN=16384`, `MAX_TOKENS=2048`, `NUM_SAMPLES=1000`, `SEED=42`
+- 결과 폴더: `/mnt/raid6/aa007878/galileo/results/all_pilot_20260203_143301/7b/`
+- 주의: 본 run에는 legacy 파일(`*_val_50`)이 함께 포함될 수 있어, 최종 표/그림에는 **strict data_dir(정식 데이터만)**을 사용해 재실행한 결과를 사용하도록 권장한다.
+
+### (1) 초기 정확도 (Initial accuracy)
+
+- GSM8K: 96.70% (967/1000)
+- SVAMP: 95.14% (666/700)
+- ARC-Easy(validation): 95.26% (543/570)
+- SQuAD 1.1(validation): 79.40% (794/1000)
+- SQuAD 2.0(validation): 76.50% (765/1000)
+- TriviaQA(rc validation): 55.60% (556/1000)
+
+**해석:** 수학/MCQA는 초기 정확도가 매우 높고 안정적인 반면, QA 특히 SQuAD는 샘플링(셔플) 구성에 따라 초기 정확도가 수%p 단위로 흔들릴 수 있다. 이는 이후 survival/recovery의 절대값을 비교할 때 seed/샘플링 통제가 필수임을 의미한다.
+
+### (2) 압박 하 생존율 (Survival) — Round 5 aggregate
+
+- Authority Claim: 39.61% (1730/4368)
+- Strong Pressure: 48.49% (2118/4368)
+- Simple Denial: 51.19% (2236/4368)
+- Logical Trap: 59.98% (2620/4368)
+- Soft Pressure: 69.57% (3039/4368)
+
+**해석:** persona 효과의 순위(ordering)는 스냅샷과 동일하게 유지된다. 특히 Authority Claim이 가장 치명적이며, Soft Pressure는 가장 약한 공격으로 나타난다. 이는 ‘권위/전문가 주장’이 모델의 답변 유지에 구조적으로 큰 영향을 주는 압박 메커니즘임을 시사한다.
+
+### (3) 회복률 (Recovery) — flip 이후 aggregate
+
+- Authority Claim: 71.30% (1881/2638)
+- Strong Pressure: 76.27% (1716/2250)
+- Simple Denial: 74.77% (1594/2132)
+- Soft Pressure: 81.79% (1087/1329)
+- Logical Trap: 85.76% (1499/1748)
+
+**해석:** survival이 낮은 persona(Authority/Strong)에서도 recovery는 70%대 이상으로 관측된다. 즉, ‘오답으로 흔들리게 만드는 것’과 ‘정답으로 복귀시키는 것’은 동일한 난이도가 아닐 수 있다.
+
+### (4) 논문에 쓰는 포인트 (서술 템플릿)
+
+- **Persona 효과(주장 1):** “Authority Claim은 라운드가 진행될수록 survival을 가장 빠르게 붕괴시키며, Soft Pressure는 상대적으로 완만한 붕괴 곡선을 보인다.”
+- **불확실성–취약성 연결(주장 2):** 초기 정확도가 낮은 open-domain QA(TriviaQA)는 강한 압박에서 급격히 취약해지는 경향이 있으며, 이는 정답 불확실성이 사회적 압박 취약성을 증폭시킬 가능성을 뒷받침한다.
+- **재현성(주장 3):** 샘플링 seed에 따라 초기 정확도(특히 QA)가 유의미하게 달라질 수 있으므로, 최종 논문에서는 multi-seed 평균±표준편차/CI로 보고한다.
+
+
 ## 6. 분석 및 논문용 인사이트 (Analysis / Insights)
 
 ### 6.1 Persona 효과의 비대칭성
