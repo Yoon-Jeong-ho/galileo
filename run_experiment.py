@@ -530,6 +530,14 @@ def run_experiment(config: ExperimentConfig) -> None:
     print("="*70)
     
     setup_results_dir(config)
+
+    # Best-effort reproducibility (dataset sampling, any Python-side randomness)
+    try:
+        import random
+        random.seed(config.seed)
+    except Exception:
+        pass
+
     
     all_initial_results = []
     all_adversarial_results = []
@@ -556,7 +564,8 @@ def run_experiment(config: ExperimentConfig) -> None:
             problems = load_dataset(
                 data_file,
                 num_samples=config.num_samples,
-                shuffle=config.test_mode,
+                shuffle=(config.test_mode or (config.num_samples > 0)),
+                seed=config.seed,
             )
             problems = [prepare_problem(p) for p in problems]
             
@@ -602,6 +611,9 @@ def main():
     parser.add_argument("--test_mode", action="store_true", help="Run in test mode with fewer samples")
     parser.add_argument("--num_samples", type=int, default=-1, help="Number of samples (-1 for all)")
 
+    # reproducibility
+    parser.add_argument("--seed", type=int, default=42, help="Random seed for sampling/shuffling")
+
     # scope
     parser.add_argument("--model", type=str, default=None, help="Run only a specific model (HuggingFace name)")
     parser.add_argument("--data_file", type=str, default=None, help="Run only a specific JSONL data file")
@@ -618,6 +630,8 @@ def main():
     args = parser.parse_args()
 
     config = ExperimentConfig()
+
+    config.seed = int(args.seed)
 
     # CLI overrides
     config.test_mode = args.test_mode
