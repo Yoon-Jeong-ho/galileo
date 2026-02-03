@@ -9,9 +9,9 @@ SESSION=${1:-galileo-all}
 GPU_LIST=${GPU_LIST:-4,5,6,7}
 TP_SIZE=${TP_SIZE:-4}
 
-DATA_ALL_DIR=${DATA_ALL_DIR:-/data_x/aa007878/galileo/data_all}
+DATA_ALL_DIR=${DATA_ALL_DIR:-/data_x/aa007878/galileo/data_all_strict}
 MATH_DIR=${MATH_DIR:-/data_x/aa007878/galileo/data}
-QA_DIR=${QA_DIR:-/data_x/aa007878/galileo/data_qa_pilot}
+QA_DIR=${QA_DIR:-/data_x/aa007878/galileo/data_qa_full}
 
 RESULTS_ROOT=${RESULTS_ROOT:-/mnt/raid6/aa007878/galileo/results/all_pilot_$(date +%Y%m%d_%H%M%S)}
 NUM_SAMPLES=${NUM_SAMPLES:-100}
