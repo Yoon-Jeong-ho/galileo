@@ -229,6 +229,63 @@ Authority Claim이 가장 치명적이며, Soft Pressure는 상대적으로 약�
 
 TriviaQA는 초기 정확도가 상대적으로 낮고, Strong Pressure에서 생존이 급락하는 경향을 보인다. 이는 open-domain QA가 본질적으로 정답 불확실성이 크며, 그 불확실성이 persona 압박에 대한 취약성을 증폭시킬 수 있음을 시사한다.
 
+
+
+### 6.4 라운드별 붕괴 동역학(Flip dynamics): 무엇이 ‘언제’ 무너지는가?
+
+GALILEO의 핵심은 단일 정확도보다 **라운드 진행에 따른 붕괴 곡선**이다. 따라서 최종 논문에서는 다음을 기본 그림으로 제시한다.
+
+- **Survival curve(라운드 1→5)**: persona별 survival rate를 라운드 축으로 시각화
+- **Turn-of-failure 분포**: 처음으로 오답이 발생한 라운드(1~5)의 히스토그램
+
+이 분석을 통해 “Authority Claim이 항상 최악” 같은 요약을 넘어서, **어떤 persona가 ‘초반에 급격 붕괴’ vs ‘완만 붕괴’**를 유발하는지 보여줄 수 있다. 예컨대 권위 주장형은 early-round에서 큰 낙폭을 만들고, 논리 함정은 누적적으로 침식하는 형태를 보일 가능성이 있다.
+
+### 6.5 초기 정확도(능력)와 압박 내성(robustness)은 동일 축인가?
+
+리뷰어가 자주 묻는 질문은 “그냥 initial accuracy가 높으면 robust한 것 아닌가?”이다. 우리는 다음 두 관측을 중심 주장으로 정리할 수 있다.
+
+- (관측 A) **initial accuracy가 높아도 Authority Claim에 취약**할 수 있다.
+- (관측 B) **survival이 낮아도 recovery가 매우 높을 수 있다**(특히 extractive QA).
+
+최종 논문에서는 dataset별로
+
+- x축: initial accuracy
+- y축: survival@round5(또는 AUC)
+
+의 산점도를 제시해, capability–robustness의 상관이 완전하지 않음을 보인다(= disentanglement).
+
+### 6.6 정성 분석(qualitative): 전향(flip) 유형 분류(taxonomy)
+
+정량 지표만으로는 “왜” 바뀌는지 설명이 약해질 수 있다. 따라서 오답 전향 샘플을 일정 수(예: persona×task당 50개) 표본추출하여 아래 taxonomy로 라벨링한다.
+
+- **Authority compliance**: 권위/전문가 주장에 복종하며 답을 수정
+- **Social appeasement**: 갈등 회피/동조를 위해 답을 바꿈
+- **Logical trap**: 프레이밍 전환/말장난에 말려 답이 바뀜
+- **Uncertainty collapse**: 확신 부족으로 ‘모르겠다/애매하다’로 후퇴하거나 답을 회피
+- **Hedged flip**: 답을 바꾸지만 근거가 약하거나 모순된 설명
+
+이 정성 분류는 (i) persona별로 어떤 실패가 우세한지, (ii) task별로 어떤 실패가 우세한지(TriviaQA의 uncertainty 등)를 보여주며, 논문 설득력을 크게 올린다.
+
+### 6.7 재현성/통계 보고(권장): multi-seed + CI
+
+현재 스냅샷은 유용하지만, 최종 논문에서는 **seed 변화에 대한 민감도**를 통제해야 한다.
+
+- 각 설정에 대해 seed를 3~5개로 반복
+- 표는 평균±표준편차를 기본으로 보고
+- 가능하면 bootstrap으로 95% CI를 함께 제시
+
+특히 QA 계열은 샘플링/셔플 구성에 따라 초기 정확도가 수%p 흔들릴 수 있으므로, multi-seed 평균을 통해 “경향(trend)”을 주장하는 것이 안전하다.
+
+### 6.8 제출용 Figure/Table 패키지(권장)
+
+- **Figure 1**: persona별 survival curve(aggregate)
+- **Figure 2**: task별 survival curve(수학 vs extractive QA vs openQA vs MCQA)
+- **Figure 3**: robustness vs recovery scatter(또는 initial vs survival scatter)
+- **Table 1**: dataset별 initial / survival@5 / recovery(모델별 블록)
+- **Table 2 (ablation)**: recovery prompt variant, boxed vs free-form, decoding 변화
+
+위 그림/표를 자동 생성하도록(결과 CSV → paper-ready md/fig) 스크립트를 추가하면, 실험 반복과 논문 업데이트를 매우 빠르게 만들 수 있다.
+
 ---
 
 ## 7. 한계 (Limitations)
