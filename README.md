@@ -70,6 +70,71 @@ The following numbers are a **single snapshot** from a multi-task run (math + QA
 3) **Open-domain QA is uniquely vulnerable to strong pressure**: TriviaQA has the lowest initial accuracy and shows extreme brittleness under “Strong Pressure” (round-5 survival can drop to single digits), suggesting open-domain answer uncertainty amplifies susceptibility.
 
 
+
+
+## Reproducible paper pipeline (A/B/C)
+
+This repo supports a paper-oriented workflow:
+
+- **A) Multi-seed runs (7B/14B)** on a fixed GPU set (e.g., GPUs 4–7, TP=4)
+- **B) Figure-ready exports** (survival curves + turn-of-failure)
+- **C) Qualitative taxonomy sheet** (balanced flip samples for manual labeling)
+
+### A) Multi-seed runner (7B/14B only)
+
+> Runs the full pipeline (initial → adversarial → recovery) for multiple seeds.
+> Uses a **strict unified data dir** that excludes legacy pilot files.
+
+```bash
+cd /mnt/raid6/aa007878/galileo-dev
+GPU_LIST=4,5,6,7 TP_SIZE=4 NUM_SAMPLES=1000 MAX_MODEL_LEN=16384 MAX_TOKENS=2048 SEEDS=1,2,3,4,5 DATA_ALL_DIR=/data_x/aa007878/galileo/data_all_strict_4567 MATH_DIR=/data_x/aa007878/galileo/data QA_DIR=/data_x/aa007878/galileo/data_qa_full   bash scripts/run_multiseed_tmux.sh galileo-multiseed-4567
+```
+
+Outputs:
+- `RESULTS_ROOT/seed_<k>/7b/` and `RESULTS_ROOT/seed_<k>/14b/`
+- Each folder contains `initial_accuracy.csv`, `adversarial_survival.csv`, `recovery_accuracy.csv`
+
+### B) Figure-ready exports (no pandas)
+
+For each run folder, we export:
+
+- `paper_exports/survival_curve.csv` (persona × round)
+- `paper_exports/turn_of_failure.csv` (persona × dataset × first-failure-turn distribution)
+- `paper_exports/flip_samples.csv` (raw flip samples)
+
+This is automatically executed inside the multi-seed runner via `scripts/paper_export.py`.
+
+### Aggregate multi-seed into paper tables
+
+After multi-seed finishes:
+
+```bash
+python scripts/aggregate_multiseed.py   --results_root /mnt/raid6/aa007878/galileo/results/multiseed_YYYYMMDD_HHMMSS   --out_dir /mnt/raid6/aa007878/galileo/results/multiseed_YYYYMMDD_HHMMSS/paper_tables   --round 5
+```
+
+Outputs:
+- `table_initial.csv` (mean±std over seeds)
+- `table_survival_r5.csv` (mean±std over seeds)
+- `table_recovery.csv` (mean±std over seeds)
+- `table_summary.md`
+
+### C) Balanced qualitative taxonomy sheet
+
+To create a balanced sheet for manual labeling (persona × task group):
+
+```bash
+python scripts/make_taxonomy_sheet.py   --model_dir /mnt/raid6/aa007878/galileo/results/all_pilot_20260203_143301/7b/Qwen2.5-7B-Instruct   --out_csv /mnt/raid6/aa007878/galileo/results/all_pilot_20260203_143301/7b/paper_exports/taxonomy_sheet.csv   --per_cell 20   --seed 42
+```
+
+The output CSV includes empty columns `taxonomy_label` and `notes` for annotation.
+
+### Data hygiene note (legacy vs strict)
+
+Older pilot/debug datasets are moved under `/data_x/aa007878/galileo/data_legacy/`.
+For paper runs, prefer:
+- `scripts/make_all_data_dir_strict.sh` (strict)
+- `/data_x/aa007878/galileo/data_qa_full/` (full QA datasets)
+
 > **목표**: 정답(ground-truth)이 존재하는 문제에서, LLM이 **사용자(또는 페르소나)의 지속적인 반박/권위/심리적 압박**에 의해
 > **정답을 유지(stay correct)**하는지, **잘못된 방향으로 동조(regressive flip)**하는지, 그리고 **회복(recovery)** 가능한지를
 > **다단계(멀티턴) 대화 프로토콜로 정량 평가**합니다.

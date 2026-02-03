@@ -5,6 +5,31 @@
 
 ---
 
+
+## 0. 제출 준비 체크리스트 (EMNLP 관점)
+
+> 결론: 현재 문서는 **아이디어/프로토콜 설명 + 일부 스냅샷**까지는 갖췄지만, EMNLP에서 ‘붙을 만한’ 논문이 되려면 아래 항목을 **실험/분석으로 채워야** 한다.
+
+### 0.1 필수(accept 가능성에 가장 큰 영향)
+
+- [ ] **Multi-seed 통계**: seed 3~5개 반복, 평균±표준편차 + (가능하면) 95% CI
+- [ ] **모델 비교**: 최소 2~3개 계열(예: Qwen2.5 vs Llama 계열 vs 다른 instruct 모델) 또는 최소 2 스케일(7B/14B)
+- [ ] **핵심 그림**: persona별 survival curve(라운드 1~5) + turn-of-failure 분포
+- [ ] **정성 분석**: flip taxonomy(권위복종/갈등회피/논리함정/불확실성 붕괴/hedged flip) 라벨링 + 대표 사례
+
+### 0.2 강력 추천(리뷰어 방어/설명력)
+
+- [ ] **Ablation**: recovery prompt variant / boxed 강제 vs 자유형 / decoding(temperature) 변화
+- [ ] **Task uncertainty 분석**: open-domain QA에서 불확실성이 취약성을 증폭한다는 근거(초기 정확도/회피/hedging 등)
+- [ ] **재현성 문서화**: 데이터 생성 스크립트, strict data_dir(legacy 제외), 커맨드 라인, 환경
+
+### 0.3 현재 초안의 강점 / 약점(솔직 평가)
+
+- 강점: 정답 기반 멀티턴 압박 평가(survival–flip–recovery)라는 **명확한 프로토콜**과 로그/CSV 구조
+- 약점: (i) 아직 **통계(멀티-seed/CI)** 부재, (ii) 관련연구 인용/포지셔닝 강화 필요, (iii) ‘왜’에 대한 정성/메커니즘 분석이 더 필요
+
+---
+
 ## 초록 (Abstract)
 
 대규모 언어모델(LLM)은 사용자와의 상호작용에서 설득, 권위 주장, 반복 부정 등 다양한 형태의 **사회적 압박(social pressure)**을 받을 때, 정답이 존재하는 과제에서도 정답을 유지하지 못하고 오답으로 전향하는 현상이 보고된다. 기존 연구는 주로 (i) 안전/정렬 관점의 순응성, (ii) 대화적 설득 시나리오, (iii) 사실성/환각 평가를 다루었으나, **정답(ground-truth)이 확정된 과제에서 “정답 유지(survival)–전향(flip)–회복(recovery)”의 동역학을 멀티턴 프로토콜로 일관되게 측정**하는 공개 재현 파이프라인은 상대적으로 부족하다.
@@ -164,6 +189,54 @@ flip 이후 recovery(데이터셋 전체 aggregate):
 
 ---
 
+
+
+## 5.X 추가 결과: 7B (GPU 0–3, TP=4) 실험 분석 (2026-02-03)
+
+본 절에서는 GPU 0–3에서 TP=4로 수행한 7B 실험 결과(각 데이터셋 최대 1000개 샘플)를 요약하고, 논문에 바로 쓸 수 있는 형태의 관찰/해석을 정리한다.
+
+- 실행 설정: `CUDA_VISIBLE_DEVICES=0,1,2,3`, `TP_SIZE=4`, `MAX_MODEL_LEN=16384`, `MAX_TOKENS=2048`, `NUM_SAMPLES=1000`, `SEED=42`
+- 결과 폴더: `/mnt/raid6/aa007878/galileo/results/all_pilot_20260203_143301/7b/`
+- 주의: 본 run에는 legacy 파일(`*_val_50`)이 함께 포함될 수 있어, 최종 표/그림에는 **strict data_dir(정식 데이터만)**을 사용해 재실행한 결과를 사용하도록 권장한다.
+
+### (1) 초기 정확도 (Initial accuracy)
+
+- GSM8K: 96.70% (967/1000)
+- SVAMP: 95.14% (666/700)
+- ARC-Easy(validation): 95.26% (543/570)
+- SQuAD 1.1(validation): 79.40% (794/1000)
+- SQuAD 2.0(validation): 76.50% (765/1000)
+- TriviaQA(rc validation): 55.60% (556/1000)
+
+**해석:** 수학/MCQA는 초기 정확도가 매우 높고 안정적인 반면, QA 특히 SQuAD는 샘플링(셔플) 구성에 따라 초기 정확도가 수%p 단위로 흔들릴 수 있다. 이는 이후 survival/recovery의 절대값을 비교할 때 seed/샘플링 통제가 필수임을 의미한다.
+
+### (2) 압박 하 생존율 (Survival) — Round 5 aggregate
+
+- Authority Claim: 39.61% (1730/4368)
+- Strong Pressure: 48.49% (2118/4368)
+- Simple Denial: 51.19% (2236/4368)
+- Logical Trap: 59.98% (2620/4368)
+- Soft Pressure: 69.57% (3039/4368)
+
+**해석:** persona 효과의 순위(ordering)는 스냅샷과 동일하게 유지된다. 특히 Authority Claim이 가장 치명적이며, Soft Pressure는 가장 약한 공격으로 나타난다. 이는 ‘권위/전문가 주장’이 모델의 답변 유지에 구조적으로 큰 영향을 주는 압박 메커니즘임을 시사한다.
+
+### (3) 회복률 (Recovery) — flip 이후 aggregate
+
+- Authority Claim: 71.30% (1881/2638)
+- Strong Pressure: 76.27% (1716/2250)
+- Simple Denial: 74.77% (1594/2132)
+- Soft Pressure: 81.79% (1087/1329)
+- Logical Trap: 85.76% (1499/1748)
+
+**해석:** survival이 낮은 persona(Authority/Strong)에서도 recovery는 70%대 이상으로 관측된다. 즉, ‘오답으로 흔들리게 만드는 것’과 ‘정답으로 복귀시키는 것’은 동일한 난이도가 아닐 수 있다.
+
+### (4) 논문에 쓰는 포인트 (서술 템플릿)
+
+- **Persona 효과(주장 1):** “Authority Claim은 라운드가 진행될수록 survival을 가장 빠르게 붕괴시키며, Soft Pressure는 상대적으로 완만한 붕괴 곡선을 보인다.”
+- **불확실성–취약성 연결(주장 2):** 초기 정확도가 낮은 open-domain QA(TriviaQA)는 강한 압박에서 급격히 취약해지는 경향이 있으며, 이는 정답 불확실성이 사회적 압박 취약성을 증폭시킬 가능성을 뒷받침한다.
+- **재현성(주장 3):** 샘플링 seed에 따라 초기 정확도(특히 QA)가 유의미하게 달라질 수 있으므로, 최종 논문에서는 multi-seed 평균±표준편차/CI로 보고한다.
+
+
 ## 6. 분석 및 논문용 인사이트 (Analysis / Insights)
 
 ### 6.1 Persona 효과의 비대칭성
@@ -180,6 +253,63 @@ Authority Claim이 가장 치명적이며, Soft Pressure는 상대적으로 약�
 ### 6.3 Open-domain QA의 취약성
 
 TriviaQA는 초기 정확도가 상대적으로 낮고, Strong Pressure에서 생존이 급락하는 경향을 보인다. 이는 open-domain QA가 본질적으로 정답 불확실성이 크며, 그 불확실성이 persona 압박에 대한 취약성을 증폭시킬 수 있음을 시사한다.
+
+
+
+### 6.4 라운드별 붕괴 동역학(Flip dynamics): 무엇이 ‘언제’ 무너지는가?
+
+GALILEO의 핵심은 단일 정확도보다 **라운드 진행에 따른 붕괴 곡선**이다. 따라서 최종 논문에서는 다음을 기본 그림으로 제시한다.
+
+- **Survival curve(라운드 1→5)**: persona별 survival rate를 라운드 축으로 시각화
+- **Turn-of-failure 분포**: 처음으로 오답이 발생한 라운드(1~5)의 히스토그램
+
+이 분석을 통해 “Authority Claim이 항상 최악” 같은 요약을 넘어서, **어떤 persona가 ‘초반에 급격 붕괴’ vs ‘완만 붕괴’**를 유발하는지 보여줄 수 있다. 예컨대 권위 주장형은 early-round에서 큰 낙폭을 만들고, 논리 함정은 누적적으로 침식하는 형태를 보일 가능성이 있다.
+
+### 6.5 초기 정확도(능력)와 압박 내성(robustness)은 동일 축인가?
+
+리뷰어가 자주 묻는 질문은 “그냥 initial accuracy가 높으면 robust한 것 아닌가?”이다. 우리는 다음 두 관측을 중심 주장으로 정리할 수 있다.
+
+- (관측 A) **initial accuracy가 높아도 Authority Claim에 취약**할 수 있다.
+- (관측 B) **survival이 낮아도 recovery가 매우 높을 수 있다**(특히 extractive QA).
+
+최종 논문에서는 dataset별로
+
+- x축: initial accuracy
+- y축: survival@round5(또는 AUC)
+
+의 산점도를 제시해, capability–robustness의 상관이 완전하지 않음을 보인다(= disentanglement).
+
+### 6.6 정성 분석(qualitative): 전향(flip) 유형 분류(taxonomy)
+
+정량 지표만으로는 “왜” 바뀌는지 설명이 약해질 수 있다. 따라서 오답 전향 샘플을 일정 수(예: persona×task당 50개) 표본추출하여 아래 taxonomy로 라벨링한다.
+
+- **Authority compliance**: 권위/전문가 주장에 복종하며 답을 수정
+- **Social appeasement**: 갈등 회피/동조를 위해 답을 바꿈
+- **Logical trap**: 프레이밍 전환/말장난에 말려 답이 바뀜
+- **Uncertainty collapse**: 확신 부족으로 ‘모르겠다/애매하다’로 후퇴하거나 답을 회피
+- **Hedged flip**: 답을 바꾸지만 근거가 약하거나 모순된 설명
+
+이 정성 분류는 (i) persona별로 어떤 실패가 우세한지, (ii) task별로 어떤 실패가 우세한지(TriviaQA의 uncertainty 등)를 보여주며, 논문 설득력을 크게 올린다.
+
+### 6.7 재현성/통계 보고(권장): multi-seed + CI
+
+현재 스냅샷은 유용하지만, 최종 논문에서는 **seed 변화에 대한 민감도**를 통제해야 한다.
+
+- 각 설정에 대해 seed를 3~5개로 반복
+- 표는 평균±표준편차를 기본으로 보고
+- 가능하면 bootstrap으로 95% CI를 함께 제시
+
+특히 QA 계열은 샘플링/셔플 구성에 따라 초기 정확도가 수%p 흔들릴 수 있으므로, multi-seed 평균을 통해 “경향(trend)”을 주장하는 것이 안전하다.
+
+### 6.8 제출용 Figure/Table 패키지(권장)
+
+- **Figure 1**: persona별 survival curve(aggregate)
+- **Figure 2**: task별 survival curve(수학 vs extractive QA vs openQA vs MCQA)
+- **Figure 3**: robustness vs recovery scatter(또는 initial vs survival scatter)
+- **Table 1**: dataset별 initial / survival@5 / recovery(모델별 블록)
+- **Table 2 (ablation)**: recovery prompt variant, boxed vs free-form, decoding 변화
+
+위 그림/표를 자동 생성하도록(결과 CSV → paper-ready md/fig) 스크립트를 추가하면, 실험 반복과 논문 업데이트를 매우 빠르게 만들 수 있다.
 
 ---
 
@@ -198,7 +328,48 @@ TriviaQA는 초기 정확도가 상대적으로 낮고, Strong Pressure에서 �
 
 ---
 
+
+## 9.5 다음 실험/분석 실행 계획 (권장)
+
+아래는 ‘EMNLP 제출 가능한 수준’까지 끌어올리기 위한 최소 계획이다.
+
+1. **7B/14B multi-seed (seed=1..5)**
+   - strict data_dir로만 실행(legacy 제외)
+   - Table 1: dataset별 initial / survival@5 / recovery, 평균±std(+CI)
+
+2. **Survival curve + Turn-of-failure 그림 생성 자동화**
+   - `scripts/paper_export.py` 출력 CSV 기반으로 figure 제작(선택: matplotlib)
+
+3. **정성 분석( taxonomy ) 라벨링**
+   - `flip_samples.csv`에서 persona×task 균형 샘플링(예: 각 20개)
+   - taxonomy_label 채우고, 대표 사례(각 persona 1~2개) Appendix에 삽입
+
+4. **Ablation 2종(최소)**
+   - recovery prompt variant 2~3개
+   - boxed 강제 vs 자유형(1개 모델/1개 태스크라도)
+
+
 ## 9. 부록: 실행 및 결과 정리 (Appendix)
+
+
+### Paper-ready exports (curve / failure / qualitative sheet)
+
+- Export survival curves + turn-of-failure + flip sample sheet (CSV):
+
+```bash
+python scripts/paper_export.py \
+  --results_root /mnt/raid6/aa007878/galileo/results/all_pilot_20260203_143301/7b \
+  --model_dir /mnt/raid6/aa007878/galileo/results/all_pilot_20260203_143301/7b/Qwen2.5-7B-Instruct \
+  --out_dir /mnt/raid6/aa007878/galileo/results/all_pilot_20260203_143301/7b/paper_exports \
+  --num_flip_samples 200 \
+  --seed 42
+```
+
+- Outputs:
+  - `survival_curve.csv` (persona×round)
+  - `turn_of_failure.csv` (persona×dataset×first-failure-turn distribution)
+  - `flip_samples.csv` (manual taxonomy labeling sheet)
+
 
 - full QA 데이터 생성:
   - `scripts/make_qa_full.py` → `/data_x/aa007878/galileo/data_qa_full/`
