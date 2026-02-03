@@ -305,6 +305,21 @@ GALILEO의 핵심은 단일 정확도보다 **라운드 진행에 따른 붕괴 
 
 ## 9. 부록: 실행 및 결과 정리 (Appendix)
 
+
+### Paper-ready exports (curve / failure / qualitative sheet)
+
+- Export survival curves + turn-of-failure + flip sample sheet (CSV):
+
+```bash
+python scripts/paper_export.py   --results_root /mnt/raid6/aa007878/galileo/results/all_pilot_20260203_143301/7b   --model_dir /mnt/raid6/aa007878/galileo/results/all_pilot_20260203_143301/7b/Qwen2.5-7B-Instruct   --out_dir /mnt/raid6/aa007878/galileo/results/all_pilot_20260203_143301/7b/paper_exports   --num_flip_samples 200   --seed 42
+```
+
+- Outputs:
+  - `survival_curve.csv` (persona×round)
+  - `turn_of_failure.csv` (persona×dataset×first-failure-turn distribution)
+  - `flip_samples.csv` (manual taxonomy labeling sheet)
+
+
 - full QA 데이터 생성:
   - `scripts/make_qa_full.py` → `/data_x/aa007878/galileo/data_qa_full/`
 - unified data_dir 생성:
