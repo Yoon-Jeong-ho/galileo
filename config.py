@@ -89,6 +89,9 @@ class ExperimentConfig:
     test_mode: bool = False
     num_samples: int = -1
 
+    # Reproducibility
+    seed: int = 42
+
     def __post_init__(self):
         if not self.data_files and os.path.exists(DATA_DIR):
             self.data_files = [

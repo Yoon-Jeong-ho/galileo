@@ -17,6 +17,7 @@ RESULTS_ROOT=${RESULTS_ROOT:-/mnt/raid6/aa007878/galileo/results/all_pilot_$(dat
 NUM_SAMPLES=${NUM_SAMPLES:-100}
 MAX_MODEL_LEN=${MAX_MODEL_LEN:-16384}
 MAX_TOKENS=${MAX_TOKENS:-2048}
+SEED=${SEED:-42}
 
 CONDA_BIN=${CONDA_BIN:-/data_x/aa007878/miniconda3/bin/conda}
 CONDA_ENV=${CONDA_ENV:-galileo}
@@ -40,6 +41,7 @@ echo "GPUs: $GPU_LIST / TP: $TP_SIZE"
 echo "DATA_ALL_DIR: $DATA_ALL_DIR"
 echo "RESULTS_ROOT: $RESULTS_ROOT"
 echo "NUM_SAMPLES: $NUM_SAMPLES, MAX_MODEL_LEN: $MAX_MODEL_LEN, MAX_TOKENS: $MAX_TOKENS"
+echo "SEED: $SEED"
 
 run_one() {
   local model="\$1"
@@ -55,6 +57,7 @@ run_one() {
     --results_dir "$RESULTS_ROOT/\$tag" \
     --tensor_parallel_size "$TP_SIZE" \
     --num_samples "$NUM_SAMPLES" \
+    --seed "$SEED" \
     --max_model_len "$MAX_MODEL_LEN" \
     --max_tokens "$MAX_TOKENS" \
     2>&1 | tee -a "$RESULTS_ROOT/\$tag/run.log"
