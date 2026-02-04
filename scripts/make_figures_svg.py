@@ -74,23 +74,23 @@ def line_chart_svg(title: str, xs, series, out_path: Path, y_min=0.0, y_max=100.
         return m["t"] + (1 - (y - y_min) / (y_max - y_min)) * ph
 
     parts = [svg_header(w, h)]
-    parts.append(f"<text class=\"title\" x=\"{m[l]}\" y=\"22\">{title}</text>\n")
+    parts.append(f"<text class=\"title\" x=\"{m["l"]}\" y=\"22\">{title}</text>\n")
 
     # y grid
     for t in range(0, 101, 20):
         yy = y_map(float(t))
-        parts.append(f"<line class=\"grid\" x1=\"{m[l]}\" y1=\"{yy:.1f}\" x2=\"{m[l]+pw}\" y2=\"{yy:.1f}\"/>\n")
+        parts.append(f"<line class=\"grid\" x1=\"{m["l"]}\" y1=\"{yy:.1f}\" x2=\"{m["l"]+pw}\" y2=\"{yy:.1f}\"/>\n")
         parts.append(f"<text class=\"lbl\" x=\"10\" y=\"{yy+4:.1f}\">{t}</text>\n")
 
     # axes
-    parts.append(f"<line class=\"axis\" x1=\"{m[l]}\" y1=\"{m[t]}\" x2=\"{m[l]}\" y2=\"{m[t]+ph}\"/>\n")
-    parts.append(f"<line class=\"axis\" x1=\"{m[l]}\" y1=\"{m[t]+ph}\" x2=\"{m[l]+pw}\" y2=\"{m[t]+ph}\"/>\n")
+    parts.append(f"<line class=\"axis\" x1=\"{m["l"]}\" y1=\"{m["t"]}\" x2=\"{m["l"]}\" y2=\"{m["t"]+ph}\"/>\n")
+    parts.append(f"<line class=\"axis\" x1=\"{m["l"]}\" y1=\"{m["t"]+ph}\" x2=\"{m["l"]+pw}\" y2=\"{m["t"]+ph}\"/>\n")
 
     # x ticks
     for i, x in enumerate(xs):
         xx = x_map(i)
-        parts.append(f"<line class=\"grid\" x1=\"{xx:.1f}\" y1=\"{m[t]}\" x2=\"{xx:.1f}\" y2=\"{m[t]+ph}\"/>\n")
-        parts.append(f"<text class=\"lbl\" x=\"{xx-8:.1f}\" y=\"{m[t]+ph+25}\">r{x}</text>\n")
+        parts.append(f"<line class=\"grid\" x1=\"{xx:.1f}\" y1=\"{m["t"]}\" x2=\"{xx:.1f}\" y2=\"{m["t"]+ph}\"/>\n")
+        parts.append(f"<text class=\"lbl\" x=\"{xx-8:.1f}\" y=\"{m["t"]+ph+25}\">r{x}</text>\n")
 
     # lines
     for name, ys, color in series:
@@ -122,15 +122,15 @@ def bar_chart_svg(title: str, personas, series, out_path: Path, y_max=100.0):
         return m["t"] + (1 - y / y_max) * ph
 
     parts = [svg_header(w, h)]
-    parts.append(f"<text class=\"title\" x=\"{m[l]}\" y=\"22\">{title}</text>\n")
+    parts.append(f"<text class=\"title\" x=\"{m["l"]}\" y=\"22\">{title}</text>\n")
 
     for t in range(0, 101, 20):
         yy = y_map(float(t))
-        parts.append(f"<line class=\"grid\" x1=\"{m[l]}\" y1=\"{yy:.1f}\" x2=\"{m[l]+pw}\" y2=\"{yy:.1f}\"/>\n")
+        parts.append(f"<line class=\"grid\" x1=\"{m["l"]}\" y1=\"{yy:.1f}\" x2=\"{m["l"]+pw}\" y2=\"{yy:.1f}\"/>\n")
         parts.append(f"<text class=\"lbl\" x=\"10\" y=\"{yy+4:.1f}\">{t}</text>\n")
 
-    parts.append(f"<line class=\"axis\" x1=\"{m[l]}\" y1=\"{m[t]}\" x2=\"{m[l]}\" y2=\"{m[t]+ph}\"/>\n")
-    parts.append(f"<line class=\"axis\" x1=\"{m[l]}\" y1=\"{m[t]+ph}\" x2=\"{m[l]+pw}\" y2=\"{m[t]+ph}\"/>\n")
+    parts.append(f"<line class=\"axis\" x1=\"{m["l"]}\" y1=\"{m["t"]}\" x2=\"{m["l"]}\" y2=\"{m["t"]+ph}\"/>\n")
+    parts.append(f"<line class=\"axis\" x1=\"{m["l"]}\" y1=\"{m["t"]+ph}\" x2=\"{m["l"]+pw}\" y2=\"{m["t"]+ph}\"/>\n")
 
     n = len(personas)
     g_w = pw / n
@@ -140,8 +140,8 @@ def bar_chart_svg(title: str, personas, series, out_path: Path, y_max=100.0):
         gx = m["l"] + i * g_w
         # rotated label
         parts.append(
-            f"<text class=\"lbl\" x=\"{gx+5:.1f}\" y=\"{m[t]+ph+35}\" "
-            f"transform=\"rotate(45 {gx+5:.1f},{m[t]+ph+35}\"\">{persona}</text>\n"
+            f"<text class=\"lbl\" x=\"{gx+5:.1f}\" y=\"{m["t"]+ph+35}\" "
+            f"transform=\"rotate(45 {gx+5:.1f},{m["t"]+ph+35}\"\">{persona}</text>\n"
         )
         for j, (name, vals, color) in enumerate(series):
             v = float(vals[i])
