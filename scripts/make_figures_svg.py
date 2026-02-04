@@ -114,7 +114,7 @@ def line_chart_svg(title: str, xs, series, out_path: Path, y_min=0.0, y_max=100.
 def bar_chart_svg(title: str, personas, series, out_path: Path, y_max=100.0):
     """series: list[(name, values_per_persona, color)]"""
     w, h = 780, 420
-    m = {"l": 80, "r": 20, "t": 40, "b": 140}
+    m = {"l": 140, "r": 20, "t": 40, "b": 190}
     pw = w - m['l'] - m['r']
     ph = h - m['t'] - m['b']
 
@@ -138,12 +138,11 @@ def bar_chart_svg(title: str, personas, series, out_path: Path, y_max=100.0):
 
     for i, persona in enumerate(personas):
         gx = m['l'] + i * g_w
-        # rotated label
-        # rotated label (avoid nested quote bugs; use single f-string)
-        tx = gx + 5
-        ty = m["t"] + ph + 35
+        # rotated x label (centered; avoid clipping)
+        tx = gx + g_w * 0.5
+        ty = m["t"] + ph + 75
         parts.append(
-            f"<text class=\"lbl\" x=\"{tx:.1f}\" y=\"{ty:.1f}\" transform=\"rotate(45 {tx:.1f} {ty:.1f})\">{persona}</text>\n"
+            f"<text class=\"lbl\" text-anchor=\"middle\" x=\"{tx:.1f}\" y=\"{ty:.1f}\" transform=\"rotate(45 {tx:.1f} {ty:.1f})\">{persona}</text>\n"
         )
         for j, (name, vals, color) in enumerate(series):
             v = float(vals[i])
