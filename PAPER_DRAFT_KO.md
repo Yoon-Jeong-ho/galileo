@@ -256,6 +256,50 @@ TriviaQA는 초기 정확도가 상대적으로 낮고, Strong Pressure에서 �
 
 
 
+
+
+### 6.X (실데이터 기반) 모델 스케일링 분석: 7B → 14B가 무엇을 바꾸는가?
+
+> 아래 수치는 **multi-seed (strict data_dir) 중간 집계**이다.  
+> 7B는 seed 4개, 14B는 seed 3개가 반영된 상태(추가 seed 진행 중)이며, 최종 논문에서는 동일 seed 수로 맞춰 평균±CI를 보고한다.
+
+#### (1) Initial accuracy 변화: 특히 open-domain QA에서 큰 이득
+
+- TriviaQA(rc): **+17.97%p** (14B가 7B보다 크게 향상)
+- SQuAD 1.1: **+5.58%p**, SQuAD 2.0: **+2.36%p**
+- GSM8K: **+1.67%p**, SVAMP: **+2.56%p**
+
+**해석:** 모델 스케일링은 ‘정답을 처음부터 맞히는 능력(capability)’을 전반적으로 올리지만, 특히 불확실성이 큰 open-domain QA에서 효과가 크다.
+
+#### (2) Survival@Round5(압박 내성) 변화: 태스크별로 방향이 다를 수 있음
+
+dataset-level persona 평균(=surv5_avg) 기준으로 보면,
+
+- ARC-Easy: **+11.98%p** (14B가 더 잘 버팀)
+- TriviaQA(rc): **+8.36%p**
+- SVAMP: **+0.75%p** (거의 동일)
+- 반면 GSM8K는 **-8.50%p**, SQuAD 1.1은 **-6.41%p**, SQuAD 2.0은 **-6.69%p**
+
+**해석(중요):** 스케일링이 항상 “압박 내성(survival)”을 단조 증가시키지 않을 수 있다. 이는 (i) persona 프롬프트에 대한 순응 성향 변화, (ii) 더 긴 설명/재해석을 시도하면서 오답으로 빠지는 경로, (iii) seed/샘플 구성 민감도 등 여러 요인 때문일 수 있으며, 최종 논문에서는 multi-seed + turn-of-failure 분석으로 이 현상을 검증한다.
+
+#### (3) Recovery(회복) 변화: 14B는 전반적으로 “되돌리기”가 매우 강함
+
+dataset-level persona 평균(=rec_avg) 기준:
+
+- GSM8K: **+42.75%p** (7B는 flip 후 회복이 매우 어려웠으나 14B에서 크게 개선)
+- SVAMP: **+29.78%p**
+- TriviaQA(rc): **+10.80%p**
+- SQuAD 1.1: **+7.67%p**, SQuAD 2.0: **+9.71%p**
+- ARC-Easy: **+7.34%p**
+
+**해석:** 스케일링은 “압박에 버티는 능력”보다도, **오답으로 전향한 뒤 다시 정답으로 복귀하는 능력(recoverability)**을 크게 강화하는 경향이 있다.
+
+#### (4) 논문 주장으로 정리(추천)
+
+- **Claim A (capability vs robustness disentanglement):** 초기 정확도(capability) 향상이 압박 내성(survival) 향상으로 항상 이어지지 않을 수 있다.
+- **Claim B (recoverability scaling):** 반면 recovery는 모델 규모 증가에 따라 일관되게 개선되는 경향이 강하다.
+- **Claim C (task uncertainty amplification):** open-domain QA는 initial 불확실성이 크기 때문에 압박 취약성이 크지만, 스케일링으로 initial이 개선되면 survival도 함께 개선될 수 있다.
+
 ### 6.4 라운드별 붕괴 동역학(Flip dynamics): 무엇이 ‘언제’ 무너지는가?
 
 GALILEO의 핵심은 단일 정확도보다 **라운드 진행에 따른 붕괴 곡선**이다. 따라서 최종 논문에서는 다음을 기본 그림으로 제시한다.
