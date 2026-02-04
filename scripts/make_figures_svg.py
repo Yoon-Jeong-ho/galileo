@@ -1,20 +1,16 @@
 #!/usr/bin/env python3
-"""Create simple SVG figures for papers without matplotlib.
+"""Matplotlib-free SVG figure generator for paper drafts.
 
 Generates:
-- survival_curve_<model>_<dataset>.svg: persona-avg survival curve (r1..r5)
-- fail1_never_<model>_<dataset>.svg: bar chart for never-fail and fail@1 per persona
+- survival_curve_<dataset>.svg : model-wise (7b/14b) persona-avg survival curve (r1..r5)
+- fail1_never_<model>.svg : persona-wise bar chart for never vs fail@1 (aggregated over datasets)
 
 Inputs:
-- Results root with multi-seed layout OR a single run folder that contains paper_exports.
+- multi-seed results root:
+    results_root/seed_k/<model>/adversarial_survival.csv
+    results_root/seed_k/<model>/paper_exports/turn_of_failure.csv
 
-For multi-seed layout, we aggregate from:
-  results_root/seed_k/<model>/paper_exports/turn_of_failure.csv
-  results_root/seed_k/<model>/paper_exports/survival_curve.csv
-
-We output SVGs into out_dir.
-
-No third-party deps.
+No third-party dependencies.
 """
 
 import argparse
@@ -33,6 +29,11 @@ PERSONA_ORDER = [
 ROUNDS = [1, 2, 3, 4, 5]
 
 
+def read_csv(path: Path):
+    with path.open("r", encoding="utf-8") as f:
+        return list(csv.DictReader(f))
+
+
 def mean_std(vals):
     vals = [float(v) for v in vals]
     m = sum(vals) / len(vals)
@@ -42,47 +43,42 @@ def mean_std(vals):
     return m, math.sqrt(var)
 
 
-def read_csv(path: Path):
-    with path.open("r", encoding="utf-8") as f:
-        return list(csv.DictReader(f))
+def svg_header(w: int, h: int) -> str:
+    return (
+        f"<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"{w}\" height=\"{h}\" viewBox=\"0 0 {w} {h}\">\n"
+        "<style>\n"
+        "  .axis { stroke: #111; stroke-width: 1; }\n"
+        "  .grid { stroke: #ddd; stroke-width: 1; }\n"
+        "  .lbl { font: 12px sans-serif; fill: #111; }\n"
+        "  .title { font: 14px sans-serif; font-weight: 600; fill: #111; }\n"
+        "  .legend { font: 12px sans-serif; fill: #111; }\n"
+        "</style>\n"
+    )
 
 
-def svg_header(w, h):
-    return f"""<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"{w}\" height=\"{h}\" viewBox=\"0 0 {w} {h}\">
-<style>
-  .axis {{ stroke: #111; stroke-width: 1; }}
-  .grid {{ stroke: #ddd; stroke-width: 1; }}
-  .lbl {{ font: 12px sans-serif; fill: #111; }}
-  .title {{ font: 14px sans-serif; font-weight: 600; fill: #111; }}
-  .legend {{ font: 12px sans-serif; fill: #111; }}
-</style>
-"""
-
-
-def svg_footer():
+def svg_footer() -> str:
     return "</svg>\n"
 
 
-def line_chart_svg(title, xs, series, out_path: Path, y_min=0.0, y_max=100.0):
-    """series: list[(name, [y...], color)]"""
+def line_chart_svg(title: str, xs, series, out_path: Path, y_min=0.0, y_max=100.0):
+    """series: list[(name, ys, color)]"""
     w, h = 780, 420
     m = {"l": 60, "r": 20, "t": 40, "b": 50}
     pw = w - m["l"] - m["r"]
     ph = h - m["t"] - m["b"]
 
-    def x_map(x):
-        i = xs.index(x)
-        return m["l"] + (i / (len(xs) - 1)) * pw if len(xs) > 1 else m["l"]
+    def x_map(i: int) -> float:
+        return m["l"] + (i / (len(xs) - 1)) * pw if len(xs) > 1 else float(m["l"])
 
-    def y_map(y):
+    def y_map(y: float) -> float:
         return m["t"] + (1 - (y - y_min) / (y_max - y_min)) * ph
 
     parts = [svg_header(w, h)]
     parts.append(f"<text class=\"title\" x=\"{m[l]}\" y=\"22\">{title}</text>\n")
 
-    # grid + y ticks
+    # y grid
     for t in range(0, 101, 20):
-        yy = y_map(t)
+        yy = y_map(float(t))
         parts.append(f"<line class=\"grid\" x1=\"{m[l]}\" y1=\"{yy:.1f}\" x2=\"{m[l]+pw}\" y2=\"{yy:.1f}\"/>\n")
         parts.append(f"<text class=\"lbl\" x=\"10\" y=\"{yy+4:.1f}\">{t}</text>\n")
 
@@ -91,18 +87,17 @@ def line_chart_svg(title, xs, series, out_path: Path, y_min=0.0, y_max=100.0):
     parts.append(f"<line class=\"axis\" x1=\"{m[l]}\" y1=\"{m[t]+ph}\" x2=\"{m[l]+pw}\" y2=\"{m[t]+ph}\"/>\n")
 
     # x ticks
-    for x in xs:
-        xx = x_map(x)
+    for i, x in enumerate(xs):
+        xx = x_map(i)
         parts.append(f"<line class=\"grid\" x1=\"{xx:.1f}\" y1=\"{m[t]}\" x2=\"{xx:.1f}\" y2=\"{m[t]+ph}\"/>\n")
         parts.append(f"<text class=\"lbl\" x=\"{xx-8:.1f}\" y=\"{m[t]+ph+25}\">r{x}</text>\n")
 
-    # series
+    # lines
     for name, ys, color in series:
-        pts = " ".join(f"{x_map(x):.1f},{y_map(y):.1f}" for x, y in zip(xs, ys))
+        pts = " ".join(f"{x_map(i):.1f},{y_map(y):.1f}" for i, y in enumerate(ys))
         parts.append(f"<polyline fill=\"none\" stroke=\"{color}\" stroke-width=\"2\" points=\"{pts}\"/>\n")
-        # markers
-        for x, y in zip(xs, ys):
-            parts.append(f"<circle cx=\"{x_map(x):.1f}\" cy=\"{y_map(y):.1f}\" r=\"3\" fill=\"{color}\"/>\n")
+        for i, y in enumerate(ys):
+            parts.append(f"<circle cx=\"{x_map(i):.1f}\" cy=\"{y_map(y):.1f}\" r=\"3\" fill=\"{color}\"/>\n")
 
     # legend
     lx = m["l"] + pw - 220
@@ -116,45 +111,45 @@ def line_chart_svg(title, xs, series, out_path: Path, y_min=0.0, y_max=100.0):
     out_path.write_text("".join(parts), encoding="utf-8")
 
 
-def bar_chart_svg(title, personas, series, out_path: Path, y_max=100.0):
+def bar_chart_svg(title: str, personas, series, out_path: Path, y_max=100.0):
     """series: list[(name, values_per_persona, color)]"""
     w, h = 780, 420
-    m = {"l": 80, "r": 20, "t": 40, "b": 120}
+    m = {"l": 80, "r": 20, "t": 40, "b": 140}
     pw = w - m["l"] - m["r"]
     ph = h - m["t"] - m["b"]
 
-    def y_map(y):
+    def y_map(y: float) -> float:
         return m["t"] + (1 - y / y_max) * ph
 
     parts = [svg_header(w, h)]
     parts.append(f"<text class=\"title\" x=\"{m[l]}\" y=\"22\">{title}</text>\n")
 
-    # y grid
     for t in range(0, 101, 20):
-        yy = y_map(t)
+        yy = y_map(float(t))
         parts.append(f"<line class=\"grid\" x1=\"{m[l]}\" y1=\"{yy:.1f}\" x2=\"{m[l]+pw}\" y2=\"{yy:.1f}\"/>\n")
         parts.append(f"<text class=\"lbl\" x=\"10\" y=\"{yy+4:.1f}\">{t}</text>\n")
 
-    # axes
     parts.append(f"<line class=\"axis\" x1=\"{m[l]}\" y1=\"{m[t]}\" x2=\"{m[l]}\" y2=\"{m[t]+ph}\"/>\n")
     parts.append(f"<line class=\"axis\" x1=\"{m[l]}\" y1=\"{m[t]+ph}\" x2=\"{m[l]+pw}\" y2=\"{m[t]+ph}\"/>\n")
 
     n = len(personas)
     g_w = pw / n
-    bar_w = min(22, (g_w - 10) / max(1, len(series)))
+    bar_w = min(22.0, (g_w - 10.0) / max(1, len(series)))
 
     for i, persona in enumerate(personas):
         gx = m["l"] + i * g_w
-        # x label
-        parts.append(f"<text class=\"lbl\" x=\"{gx+5:.1f}\" y=\"{m[t]+ph+35}\" transform=\"rotate(45 {gx+5:.1f},{m[t]+ph+35}\"\">{persona}</text>\n")
+        # rotated label
+        parts.append(
+            f"<text class=\"lbl\" x=\"{gx+5:.1f}\" y=\"{m[t]+ph+35}\" "
+            f"transform=\"rotate(45 {gx+5:.1f},{m[t]+ph+35}\"\">{persona}</text>\n"
+        )
         for j, (name, vals, color) in enumerate(series):
-            v = vals[i]
+            v = float(vals[i])
             x = gx + 5 + j * (bar_w + 4)
             y = y_map(v)
             height = (m["t"] + ph) - y
             parts.append(f"<rect x=\"{x:.1f}\" y=\"{y:.1f}\" width=\"{bar_w:.1f}\" height=\"{height:.1f}\" fill=\"{color}\"/>\n")
 
-    # legend
     lx = m["l"] + pw - 240
     ly = m["t"] + 10
     for i, (name, _, color) in enumerate(series):
@@ -168,7 +163,7 @@ def bar_chart_svg(title, personas, series, out_path: Path, y_max=100.0):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--results_root", required=True, help="multi-seed results root")
+    ap.add_argument("--results_root", required=True)
     ap.add_argument("--out_dir", required=True)
     ap.add_argument("--models", default="7b,14b")
     args = ap.parse_args()
@@ -177,10 +172,9 @@ def main():
     out_dir = Path(args.out_dir)
     models = [m.strip() for m in args.models.split(",") if m.strip()]
 
-    # aggregate persona-avg survival curves per dataset per model from seed folders
-    # Use per-seed persona-avg survival@round from adversarial_survival.csv
-    ds_round = defaultdict(list)  # (model, ds, rd) -> [avg_over_personas] per seed
-    
+    # persona-avg survival curve per dataset per model (mean over seeds)
+    ds_round = defaultdict(list)  # (model, ds, rd) -> [persona-avg rate per seed]
+
     for seed_dir in sorted(results_root.glob("seed_*")):
         for model in models:
             base = seed_dir / model
@@ -193,6 +187,7 @@ def main():
                 key = (r["test_name"], r["persona"], int(r["round"]))
                 tmp[key][0] += int(r["survived"])
                 tmp[key][1] += int(r["total"])
+
             datasets = sorted({r["test_name"] for r in rows})
             for ds in datasets:
                 for rd in ROUNDS:
@@ -204,8 +199,8 @@ def main():
                     if vals:
                         ds_round[(model, ds, rd)].append(sum(vals) / len(vals))
 
-    # line charts: model-wise persona-avg curves per dataset
     colors = {"7b": "#1f77b4", "14b": "#d62728"}
+
     for ds in sorted({k[1] for k in ds_round.keys()}):
         series = []
         for model in models:
@@ -228,15 +223,15 @@ def main():
                 out_path=out_dir / f"survival_curve_{ds}.svg",
             )
 
-    # bar charts: never vs fail@1 per persona (aggregate over datasets) per model
+    # never vs fail@1 (aggregate over datasets) per model
     for model in models:
-        never = defaultdict(list)  # persona -> [rate per seed aggregated over datasets]
+        never = defaultdict(list)
         fail1 = defaultdict(list)
         for seed_dir in sorted(results_root.glob("seed_*")):
-            base = seed_dir / model / "paper_exports" / "turn_of_failure.csv"
-            if not base.exists():
+            tof_path = seed_dir / model / "paper_exports" / "turn_of_failure.csv"
+            if not tof_path.exists():
                 continue
-            rows = read_csv(base)
+            rows = read_csv(tof_path)
             by = defaultdict(lambda: defaultdict(int))
             tot = defaultdict(int)
             for r in rows:

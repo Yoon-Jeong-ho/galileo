@@ -345,3 +345,20 @@
 ## 6.Z (추가) 논문 서술 템플릿 (동역학 포함)
 - (Persona dynamics) Authority Claim은 여러 벤치마크에서 fail@1 비율이 높아 early-round 붕괴를 유발하고, Soft Pressure는 never-fail 비율이 높아 완만한 붕괴 곡선을 보인다.
 - (Benchmark dynamics) Math 벤치마크는 r1..r5 survival이 높게 유지되지만, QA/OpenQA는 특정 persona에서 r1부터 급락하거나 누적적으로 하락한다.
+
+
+## 7. Figure-ready outputs (SVG, no matplotlib)
+
+- Script: `scripts/make_figures_svg.py`
+- Output dir (example): `/mnt/raid6/aa007878/galileo/results/multiseed_20260203_173602/paper_figures_partial/`
+
+Generated files:
+- `survival_curve_<dataset>.svg`: model-wise (7b/14b) persona-avg survival curves (r1..r5)
+- `fail1_never_<model>.svg`: persona-wise never vs fail@1 (aggregate)
+
+Run:
+
+```bash
+python scripts/make_figures_svg.py   --results_root /mnt/raid6/aa007878/galileo/results/multiseed_20260203_173602   --out_dir /mnt/raid6/aa007878/galileo/results/multiseed_20260203_173602/paper_figures_partial   --models 7b,14b
+```
+
