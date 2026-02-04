@@ -64,33 +64,33 @@ def line_chart_svg(title: str, xs, series, out_path: Path, y_min=0.0, y_max=100.
     """series: list[(name, ys, color)]"""
     w, h = 780, 420
     m = {"l": 60, "r": 20, "t": 40, "b": 50}
-    pw = w - m["l"] - m["r"]
-    ph = h - m["t"] - m["b"]
+    pw = w - m['l'] - m['r']
+    ph = h - m['t'] - m['b']
 
     def x_map(i: int) -> float:
-        return m["l"] + (i / (len(xs) - 1)) * pw if len(xs) > 1 else float(m["l"])
+        return m['l'] + (i / (len(xs) - 1)) * pw if len(xs) > 1 else float(m['l'])
 
     def y_map(y: float) -> float:
-        return m["t"] + (1 - (y - y_min) / (y_max - y_min)) * ph
+        return m['t'] + (1 - (y - y_min) / (y_max - y_min)) * ph
 
     parts = [svg_header(w, h)]
-    parts.append(f"<text class=\"title\" x=\"{m["l"]}\" y=\"22\">{title}</text>\n")
+    parts.append(f"<text class=\"title\" x=\"{m['l']}\" y=\"22\">{title}</text>\n")
 
     # y grid
     for t in range(0, 101, 20):
         yy = y_map(float(t))
-        parts.append(f"<line class=\"grid\" x1=\"{m["l"]}\" y1=\"{yy:.1f}\" x2=\"{m["l"]+pw}\" y2=\"{yy:.1f}\"/>\n")
+        parts.append(f"<line class=\"grid\" x1=\"{m['l']}\" y1=\"{yy:.1f}\" x2=\"{m['l']+pw}\" y2=\"{yy:.1f}\"/>\n")
         parts.append(f"<text class=\"lbl\" x=\"10\" y=\"{yy+4:.1f}\">{t}</text>\n")
 
     # axes
-    parts.append(f"<line class=\"axis\" x1=\"{m["l"]}\" y1=\"{m["t"]}\" x2=\"{m["l"]}\" y2=\"{m["t"]+ph}\"/>\n")
-    parts.append(f"<line class=\"axis\" x1=\"{m["l"]}\" y1=\"{m["t"]+ph}\" x2=\"{m["l"]+pw}\" y2=\"{m["t"]+ph}\"/>\n")
+    parts.append(f"<line class=\"axis\" x1=\"{m['l']}\" y1=\"{m['t']}\" x2=\"{m['l']}\" y2=\"{m['t']+ph}\"/>\n")
+    parts.append(f"<line class=\"axis\" x1=\"{m['l']}\" y1=\"{m['t']+ph}\" x2=\"{m['l']+pw}\" y2=\"{m['t']+ph}\"/>\n")
 
     # x ticks
     for i, x in enumerate(xs):
         xx = x_map(i)
-        parts.append(f"<line class=\"grid\" x1=\"{xx:.1f}\" y1=\"{m["t"]}\" x2=\"{xx:.1f}\" y2=\"{m["t"]+ph}\"/>\n")
-        parts.append(f"<text class=\"lbl\" x=\"{xx-8:.1f}\" y=\"{m["t"]+ph+25}\">r{x}</text>\n")
+        parts.append(f"<line class=\"grid\" x1=\"{xx:.1f}\" y1=\"{m['t']}\" x2=\"{xx:.1f}\" y2=\"{m['t']+ph}\"/>\n")
+        parts.append(f"<text class=\"lbl\" x=\"{xx-8:.1f}\" y=\"{m['t']+ph+25}\">r{x}</text>\n")
 
     # lines
     for name, ys, color in series:
@@ -100,8 +100,8 @@ def line_chart_svg(title: str, xs, series, out_path: Path, y_min=0.0, y_max=100.
             parts.append(f"<circle cx=\"{x_map(i):.1f}\" cy=\"{y_map(y):.1f}\" r=\"3\" fill=\"{color}\"/>\n")
 
     # legend
-    lx = m["l"] + pw - 220
-    ly = m["t"] + 10
+    lx = m['l'] + pw - 220
+    ly = m['t'] + 10
     for i, (name, _, color) in enumerate(series):
         parts.append(f"<rect x=\"{lx}\" y=\"{ly+i*18}\" width=\"10\" height=\"10\" fill=\"{color}\"/>\n")
         parts.append(f"<text class=\"legend\" x=\"{lx+14}\" y=\"{ly+10+i*18}\">{name}</text>\n")
@@ -115,43 +115,43 @@ def bar_chart_svg(title: str, personas, series, out_path: Path, y_max=100.0):
     """series: list[(name, values_per_persona, color)]"""
     w, h = 780, 420
     m = {"l": 80, "r": 20, "t": 40, "b": 140}
-    pw = w - m["l"] - m["r"]
-    ph = h - m["t"] - m["b"]
+    pw = w - m['l'] - m['r']
+    ph = h - m['t'] - m['b']
 
     def y_map(y: float) -> float:
-        return m["t"] + (1 - y / y_max) * ph
+        return m['t'] + (1 - y / y_max) * ph
 
     parts = [svg_header(w, h)]
-    parts.append(f"<text class=\"title\" x=\"{m["l"]}\" y=\"22\">{title}</text>\n")
+    parts.append(f"<text class=\"title\" x=\"{m['l']}\" y=\"22\">{title}</text>\n")
 
     for t in range(0, 101, 20):
         yy = y_map(float(t))
-        parts.append(f"<line class=\"grid\" x1=\"{m["l"]}\" y1=\"{yy:.1f}\" x2=\"{m["l"]+pw}\" y2=\"{yy:.1f}\"/>\n")
+        parts.append(f"<line class=\"grid\" x1=\"{m['l']}\" y1=\"{yy:.1f}\" x2=\"{m['l']+pw}\" y2=\"{yy:.1f}\"/>\n")
         parts.append(f"<text class=\"lbl\" x=\"10\" y=\"{yy+4:.1f}\">{t}</text>\n")
 
-    parts.append(f"<line class=\"axis\" x1=\"{m["l"]}\" y1=\"{m["t"]}\" x2=\"{m["l"]}\" y2=\"{m["t"]+ph}\"/>\n")
-    parts.append(f"<line class=\"axis\" x1=\"{m["l"]}\" y1=\"{m["t"]+ph}\" x2=\"{m["l"]+pw}\" y2=\"{m["t"]+ph}\"/>\n")
+    parts.append(f"<line class=\"axis\" x1=\"{m['l']}\" y1=\"{m['t']}\" x2=\"{m['l']}\" y2=\"{m['t']+ph}\"/>\n")
+    parts.append(f"<line class=\"axis\" x1=\"{m['l']}\" y1=\"{m['t']+ph}\" x2=\"{m['l']+pw}\" y2=\"{m['t']+ph}\"/>\n")
 
     n = len(personas)
     g_w = pw / n
     bar_w = min(22.0, (g_w - 10.0) / max(1, len(series)))
 
     for i, persona in enumerate(personas):
-        gx = m["l"] + i * g_w
+        gx = m['l'] + i * g_w
         # rotated label
         parts.append(
-            f"<text class=\"lbl\" x=\"{gx+5:.1f}\" y=\"{m["t"]+ph+35}\" "
-            f"transform=\"rotate(45 {gx+5:.1f},{m["t"]+ph+35}\"\">{persona}</text>\n"
+            f"<text class=\"lbl\" x=\"{gx+5:.1f}\" y=\"{m['t']+ph+35}\" "
+            f"transform=\"rotate(45 {gx+5:.1f},{m['t']+ph+35}\"\">{persona}</text>\n"
         )
         for j, (name, vals, color) in enumerate(series):
             v = float(vals[i])
             x = gx + 5 + j * (bar_w + 4)
             y = y_map(v)
-            height = (m["t"] + ph) - y
+            height = (m['t'] + ph) - y
             parts.append(f"<rect x=\"{x:.1f}\" y=\"{y:.1f}\" width=\"{bar_w:.1f}\" height=\"{height:.1f}\" fill=\"{color}\"/>\n")
 
-    lx = m["l"] + pw - 240
-    ly = m["t"] + 10
+    lx = m['l'] + pw - 240
+    ly = m['t'] + 10
     for i, (name, _, color) in enumerate(series):
         parts.append(f"<rect x=\"{lx}\" y=\"{ly+i*18}\" width=\"10\" height=\"10\" fill=\"{color}\"/>\n")
         parts.append(f"<text class=\"legend\" x=\"{lx+14}\" y=\"{ly+10+i*18}\">{name}</text>\n")
