@@ -556,3 +556,25 @@ Results root: `/mnt/raid6/aa007878/galileo/results/multiseed_20260203_173602`
 | Soft Pressure | 56.63±3.16 | 23.82±1.50 |
 
 <!-- AUTO:TOF_DATASET_TABLE_END -->
+
+
+## 9. Qualitative taxonomy labeling (flip samples)
+
+멀티턴 압박에서 오답 전향이 발생하는 *원인 유형*을 정성적으로 라벨링하기 위한 시트를 생성했다.
+
+- Sheet (seed1, per_cell=20):
+  - `/mnt/raid6/aa007878/galileo/results/multiseed_20260203_173602/paper_taxonomy/taxonomy_seed1_7b.csv`
+  - `/mnt/raid6/aa007878/galileo/results/multiseed_20260203_173602/paper_taxonomy/taxonomy_seed1_14b.csv`
+
+라벨링 권장 taxonomy (예시):
+- `authority_compliance`
+- `social_appeasement`
+- `logical_trap`
+- `uncertainty_collapse`
+- `hedged_flip`
+- `other`
+
+작업 방식:
+- `taxonomy_label` 컬럼을 사람이 채우고,
+- `notes`에 근거/인상적인 패턴을 1-2줄로 남긴다.
+
