@@ -443,3 +443,70 @@ strict data_dir + 5 seeds 기준의 최종 요약이다. 전체 표/추가 분�
 ![](paper_figures/fail1_never_14b.svg)
 
 <!-- AUTO:FINAL_MULTI_SEED_END -->
+
+<!-- AUTO:FINAL_PAPER_BLOCK_START -->
+
+## 5.4 최종 멀티시드 결과 (seed_1..seed_5, strict data_dir)
+
+- Results root: `/mnt/raid6/aa007878/galileo/results/multiseed_20260203_173602`
+- Seeds: seed_1..seed_5 (n=5)
+- Tables (generated): `/mnt/raid6/aa007878/galileo/results/multiseed_20260203_173602/paper_tables_final`
+- Figures (SVG, repo tracked): `paper_figures/`
+
+### Table 1. Initial accuracy (mean±std over seeds)
+
+| test_name | 14b | 7b |
+|---|---|---|
+| arc_easy_validation | 95.09±0.28 (n=5) | 95.12±0.15 (n=5) |
+| gsm8k | 98.14±0.46 (n=5) | 96.76±0.55 (n=5) |
+| squad11_validation | 81.88±1.43 (n=5) | 77.30±0.92 (n=5) |
+| squad20_validation | 79.50±1.50 (n=5) | 76.70±0.59 (n=5) |
+| svamp | 97.60±0.16 (n=5) | 95.29±0.49 (n=5) |
+| triviaqa_rc_validation | 76.84±1.48 (n=5) | 57.78±1.47 (n=5) |
+
+
+### Table 2. Survival@Round5 (mean±std over seeds)
+
+| persona | 14b | 7b |
+|---|---|---|
+| Authority Claim | 48.38±0.25 (n=5) | 40.43±0.65 (n=5) |
+| Strong Pressure | 48.23±0.58 (n=5) | 48.63±0.40 (n=5) |
+| Simple Denial | 53.90±0.75 (n=5) | 51.63±0.56 (n=5) |
+| Logical Trap | 44.39±1.09 (n=5) | 59.84±0.43 (n=5) |
+| Soft Pressure | 66.62±0.71 (n=5) | 70.39±0.48 (n=5) |
+
+
+### Table 3. Recovery (mean±std over seeds)
+
+| persona | 14b | 7b |
+|---|---|---|
+| Authority Claim | 91.32±0.54 (n=5) | 71.74±0.69 (n=5) |
+| Strong Pressure | 88.34±0.62 (n=5) | 76.74±0.44 (n=5) |
+| Simple Denial | 89.52±0.68 (n=5) | 75.43±0.87 (n=5) |
+| Logical Trap | 91.92±0.56 (n=5) | 85.74±0.57 (n=5) |
+| Soft Pressure | 93.31±0.41 (n=5) | 82.52±0.90 (n=5) |
+
+
+### Figure 1. Survival curves (persona-avg, r1..r5)
+
+**Caption (draft):** 멀티시드 평균 기반으로 라운드별 survival curve를 제시한다. GSM8K(수학)는 완만한 하락을 보이는 반면, TriviaQA(OpenQA)는 라운드 진행에 따라 급격한 붕괴가 관찰된다.
+
+![](paper_figures/survival_curve_gsm8k.svg)
+
+![](paper_figures/survival_curve_triviaqa_rc_validation.svg)
+
+### Figure 2. Turn-of-failure summary (never vs fail@1)
+
+**Caption (draft):** persona별로 처음 붕괴가 언제 발생하는지(never-fail vs fail@1)를 요약한다. Soft Pressure는 never-fail 비율이 높고, Authority Claim/Strong Pressure는 상대적으로 early-round 붕괴가 크다.
+
+![](paper_figures/fail1_never_7b.svg)
+
+![](paper_figures/fail1_never_14b.svg)
+
+### 본문에 바로 쓸 핵심 관찰(요약)
+
+- **Scale helps robustness:** 14B는 7B 대비 survival@R5와 recovery가 전반적으로 개선되는 경향이 관찰된다.
+- **Persona ranking (R5):** Soft Pressure가 가장 강건하며, Authority Claim/Strong Pressure가 가장 강한 붕괴를 유발한다(표 2).
+
+<!-- AUTO:FINAL_PAPER_BLOCK_END -->
+
