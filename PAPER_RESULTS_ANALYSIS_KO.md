@@ -578,3 +578,25 @@ Results root: `/mnt/raid6/aa007878/galileo/results/multiseed_20260203_173602`
 - `taxonomy_label` 컬럼을 사람이 채우고,
 - `notes`에 근거/인상적인 패턴을 1-2줄로 남긴다.
 
+
+<!-- AUTO:ATTENTION_PROBE_START -->
+
+## 10. Attention probe (single-forward, truncated)
+
+아래는 실험 로그에서 대화 입력을 재구성한 뒤, Transformers로 `output_attentions=True` 단일 forward를 수행하여 attention을 요약한 결과이다.
+
+주의: attention은 O(L^2)이므로 마지막 256 tokens로 truncate한 근사치이며, *메커니즘 힌트*를 제공하는 용도이다.
+
+### qwen7b_seed1_triviaqa_len256.csv
+
+- N(fail)=20, N(survive)=20
+- Entropy(last token, last layer): fail 3.787±0.242 vs survive 3.919±0.212 (Δ=-0.132)
+- Mass(to last user span): fail 0.391±0.055 vs survive 0.353±0.033 (Δ=+0.038)
+
+### qwen7b_seed1_gsm8k_len256.csv
+
+- N(fail)=20, N(survive)=20
+- Entropy(last token, last layer): fail 3.104±0.534 vs survive 3.598±0.359 (Δ=-0.494)
+- Mass(to last user span): fail 0.403±0.061 vs survive 0.340±0.043 (Δ=+0.063)
+
+<!-- AUTO:ATTENTION_PROBE_END -->

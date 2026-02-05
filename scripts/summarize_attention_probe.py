@@ -58,7 +58,7 @@ def main():
         m_s_m, m_s_s = mean_std(by["survive"]["mass"])
 
         blocks.append(f"### {p.name}\n\n")
-        blocks.append(f"- N(fail)={len(by[fail][entropy])}, N(survive)={len(by[survive][entropy])}\n")
+        blocks.append(f"- N(fail)={len(by['fail']['entropy'])}, N(survive)={len(by['survive']['entropy'])}\n")
         if ent_f_m is not None and ent_s_m is not None:
             blocks.append(f"- Entropy(last token, last layer): fail {ent_f_m:.3f}±{ent_f_s:.3f} vs survive {ent_s_m:.3f}±{ent_s_s:.3f} (Δ={ent_f_m-ent_s_m:+.3f})\n")
         if m_f_m is not None and m_s_m is not None:
