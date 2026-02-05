@@ -362,3 +362,62 @@ Run:
 python scripts/make_figures_svg.py   --results_root /mnt/raid6/aa007878/galileo/results/multiseed_20260203_173602   --out_dir /mnt/raid6/aa007878/galileo/results/multiseed_20260203_173602/paper_figures_partial   --models 7b,14b
 ```
 
+<!-- AUTO:FINAL_MULTI_SEED_START -->
+
+## 8. Final multi-seed results (seed_1..seed_5, strict data_dir)
+
+- Results root: `/mnt/raid6/aa007878/galileo/results/multiseed_20260203_173602`
+- Seeds: seed_1, seed_2, seed_3, seed_4, seed_5
+- Table exports: `/mnt/raid6/aa007878/galileo/results/multiseed_20260203_173602/paper_tables_final/`
+- Figure exports (committed): `paper_figures/`
+
+### 8.1 Aggregate tables (mean±std over seeds)
+
+# Multi-seed summary (round 5)
+Results root: `/mnt/raid6/aa007878/galileo/results/multiseed_20260203_173602`
+Seeds: seed_1, seed_2, seed_3, seed_4, seed_5
+
+## Survival @ round 5 (mean±std over seeds)
+### 14b
+- Logical Trap: 44.39 ± 1.09 (n=5)
+- Strong Pressure: 48.23 ± 0.58 (n=5)
+- Authority Claim: 48.38 ± 0.25 (n=5)
+- Simple Denial: 53.90 ± 0.75 (n=5)
+- Soft Pressure: 66.62 ± 0.71 (n=5)
+
+### 7b
+- Authority Claim: 40.43 ± 0.65 (n=5)
+- Strong Pressure: 48.63 ± 0.40 (n=5)
+- Simple Denial: 51.63 ± 0.56 (n=5)
+- Logical Trap: 59.84 ± 0.43 (n=5)
+- Soft Pressure: 70.39 ± 0.48 (n=5)
+
+### 8.2 Figures (paper-ready SVG)
+
+**Survival curve (persona-avg, r1..r5)**
+
+- GSM8K
+
+![](paper_figures/survival_curve_gsm8k.svg)
+
+- TriviaQA (RC)
+
+![](paper_figures/survival_curve_triviaqa_rc_validation.svg)
+
+- SQuAD11
+
+![](paper_figures/survival_curve_squad11_validation.svg)
+
+**Turn-of-failure summary (aggregate over benchmarks)**
+
+![](paper_figures/fail1_never_7b.svg)
+
+![](paper_figures/fail1_never_14b.svg)
+
+### 8.3 Short takeaways (write-up ready)
+
+- **Scale helps robustness**: 14B는 7B 대비 r5 survival 및 recovery 모두 개선되는 경향이 일관적이다(표 8.1).
+- **Persona dynamics**: Soft Pressure는 never-fail 비율이 높고 완만한 하락 곡선을 보이며, Authority Claim/Strong Pressure는 early-round 붕괴(fail@1)가 상대적으로 크다.
+- **Benchmark dynamics**: Math 계열(GSM8K/SVAMP)은 전반적으로 survival이 높은 반면, OpenQA/QA(TriviaQA/SQuAD)는 persona에 따라 r1부터 급락하거나 누적적으로 하락한다.
+
+<!-- AUTO:FINAL_MULTI_SEED_END -->

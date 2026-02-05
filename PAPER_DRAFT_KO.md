@@ -422,3 +422,24 @@ python scripts/paper_export.py \
 - 결과 요약(표준 라이브러리만 사용):
   - `scripts/summarize_results.py`
 
+<!-- AUTO:FINAL_MULTI_SEED_START -->
+
+## (추가) 최종 멀티시드 결과 스냅샷 (seed_1..seed_5)
+
+strict data_dir + 5 seeds 기준의 최종 요약이다. 전체 표/추가 분석은 `PAPER_RESULTS_ANALYSIS_KO.md`의 Section 8을 참조.
+
+- Results root: `/mnt/raid6/aa007878/galileo/results/multiseed_20260203_173602`
+
+### Survival curve 예시
+
+![](paper_figures/survival_curve_gsm8k.svg)
+
+![](paper_figures/survival_curve_triviaqa_rc_validation.svg)
+
+### Turn-of-failure (never vs fail@1)
+
+![](paper_figures/fail1_never_7b.svg)
+
+![](paper_figures/fail1_never_14b.svg)
+
+<!-- AUTO:FINAL_MULTI_SEED_END -->
