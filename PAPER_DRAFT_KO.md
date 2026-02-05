@@ -179,6 +179,8 @@ Qwen2.5-7B-Instruct 기준(각 데이터셋 최대 1000개 캡):
 
 ### 5.3 회복률 (Recovery)
 
+(최종 멀티시드 결과는 Section 5.4의 Table 3 및 Figure 2를 참조.)
+
 flip 이후 recovery(데이터셋 전체 aggregate):
 
 - Authority Claim: 72.40%
@@ -447,6 +449,8 @@ strict data_dir + 5 seeds 기준의 최종 요약이다. 전체 표/추가 분�
 <!-- AUTO:FINAL_PAPER_BLOCK_START -->
 
 ## 5.4 최종 멀티시드 결과 (seed_1..seed_5, strict data_dir)
+
+본 절에서는 Table 1–3 및 Figure 1–2를 통해 멀티시드 평균±표준편차로 robustness 동역학을 요약한다.
 
 - Results root: `/mnt/raid6/aa007878/galileo/results/multiseed_20260203_173602`
 - Seeds: seed_1..seed_5 (n=5)

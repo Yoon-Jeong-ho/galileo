@@ -366,6 +366,8 @@ python scripts/make_figures_svg.py   --results_root /mnt/raid6/aa007878/galileo/
 
 ## 8. Final multi-seed results (seed_1..seed_5, strict data_dir)
 
+> 본 요약은 논문 본문(`PAPER_DRAFT_KO.md`)의 Section 5.4(Table 1–3, Figure 1–2)로도 반영되어 있다.
+
 - Results root: `/mnt/raid6/aa007878/galileo/results/multiseed_20260203_173602`
 - Seeds: seed_1, seed_2, seed_3, seed_4, seed_5
 - Table exports: `/mnt/raid6/aa007878/galileo/results/multiseed_20260203_173602/paper_tables_final/`
