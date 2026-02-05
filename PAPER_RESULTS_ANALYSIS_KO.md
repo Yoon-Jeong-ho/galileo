@@ -423,3 +423,136 @@ Seeds: seed_1, seed_2, seed_3, seed_4, seed_5
 - **Benchmark dynamics**: Math 계열(GSM8K/SVAMP)은 전반적으로 survival이 높은 반면, OpenQA/QA(TriviaQA/SQuAD)는 persona에 따라 r1부터 급락하거나 누적적으로 하락한다.
 
 <!-- AUTO:FINAL_MULTI_SEED_END -->
+
+
+<!-- AUTO:TOF_DATASET_TABLE_START -->
+
+## 8.X Dataset×Persona Turn-of-failure (never / fail@1, mean±std over seeds)
+
+Results root: `/mnt/raid6/aa007878/galileo/results/multiseed_20260203_173602`
+
+### 7B
+
+#### arc_easy_validation
+
+| persona | never | fail@1 |
+|---|---:|---:|
+| Authority Claim | 11.51±0.67 | 54.11±2.36 |
+| Strong Pressure | 39.25±2.42 | 29.03±3.00 |
+| Simple Denial | 41.64±2.36 | 23.68±1.06 |
+| Logical Trap | 43.16±2.84 | 10.48±1.53 |
+| Soft Pressure | 33.71±1.94 | 17.93±1.30 |
+
+#### gsm8k
+
+| persona | never | fail@1 |
+|---|---:|---:|
+| Authority Claim | 67.82±1.25 | 11.51±0.45 |
+| Strong Pressure | 87.97±0.68 | 4.01±0.92 |
+| Simple Denial | 89.66±0.67 | 4.07±0.55 |
+| Logical Trap | 90.10±0.55 | 3.90±0.48 |
+| Soft Pressure | 87.95±0.87 | 3.08±0.28 |
+
+#### squad11_validation
+
+| persona | never | fail@1 |
+|---|---:|---:|
+| Authority Claim | 22.75±0.97 | 48.83±1.25 |
+| Strong Pressure | 28.07±1.43 | 31.25±1.40 |
+| Simple Denial | 32.31±1.64 | 33.16±2.46 |
+| Logical Trap | 32.77±1.55 | 25.88±0.83 |
+| Soft Pressure | 68.76±0.97 | 9.88±0.62 |
+
+#### squad20_validation
+
+| persona | never | fail@1 |
+|---|---:|---:|
+| Authority Claim | 21.87±1.27 | 50.68±2.12 |
+| Strong Pressure | 26.21±1.29 | 34.88±1.90 |
+| Simple Denial | 30.06±1.45 | 35.76±2.56 |
+| Logical Trap | 31.27±2.34 | 29.20±0.69 |
+| Soft Pressure | 64.17±0.84 | 11.69±0.73 |
+
+#### svamp
+
+| persona | never | fail@1 |
+|---|---:|---:|
+| Authority Claim | 78.68±1.23 | 6.80±0.98 |
+| Strong Pressure | 83.06±1.36 | 5.19±0.66 |
+| Simple Denial | 87.95±0.49 | 5.13±0.38 |
+| Logical Trap | 92.56±0.56 | 2.85±0.51 |
+| Soft Pressure | 89.84±1.96 | 2.64±0.72 |
+
+#### triviaqa_rc_validation
+
+| persona | never | fail@1 |
+|---|---:|---:|
+| Authority Claim | 25.47±2.42 | 49.82±2.79 |
+| Strong Pressure | 8.07±2.08 | 38.45±1.04 |
+| Simple Denial | 8.78±0.89 | 45.12±1.96 |
+| Logical Trap | 61.24±2.73 | 15.35±0.52 |
+| Soft Pressure | 63.24±2.37 | 14.37±1.31 |
+
+### 14B
+
+#### arc_easy_validation
+
+| persona | never | fail@1 |
+|---|---:|---:|
+| Authority Claim | 54.21±0.78 | 23.76±1.06 |
+| Strong Pressure | 27.16±1.14 | 18.93±1.49 |
+| Simple Denial | 46.68±1.99 | 14.02±2.51 |
+| Logical Trap | 47.75±1.61 | 21.96±1.02 |
+| Soft Pressure | 53.29±2.07 | 13.73±1.78 |
+
+#### gsm8k
+
+| persona | never | fail@1 |
+|---|---:|---:|
+| Authority Claim | 71.51±0.98 | 9.36±1.19 |
+| Strong Pressure | 81.76±0.77 | 2.04±0.45 |
+| Simple Denial | 83.92±1.28 | 1.59±0.29 |
+| Logical Trap | 52.75±2.04 | 10.46±0.92 |
+| Soft Pressure | 93.11±0.48 | 2.24±0.37 |
+
+#### squad11_validation
+
+| persona | never | fail@1 |
+|---|---:|---:|
+| Authority Claim | 19.08±1.63 | 52.55±1.67 |
+| Strong Pressure | 26.42±0.78 | 33.72±0.69 |
+| Simple Denial | 31.84±1.11 | 39.00±0.84 |
+| Logical Trap | 27.42±2.45 | 48.57±2.65 |
+| Soft Pressure | 49.58±1.13 | 28.36±1.35 |
+
+#### squad20_validation
+
+| persona | never | fail@1 |
+|---|---:|---:|
+| Authority Claim | 18.36±1.14 | 54.70±1.16 |
+| Strong Pressure | 24.72±1.00 | 35.70±0.53 |
+| Simple Denial | 28.35±0.75 | 42.67±0.70 |
+| Logical Trap | 24.87±1.87 | 53.19±1.81 |
+| Soft Pressure | 46.55±0.64 | 30.68±1.62 |
+
+#### svamp
+
+| persona | never | fail@1 |
+|---|---:|---:|
+| Authority Claim | 83.64±0.62 | 5.62±0.07 |
+| Strong Pressure | 89.40±1.29 | 1.99±0.38 |
+| Simple Denial | 91.22±0.69 | 1.52±0.61 |
+| Logical Trap | 78.13±1.39 | 4.48±0.99 |
+| Soft Pressure | 93.82±0.76 | 2.40±0.49 |
+
+#### triviaqa_rc_validation
+
+| persona | never | fail@1 |
+|---|---:|---:|
+| Authority Claim | 45.57±1.04 | 34.56±1.41 |
+| Strong Pressure | 30.75±1.11 | 35.57±1.34 |
+| Simple Denial | 36.95±1.15 | 34.30±1.06 |
+| Logical Trap | 39.51±2.04 | 33.20±1.39 |
+| Soft Pressure | 56.63±3.16 | 23.82±1.50 |
+
+<!-- AUTO:TOF_DATASET_TABLE_END -->
