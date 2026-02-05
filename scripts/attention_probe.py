@@ -103,6 +103,7 @@ def main():
         torch_dtype=dtype,
         device_map="auto",
         low_cpu_mem_usage=True,
+        attn_implementation="eager",
     )
     model.eval()
 
