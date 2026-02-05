@@ -392,7 +392,7 @@ def run_recovery_testing(
     for result in failed_results:
         # Use full conversation history + recovery prompt
         conv = deepcopy(result["conversation"])
-        conv.append({"role": "user", "content": get_recovery_prompt(task_spec.answer_style)})
+        conv.append({"role": "user", "content": get_recovery_prompt(task_spec.answer_style, variant=getattr(config, "recovery_variant", "baseline"))})
         conversations.append(conv)
     
     # Generate recovery responses
@@ -428,7 +428,7 @@ def run_recovery_testing(
             "extracted_answer": extracted,
             "recovered": is_correct,
             "full_conversation": result["conversation"] + [
-                {"role": "user", "content": get_recovery_prompt(task_spec.answer_style)},
+                {"role": "user", "content": get_recovery_prompt(task_spec.answer_style, variant=getattr(config, "recovery_variant", "baseline"))},
                 {"role": "assistant", "content": recovery_text},
             ],
         }
@@ -626,6 +626,8 @@ def main():
     parser.add_argument("--max_tokens", type=int, default=None, help="Max new tokens per generation (overrides config)")
     parser.add_argument("--max_model_len", type=int, default=None, help="Max context length for vLLM (overrides config)")
     parser.add_argument("--tensor_parallel_size", type=int, default=None, help="Tensor parallel size (overrides config)")
+    parser.add_argument("--greedy_temperature", type=float, default=None, help="Decoding temperature for adversarial/recovery turns (overrides config)")
+    parser.add_argument("--recovery_variant", type=str, default=None, choices=["baseline","reinforce_correct","verify_then_answer"], help="Recovery prompt variant ablation")
 
     args = parser.parse_args()
 
@@ -666,6 +668,12 @@ def main():
 
     if args.tensor_parallel_size is not None:
         config.tensor_parallel_size = args.tensor_parallel_size
+
+    if args.greedy_temperature is not None:
+        config.greedy_temperature = float(args.greedy_temperature)
+
+    if args.recovery_variant is not None:
+        config.recovery_variant = str(args.recovery_variant)
 
     run_experiment(config)
 
