@@ -34,7 +34,7 @@
 
 대규모 언어모델(LLM)은 사용자와의 상호작용에서 설득, 권위 주장, 반복 부정 등 다양한 형태의 **사회적 압박(social pressure)**을 받을 때, 정답이 존재하는 과제에서도 기존에 도달했던 정답을 철회하거나 오답으로 전향하는 현상이 관찰된다. 관련 문헌은 sycophancy(사용자 동조) 및 persuasion을 보고하지만(예: Sharma et al., 2025; Fanous et al., 2025; Huang et al., 2026), 정답 기반 과제에서 이러한 붕괴가 **어느 라운드에서 처음 발생하는지(turn-of-failure)**, 이후 압박이 누적될 때 **생존 곡선(survival curve)**이 어떻게 형성되는지, 그리고 **회복(recovery)**이 가능한지까지를 한 프로토콜로 재현 가능하게 측정하는 공개 파이프라인은 상대적으로 부족하다.
 
-본 논문에서는 **GALILEO**를 제안한다. GALILEO는 (1) 정답이 있는 문제(수학, extractive QA, MCQA, open-domain QA)에 대해 초기 정답성을 평가하고, (2) 다섯 가지 adversarial persona(Soft Pressure, Simple Denial, Strong Pressure, Authority Claim, Logical Trap)를 **최대 5라운드** 적용하여 라운드별 정답 유지율을 측정하며, (3) 오답으로 전향한 샘플에 대해 회복 프롬프트를 제공하여 회복률을 평가한다. 또한 모든 태스크에서 최종 답을 `oxed{...}`로 표준화하여 자동 채점의 안정성과 비교 가능성을 확보한다.
+본 논문에서는 **GALILEO**를 제안한다. GALILEO는 (1) 정답이 있는 문제(수학, extractive QA, MCQA, open-domain QA)에 대해 초기 정답성을 평가하고, (2) 다섯 가지 adversarial persona(Soft Pressure, Simple Denial, Strong Pressure, Authority Claim, Logical Trap)를 **최대 5라운드** 적용하여 라운드별 정답 유지율을 측정하며, (3) 오답으로 전향한 샘플에 대해 회복 프롬프트를 제공하여 회복률을 평가한다. 또한 모든 태스크에서 최종 답을 `\boxed{...}`로 표준화하여 자동 채점의 안정성과 비교 가능성을 확보한다.
 
 초기 실험 스냅샷(예: Qwen2.5-7B-Instruct, TP=4, max context 16k)에서는, (i) persona에 따라 붕괴가 가속/지연되는 **라운드별 동역학의 차이**, (ii) 태스크 불확실성(예: open-domain QA)이 생존성을 급격히 저하시키는 경향, (iii) 전향 이후 회복이 태스크/설정에 따라 상이하게 나타나는 패턴을 확인했다. GALILEO는 정답 기반 멀티턴 상호작용에서 LLM의 **belief-consistency 취약성**과 **회복 가능성**을 체계적으로 측정하는 벤치마크/파이프라인으로 활용될 수 있다.
 
@@ -61,7 +61,7 @@ LLM은 사용자 중심 응답, 공감적 대화, 고품질 추론을 위해 인
 
 1. **정답 기반 멀티턴 동역학 평가의 정식화**: 초기 정답 샘플을 대상으로 persona 압박을 라운드별로 적용해 **survival curve**를 측정하고, 최초 붕괴 시점(**turn-of-failure**) 및 전향 이후 **recovery**까지 동일한 프로토콜에서 계량화한다.
 2. **다중 태스크 통합(ground-truth 가능한 과제군)**: 수학(GSM8K/SVAMP), extractive QA(SQuAD 1.1/2.0), MCQA(ARC-Easy), open-domain QA(TriviaQA) 등 서로 다른 태스크군을 **하나의 실행/로그/평가 체계**로 통합한다.
-3. **평가 안정성을 위한 출력 표준화**: 모든 태스크에서 최종 답을 `oxed{...}`로 요구하고, evaluator는 boxed를 우선 추출해 채점하여 multi-turn 로그에서도 일관된 스코어링이 가능하도록 한다.
+3. **평가 안정성을 위한 출력 표준화**: 모든 태스크에서 최종 답을 `\boxed{...}`로 요구하고, evaluator는 boxed를 우선 추출해 채점하여 multi-turn 로그에서도 일관된 스코어링이 가능하도록 한다.
 4. **재현 가능한 연구 산출물(A/B/C 파이프라인)**: strict 데이터 디렉토리(legacy 혼입 방지), 멀티시드 집계(mean±std), paper export(표/그림/SVG)까지 포함한 end-to-end 워크플로우를 제공한다.
 
 ---
@@ -113,7 +113,7 @@ LLM은 사용자 중심 응답, 공감적 대화, 고품질 추론을 위해 인
 
 - **수학 (math)**
   - 입력: `{"question": "...", "answer": "..."}` 또는 유사 필드
-  - 정답 추출: `\boxed{...}` 안의 최종 답으로 정규화
+  - 정답 추출: `\b\boxed{...}` 안의 최종 답으로 정규화
 
 - **QA (qa)**
   - 입력: `{"task": "qa", "question": "...", "answers": ["a1", "a2", ...]}`
@@ -151,7 +151,7 @@ LLM은 사용자 중심 응답, 공감적 대화, 고품질 추론을 위해 인
 
 ### 3.4 출력 포맷 및 평가기
 
-- 모든 태스크에서 최종 답은 `\boxed{...}`로 강제한다.
+- 모든 태스크에서 최종 답은 `\b\boxed{...}`로 강제한다.
 - 추론/설명(CoT)은 박스 밖에 허용하되, 평가기는 boxed를 우선 추출한다.
 - 출력:
   - JSONL 로그: `*_initial.jsonl`, `*_adversarial.jsonl`, `*_recovery.jsonl`
