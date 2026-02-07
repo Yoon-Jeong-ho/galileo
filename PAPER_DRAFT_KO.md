@@ -41,8 +41,6 @@
 
 ---
 
----
-
 ## 1. 서론 (Introduction)
 
 ### 1.1 문제의식
@@ -65,8 +63,6 @@ LLM은 사용자 중심 응답, 공감적 대화, 고품질 추론을 위해 인
 2. **다중 태스크 통합(ground-truth 가능한 과제군)**: 수학(GSM8K/SVAMP), extractive QA(SQuAD 1.1/2.0), MCQA(ARC-Easy), open-domain QA(TriviaQA) 등 서로 다른 태스크군을 **하나의 실행/로그/평가 체계**로 통합한다.
 3. **평가 안정성을 위한 출력 표준화**: 모든 태스크에서 최종 답을 `oxed{...}`로 요구하고, evaluator는 boxed를 우선 추출해 채점하여 multi-turn 로그에서도 일관된 스코어링이 가능하도록 한다.
 4. **재현 가능한 연구 산출물(A/B/C 파이프라인)**: strict 데이터 디렉토리(legacy 혼입 방지), 멀티시드 집계(mean±std), paper export(표/그림/SVG)까지 포함한 end-to-end 워크플로우를 제공한다.
-
----
 
 ---
 
