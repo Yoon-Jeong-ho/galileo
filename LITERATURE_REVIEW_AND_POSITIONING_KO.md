@@ -181,3 +181,8 @@ cd galileo
 - PERSIST: https://arxiv.org/html/2508.04826v1
 - PTCBench: https://arxiv.org/html/2602.00016
 - BrokenMath: https://arxiv.org/abs/2510.04721
+
+
+## Comparison table (quick)
+
+(See PAPER_DRAFT_KO.md Section 2.4 for the full table.)

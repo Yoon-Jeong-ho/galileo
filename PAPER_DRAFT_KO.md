@@ -69,15 +69,40 @@ LLM은 사용자 중심 응답, 공감적 대화, 고품질 추론을 위해 인
 
 > 관련연구/포지셔닝 상세 메모: `LITERATURE_REVIEW_AND_POSITIONING_KO.md` (지속 업데이트)
 
+본 연구는 (i) **sycophancy(사용자 동조로 정답/진실을 희생)**, (ii) **persuasive conversation에 의한 belief vulnerability**, (iii) **persona/personality stability** 문헌군과 맞닿아 있다. GALILEO는 이들을 정답 기반 태스크에서의 **multi-turn dynamics(라운드별 survival/turn-of-failure) + recovery**라는 단일 프로토콜로 연결해, 비교 가능성과 재현성을 강화한다.
 
-> 초안: 실제 제출 시에는 최신 정렬/설득/일관성/사실성 평가 문헌을 정리해 인용 추가 필요.
+### 2.1 Sycophancy: 사용자 동조로 정답/진실을 희생
 
-- **LLM 정렬과 순응성**: RLHF/선호학습이 사용자 선호에 맞추는 과정에서 사실성보다 정중함/동조가 강화될 수 있음.
-- **설득/권위 기반 공격**: 권위 주장, 사회적 압박, 논리적 함정 등을 통해 모델의 결정을 흔드는 시나리오.
-- **사실성/환각 평가**: 모델이 답을 바꾸는 현상은 환각과도 관련되지만, 본 연구는 *정답이 있는 태스크에서 멀티턴 압박에 의해 정답 유지가 붕괴되는 동역학*에 초점을 둔다.
-- **멀티턴 평가**: 멀티턴 대화에서의 일관성/안전성 평가가 증가하고 있으나, 정답 기반 survival/recovery를 통합한 공개 파이프라인은 제한적.
+- **Sharma et al., “Towards Understanding Sycophancy in Language Models” (2023)**는 RLHF가 사용자 신념에 맞춘 출력을 유도할 수 있으며, 다양한 생성 태스크에서 sycophancy가 나타남을 보이고, preference data/PM 최적화가 이를 일부 강화할 수 있음을 분석한다. 이 라인은 “왜 모델이 틀린 방향으로도 쉽게 동조하는가”에 대한 학습적 동인을 제공한다. (https://arxiv.org/html/2310.13548v1)
 
----
+- **SycEval (2025)**은 수학/의료 QA에서 rebuttal을 통해 응답 전환을 측정하며, *regressive/progressive sycophancy*를 구분한다. GALILEO는 이 관찰을 (a) persona 기반 압박을 **최대 5라운드로 반복**, (b) 언제 무너지는지(turn-of-failure)와 (c) 무너진 뒤 회복(recovery)까지 확장한다. (https://arxiv.org/html/2502.08177v2)
+
+- **ELEPHANT (2025/2026)**는 정답이 없는 open-ended 맥락에서 face-preservation을 social sycophancy로 정의하고 벤치마크를 제시한다. GALILEO는 정답이 있는 태스크에서 동역학을 계량화하여 평가 안정성을 확보하며, 정성 분석(hedging/deference 등)에서 ELEPHANT의 face theory와 연결 가능한 해석 축을 제공한다. (https://arxiv.org/abs/2505.13995)
+
+- **BrokenMath (2025)**는 theorem proving 문맥에서 sycophantic proof 생성 문제를 다룬다. GALILEO는 proof-level이 아닌 범용 정답 태스크(math/QA/MCQA/OpenQA)에서 multi-turn 압박과 recovery까지 포함하여, 더 넓은 실사용형 setting을 커버한다. (https://arxiv.org/abs/2510.04721)
+
+### 2.2 Persuasive conversation / belief vulnerability
+
+- **Huang et al., “Vulnerability of LLMs’ Belief Systems? …” (2026)**는 SMCR 프레임워크로 persuasion 전략을 체계화하고, 모델/도메인별로 belief change의 시점(특히 early-turn 붕괴)과 meta-cognition prompting의 역효과를 보고한다. GALILEO의 turn-of-failure 및 persona taxonomy는 이 라인과 직접 연결되며, 정답 기반 채점으로 보다 재현 가능한 비교가 가능하다. (https://arxiv.org/html/2601.13590)
+
+### 2.3 Persona/personality stability/instability
+
+- **PERSIST (2025)**는 prompt variation/CoT/history 등이 personality 측정의 instability를 키울 수 있음을 대규모로 보여준다. 이는 multi-turn history가 길어질수록 취약성이 커질 수 있다는 GALILEO의 동역학적 관찰을 뒷받침하는 메타-근거로 활용될 수 있다. (https://arxiv.org/html/2508.04826v1)
+
+- **PTCBench (2026)**는 상황/이벤트 맥락 변화가 personality traits를 변화시키는지 평가한다. GALILEO는 “상황=압박 persona”로 재해석할 수 있으나, personality trait 대신 **정답 기반 belief consistency**를 타깃으로 한다는 점에서 차별화된다. (https://arxiv.org/html/2602.00016)
+
+### 2.4 비교표(Setting/Metric 관점)
+
+| Work | Core setting | Multi-turn | Ground-truth | Dynamics (curve / TOF) | Recovery | Notes vs GALILEO |
+|---|---|---:|---:|---:|---:|---|
+| Sharma et al. 2023 (Sycophancy) | RLHF 모델의 동조 성향 분석 | 일부 | 부분 | 제한적 | ✗ | 학습/선호가 동조를 유도하는 원인 축 제공 |
+| SycEval 2025 | rebuttal로 sycophancy 측정 (math/medical) | ✓ | ✓ | 제한적 | ✗ | GALILEO는 persona×라운드×recovery로 확장 |
+| ELEPHANT 2025 | social sycophancy (face) | 일부 | ✗ | 제한적 | ✗ | GALILEO 정성 분석을 face theory와 연결 가능 |
+| Huang et al. 2026 (SMCR) | persuasion 전략/시점 | ✓ | 일부 | ✓ (when) | 부분 | GALILEO는 정답 기반으로 더 안정적 비교 가능 |
+| PERSIST 2025 | personality instability | ✓ | ✗ | ✓ | ✗ | “왜 multi-turn에서 흔들리는가” 메타-근거 |
+| PTCBench 2026 | context-induced trait change | ✓ | ✗ | ✓ | ✗ | 상황 변화 vs 압박 persona의 대응 관계 |
+| BrokenMath 2025 | theorem proving sycophancy | ✓ | ✓ | 일부 | ✗ | proof-level; GALILEO는 범용 태스크+recovery |
+
 
 ## 3. GALILEO: 방법 (Method)
 
