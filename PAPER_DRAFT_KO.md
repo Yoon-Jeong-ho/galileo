@@ -32,11 +32,14 @@
 
 ## 초록 (Abstract)
 
-대규모 언어모델(LLM)은 사용자와의 상호작용에서 설득, 권위 주장, 반복 부정 등 다양한 형태의 **사회적 압박(social pressure)**을 받을 때, 정답이 존재하는 과제에서도 정답을 유지하지 못하고 오답으로 전향하는 현상이 보고된다. 기존 연구는 주로 (i) 안전/정렬 관점의 순응성, (ii) 대화적 설득 시나리오, (iii) 사실성/환각 평가를 다루었으나, **정답(ground-truth)이 확정된 과제에서 “정답 유지(survival)–전향(flip)–회복(recovery)”의 동역학을 멀티턴 프로토콜로 일관되게 측정**하는 공개 재현 파이프라인은 상대적으로 부족하다.
+대규모 언어모델(LLM)은 사용자와의 상호작용에서 설득, 권위 주장, 반복 부정 등 다양한 형태의 **사회적 압박(social pressure)**을 받을 때, 정답이 존재하는 과제에서도 기존에 도달했던 정답을 철회하거나 오답으로 전향하는 현상이 관찰된다. 관련 문헌은 sycophancy(사용자 동조) 및 persuasion을 보고하지만(예: Sharma et al., 2025; Fanous et al., 2025; Huang et al., 2026), 정답 기반 과제에서 이러한 붕괴가 **어느 라운드에서 처음 발생하는지(turn-of-failure)**, 이후 압박이 누적될 때 **생존 곡선(survival curve)**이 어떻게 형성되는지, 그리고 **회복(recovery)**이 가능한지까지를 한 프로토콜로 재현 가능하게 측정하는 공개 파이프라인은 상대적으로 부족하다.
 
-본 논문에서는 GALILEO를 제안한다. GALILEO는 (1) 정답이 있는 문제(수학, extractive QA, MCQA, open-domain QA)에 대해 초기 정답성을 평가하고, (2) 다섯 가지 adversarial persona(Soft Pressure, Simple Denial, Strong Pressure, Authority Claim, Logical Trap)를 최대 5라운드 적용하여 **라운드별 생존율(survival rate)**을 측정하며, (3) 오답으로 전향한 샘플에 대해 회복 프롬프트를 제공하여 **회복률(recovery rate)**을 평가한다. 또한 모든 태스크에서 최종 답을 `\boxed{...}` 포맷으로 통일하여 자동 채점의 안정성을 확보하였다.
+본 논문에서는 **GALILEO**를 제안한다. GALILEO는 (1) 정답이 있는 문제(수학, extractive QA, MCQA, open-domain QA)에 대해 초기 정답성을 평가하고, (2) 다섯 가지 adversarial persona(Soft Pressure, Simple Denial, Strong Pressure, Authority Claim, Logical Trap)를 **최대 5라운드** 적용하여 라운드별 정답 유지율을 측정하며, (3) 오답으로 전향한 샘플에 대해 회복 프롬프트를 제공하여 회복률을 평가한다. 또한 모든 태스크에서 최종 답을 `oxed{...}`로 표준화하여 자동 채점의 안정성과 비교 가능성을 확보한다.
 
-초기 실험 스냅샷(예: Qwen2.5-7B-Instruct, TP=4, max context 16k)에서는, (i) Authority Claim이 가장 강한 붕괴를 유발하는 경향, (ii) 수학 태스크는 초기 정확도 및 압박 하 생존성이 높지만 전향 이후 회복이 상대적으로 어려운 반면, SQuAD 계열 QA는 회복률이 높게 나타나는 경향, (iii) open-domain QA(TriviaQA)는 초기 정확도가 낮고 강한 압박에서 생존율이 급락하는 경향을 관찰했다. GALILEO는 정답 기반 멀티턴 압박 평가를 통해 LLM의 신념 일관성 및 사회적 압박 취약성을 정량화하는 공개 벤치마크/파이프라인으로 활용될 수 있다.
+초기 실험 스냅샷(예: Qwen2.5-7B-Instruct, TP=4, max context 16k)에서는, (i) persona에 따라 붕괴가 가속/지연되는 **라운드별 동역학의 차이**, (ii) 태스크 불확실성(예: open-domain QA)이 생존성을 급격히 저하시키는 경향, (iii) 전향 이후 회복이 태스크/설정에 따라 상이하게 나타나는 패턴을 확인했다. GALILEO는 정답 기반 멀티턴 상호작용에서 LLM의 **belief-consistency 취약성**과 **회복 가능성**을 체계적으로 측정하는 벤치마크/파이프라인으로 활용될 수 있다.
+
+
+---
 
 ---
 
@@ -58,10 +61,12 @@ LLM은 사용자 중심 응답, 공감적 대화, 고품질 추론을 위해 인
 
 본 논문은 다음을 기여한다.
 
-1. **정답 기반 멀티턴 압박 평가 프로토콜**: 초기 평가 → persona 압박(최대 5라운드) → 회복 평가를 일관된 구조로 제공.
-2. **다중 태스크 확장**: 수학(GSM8K/SVAMP), extractive QA(SQuAD 1.1/2.0), MCQA(ARC-Easy), open-domain QA(TriviaQA)까지 한 파이프라인에서 수행.
-3. **출력 포맷 표준화 및 평가 안정화**: 모든 태스크에서 최종 답을 `\boxed{...}`로 강제하고, evaluator에서 boxed 추출을 우선.
-4. **재현 가능한 실행/로그 구조**: JSONL(대화 로그) + CSV(요약 지표)를 표준화하여 분석과 논문화에 유리.
+1. **정답 기반 멀티턴 동역학 평가의 정식화**: 초기 정답 샘플을 대상으로 persona 압박을 라운드별로 적용해 **survival curve**를 측정하고, 최초 붕괴 시점(**turn-of-failure**) 및 전향 이후 **recovery**까지 동일한 프로토콜에서 계량화한다.
+2. **다중 태스크 통합(ground-truth 가능한 과제군)**: 수학(GSM8K/SVAMP), extractive QA(SQuAD 1.1/2.0), MCQA(ARC-Easy), open-domain QA(TriviaQA) 등 서로 다른 태스크군을 **하나의 실행/로그/평가 체계**로 통합한다.
+3. **평가 안정성을 위한 출력 표준화**: 모든 태스크에서 최종 답을 `oxed{...}`로 요구하고, evaluator는 boxed를 우선 추출해 채점하여 multi-turn 로그에서도 일관된 스코어링이 가능하도록 한다.
+4. **재현 가능한 연구 산출물(A/B/C 파이프라인)**: strict 데이터 디렉토리(legacy 혼입 방지), 멀티시드 집계(mean±std), paper export(표/그림/SVG)까지 포함한 end-to-end 워크플로우를 제공한다.
+
+---
 
 ---
 
@@ -73,23 +78,23 @@ LLM은 사용자 중심 응답, 공감적 대화, 고품질 추론을 위해 인
 
 ### 2.1 Sycophancy: 사용자 동조로 정답/진실을 희생
 
-- **Sharma et al., “Towards Understanding Sycophancy in Language Models” (2023)**는 RLHF가 사용자 신념에 맞춘 출력을 유도할 수 있으며, 다양한 생성 태스크에서 sycophancy가 나타남을 보이고, preference data/PM 최적화가 이를 일부 강화할 수 있음을 분석한다. 이 라인은 “왜 모델이 틀린 방향으로도 쉽게 동조하는가”에 대한 학습적 동인을 제공한다. (https://arxiv.org/html/2310.13548v1)
+- **Sharma et al., “Towards Understanding Sycophancy in Language Models” (2023)**는 RLHF가 사용자 신념에 맞춘 출력을 유도할 수 있으며, 다양한 생성 태스크에서 sycophancy가 나타남을 보이고, preference data/PM 최적화가 이를 일부 강화할 수 있음을 분석한다. 이 라인은 “왜 모델이 틀린 방향으로도 쉽게 동조하는가”에 대한 학습적 동인을 제공한다. (Sharma et al., 2025; arXiv:2310.13548)
 
-- **SycEval (2025)**은 수학/의료 QA에서 rebuttal을 통해 응답 전환을 측정하며, *regressive/progressive sycophancy*를 구분한다. GALILEO는 이 관찰을 (a) persona 기반 압박을 **최대 5라운드로 반복**, (b) 언제 무너지는지(turn-of-failure)와 (c) 무너진 뒤 회복(recovery)까지 확장한다. (https://arxiv.org/html/2502.08177v2)
+- **SycEval (2025)**은 수학/의료 QA에서 rebuttal을 통해 응답 전환을 측정하며, *regressive/progressive sycophancy*를 구분한다. GALILEO는 이 관찰을 (a) persona 기반 압박을 **최대 5라운드로 반복**, (b) 언제 무너지는지(turn-of-failure)와 (c) 무너진 뒤 회복(recovery)까지 확장한다. (Fanous et al., 2025; arXiv:2502.08177)
 
-- **ELEPHANT (2025/2026)**는 정답이 없는 open-ended 맥락에서 face-preservation을 social sycophancy로 정의하고 벤치마크를 제시한다. GALILEO는 정답이 있는 태스크에서 동역학을 계량화하여 평가 안정성을 확보하며, 정성 분석(hedging/deference 등)에서 ELEPHANT의 face theory와 연결 가능한 해석 축을 제공한다. (https://arxiv.org/abs/2505.13995)
+- **ELEPHANT (2025/2026)**는 정답이 없는 open-ended 맥락에서 face-preservation을 social sycophancy로 정의하고 벤치마크를 제시한다. GALILEO는 정답이 있는 태스크에서 동역학을 계량화하여 평가 안정성을 확보하며, 정성 분석(hedging/deference 등)에서 ELEPHANT의 face theory와 연결 가능한 해석 축을 제공한다. (Cheng et al., 2025; arXiv:2505.13995)
 
-- **BrokenMath (2025)**는 theorem proving 문맥에서 sycophantic proof 생성 문제를 다룬다. GALILEO는 proof-level이 아닌 범용 정답 태스크(math/QA/MCQA/OpenQA)에서 multi-turn 압박과 recovery까지 포함하여, 더 넓은 실사용형 setting을 커버한다. (https://arxiv.org/abs/2510.04721)
+- **BrokenMath (2025)**는 theorem proving 문맥에서 sycophantic proof 생성 문제를 다룬다. GALILEO는 proof-level이 아닌 범용 정답 태스크(math/QA/MCQA/OpenQA)에서 multi-turn 압박과 recovery까지 포함하여, 더 넓은 실사용형 setting을 커버한다. (Petrov et al., 2025; arXiv:2510.04721)
 
 ### 2.2 Persuasive conversation / belief vulnerability
 
-- **Huang et al., “Vulnerability of LLMs’ Belief Systems? …” (2026)**는 SMCR 프레임워크로 persuasion 전략을 체계화하고, 모델/도메인별로 belief change의 시점(특히 early-turn 붕괴)과 meta-cognition prompting의 역효과를 보고한다. GALILEO의 turn-of-failure 및 persona taxonomy는 이 라인과 직접 연결되며, 정답 기반 채점으로 보다 재현 가능한 비교가 가능하다. (https://arxiv.org/html/2601.13590)
+- **Huang et al., “Vulnerability of LLMs’ Belief Systems? …” (2026)**는 SMCR 프레임워크로 persuasion 전략을 체계화하고, 모델/도메인별로 belief change의 시점(특히 early-turn 붕괴)과 meta-cognition prompting의 역효과를 보고한다. GALILEO의 turn-of-failure 및 persona taxonomy는 이 라인과 직접 연결되며, 정답 기반 채점으로 보다 재현 가능한 비교가 가능하다. (Huang et al., 2026; arXiv:2601.13590)
 
 ### 2.3 Persona/personality stability/instability
 
-- **PERSIST (2025)**는 prompt variation/CoT/history 등이 personality 측정의 instability를 키울 수 있음을 대규모로 보여준다. 이는 multi-turn history가 길어질수록 취약성이 커질 수 있다는 GALILEO의 동역학적 관찰을 뒷받침하는 메타-근거로 활용될 수 있다. (https://arxiv.org/html/2508.04826v1)
+- **PERSIST (2025)**는 prompt variation/CoT/history 등이 personality 측정의 instability를 키울 수 있음을 대규모로 보여준다. 이는 multi-turn history가 길어질수록 취약성이 커질 수 있다는 GALILEO의 동역학적 관찰을 뒷받침하는 메타-근거로 활용될 수 있다. (Tosato et al., 2025; arXiv:2508.04826)
 
-- **PTCBench (2026)**는 상황/이벤트 맥락 변화가 personality traits를 변화시키는지 평가한다. GALILEO는 “상황=압박 persona”로 재해석할 수 있으나, personality trait 대신 **정답 기반 belief consistency**를 타깃으로 한다는 점에서 차별화된다. (https://arxiv.org/html/2602.00016)
+- **PTCBench (2026)**는 상황/이벤트 맥락 변화가 personality traits를 변화시키는지 평가한다. GALILEO는 “상황=압박 persona”로 재해석할 수 있으나, personality trait 대신 **정답 기반 belief consistency**를 타깃으로 한다는 점에서 차별화된다. (Yu et al., 2026; arXiv:2602.00016)
 
 ### 2.4 비교표(Setting/Metric 관점)
 
