@@ -34,6 +34,7 @@ Recommended artifacts to cite in-paper:
 - [ ] One **decoding sensitivity** sweep (temperature or greedy vs sampling).
 - [ ] One **recovery prompt ablation** (baseline vs variant).
 - [ ] One **qualitative analysis** section with flip examples + taxonomy.
+- [ ] Include a **non-persona drift control** (aka **Neutral Re-asking Control**) reported alongside persona curves/tables.
 
 ## 4) Reproducibility / engineering checklist
 - [ ] Single command (or 2–3 commands) to reproduce the main tables/figures.
