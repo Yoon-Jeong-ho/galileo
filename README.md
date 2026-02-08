@@ -76,6 +76,7 @@ The following numbers are a **single snapshot** from a multi-task run (math + QA
 
 - See: `docs/paper/EMNLP_MAIN_SUBMISSION_CHECKLIST.md` (paper/repo checklist)
 - Paper drafts live under: `docs/paper/` (MD-only workflow)
+- Paper writing index: `docs/paper/README.md`
 
 If you are aiming for an **EMNLP Main**-level submission, the following experiments/analyses are the highest leverage additions beyond the current multi-seed Qwen snapshot.
 
