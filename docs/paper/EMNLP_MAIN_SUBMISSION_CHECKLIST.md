@@ -12,6 +12,7 @@ For each core claim in the Abstract/Intro:
 - [ ] Name the claim (1 sentence).
 - [ ] Point to **one table/figure** that supports it.
 - [ ] Point to **one script/output path** that reproduces it.
+- [ ] For **persona-mechanism claims** (C2-style), ensure the table/figure includes the **Neutral Re-asking Control** as a drift baseline (not persona-only).
 
 Recommended artifacts to cite in-paper:
 - Survival curves: `paper_exports/survival_curve.csv` → plotted figure(s)
