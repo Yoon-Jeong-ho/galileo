@@ -43,9 +43,13 @@ Recommended artifacts to cite in-paper:
 - [ ] Provide a lightweight “smoke test” run (small `NUM_SAMPLES`).
 
 ## 5) Dataset + licensing + release
-- [ ] For each dataset: license/terms noted; download instructions.
-- [ ] Any derived/preprocessed artifacts: documented generation steps.
-- [ ] If releasing new data (personas/prompts/annotations): include license.
+- [ ] For each dataset: **license/terms** noted; download instructions.
+  - [ ] GSM8K: license/terms + citation noted.
+  - [ ] SVAMP: license/terms + citation noted.
+  - [ ] ARC / SQuAD / TriviaQA (if used in main results): license/terms + citation noted.
+- [ ] Any derived/preprocessed artifacts: documented generation steps (script + exact command).
+- [ ] If releasing new data (personas/prompts/annotations/taxonomy labels): include license + intended use.
+- [ ] Usage notes: clarify what is redistributed vs what users must download themselves.
 
 ## 6) Ethics & safety
 - [ ] State what the personas simulate (pressure tactics) and what they do *not*.
@@ -61,6 +65,10 @@ Recommended artifacts to cite in-paper:
 
 ## 8) Final pre-submission pass
 - [ ] Anonymization (if required): remove identifying paths/names.
+  - [ ] Replace absolute paths (e.g., `/mnt/raid6/...`, `/data_x/...`) with generic placeholders.
+  - [ ] Remove hostnames / usernames / Slack IDs / internal machine identifiers from logs and docs.
+  - [ ] Ensure figures/tables do not embed run directory names containing identifying info.
+  - [ ] Double-check `results/**/run.log` before packaging any artifact bundle.
 - [ ] Camera-ready checklist (after acceptance): acknowledgements, ethics, artifacts.
 - [ ] Run spellcheck + consistency checks (persona names, metric names, dataset names).
 
