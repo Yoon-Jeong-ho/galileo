@@ -72,6 +72,28 @@ The following numbers are a **single snapshot** from a multi-task run (math + QA
 
 
 
+## EMNLP Main readiness: remaining experiments (recommended)
+
+If you are aiming for an **EMNLP Main**-level submission, the following experiments/analyses are the highest leverage additions beyond the current multi-seed Qwen snapshot.
+
+1) **Model-family generalization (critical)**
+   - Run at least one additional family (e.g., **Llama-3 8B**, **Mistral 7B**, **EXAONE 3.5**) with the same protocol.
+   - Important: some models have smaller `max_position_embeddings`; clamp `MAX_MODEL_LEN` accordingly to avoid vLLM validation errors.
+
+2) **Recovery prompt ablation (already supported)**
+   - Compare `--recovery_variant baseline|reinforce_correct|verify_then_answer`.
+   - Report recovery differences (mean±std) and discuss intervention sensitivity.
+
+3) **Temperature sweep (robustness vs stochasticity)**
+   - Run temperature ∈ {0.0 (greedy), 0.7, 1.0} using `--greedy_temperature` (or the family runner).
+
+4) **Taxonomy labeling completion (mechanism evidence)**
+   - Use `paper_exports/flip_samples.csv` → `scripts/make_taxonomy_sheet.py` to produce a balanced labeling sheet.
+   - Report label distribution and link to representative examples.
+
+5) **Uncertainty analysis for open-domain QA**
+   - For TriviaQA, report refusal/hedging patterns and connect to survival collapse under Strong Pressure.
+
 ## Reproducible paper pipeline (A/B/C)
 
 This repo supports a paper-oriented workflow:
