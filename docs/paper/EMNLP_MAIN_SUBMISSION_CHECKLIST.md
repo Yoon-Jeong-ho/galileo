@@ -15,7 +15,9 @@ For each core claim in the Abstract/Intro:
 
 Recommended artifacts to cite in-paper:
 - Survival curves: `paper_exports/survival_curve.csv` → plotted figure(s)
+  - Include rows for personas **and** the **Neutral Re-asking Control** (drift baseline).
 - Turn-of-failure: `paper_exports/turn_of_failure.csv` → table/heatmap
+  - Include control vs persona breakdown where relevant (e.g., Fail@1 / Never-fail).
 - Recovery: `recovery_accuracy.csv` (per run) and aggregated multi-seed tables
 
 ## 2) Paper structure sanity (EMNLP Main)
