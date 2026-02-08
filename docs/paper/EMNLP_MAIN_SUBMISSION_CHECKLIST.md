@@ -54,6 +54,13 @@ Recommended artifacts to cite in-paper:
     - Source: https://github.com/arkilpatel/SVAMP
     - License: MIT (see https://github.com/arkilpatel/SVAMP/blob/main/LICENSE)
   - [ ] ARC / SQuAD / TriviaQA (if used in main results): license/terms + citation noted.
+    - ARC (AI2 Reasoning Challenge):
+      - Dataset card: https://huggingface.co/datasets/allenai/ai2_arc
+      - License: CC BY-SA 4.0 (as listed on the dataset card)
+    - SQuAD:
+      - Source: https://rajpurkar.github.io/SQuAD-explorer/ (check dataset terms/license on the official site)
+    - TriviaQA:
+      - Source: https://nlp.cs.washington.edu/triviaqa/ (check dataset terms/license on the official site)
 - [ ] Any derived/preprocessed artifacts: documented generation steps (script + exact command).
 - [ ] If releasing new data (personas/prompts/annotations/taxonomy labels): include license + intended use.
 - [ ] Usage notes: clarify what is redistributed vs what users must download themselves.
