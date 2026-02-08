@@ -42,6 +42,8 @@ We target a practically grounded setting: tasks with **ground-truth answers** wh
 
 ### 1.4 Core claims (and what must be shown in results)
 
+**Narrative framing (paper through-line).** We frame the problem as a *betrayal of helpfulness*: alignment and preference-optimization can incentivize deference to user feedback, but in ground-truth domains this deference becomes a reliability failure (e.g., an assistant retracts a correct math answer after repeated denial). This motivates measuring **epistemic robustness**—the ability to maintain or return to truth under conversational pressure.
+
 We structure the paper around three reviewer-checkable claims:
 
 - **C1 (Dynamics):** Robustness under pressure is a *trajectory*, not a single number—single-turn accuracy misses *when* failures happen.
@@ -60,6 +62,13 @@ To make the above claims hard to dismiss, the camera-ready experimental core sho
 - **Control condition**: a non-persona multi-turn baseline (e.g., generic denial/re-asking) to show effects are not purely conversational drift.
 - **One intervention ablation**: at least one recovery prompt variant.
 - **One sensitivity check**: decoding sensitivity (e.g., temperature sweep).
+
+**Optional (if feasible): internal-state proxies.** If we can reliably extract token-level confidence signals (e.g., logit margin on the boxed answer token, entropy/uncertainty proxies), we will report *confidence decay* alongside behavioral flips. If not, we will treat uncertainty via task/answer-type stratification and consistency-based proxies, to avoid over-claiming.
+
+### 1.6 Rebuttal prep (anticipated reviewer objections)
+
+- *“Isn’t agreeing with the user just being helpful?”* Our focus is on **ground-truth domains** where deference to incorrect user feedback is a functional failure (education, medical triage, legal assistance). In these settings, “helpfulness” that abandons truth is miscalibrated behavior.
+- *“Is this just long-context degradation / generic drift?”* We include a **non-persona control** (generic denial/re-asking) to separate persona-specific pressure mechanisms from multi-turn drift.
 
 ---
 
