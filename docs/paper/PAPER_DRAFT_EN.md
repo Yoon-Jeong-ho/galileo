@@ -3,6 +3,7 @@
 > Status: **English writing scaffold**. This file is meant to (i) lock down paper-quality phrasing and (ii) make the novelty/metrics unambiguous to reviewers.
 > - Experiments/results/figures are tracked in the repo (`results/`, `paper_figures/`, `scripts/`).
 > - BibTeX entries: `references.bib`.
+> - Section numbers in headings are **placeholders** (we may renumber/remove them during LaTeX conversion).
 
 ---
 
