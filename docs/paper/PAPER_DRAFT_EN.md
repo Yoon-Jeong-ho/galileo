@@ -154,7 +154,42 @@ Tosato et al. (2025) and Yu et al. (2026) report instability in measured traits/
 
 ---
 
-## 7. Reproducibility checklist (what we will guarantee)
+## 7. Results (template)
+
+This section will be populated from the paper-ready exports under each `results/<run>/paper_exports/` directory.
+
+### 7.1 Main robustness dynamics: survival curves
+
+**Figure X (Survival curves).** Persona-wise survival over rounds `r=1..R` on the main benchmark(s).
+
+- Data source: `paper_exports/survival_curve.csv`
+- Suggested caption template:
+  - *“Survival(p, r) on initially-correct examples (mean±std across seeds). Robustness decays monotonically for some personas but exhibits late-turn failures under others, highlighting multi-turn dynamics beyond InitialAcc.”*
+
+### 7.2 When failures happen: turn-of-failure (TOF)
+
+**Table Y (Turn-of-failure distribution).** Distribution over `{1..R, never}` per persona.
+
+- Data source: `paper_exports/turn_of_failure.csv`
+- Suggested caption template:
+  - *“TOF reveals early-turn vulnerability (Fail@1) vs sustained robustness (Never-fail). We compute per-seed percentages then report mean±std across seeds.”*
+
+### 7.3 Recovery after flipping
+
+**Table Z (Recovery accuracy).** Recovery conditional on having flipped under persona pressure.
+
+- Data source(s): `recovery_accuracy.csv` (per run) + aggregated exports under `paper_tables_final/`
+- Suggested caption template:
+  - *“Recovery(p) measures the ability to return to the correct answer after a flip. We report recovery conditional on flip, separating robustness from intervention effects.”*
+
+### 7.4 Cross-task / cross-family generalization (if included in main)
+
+- Report the same survival/TOF/recovery views for additional tasks (QA/MCQA/OpenQA) and at least one additional model family.
+- Keep protocol identical; only swap dataset/model.
+
+---
+
+## 8. Reproducibility checklist (what we will guarantee)
 
 - **Data construction scripts** and a **strict data directory** that excludes legacy/pilot mixtures.
 - **Fixed seeds** with deterministic sampling and per-seed metric computation.
