@@ -109,6 +109,10 @@ run_one() {
   "seed": ${seed}
 }
 JSON
+
+  # Fail fast if exports are incomplete.
+  python scripts/validate_paper_exports.py --results_root "${out_dir}" \
+    2>&1 | tee -a "$out_dir/run.log"
 }
 
 seeds=( $(to_array "${SEEDS}") )
