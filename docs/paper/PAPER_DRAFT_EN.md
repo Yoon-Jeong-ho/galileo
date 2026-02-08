@@ -175,6 +175,15 @@ Huang et al. (2026) systematize persuasion strategies under an SMCR framework an
 ### 6.3 Stability under context
 Tosato et al. (2025) and Yu et al. (2026) report instability in measured traits/personality under prompt and conversation-history variations, supporting the motivation for studying robustness dynamics under accumulating context.
 
+### 6.4 Positioning vs nearby multi-turn sycophancy/robustness benchmarks
+
+Recent benchmarks also probe multi-turn *flip* behavior under disagreement or rebuttals (e.g., SYCON-style multi-turn disagreement, rebuttal-type benchmarks such as SycEval, and long-context degradation studies sometimes framed as “truth decay”). Our intended delta is:
+
+- **Objective ground truth across tasks:** we emphasize settings where correctness is unambiguous (math/MCQA/extractive QA) rather than primarily subjective opinions or social/ethical dilemmas.
+- **Recursive feedback erosion (multi-round):** rather than a single rebuttal, we measure how repeated pressure erodes correctness over rounds (survival/TOF trajectories).
+- **Recovery as a separate axis:** we evaluate recovery *conditional on flip* to separate “staying correct” from “returning to correct after being misled.”
+- **Reproducible exports:** we provide standardized per-run exports (survival/TOF/recovery) so claims can be verified directly from artifacts.
+
 ---
 
 ## 7. Results (template)
