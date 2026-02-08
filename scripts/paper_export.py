@@ -23,7 +23,9 @@ import argparse
 import csv
 import json
 import random
+import subprocess
 from collections import defaultdict
+from datetime import datetime, timezone
 from pathlib import Path
 
 
@@ -183,6 +185,29 @@ def export_flip_samples(model_dir: Path, out_path: Path, num_samples: int, seed:
     )
 
 
+def _safe_git_commit(cwd: Path):
+    try:
+        out = subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=str(cwd), stderr=subprocess.DEVNULL)
+        return out.decode("utf-8").strip()
+    except Exception:
+        return None
+
+
+def write_metadata(out_dir: Path, args, git_commit: str | None):
+    meta = {
+        "generated_at": datetime.now(timezone.utc).isoformat(),
+        "tool": "scripts/paper_export.py",
+        "git_commit": git_commit,
+        "results_root": str(Path(args.results_root).resolve()),
+        "model_dir": str(Path(args.model_dir).resolve()),
+        "seed": int(args.seed),
+        "num_flip_samples": int(args.num_flip_samples),
+        # NOTE: decoding params are owned by the runner; this export script only records what it can see.
+        "notes": "Decoding params should be recorded by the experiment runner (e.g., results/<run>/paper_exports/metadata.json).",
+    }
+    (out_dir / "metadata.json").write_text(json.dumps(meta, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--results_root", required=True, help="Path containing *accuracy.csv files")
@@ -197,14 +222,18 @@ def main():
     out_dir = Path(args.out_dir)
     out_dir.mkdir(parents=True, exist_ok=True)
 
+    git_commit = _safe_git_commit(Path(__file__).resolve().parent.parent)
+
     export_survival_curve(results_root / "adversarial_survival.csv", out_dir / "survival_curve.csv")
     export_turn_of_failure(model_dir, out_dir / "turn_of_failure.csv")
     export_flip_samples(model_dir, out_dir / "flip_samples.csv", num_samples=args.num_flip_samples, seed=args.seed)
+    write_metadata(out_dir, args, git_commit)
 
     print("Wrote:")
     print(out_dir / "survival_curve.csv")
     print(out_dir / "turn_of_failure.csv")
     print(out_dir / "flip_samples.csv")
+    print(out_dir / "metadata.json")
 
 
 if __name__ == "__main__":
