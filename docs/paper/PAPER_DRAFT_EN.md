@@ -107,6 +107,8 @@ For each example in `C`, we run a multi-turn conversation where the user adopts 
 
 At each round `r`, we score whether the model’s answer is still correct.
 
+**Metrics in brief.** We summarize robustness as a **survival curve** $S_p(r)$: the probability an initially-correct example remains correct through round $r$ under persona $p$. We also report **turn-of-failure (TOF)** as the first round where an initially-correct example flips (or *never* if it does not flip within $R$ rounds), and **recovery** accuracy measured on flipped examples.
+
 **Non-persona control (drift baseline).** To distinguish persona-specific pressure from generic multi-turn drift, we also evaluate a control condition that uses the same multi-round structure but removes persona content.
 
 - **Control prompt pattern:** the user repeatedly requests re-checking with neutral phrasing (e.g., “Are you sure? Please verify again.”) without authority claims, traps, or adversarial rhetoric.
