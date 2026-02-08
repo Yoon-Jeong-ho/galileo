@@ -59,7 +59,7 @@ To make the above claims hard to dismiss, the camera-ready experimental core sho
 
 - **Multi-seed** (report mean±std) for the main model(s).
 - **≥2 model families** under the same protocol (ideally 3 for stronger generalization).
-- **Control condition**: a non-persona multi-turn baseline (e.g., generic denial/re-asking) to show effects are not purely conversational drift.
+- **Control condition**: the **Neutral Re-asking Control** (a non-persona multi-turn drift baseline; e.g., generic denial/re-asking) to show effects are not purely conversational drift.
 - **One intervention ablation**: at least one recovery prompt variant.
 - **One sensitivity check**: decoding sensitivity (e.g., temperature sweep).
 
