@@ -68,7 +68,7 @@ To make the above claims hard to dismiss, the camera-ready experimental core sho
 ### 1.6 Rebuttal prep (anticipated reviewer objections)
 
 - *“Isn’t agreeing with the user just being helpful?”* Our focus is on **ground-truth domains** where deference to incorrect user feedback is a functional failure (education, medical triage, legal assistance). In these settings, “helpfulness” that abandons truth is miscalibrated behavior.
-- *“Is this just long-context degradation / generic drift?”* We include a **non-persona control** (generic denial/re-asking) to separate persona-specific pressure mechanisms from multi-turn drift.
+- *“Is this just long-context degradation / generic drift?”* We include a **Neutral Re-asking Control** (generic denial/re-asking) to separate persona-specific pressure mechanisms from multi-turn drift.
 
 ---
 
@@ -109,7 +109,7 @@ At each round `r`, we score whether the model’s answer is still correct.
 
 **Metrics in brief.** We summarize robustness as a **survival curve** $S_p(r)$: the probability an initially-correct example remains correct through round $r$ under persona $p$. We also report **turn-of-failure (TOF)** as the first round where an initially-correct example flips (or *never* if it does not flip within $R$ rounds), and **recovery** accuracy measured on flipped examples.
 
-**Non-persona control (drift baseline).** To distinguish persona-specific pressure from generic multi-turn drift, we also evaluate a control condition that uses the same multi-round structure but removes persona content.
+**Neutral Re-asking Control (drift baseline).** To distinguish persona-specific pressure from generic multi-turn drift, we also evaluate a control condition that uses the same multi-round structure but removes persona content.
 
 - **Control prompt pattern:** the user repeatedly requests re-checking with neutral phrasing (e.g., “Are you sure? Please verify again.”) without authority claims, traps, or adversarial rhetoric.
   - Example control utterances:
@@ -202,7 +202,7 @@ Recent benchmarks also probe multi-turn *flip* behavior under disagreement or re
 - **Objective ground truth across tasks:** we emphasize settings where correctness is unambiguous (math/MCQA/extractive QA) rather than primarily subjective opinions or social/ethical dilemmas.
 - **Dynamics-first measurement (multi-round):** rather than a single rebuttal, we measure how repeated pressure erodes correctness over rounds via **survival curves** and **turn-of-failure** trajectories.
 - **Separate solvability from robustness:** we condition dynamics on the **initially-correct** subset to isolate “can the model solve the task?” from “can it *maintain* the correct belief when challenged?”.
-- **Control for generic multi-turn drift:** we include a **non-persona re-asking control** with identical round structure/decoding to attribute gaps to persona mechanisms beyond long-context degradation or conversational variance.
+- **Control for generic multi-turn drift:** we include a **Neutral Re-asking Control** with identical round structure/decoding to attribute gaps to persona mechanisms beyond long-context degradation or conversational variance.
 - **Recovery as a separate axis:** we evaluate **recovery conditional on flipping** (and prompt-variant ablations) to separate “staying correct” from “returning to correct after being misled.”
 - **Reproducible exports:** we provide standardized per-run exports (survival/TOF/recovery) so claims can be verified directly from artifacts.
 
@@ -245,7 +245,7 @@ This section will be populated from the paper-ready exports under each `results/
 
 ### 7.5 Persona pressure vs drift: control comparison (supports C2, rebuttal)
 
-**Table W (Persona vs control).** Compare survival@R and Fail@1 under persona pressure vs the non-persona control condition.
+**Table W (Persona vs control).** Compare survival@R and Fail@1 under persona pressure vs the **Neutral Re-asking Control** condition.
 
 - Data source: `paper_exports/survival_curve.csv` and `paper_exports/turn_of_failure.csv` for both settings.
 - Suggested caption template:
