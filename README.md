@@ -74,6 +74,8 @@ The following numbers are a **single snapshot** from a multi-task run (math + QA
 
 ## EMNLP Main readiness: remaining experiments (recommended)
 
+- See: `EMNLP_MAIN_SUBMISSION_CHECKLIST.md` (paper/repo checklist)
+
 If you are aiming for an **EMNLP Main**-level submission, the following experiments/analyses are the highest leverage additions beyond the current multi-seed Qwen snapshot.
 
 1) **Model-family generalization (critical)**
