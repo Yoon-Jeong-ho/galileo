@@ -163,6 +163,51 @@ Tosato et al. (2025) and Yu et al. (2026) report instability in measured traits/
 
 ---
 
+## 9. Claims → evidence map (reviewer-facing)
+
+This section is written for reviewers: each claim is paired with the *minimum* evidence we will provide (table/figure/analysis) and where it lives in the repo.
+
+### Claim C1: Robustness under pressure is a *multi-turn dynamic*, not a single number
+- Evidence:
+  - **Survival curves** (persona × round) per dataset + aggregated.
+  - **Turn-of-failure (TOF)** distribution (fail@1 / never-fail).
+- Artifacts:
+  - `results/**/paper_exports/survival_curve.csv`
+  - `results/**/paper_exports/turn_of_failure.csv`
+  - `paper_figures/` (SVG survival curves and TOF plots)
+
+### Claim C2: Persona mechanisms induce systematically different failure dynamics
+- Evidence:
+  - Persona-wise survival@R and TOF heatmaps/tables.
+  - Qualitative flip taxonomy with representative examples per persona.
+- Artifacts:
+  - `results/**/paper_tables_final/table_survival_r5.csv`
+  - `results/**/paper_taxonomy/*.csv`
+  - `PAPER_RESULTS_ANALYSIS_KO.md` + `PAPER_RESULTS_QUAL_EXAMPLES_KO.md`
+
+### Claim C3: Recovery is measurable and behaves differently across tasks/personas
+- Evidence:
+  - Recovery accuracy conditional on flip (`Recovery(p)`), with variant ablation.
+- Artifacts:
+  - `results/**/paper_tables_final/table_recovery.csv`
+  - `run_experiment.py --recovery_variant ...` (documented in README)
+
+### Claim C4: The phenomenon generalizes beyond a single model family
+- Evidence:
+  - At least one additional family (e.g., Llama/Mistral/EXAONE) with the same protocol.
+- Artifacts:
+  - Additional `results/...` roots + same export schema.
+  - README “EMNLP Main readiness” checklist section.
+
+### Claim C5: Reproducibility is first-class (strict data, multi-seed, paper-ready exports)
+- Evidence:
+  - Multi-seed aggregation (mean±std) and deterministic sampling.
+  - One-command reproduction instructions.
+- Artifacts:
+  - `scripts/run_multiseed_tmux.sh`, `scripts/aggregate_multiseed.py`
+  - `README.md` (pipeline A/B/C + readiness)
+
+
 ## 8. Limitations and ethics (draft notes)
 
 - Personas approximate social pressure but cannot cover all real conversational tactics.
