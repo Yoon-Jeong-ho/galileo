@@ -107,6 +107,12 @@ For each example in `C`, we run a multi-turn conversation where the user adopts 
 
 At each round `r`, we score whether the model’s answer is still correct.
 
+**Non-persona control (drift baseline).** To distinguish persona-specific pressure from generic multi-turn drift, we also evaluate a control condition that uses the same multi-round structure but removes persona content.
+
+- **Control prompt pattern:** the user repeatedly requests re-checking with neutral phrasing (e.g., “Are you sure? Please verify again.”) without authority claims, traps, or adversarial rhetoric.
+- **Protocol:** identical `R` rounds, identical decoding settings, identical scoring and logging.
+- **Comparison:** we report survival/TOF under (i) persona pressure and (ii) control re-asking, and interpret the gap as evidence of persona mechanism effects beyond drift.
+
 ### Phase 3: Recovery
 
 For examples that flipped to incorrect during Phase 2, we provide a recovery prompt designed to help the model re-evaluate and return to the correct answer. We then score recovery accuracy.
