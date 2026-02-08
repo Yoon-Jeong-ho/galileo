@@ -68,7 +68,7 @@ To make the above claims hard to dismiss, the camera-ready experimental core sho
 ### 1.6 Rebuttal prep (anticipated reviewer objections)
 
 - *“Isn’t agreeing with the user just being helpful?”* Our focus is on **ground-truth domains** where deference to incorrect user feedback is a functional failure (education, medical triage, legal assistance). In these settings, “helpfulness” that abandons truth is miscalibrated behavior.
-- *“Is this just long-context degradation / generic drift?”* We include a **Neutral Re-asking Control** (generic denial/re-asking) to separate persona-specific pressure mechanisms from multi-turn drift.
+- *“Is this just long-context degradation / generic drift?”* We include a **Neutral Re-asking Control** (non-adversarial re-asking; generic denial/re-asking) to separate persona-specific pressure mechanisms from generic multi-turn drift.
 
 ---
 
