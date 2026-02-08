@@ -48,7 +48,11 @@ Recommended artifacts to cite in-paper:
 ## 5) Dataset + licensing + release
 - [ ] For each dataset: **license/terms** noted; download instructions.
   - [ ] GSM8K: license/terms + citation noted.
+    - Source: https://github.com/openai/grade-school-math
+    - License: MIT (see https://github.com/openai/grade-school-math/blob/master/LICENSE)
   - [ ] SVAMP: license/terms + citation noted.
+    - Source: https://github.com/arkilpatel/SVAMP
+    - License: MIT (see https://github.com/arkilpatel/SVAMP/blob/main/LICENSE)
   - [ ] ARC / SQuAD / TriviaQA (if used in main results): license/terms + citation noted.
 - [ ] Any derived/preprocessed artifacts: documented generation steps (script + exact command).
 - [ ] If releasing new data (personas/prompts/annotations/taxonomy labels): include license + intended use.
