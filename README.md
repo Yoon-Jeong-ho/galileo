@@ -98,6 +98,33 @@ If you are aiming for an **EMNLP Main**-level submission, the following experime
 
 ## Reproducible paper pipeline (A/B/C)
 
+### One-shot: reproduce paper tables + figures (after runs finish)
+
+This section is meant to be copy-pasted when you want to regenerate the **paper-ready artifacts** from an existing `results/...` root.
+
+1) **Aggregate multi-seed metrics into final tables (mean±std)**
+
+```bash
+python scripts/aggregate_multiseed.py   --results_root /mnt/raid6/aa007878/galileo/results/multiseed_YYYYMMDD_HHMMSS   --out_dir /mnt/raid6/aa007878/galileo/results/multiseed_YYYYMMDD_HHMMSS/paper_tables_final   --round 5
+```
+
+2) **Make SVG figures (survival curves + TOF summaries)**
+
+```bash
+python scripts/make_figures_svg.py   --results_root /mnt/raid6/aa007878/galileo/results/multiseed_YYYYMMDD_HHMMSS   --out_dir paper_figures
+```
+
+3) **(Optional) Extend TOF tables**
+
+```bash
+python scripts/extend_tof_tables.py   --results_root /mnt/raid6/aa007878/galileo/results/multiseed_YYYYMMDD_HHMMSS   --out_dir /mnt/raid6/aa007878/galileo/results/multiseed_YYYYMMDD_HHMMSS/paper_tables_final
+```
+
+Notes:
+- These scripts are **stdlib-only** where possible (no pandas required).
+- `paper_figures/` is tracked in git; commit the updated SVGs alongside the updated tables.
+
+
 This repo supports a paper-oriented workflow:
 
 - **A) Multi-seed runs (7B/14B)** on a fixed GPU set (e.g., GPUs 4–7, TP=4)
