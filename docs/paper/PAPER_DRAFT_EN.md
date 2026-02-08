@@ -250,7 +250,7 @@ This section will be populated from the paper-ready exports under each `results/
 
 - Data source: `paper_exports/survival_curve.csv` and `paper_exports/turn_of_failure.csv` for both settings.
 - Suggested caption template:
-  - *“Persona pressure causes substantially earlier flips than neutral re-asking, indicating effects beyond generic multi-turn drift.”*
+  - *“Persona pressure causes substantially earlier flips than the **Neutral Re-asking Control** (non-adversarial drift baseline), indicating effects beyond generic multi-turn drift. All conditions use identical rounds, decoding, scoring, and logging.”*
 - Presentation note: when plotting survival curves, render personas as **solid** lines and the **Neutral Re-asking Control** as a **dashed** line (same axes/rounds/decoding) to make the drift baseline visually unmissable.
 
 <!-- AUTO:TABLE_W_SEED1_START -->
