@@ -292,10 +292,11 @@ This section is written for reviewers: each claim is paired with the *minimum* e
 
 ### Claim C2: Persona mechanisms induce systematically different failure dynamics
 - Evidence:
-  - Persona-wise survival@R and TOF heatmaps/tables.
+  - Persona-wise survival@R and TOF heatmaps/tables **with the Neutral Re-asking Control as drift baseline**.
   - Qualitative flip taxonomy with representative examples per persona.
 - Artifacts:
   - `results/**/paper_tables_final/table_survival_r5.csv`
+  - `results/**/paper_tables_final/table_control_vs_persona.csv` (or Table W equivalent)
   - `results/**/paper_taxonomy/*.csv`
   - `PAPER_RESULTS_ANALYSIS_KO.md` + `PAPER_RESULTS_QUAL_EXAMPLES_KO.md`
 
