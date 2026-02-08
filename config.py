@@ -86,6 +86,9 @@ class ExperimentConfig:
 
     tensor_parallel_size: int = TENSOR_PARALLEL_SIZE
 
+    # Personas to run in Phase 2. Empty means "all".
+    personas: List[str] = field(default_factory=list)
+
     test_mode: bool = False
     num_samples: int = -1
 

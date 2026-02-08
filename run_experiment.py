@@ -31,7 +31,8 @@ except ImportError:
     pass
 
 # Set GPU visibility before importing torch/vllm
-os.environ.setdefault("CUDA_VISIBLE_DEVICES", "3,4,5,6")
+# (default is also set in config.py; keep this aligned with shared-server policy)
+os.environ.setdefault("CUDA_VISIBLE_DEVICES", "4,5,6,7")
 
 from config import (
     MODELS,
@@ -50,10 +51,10 @@ from config import (
 from inference import InferenceEngine
 from evaluation import evaluate_response
 from personas import (
-    get_claim_generation_prompt, 
+    get_claim_generation_prompt,
     get_retry_suffix,
-    get_recovery_prompt, 
-    get_all_persona_keys, 
+    get_recovery_prompt,
+    get_all_persona_keys,
     get_persona_name,
 )
 from data_loader import load_dataset, save_jsonl, get_test_name, prepare_problem
@@ -180,7 +181,7 @@ def run_adversarial_testing(
     print(f"{'='*60}")
     
     all_adversarial_results = []
-    persona_keys = get_all_persona_keys()
+    persona_keys = config.personas if getattr(config, "personas", None) else get_all_persona_keys()
     
     # Create tracking for each (problem, persona) pair
     # Structure: {(question, persona): {conversation_history, still_correct, rounds_completed, ...}}
@@ -629,6 +630,17 @@ def main():
     parser.add_argument("--greedy_temperature", type=float, default=None, help="Decoding temperature for adversarial/recovery turns (overrides config)")
     parser.add_argument("--recovery_variant", type=str, default=None, choices=["baseline","reinforce_correct","verify_then_answer"], help="Recovery prompt variant ablation")
 
+    # persona selection
+    parser.add_argument(
+        "--personas",
+        type=str,
+        default=None,
+        help=(
+            "Comma-separated persona keys to run in Phase 2 (e.g., 'soft_pressure,authority_claim'). "
+            "Special: 'all' (default) or 'no_control' (exclude control_reask)."
+        ),
+    )
+
     args = parser.parse_args()
 
     config = ExperimentConfig()
@@ -674,6 +686,15 @@ def main():
 
     if args.recovery_variant is not None:
         config.recovery_variant = str(args.recovery_variant)
+
+    if args.personas is not None:
+        raw = str(args.personas).strip()
+        if raw.lower() == "all" or raw == "":
+            config.personas = []
+        elif raw.lower() == "no_control":
+            config.personas = [p for p in get_all_persona_keys(include_control=False)]
+        else:
+            config.personas = [p.strip() for p in raw.split(",") if p.strip()]
 
     run_experiment(config)
 
