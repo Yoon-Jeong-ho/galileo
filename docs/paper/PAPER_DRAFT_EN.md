@@ -179,9 +179,9 @@ Tosato et al. (2025) and Yu et al. (2026) report instability in measured traits/
 
 ## 7. Results (template)
 
-This section will be populated from the paper-ready exports under each `results/<run>/paper_exports/` directory.
+This section will be populated from the paper-ready exports under each `results/<run>/paper_exports/` directory. Each subsection explicitly maps back to the core claims (C1–C3).
 
-### 7.1 Main robustness dynamics: survival curves
+### 7.1 Main robustness dynamics: survival curves (supports C1, C2)
 
 **Figure X (Survival curves).** Persona-wise survival over rounds `r=1..R` on the main benchmark(s).
 
@@ -189,7 +189,7 @@ This section will be populated from the paper-ready exports under each `results/
 - Suggested caption template:
   - *“Survival(p, r) on initially-correct examples (mean±std across seeds). Robustness decays monotonically for some personas but exhibits late-turn failures under others, highlighting multi-turn dynamics beyond InitialAcc.”*
 
-### 7.2 When failures happen: turn-of-failure (TOF)
+### 7.2 When failures happen: turn-of-failure (TOF) (supports C1)
 
 **Table Y (Turn-of-failure distribution).** Distribution over `{1..R, never}` per persona.
 
@@ -197,7 +197,7 @@ This section will be populated from the paper-ready exports under each `results/
 - Suggested caption template:
   - *“TOF reveals early-turn vulnerability (Fail@1) vs sustained robustness (Never-fail). We compute per-seed percentages then report mean±std across seeds.”*
 
-### 7.3 Recovery after flipping
+### 7.3 Recovery after flipping (supports C3)
 
 **Table Z (Recovery accuracy).** Recovery conditional on having flipped under persona pressure.
 
