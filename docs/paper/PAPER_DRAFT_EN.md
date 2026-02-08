@@ -197,12 +197,16 @@ Tosato et al. (2025) and Yu et al. (2026) report instability in measured traits/
 
 ### 6.4 Positioning vs nearby multi-turn sycophancy/robustness benchmarks
 
-Recent benchmarks also probe multi-turn *flip* behavior under disagreement or rebuttals (e.g., SYCON-style multi-turn disagreement, rebuttal-type benchmarks such as SycEval, and long-context degradation studies sometimes framed as “truth decay”). Our intended delta is:
+Recent benchmarks also probe multi-turn *flip* behavior under disagreement or rebuttals (e.g., SYCON-style multi-turn disagreement, rebuttal-type benchmarks such as SycEval, and long-context degradation studies sometimes framed as “truth decay”). **GALILEO’s intended delta** is to make *ground-truth, multi-turn dynamics* easy to measure and hard to misinterpret:
 
 - **Objective ground truth across tasks:** we emphasize settings where correctness is unambiguous (math/MCQA/extractive QA) rather than primarily subjective opinions or social/ethical dilemmas.
-- **Recursive feedback erosion (multi-round):** rather than a single rebuttal, we measure how repeated pressure erodes correctness over rounds (survival/TOF trajectories).
-- **Recovery as a separate axis:** we evaluate recovery *conditional on flip* to separate “staying correct” from “returning to correct after being misled.”
+- **Dynamics-first measurement (multi-round):** rather than a single rebuttal, we measure how repeated pressure erodes correctness over rounds via **survival curves** and **turn-of-failure** trajectories.
+- **Separate solvability from robustness:** we condition dynamics on the **initially-correct** subset to isolate “can the model solve the task?” from “can it *maintain* the correct belief when challenged?”.
+- **Control for generic multi-turn drift:** we include a **non-persona re-asking control** with identical round structure/decoding to attribute gaps to persona mechanisms beyond long-context degradation or conversational variance.
+- **Recovery as a separate axis:** we evaluate **recovery conditional on flipping** (and prompt-variant ablations) to separate “staying correct” from “returning to correct after being misled.”
 - **Reproducible exports:** we provide standardized per-run exports (survival/TOF/recovery) so claims can be verified directly from artifacts.
+
+**Limitations (brief).** Personas approximate social pressure but cannot cover all real conversational tactics; recovery prompts are interventions whose effects may depend on prompt design (mitigated via ablations); and open-domain QA introduces inherent ambiguity, which we treat as realism but report stratified analyses.
 
 ---
 
