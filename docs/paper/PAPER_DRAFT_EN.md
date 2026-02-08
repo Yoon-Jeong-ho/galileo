@@ -221,7 +221,7 @@ This section will be populated from the paper-ready exports under each `results/
 
 - Data source: `paper_exports/survival_curve.csv`
 - Suggested caption template:
-  - *“Survival(p, r) on initially-correct examples (mean±std across seeds). Robustness decays monotonically for some personas but exhibits late-turn failures under others, highlighting multi-turn dynamics beyond InitialAcc.”*
+  - *“Survival(p, r) on initially-correct examples (mean±std across seeds). Robustness decays monotonically for some personas but exhibits late-turn failures under others, highlighting multi-turn dynamics beyond InitialAcc. Dashed line: **Neutral Re-asking Control** (drift baseline).”*
 
 ### 7.2 When failures happen: turn-of-failure (TOF) (supports C1)
 
