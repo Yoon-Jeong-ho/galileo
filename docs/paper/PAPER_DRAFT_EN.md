@@ -273,6 +273,7 @@ Never-fail | 77.90 | 53.52
 - **Fixed seeds** with deterministic sampling and per-seed metric computation.
 - **End-to-end runners** (tmux scripts) and environment documentation.
 - **Paper exports**: survival curves, TOF tables, taxonomy sheet templates, and SVG figures.
+- **Control condition is always exported.** Export schema includes the **Neutral Re-asking Control** under a stable identifier (e.g., `persona=neutral_reask_control` or `condition=neutral_reask_control`) so plots/tables can include it by default.
 
 ---
 
