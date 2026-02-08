@@ -243,7 +243,7 @@ This section is written for reviewers: each claim is paired with the *minimum* e
   - `README.md` (pipeline A/B/C + readiness)
 
 
-## 8. Limitations and ethics (draft notes)
+## 10. Limitations and ethics (draft notes)
 
 - Personas approximate social pressure but cannot cover all real conversational tactics.
 - Recovery prompts are interventions; results may depend on prompt design. We mitigate this via variant ablations.
