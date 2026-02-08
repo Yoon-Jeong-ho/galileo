@@ -41,6 +41,9 @@ Recommended artifacts to cite in-paper:
 - [ ] Fixed seeds documented; randomization sources described.
 - [ ] Evaluation details: answer extraction rules; normalization; alias handling.
 - [ ] Provide a lightweight “smoke test” run (small `NUM_SAMPLES`).
+- [ ] Automation hygiene (if using OpenClaw heartbeat updates):
+  - [ ] Ensure `HEARTBEAT.md` is **not empty** (not just headers/blank lines), otherwise heartbeats may be skipped.
+  - [ ] Avoid OK-only replies (e.g., `HEARTBEAT_OK`) if you expect a DM every tick.
 
 ## 5) Dataset + licensing + release
 - [ ] For each dataset: **license/terms** noted; download instructions.
