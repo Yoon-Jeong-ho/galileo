@@ -94,6 +94,21 @@ run_one() {
     --num_flip_samples 200 \
     --seed "${seed}" \
     2>&1 | tee -a "$out_dir/run.log"
+
+  # Runner-side metadata (auditable run settings). Keep separate from paper_export.py metadata.
+  cat > "${out_dir}/paper_exports/runner_metadata.json" <<JSON
+{
+  "generated_at": "$(date -Iseconds)",
+  "gpu_list": "${GPU_LIST}",
+  "tensor_parallel_size": ${TP_SIZE},
+  "num_samples": ${NUM_SAMPLES},
+  "max_model_len": ${MAX_MODEL_LEN},
+  "max_tokens": ${MAX_TOKENS},
+  "conda_env": "${CONDA_ENV}",
+  "model": "${model}",
+  "seed": ${seed}
+}
+JSON
 }
 
 seeds=( $(to_array "${SEEDS}") )
