@@ -23,3 +23,9 @@ If you use OpenClaw heartbeats to produce periodic writing updates:
 
 - Keep the workspace `HEARTBEAT.md` non-empty (not just headers/blank lines), otherwise heartbeats may be skipped.
 - Avoid running large debug `exec` commands during heartbeats: failures (e.g., `pipefail`/SIGPIPE from `| head`) can generate noisy “Exec failed” DM messages.
+
+### Naming conventions to keep paper ↔ exports aligned
+
+- **Drift baseline name (paper):** *Neutral Re-asking Control*.
+- **Recommended export identifier:** use a stable tag like `neutral_reask_control` (either as `persona=neutral_reask_control` or `condition=neutral_reask_control`) so plotting scripts can auto-style it (e.g., dashed line) and include it by default.
+- **Avoid confusion with Simple Denial:** Simple Denial is an *adversarial persona*; the Neutral Re-asking Control is *non-adversarial* and is only meant to capture generic multi-turn drift.
