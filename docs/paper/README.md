@@ -16,3 +16,10 @@ This folder contains the **MD-only** paper-writing workflow for the GALILEO EMNL
 - Figures/tables are generated from `results/<run>/paper_exports/` and stored under `paper_figures/`.
 - Prefer linking to artifact paths (CSV/SVG) from the draft so reviewers can verify claims.
 - Section numbering in drafts may be renumbered/removed during LaTeX conversion.
+
+## Automation notes (OpenClaw heartbeat)
+
+If you use OpenClaw heartbeats to produce periodic writing updates:
+
+- Keep the workspace `HEARTBEAT.md` non-empty (not just headers/blank lines), otherwise heartbeats may be skipped.
+- Avoid running large debug `exec` commands during heartbeats: failures (e.g., `pipefail`/SIGPIPE from `| head`) can generate noisy “Exec failed” DM messages.
