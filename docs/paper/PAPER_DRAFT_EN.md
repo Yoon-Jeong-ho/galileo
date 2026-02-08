@@ -38,6 +38,28 @@ We target a practically grounded setting: tasks with **ground-truth answers** wh
 2. **Unified multi-task pipeline.** We cover math, extractive QA, MCQA, and open-domain QA with a single runner/logging/evaluation interface.
 3. **Stable evaluation via answer-format standardization.** We require a boxed final answer `\boxed{...}` for all tasks and use boxed-first extraction to reduce scoring ambiguity.
 4. **Reproducibility and paper-ready exports.** We provide strict data directory construction, multi-seed aggregation (mean±std), and automated exports for tables/figures.
+5. **Reviewer-facing controls and ablations.** We include controls that separate *persona pressure* from generic multi-turn drift (e.g., repeated denial without persona) and ablations that separate *robustness* from *recovery interventions*.
+
+### 1.4 Core claims (and what must be shown in results)
+
+We structure the paper around three reviewer-checkable claims:
+
+- **C1 (Dynamics):** Robustness under pressure is a *trajectory*, not a single number—single-turn accuracy misses *when* failures happen.
+  - Evidence: persona-wise survival curves + TOF distribution.
+- **C2 (Mechanism/structure):** Failure dynamics are systematically shaped by (i) *pressure mechanism* (persona) and (ii) *task uncertainty/evidence availability*.
+  - Evidence: cross-task breakdowns (math vs extractive QA vs MCQA vs open QA) and uncertainty/answer-type stratification.
+- **C3 (Intervention):** Recovery after flipping is measurable and *not equivalent* to robustness (being correct throughout); interventions can improve recovery without necessarily improving survival.
+  - Evidence: recovery conditional on flip + recovery prompt ablations.
+
+### 1.5 Minimum experiment set (submission-credible)
+
+To make the above claims hard to dismiss, the camera-ready experimental core should include:
+
+- **Multi-seed** (report mean±std) for the main model(s).
+- **≥2 model families** under the same protocol (ideally 3 for stronger generalization).
+- **Control condition**: a non-persona multi-turn baseline (e.g., generic denial/re-asking) to show effects are not purely conversational drift.
+- **One intervention ablation**: at least one recovery prompt variant.
+- **One sensitivity check**: decoding sensitivity (e.g., temperature sweep).
 
 ---
 
