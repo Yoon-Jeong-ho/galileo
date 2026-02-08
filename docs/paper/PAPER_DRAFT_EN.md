@@ -237,6 +237,14 @@ This section will be populated from the paper-ready exports under each `results/
 - Report the same survival/TOF/recovery views for additional tasks (QA/MCQA/OpenQA) and at least one additional model family.
 - Keep protocol identical; only swap dataset/model.
 
+### 7.5 Persona pressure vs drift: control comparison (supports C2, rebuttal)
+
+**Table W (Persona vs control).** Compare survival@R and Fail@1 under persona pressure vs the non-persona control condition.
+
+- Data source: `paper_exports/survival_curve.csv` and `paper_exports/turn_of_failure.csv` for both settings.
+- Suggested caption template:
+  - *“Persona pressure causes substantially earlier flips than neutral re-asking, indicating effects beyond generic multi-turn drift.”*
+
 ---
 
 ## 8. Reproducibility checklist (what we will guarantee)
