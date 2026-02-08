@@ -229,7 +229,7 @@ This section will be populated from the paper-ready exports under each `results/
 
 - Data source: `paper_exports/turn_of_failure.csv`
 - Suggested caption template:
-  - *“TOF reveals early-turn vulnerability (Fail@1) vs sustained robustness (Never-fail). We compute per-seed percentages then report mean±std across seeds.”*
+  - *“TOF reveals early-turn vulnerability (Fail@1) vs sustained robustness (Never-fail). We compute per-seed percentages then report mean±std across seeds. Include the **Neutral Re-asking Control** as a reference row/column to contextualize persona-induced flips beyond drift.”*
 
 ### 7.3 Recovery after flipping (supports C3)
 
