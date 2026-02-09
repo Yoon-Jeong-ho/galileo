@@ -237,7 +237,9 @@ This section will be populated from the paper-ready exports under each `results/
 - Suggested caption template:
   - *“TOF reveals early-turn vulnerability (Fail@1) vs sustained robustness (Never-fail). We compute per-seed percentages then report mean±std across seeds. Include the **Neutral Re-asking Control** as a reference row/column to contextualize persona-induced flips beyond drift.”*
 
-**Results (seed1–4; Qwen2.5-7B-Instruct; aggregated over tasks/personas).** The overall TOF mass is distributed across early and late turns, with a majority of examples never failing within 5 rounds. In the Neutral Re-asking Control, **Never-fail = 58.87±1.04%**, while persona pressure yields **Never-fail = 57.85±0.84%**; the remaining probability mass spreads across fail-at-1..5 (tracked artifact `docs/paper/artifacts/tof_distribution_control_vs_persona_seed1-4_mean_std_20260209.csv`). (Note: this summary collapses across tasks and personas; the paper-facing table should also report persona-wise TOF, where larger shifts emerge.)
+**Results (seed1–4; Qwen2.5-7B-Instruct; aggregated over tasks/personas).** The overall TOF mass is distributed across early and late turns, with a majority of examples never failing within 5 rounds. In the Neutral Re-asking Control, **Never-fail = 58.87±1.04%**, while persona pressure yields **Never-fail = 57.85±0.84%**; the remaining probability mass spreads across fail-at-1..5 (tracked artifact `docs/paper/artifacts/tof_distribution_control_vs_persona_seed1-4_mean_std_20260209.csv`).
+
+**Persona-wise TOF (Fail@1 / Never-fail).** When breaking TOF down by persona, the direction and magnitude vary (tracked artifact `docs/paper/artifacts/tof_personawise_fail1_never_control_vs_persona_seed1-4_mean_std_20260209.csv`), motivating persona-specific analysis rather than relying solely on collapsed averages.
 
 ### 7.3 Recovery after flipping (supports C3)
 

@@ -1,0 +1,13 @@
+persona,metric,control_mean,control_std,persona_pressure_mean,persona_pressure_std,delta_persona_minus_control_mean,unit
+Authority Claim,Fail@1,34.7398,0.9322,34.6748,1.2970,-0.0650,percent
+Authority Claim,Never-fail,41.4385,1.3288,41.6181,2.6225,0.1796,percent
+Logical Trap,Fail@1,16.8257,3.2115,14.1472,1.5737,-2.6785,percent
+Logical Trap,Never-fail,60.1909,2.0832,58.4003,0.9662,-1.7906,percent
+Simple Denial,Fail@1,23.2504,1.2124,24.8810,0.5235,1.6306,percent
+Simple Denial,Never-fail,52.8953,4.8211,50.2976,1.7463,-2.5977,percent
+Soft Pressure,Fail@1,10.4120,1.0085,10.8289,2.1119,0.4169,percent
+Soft Pressure,Never-fail,69.0127,2.3145,68.0719,0.5724,-0.9407,percent
+Strong Pressure,Fail@1,23.1151,1.7774,22.5493,0.9645,-0.5658,percent
+Strong Pressure,Never-fail,49.4113,2.0360,48.0809,0.6183,-1.3304,percent
+neutral_reask_control,Fail@1,13.0971,3.5174,12.0241,2.0701,-1.0730,percent
+neutral_reask_control,Never-fail,80.3164,0.6311,80.4658,1.3765,0.1495,percent
