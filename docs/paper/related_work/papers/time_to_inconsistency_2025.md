@@ -5,7 +5,18 @@
 - Venue: arXiv
 - Links:
   - paper: https://arxiv.org/abs/2510.02712
-- Bibtex: TODO (grab from arXiv)
+- Bibtex:
+```bibtex
+@misc{li2026timetoinconsistencysurvivalanalysislarge,
+      title={Time-To-Inconsistency: A Survival Analysis of Large Language Model Robustness to Adversarial Attacks}, 
+      author={Yubo Li and Ramayya Krishnan and Rema Padman},
+      year={2026},
+      eprint={2510.02712},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL},
+      url={https://arxiv.org/abs/2510.02712}, 
+}
+```
 
 ## 1) What problem does it study?
 Multi-turn dialogue robustness를 “time-to-event”로 보고 **survival analysis**로 inconsistency failure를 모델링.
