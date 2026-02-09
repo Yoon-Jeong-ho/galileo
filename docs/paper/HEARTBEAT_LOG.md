@@ -232,3 +232,12 @@ This prevents process drift where the checklist contradicts the heartbeat instru
 
 - Added `docs/paper/FIGURE_CAPTIONS.md` with paper-ready draft captions for each artifact-derived SVG figure, plus explicit figure→artifact provenance.
 - Updated `docs/paper/README.md` to list `FIGURE_CAPTIONS.md` as a key file.
+
+### 2026-02-10 (am) — Added nlp16 remote experiments runbook (heartbeat-friendly)
+
+- Added `docs/paper/REMOTE_EXPERIMENTS_RUNBOOK.md` with copy-paste commands for:
+  - SSH sanity check
+  - mandatory tmux/GPU/results checks
+  - log tailing for newest run
+  - launch discipline and DM-update requirements
+- Updated `docs/paper/README.md` to list the runbook.
