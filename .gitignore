@@ -36,5 +36,8 @@ results/
 !docs/paper/artifacts/**
 !docs/paper/artifacts/**/*.csv
 
+# Scratch / staging
+tmp/
+
 # OS
 .DS_Store

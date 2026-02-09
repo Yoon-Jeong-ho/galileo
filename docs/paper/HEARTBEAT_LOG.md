@@ -283,3 +283,9 @@ This prevents process drift where the checklist contradicts the heartbeat instru
 ### 2026-02-10 (am) — Submission checklist now references anonymization SSOT
 
 - Updated `docs/paper/EMNLP_MAIN_SUBMISSION_CHECKLIST.md` (Sec. 8) to point to `docs/paper/ANONYMIZATION_NOTES.md` as the SSOT for the pre-submission anonymization audit.
+
+### 2026-02-10 (am) — Added anonymized bundle packager (with infra-string fail-fast)
+
+- Added `scripts/package_anonymized_bundle.sh` to stage a minimal anonymized bundle (EN draft + captions + artifacts/figures + figure scripts).
+- The script runs an infra-string grep audit on the staged bundle and fails fast if it finds hostnames/absolute paths.
+- Note: the script intentionally excludes `docs/paper/ANONYMIZATION_NOTES.md` from the bundle because it necessarily contains infra-identifying strings.
