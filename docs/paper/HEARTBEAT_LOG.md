@@ -69,21 +69,42 @@
 
 ---
 
+## Latest heartbeat notes (append-only)
+
+### 2026-02-09 (pm) — Experiment orchestration debugging on nlp8
+
+- Verified the `galileo` conda env is healthy on nlp8 (Py3.11, torch w/ CUDA, vLLM installed).
+- Attempted 2 smoke runs (`results/smoke_...`, `results/smoke2_...`) but both produced only a start line in `run.log` and no `paper_exports/`.
+  - Root cause hypothesis: orchestration issues from (i) `conda run` / activate hooks and (ii) long commands via `tmux send-keys` being fragile, leading to no visible logging/progress.
+- Decision: switch to a **script-based runner** (write `run_smoke.sh` then `bash run_smoke.sh` inside tmux) and avoid `conda run`.
+
+What improved:
+- We now have a concrete diagnosis and a robust execution plan; env itself is not the blocker.
+
+What’s still missing:
+- A single end-to-end “green” run that emits `paper_exports/*` + metadata + validation logs.
+
+---
+
 ## Next heartbeat plan (ONE step)
 
-**Plan A (preferred): run a smoke experiment on nlp8 (GPU 0 only)**
+**Plan A (preferred): script-based smoke experiment on nlp8 (GPU 0 only)**
 
 - Objective: produce a brand-new run that generates:
   - `paper_exports/*`
   - `metadata.json`
   - `runner_metadata.json`
-  - `GLOBAL_VALIDATE.log`
-- Constraints:
-  - Use GPU **0** only (`CUDA_VISIBLE_DEVICES=0`).
-  - Use `tmux`.
-  - Keep it light: small `NUM_SAMPLES` (e.g., 50–100) and TP=1.
+  - (optional) `GLOBAL_VALIDATE.log` or at least validator OK
+- Implementation:
+  - Create a short script under `scripts/remote_run/` (or in the results dir) that:
+    1) sets `CUDA_VISIBLE_DEVICES=0`, `PYTHONUNBUFFERED=1`
+    2) calls `/data_x/aa007878/miniconda3/envs/galileo/bin/python run_experiment.py ...`
+    3) runs `scripts/paper_export.py`
+    4) writes `paper_exports/runner_metadata.json`
+    5) runs `scripts/validate_paper_exports.py`
+  - Launch the script inside tmux.
 
-If the smoke run is green, subsequent heartbeats can scale to multi-seed/family.
+If this smoke run is green, subsequent heartbeats can scale to control-vs-persona and multi-seed.
 
 **Plan B (if remote blocked): integrate the new related work into `PAPER_DRAFT_EN.md`**
 
