@@ -261,3 +261,8 @@ This prevents process drift where the checklist contradicts the heartbeat instru
 
 - Updated `docs/paper/FIGURE_CAPTIONS.md` to include suggested LaTeX `\label{...}` names for each figure (protocol + results figs), matching the labels used in `PAPER_DRAFT_EN.md`.
 - Updated `docs/paper/PAPER_DRAFT_EN.md` to explicitly reference `Figure~\ref{fig:protocol}` for the protocol diagram.
+
+### 2026-02-10 (am) — Aligned SSOT heartbeat prompt + STATUS with current nlp16/GPU(4–7) policy
+
+- Updated SSOT prompt `docs/paper/HEARTBEAT_PROMPT.md` to reference the current remote target (`ssh nlp16`, repo `/mnt/raid6/aa007878/galileo`) and GPU policy (4/5/6/7).
+- Updated `docs/paper/STATUS.md` NOW section to remove outdated nlp8-only wording.
