@@ -84,6 +84,9 @@ What improved:
 What’s still missing:
 - A single end-to-end “green” run that emits `paper_exports/*` + metadata + validation logs.
 
+Update:
+- ✅ Achieved on nlp8: `results/smoke_20260209_162417/` produced `paper_exports/{survival_curve,turn_of_failure,flip_samples,metadata}.csv/json` + `runner_metadata.json` and validator printed `[OK]`.
+
 ---
 
 ## Next heartbeat plan (ONE step)
