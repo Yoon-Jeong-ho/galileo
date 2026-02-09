@@ -68,6 +68,7 @@ ssh nlp16 'hostname && whoami'
 ```
 
 If it does not prompt for a password, setup is complete.
+If you see `Permission denied (publickey,password)`, follow: `docs/ops/SSH_TROUBLESHOOTING_OPENCLAW.md`.
 
 ## Notes
 

@@ -83,6 +83,7 @@ ssh nlp8 'nvidia-smi -L'
 ```
 
 If it still asks for a password, re-check `authorized_keys` and that the `IdentityFile` path exists.
+If you see `Permission denied (publickey,password)`, follow: `docs/ops/SSH_TROUBLESHOOTING_OPENCLAW.md`.
 
 ## 5) Experiment runner notes (nlp8)
 
