@@ -216,3 +216,9 @@ This prevents process drift where the checklist contradicts the heartbeat instru
 
 - Updated `docs/paper/README.md` with a concise figure inventory that maps each generated SVG in `docs/paper/figures/` to its tracked source artifact CSV under `docs/paper/artifacts/`.
 - Goal: make it trivial (for us and for reviewers) to trace any plotted claim back to the committed artifact inputs.
+
+### 2026-02-10 (am) — Paper drift fix: removed server-specific mention; clarified TOF↔turn-of-flip positioning
+
+- Updated `docs/paper/PAPER_DRAFT_EN.md`:
+  - Results preface no longer mentions a specific server name (avoid process drift in the draft).
+  - Related Work positioning clarifies that our TOF is conceptually aligned with “turn-of-flip” metrics while retaining ground-truth + drift-control framing.

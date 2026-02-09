@@ -202,7 +202,7 @@ Recent benchmarks also probe multi-turn *flip* behavior under disagreement or re
 
 In relation to these threads, SYCON-Bench operationalizes flip dynamics via Turn-of-Flip / Number-of-Flips metrics in stance-/presupposition-style conversations \cite{hong2025measuringsycophancylanguagemodels}. TRUTH DECAY evaluates extended-dialogue sycophancy by asking an initial **multiple-choice** question and then applying either (i) static follow-up templates targeting several bias types (e.g., “Are you sure?”, majority/authority cues, confident mimicry) or (ii) dynamically generated *false rationales* that pressure the model toward a specific incorrect option, tracking round-by-round accuracy and response changes \cite{liu2025truthdecayquantifyingmultiturn}. They report substantial multi-turn accuracy degradation in static settings (e.g., Claude feedback sycophancy **76.74%→30.23%** by follow-up 7; Sec 5.4). Challenging the Evaluator isolates this framing effect by constructing disagreement pairs from MCQ answers and measuring the **second-turn accept rate** of a challenger argument under different paradigms: (i) sequential conversational rebuttals (formal vs casual; with full/truncated/answer-only reasoning) versus (ii) an LLM-as-a-judge setup where both answers are presented side-by-side for evaluation \cite{kim2025challengingevaluatorllmsycophancy}. Quantitatively, they report large framing gaps for some models (e.g., Llama-3.3-70B: **FR 86.0% vs Judge 56.5%** persuasion; Table 4) and show that casual assertiveness can be highly persuasive (average **SR 84.5%** persuasion; Table 6), motivating our emphasis on multi-turn dynamics plus a neutral drift control rather than relying on a single rebuttal framing.
 
-We borrow the *multi-turn dynamics* lens but focus on settings where correctness is objectively checkable, define failure as first incorrect answer (TOF) over rounds, and add two missing controls: (i) a **Neutral Re-asking Control** to separate persona-induced effects from generic drift, and (ii) **recovery after flipping** as a distinct axis.
+We borrow the *multi-turn dynamics* lens but focus on settings where correctness is objectively checkable, define failure as the **first** incorrect answer (TOF) over rounds (aligning conceptually with “turn-of-flip” style metrics), and add two missing ingredients: (i) a **Neutral Re-asking Control** to separate persona-induced effects from generic multi-turn drift, and (ii) **recovery after flipping** as a distinct axis.
 
 (We track paper-by-paper notes in `docs/paper/related_work/`.) **GALILEO’s intended delta** is to make *ground-truth, multi-turn dynamics* easy to measure and hard to misinterpret:
 
@@ -219,7 +219,7 @@ We borrow the *multi-turn dynamics* lens but focus on settings where correctness
 
 ## 7. Results
 
-Unless stated otherwise, results are reported as mean±std over **seeds 1–4** (Qwen2.5-7B-Instruct; 80 samples/seed) from **auditable green** runs on nlp8, with paper-ready exports under `results/<run>/paper_exports/` and small, tracked summary artifacts under `docs/paper/artifacts/`.
+Unless stated otherwise, results are reported as mean±std over **seeds 1–4** (Qwen2.5-7B-Instruct; 80 samples/seed) from **auditable green** runs, with paper-ready exports under `results/<run>/paper_exports/` and small, tracked summary artifacts under `docs/paper/artifacts/`.
 
 ### 7.1 Main robustness dynamics: survival curves (supports C1, C2)
 
