@@ -90,7 +90,7 @@ Each dataset is stored as **JSONL**, with one example per line. We unify fields 
 
 ## 3. GALILEO protocol
 
-**Figure P (Protocol overview).** See `docs/paper/figures/protocol_overview.svg` for a 1-column submission-ready diagram of the three-phase evaluation (initial evaluation → multi-round pressure with persona vs neutral control → recovery).
+**Figure P (Protocol overview).** See `docs/paper/figures/protocol_overview.svg` for a 1-column submission-ready diagram of the three-phase evaluation (initial evaluation → multi-round pressure with persona vs neutral control → recovery). In the LaTeX version, we refer to this as Figure~\ref{fig:protocol}.
 
 **Paper include (LaTeX snippet).**
 

@@ -256,3 +256,8 @@ This prevents process drift where the checklist contradicts the heartbeat instru
 
 - Updated `docs/paper/PAPER_DRAFT_EN.md` (Sec. 3) to include a copy-pastable LaTeX `figure` block for `protocol_overview.svg` (label `fig:protocol`).
 - Tightened the protocol figure caption to a single sentence in `docs/paper/FIGURE_CAPTIONS.md`.
+
+### 2026-02-10 (am) — Added suggested LaTeX labels for all current figures
+
+- Updated `docs/paper/FIGURE_CAPTIONS.md` to include suggested LaTeX `\label{...}` names for each figure (protocol + results figs), matching the labels used in `PAPER_DRAFT_EN.md`.
+- Updated `docs/paper/PAPER_DRAFT_EN.md` to explicitly reference `Figure~\ref{fig:protocol}` for the protocol diagram.

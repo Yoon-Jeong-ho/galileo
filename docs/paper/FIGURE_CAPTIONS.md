@@ -12,6 +12,7 @@ Conventions:
 ## Fig: Protocol overview
 
 - File: `docs/paper/figures/protocol_overview.svg`
+- LaTeX label (suggested): `fig:protocol`
 - Source: generated diagram (not artifact-derived) via `scripts/make_protocol_figure_svg.py`
 
 **Caption (draft):**
@@ -22,6 +23,7 @@ Overview of the GALILEO protocol: (1) initial evaluation on ground-truth tasks, 
 ## Fig: Survival curves over rounds (selected personas)
 
 - File: `docs/paper/figures/survival_curves_rounds_seed1-4_20260209.svg`
+- LaTeX label (suggested): `fig:survival-curves-rounds`
 - Source artifact: `docs/paper/artifacts/survival_curve_personawise_control_vs_persona_seed1-4_mean_std_20260209.csv`
 
 **Caption (draft):**
@@ -32,6 +34,7 @@ Survival curves over interaction rounds on initially-correct examples (mean acro
 ## Fig: Persona-wise ΔSurvival@5
 
 - File: `docs/paper/figures/survival_r5_personawise_delta_seed1-4_20260209.svg`
+- LaTeX label (suggested): `fig:survival-delta-r5`
 - Source artifact: `docs/paper/artifacts/survival_r5_personawise_control_vs_persona_seed1-4_mean_std_20260209.csv`
 
 **Caption (draft):**
@@ -42,6 +45,7 @@ Persona-wise effect size at round 5: \(\Delta\)Survival@5 (persona pressure − 
 ## Fig: Persona-wise ΔFail@1 (TOF)
 
 - File: `docs/paper/figures/tof_personawise_fail1_delta_seed1-4_20260209.svg`
+- LaTeX label (suggested): `fig:tof-delta-fail1`
 - Source artifact: `docs/paper/artifacts/tof_personawise_fail1_never_control_vs_persona_seed1-4_mean_std_20260209.csv`
 
 **Caption (draft):**
@@ -52,6 +56,7 @@ Persona-wise effect size on early-turn vulnerability: \(\Delta\)Fail@1 (persona 
 ## Fig: Persona-wise ΔRecovery@flip
 
 - File: `docs/paper/figures/recovery_personawise_delta_seed1-4_20260209.svg`
+- LaTeX label (suggested): `fig:recovery-delta`
 - Source artifact: `docs/paper/artifacts/recovery_personawise_control_vs_persona_seed1-4_mean_std_20260209.csv`
 
 **Caption (draft):**
@@ -62,6 +67,7 @@ Persona-wise effect size on recovery after flipping: \(\Delta\)Recovery@flip (pe
 ## Fig: Table W effect deltas (control vs persona)
 
 - File: `docs/paper/figures/table_w_effect_delta_seed1-4_20260209.svg`
+- LaTeX label (suggested): `fig:tablew-effect-deltas`
 - Source artifact: `docs/paper/artifacts/table_w_effect_delta_seed1-4_20260209.csv`
 
 **Caption (draft):**
