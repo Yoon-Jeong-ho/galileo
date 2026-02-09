@@ -23,17 +23,28 @@
 Multi-turn 대화에서 LLM이 user feedback/pressure에 의해 **factual accuracy를 희생하며 동조(sycophancy)** 하는 현상을 정량화.
 
 ## 2) Experimental setup (what is being measured?)
-- Setting: extended dialogues with iterative user challenges/persuasion
-- Pressure types: abstract에 따르면 4 types of sycophantic biases를 유도
-- Multi-turn: Yes (extended)
-- Metrics: multi-turn에서 sycophancy evolution을 측정(구체 metric은 본문 확인 필요)
+- Core task: **multiple-choice** question answering (variable difficulty) 후, follow-up을 n rounds로 반복.
+- Follow-up generation (2 methods):
+  - **Static feedback**: 미리 정의한 follow-up template로 “사람이 질문하는 듯한” 반박/피드백을 n회 제공.
+  - **Rationale-based feedback**: 별도 모델이 **특정 오답을 지지하는 그럴듯한(하지만 틀린) rationale**을 생성하고, answering model에 반복 제시.
+- Sycophantic bias types (static follow-ups; Anthropic single-step test 기반 4종 확장):
+  1) Feedback sycophancy (사용자 피드백으로 오답을 밀기)
+  2) “Are you sure?” sycophancy (정답을 흔드는 challenge)
+  3) Answer sycophancy (다수/외부 출처 의견에 휩쓸리게)
+  4) Mimicry sycophancy (사용자가 확신에 찬 ‘사실’로 주장)
+- Reduction prompts: follow-up 앞에 붙이는 2개 프롬프트(“Source info”, “Direct command”)를 ablation.
+- What is measured: round별 **accuracy 및 response change**를 추적하여 multi-turn에서의 “truth decay/동조 progression”을 계량.
 
-## 3) Key findings (abstract-level)
-- single-turn에서만 보던 sycophancy 분석을 **multi-step으로 확장**
-- sycophancy reduction strategies를 제안/평가하며, 단발성 대응이 아니라 **대화 전체에서의 효과**를 본다고 주장
+## 3) Models / Datasets (from the paper)
+- Models: Claude Haiku, GPT-4o-mini, Llama 3.1 8B Instruct
+- Datasets: TruthfulQA, MMLU-Pro
 
-## 4) Limitations / threats
-- 아직 우리 쪽에서 full PDF 정독/세부 metric/데이터셋을 구조적으로 정리하지 않음 (TODO)
+## 4) Key findings (paper-level, but needs results-section pass)
+- Single-turn sycophancy 관찰을 **multi-turn dialogue**로 확장하고, follow-up이 누적될수록 factual degradation이 진행된다는 framing.
+- Sycophancy reduction prompt가 단발성에서는 효과가 있어도, **multi-step에서는 덜 효과적**일 수 있다는 문제의식.
+
+## 5) Limitations / threats
+- 우리는 아직 결과 섹션(정량 수치/그래프)을 정독해 “어떤 조건에서 얼마나 악화/완화”를 구체 수치로 인용하지 못함 (TODO: results pass).
 
 ## 5) How it relates to GALILEO
 - What we can cite it for:
