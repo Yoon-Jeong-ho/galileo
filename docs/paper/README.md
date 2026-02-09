@@ -19,6 +19,26 @@ This folder contains the **MD-only** paper-writing workflow for the GALILEO EMNL
 - Prefer linking to artifact paths (CSV/SVG) from the draft so reviewers can verify claims.
 - Section numbering in drafts may be renumbered/removed during LaTeX conversion.
 
+## Figure inventory (current)
+
+All figures below are **generated from tracked artifacts** and stored under `docs/paper/figures/`.
+
+- Survival curves over rounds (selected personas; includes dashed control baseline):
+  - `docs/paper/figures/survival_curves_rounds_seed1-4_20260209.svg`
+  - Source artifact: `docs/paper/artifacts/survival_curve_personawise_control_vs_persona_seed1-4_mean_std_20260209.csv`
+- Persona-wise effect size at round 5 (ΔSurvival@5):
+  - `docs/paper/figures/survival_r5_personawise_delta_seed1-4_20260209.svg`
+  - Source artifact: `docs/paper/artifacts/survival_r5_personawise_control_vs_persona_seed1-4_mean_std_20260209.csv`
+- Persona-wise early-turn vulnerability (ΔFail@1):
+  - `docs/paper/figures/tof_personawise_fail1_delta_seed1-4_20260209.svg`
+  - Source artifact: `docs/paper/artifacts/tof_personawise_fail1_never_control_vs_persona_seed1-4_mean_std_20260209.csv`
+- Persona-wise recovery after flipping (ΔRecovery@flip):
+  - `docs/paper/figures/recovery_personawise_delta_seed1-4_20260209.svg`
+  - Source artifact: `docs/paper/artifacts/recovery_personawise_control_vs_persona_seed1-4_mean_std_20260209.csv`
+- Table W: control vs persona effect deltas (Δ metrics):
+  - `docs/paper/figures/table_w_effect_delta_seed1-4_20260209.svg`
+  - Source artifact: `docs/paper/artifacts/table_w_effect_delta_seed1-4_20260209.csv`
+
 ## Figure conversion (SVG → PDF)
 
 Some LaTeX/Overleaf setups do not handle SVG cleanly. We keep SVG as the source of truth and (optionally) generate PDFs.

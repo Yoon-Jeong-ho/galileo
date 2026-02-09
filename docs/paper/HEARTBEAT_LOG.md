@@ -211,3 +211,8 @@ This prevents process drift where the checklist contradicts the heartbeat instru
   - required `paper_exports/` files (incl. metadata + runner metadata)
   - tracked artifacts under `docs/paper/artifacts/`
   - SVG source-of-truth figures under `docs/paper/figures/` + optional SVG→PDF conversion script
+
+### 2026-02-10 (am) — Added figure inventory (figure→artifact mapping)
+
+- Updated `docs/paper/README.md` with a concise figure inventory that maps each generated SVG in `docs/paper/figures/` to its tracked source artifact CSV under `docs/paper/artifacts/`.
+- Goal: make it trivial (for us and for reviewers) to trace any plotted claim back to the committed artifact inputs.
