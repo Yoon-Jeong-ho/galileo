@@ -271,3 +271,11 @@ This prevents process drift where the checklist contradicts the heartbeat instru
 
 - Updated `docs/paper/PAPER_DRAFT_EN.md` to remove “nlp8” from the Table W seed1–4 snapshot header (avoid leaking infra details / reduce drift).
 - Marked the old “Remote (nlp8)” section in `docs/paper/HEARTBEAT_LOG.md` as historical context.
+
+### 2026-02-10 (am) — Added anonymization notes + infra-string audit map
+
+- Added `docs/paper/ANONYMIZATION_NOTES.md` with:
+  - what infra-identifying strings to remove
+  - current hotspots in the repo (KO drafts, runbooks, heartbeat logs)
+  - a one-shot grep command for pre-submission audit
+  - suggested placeholder replacements + packaging guidance
