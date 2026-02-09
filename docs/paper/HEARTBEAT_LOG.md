@@ -163,3 +163,16 @@ Representative commits:
 - Deliverable: update one vault note’s results section + add 1–2 citation sentences with concrete numbers in `docs/paper/PAPER_DRAFT_EN.md`.
 
 ---
+
+### 2026-02-10 (am) — Submission-ready SVG figures generated from tracked artifacts
+
+- Ran `scripts/make_paper_figures_from_artifacts.py` to generate vector figures directly from tracked CSV artifacts (stdlib-only, reproducible).
+- Outputs (seed1–4; all under `docs/paper/figures/`):
+  - `survival_curves_rounds_seed1-4_20260209.svg`
+  - `survival_r5_personawise_delta_seed1-4_20260209.svg`
+  - `tof_personawise_fail1_delta_seed1-4_20260209.svg`
+  - `recovery_personawise_delta_seed1-4_20260209.svg`
+  - `table_w_effect_delta_seed1-4_20260209.svg`
+
+Next:
+- Wire these into `docs/paper/PAPER_DRAFT_EN.md` (captions + in-text callouts) and decide whether to emit PDF variants.

@@ -33,6 +33,7 @@ Ground-truth tasks에서 multi-turn persona pressure 하에 **정답 유지(surv
 - ✅ **Table W artifacts tracked** under `docs/paper/artifacts/` and draft AUTO block updated to seed1–4.
 
 ### Paper writing / positioning
+- ✅ Generated **submission-ready SVG figures** from tracked CSV artifacts under `docs/paper/figures/` (seed1–4; survival curves + ΔSurvival@5 + ΔFail@1 + ΔRecovery + Table W effect deltas).
 - ✅ Results section now has artifact-cited prose for survival/TOF/recovery/control-comparison (seed1–4) + a Results preface stating the seed/"auditable green" convention.
 - ✅ Table W (control vs persona) is supported by both mean±std and Δ(effect-size) tracked artifacts, and the Results text cites them.
 - ✅ Related-work tightening landed for:
@@ -48,17 +49,17 @@ Ground-truth tasks에서 multi-turn persona pressure 하에 **정답 유지(surv
 
 ## 3) TOP GAPS (what still blocks paper quality)
 
-1) **Figures ready for submission:** generate and commit final survival/TOF/recovery plots (SVG/PDF) and ensure captions reference artifacts.
-2) **Related work (numbers):** DONE for TRUTH DECAY + Challenging the Evaluator (key effect sizes extracted + cited in Sec 6.4).
+1) **Figures → paper integration:** SVGs are generated from tracked artifacts; we still need to wire them into `PAPER_DRAFT_EN.md` (figure refs + captions + callouts in Results).
+2) **PDF readiness:** decide whether we also want PDF versions (easy `rsvg-convert`/Inkscape), or rely on SVG-only for Overleaf.
 3) **Experiment extension decision:** decide whether we need seed5+ (tighter CI) or shift budget to cross-family generalization.
 
 ---
 
 ## 4) NEXT HEARTBEAT (ONE step)
 
-**Submission-ready figures: generate Survival/TOF/Recovery plots (SVG/PDF) from tracked artifacts and wire them into the draft.**
+**Wire the tracked-artifact SVGs into the paper draft (figure refs + captions + 1–2 in-text callouts).**
 
-- Deliverable: add figure files under `docs/paper/figures/` (or `paper_figures/`) + update `docs/paper/PAPER_DRAFT_EN.md` captions to reference them.
+- Deliverable: update `docs/paper/PAPER_DRAFT_EN.md` to reference the generated files in `docs/paper/figures/` and ensure captions explicitly point to the underlying tracked artifacts.
 
 ---
 
