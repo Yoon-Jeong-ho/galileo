@@ -32,6 +32,23 @@ Then check:
 
 If the key is *not* being offered, fix `~/.ssh/config` first.
 
+If the key **is** offered but auth still fails, run `ssh -vvv nlp16 'hostname'` and look for patterns:
+
+- If you see:
+  - `Offering public key: ...`
+  - `Server accepts key: ...`
+  - then `we did not send a packet, disable method`
+
+  This usually means the private key is **encrypted (passphrase)** but you're running in non-interactive/BatchMode context, so SSH cannot prompt to sign. Fix by loading the key into an agent:
+
+  ```bash
+  eval "$(ssh-agent -s)"
+  ssh-add ~/.ssh/nlp16_ed25519
+  ssh-add -l
+  ```
+
+  After that, `ssh -o BatchMode=yes nlp16 'hostname'` should work.
+
 ## 1) Minimal known-good config templates
 
 ### nlp8
