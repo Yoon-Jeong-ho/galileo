@@ -18,44 +18,52 @@ Ground-truth tasks에서 multi-turn persona pressure 하에 **정답 유지(surv
 
 ---
 
-## 1) What is DONE (verifiable)
+## 1) NOW (what we are doing / what is true *right now*)
 
-- ✅ Paper terminology: drift baseline is standardized as **Neutral Re-asking Control** in the draft.
-- ✅ Export standardization: paper export normalizes control labels to `neutral_reask_control`.
-- ✅ Auditable pipeline smoke (nlp8): `results/smoke_20260209_162417/` produced `paper_exports/*` + `metadata.json` + `runner_metadata.json` and validator printed `[OK]`.
-- ✅ Fresh control vs persona seed1 pair is auditable green (nlp8):
-  - Control: `results/c2run_control_20260209_172640/`
-  - Persona: `results/c2run_persona_20260209_174640/`
-- ✅ Fresh control vs persona seed2 pair is auditable green (nlp8):
-  - Control: `results/c2run_control_seed2_20260209_194621/`
-  - Persona: `results/c2run_persona_seed2_20260209_200611/`
-- ✅ **Table W seed1–2 artifacts + aggregate landed in the draft:**
-  - Artifacts: `docs/paper/artifacts/table_w_control_vs_persona_seed{1,2}_20260209.csv`
-  - Aggregate: `docs/paper/artifacts/table_w_control_vs_persona_seed1-2_mean_std_20260209.csv`
-  - Draft block: `docs/paper/PAPER_DRAFT_EN.md` (AUTO:TABLE_W_SEED12)
+- We are in a **10-min heartbeat loop**; each heartbeat must deliver **one primary lane** result and keep continuity via `STATUS.md` + `HEARTBEAT_LOG.md`.
+- **Remote experiments policy:** use **nlp8** only; temporary GPUs **4/5/6** only; `tmux` required; paper-ready runs must include `paper_exports/*` + `metadata.json` + `runner_metadata.json` + validator `[OK]` + parity.
+- **Current risk:** process drift (wrong server prompt like nlp16, lane starvation, missing commits) → we are adding guardrails to eliminate it.
 
 ---
 
-## 2) What is NOT DONE (top gaps)
+## 2) RECENTLY DONE (verifiable, high-signal)
 
-1) **Table W multi-seed (done up to seed4)**: consider extending to seed5+ if we need tighter intervals, but seed1–4 is already reasonably stable.
-2) **GLOBAL_VALIDATE.log integration**: DONE for `nlp8_smoke.sh`-based runs (run-root `GLOBAL_VALIDATE.log` confirmed on seed4).
-3) **Paper integration**: SYCON/TRUTH DECAY/rebuttal framing 내용을 `PAPER_DRAFT_EN.md` Related Work에 “정식 문장+인용”으로 완전히 이식 (in progress; needs full-text-level tightening).
+### Experiments / artifacts
+- ✅ **Seed1–4 (control vs persona) are auditable green** (Qwen2.5-7B-Instruct; 80 samples/seed) with validated `paper_exports/`.
+- ✅ **Table W artifacts tracked** under `docs/paper/artifacts/` and draft AUTO block updated to seed1–4.
+
+### Paper writing / positioning
+- ✅ Table W paper-facing summary updated to **seed1–4** numbers.
+- ✅ Related-work tightening landed for:
+  - TRUTH DECAY (protocol + models/datasets)
+  - Challenging the Evaluator (protocol + accept-rate framing)
+  - Draft positioning sentences updated accordingly.
+
+### Process guardrails
+- ✅ Added SSOT heartbeat prompt: `docs/paper/HEARTBEAT_PROMPT.md`
+- ✅ Added heartbeat checklist guardrails: `docs/paper/HEARTBEAT_CHECKLIST.md`
 
 ---
 
-## 3) Next heartbeat (ONE step)
+## 3) TOP GAPS (what still blocks paper quality)
 
-**Related Work tightening: upgrade one vault paper note from abstract-level → full-text-level and update the draft accordingly.**
-
-- Target: pick ONE among SYCON / TRUTH DECAY / Challenging the Evaluator.
-- Must:
-  - add concrete protocol details (turn structure, dataset size, exact metrics)
-  - add 1–2 draft sentences that cite and contrast it with GALILEO
+1) **Results section write-up:** convert paper-ready exports into clean Results prose (C1–C3) without hand-wavy placeholders.
+2) **Related work (numbers):** TRUTH DECAY / Challenging the Evaluator results sections still need a quick pass for 1–2 quantitative effect sizes we can cite.
+3) **Experiment extension decision:** decide whether we need seed5+ (tighter CI) or shift budget to TOF/recovery-focused runs.
 
 ---
 
-## 4) Notes / constraints
+## 4) NEXT HEARTBEAT (ONE step)
 
-- Keep runs light (avoid CPU overload, one heavy run at a time).
-- Every experiment must have a short rationale committed to git (why we ran it, what decision it informs).
+**Write Results text for Table W (seed1–4) directly from tracked artifacts and connect it to claims (C1/C2).**
+
+- Deliverable: a revised Results paragraph (or subsection) in `docs/paper/PAPER_DRAFT_EN.md` that cites:
+  - `docs/paper/artifacts/table_w_control_vs_persona_seed1-4_mean_std_20260209.csv`
+  - and explicitly states the effect (Survival@5 drop; Fail@1 increase) + interpretation.
+
+---
+
+## 5) Notes / constraints
+
+- Keep runs light (avoid CPU overload; one heavy run at a time).
+- If any repo file changes: commit+push (no carry-over ambiguity).
