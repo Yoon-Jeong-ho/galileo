@@ -307,3 +307,11 @@ This prevents process drift where the checklist contradicts the heartbeat instru
 ### 2026-02-10 (am) — LaTeX snippets now assume PDF build (SVG as source)
 
 - Updated LaTeX include snippets in `docs/paper/PAPER_DRAFT_EN.md` to explicitly treat the repo SVGs as sources and recommend converting to PDF for the LaTeX build (placing PDFs under the LaTeX `figures/` directory).
+
+### 2026-02-10 (am) — Added Makefile targets for figures + anonymized bundle
+
+- Added repo-root `Makefile` with convenience targets:
+  - `make figures-check` (tooling preflight)
+  - `make figures-pdf` (SVG→PDF conversion)
+  - `make anonymized-bundle` (stage+audit minimal anonymized bundle)
+- Updated `docs/paper/README.md` to mention the make targets.

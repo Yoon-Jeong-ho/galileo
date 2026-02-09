@@ -72,6 +72,16 @@ To avoid accidentally leaking hostnames/absolute paths in an anonymized submissi
 # then zip/tar tmp/anonymized_bundle/
 ```
 
+## Make targets (optional)
+
+If you prefer `make`:
+
+```bash
+make figures-check
+make figures-pdf
+make anonymized-bundle
+```
+
 For what to sanitize/exclude, see `docs/paper/ANONYMIZATION_NOTES.md`.
 
 ## Automation notes (OpenClaw heartbeat)
