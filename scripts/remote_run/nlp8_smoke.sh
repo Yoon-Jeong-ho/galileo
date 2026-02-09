@@ -27,6 +27,10 @@ mkdir -p "$OUT"
 echo "=== smoke start $(date) ===" | tee -a "$OUT/run.log"
 echo "GPU=$GPU MODEL=$MODEL NUM_SAMPLES=$NUM_SAMPLES SEED=$SEED TP=$TP" | tee -a "$OUT/run.log"
 
+# Ensure env binaries (e.g., ninja) are visible. This matters because we don't "conda activate".
+ENV_BIN_DIR="$(dirname "$PY")"
+export PATH="$ENV_BIN_DIR:$PATH"
+
 env CUDA_VISIBLE_DEVICES="$GPU" PYTHONUNBUFFERED=1 \
   "$PY" run_experiment.py \
     --model "$MODEL" \
