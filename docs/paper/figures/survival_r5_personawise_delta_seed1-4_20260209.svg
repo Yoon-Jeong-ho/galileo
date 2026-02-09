@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="328" viewBox="0 0 1100 328">
+<style>.title{font: 20px sans-serif; font-weight:600;}.label{font: 14px sans-serif;}.tick{font: 12px sans-serif; fill:#333;}.val{font: 12px monospace; fill:#111;}</style>
+<text class="title" x="360" y="34">Persona-wise ΔSurvival@5 (persona pressure − control) — seed1–4</text>
+<text class="label" x="360" y="306">ΔSurvival@5 (Δ in percentage points)</text>
+<line x1="690.00" y1="82" x2="690.00" y2="266" stroke="#000" stroke-width="1"/>
+<line x1="360.00" y1="260" x2="360.00" y2="266" stroke="#000" stroke-width="1"/>
+<text class="tick" x="360.00" y="284" text-anchor="middle">-2.4</text>
+<line x1="525.00" y1="260" x2="525.00" y2="266" stroke="#000" stroke-width="1"/>
+<text class="tick" x="525.00" y="284" text-anchor="middle">-1.2</text>
+<line x1="690.00" y1="260" x2="690.00" y2="266" stroke="#000" stroke-width="1"/>
+<text class="tick" x="690.00" y="284" text-anchor="middle">+0.0</text>
+<line x1="855.00" y1="260" x2="855.00" y2="266" stroke="#000" stroke-width="1"/>
+<text class="tick" x="855.00" y="284" text-anchor="middle">+1.2</text>
+<line x1="1020.00" y1="260" x2="1020.00" y2="266" stroke="#000" stroke-width="1"/>
+<text class="tick" x="1020.00" y="284" text-anchor="middle">+2.4</text>
+<text class="label" x="350" y="109.60" text-anchor="end">Simple Denial</text>
+<rect x="360.00" y="96" width="330.00" height="16" fill="#1f77b4" opacity="0.9"/>
+<text class="val" x="354.00" y="109.60" text-anchor="end">-2.37</text>
+<text class="label" x="350" y="137.60" text-anchor="end">Logical Trap</text>
+<rect x="441.04" y="124" width="248.96" height="16" fill="#1f77b4" opacity="0.9"/>
+<text class="val" x="435.04" y="137.60" text-anchor="end">-1.79</text>
+<text class="label" x="350" y="165.60" text-anchor="end">Strong Pressure</text>
+<rect x="505.03" y="152" width="184.97" height="16" fill="#1f77b4" opacity="0.9"/>
+<text class="val" x="499.03" y="165.60" text-anchor="end">-1.33</text>
+<text class="label" x="350" y="193.60" text-anchor="end">Soft Pressure</text>
+<rect x="559.21" y="180" width="130.79" height="16" fill="#1f77b4" opacity="0.9"/>
+<text class="val" x="553.21" y="193.60" text-anchor="end">-0.94</text>
+<text class="label" x="350" y="221.60" text-anchor="end">Authority Claim</text>
+<rect x="690.00" y="208" width="24.97" height="16" fill="#d62728" opacity="0.9"/>
+<text class="val" x="720.97" y="221.60" text-anchor="start">+0.18</text>
+<text class="label" x="350" y="249.60" text-anchor="end">neutral_reask_control</text>
+<rect x="690.00" y="236" width="20.79" height="16" fill="#d62728" opacity="0.9"/>
+<text class="val" x="716.79" y="249.60" text-anchor="start">+0.15</text>
+</svg>

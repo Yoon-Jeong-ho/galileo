@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="244" viewBox="0 0 1100 244">
+<style>.title{font: 20px sans-serif; font-weight:600;}.label{font: 14px sans-serif;}.tick{font: 12px sans-serif; fill:#333;}.val{font: 12px monospace; fill:#111;}</style>
+<text class="title" x="360" y="34">Table W effect sizes (persona pressure − neutral control) — seed1–4</text>
+<text class="label" x="360" y="222">Effect size (Δ in percentage points)</text>
+<line x1="690.00" y1="82" x2="690.00" y2="182" stroke="#000" stroke-width="1"/>
+<line x1="360.00" y1="176" x2="360.00" y2="182" stroke="#000" stroke-width="1"/>
+<text class="tick" x="360.00" y="200" text-anchor="middle">-22.8</text>
+<line x1="525.00" y1="176" x2="525.00" y2="182" stroke="#000" stroke-width="1"/>
+<text class="tick" x="525.00" y="200" text-anchor="middle">-11.4</text>
+<line x1="690.00" y1="176" x2="690.00" y2="182" stroke="#000" stroke-width="1"/>
+<text class="tick" x="690.00" y="200" text-anchor="middle">+0.0</text>
+<line x1="855.00" y1="176" x2="855.00" y2="182" stroke="#000" stroke-width="1"/>
+<text class="tick" x="855.00" y="200" text-anchor="middle">+11.4</text>
+<line x1="1020.00" y1="176" x2="1020.00" y2="182" stroke="#000" stroke-width="1"/>
+<text class="tick" x="1020.00" y="200" text-anchor="middle">+22.8</text>
+<text class="label" x="350" y="109.60" text-anchor="end">Survival@5</text>
+<rect x="360.00" y="96" width="330.00" height="16" fill="#1f77b4" opacity="0.9"/>
+<text class="val" x="354.00" y="109.60" text-anchor="end">-22.76</text>
+<text class="label" x="350" y="137.60" text-anchor="end">Never-fail</text>
+<rect x="364.39" y="124" width="325.61" height="16" fill="#1f77b4" opacity="0.9"/>
+<text class="val" x="358.39" y="137.60" text-anchor="end">-22.46</text>
+<text class="label" x="350" y="165.60" text-anchor="end">Fail@1</text>
+<rect x="690.00" y="152" width="100.43" height="16" fill="#d62728" opacity="0.9"/>
+<text class="val" x="796.43" y="165.60" text-anchor="start">+6.93</text>
+</svg>
