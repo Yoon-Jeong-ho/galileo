@@ -138,11 +138,28 @@ Commits (high-signal):
 
 ---
 
+## 2026-02-09 — Results section upgraded to artifact-cited prose (seed1–4)
+
+- Results prose is now backed by **tracked CSV artifacts** for:
+  - Survival (persona-wise Survival@5)
+  - TOF (collapsed + persona-wise Fail@1/Never-fail)
+  - Recovery (collapsed + persona-wise)
+  - Control vs persona (Table W + Δ effect-size)
+- Added a Sec 7 Results preface that states the **seed1–4 auditable green** convention and points readers to `docs/paper/artifacts/`.
+
+Representative commits:
+- `4e29ce8` TOF collapsed artifact + cite
+- `1e636e6` TOF persona-wise artifact + cite
+- `10b68da` recovery artifacts + cite
+- `3783e05` survival@5 persona-wise artifact + cite
+- `8394b30` Results preface (seed1–4, tracked artifacts)
+
+---
+
 ## Next heartbeat plan (ONE step)
 
-**Write one more Results paragraph from paper-ready artifacts (TOF/recovery), or—if artifacts are missing—create the minimal tracked artifact needed and cite it.**
+**Add numeric contrast sentences to Related Work (Sec 6.4) by extracting 1–2 effect sizes from TRUTH DECAY and/or Challenging the Evaluator.**
 
-- Preferred: turn an existing export into draft prose (artifact → sentence).
-- Output must be a concrete edit in `docs/paper/PAPER_DRAFT_EN.md` + commit.
+- Deliverable: update one vault note’s results section + add 1–2 citation sentences with concrete numbers in `docs/paper/PAPER_DRAFT_EN.md`.
 
 ---

@@ -33,8 +33,8 @@ Ground-truth tasks에서 multi-turn persona pressure 하에 **정답 유지(surv
 - ✅ **Table W artifacts tracked** under `docs/paper/artifacts/` and draft AUTO block updated to seed1–4.
 
 ### Paper writing / positioning
-- ✅ Table W paper-facing summary updated to **seed1–4** numbers.
-- ✅ **Table W Results paragraph landed** in `docs/paper/PAPER_DRAFT_EN.md` (artifact-cited prose supporting C2).
+- ✅ Results section now has artifact-cited prose for survival/TOF/recovery/control-comparison (seed1–4) + a Results preface stating the seed/"auditable green" convention.
+- ✅ Table W (control vs persona) is supported by both mean±std and Δ(effect-size) tracked artifacts, and the Results text cites them.
 - ✅ Related-work tightening landed for:
   - TRUTH DECAY (protocol + models/datasets)
   - Challenging the Evaluator (protocol + accept-rate framing)
@@ -48,18 +48,17 @@ Ground-truth tasks에서 multi-turn persona pressure 하에 **정답 유지(surv
 
 ## 3) TOP GAPS (what still blocks paper quality)
 
-1) **Results section write-up:** convert paper-ready exports into clean Results prose (C1–C3) without hand-wavy placeholders.
+1) **Figures ready for submission:** generate and commit final survival/TOF/recovery plots (SVG/PDF) and ensure captions reference artifacts.
 2) **Related work (numbers):** TRUTH DECAY / Challenging the Evaluator results sections still need a quick pass for 1–2 quantitative effect sizes we can cite.
-3) **Experiment extension decision:** decide whether we need seed5+ (tighter CI) or shift budget to TOF/recovery-focused runs.
+3) **Experiment extension decision:** decide whether we need seed5+ (tighter CI) or shift budget to cross-family generalization.
 
 ---
 
 ## 4) NEXT HEARTBEAT (ONE step)
 
-**Write one additional Results paragraph from paper-ready exports (TOF distribution and/or recovery conditional on flip), citing tracked artifacts.**
+**Extract 1–2 quantitative effect sizes from TRUTH DECAY and/or Challenging the Evaluator and add a numeric contrast sentence in Sec 6.4.**
 
-- Deliverable: a revised Results paragraph/subsection in `docs/paper/PAPER_DRAFT_EN.md` that cites concrete CSV artifacts.
-- If we do not yet have a tracked aggregate CSV for TOF/recovery: create the minimal tracked artifact under `docs/paper/artifacts/` first, then cite it.
+- Deliverable: update one vault note (results section) + add 1–2 citation sentences in `docs/paper/PAPER_DRAFT_EN.md` that include concrete numbers (not just qualitative claims).
 
 ---
 
