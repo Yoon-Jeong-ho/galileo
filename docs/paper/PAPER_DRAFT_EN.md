@@ -217,9 +217,9 @@ We borrow the *multi-turn dynamics* lens but focus on settings where correctness
 
 ---
 
-## 7. Results (template)
+## 7. Results
 
-This section will be populated from the paper-ready exports under each `results/<run>/paper_exports/` directory. Each subsection explicitly maps back to the core claims (C1–C3).
+Unless stated otherwise, results are reported as mean±std over **seeds 1–4** (Qwen2.5-7B-Instruct; 80 samples/seed) from **auditable green** runs on nlp8, with paper-ready exports under `results/<run>/paper_exports/` and small, tracked summary artifacts under `docs/paper/artifacts/`.
 
 ### 7.1 Main robustness dynamics: survival curves (supports C1, C2)
 
