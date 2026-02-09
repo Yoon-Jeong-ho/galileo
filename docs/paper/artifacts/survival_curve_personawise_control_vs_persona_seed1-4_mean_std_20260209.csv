@@ -1,0 +1,31 @@
+persona,round,control_mean,control_std,persona_pressure_mean,persona_pressure_std,delta_persona_minus_control_mean,unit
+Authority Claim,1,65.2602,0.9322,65.3252,1.2970,0.0650,percent
+Authority Claim,2,51.1533,0.7883,51.3113,2.6975,0.1580,percent
+Authority Claim,3,46.3939,0.3758,46.5305,2.8969,0.1366,percent
+Authority Claim,4,44.1954,0.7555,43.7534,3.1166,-0.4420,percent
+Authority Claim,5,41.4385,1.3288,41.6181,2.6225,0.1796,percent
+Logical Trap,1,86.0314,1.9785,85.8528,1.5737,-0.1786,percent
+Logical Trap,2,71.2101,1.2164,69.9461,1.6519,-1.2640,percent
+Logical Trap,3,64.9559,1.6423,63.9703,1.0411,-0.9855,percent
+Logical Trap,4,62.0100,1.6454,60.2664,0.8560,-1.7437,percent
+Logical Trap,5,60.1909,2.0832,58.4003,0.9662,-1.7906,percent
+Simple Denial,1,76.7496,1.2124,75.1190,0.5235,-1.6306,percent
+Simple Denial,2,65.6641,1.8039,63.1696,1.7996,-2.4945,percent
+Simple Denial,3,59.0646,1.2584,57.2039,1.3599,-1.8608,percent
+Simple Denial,4,54.1677,1.1114,52.7435,1.4855,-1.4242,percent
+Simple Denial,5,51.0307,1.6558,48.6572,1.4734,-2.3735,percent
+Soft Pressure,1,89.5880,1.0085,90.3948,0.9104,0.8068,percent
+Soft Pressure,2,81.0731,0.9773,80.5900,1.5595,-0.4832,percent
+Soft Pressure,3,76.1166,1.6599,75.6716,1.3967,-0.4450,percent
+Soft Pressure,4,72.0895,1.9600,71.6450,0.8801,-0.4446,percent
+Soft Pressure,5,69.0127,2.3145,68.0719,0.5724,-0.9407,percent
+Strong Pressure,1,76.8849,1.7774,77.4507,0.9645,0.5658,percent
+Strong Pressure,2,67.9820,1.6639,66.6297,1.3635,-1.3522,percent
+Strong Pressure,3,59.6408,2.3578,58.2054,2.3289,-1.4354,percent
+Strong Pressure,4,54.0587,2.1745,52.4621,1.8655,-1.5966,percent
+Strong Pressure,5,49.4113,2.0360,48.0809,0.6183,-1.3304,percent
+neutral_reask_control,1,88.7225,0.8484,88.7081,1.0857,-0.0145,percent
+neutral_reask_control,2,83.0174,0.9074,83.2359,1.4111,0.2185,percent
+neutral_reask_control,3,81.3175,0.6737,81.4729,1.6507,0.1554,percent
+neutral_reask_control,4,80.7523,0.7359,80.9101,1.5884,0.1577,percent
+neutral_reask_control,5,80.3164,0.6311,80.4658,1.3765,0.1495,percent

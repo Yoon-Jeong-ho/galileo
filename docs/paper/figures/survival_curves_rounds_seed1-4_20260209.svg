@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="520" viewBox="0 0 1100 520">
+<style>.title{font: 20px sans-serif; font-weight:600;}.label{font: 14px sans-serif;}.tick{font: 12px sans-serif; fill:#333;}.legend{font: 13px sans-serif;}</style>
+<text class="title" x="90" y="34">Survival curves over rounds (selected personas; seed1–4)</text>
+<text class="label" x="465.00" y="498" text-anchor="middle">Round</text>
+<text class="label" x="22" y="260.00" transform="rotate(-90 22 260.00)" text-anchor="middle">Survival (%)</text>
+<line x1="90" y1="450" x2="840" y2="450" stroke="#000"/>
+<line x1="90" y1="70" x2="90" y2="450" stroke="#000"/>
+<line x1="90.00" y1="450" x2="90.00" y2="456" stroke="#000"/>
+<text class="tick" x="90.00" y="474" text-anchor="middle">1</text>
+<line x1="277.50" y1="450" x2="277.50" y2="456" stroke="#000"/>
+<text class="tick" x="277.50" y="474" text-anchor="middle">2</text>
+<line x1="465.00" y1="450" x2="465.00" y2="456" stroke="#000"/>
+<text class="tick" x="465.00" y="474" text-anchor="middle">3</text>
+<line x1="652.50" y1="450" x2="652.50" y2="456" stroke="#000"/>
+<text class="tick" x="652.50" y="474" text-anchor="middle">4</text>
+<line x1="840.00" y1="450" x2="840.00" y2="456" stroke="#000"/>
+<text class="tick" x="840.00" y="474" text-anchor="middle">5</text>
+<line x1="84" y1="450.00" x2="90" y2="450.00" stroke="#000"/>
+<text class="tick" x="80" y="454.00" text-anchor="end">0</text>
+<line x1="90" y1="450.00" x2="840" y2="450.00" stroke="#bbb" stroke-width="1" opacity="0.6"/>
+<line x1="84" y1="355.00" x2="90" y2="355.00" stroke="#000"/>
+<text class="tick" x="80" y="359.00" text-anchor="end">22</text>
+<line x1="90" y1="355.00" x2="840" y2="355.00" stroke="#bbb" stroke-width="1" opacity="0.6"/>
+<line x1="84" y1="260.00" x2="90" y2="260.00" stroke="#000"/>
+<text class="tick" x="80" y="264.00" text-anchor="end">44</text>
+<line x1="90" y1="260.00" x2="840" y2="260.00" stroke="#bbb" stroke-width="1" opacity="0.6"/>
+<line x1="84" y1="165.00" x2="90" y2="165.00" stroke="#000"/>
+<text class="tick" x="80" y="169.00" text-anchor="end">67</text>
+<line x1="90" y1="165.00" x2="840" y2="165.00" stroke="#bbb" stroke-width="1" opacity="0.6"/>
+<line x1="84" y1="70.00" x2="90" y2="70.00" stroke="#000"/>
+<text class="tick" x="80" y="74.00" text-anchor="end">89</text>
+<line x1="90" y1="70.00" x2="840" y2="70.00" stroke="#bbb" stroke-width="1" opacity="0.6"/>
+<path d="M 90.00 121.28 L 277.50 168.76 L 465.00 197.03 L 652.50 218.00 L 840.00 231.43" fill="none" stroke="#1f77b4" stroke-width="2"/>
+<path d="M 90.00 128.26 L 277.50 179.44 L 465.00 204.99 L 652.50 224.10 L 840.00 241.60" fill="none" stroke="#1f77b4" stroke-width="2" stroke-dasharray="6,3"/>
+<path d="M 90.00 81.53 L 277.50 145.01 L 465.00 171.79 L 652.50 184.41 L 840.00 192.20" fill="none" stroke="#ff7f0e" stroke-width="2"/>
+<path d="M 90.00 82.29 L 277.50 150.42 L 465.00 176.01 L 652.50 191.88 L 840.00 199.87" fill="none" stroke="#ff7f0e" stroke-width="2" stroke-dasharray="6,3"/>
+<path d="M 90.00 120.70 L 277.50 158.83 L 465.00 194.56 L 652.50 218.47 L 840.00 238.37" fill="none" stroke="#2ca02c" stroke-width="2"/>
+<path d="M 90.00 118.28 L 277.50 164.62 L 465.00 200.71 L 652.50 225.30 L 840.00 244.07" fill="none" stroke="#2ca02c" stroke-width="2" stroke-dasharray="6,3"/>
+<path d="M 90.00 70.00 L 277.50 94.44 L 465.00 101.72 L 652.50 104.14 L 840.00 106.00" fill="none" stroke="#000000" stroke-width="2" stroke-dasharray="6,4"/>
+<path d="M 90.00 70.06 L 277.50 93.50 L 465.00 101.05 L 652.50 103.46 L 840.00 105.36" fill="none" stroke="#000000" stroke-width="2" stroke-dasharray="2,4"/>
+<line x1="860" y1="80" x2="890" y2="80" stroke="#1f77b4" stroke-width="3"/>
+<text class="legend" x="900" y="84" >Simple Denial (control)</text>
+<line x1="860" y1="102" x2="890" y2="102" stroke="#1f77b4" stroke-width="3" stroke-dasharray="6,3"/>
+<text class="legend" x="900" y="106" >Simple Denial (pressure)</text>
+<line x1="860" y1="124" x2="890" y2="124" stroke="#ff7f0e" stroke-width="3"/>
+<text class="legend" x="900" y="128" >Logical Trap (control)</text>
+<line x1="860" y1="146" x2="890" y2="146" stroke="#ff7f0e" stroke-width="3" stroke-dasharray="6,3"/>
+<text class="legend" x="900" y="150" >Logical Trap (pressure)</text>
+<line x1="860" y1="168" x2="890" y2="168" stroke="#2ca02c" stroke-width="3"/>
+<text class="legend" x="900" y="172" >Strong Pressure (control)</text>
+<line x1="860" y1="190" x2="890" y2="190" stroke="#2ca02c" stroke-width="3" stroke-dasharray="6,3"/>
+<text class="legend" x="900" y="194" >Strong Pressure (pressure)</text>
+<line x1="860" y1="212" x2="890" y2="212" stroke="#000000" stroke-width="3" stroke-dasharray="6,4"/>
+<text class="legend" x="900" y="216" >neutral_reask_control (control)</text>
+<line x1="860" y1="234" x2="890" y2="234" stroke="#000000" stroke-width="3" stroke-dasharray="2,4"/>
+<text class="legend" x="900" y="238" >neutral_reask_control (pressure)</text>
+</svg>

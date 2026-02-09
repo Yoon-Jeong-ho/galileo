@@ -225,7 +225,9 @@ Unless stated otherwise, results are reported as mean±std over **seeds 1–4** 
 
 **Figure X (Survival curves).** Persona-wise survival over rounds `r=1..R` on the main benchmark(s).
 
-- Current draft figure (artifact-derived SVG): `docs/paper/figures/survival_r5_personawise_delta_seed1-4_20260209.svg` (ΔSurvival@5 view; seed1–4)
+- Current draft figure (artifact-derived SVG):
+  - `docs/paper/figures/survival_curves_rounds_seed1-4_20260209.svg` (selected-persona survival curves over rounds; seed1–4)
+  - `docs/paper/figures/survival_r5_personawise_delta_seed1-4_20260209.svg` (ΔSurvival@5 view; seed1–4)
 
 - Data source: `paper_exports/survival_curve.csv`
 - Suggested caption template:
