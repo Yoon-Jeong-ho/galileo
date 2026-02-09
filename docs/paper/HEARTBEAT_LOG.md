@@ -204,3 +204,10 @@ Next:
   - GPU policy: `CUDA_VISIBLE_DEVICES=4,5,6,7`
 
 This prevents process drift where the checklist contradicts the heartbeat instructions.
+
+### 2026-02-10 (am) — Reproducibility section updated to reflect artifact→figure pipeline
+
+- Updated `docs/paper/PAPER_DRAFT_EN.md` Sec. 8 to explicitly describe:
+  - required `paper_exports/` files (incl. metadata + runner metadata)
+  - tracked artifacts under `docs/paper/artifacts/`
+  - SVG source-of-truth figures under `docs/paper/figures/` + optional SVG→PDF conversion script

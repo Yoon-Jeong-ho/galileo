@@ -365,8 +365,15 @@ Never-fail | 80.32±0.67 | 57.86±0.84 | 57.83±0.81
 - **Data construction scripts** and a **strict data directory** that excludes legacy/pilot mixtures.
 - **Fixed seeds** with deterministic sampling and per-seed metric computation.
 - **End-to-end runners** (tmux scripts) and environment documentation.
-- **Paper exports**: survival curves, TOF tables, taxonomy sheet templates, and SVG figures.
-- **Control condition is always exported.** Export schema includes the **Neutral Re-asking Control** under a stable identifier (e.g., `persona=neutral_reask_control` or `condition=neutral_reask_control`) so plots/tables can include it by default.
+- **Paper-ready exports** produced per run under `results/<run>/paper_exports/`:
+  - `survival_curve.csv`, `turn_of_failure.csv`, `flip_samples.csv`
+  - `metadata.json` (decoding params, seed, etc.)
+  - `runner_metadata.json` (runner parity/audit)
+- **Tracked artifacts (small, reviewable):** we commit compact CSV summaries under `docs/paper/artifacts/` and derive submission figures from them.
+- **Submission figures:**
+  - Source-of-truth vector figures are generated as SVG under `docs/paper/figures/` (from tracked artifacts).
+  - If the LaTeX pipeline prefers PDF, we provide a reproducible conversion script: `scripts/convert_figures_svg_to_pdf.sh`.
+- **Control condition is always exported.** Export schema includes the **Neutral Re-asking Control** under a stable identifier (e.g., `neutral_reask_control`) so plots/tables can include it by default.
 
 ---
 
