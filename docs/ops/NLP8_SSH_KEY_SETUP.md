@@ -6,7 +6,7 @@ This note mirrors the NLP16 setup doc, but for **nlp8**.
 - HostName: `163.152.163.182`
 - User: `aa007878`
 - Port: `48022`
-- GPU policy on nlp8 (project convention): use **GPUs 0,1,2,3**.
+- GPU policy (GALILEO convention): use **GPUs 4,5,6,7**.
 
 ## 1) Create a dedicated keypair (recommended)
 
@@ -90,12 +90,12 @@ If it still asks for a password, re-check `authorized_keys` and that the `Identi
 - Example: run control vs persona on separate GPUs:
 
 ```bash
-# control on GPU0
-CUDA_VISIBLE_DEVICES=0 \
+# control on GPU4
+CUDA_VISIBLE_DEVICES=4 \
   conda run -n galileo python run_experiment.py ... --tensor_parallel_size 1 --personas control_reask
 
-# persona on GPU1
-CUDA_VISIBLE_DEVICES=1 \
+# persona on GPU5
+CUDA_VISIBLE_DEVICES=5 \
   conda run -n galileo python run_experiment.py ... --tensor_parallel_size 1 --personas no_control
 ```
 
