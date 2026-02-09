@@ -176,3 +176,16 @@ Representative commits:
 
 Next:
 - Wire these into `docs/paper/PAPER_DRAFT_EN.md` (captions + in-text callouts) and decide whether to emit PDF variants.
+
+### 2026-02-10 (am) — Wired generated SVG figures into the EN draft (LaTeX include snippets)
+
+- Updated `docs/paper/PAPER_DRAFT_EN.md` Results section to reference the committed SVGs under `docs/paper/figures/`.
+- Added copy-pastable LaTeX `figure` snippets + suggested in-text callouts for:
+  - survival curves over rounds
+  - persona-wise ΔSurvival@5
+  - persona-wise ΔFail@1
+  - persona-wise ΔRecovery@flip
+  - Table W effect deltas
+
+Next:
+- Decide SVG vs PDF in the final LaTeX pipeline (Overleaf sometimes prefers PDF); if PDF is needed, add a small conversion step and commit the PDFs (or a Makefile rule).

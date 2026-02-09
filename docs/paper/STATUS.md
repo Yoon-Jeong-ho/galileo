@@ -49,17 +49,17 @@ Ground-truth tasks에서 multi-turn persona pressure 하에 **정답 유지(surv
 
 ## 3) TOP GAPS (what still blocks paper quality)
 
-1) **Figures → paper integration:** SVGs are generated from tracked artifacts; we still need to wire them into `PAPER_DRAFT_EN.md` (figure refs + captions + callouts in Results).
-2) **PDF readiness:** decide whether we also want PDF versions (easy `rsvg-convert`/Inkscape), or rely on SVG-only for Overleaf.
+1) **PDF readiness:** decide whether we also want PDF versions (easy `rsvg-convert`/Inkscape), or rely on SVG-only for Overleaf.
+2) **Figure placement polish:** once in LaTeX, tune widths/float placement and ensure captions match the final numbering.
 3) **Experiment extension decision:** decide whether we need seed5+ (tighter CI) or shift budget to cross-family generalization.
 
 ---
 
 ## 4) NEXT HEARTBEAT (ONE step)
 
-**Wire the tracked-artifact SVGs into the paper draft (figure refs + captions + 1–2 in-text callouts).**
+**Decide SVG→PDF policy and (if needed) add a reproducible conversion step for Overleaf/submission.**
 
-- Deliverable: update `docs/paper/PAPER_DRAFT_EN.md` to reference the generated files in `docs/paper/figures/` and ensure captions explicitly point to the underlying tracked artifacts.
+- Deliverable: either (a) confirm SVG-only is acceptable and add a short note in `docs/paper/README.md`, or (b) add a conversion script/Makefile rule that produces `figures/*.pdf` from `docs/paper/figures/*.svg`.
 
 ---
 

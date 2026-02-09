@@ -225,13 +225,35 @@ Unless stated otherwise, results are reported as mean±std over **seeds 1–4** 
 
 **Figure X (Survival curves).** Persona-wise survival over rounds `r=1..R` on the main benchmark(s).
 
-- Current draft figure (artifact-derived SVG):
+- Figure files (artifact-derived SVG; committed):
   - `docs/paper/figures/survival_curves_rounds_seed1-4_20260209.svg` (selected-persona survival curves over rounds; seed1–4)
-  - `docs/paper/figures/survival_r5_personawise_delta_seed1-4_20260209.svg` (ΔSurvival@5 view; seed1–4)
+  - `docs/paper/figures/survival_r5_personawise_delta_seed1-4_20260209.svg` (persona-wise ΔSurvival@5; seed1–4)
 
 - Data source: `paper_exports/survival_curve.csv`
-- Suggested caption template:
-  - *“Survival(p, r) on initially-correct examples (mean±std across seeds). Robustness decays monotonically for some personas but exhibits late-turn failures under others, highlighting multi-turn dynamics beyond InitialAcc. Dashed line: **Neutral Re-asking Control** (drift baseline).”*
+
+**Paper include (LaTeX snippet).**
+
+```latex
+% copy from repo: docs/paper/figures/survival_curves_rounds_seed1-4_20260209.svg
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\linewidth]{figures/survival_curves_rounds_seed1-4_20260209}
+  \caption{Survival curves over rounds on initially-correct examples (mean across seeds 1--4). Solid: persona pressure; dashed: Neutral Re-asking Control (drift baseline). We observe persona-dependent decay and late-turn failures, motivating multi-turn dynamics metrics beyond initial accuracy.}
+  \label{fig:survival-curves-rounds}
+\end{figure}
+```
+
+```latex
+% copy from repo: docs/paper/figures/survival_r5_personawise_delta_seed1-4_20260209.svg
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\linewidth]{figures/survival_r5_personawise_delta_seed1-4_20260209}
+  \caption{Persona-wise effect size at round 5: \(\Delta\)Survival@5 (persona pressure -- control), mean across seeds 1--4.}
+  \label{fig:survival-delta-r5}
+\end{figure}
+```
+
+**In-text callout suggestion.** “Figure~\ref{fig:survival-curves-rounds} shows that robustness under pressure is a trajectory over rounds; Figure~\ref{fig:survival-delta-r5} summarizes persona-wise \(\Delta\)Survival@5 relative to the drift baseline.”
 
 **Results (seed1–4; Qwen2.5-7B-Instruct).** Survival dynamics at round 5 vary substantially by persona (tracked artifact `docs/paper/artifacts/survival_r5_personawise_control_vs_persona_seed1-4_mean_std_20260209.csv`): e.g., **Simple Denial** drops by **2.37** points under persona pressure (51.03→48.66), while **Authority Claim** shows a near-zero change (+0.18; 41.44→41.62). This heterogeneity motivates persona-wise survival curves rather than a single aggregate number.
 
@@ -239,11 +261,20 @@ Unless stated otherwise, results are reported as mean±std over **seeds 1–4** 
 
 **Table Y (Turn-of-failure distribution).** Distribution over `{1..R, never}` per persona.
 
-- Current draft figure (artifact-derived SVG): `docs/paper/figures/tof_personawise_fail1_delta_seed1-4_20260209.svg` (ΔFail@1 view; seed1–4)
-
+- Figure file (artifact-derived SVG; committed): `docs/paper/figures/tof_personawise_fail1_delta_seed1-4_20260209.svg` (persona-wise ΔFail@1; seed1–4)
 - Data source: `paper_exports/turn_of_failure.csv`
-- Suggested caption template:
-  - *“TOF reveals early-turn vulnerability (Fail@1) vs sustained robustness (Never-fail). We compute per-seed percentages then report mean±std across seeds. Include the **Neutral Re-asking Control** as a reference row/column to contextualize persona-induced flips beyond drift.”*
+
+**Paper include (LaTeX snippet).**
+
+```latex
+% copy from repo: docs/paper/figures/tof_personawise_fail1_delta_seed1-4_20260209.svg
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\linewidth]{figures/tof_personawise_fail1_delta_seed1-4_20260209}
+  \caption{Persona-wise effect size on early-turn vulnerability: \(\Delta\)Fail@1 (persona pressure -- control), mean across seeds 1--4. TOF separates immediate flips (Fail@1) from sustained robustness (Never-fail).}
+  \label{fig:tof-delta-fail1}
+\end{figure}
+```
 
 **Results (seed1–4; Qwen2.5-7B-Instruct; aggregated over tasks/personas).** The overall TOF mass is distributed across early and late turns, with a majority of examples never failing within 5 rounds. In the Neutral Re-asking Control, **Never-fail = 58.87±1.04%**, while persona pressure yields **Never-fail = 57.85±0.84%**; the remaining probability mass spreads across fail-at-1..5 (tracked artifact `docs/paper/artifacts/tof_distribution_control_vs_persona_seed1-4_mean_std_20260209.csv`).
 
@@ -253,11 +284,20 @@ Unless stated otherwise, results are reported as mean±std over **seeds 1–4** 
 
 **Table Z (Recovery accuracy).** Recovery conditional on having flipped under persona pressure.
 
-- Current draft figure (artifact-derived SVG): `docs/paper/figures/recovery_personawise_delta_seed1-4_20260209.svg` (ΔRecovery@flip view; seed1–4)
-
+- Figure file (artifact-derived SVG; committed): `docs/paper/figures/recovery_personawise_delta_seed1-4_20260209.svg` (persona-wise ΔRecovery@flip; seed1–4)
 - Data source(s): `recovery_accuracy.csv` (per run)
-- Suggested caption template:
-  - *“Recovery(p) measures the ability to return to the correct answer after a flip. We report recovery conditional on flip, separating robustness from intervention effects.”*
+
+**Paper include (LaTeX snippet).**
+
+```latex
+% copy from repo: docs/paper/figures/recovery_personawise_delta_seed1-4_20260209.svg
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\linewidth]{figures/recovery_personawise_delta_seed1-4_20260209}
+  \caption{Persona-wise effect size on recovery after flipping: \(\Delta\)Recovery@flip (persona pressure -- control), mean across seeds 1--4. Recovery is measured conditional on flip, separating intervention effects from robustness (staying correct throughout).}
+  \label{fig:recovery-delta}
+\end{figure}
+```
 
 **Results (seed1–4; Qwen2.5-7B-Instruct; collapsed).** Recovery conditional on flip is high in both settings: **76.73±0.77%** in the Neutral Re-asking Control vs **76.66±1.54%** under persona pressure (tracked artifact `docs/paper/artifacts/recovery_collapsed_control_vs_persona_seed1-4_mean_std_20260209.csv`). Persona-wise recovery deltas vary in direction and magnitude (tracked artifact `docs/paper/artifacts/recovery_personawise_control_vs_persona_seed1-4_mean_std_20260209.csv`): e.g., **Authority Claim** reduces recovery by **3.83** points (73.99→70.16), whereas **Strong Pressure** increases recovery by **3.79** points (72.74→76.53). This reinforces C3’s framing that recovery is a distinct axis from “staying correct throughout.”
 
@@ -270,7 +310,19 @@ Unless stated otherwise, results are reported as mean±std over **seeds 1–4** 
 
 **Table W (Persona vs control).** Compare survival@R and Fail@1 under persona pressure vs the **Neutral Re-asking Control** condition.
 
-- Current draft figure (artifact-derived SVG): `docs/paper/figures/table_w_effect_delta_seed1-4_20260209.svg` (Δ metric view; seed1–4)
+- Figure file (artifact-derived SVG; committed): `docs/paper/figures/table_w_effect_delta_seed1-4_20260209.svg` (Δ metric view; seed1–4)
+
+**Paper include (LaTeX snippet).**
+
+```latex
+% copy from repo: docs/paper/figures/table_w_effect_delta_seed1-4_20260209.svg
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\linewidth]{figures/table_w_effect_delta_seed1-4_20260209}
+  \caption{Table W effect sizes: persona pressure minus Neutral Re-asking Control (drift baseline), mean across seeds 1--4. The large negative \(\Delta\)Survival@5 and positive \(\Delta\)Fail@1 indicate persona-induced failure dynamics beyond generic multi-turn drift.}
+  \label{fig:tablew-effect-deltas}
+\end{figure}
+```
 
 **Results (seed1–4; Qwen2.5-7B-Instruct; 80 samples/seed).** Persona pressure substantially shifts failure dynamics relative to the neutral drift baseline: at round 5, mean **Survival@5** drops from **80.32±0.67** in the Neutral Re-asking Control to **57.55±0.69** under persona pressure, while **Fail@1** increases from **13.10±3.53** to **20.03±1.21** (Table W; aggregated over seeds). Importantly, all conditions share identical rounds/decoding/scoring and include the Neutral Re-asking Control as a drift baseline, so the observed gap is consistent with persona-induced mechanisms rather than generic multi-turn degradation, supporting C2.
 
