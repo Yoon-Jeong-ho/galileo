@@ -298,3 +298,8 @@ This prevents process drift where the checklist contradicts the heartbeat instru
 
 - Updated `docs/paper/README.md` to recommend **PDF** as the default figure format for LaTeX/Overleaf builds (SVG remains the source-of-truth).
 - Updated `docs/paper/STATUS.md` next-step to focus on actually generating PDFs in the target build environment and verifying compilation.
+
+### 2026-02-10 (am) — Added figure-tooling preflight script
+
+- Added `scripts/check_figure_tooling.sh` to quickly validate whether `rsvg-convert`/Inkscape is available for SVG→PDF conversion.
+- Updated `docs/paper/README.md` to reference the preflight check.

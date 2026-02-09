@@ -48,6 +48,7 @@ All figures below are **generated from tracked artifacts** and stored under `doc
 (If you prefer SVG-in-LaTeX, use `\usepackage{svg}` or `inkscape`-based workflows, but that tends to be more brittle across environments.)
 
 - Script: `scripts/convert_figures_svg_to_pdf.sh`
+- Preflight check: `scripts/check_figure_tooling.sh`
 - Requires **one** of:
   - `rsvg-convert` (recommended; `librsvg2-bin` on Ubuntu), or
   - `inkscape`
