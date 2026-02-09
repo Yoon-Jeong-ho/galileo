@@ -351,7 +351,7 @@ Unless stated otherwise, results are reported as mean±std over **seeds 1–4** 
 - Presentation note: when plotting survival curves, render personas as **solid** lines and the **Neutral Re-asking Control** as a **dashed** line (same axes/rounds/decoding) to make the drift baseline visually unmissable.
 
 <!-- AUTO:TABLE_W_SEED1234_START -->
-**Seed1–4 snapshot+aggregate (Qwen2.5-7B-Instruct, 80 samples/seed, nlp8; auditable green).**
+**Seed1–4 snapshot+aggregate (Qwen2.5-7B-Instruct, 80 samples/seed; auditable green).**
 - Seed1 control root: `results/c2run_control_20260209_172640/`
 - Seed1 persona root: `results/c2run_persona_20260209_174640/`
 - Seed2 control root: `results/c2run_control_seed2_20260209_194621/`

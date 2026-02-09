@@ -48,7 +48,7 @@
 - `cdfa8b6`: validator `--require_control` applies only to control export bundles.
 - Added/expanded metadata + validation scripts and wired them into runner scripts (see git log around `3df3cf8`..`46513ea`).
 
-### Remote (nlp8)
+### Remote (historical: nlp8)
 
 - SSH BatchMode access to nlp8 was fixed (passphrase + known_hosts issue).
 - Identified existing results directory: `results/nlp8_control_vs_persona_20260209_022414/`.
@@ -266,3 +266,8 @@ This prevents process drift where the checklist contradicts the heartbeat instru
 
 - Updated SSOT prompt `docs/paper/HEARTBEAT_PROMPT.md` to reference the current remote target (`ssh nlp16`, repo `/mnt/raid6/aa007878/galileo`) and GPU policy (4/5/6/7).
 - Updated `docs/paper/STATUS.md` NOW section to remove outdated nlp8-only wording.
+
+### 2026-02-10 (am) — Removed remaining nlp8-specific mentions from paper-facing text
+
+- Updated `docs/paper/PAPER_DRAFT_EN.md` to remove “nlp8” from the Table W seed1–4 snapshot header (avoid leaking infra details / reduce drift).
+- Marked the old “Remote (nlp8)” section in `docs/paper/HEARTBEAT_LOG.md` as historical context.
