@@ -289,3 +289,7 @@ This prevents process drift where the checklist contradicts the heartbeat instru
 - Added `scripts/package_anonymized_bundle.sh` to stage a minimal anonymized bundle (EN draft + captions + artifacts/figures + figure scripts).
 - The script runs an infra-string grep audit on the staged bundle and fails fast if it finds hostnames/absolute paths.
 - Note: the script intentionally excludes `docs/paper/ANONYMIZATION_NOTES.md` from the bundle because it necessarily contains infra-identifying strings.
+
+### 2026-02-10 (am) — Documented anonymized bundle packager in paper README
+
+- Updated `docs/paper/README.md` with a short section on `scripts/package_anonymized_bundle.sh` (how to stage+audit an anonymized bundle before external sharing).

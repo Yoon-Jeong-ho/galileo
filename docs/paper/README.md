@@ -57,6 +57,20 @@ Usage:
 ./scripts/convert_figures_svg_to_pdf.sh
 ```
 
+## Anonymized bundle (pre-submission / external share)
+
+To avoid accidentally leaking hostnames/absolute paths in an anonymized submission/artifact bundle:
+
+- Script: `scripts/package_anonymized_bundle.sh`
+- Stages a minimal bundle under `tmp/anonymized_bundle/` and **fails fast** if infra-identifying strings are found.
+
+```bash
+./scripts/package_anonymized_bundle.sh
+# then zip/tar tmp/anonymized_bundle/
+```
+
+For what to sanitize/exclude, see `docs/paper/ANONYMIZATION_NOTES.md`.
+
 ## Automation notes (OpenClaw heartbeat)
 
 If you use OpenClaw heartbeats to produce periodic writing updates:
