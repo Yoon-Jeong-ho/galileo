@@ -73,22 +73,22 @@
 
 ## Latest heartbeat notes (append-only)
 
-### 2026-02-09 (pm) — Fresh control complete + persona started (auditable pipeline)
+### 2026-02-09 (pm) — Fresh control+persona pair complete (auditable pipeline)
 
 - Control run finished end-to-end green under the new auditable pipeline:
   - `results/c2run_control_20260209_172640/`
   - Produced `paper_exports/{survival_curve.csv,turn_of_failure.csv,flip_samples.csv,metadata.json,runner_metadata.json}`
   - Validator: `[OK] results/.../paper_exports` and `[OK] runner_metadata parity`
-- Persona run launched on GPU1 in tmux and confirmed progressing:
-  - tmux: `nlp8-c2run-persona`
-  - OUT: `results/c2run_persona_20260209_174640/`
-  - Status: adversarial rounds actively running; GPU1 util ~94%, mem ~46GB during check.
+- Persona run finished end-to-end green under the same pipeline:
+  - `results/c2run_persona_20260209_174640/`
+  - Produced `paper_exports/{survival_curve.csv,turn_of_failure.csv,flip_samples.csv,metadata.json,runner_metadata.json}`
+  - Validator: `[OK] results/.../paper_exports` and `[OK] runner_metadata parity`
 
 What this unlocks:
-- We can now produce a paper-ready **control vs persona** pair with standardized exports, then refresh Table W with auditable metadata.
+- We can now refresh Table W (control vs persona) using two run roots that are fully auditable (exports + metadata + runner metadata + validator OK).
 
-Open questions / next:
-- Once persona completes, immediately confirm exports+validator OK, then wire both run roots into Table W generation.
+Next (paper-facing):
+- Generate a paper-consumable summary table (csv/md) and link the run roots + rationale in `docs/paper/PAPER_RESULTS_ANALYSIS_KO.md`.
 
 ---
 

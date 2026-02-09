@@ -22,16 +22,16 @@ Ground-truth tasks에서 multi-turn persona pressure 하에 **정답 유지(surv
 
 - ✅ Paper terminology: drift baseline is standardized as **Neutral Re-asking Control** in the draft.
 - ✅ Export standardization: paper export normalizes control labels to `neutral_reask_control`.
-- ✅ Auditable pipeline smoke: on nlp8, `results/smoke_20260209_162417/` produced:
-  - `paper_exports/{survival_curve,turn_of_failure,flip_samples}.csv`
-  - `paper_exports/{metadata.json,runner_metadata.json}`
-  - validator printed `[OK]`.
+- ✅ Auditable pipeline smoke (nlp8): `results/smoke_20260209_162417/` produced `paper_exports/*` + `metadata.json` + `runner_metadata.json` and validator printed `[OK]`.
+- ✅ **Fresh control vs persona 2-run is auditable green (nlp8):**
+  - Control: `results/c2run_control_20260209_172640/` → exports+metadata+runner_metadata + validator `[OK]`.
+  - Persona: `results/c2run_persona_20260209_174640/` → exports+metadata+runner_metadata + validator `[OK]`.
 
 ---
 
 ## 2) What is NOT DONE (top gaps)
 
-1) **Control vs persona 2-run (fresh) (paper-ready)**: control is DONE ✅, persona still running ⏳ → once persona finishes, refresh Table W.
+1) **Table W refresh (paper-ready)** using the fresh control+persona run roots (nlp8) + integrate the numbers into the draft.
 2) **GLOBAL_VALIDATE.log** generation integrated for new runs (runner-level global validate).
 3) **Paper integration**: SYCON/TRUTH DECAY/rebuttal framing 내용을 `PAPER_DRAFT_EN.md` 본문 Related Work에 완전히 이식.
 
@@ -39,12 +39,14 @@ Ground-truth tasks에서 multi-turn persona pressure 하에 **정답 유지(surv
 
 ## 3) Next heartbeat (ONE step)
 
-**Finish fresh persona run + validate exports (paper-ready), then prep Table W refresh.**
+**Refresh Table W using the fresh control vs persona 2-run (auditable green) and link it in paper notes.**
 
-- Must for persona run:
-  - produce `paper_exports/*` + `metadata.json` + `runner_metadata.json`
-  - validator prints `[OK]` (exports + runner_metadata parity)
-- Then (same heartbeat if quick, otherwise next): update Table W inputs to point at the new control+persona run roots.
+- Inputs:
+  - Control: `results/c2run_control_20260209_172640/`
+  - Persona: `results/c2run_persona_20260209_174640/`
+- Must:
+  - produce a paper-consumable table (csv/md) with survival/TOF/recovery summaries
+  - add a short rationale + pointer to run roots in `docs/paper/PAPER_RESULTS_ANALYSIS_KO.md`
 
 ---
 
