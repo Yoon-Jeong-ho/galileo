@@ -195,3 +195,12 @@ Next:
 - Added `scripts/convert_figures_svg_to_pdf.sh` to convert `docs/paper/figures/*.svg` to `paper_figures/pdf/*.pdf` for LaTeX/Overleaf pipelines that prefer PDF.
 - Updated `docs/paper/README.md` to document the SVG-as-source-of-truth convention and how to generate PDFs.
 - Note: this machine currently lacks `rsvg-convert`/Inkscape, so the script is committed but PDFs are not generated here.
+
+### 2026-02-10 (am) — Fixed experiment checklist to match current nlp16/GPU(4–7) policy
+
+- Updated `docs/paper/HEARTBEAT_CHECKLIST.md` to align the Experiments lane with the current heartbeat prompt:
+  - remote host: `nlp16`
+  - repo: `/mnt/raid6/aa007878/galileo`
+  - GPU policy: `CUDA_VISIBLE_DEVICES=4,5,6,7`
+
+This prevents process drift where the checklist contradicts the heartbeat instructions.

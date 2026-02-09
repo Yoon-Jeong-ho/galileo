@@ -11,12 +11,12 @@ This is a **process guardrail** to prevent drift (wrong server/GPU policy, lane 
    - Experiments / Research / Development / Writing
 3) Declare the deliverable *in one sentence* (what will be different in 10 minutes?).
 
-## B) If lane = Experiments (nlp8 only; tiered)
+## B) If lane = Experiments (nlp16; tiered)
 
-**Do not touch nlp16.** Remote is:
-- Host: `ssh nlp8`
-- Repo: `/data_x/aa007878/galileo`
-- GPUs (temporary): `CUDA_VISIBLE_DEVICES=4,5,6`
+Remote is:
+- Host: `ssh nlp16`
+- Repo: `/mnt/raid6/aa007878/galileo`
+- GPUs policy: `CUDA_VISIBLE_DEVICES=4,5,6,7`
 
 Tier selection:
 - Default **Tier 1** (risk reducers): 1 new model family (seeds 1–2) OR 1 ablation that strengthens C2/C3.
@@ -24,13 +24,13 @@ Tier selection:
 
 Minimum checks **before launching anything**:
 1) `tmux ls`
-2) `nvidia-smi -i 4,5,6`
+2) `nvidia-smi -i 4,5,6,7`
 3) Tail latest run logs:
    - `tail -n 50 results/<run>/run.log`
    - `tail -n 50 results/<run>/GLOBAL_VALIDATE.log` (if present)
 
 Launch discipline:
-- Max **1 run/GPU** (4/5/6).
+- Max **1 run/GPU** (4/5/6/7).
 - Every run must have its own `OUT=results/<run>/`.
 - A run is "paper-ready" only if `paper_exports/` + `metadata.json` + `runner_metadata.json` exist and validator prints `[OK]` + `[OK] runner_metadata parity`.
 
