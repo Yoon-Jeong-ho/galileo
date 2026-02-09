@@ -315,3 +315,9 @@ This prevents process drift where the checklist contradicts the heartbeat instru
   - `make figures-pdf` (SVG→PDF conversion)
   - `make anonymized-bundle` (stage+audit minimal anonymized bundle)
 - Updated `docs/paper/README.md` to mention the make targets.
+
+### 2026-02-10 (am) — STATUS updated: LaTeX build readiness + SSH access are current blockers
+
+- Updated `docs/paper/STATUS.md` Top Gaps to reflect the actual current blockers:
+  - PDF-figure build verification in the LaTeX environment
+  - restoring `ssh nlp16` access from this runtime

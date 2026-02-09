@@ -49,8 +49,8 @@ Ground-truth tasks에서 multi-turn persona pressure 하에 **정답 유지(surv
 
 ## 3) TOP GAPS (what still blocks paper quality)
 
-1) **PDF readiness:** decide whether we also want PDF versions (easy `rsvg-convert`/Inkscape), or rely on SVG-only for Overleaf.
-2) **Figure placement polish:** once in LaTeX, tune widths/float placement and ensure captions match the final numbering.
+1) **LaTeX build readiness (PDF figures):** generate PDFs in the target build environment and verify compilation.
+2) **Remote experiment access:** restore `ssh nlp16` access from this runtime so we can resume mandatory tmux/GPU/log checks.
 3) **Experiment extension decision:** decide whether we need seed5+ (tighter CI) or shift budget to cross-family generalization.
 
 ---
