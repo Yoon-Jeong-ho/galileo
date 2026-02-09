@@ -82,6 +82,10 @@ Recommended artifacts to cite in-paper:
 - [ ] One table: turn-of-failure distribution or Fail@1 / Never-fail.
 - [ ] One table: recovery conditional on flipping.
 - [ ] Captions explain metrics without forcing readers into the appendix.
+- [ ] Figure pipeline is unambiguous:
+  - [ ] SVG source-of-truth figures exist under `docs/paper/figures/` (generated from tracked artifacts).
+  - [ ] Figure→artifact mapping is recorded (see `docs/paper/README.md` and/or `docs/paper/FIGURE_CAPTIONS.md`).
+  - [ ] If LaTeX requires PDF, PDFs are generated reproducibly (see `scripts/convert_figures_svg_to_pdf.sh`) and included in the build.
 
 ## 8) Final pre-submission pass
 - [ ] Anonymization (if required): remove identifying paths/names.

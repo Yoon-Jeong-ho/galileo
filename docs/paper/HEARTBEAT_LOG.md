@@ -241,3 +241,7 @@ This prevents process drift where the checklist contradicts the heartbeat instru
   - log tailing for newest run
   - launch discipline and DM-update requirements
 - Updated `docs/paper/README.md` to list the runbook.
+
+### 2026-02-10 (am) — Updated submission checklist with figure pipeline requirements
+
+- Updated `docs/paper/EMNLP_MAIN_SUBMISSION_CHECKLIST.md` (Sec. 7) to include explicit checklist items for the SVG→artifact provenance and optional PDF conversion, so final packaging doesn’t silently break figures.
