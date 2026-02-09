@@ -251,6 +251,9 @@ This section will be populated from the paper-ready exports under each `results/
 - Data source: `paper_exports/survival_curve.csv` and `paper_exports/turn_of_failure.csv` for both settings.
 - Suggested caption template:
   - *“Persona pressure causes substantially earlier flips than the **Neutral Re-asking Control** (non-adversarial drift baseline), indicating effects beyond generic multi-turn drift. All conditions use identical rounds, decoding, scoring, and logging.”*
+- Paper-facing summary (seed1–3, Qwen2.5-7B-Instruct; 80 samples/seed):
+  - Survival@5 drops from **80.25** (control mean) to **57.33** (persona weighted mean).
+  - Fail@1 rises from **14.05** (control mean) to **20.57** (persona weighted mean).
 - Presentation note: when plotting survival curves, render personas as **solid** lines and the **Neutral Re-asking Control** as a **dashed** line (same axes/rounds/decoding) to make the drift baseline visually unmissable.
 
 <!-- AUTO:TABLE_W_SEED123_START -->
