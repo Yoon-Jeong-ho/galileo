@@ -17,6 +17,10 @@ You are running a 10-minute **GALILEO EMNLP Main loop**.
 Per heartbeat:
 - Produce **ONE primary high-impact deliverable** (choose exactly one lane).
 - You may do small supporting actions from other lanes only if they are truly small.
+- Rotate lanes over time so **Experiments / Research / Writing** never stall.
+- Experiments are **tiered**:
+  - Tier 1: cross-family generalization (1 new model family) or 1 high-value ablation.
+  - Tier 2: seed5+ or extra tasks only if needed for CI/story.
 
 Local repo (paper/code):
 - `/home/aa007/.openclaw/workspace/galileo`
