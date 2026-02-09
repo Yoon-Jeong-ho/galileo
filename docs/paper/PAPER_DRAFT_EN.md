@@ -239,7 +239,7 @@ This section will be populated from the paper-ready exports under each `results/
 
 **Results (seed1–4; Qwen2.5-7B-Instruct; aggregated over tasks/personas).** The overall TOF mass is distributed across early and late turns, with a majority of examples never failing within 5 rounds. In the Neutral Re-asking Control, **Never-fail = 58.87±1.04%**, while persona pressure yields **Never-fail = 57.85±0.84%**; the remaining probability mass spreads across fail-at-1..5 (tracked artifact `docs/paper/artifacts/tof_distribution_control_vs_persona_seed1-4_mean_std_20260209.csv`).
 
-**Persona-wise TOF (Fail@1 / Never-fail).** When breaking TOF down by persona, the direction and magnitude vary (tracked artifact `docs/paper/artifacts/tof_personawise_fail1_never_control_vs_persona_seed1-4_mean_std_20260209.csv`), motivating persona-specific analysis rather than relying solely on collapsed averages.
+**Persona-wise TOF (Fail@1 / Never-fail).** When breaking TOF down by persona, the direction and magnitude vary (tracked artifact `docs/paper/artifacts/tof_personawise_fail1_never_control_vs_persona_seed1-4_mean_std_20260209.csv`), motivating persona-specific analysis rather than relying solely on collapsed averages. For example, **Logical Trap** decreases Fail@1 by **2.68** points (16.83→14.15), while **Simple Denial** increases Fail@1 by **1.63** points (23.25→24.88) under persona pressure (seed1–4 mean).
 
 ### 7.3 Recovery after flipping (supports C3)
 
@@ -249,7 +249,7 @@ This section will be populated from the paper-ready exports under each `results/
 - Suggested caption template:
   - *“Recovery(p) measures the ability to return to the correct answer after a flip. We report recovery conditional on flip, separating robustness from intervention effects.”*
 
-**Results (seed1–4; Qwen2.5-7B-Instruct; collapsed).** Recovery conditional on flip is high in both settings: **76.73±0.77%** in the Neutral Re-asking Control vs **76.66±1.54%** under persona pressure (tracked artifact `docs/paper/artifacts/recovery_collapsed_control_vs_persona_seed1-4_mean_std_20260209.csv`). Persona-wise recovery deltas vary in direction and magnitude (tracked artifact `docs/paper/artifacts/recovery_personawise_control_vs_persona_seed1-4_mean_std_20260209.csv`), reinforcing C3’s framing that recovery is a distinct axis from “staying correct throughout.”
+**Results (seed1–4; Qwen2.5-7B-Instruct; collapsed).** Recovery conditional on flip is high in both settings: **76.73±0.77%** in the Neutral Re-asking Control vs **76.66±1.54%** under persona pressure (tracked artifact `docs/paper/artifacts/recovery_collapsed_control_vs_persona_seed1-4_mean_std_20260209.csv`). Persona-wise recovery deltas vary in direction and magnitude (tracked artifact `docs/paper/artifacts/recovery_personawise_control_vs_persona_seed1-4_mean_std_20260209.csv`): e.g., **Authority Claim** reduces recovery by **3.83** points (73.99→70.16), whereas **Strong Pressure** increases recovery by **3.79** points (72.74→76.53). This reinforces C3’s framing that recovery is a distinct axis from “staying correct throughout.”
 
 ### 7.4 Cross-task / cross-family generalization (if included in main)
 
