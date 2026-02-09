@@ -166,6 +166,10 @@ for idx in "${!tags[@]}"; do
   done
 done
 
+# Global validation across the entire results root (parity of runner settings across repeated runs).
+python scripts/validate_paper_exports.py --results_root "${RESULTS_ROOT}" --check_runner_parity \
+  2>&1 | tee -a "${RESULTS_ROOT}/GLOBAL_VALIDATE.log"
+
 echo "=== Galileo multiseed families done: $(date) ==="
 RUN2
 
