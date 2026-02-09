@@ -325,3 +325,8 @@ This prevents process drift where the checklist contradicts the heartbeat instru
 ### 2026-02-10 (am) — Wrote Tier-1 cross-family generalization plan (seeds 1–2)
 
 - Added `docs/paper/TIER1_PLAN_CROSSFAMILY.md` to document the minimal, reviewer-risk-reducing plan for cross-family generalization (seeds 1–2) and what to report/export.
+
+### 2026-02-10 (am) — Added tmux command printer for Tier-1 cross-family runs
+
+- Added `scripts/print_crossfamily_run_commands.py` to print copy-pastable tmux launch templates for seeds 1–2 on GPUs 4–7.
+- This standardizes session naming + OUT paths; we still need to fill in the canonical runner invocation once SSH access to nlp16 is restored.
