@@ -38,22 +38,20 @@ Ground-truth tasks에서 multi-turn persona pressure 하에 **정답 유지(surv
 
 ## 2) What is NOT DONE (top gaps)
 
-1) **Table W multi-seed**: extend from seed1–2 to seed1–3+ (std 안정화) and keep the draft AUTO block updated.
-2) **GLOBAL_VALIDATE.log** generation integrated for new runs (runner-level global validate).
-3) **Paper integration**: SYCON/TRUTH DECAY/rebuttal framing 내용을 `PAPER_DRAFT_EN.md` Related Work에 “정식 문장+인용”으로 완전히 이식.
+1) **Table W multi-seed (done up to seed4)**: consider extending to seed5+ if we need tighter intervals, but seed1–4 is already reasonably stable.
+2) **GLOBAL_VALIDATE.log integration**: DONE for `nlp8_smoke.sh`-based runs (run-root `GLOBAL_VALIDATE.log` confirmed on seed4).
+3) **Paper integration**: SYCON/TRUTH DECAY/rebuttal framing 내용을 `PAPER_DRAFT_EN.md` Related Work에 “정식 문장+인용”으로 완전히 이식 (in progress; needs full-text-level tightening).
 
 ---
 
 ## 3) Next heartbeat (ONE step)
 
-**Run seed3 control+persona (auditable green) to stabilize Table W (seed1–3 aggregate).**
+**Related Work tightening: upgrade one vault paper note from abstract-level → full-text-level and update the draft accordingly.**
 
-- Target:
-  - control seed3 on an idle GPU (0–3)
-  - persona seed3 on another idle GPU (0–3)
+- Target: pick ONE among SYCON / TRUTH DECAY / Challenging the Evaluator.
 - Must:
-  - each run produces `paper_exports/*` + `metadata.json` + `runner_metadata.json`
-  - validator prints `[OK]` and `[OK] runner_metadata parity
+  - add concrete protocol details (turn structure, dataset size, exact metrics)
+  - add 1–2 draft sentences that cite and contrast it with GALILEO
 
 ---
 
