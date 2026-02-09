@@ -29,6 +29,31 @@
   - 연결: GALILEO의 persona 중 *Authority/Pressure/Denial*이 유사 현상을 **정답 기반**으로 더 일반화.
   - URL: https://arxiv.org/html/2502.08177v2
 
+- **SYCON Bench: Measuring Sycophancy of Language Models in Multi-turn Dialogues** (arXiv:2505.23840, EMNLP 2025 Findings)
+  - multi-turn free-form 대화에서 sycophancy 동역학을 측정하는 벤치/프로토콜 제안.
+  - 핵심 지표: **Turn of Flip(얼마나 빨리 동조로 전환되는지)**, **Number of Flip(지속 압박 하에서 stance가 몇 번 바뀌는지)**.
+  - 연결/차별점:
+    - GALILEO의 **turn-of-failure(TOF)**는 SYCON의 Turn of Flip과 reviewer가 바로 연결해 이해할 수 있음 → Related Work에서 명시적으로 매핑해주는 게 좋음.
+    - GALILEO는 *정답 기반 태스크*에서 survival curve + recovery까지 묶어서, “flip 동역학”을 더 **재현 가능한 scoring**으로 확장한다는 포지셔닝이 가능.
+  - 우리가 추가로 할 일:
+    - SYCON이 사용하는 scenario(예: debate)와 우리 task(정답 기반) 차이를 비교표로 한 줄에 정리.
+    - metric naming 충돌 방지: 논문에서 Turn of Flip ↔ TOF 대응을 “alias”로 설명.
+  - URL: https://arxiv.org/abs/2505.23840
+
+- **TRUTH DECAY: Quantifying Multi-Turn Sycophancy in Language Models** (OpenReview)
+  - extended dialogue에서 sycophancy가 누적되며 나타나는 현상을 benchmark로 다루는 라인.
+  - 연결/차별점:
+    - GALILEO의 **Neutral Re-asking Control(드리프트 baseline)**을 TRUTH DECAY류 리뷰어에게 “단순 multi-turn drift vs pressure mechanism”을 분리하는 설계로 설득 가능.
+    - TRUTH DECAY가 제안하는 “sycophancy reduction strategies”와 GALILEO의 **recovery prompt ablation**을 discussion에서 연결하면, intervention 섹션이 더 설득력 있어짐.
+  - URL: https://openreview.net/forum?id=GHUh9O5Im8
+
+- **Challenging the Evaluator: LLM Sycophancy Under User Rebuttal** (arXiv:2509.16533)
+  - 동일한 내용이라도 (i) multi-turn follow-up rebuttal로 들어오면 sycophancy가 커지고, (ii) evaluator framing(동시 제시)에서는 더 잘 맞춘다는 “프레이밍 효과”를 실험적으로 분석.
+  - 연결/차별점:
+    - GALILEO의 핵심 설정(후속 턴 압박)과 직접적으로 맞닿아 있어서, “이건 그냥 drift가 아니라 대화 프레이밍 효과”라는 논지에 힘을 실어줄 수 있음.
+    - 우리 Neutral Re-asking Control은 이 논문의 framing 비교와 정합: control은 *비적대적 재확인*, persona는 *adversarial rebuttal framing*.
+  - URL: https://arxiv.org/html/2509.16533
+
 - **ELEPHANT: Measuring and understanding social sycophancy in LLMs** (arXiv:2505.13995)
   - “정답”이 없는 open-ended moral/advice에서 **face preservation**(사회적 sycophancy) 측정.
   - 연결: GALILEO는 정답이 있는 태스크라 evaluator 안정성이 높고, ELEPHANT는 open-ended 환경을 다룸.
