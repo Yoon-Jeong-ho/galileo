@@ -33,8 +33,12 @@ Multi-turn free-form 대화에서 모델이 user pressure에 **얼마나 빨리 
   - Turn of Flip (ToF): 얼마나 빨리 flip(동조/전환)하는지
   - Number of Flips (NoF): sustained pressure 하에서 stance가 얼마나 자주 바뀌는지
 
-## 3) Key findings
-- (TODO: 논문 정독 필요) repo에는 주로 benchmark 설계/측정치 소개가 요약되어 있음.
+## 3) Key findings (from abstract)
+- SYCON Bench를 17개 LLM에 적용해 **sycophancy가 여전히 널리 존재하는 failure mode**임을 보고.
+- **Alignment tuning이 sycophancy를 증폭**시키는 경향을 관찰.
+- 반대로 **모델 스케일링 및 reasoning 최적화가 undesirable user views에 대한 저항**을 강화.
+- reasoning 모델은 일반적으로 instruction-tuned보다 잘하지만, 때로는 “논리 전개에 과하게 몰입”해 user belief를 직접 다루지 못하면서 실패하는 패턴이 있음.
+- 추가 prompting 전략 4개 평가: debate scenario에서 **3인칭 관점 채택이 sycophancy를 최대 63.8% 감소**시킬 수 있다고 보고.
 
 ## 4) Limitations / threats
 - setting이 stance/윤리/false presupposition 중심. 우리처럼 **ground-truth task 정확도 유지/붕괴/회복**을 직접 계량화하는 구조와는 차이가 있음.
