@@ -18,7 +18,8 @@ DATA_ALL_DIR=/data_x/aa007878/galileo/data_all \
 ### 2) Run one experiment over ALL JSONL files in that directory
 
 ```bash
-GPU_LIST=4,5,6,7 TP_SIZE=4 NUM_SAMPLES=100 MAX_MODEL_LEN=16384 MAX_TOKENS=2048 \
+# Project default (current): nlp8 GPUs 0–3
+GPU_LIST=0,1,2,3 TP_SIZE=4 NUM_SAMPLES=100 MAX_MODEL_LEN=16384 MAX_TOKENS=2048 \
   bash scripts/run_all_tasks_tmux.sh galileo-all
 ```
 
@@ -129,7 +130,7 @@ Notes:
 
 This repo supports a paper-oriented workflow:
 
-- **A) Multi-seed runs (7B/14B)** on a fixed GPU set (e.g., GPUs 4–7, TP=4)
+- **A) Multi-seed runs (7B/14B)** on a fixed GPU set (current default: nlp8 GPUs 0–3; TP=4)
 - **B) Figure-ready exports** (survival curves + turn-of-failure)
 - **C) Qualitative taxonomy sheet** (balanced flip samples for manual labeling)
 
@@ -137,10 +138,11 @@ This repo supports a paper-oriented workflow:
 
 > Runs the full pipeline (initial → adversarial → recovery) for multiple seeds.
 > Uses a **strict unified data dir** that excludes legacy pilot files.
+> NOTE: GPU host/policy can differ across clusters; for our current runs we assume **nlp8 + GPUs 0–3**.
 
 ```bash
 cd /mnt/raid6/aa007878/galileo-dev
-GPU_LIST=4,5,6,7 TP_SIZE=4 NUM_SAMPLES=1000 MAX_MODEL_LEN=16384 MAX_TOKENS=2048 SEEDS=1,2,3,4,5 DATA_ALL_DIR=/data_x/aa007878/galileo/data_all_strict_4567 MATH_DIR=/data_x/aa007878/galileo/data QA_DIR=/data_x/aa007878/galileo/data_qa_full   bash scripts/run_multiseed_tmux.sh galileo-multiseed-4567
+GPU_LIST=0,1,2,3 TP_SIZE=4 NUM_SAMPLES=1000 MAX_MODEL_LEN=16384 MAX_TOKENS=2048 SEEDS=1,2,3,4,5 DATA_ALL_DIR=/data_x/aa007878/galileo/data_all_strict_0123 MATH_DIR=/data_x/aa007878/galileo/data QA_DIR=/data_x/aa007878/galileo/data_qa_full   bash scripts/run_multiseed_tmux.sh galileo-multiseed-0123
 ```
 
 Outputs:

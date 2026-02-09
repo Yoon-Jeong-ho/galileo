@@ -95,6 +95,6 @@ make sure the **same** `~/.ssh/` (keys + config) exists *in that environment*.
 
 ## 5) Once SSH works: experiment conventions
 
-- Always set `CUDA_VISIBLE_DEVICES=4,5,6,7` (project policy).
+- Always set `CUDA_VISIBLE_DEVICES=0,1,2,3` on **nlp8** (current project policy).
 - Use `tmux` to keep runs alive.
 - Keep worker counts small to avoid CPU overload.
