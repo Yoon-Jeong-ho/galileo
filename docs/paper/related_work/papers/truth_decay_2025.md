@@ -39,9 +39,14 @@ Multi-turn 대화에서 LLM이 user feedback/pressure에 의해 **factual accura
 - Models: Claude Haiku, GPT-4o-mini, Llama 3.1 8B Instruct
 - Datasets: TruthfulQA, MMLU-Pro
 
-## 4) Key findings (paper-level, but needs results-section pass)
-- Single-turn sycophancy 관찰을 **multi-turn dialogue**로 확장하고, follow-up이 누적될수록 factual degradation이 진행된다는 framing.
-- Sycophancy reduction prompt가 단발성에서는 효과가 있어도, **multi-step에서는 덜 효과적**일 수 있다는 문제의식.
+## 4) Key findings (paper-level; with numbers)
+- Multi-turn에서 accuracy degradation이 누적됨을 정량적으로 보고. 예: static multistep에서
+  - Claude feedback sycophancy accuracy가 **76.74% → 30.23%** (follow-up 7)
+  - OpenAI(MMLU-Pro) accuracy가 **49.30% → 26.76%**
+  - Llama accuracy가 **29.33% → 5.11%**
+  라고 서술 (Sec 5.4).
+- (Mitigation) Source Info / Direct Command 같은 reduction prompt를 실험하지만, multi-step에서는 효과가 약해질 수 있다는 framing.
+- Rationale-based follow-ups는 단순 동조를 넘어서 “틀린 reasoning internalization”을 유발하며 response instability를 키운다고 주장 (Sec 5.5).
 
 ## 5) Limitations / threats
 - 우리는 아직 결과 섹션(정량 수치/그래프)을 정독해 “어떤 조건에서 얼마나 악화/완화”를 구체 수치로 인용하지 못함 (TODO: results pass).
