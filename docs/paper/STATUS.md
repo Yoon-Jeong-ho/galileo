@@ -49,16 +49,16 @@ Ground-truth tasks에서 multi-turn persona pressure 하에 **정답 유지(surv
 ## 3) TOP GAPS (what still blocks paper quality)
 
 1) **Figures ready for submission:** generate and commit final survival/TOF/recovery plots (SVG/PDF) and ensure captions reference artifacts.
-2) **Related work (numbers):** TRUTH DECAY / Challenging the Evaluator results sections still need a quick pass for 1–2 quantitative effect sizes we can cite.
+2) **Related work (numbers):** DONE for TRUTH DECAY + Challenging the Evaluator (key effect sizes extracted + cited in Sec 6.4).
 3) **Experiment extension decision:** decide whether we need seed5+ (tighter CI) or shift budget to cross-family generalization.
 
 ---
 
 ## 4) NEXT HEARTBEAT (ONE step)
 
-**Extract 1–2 quantitative effect sizes from TRUTH DECAY and/or Challenging the Evaluator and add a numeric contrast sentence in Sec 6.4.**
+**Submission-ready figures: generate Survival/TOF/Recovery plots (SVG/PDF) from tracked artifacts and wire them into the draft.**
 
-- Deliverable: update one vault note (results section) + add 1–2 citation sentences in `docs/paper/PAPER_DRAFT_EN.md` that include concrete numbers (not just qualitative claims).
+- Deliverable: add figure files under `docs/paper/figures/` (or `paper_figures/`) + update `docs/paper/PAPER_DRAFT_EN.md` captions to reference them.
 
 ---
 
