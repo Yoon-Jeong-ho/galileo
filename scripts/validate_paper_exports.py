@@ -53,6 +53,14 @@ def find_paper_exports_dirs(results_root: Path):
 def validate_one(exports_dir: Path, require_control: bool) -> list[str]:
     errors: list[str] = []
 
+    # Heuristic: only enforce neutral control presence for export bundles that are
+    # *supposed* to be the control condition.
+    # Common directory patterns:
+    #   .../control/paper_exports
+    #   .../control_seed2/paper_exports
+    parent_name = exports_dir.parent.name.lower()
+    is_control_bundle = parent_name.startswith("control")
+
     # Basic presence checks
     for fn in REQUIRED_EXPORTS:
         p = exports_dir / fn
@@ -97,8 +105,8 @@ def validate_one(exports_dir: Path, require_control: bool) -> list[str]:
             if k not in runner_obj:
                 errors.append(f"{runner_meta} missing required key: {k}")
 
-    # Control presence in exports
-    if require_control:
+    # Control presence in exports (only for control bundles)
+    if require_control and is_control_bundle:
         # survival curve
         surv = exports_dir / "survival_curve.csv"
         if surv.exists():
@@ -183,7 +191,10 @@ def main():
     ap.add_argument(
         "--require_control",
         action="store_true",
-        help="Fail if survival_curve.csv/turn_of_failure.csv does not contain persona=neutral_reask_control",
+        help=(
+            "For control bundles only (e.g., .../control/paper_exports), fail if survival_curve.csv/"
+            "turn_of_failure.csv does not contain persona=neutral_reask_control"
+        ),
     )
     ap.add_argument(
         "--check_runner_parity",
