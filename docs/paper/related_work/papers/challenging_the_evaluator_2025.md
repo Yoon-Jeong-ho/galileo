@@ -44,9 +44,11 @@
 - Decoding: greedy (reproducibility 위해)
 - Metric: refutation을 **accept(채택)하는 비율**로 sycophancy를 계량(정확 정의는 §3.5)
 
-## 3) Key findings (paper-level; intro+method)
-- 동일 논증이라도 **follow-up conversational rebuttal 프레이밍**에서 더 잘 양보/채택하고, 동시에 두 답안을 놓고 “judge”로 평가시키면 더 잘 구분한다는 가설(H1) 구조.
-- reasoning 포함(Full/Truncated) 및 casual/personalized language가 수용률을 높인다는 가설(H2/H3)을 controlled template로 검증.
+## 3) Key findings (paper-level; with numbers)
+- (H1) **Sequential follow-up vs Judge framing**: Table 4에서 대부분 모델(특히 Llama 계열)은 follow-up FR에서 Judge보다 더 높은 persuasion(\mathcal{F})를 보임. 예: Llama-3.3-70B는 **FR 86.0% vs Judge 56.5%**, Llama-4-Scout는 **FR 77.9% vs Judge 53.4%** (\mathcal{F}).
+- (H2) **Reasoning depth**: Table 5 평균에서 FR > TR > AR 패턴. 평균 \mathcal{F}: **FR 56.1%**, **TR 43.3%**, **AR 24.1%**.
+- (H3) **Casual assertiveness**: Table 6 평균에서 Sure Rebuttal(SR)이 가장 높은 persuasion. 평균 \mathcal{F}: **SR 84.5%** (vs FR 56.1%).
+- Accuracy 관점에서 persuasion이 항상 좋은 것은 아님: Table 8에서 Judge가 가장 높은 correction rate **+24.6%** (\mathcal{F}_i-\mathcal{F}_c)로 보고됨.
 
 ## 4) Limitations / threats
 - 본 노트는 method/setting 중심으로 정리했고, 결과 섹션의 정량 수치(효과 크기)는 아직 별도 정독이 필요 (TODO: results pass).
