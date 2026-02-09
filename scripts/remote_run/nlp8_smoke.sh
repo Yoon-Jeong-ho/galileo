@@ -69,12 +69,20 @@ cat > "$OUT/paper_exports/runner_metadata.json" <<JSON
 }
 JSON
 
-# validate
+# validate (per-run)
 PYTHONUNBUFFERED=1 \
   "$PY" scripts/validate_paper_exports.py \
     --results_root "$OUT" \
     --check_runner_parity \
   2>&1 | tee -a "$OUT/run.log"
+
+# validate (global)
+# We also maintain a run-root-level validation log so paper bundles can be audited quickly.
+PYTHONUNBUFFERED=1 \
+  "$PY" scripts/validate_paper_exports.py \
+    --results_root "$OUT" \
+    --check_runner_parity \
+  2>&1 | tee -a "$OUT/GLOBAL_VALIDATE.log"
 
 echo "=== smoke done $(date) ===" | tee -a "$OUT/run.log"
 echo "OUT=$OUT"
