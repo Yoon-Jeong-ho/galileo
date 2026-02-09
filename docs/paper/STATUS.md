@@ -31,7 +31,7 @@ Ground-truth tasks에서 multi-turn persona pressure 하에 **정답 유지(surv
 
 ## 2) What is NOT DONE (top gaps)
 
-1) **Control vs persona 2-run (fresh)** under the new pipeline (GPU0/GPU1) → paper-ready Table W refresh.
+1) **Control vs persona 2-run (fresh) (paper-ready)**: control is DONE ✅, persona still running ⏳ → once persona finishes, refresh Table W.
 2) **GLOBAL_VALIDATE.log** generation integrated for new runs (runner-level global validate).
 3) **Paper integration**: SYCON/TRUTH DECAY/rebuttal framing 내용을 `PAPER_DRAFT_EN.md` 본문 Related Work에 완전히 이식.
 
@@ -39,13 +39,12 @@ Ground-truth tasks에서 multi-turn persona pressure 하에 **정답 유지(surv
 
 ## 3) Next heartbeat (ONE step)
 
-**Run fresh control vs persona 2-run on nlp8 (small NUM_SAMPLES), with GPU hygiene.**
+**Finish fresh persona run + validate exports (paper-ready), then prep Table W refresh.**
 
-- GPU policy: use GPUs **0,1,2,3 only** (start with GPU0=control, GPU1=persona).
-- Must:
-  - produce `paper_exports/*` for both runs
-  - include `neutral_reask_control` id in control exports
-  - run validator at the end
+- Must for persona run:
+  - produce `paper_exports/*` + `metadata.json` + `runner_metadata.json`
+  - validator prints `[OK]` (exports + runner_metadata parity)
+- Then (same heartbeat if quick, otherwise next): update Table W inputs to point at the new control+persona run roots.
 
 ---
 
