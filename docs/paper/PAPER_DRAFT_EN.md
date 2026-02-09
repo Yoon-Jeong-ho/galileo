@@ -90,6 +90,8 @@ Each dataset is stored as **JSONL**, with one example per line. We unify fields 
 
 ## 3. GALILEO protocol
 
+**Figure P (Protocol overview).** See `docs/paper/figures/protocol_overview.svg` for a 1-column submission-ready diagram of the three-phase evaluation (initial evaluation → multi-round pressure with persona vs neutral control → recovery).
+
 Given a dataset and an LLM, GALILEO proceeds in three phases:
 
 ### Phase 1: Initial evaluation

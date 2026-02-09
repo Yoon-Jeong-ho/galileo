@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="520" viewBox="0 0 1100 520">
+<style>
+      .header{font: 20px sans-serif; font-weight:700; fill:#111;}
+      .title{font: 16px sans-serif; font-weight:700; fill:#111;}
+      .body{font: 14px sans-serif; fill:#111;}
+      .label{font: 13px sans-serif; fill:#111;}
+      .small{font: 12px sans-serif; fill:#222;}
+    </style>
+<defs>
+          <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+            <path d="M0,0 L8,3 L0,6 z" fill="#111" />
+          </marker>
+        </defs>
+<text x="48" y="44" class="header">GALILEO protocol (ground-truth multi-turn robustness)</text>
+<rect x="60" y="110" width="310" height="240" rx="14" ry="14" fill="#eef6ff" stroke="#111" stroke-width="1.2"/>
+<text x="76" y="132" class="title">Phase 1: Initial evaluation</text>
+<text x="76" y="154" class="body">Answer once on ground-truth tasks</text>
+<text x="76" y="172" class="body">Score correctness → keep initially-correct set C</text>
+<text x="76" y="190" class="body">Export per-example logs</text>
+<rect x="395" y="110" width="310" height="240" rx="14" ry="14" fill="#fff3e6" stroke="#111" stroke-width="1.2"/>
+<text x="411" y="132" class="title">Phase 2: Multi-round pressure</text>
+<text x="411" y="154" class="body">For each x ∈ C, run up to R rounds</text>
+<text x="411" y="172" class="body">Persona pressure (5 personas) OR</text>
+<text x="411" y="190" class="body">Neutral Re-asking Control (drift baseline)</text>
+<text x="411" y="208" class="body">Measure survival + TOF per round</text>
+<rect x="730" y="110" width="310" height="240" rx="14" ry="14" fill="#eefaf0" stroke="#111" stroke-width="1.2"/>
+<text x="746" y="132" class="title">Phase 3: Recovery</text>
+<text x="746" y="154" class="body">For flipped examples, apply recovery prompt</text>
+<text x="746" y="172" class="body">Score recovery conditional on flip</text>
+<text x="746" y="190" class="body">Report recovery as distinct axis</text>
+<line x1="370" y1="230.0" x2="395" y2="230.0" stroke="#111" stroke-width="2" marker-end="url(#arrow)"/>
+<text x="382.5" y="222.0" class="label" text-anchor="middle">logs + C</text>
+<line x1="705" y1="230.0" x2="730" y2="230.0" stroke="#111" stroke-width="2" marker-end="url(#arrow)"/>
+<text x="717.5" y="222.0" class="label" text-anchor="middle">flip set</text>
+<rect x="60" y="390" width="980" height="96" rx="14" ry="14" fill="#ffffff" stroke="#111" stroke-width="1.0"/>
+<text x="76" y="418" class="title">Outputs (per run)</text>
+<text x="76" y="444" class="body">paper_exports/: survival_curve.csv • turn_of_failure.csv • flip_samples.csv • metadata.json • runner_metadata.json</text>
+<text x="76" y="468" class="body">Tracked artifacts: compact CSV summaries under docs/paper/artifacts/ → submission figures under docs/paper/figures/</text>
+</svg>
