@@ -74,6 +74,7 @@ def validate_one(exports_dir: Path, require_control: bool) -> list[str]:
 
     # Control presence in exports
     if require_control:
+        # survival curve
         surv = exports_dir / "survival_curve.csv"
         if surv.exists():
             try:
@@ -85,6 +86,19 @@ def validate_one(exports_dir: Path, require_control: bool) -> list[str]:
                     )
             except Exception as ex:
                 errors.append(f"failed reading {surv}: {ex}")
+
+        # turn-of-failure
+        tof = exports_dir / "turn_of_failure.csv"
+        if tof.exists():
+            try:
+                rows = read_csv(tof)
+                personas = {r.get("persona") for r in rows}
+                if "neutral_reask_control" not in personas:
+                    errors.append(
+                        f"{tof} missing persona=neutral_reask_control (Neutral Re-asking Control)"
+                    )
+            except Exception as ex:
+                errors.append(f"failed reading {tof}: {ex}")
 
     return errors
 
