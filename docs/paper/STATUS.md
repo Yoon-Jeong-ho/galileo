@@ -57,9 +57,9 @@ Ground-truth tasks에서 multi-turn persona pressure 하에 **정답 유지(surv
 
 ## 4) NEXT HEARTBEAT (ONE step)
 
-**Decide SVG→PDF policy and (if needed) add a reproducible conversion step for Overleaf/submission.**
+**Pick a default for the LaTeX pipeline (SVG vs PDF) and, if PDF, ensure the build environment has `rsvg-convert` or Inkscape.**
 
-- Deliverable: either (a) confirm SVG-only is acceptable and add a short note in `docs/paper/README.md`, or (b) add a conversion script/Makefile rule that produces `figures/*.pdf` from `docs/paper/figures/*.svg`.
+- Deliverable: confirm which renderer we will rely on in Overleaf/camera-ready; if PDF is required, install deps on the build machine (or add a CI step) and generate `paper_figures/pdf/*.pdf`.
 
 ---
 

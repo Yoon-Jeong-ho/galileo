@@ -13,9 +13,27 @@ This folder contains the **MD-only** paper-writing workflow for the GALILEO EMNL
 
 ## Conventions
 
-- Figures/tables are generated from `results/<run>/paper_exports/` and stored under `paper_figures/`.
+- Figures/tables are generated from `results/<run>/paper_exports/`.
+- **Source-of-truth figures (vector):** `docs/paper/figures/*.svg` (generated from tracked CSV artifacts).
+- **Optional submission format:** if your LaTeX pipeline prefers PDFs, generate `paper_figures/pdf/*.pdf` from the SVGs (see below).
 - Prefer linking to artifact paths (CSV/SVG) from the draft so reviewers can verify claims.
 - Section numbering in drafts may be renumbered/removed during LaTeX conversion.
+
+## Figure conversion (SVG → PDF)
+
+Some LaTeX/Overleaf setups do not handle SVG cleanly. We keep SVG as the source of truth and (optionally) generate PDFs.
+
+- Script: `scripts/convert_figures_svg_to_pdf.sh`
+- Requires **one** of:
+  - `rsvg-convert` (recommended; `librsvg2-bin` on Ubuntu), or
+  - `inkscape`
+
+Usage:
+
+```bash
+# default: docs/paper/figures/*.svg -> paper_figures/pdf/*.pdf
+./scripts/convert_figures_svg_to_pdf.sh
+```
 
 ## Automation notes (OpenClaw heartbeat)
 
