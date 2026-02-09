@@ -225,6 +225,8 @@ Unless stated otherwise, results are reported as mean±std over **seeds 1–4** 
 
 **Figure X (Survival curves).** Persona-wise survival over rounds `r=1..R` on the main benchmark(s).
 
+- Current draft figure (artifact-derived SVG): `docs/paper/figures/survival_r5_personawise_delta_seed1-4_20260209.svg` (ΔSurvival@5 view; seed1–4)
+
 - Data source: `paper_exports/survival_curve.csv`
 - Suggested caption template:
   - *“Survival(p, r) on initially-correct examples (mean±std across seeds). Robustness decays monotonically for some personas but exhibits late-turn failures under others, highlighting multi-turn dynamics beyond InitialAcc. Dashed line: **Neutral Re-asking Control** (drift baseline).”*
@@ -234,6 +236,8 @@ Unless stated otherwise, results are reported as mean±std over **seeds 1–4** 
 ### 7.2 When failures happen: turn-of-failure (TOF) (supports C1)
 
 **Table Y (Turn-of-failure distribution).** Distribution over `{1..R, never}` per persona.
+
+- Current draft figure (artifact-derived SVG): `docs/paper/figures/tof_personawise_fail1_delta_seed1-4_20260209.svg` (ΔFail@1 view; seed1–4)
 
 - Data source: `paper_exports/turn_of_failure.csv`
 - Suggested caption template:
@@ -246,6 +250,8 @@ Unless stated otherwise, results are reported as mean±std over **seeds 1–4** 
 ### 7.3 Recovery after flipping (supports C3)
 
 **Table Z (Recovery accuracy).** Recovery conditional on having flipped under persona pressure.
+
+- Current draft figure (artifact-derived SVG): `docs/paper/figures/recovery_personawise_delta_seed1-4_20260209.svg` (ΔRecovery@flip view; seed1–4)
 
 - Data source(s): `recovery_accuracy.csv` (per run)
 - Suggested caption template:
@@ -261,6 +267,8 @@ Unless stated otherwise, results are reported as mean±std over **seeds 1–4** 
 ### 7.5 Persona pressure vs drift: control comparison (supports C2, rebuttal)
 
 **Table W (Persona vs control).** Compare survival@R and Fail@1 under persona pressure vs the **Neutral Re-asking Control** condition.
+
+- Current draft figure (artifact-derived SVG): `docs/paper/figures/table_w_effect_delta_seed1-4_20260209.svg` (Δ metric view; seed1–4)
 
 **Results (seed1–4; Qwen2.5-7B-Instruct; 80 samples/seed).** Persona pressure substantially shifts failure dynamics relative to the neutral drift baseline: at round 5, mean **Survival@5** drops from **80.32±0.67** in the Neutral Re-asking Control to **57.55±0.69** under persona pressure, while **Fail@1** increases from **13.10±3.53** to **20.03±1.21** (Table W; aggregated over seeds). Importantly, all conditions share identical rounds/decoding/scoring and include the Neutral Re-asking Control as a drift baseline, so the observed gap is consistent with persona-induced mechanisms rather than generic multi-turn degradation, supporting C2.
 
