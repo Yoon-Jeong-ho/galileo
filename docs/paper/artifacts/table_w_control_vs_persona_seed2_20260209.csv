@@ -1,0 +1,4 @@
+metric,control,persona_weighted,persona_unweighted
+Survival@5,81.25,58.13,58.13
+Fail@1,19.03,21.30,20.85
+Never-fail,81.25,58.13,58.13
