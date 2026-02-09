@@ -513,3 +513,7 @@ results/
 ## 13. 라이선스
 
 MIT License. 자세한 내용은 `LICENSE` 참고.
+
+## PR workflow (Codex GitHub Code Review)
+
+We will prefer small PRs for substantive code changes so GitHub-integrated code review tools (e.g., Codex Code Review) can comment on diffs.
