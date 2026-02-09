@@ -20,8 +20,10 @@ Then check:
 
 1. **Which key is being offered?**
    - In `-v` logs, look for `Offering public key:`
-2. **Is the correct IdentityFile configured?**
-   - `ssh -G nlp8 | grep -i identityfile`
+2. **Is the correct IdentityFile *and Port* configured?**
+   - `ssh -G nlp8  | egrep -i 'identityfile|port|hostname|user'`
+   - `ssh -G nlp16 | egrep -i 'identityfile|port|hostname|user'`
+   - If `port 22` shows up for `nlp16`, your `~/.ssh/config` entry is not being applied in *this* environment.
 3. **Does the key file exist and have correct perms?**
    - `ls -l ~/.ssh/*.pub ~/.ssh/*ed25519 2>/dev/null`
    - `chmod 700 ~/.ssh && chmod 600 ~/.ssh/config ~/.ssh/<key>`
@@ -95,6 +97,6 @@ make sure the **same** `~/.ssh/` (keys + config) exists *in that environment*.
 
 ## 5) Once SSH works: experiment conventions
 
-- Always set `CUDA_VISIBLE_DEVICES=0,1,2,3` on **nlp8** (current project policy).
+- Always set `CUDA_VISIBLE_DEVICES` according to the **current experiment policy** (see the repo/workspace `HEARTBEAT.md`, which we sometimes update temporarily due to contention).
 - Use `tmux` to keep runs alive.
 - Keep worker counts small to avoid CPU overload.
