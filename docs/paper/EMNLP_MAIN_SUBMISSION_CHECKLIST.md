@@ -89,8 +89,9 @@ Recommended artifacts to cite in-paper:
 
 ## 8) Final pre-submission pass
 - [ ] Anonymization (if required): remove identifying paths/names.
+  - [ ] Use `docs/paper/ANONYMIZATION_NOTES.md` as the SSOT for what to grep/sanitize/exclude.
   - [ ] Replace absolute paths (e.g., `/mnt/raid6/...`, `/data_x/...`) with generic placeholders.
-  - [ ] Remove hostnames / usernames / Slack IDs / internal machine identifiers from logs and docs.
+  - [ ] Remove hostnames / usernames / internal machine identifiers from docs.
   - [ ] Ensure figures/tables do not embed run directory names containing identifying info.
   - [ ] Double-check `results/**/run.log` before packaging any artifact bundle.
 - [ ] Camera-ready checklist (after acceptance): acknowledgements, ethics, artifacts.

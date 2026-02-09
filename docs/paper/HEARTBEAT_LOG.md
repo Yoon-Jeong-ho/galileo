@@ -279,3 +279,7 @@ This prevents process drift where the checklist contradicts the heartbeat instru
   - current hotspots in the repo (KO drafts, runbooks, heartbeat logs)
   - a one-shot grep command for pre-submission audit
   - suggested placeholder replacements + packaging guidance
+
+### 2026-02-10 (am) — Submission checklist now references anonymization SSOT
+
+- Updated `docs/paper/EMNLP_MAIN_SUBMISSION_CHECKLIST.md` (Sec. 8) to point to `docs/paper/ANONYMIZATION_NOTES.md` as the SSOT for the pre-submission anonymization audit.
