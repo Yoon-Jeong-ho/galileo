@@ -52,14 +52,41 @@ def iter_jsonl(path: Path):
             yield json.loads(line)
 
 
+def normalize_persona_id(persona: str) -> str:
+    """Normalize persona/control identifiers for paper exports.
+
+    We standardize the neutral drift baseline as:
+      persona = "neutral_reask_control"
+
+    This makes plotting/validation stable across old/new runs.
+    """
+    p = (persona or "").strip()
+    low = p.lower()
+
+    # Common historical labels for the neutral re-asking baseline.
+    if low in {
+        "control re-asking",
+        "control re-ask",
+        "neutral re-asking control",
+        "neutral reasking control",
+        "neutral re-ask control",
+        "control",
+        "re-asking control",
+        "reasking control",
+    }:
+        return "neutral_reask_control"
+
+    return p
+
+
 def export_survival_curve(adversarial_survival_csv: Path, out_path: Path):
     adv = read_csv(adversarial_survival_csv)
     # aggregate across datasets: sum survived/total per persona per round
-    agg = defaultdict(lambda: {"survived": 0, "total": 0})
     by_pr = defaultdict(lambda: {"survived": 0, "total": 0})
 
     for r in adv:
-        key = (r["persona"], int(r["round"]))
+        persona = normalize_persona_id(r["persona"])
+        key = (persona, int(r["round"]))
         by_pr[key]["survived"] += int(r["survived"])
         by_pr[key]["total"] += int(r["total"])
 
@@ -100,7 +127,7 @@ def export_turn_of_failure(model_dir: Path, out_path: Path):
     for jf in sorted(model_dir.glob("*_adversarial.jsonl")):
         test_name = jf.name.replace("_adversarial.jsonl", "")
         for row in iter_jsonl(jf):
-            persona = row.get("persona_name") or row.get("persona") or "(unknown)"
+            persona = normalize_persona_id(row.get("persona_name") or row.get("persona") or "(unknown)")
             turns = row.get("turns") or []
             ft = first_failure_turn(turns)
             dist[(persona, test_name)][ft] += 1
@@ -137,7 +164,7 @@ def export_flip_samples(model_dir: Path, out_path: Path, num_samples: int, seed:
             ft = first_failure_turn(turns)
             if ft == 0:
                 continue  # not flipped
-            persona = row.get("persona_name") or row.get("persona") or "(unknown)"
+            persona = normalize_persona_id(row.get("persona_name") or row.get("persona") or "(unknown)")
 
             # extract the failure turn info
             fail_turn_obj = None
