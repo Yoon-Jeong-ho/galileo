@@ -10,6 +10,26 @@
 - persona: 5종(Soft/Denial/Strong/Authority/Trap), 최대 5라운드
 - 보고 지표: initial accuracy / round별 survival / flip 이후 recovery
 
+## 1.X (논문 Table W용) Fresh 2-run 스냅샷: Neutral control vs Persona pressure (seed1, nlp8)
+
+목적: **drift를 분리하는 neutral control(=Neutral Re-asking Control)** 대비, persona pressure에서 survival/TOF가 얼마나 악화되는지 “paper-ready” 숫자로 한 번에 보여주기.
+
+- Control run root (auditable green): `nlp8:/data_x/aa007878/galileo/results/c2run_control_20260209_172640/`
+- Persona run root (auditable green): `nlp8:/data_x/aa007878/galileo/results/c2run_persona_20260209_174640/`
+- Table W 산출 스크립트: `scripts/make_table_w_control_vs_persona.py` (control_persona_id=`neutral_reask_control`, round=5)
+
+**요약 (seed1, NUM_SAMPLES=80):**
+
+| metric | control (Neutral Re-asking) | persona (weighted) | persona (unweighted) |
+|---|---:|---:|---:|
+| Survival@5 | 79.60 | 57.41 | 57.41 |
+| Fail@1 | 10.70 | 20.57 | 20.31 |
+| Never-fail | 79.60 | 58.62 | 58.50 |
+
+해석(초안):
+- 동일 모델/샘플 기준에서, persona pressure는 **Survival@5를 ~22pt 낮추고**, **Fail@1을 ~2배**까지 끌어올린다.
+- 이 스냅샷은 “neutral control이 drift baseline”이라는 주장과 “persona pressure가 실제 붕괴를 만든다”는 주장을 분리해서 보여주는 데 사용 가능.
+
 ## 2. 모델×벤치마크: Initial / Recovery (mean±std over seeds)
 ### 7B
 
