@@ -11,6 +11,10 @@ This is a **process guardrail** to prevent drift (wrong server/GPU policy, lane 
    - Experiments / Research / Development / Writing
 3) Declare the deliverable *in one sentence* (what will be different in 10 minutes?).
 
+**If lane = Experiments:** first confirm you can actually reach the box.
+- Quick sanity: `ssh nlp16 'hostname; whoami'`
+- If SSH is blocked (keys/agent/etc.), **do not burn the heartbeat** debugging infra unless explicitly prioritized—switch this heartbeat to Writing/Development and record the SSH blocker in the DM update.
+
 ## B) If lane = Experiments (nlp16; tiered)
 
 Remote is:

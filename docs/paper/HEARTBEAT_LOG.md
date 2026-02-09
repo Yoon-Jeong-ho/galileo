@@ -222,3 +222,8 @@ This prevents process drift where the checklist contradicts the heartbeat instru
 - Updated `docs/paper/PAPER_DRAFT_EN.md`:
   - Results preface no longer mentions a specific server name (avoid process drift in the draft).
   - Related Work positioning clarifies that our TOF is conceptually aligned with “turn-of-flip” metrics while retaining ground-truth + drift-control framing.
+
+### 2026-02-10 (am) — Added SSH-sanity guardrail to prevent wasting experiment heartbeats
+
+- Updated `docs/paper/HEARTBEAT_CHECKLIST.md` to require a quick `ssh nlp16 'hostname; whoami'` sanity check before selecting Experiments lane.
+- If SSH is blocked, the checklist now explicitly advises switching the heartbeat to Writing/Development and logging the blocker, rather than spending the full 10 minutes on infra debugging.
