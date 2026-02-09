@@ -120,6 +120,12 @@ def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--control_exports", type=Path, required=True)
     ap.add_argument("--persona_exports", type=Path, required=True)
+    ap.add_argument(
+        "--control_persona_id",
+        type=str,
+        default="neutral_reask_control",
+        help="Persona key to treat as the control baseline inside control_exports.",
+    )
     ap.add_argument("--round", type=int, default=5)
     ap.add_argument("--out_csv", type=Path, required=True)
     args = ap.parse_args()
@@ -135,11 +141,14 @@ def main() -> None:
     c_tof_agg = _aggregate_tof(c_tof)
     p_tof_agg = _aggregate_tof(p_tof)
 
-    # control is typically a single persona label
+    # control exports may include multiple personas (attack families + the neutral control).
+    # We treat `control_persona_id` as the baseline control key.
     c_personas = sorted({r.persona for r in c_surv})
-    if len(c_personas) != 1:
-        raise ValueError(f"Expected 1 control persona in survival_curve.csv, got {c_personas}")
-    c_key = c_personas[0]
+    if args.control_persona_id not in c_personas:
+        raise ValueError(
+            f"control_persona_id={args.control_persona_id!r} not found in control survival_curve.csv personas={c_personas}"
+        )
+    c_key = args.control_persona_id
 
     p_personas = _persona_keys(p_tof)
 
