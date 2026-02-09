@@ -303,3 +303,7 @@ This prevents process drift where the checklist contradicts the heartbeat instru
 
 - Added `scripts/check_figure_tooling.sh` to quickly validate whether `rsvg-convert`/Inkscape is available for SVG→PDF conversion.
 - Updated `docs/paper/README.md` to reference the preflight check.
+
+### 2026-02-10 (am) — LaTeX snippets now assume PDF build (SVG as source)
+
+- Updated LaTeX include snippets in `docs/paper/PAPER_DRAFT_EN.md` to explicitly treat the repo SVGs as sources and recommend converting to PDF for the LaTeX build (placing PDFs under the LaTeX `figures/` directory).

@@ -95,7 +95,8 @@ Each dataset is stored as **JSONL**, with one example per line. We unify fields 
 **Paper include (LaTeX snippet).**
 
 ```latex
-% copy from repo: docs/paper/figures/protocol_overview.svg
+% Source SVG (repo): docs/paper/figures/protocol_overview.svg
+% Recommended LaTeX build: convert SVG->PDF and put the PDF under your LaTeX figures/ dir.
 \begin{figure}[t]
   \centering
   \includegraphics[width=\linewidth]{figures/protocol_overview}
@@ -248,7 +249,8 @@ Unless stated otherwise, results are reported as mean±std over **seeds 1–4** 
 **Paper include (LaTeX snippet).**
 
 ```latex
-% copy from repo: docs/paper/figures/survival_curves_rounds_seed1-4_20260209.svg
+% Source SVG (repo): docs/paper/figures/survival_curves_rounds_seed1-4_20260209.svg
+% Recommended LaTeX build: convert SVG->PDF and put the PDF under your LaTeX figures/ dir.
 \begin{figure}[t]
   \centering
   \includegraphics[width=\linewidth]{figures/survival_curves_rounds_seed1-4_20260209}
@@ -258,7 +260,8 @@ Unless stated otherwise, results are reported as mean±std over **seeds 1–4** 
 ```
 
 ```latex
-% copy from repo: docs/paper/figures/survival_r5_personawise_delta_seed1-4_20260209.svg
+% Source SVG (repo): docs/paper/figures/survival_r5_personawise_delta_seed1-4_20260209.svg
+% Recommended LaTeX build: convert SVG->PDF and put the PDF under your LaTeX figures/ dir.
 \begin{figure}[t]
   \centering
   \includegraphics[width=\linewidth]{figures/survival_r5_personawise_delta_seed1-4_20260209}
@@ -281,7 +284,8 @@ Unless stated otherwise, results are reported as mean±std over **seeds 1–4** 
 **Paper include (LaTeX snippet).**
 
 ```latex
-% copy from repo: docs/paper/figures/tof_personawise_fail1_delta_seed1-4_20260209.svg
+% Source SVG (repo): docs/paper/figures/tof_personawise_fail1_delta_seed1-4_20260209.svg
+% Recommended LaTeX build: convert SVG->PDF and put the PDF under your LaTeX figures/ dir.
 \begin{figure}[t]
   \centering
   \includegraphics[width=\linewidth]{figures/tof_personawise_fail1_delta_seed1-4_20260209}
@@ -304,7 +308,8 @@ Unless stated otherwise, results are reported as mean±std over **seeds 1–4** 
 **Paper include (LaTeX snippet).**
 
 ```latex
-% copy from repo: docs/paper/figures/recovery_personawise_delta_seed1-4_20260209.svg
+% Source SVG (repo): docs/paper/figures/recovery_personawise_delta_seed1-4_20260209.svg
+% Recommended LaTeX build: convert SVG->PDF and put the PDF under your LaTeX figures/ dir.
 \begin{figure}[t]
   \centering
   \includegraphics[width=\linewidth]{figures/recovery_personawise_delta_seed1-4_20260209}
@@ -329,7 +334,8 @@ Unless stated otherwise, results are reported as mean±std over **seeds 1–4** 
 **Paper include (LaTeX snippet).**
 
 ```latex
-% copy from repo: docs/paper/figures/table_w_effect_delta_seed1-4_20260209.svg
+% Source SVG (repo): docs/paper/figures/table_w_effect_delta_seed1-4_20260209.svg
+% Recommended LaTeX build: convert SVG->PDF and put the PDF under your LaTeX figures/ dir.
 \begin{figure}[t]
   \centering
   \includegraphics[width=\linewidth]{figures/table_w_effect_delta_seed1-4_20260209}
