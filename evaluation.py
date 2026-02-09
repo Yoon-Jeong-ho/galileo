@@ -133,7 +133,13 @@ def extract_text_answer(response: str) -> str:
     else:
         s = response.strip()
         s = re.sub(r"^(final\s+answer|answer)\s*[:\-]\s*", "", s, flags=re.I)
-        s = s.splitlines()[0].strip()
+        s = s.strip()
+        if not s:
+            return ""
+        lines = s.splitlines()
+        if not lines:
+            return ""
+        s = lines[0].strip()
 
     s = s.strip().strip('"').strip("'")
     return s
