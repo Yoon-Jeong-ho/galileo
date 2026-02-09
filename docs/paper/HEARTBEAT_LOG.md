@@ -8,6 +8,8 @@
 > - what the **next heartbeat** will do (one concrete step)
 >
 > Update this file at the end of every heartbeat.
+>
+> IMPORTANT: 매 heartbeat마다 **반드시** `docs/paper/STATUS.md`를 먼저 읽고, 종료 시에는 STATUS를 "리뉴얼(rolling update)" 한다. (중복 보고 방지)
 
 ---
 
