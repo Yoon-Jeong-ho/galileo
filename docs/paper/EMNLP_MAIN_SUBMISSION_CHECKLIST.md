@@ -42,6 +42,7 @@ Recommended artifacts to cite in-paper:
 ## 4) Reproducibility / engineering checklist
 - [ ] Single command (or 2–3 commands) to reproduce the main tables/figures.
 - [ ] Results directories are self-contained and documented (what each CSV/JSONL means).
+- [ ] Each reported result bundle has a passing validation log (e.g., `GLOBAL_VALIDATE.log` from `scripts/validate_paper_exports.py --check_runner_parity`).
 - [ ] Fixed seeds documented; randomization sources described.
 - [ ] Evaluation details: answer extraction rules; normalization; alias handling.
 - [ ] Provide a lightweight “smoke test” run (small `NUM_SAMPLES`).
