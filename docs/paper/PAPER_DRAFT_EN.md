@@ -245,9 +245,11 @@ This section will be populated from the paper-ready exports under each `results/
 
 **Table Z (Recovery accuracy).** Recovery conditional on having flipped under persona pressure.
 
-- Data source(s): `recovery_accuracy.csv` (per run) + aggregated exports under `paper_tables_final/`
+- Data source(s): `recovery_accuracy.csv` (per run)
 - Suggested caption template:
   - *“Recovery(p) measures the ability to return to the correct answer after a flip. We report recovery conditional on flip, separating robustness from intervention effects.”*
+
+**Results (seed1–4; Qwen2.5-7B-Instruct; collapsed).** Recovery conditional on flip is high in both settings: **76.73±0.77%** in the Neutral Re-asking Control vs **76.66±1.54%** under persona pressure (tracked artifact `docs/paper/artifacts/recovery_collapsed_control_vs_persona_seed1-4_mean_std_20260209.csv`). Persona-wise recovery deltas vary in direction and magnitude (tracked artifact `docs/paper/artifacts/recovery_personawise_control_vs_persona_seed1-4_mean_std_20260209.csv`), reinforcing C3’s framing that recovery is a distinct axis from “staying correct throughout.”
 
 ### 7.4 Cross-task / cross-family generalization (if included in main)
 

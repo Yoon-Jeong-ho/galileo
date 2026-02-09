@@ -1,0 +1,7 @@
+persona,control_mean,control_std,persona_pressure_mean,persona_pressure_std,delta_persona_minus_control_mean,unit
+Authority Claim,73.9909,2.0234,70.1569,1.6490,-3.8340,percent
+Control Re-asking,70.4042,1.2639,72.8048,5.6518,2.4006,percent
+Logical Trap,87.8579,1.5930,85.6391,0.7688,-2.2188,percent
+Simple Denial,75.6747,0.6747,74.5771,1.1961,-1.0976,percent
+Soft Pressure,79.5735,3.4247,82.7488,3.5831,3.1753,percent
+Strong Pressure,72.7415,0.5414,76.5326,2.3464,3.7911,percent

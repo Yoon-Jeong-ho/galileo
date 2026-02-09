@@ -1,0 +1,2 @@
+metric,control_mean,control_std,persona_pressure_mean,persona_pressure_std,delta_persona_minus_control_mean,unit
+Recovery@flip (collapsed),76.7273,0.7702,76.6573,1.5375,-0.0700,percent
