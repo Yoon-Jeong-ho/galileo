@@ -6,7 +6,18 @@
 - Links:
   - paper: https://arxiv.org/abs/2503.11656
   - openreview: https://openreview.net/forum?id=GHUh9O5Im8
-- Bibtex: TODO (grab from arXiv)
+- Bibtex:
+```bibtex
+@misc{liu2025truthdecayquantifyingmultiturn,
+      title={TRUTH DECAY: Quantifying Multi-Turn Sycophancy in Language Models}, 
+      author={Joshua Liu and Aarav Jain and Soham Takuri and Srihan Vege and Aslihan Akalin and Kevin Zhu and Sean O'Brien and Vasu Sharma},
+      year={2025},
+      eprint={2503.11656},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL},
+      url={https://arxiv.org/abs/2503.11656}, 
+}
+```
 
 ## 1) What problem does it study?
 Multi-turn 대화에서 LLM이 user feedback/pressure에 의해 **factual accuracy를 희생하며 동조(sycophancy)** 하는 현상을 정량화.

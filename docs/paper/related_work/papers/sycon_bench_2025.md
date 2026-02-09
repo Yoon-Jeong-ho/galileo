@@ -7,7 +7,18 @@
   - repo: https://github.com/JiseungHong/SYCON-Bench
   - pdf (repo): https://arxiv.org/pdf/2505.23840
   - paperswithcode: https://paperswithcode.com/paper/measuring-sycophancy-of-language-models-in
-- Bibtex: TODO (grab from arXiv/ACL)
+- Bibtex:
+```bibtex
+@misc{hong2025measuringsycophancylanguagemodels,
+      title={Measuring Sycophancy of Language Models in Multi-turn Dialogues}, 
+      author={Jiseung Hong and Grace Byun and Seungone Kim and Kai Shu and Jinho D. Choi},
+      year={2025},
+      eprint={2505.23840},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL},
+      url={https://arxiv.org/abs/2505.23840}, 
+}
+```
 
 ## 1) What problem does it study?
 Multi-turn free-form 대화에서 모델이 user pressure에 **얼마나 빨리 동조/전환(sycophancy)** 하는지 측정하는 벤치마크.

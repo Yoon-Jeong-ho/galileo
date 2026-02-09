@@ -6,7 +6,18 @@
 - Links:
   - paper: https://arxiv.org/abs/2509.16533
   - acl anthology (Findings): https://aclanthology.org/2025.findings-emnlp.1222/
-- Bibtex: TODO (grab from ACL Anthology)
+- Bibtex:
+```bibtex
+@misc{kim2025challengingevaluatorllmsycophancy,
+      title={Challenging the Evaluator: LLM Sycophancy Under User Rebuttal}, 
+      author={Sungwon Kim and Daniel Khashabi},
+      year={2025},
+      eprint={2509.16533},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL},
+      url={https://arxiv.org/abs/2509.16533}, 
+}
+```
 
 ## 1) What problem does it study?
 대화에서 user rebuttal(후속 반박/피드백) 프레이밍이 LLM의 **sycophancy**를 촉발하는 현상.
