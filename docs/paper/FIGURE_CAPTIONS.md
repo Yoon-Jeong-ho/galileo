@@ -15,7 +15,7 @@ Conventions:
 - Source: generated diagram (not artifact-derived) via `scripts/make_protocol_figure_svg.py`
 
 **Caption (draft):**
-Overview of the GALILEO evaluation protocol. Phase 1 identifies the initially-correct subset (C) on ground-truth tasks. Phase 2 applies multi-round persona pressure or a Neutral Re-asking Control (drift baseline) to quantify robustness over turns via survival and turn-of-failure (TOF). Phase 3 measures recovery conditional on flip, capturing a distinct “return to truth” axis.
+Overview of the GALILEO protocol: (1) initial evaluation on ground-truth tasks, (2) multi-round persona pressure vs Neutral Re-asking Control (drift baseline) to measure survival and turn-of-failure (TOF), and (3) recovery measured conditional on flip.
 
 ---
 

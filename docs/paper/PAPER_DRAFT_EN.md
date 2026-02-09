@@ -92,6 +92,18 @@ Each dataset is stored as **JSONL**, with one example per line. We unify fields 
 
 **Figure P (Protocol overview).** See `docs/paper/figures/protocol_overview.svg` for a 1-column submission-ready diagram of the three-phase evaluation (initial evaluation → multi-round pressure with persona vs neutral control → recovery).
 
+**Paper include (LaTeX snippet).**
+
+```latex
+% copy from repo: docs/paper/figures/protocol_overview.svg
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\linewidth]{figures/protocol_overview}
+  \caption{Overview of the GALILEO protocol: (1) initial evaluation on ground-truth tasks, (2) multi-round persona pressure vs Neutral Re-asking Control (drift baseline) to measure survival and turn-of-failure (TOF), and (3) recovery measured conditional on flip.}
+  \label{fig:protocol}
+\end{figure}
+```
+
 Given a dataset and an LLM, GALILEO proceeds in three phases:
 
 ### Phase 1: Initial evaluation

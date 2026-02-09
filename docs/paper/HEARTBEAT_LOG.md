@@ -251,3 +251,8 @@ This prevents process drift where the checklist contradicts the heartbeat instru
 - Added `scripts/make_protocol_figure_svg.py` (stdlib-only) to generate a clean, 1-column protocol diagram.
 - Generated output: `docs/paper/figures/protocol_overview.svg`.
 - Wired a short pointer into `docs/paper/PAPER_DRAFT_EN.md` (Sec. 3) so LaTeX conversion can include it.
+
+### 2026-02-10 (am) — Protocol figure now has LaTeX include snippet + tightened caption
+
+- Updated `docs/paper/PAPER_DRAFT_EN.md` (Sec. 3) to include a copy-pastable LaTeX `figure` block for `protocol_overview.svg` (label `fig:protocol`).
+- Tightened the protocol figure caption to a single sentence in `docs/paper/FIGURE_CAPTIONS.md`.
