@@ -229,6 +229,8 @@ This section will be populated from the paper-ready exports under each `results/
 - Suggested caption template:
   - *“Survival(p, r) on initially-correct examples (mean±std across seeds). Robustness decays monotonically for some personas but exhibits late-turn failures under others, highlighting multi-turn dynamics beyond InitialAcc. Dashed line: **Neutral Re-asking Control** (drift baseline).”*
 
+**Results (seed1–4; Qwen2.5-7B-Instruct).** Survival dynamics at round 5 vary substantially by persona (tracked artifact `docs/paper/artifacts/survival_r5_personawise_control_vs_persona_seed1-4_mean_std_20260209.csv`): e.g., **Simple Denial** drops by **2.37** points under persona pressure (51.03→48.66), while **Authority Claim** shows a near-zero change (+0.18; 41.44→41.62). This heterogeneity motivates persona-wise survival curves rather than a single aggregate number.
+
 ### 7.2 When failures happen: turn-of-failure (TOF) (supports C1)
 
 **Table Y (Turn-of-failure distribution).** Distribution over `{1..R, never}` per persona.
