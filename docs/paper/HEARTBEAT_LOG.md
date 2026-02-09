@@ -321,3 +321,7 @@ This prevents process drift where the checklist contradicts the heartbeat instru
 - Updated `docs/paper/STATUS.md` Top Gaps to reflect the actual current blockers:
   - PDF-figure build verification in the LaTeX environment
   - restoring `ssh nlp16` access from this runtime
+
+### 2026-02-10 (am) — Wrote Tier-1 cross-family generalization plan (seeds 1–2)
+
+- Added `docs/paper/TIER1_PLAN_CROSSFAMILY.md` to document the minimal, reviewer-risk-reducing plan for cross-family generalization (seeds 1–2) and what to report/export.
