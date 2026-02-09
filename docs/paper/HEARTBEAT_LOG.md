@@ -227,3 +227,8 @@ This prevents process drift where the checklist contradicts the heartbeat instru
 
 - Updated `docs/paper/HEARTBEAT_CHECKLIST.md` to require a quick `ssh nlp16 'hostname; whoami'` sanity check before selecting Experiments lane.
 - If SSH is blocked, the checklist now explicitly advises switching the heartbeat to Writing/Development and logging the blocker, rather than spending the full 10 minutes on infra debugging.
+
+### 2026-02-10 (am) — Centralized figure captions + provenance mapping
+
+- Added `docs/paper/FIGURE_CAPTIONS.md` with paper-ready draft captions for each artifact-derived SVG figure, plus explicit figure→artifact provenance.
+- Updated `docs/paper/README.md` to list `FIGURE_CAPTIONS.md` as a key file.
