@@ -122,6 +122,10 @@ for seed in "${seeds[@]}"; do
   run_one "${seed}" "${MODEL_14B}" "14b"
 done
 
+# Global validation across the entire results root (parity of runner settings across repeated runs).
+python scripts/validate_paper_exports.py --results_root "${RESULTS_ROOT}" --check_runner_parity \
+  2>&1 | tee -a "${RESULTS_ROOT}/GLOBAL_VALIDATE.log"
+
 echo "=== Galileo multi-seed done: $(date) ==="
 RUN2
 
