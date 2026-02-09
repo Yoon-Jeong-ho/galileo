@@ -64,13 +64,38 @@ def validate_one(exports_dir: Path, require_control: bool) -> list[str]:
     if not runner_meta.exists():
         errors.append(f"missing {runner_meta} (runner-side metadata)")
 
-    # JSON parse checks
-    for jn in [exports_dir / "metadata.json", runner_meta]:
-        if jn.exists():
-            try:
-                read_json(jn)
-            except Exception as ex:
-                errors.append(f"invalid json {jn}: {ex}")
+    # JSON parse checks + minimal schema validation
+    meta_obj = None
+    runner_obj = None
+
+    jn = exports_dir / "metadata.json"
+    if jn.exists():
+        try:
+            meta_obj = read_json(jn)
+        except Exception as ex:
+            errors.append(f"invalid json {jn}: {ex}")
+
+    if runner_meta.exists():
+        try:
+            runner_obj = read_json(runner_meta)
+        except Exception as ex:
+            errors.append(f"invalid json {runner_meta}: {ex}")
+
+    if runner_obj is not None:
+        required_keys = [
+            "generated_at",
+            "gpu_list",
+            "tensor_parallel_size",
+            "num_samples",
+            "max_model_len",
+            "max_tokens",
+            "conda_env",
+            "model",
+            "seed",
+        ]
+        for k in required_keys:
+            if k not in runner_obj:
+                errors.append(f"{runner_meta} missing required key: {k}")
 
     # Control presence in exports
     if require_control:
