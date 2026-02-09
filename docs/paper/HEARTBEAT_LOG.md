@@ -293,3 +293,8 @@ This prevents process drift where the checklist contradicts the heartbeat instru
 ### 2026-02-10 (am) — Documented anonymized bundle packager in paper README
 
 - Updated `docs/paper/README.md` with a short section on `scripts/package_anonymized_bundle.sh` (how to stage+audit an anonymized bundle before external sharing).
+
+### 2026-02-10 (am) — Set default recommendation: PDF figures for LaTeX
+
+- Updated `docs/paper/README.md` to recommend **PDF** as the default figure format for LaTeX/Overleaf builds (SVG remains the source-of-truth).
+- Updated `docs/paper/STATUS.md` next-step to focus on actually generating PDFs in the target build environment and verifying compilation.

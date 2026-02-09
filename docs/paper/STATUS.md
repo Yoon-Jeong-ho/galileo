@@ -57,9 +57,9 @@ Ground-truth tasks에서 multi-turn persona pressure 하에 **정답 유지(surv
 
 ## 4) NEXT HEARTBEAT (ONE step)
 
-**Pick a default for the LaTeX pipeline (SVG vs PDF) and, if PDF, ensure the build environment has `rsvg-convert` or Inkscape.**
+**Generate PDF figures in the target LaTeX build environment and verify they compile cleanly.**
 
-- Deliverable: confirm which renderer we will rely on in Overleaf/camera-ready; if PDF is required, install deps on the build machine (or add a CI step) and generate `paper_figures/pdf/*.pdf`.
+- Deliverable: run `scripts/convert_figures_svg_to_pdf.sh` on the machine that will build the PDF (Overleaf/local) and confirm the LaTeX includes compile with `\includegraphics{...}`.
 
 ---
 

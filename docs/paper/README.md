@@ -43,7 +43,9 @@ All figures below are **generated from tracked artifacts** and stored under `doc
 
 ## Figure conversion (SVG → PDF)
 
-Some LaTeX/Overleaf setups do not handle SVG cleanly. We keep SVG as the source of truth and (optionally) generate PDFs.
+**Recommendation (default): use PDF in LaTeX builds.** Overleaf/LaTeX is most reliable with PDF/PNG figures. We keep SVG as the source of truth and generate PDFs as needed.
+
+(If you prefer SVG-in-LaTeX, use `\usepackage{svg}` or `inkscape`-based workflows, but that tends to be more brittle across environments.)
 
 - Script: `scripts/convert_figures_svg_to_pdf.sh`
 - Requires **one** of:
