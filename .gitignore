@@ -29,5 +29,12 @@ datasets/
 *.parquet
 results/
 
+# Paper artifacts (tracked)
+# We generally ignore large csv outputs, but we DO want to version small, paper-ready
+# snapshots used in the draft (e.g., Table W seed1).
+!docs/paper/artifacts/
+!docs/paper/artifacts/**
+!docs/paper/artifacts/**/*.csv
+
 # OS
 .DS_Store
