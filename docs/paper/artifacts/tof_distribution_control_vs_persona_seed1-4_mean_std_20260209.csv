@@ -1,0 +1,7 @@
+fail_turn_label,control_mean,control_std,persona_mean,persona_std,unit
+fail_at_1,20.3158,1.1115,20.0260,1.0711,percent
+fail_at_2,11.7585,0.6360,11.8942,0.3293,percent
+fail_at_3,6.7200,0.3072,6.2250,0.7576,percent
+fail_at_4,4.3024,0.4444,4.5232,0.3133,percent
+fail_at_5,3.7295,0.4249,3.9319,0.4529,percent
+never_failed,58.8737,1.0390,57.8513,0.8375,percent
