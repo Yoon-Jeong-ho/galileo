@@ -23,30 +23,37 @@ Ground-truth tasks에서 multi-turn persona pressure 하에 **정답 유지(surv
 - ✅ Paper terminology: drift baseline is standardized as **Neutral Re-asking Control** in the draft.
 - ✅ Export standardization: paper export normalizes control labels to `neutral_reask_control`.
 - ✅ Auditable pipeline smoke (nlp8): `results/smoke_20260209_162417/` produced `paper_exports/*` + `metadata.json` + `runner_metadata.json` and validator printed `[OK]`.
-- ✅ **Fresh control vs persona 2-run is auditable green (nlp8):**
-  - Control: `results/c2run_control_20260209_172640/` → exports+metadata+runner_metadata + validator `[OK]`.
-  - Persona: `results/c2run_persona_20260209_174640/` → exports+metadata+runner_metadata + validator `[OK]`.
+- ✅ Fresh control vs persona seed1 pair is auditable green (nlp8):
+  - Control: `results/c2run_control_20260209_172640/`
+  - Persona: `results/c2run_persona_20260209_174640/`
+- ✅ Fresh control vs persona seed2 pair is auditable green (nlp8):
+  - Control: `results/c2run_control_seed2_20260209_194621/`
+  - Persona: `results/c2run_persona_seed2_20260209_200611/`
+- ✅ **Table W seed1–2 artifacts + aggregate landed in the draft:**
+  - Artifacts: `docs/paper/artifacts/table_w_control_vs_persona_seed{1,2}_20260209.csv`
+  - Aggregate: `docs/paper/artifacts/table_w_control_vs_persona_seed1-2_mean_std_20260209.csv`
+  - Draft block: `docs/paper/PAPER_DRAFT_EN.md` (AUTO:TABLE_W_SEED12)
 
 ---
 
 ## 2) What is NOT DONE (top gaps)
 
-1) **Table W refresh (paper-ready)** using the fresh control+persona run roots (nlp8) + integrate the numbers into the draft.
+1) **Table W multi-seed**: extend from seed1–2 to seed1–3+ (std 안정화) and keep the draft AUTO block updated.
 2) **GLOBAL_VALIDATE.log** generation integrated for new runs (runner-level global validate).
-3) **Paper integration**: SYCON/TRUTH DECAY/rebuttal framing 내용을 `PAPER_DRAFT_EN.md` 본문 Related Work에 완전히 이식.
+3) **Paper integration**: SYCON/TRUTH DECAY/rebuttal framing 내용을 `PAPER_DRAFT_EN.md` Related Work에 “정식 문장+인용”으로 완전히 이식.
 
 ---
 
 ## 3) Next heartbeat (ONE step)
 
-**Refresh Table W using the fresh control vs persona 2-run (auditable green) and link it in paper notes.**
+**Run seed3 control+persona (auditable green) to stabilize Table W (seed1–3 aggregate).**
 
-- Inputs:
-  - Control: `results/c2run_control_20260209_172640/`
-  - Persona: `results/c2run_persona_20260209_174640/`
+- Target:
+  - control seed3 on an idle GPU (0–3)
+  - persona seed3 on another idle GPU (0–3)
 - Must:
-  - produce a paper-consumable table (csv/md) with survival/TOF/recovery summaries
-  - add a short rationale + pointer to run roots in `docs/paper/PAPER_RESULTS_ANALYSIS_KO.md`
+  - each run produces `paper_exports/*` + `metadata.json` + `runner_metadata.json`
+  - validator prints `[OK]` and `[OK] runner_metadata parity
 
 ---
 

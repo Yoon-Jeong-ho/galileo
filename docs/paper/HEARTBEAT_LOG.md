@@ -73,6 +73,19 @@
 
 ## Latest heartbeat notes (append-only)
 
+### 2026-02-09 (pm) — Table W seed1–2 aggregate + artifacts committed
+
+- Completed seed2 pair (auditable green):
+  - Control: `results/c2run_control_seed2_20260209_194621/` → validator `[OK]`
+  - Persona: `results/c2run_persona_seed2_20260209_200611/` → validator `[OK]`
+- Generated Table W per-seed CSVs + seed1–2 mean±std aggregate and **tracked them** under `docs/paper/artifacts/`.
+- Updated `PAPER_DRAFT_EN.md` Table W AUTO block to the seed1–2 aggregate (with run roots + artifact pointers).
+
+Next:
+- Add seed3 to stabilize std and upgrade the block to seed1–3.
+
+---
+
 ### 2026-02-09 (pm) — Fresh control+persona pair complete (auditable pipeline)
 
 - Control run finished end-to-end green under the new auditable pipeline:
