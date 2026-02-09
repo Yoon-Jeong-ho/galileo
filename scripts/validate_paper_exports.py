@@ -128,13 +128,67 @@ def validate_one(exports_dir: Path, require_control: bool) -> list[str]:
     return errors
 
 
+def _parity_check_runner_metadata(exports_dirs: list[Path]) -> list[str]:
+    """Check that repeated runs for the same (model, seed, tag/temp) share identical infra/decoding settings.
+
+    This is meant to catch accidental mismatches between persona/control (or reruns) within the same results tree.
+    """
+    errors: list[str] = []
+
+    groups: dict[tuple, list[tuple[Path, dict]]] = {}
+    for d in exports_dirs:
+        rm = d / "runner_metadata.json"
+        if not rm.exists():
+            continue
+        try:
+            obj = read_json(rm)
+        except Exception:
+            continue
+
+        key = (
+            obj.get("model"),
+            obj.get("seed"),
+            obj.get("tag"),
+            obj.get("greedy_temperature"),
+        )
+        groups.setdefault(key, []).append((d, obj))
+
+    # Compare within groups that have more than 1 member.
+    cmp_keys = [
+        "gpu_list",
+        "tensor_parallel_size",
+        "num_samples",
+        "max_model_len",
+        "max_tokens",
+        "conda_env",
+    ]
+
+    for key, items in groups.items():
+        if len(items) <= 1:
+            continue
+        base_dir, base_obj = items[0]
+        for other_dir, other_obj in items[1:]:
+            for k in cmp_keys:
+                if base_obj.get(k) != other_obj.get(k):
+                    errors.append(
+                        f"runner_metadata parity mismatch for group={key}: key={k} {base_dir}={base_obj.get(k)} vs {other_dir}={other_obj.get(k)}"
+                    )
+
+    return errors
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--results_root", required=True)
     ap.add_argument(
         "--require_control",
         action="store_true",
-        help="Fail if survival_curve.csv does not contain persona=neutral_reask_control",
+        help="Fail if survival_curve.csv/turn_of_failure.csv does not contain persona=neutral_reask_control",
+    )
+    ap.add_argument(
+        "--check_runner_parity",
+        action="store_true",
+        help="Check that repeated runs for the same (model, seed, tag/temp) share identical runner settings",
     )
     args = ap.parse_args()
 
@@ -158,6 +212,16 @@ def main():
                 eprint(f"  - {msg}")
         else:
             print(f"[OK] {d}")
+
+    if args.check_runner_parity:
+        errs = _parity_check_runner_metadata(exports_dirs)
+        if errs:
+            any_errors = True
+            eprint("\n[FAIL] runner_metadata parity")
+            for msg in errs:
+                eprint(f"  - {msg}")
+        else:
+            print("[OK] runner_metadata parity")
 
     return 2 if any_errors else 0
 
