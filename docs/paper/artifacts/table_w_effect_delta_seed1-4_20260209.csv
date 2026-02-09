@@ -1,0 +1,4 @@
+metric,delta_persona_minus_control_mean,control_mean,control_std,persona_weighted_mean,persona_weighted_std,unit
+Survival@5,-22.7625,80.3150,0.6722,57.5525,0.6927,percent
+Fail@1,6.9275,13.1000,3.5286,20.0275,1.2141,percent
+Never-fail,-22.4600,80.3150,0.6722,57.8550,0.8434,percent

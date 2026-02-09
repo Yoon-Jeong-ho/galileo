@@ -256,6 +256,8 @@ This section will be populated from the paper-ready exports under each `results/
 
 **Results (seed1–4; Qwen2.5-7B-Instruct; 80 samples/seed).** Persona pressure substantially shifts failure dynamics relative to the neutral drift baseline: at round 5, mean **Survival@5** drops from **80.32±0.67** in the Neutral Re-asking Control to **57.55±0.69** under persona pressure, while **Fail@1** increases from **13.10±3.53** to **20.03±1.21** (Table W; aggregated over seeds). Importantly, all conditions share identical rounds/decoding/scoring and include the Neutral Re-asking Control as a drift baseline, so the observed gap is consistent with persona-induced mechanisms rather than generic multi-turn degradation, supporting C2.
 
+**Effect size view.** Aggregated over seeds, persona pressure yields a mean shift of **ΔSurvival@5 = −22.76** points and **ΔFail@1 = +6.93** points relative to the Neutral Re-asking Control (see tracked artifact `docs/paper/artifacts/table_w_effect_delta_seed1-4_20260209.csv`).
+
 - Data source: `paper_exports/survival_curve.csv` and `paper_exports/turn_of_failure.csv` for both settings.
 - Suggested caption template:
   - *“Persona pressure causes substantially earlier flips than the **Neutral Re-asking Control** (non-adversarial drift baseline), indicating effects beyond generic multi-turn drift. All conditions use identical rounds, decoding, scoring, and logging.”*
