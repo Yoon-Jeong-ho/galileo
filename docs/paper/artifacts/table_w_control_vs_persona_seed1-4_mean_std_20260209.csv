@@ -1,0 +1,4 @@
+metric,control_mean,control_std,persona_weighted_mean,persona_weighted_std,persona_unweighted_mean,persona_unweighted_std
+Survival@5,80.3150,0.6722,57.5525,0.6927,57.5525,0.6927
+Fail@1,13.1000,3.5286,20.0275,1.2141,19.8500,1.0665
+Never-fail,80.3150,0.6722,57.8550,0.8434,57.8275,0.8064
