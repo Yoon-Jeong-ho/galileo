@@ -34,6 +34,7 @@ Ground-truth tasks에서 multi-turn persona pressure 하에 **정답 유지(surv
 
 ### Paper writing / positioning
 - ✅ Table W paper-facing summary updated to **seed1–4** numbers.
+- ✅ **Table W Results paragraph landed** in `docs/paper/PAPER_DRAFT_EN.md` (artifact-cited prose supporting C2).
 - ✅ Related-work tightening landed for:
   - TRUTH DECAY (protocol + models/datasets)
   - Challenging the Evaluator (protocol + accept-rate framing)
@@ -55,11 +56,10 @@ Ground-truth tasks에서 multi-turn persona pressure 하에 **정답 유지(surv
 
 ## 4) NEXT HEARTBEAT (ONE step)
 
-**Write Results text for Table W (seed1–4) directly from tracked artifacts and connect it to claims (C1/C2).**
+**Write one additional Results paragraph from paper-ready exports (TOF distribution and/or recovery conditional on flip), citing tracked artifacts.**
 
-- Deliverable: a revised Results paragraph (or subsection) in `docs/paper/PAPER_DRAFT_EN.md` that cites:
-  - `docs/paper/artifacts/table_w_control_vs_persona_seed1-4_mean_std_20260209.csv`
-  - and explicitly states the effect (Survival@5 drop; Fail@1 increase) + interpretation.
+- Deliverable: a revised Results paragraph/subsection in `docs/paper/PAPER_DRAFT_EN.md` that cites concrete CSV artifacts.
+- If we do not yet have a tracked aggregate CSV for TOF/recovery: create the minimal tracked artifact under `docs/paper/artifacts/` first, then cite it.
 
 ---
 

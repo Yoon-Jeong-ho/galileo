@@ -123,26 +123,26 @@ Update:
 
 ---
 
+## 2026-02-09 — Process stabilization + paper-facing Results text landed
+
+- Process guardrails (SSOT): added `docs/paper/HEARTBEAT_PROMPT.md` and `docs/paper/HEARTBEAT_CHECKLIST.md` to prevent drift (wrong server, lane starvation, missing git hygiene).
+- Continuity: `docs/paper/STATUS.md` rewritten into **NOW / RECENTLY DONE / TOP GAPS / NEXT HEARTBEAT** format.
+- Related work (vault + draft): upgraded TRUTH DECAY + Challenging the Evaluator notes to paper-level protocol and tightened the draft positioning sentences.
+- Table W (seed1–4): updated draft summary to seed1–4 and wrote a **Results paragraph** that cites tracked artifacts (Survival@5 drop; Fail@1 increase).
+
+Commits (high-signal):
+- `fa8efdd` add SSOT heartbeat prompt
+- `681d183` add heartbeat checklist guardrails
+- `8cad2f1` STATUS NOW/RECENT/GAPS/NEXT format
+- `ba3930b` Table W Results paragraph from tracked artifacts
+
+---
+
 ## Next heartbeat plan (ONE step)
 
-**Plan A (preferred): script-based smoke experiment on nlp8 (GPU 0 only)**
+**Write one more Results paragraph from paper-ready artifacts (TOF/recovery), or—if artifacts are missing—create the minimal tracked artifact needed and cite it.**
 
-- Objective: produce a brand-new run that generates:
-  - `paper_exports/*`
-  - `metadata.json`
-  - `runner_metadata.json`
-  - (optional) `GLOBAL_VALIDATE.log` or at least validator OK
-- Implementation:
-  - Create a short script under `scripts/remote_run/` (or in the results dir) that:
-    1) sets `CUDA_VISIBLE_DEVICES=0`, `PYTHONUNBUFFERED=1`
-    2) calls `/data_x/aa007878/miniconda3/envs/galileo/bin/python run_experiment.py ...`
-    3) runs `scripts/paper_export.py`
-    4) writes `paper_exports/runner_metadata.json`
-    5) runs `scripts/validate_paper_exports.py`
-  - Launch the script inside tmux.
-
-If this smoke run is green, subsequent heartbeats can scale to control-vs-persona and multi-seed.
-
-**Plan B (if remote blocked): integrate the new related work into `PAPER_DRAFT_EN.md`**
+- Preferred: turn an existing export into draft prose (artifact → sentence).
+- Output must be a concrete edit in `docs/paper/PAPER_DRAFT_EN.md` + commit.
 
 ---
