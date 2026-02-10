@@ -52,6 +52,8 @@ for svg in "${svgs[@]}"; do
     inkscape "$svg" --export-type=pdf --export-filename="$out" >/dev/null
   else
     # AppImage CLI is identical to inkscape.
+    # Note: Some environments print warnings about gio/dconf modules (e.g., libdconfsettings.so).
+    # These are usually harmless for headless SVG->PDF export; we keep stdout quiet but allow stderr.
     "$INKSCAPE_APPIMAGE" "$svg" --export-type=pdf --export-filename="$out" >/dev/null
   fi
   echo "[OK] $svg -> $out"

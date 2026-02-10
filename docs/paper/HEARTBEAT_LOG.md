@@ -498,3 +498,7 @@ This prevents process drift where the checklist contradicts the heartbeat instru
 ### 2026-02-10 — Development lane: checklist updated for no-sudo SVG→PDF tooling
 
 - Updated `docs/paper/EMNLP_MAIN_SUBMISSION_CHECKLIST.md` to include the AppImage-based no-sudo SVG→PDF fallback (`scripts/get_inkscape_appimage.sh`).
+
+### 2026-02-10 — Development lane: document AppImage conversion warnings
+
+- Added an inline note in `scripts/convert_figures_svg_to_pdf.sh` explaining that gio/dconf module warnings during Inkscape AppImage export are typically harmless for headless SVG→PDF conversion.
