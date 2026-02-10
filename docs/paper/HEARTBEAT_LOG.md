@@ -389,3 +389,12 @@ This prevents process drift where the checklist contradicts the heartbeat instru
 ### 2026-02-10 (pm) — Writing lane: added compact persona taxonomy table (mechanism-focused)
 
 - Updated `docs/paper/PAPER_DRAFT_EN.md` Protocol section to include a compact 5-persona taxonomy table (mechanism + typical move), and explicitly noted the “no new evidence” design principle to avoid confounding with belief revision.
+
+### 2026-02-10 (pm) — Policy switch: experiments on nlp8 GPUs 4/5/6
+
+- Updated SSOT docs to match the current decision:
+  - `docs/paper/HEARTBEAT_PROMPT.md`
+  - `docs/paper/HEARTBEAT_CHECKLIST.md`
+  - `docs/paper/REMOTE_EXPERIMENTS_RUNBOOK.md`
+  - `docs/paper/STATUS.md`
+- Remote experiments are now: `ssh nlp8`, repo `/data_x/aa007878/galileo`, GPUs 4/5/6 only.

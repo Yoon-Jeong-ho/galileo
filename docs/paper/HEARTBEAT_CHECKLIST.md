@@ -12,16 +12,16 @@ This is a **process guardrail** to prevent drift (wrong server/GPU policy, lane 
 3) Declare the deliverable *in one sentence* (what will be different in 10 minutes?).
 
 **If lane = Experiments:** first confirm you can actually reach the box.
-- Quick sanity: `ssh nlp16 'hostname; whoami'`
+- Quick sanity: `ssh nlp8 'hostname; whoami'`
 - If SSH is blocked (keys/agent/etc.), **do not burn the heartbeat** debugging infra unless explicitly prioritized—switch this heartbeat to Writing/Development and record the SSH blocker in the DM update.
-- If you *do* need to fix SSH: follow `docs/paper/SSH_TROUBLESHOOT_NLP16.md` (in particular: set `IdentityFile` + `IdentitiesOnly yes`, and ensure the key is loaded in `ssh-agent`).
+- If you *do* need to fix SSH: ensure `IdentityFile` + `IdentitiesOnly yes`, and the key is loaded in `ssh-agent`.
 
-## B) If lane = Experiments (nlp16; tiered)
+## B) If lane = Experiments (nlp8; tiered)
 
 Remote is:
-- Host: `ssh nlp16`
-- Repo: `/mnt/raid6/aa007878/galileo`
-- GPUs policy: `CUDA_VISIBLE_DEVICES=4,5,6,7`
+- Host: `ssh nlp8`
+- Repo: `/data_x/aa007878/galileo`
+- GPUs policy: `CUDA_VISIBLE_DEVICES=4,5,6`
 
 Tier selection:
 - Default **Tier 1** (risk reducers): 1 new model family (seeds 1–2) OR 1 ablation that strengthens C2/C3.
@@ -29,13 +29,13 @@ Tier selection:
 
 Minimum checks **before launching anything**:
 1) `tmux ls`
-2) `nvidia-smi -i 4,5,6,7`
+2) `nvidia-smi -i 4,5,6`
 3) Tail latest run logs:
    - `tail -n 50 results/<run>/run.log`
    - `tail -n 50 results/<run>/GLOBAL_VALIDATE.log` (if present)
 
 Launch discipline:
-- Max **1 run/GPU** (4/5/6/7).
+- Max **1 run/GPU** (4/5/6).
 - Every run must have its own `OUT=results/<run>/`.
 - A run is "paper-ready" only if `paper_exports/` + `metadata.json` + `runner_metadata.json` exist and validator prints `[OK]` + `[OK] runner_metadata parity`.
 

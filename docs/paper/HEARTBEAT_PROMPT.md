@@ -26,15 +26,15 @@ Local repo (paper/code):
 - `/home/aa007/.openclaw/workspace/galileo`
 
 Remote experiments:
-- Host: `ssh nlp16`
-- Repo: `/mnt/raid6/aa007878/galileo`
+- Host: `ssh nlp8`
+- Repo: `/data_x/aa007878/galileo`
 
 Experiment policy:
-- Allowed GPUs: **4,5,6,7 only** (`CUDA_VISIBLE_DEVICES=4,5,6,7`).
+- Allowed GPUs: **4,5,6 only** (`CUDA_VISIBLE_DEVICES=4,5,6`).
 - Use **tmux**.
 - Avoid CPU overload.
-- Parallel runs allowed: up to **1 run/GPU** (max 4 concurrent runs) with isolated `OUT=results/<run>/`.
-- Every heartbeat: check `tmux ls` + `nvidia-smi -i 4,5,6,7` + tail `run.log` (and `GLOBAL_VALIDATE.log` if present) **before** launching new runs.
+- Parallel runs allowed: up to **1 run/GPU** (max 3 concurrent runs) with isolated `OUT=results/<run>/`.
+- Every heartbeat: check `tmux ls` + `nvidia-smi -i 4,5,6` + tail `run.log` (and `GLOBAL_VALIDATE.log` if present) **before** launching new runs.
 
 Reporting (always):
 - What you did (file paths, or 'no change')
