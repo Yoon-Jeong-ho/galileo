@@ -23,7 +23,7 @@ ssh nlp8 'hostname; whoami'
 If this fails (key/agent issue), **do not spend the whole heartbeat** on infra unless explicitly prioritized.
 Switch the heartbeat to Writing/Development and log the blocker.
 
-If you need to restore access, see: `docs/paper/SSH_TROUBLESHOOT_NLP16.md`.
+If you need to restore access, see: `docs/paper/SSH_TROUBLESHOOT_REMOTE.md`.
 
 ## 1) Mandatory status checks (2–3 min)
 
@@ -83,6 +83,6 @@ Rule: **Only `results_paper/` needs to be PASS** for paper claims.
 
 Always include:
 - which tmux sessions exist
-- GPU util/mem (4–7)
+- GPU util/mem (4–6)
 - newest run root + whether logs show progress/errors
 - if launching: exact command, OUT path, GPU id, and expected runtime

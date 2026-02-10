@@ -1,12 +1,13 @@
-# SSH troubleshooting: nlp16 access (deprecated)
+# SSH troubleshooting: remote host access (nlp8 SSOT)
 
-This note is **deprecated** for EMNLP Main SSOT (we use `ssh nlp8`).
-Kept only as historical reference.
+This note is for restoring `ssh` access from an automated runtime.
+
+**Current SSOT for EMNLP Main experiments:** `ssh nlp8`.
 
 ## 1) Minimal info to share (safe)
 
 Paste either:
-- your `Host nlp16` block from `~/.ssh/config` (you can remove comments and any unrelated hosts), or
+- your `Host nlp8` block from `~/.ssh/config` (you can remove comments and any unrelated hosts), or
 - the equivalent values:
   - HostName (IP/domain)
   - User
@@ -16,7 +17,7 @@ Paste either:
 ## 2) Quick diagnostics to run locally
 
 ```bash
-ssh -v nlp16 'hostname; whoami'
+ssh -v nlp8 'hostname; whoami'
 ```
 
 Common failure modes:
@@ -31,7 +32,7 @@ Common failure modes:
 In `~/.ssh/config`:
 
 ```sshconfig
-Host nlp16
+Host nlp8
   HostName <host>
   User <user>
   IdentityFile ~/.ssh/<keyname>
@@ -55,5 +56,5 @@ chmod 644 ~/.ssh/<keyname>.pub
 
 ## 4) What I need to proceed
 
-- Confirm whether `ssh nlp16` works from *your* terminal.
-- If yes, paste the `Host nlp16` stanza (sanitized is fine) and tell me which key file to use.
+- Confirm whether `ssh nlp8` works from *your* terminal.
+- If yes, paste the `Host nlp8` stanza (sanitized is fine) and tell me which key file to use.

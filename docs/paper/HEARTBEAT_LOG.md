@@ -657,3 +657,11 @@ This prevents process drift where the checklist contradicts the heartbeat instru
 ### 2026-02-11 — Process lane: fix docs SSOT (nlp8) + clarify PDF figure policy
 
 - Updated `docs/paper/README.md` to (i) correct the remote runbook host reference to nlp8 and (ii) document the no-sudo Inkscape AppImage SVG→PDF conversion path + a practical “commit PDFs used in LaTeX” policy.
+
+### 2026-02-11 — Process lane: remove remaining nlp16 doc drift (SSOT=nlp8)
+
+- Updated docs to eliminate stale `nlp16` guidance:
+  - Added `docs/paper/SSH_TROUBLESHOOT_REMOTE.md` (nlp8 SSOT) and pointed `docs/paper/REMOTE_EXPERIMENTS_RUNBOOK.md` to it.
+  - Fixed runbook DM checklist to report GPU util/mem for GPUs 4–6 (not 4–7).
+  - Updated `docs/paper/TIER1_PLAN_CROSSFAMILY.md` to target nlp8 and GPUs 4/5/6.
+  - Marked `docs/paper/SSH_TROUBLESHOOT_NLP16.md` as deprecated.

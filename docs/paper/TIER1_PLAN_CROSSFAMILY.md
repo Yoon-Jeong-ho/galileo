@@ -33,7 +33,7 @@ Goal: reduce reviewer risk by showing GALILEO effects are **not specific to a si
 
 - Model: <MODEL_NAME>
 - Seeds: 1,2
-- GPUs: 4/5/6/7
+- GPUs: 4/5/6
 - OUT roots:
   - results/<run>_seed1/
   - results/<run>_seed2/
@@ -43,5 +43,5 @@ Goal: reduce reviewer risk by showing GALILEO effects are **not specific to a si
 
 ## Next decision required
 
-Pick **one** model family + exact checkpoint name we can run on `nlp16` with vLLM.
+Pick **one** model family + exact checkpoint name we can run on `nlp8` with vLLM.
 If you tell me what checkpoints already exist on the box (or give access), I’ll write the exact tmux launch commands.
