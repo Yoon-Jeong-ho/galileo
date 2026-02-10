@@ -576,3 +576,8 @@ This prevents process drift where the checklist contradicts the heartbeat instru
 
 - Added `scripts/audit_citations.py` to verify that all `\cite{...}` keys used in paper drafts exist in `references.bib` (quick pre-LaTeX guardrail).
 - Ran it: EN draft has 11 cite keys and **0 missing**; KO draft currently has 0 cite keys.
+
+### 2026-02-11 — Writing lane: finish converting remaining author-year citations in EN draft
+
+- Converted remaining inline author-year mentions in `docs/paper/PAPER_DRAFT_EN.md` to BibTeX-backed `\cite{...}` (ELEPHANT; theorem-proving sycophancy).
+- Re-ran `python3 scripts/audit_citations.py`: EN draft now cites 13 keys and **0 are missing** from `references.bib`.
