@@ -16,6 +16,7 @@ This folder contains the **MD-only** paper-writing workflow for the GALILEO EMNL
 ## Conventions
 
 - Figures/tables are generated from `results/<run>/paper_exports/`.
+- `docs/paper/artifacts/` contains tracked CSV artifacts used for paper claims. If a one-off/single-seed artifact becomes superseded (e.g., after adding seed2), move the older file under `docs/paper/artifacts/archive/` to reduce confusion.
 - **Source-of-truth figures (vector):** `docs/paper/figures/*.svg` (generated from tracked CSV artifacts).
 - **Optional submission format:** if your LaTeX pipeline prefers PDFs, generate `paper_figures/pdf/*.pdf` from the SVGs (see below).
 - Prefer linking to artifact paths (CSV/SVG) from the draft so reviewers can verify claims.
