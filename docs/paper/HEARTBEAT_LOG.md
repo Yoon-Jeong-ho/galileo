@@ -446,3 +446,8 @@ This prevents process drift where the checklist contradicts the heartbeat instru
 
 - Updated `docs/paper/HEARTBEAT_PROMPT.md` and `docs/paper/REMOTE_EXPERIMENTS_RUNBOOK.md` to explicitly override any stale heartbeat/poll text mentioning `nlp16` or `/mnt/raid6/...`.
 - Rule: experiments (monitoring/launch/export/validate) are SSOT **nlp8 + GPUs 4/5/6 only**.
+
+### 2026-02-10 — Experiments→writing bridge: add Qwen recovery_variant=verify_then_answer seed1 artifact
+
+- Added tracked artifact: `docs/paper/artifacts/tier1_qwen2p5_7b_vta_seed1_survival_summary_20260210.csv` derived from nlp8 run `results/tier1_qwen2p5_7b_vta_seed1_20260210_192410/paper_exports/survival_curve.csv`.
+- Updated `docs/paper/PAPER_DRAFT_EN.md` to cite the artifact as a Tier‑1 intervention ablation sanity check.

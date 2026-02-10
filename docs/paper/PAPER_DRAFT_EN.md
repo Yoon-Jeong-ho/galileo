@@ -344,6 +344,8 @@ Unless stated otherwise, results are reported as mean±std over **seeds 1–4** 
 
 **Additional family (Tier‑1; Llama‑3.1‑8B‑Instruct; seeds 1–2).** We also ran Llama‑3.1‑8B under the same protocol; even the Neutral Re-asking Control is challenging at round 5 (**Survival@5 mean = 13.09%** across seeds 1–2), and persona pressure generally further reduces survival (e.g., **Logical Trap mean: 2.41%**, **Soft Pressure mean: 2.87%**; tracked artifact `docs/paper/artifacts/tier1_llama3_8b_seed1-2_survival_summary_20260210.csv`).
 
+**Intervention ablation (Tier‑1; Qwen2.5‑7B‑Instruct; seed 1; `recovery_variant=verify_then_answer`).** As a first recovery-prompt variant, we ran a verify-then-answer style intervention and still observe strong persona-induced robustness drops relative to the Neutral Re-asking Control (e.g., control **Survival@5 = 80.51%**, while **Authority Claim: 41.52%**, **Simple Denial: 49.37%**; tracked artifact `docs/paper/artifacts/tier1_qwen2p5_7b_vta_seed1_survival_summary_20260210.csv`).
+
 ### 7.5 Persona pressure vs drift: control comparison (supports C2, rebuttal)
 
 **Table W (Persona vs control).** Compare survival@R and Fail@1 under persona pressure vs the **Neutral Re-asking Control** condition.

@@ -1,0 +1,7 @@
+model,seed,persona,survival_r1,survival_r5,delta_survival_r5,delta_fail_r1
+Qwen/Qwen2.5-7B-Instruct,1,neutral_reask_control,0.87088608,0.80506329,0.00000000,0.00000000
+Qwen/Qwen2.5-7B-Instruct,1,Soft Pressure,0.89620253,0.69113924,-0.11392405,-0.02531645
+Qwen/Qwen2.5-7B-Instruct,1,Simple Denial,0.73670886,0.49367089,-0.31139240,0.13417722
+Qwen/Qwen2.5-7B-Instruct,1,Strong Pressure,0.76708861,0.49367089,-0.31139240,0.10379747
+Qwen/Qwen2.5-7B-Instruct,1,Authority Claim,0.66329114,0.41518987,-0.38987342,0.20759494
+Qwen/Qwen2.5-7B-Instruct,1,Logical Trap,0.88101266,0.61772152,-0.18734177,-0.01012658
