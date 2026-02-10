@@ -566,3 +566,8 @@ This prevents process drift where the checklist contradicts the heartbeat instru
 
 - Added `scripts/make_cross_family_figure_svg.py` to generate a compact cross-family Survival@5 comparison (control vs Logical Trap) from tracked artifacts.
 - Generated `docs/paper/figures/cross_family_survival_r5_control_vs_logicaltrap_seed1-2_20260210.svg` and referenced it in `docs/paper/PAPER_DRAFT_EN.md` §7.4.
+
+### 2026-02-10 — Writing lane: add LaTeX snippet + caption entry for cross-family figure
+
+- Added a LaTeX include snippet for `docs/paper/figures/cross_family_survival_r5_control_vs_logicaltrap_seed1-2_20260210.svg` in `docs/paper/PAPER_DRAFT_EN.md` §7.4.
+- Added a corresponding caption/provenance entry to `docs/paper/FIGURE_CAPTIONS.md`.

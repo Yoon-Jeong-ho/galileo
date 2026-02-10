@@ -348,6 +348,18 @@ Unless stated otherwise, results are reported as mean±std over **seeds 1–4** 
 
 **Cross-family visualization (control vs strong persona).** A compact view of Survival@5 for the Neutral Re-asking Control vs a strong persona (Logical Trap) across families is in `docs/paper/figures/cross_family_survival_r5_control_vs_logicaltrap_seed1-2_20260210.svg`.
 
+**Paper include (LaTeX snippet).**
+
+```latex
+% Source SVG (repo): docs/paper/figures/cross_family_survival_r5_control_vs_logicaltrap_seed1-2_20260210.svg
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\linewidth]{figures/cross_family_survival_r5_control_vs_logicaltrap_seed1-2_20260210}
+  \caption{Cross-family generalization: Survival@5 for the Neutral Re-asking Control (drift baseline) vs a strong persona (Logical Trap), averaged over seeds 1--2 for each model family. The same qualitative gap appears across families under an identical protocol.}
+  \label{fig:cross-family-survival}
+\end{figure}
+```
+
 **Intervention ablation (Tier‑1; Qwen2.5‑7B‑Instruct; seeds 1–2; `recovery_variant=verify_then_answer`).** As a first recovery-prompt variant, we ran a verify-then-answer style intervention and still observe strong persona-induced robustness drops relative to the Neutral Re-asking Control (e.g., control **Survival@5 mean = 79.96%**, while **Authority Claim mean: 42.72%**, **Simple Denial mean: 48.88%**; tracked artifact `docs/paper/artifacts/tier1_qwen2p5_7b_vta_seed1-2_survival_summary_20260210.csv`). Collapsing recovery conditional on flip across tasks, the control recovers **35.00%** (56/160) while persona settings recover **24.10%** (443/1838; tracked artifact `docs/paper/artifacts/tier1_qwen2p5_7b_vta_seed1-2_recovery_collapsed_20260210.csv`). Note this variant is not directly comparable to the seed1–4 baseline recovery numbers (different recovery prompt); relative to the baseline’s near-zero persona–control gap (Δ≈−0.07 points), this two-seed variant exhibits a larger negative gap (Δ≈−10.90 points; tracked artifact `docs/paper/artifacts/recovery_variant_verify_then_answer_vs_baseline_seed1-2_20260210.csv`).
 
 ### 7.5 Persona pressure vs drift: control comparison (supports C2, rebuttal)

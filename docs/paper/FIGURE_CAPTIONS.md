@@ -72,3 +72,17 @@ Persona-wise effect size on recovery after flipping: \(\Delta\)Recovery@flip (pe
 
 **Caption (draft):**
 Table W effect sizes: persona pressure minus Neutral Re-asking Control (drift baseline), mean across seeds 1–4. Large negative \(\Delta\)Survival@5 and positive \(\Delta\)Fail@1 indicate persona-induced failure dynamics beyond generic multi-turn drift under identical rounds/decoding/scoring.
+
+---
+
+## Fig: Cross-family Survival@5 (control vs Logical Trap)
+
+- File: `docs/paper/figures/cross_family_survival_r5_control_vs_logicaltrap_seed1-2_20260210.svg`
+- LaTeX label (suggested): `fig:cross-family-survival`
+- Source artifacts:
+  - `docs/paper/artifacts/tier1_mistral7b_seed1-2_survival_summary_20260210.csv`
+  - `docs/paper/artifacts/tier1_llama3_8b_seed1-2_survival_summary_20260210.csv`
+- Generator: `scripts/make_cross_family_figure_svg.py`
+
+**Caption (draft):**
+Cross-family generalization: Survival@5 for the Neutral Re-asking Control (drift baseline) vs a strong persona (Logical Trap), averaged over seeds 1–2 for each model family. The same qualitative gap appears across families under an identical protocol.
