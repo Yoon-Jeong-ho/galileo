@@ -9,7 +9,7 @@
 
 ## Abstract
 
-Large language models (LLMs) can exhibit *belief-consistency failures* under social and rhetorical pressure—e.g., repeated denial, authoritative claims, or persuasive reframing—sometimes retracting previously correct answers even on tasks with clear ground truth. Prior work studies sycophancy and persuasion-related vulnerabilities (e.g., Sharma et al., 2025; Fanous et al., 2025; Huang et al., 2026), but a unified and reproducible protocol that measures **when** failures first occur (**turn-of-failure**), **how** robustness evolves over interaction rounds (**survival curves**), and **whether** models can recover after flipping (**recovery**) on ground-truth tasks remains limited.
+Large language models (LLMs) can exhibit *belief-consistency failures* under social and rhetorical pressure—e.g., repeated denial, authoritative claims, or persuasive reframing—sometimes retracting previously correct answers even on tasks with clear ground truth. Prior work studies sycophancy and persuasion-related vulnerabilities (e.g., \cite{sharma2025understandingsycophancylanguagemodels,fanous2025sycevalevaluatingllmsycophancy,huang2026vulnerabilityllmsbeliefsystems}), but a unified and reproducible protocol that measures **when** failures first occur (**turn-of-failure**), **how** robustness evolves over interaction rounds (**survival curves**), and **whether** models can recover after flipping (**recovery**) on ground-truth tasks remains limited.
 
 We present **GALILEO**, a benchmark and pipeline for measuring multi-turn robustness under adversarial *persona-based* pressure. GALILEO (i) evaluates initial correctness, (ii) applies five adversarial personas for up to five rounds and quantifies **survival** as the probability an example remains correct through round *r*, and (iii) reports **turn-of-failure (TOF)** as the first round where a previously-correct example becomes incorrect, plus **recovery conditional on flip** (return-to-truth after an example has flipped). We additionally include a **Neutral Re-asking Control** (non-persona drift baseline) with the same multi-round structure to separate persona mechanism effects from generic multi-turn variance. To ensure stable automatic scoring across tasks and multi-turn logs, we standardize the final answer format to `\boxed{...}` and perform boxed-first extraction in the evaluator.
 
@@ -23,7 +23,7 @@ Across multi-seed Qwen runs (seeds 1–4) and two additional model families (Mis
 
 In interactive settings, correctness is not a one-shot property. Even if an assistant produces a correct answer initially, subsequent conversation can apply pressure that nudges the model toward *agreeable* but wrong responses. This matters for high-stakes deployments (education, healthcare, legal assistance, research support), where a user may insist the model is wrong, cite “expert authority,” or repeatedly deny evidence.
 
-A growing body of work investigates sycophancy (agreeing with user beliefs at the expense of truth) and persuasion-induced behavior change in LLMs (Sharma et al., 2025; Fanous et al., 2025; Huang et al., 2026), as well as instability under prompt/context variation (Tosato et al., 2025; Yu et al., 2026). Beyond correctness alone, multi-turn settings can also induce pathological *belief and confidence dynamics* (e.g., confidence escalation in adversarial debates) \cite{prasad2025llmsdebatethinktheyll}. However, evaluation protocols often (i) focus on single-turn outcomes or (ii) do not precisely characterize **the dynamics of failure across rounds** and **the possibility of recovery after a flip** on tasks with explicit ground truth.
+A growing body of work investigates sycophancy (agreeing with user beliefs at the expense of truth) and persuasion-induced behavior change in LLMs (\cite{sharma2025understandingsycophancylanguagemodels,fanous2025sycevalevaluatingllmsycophancy,huang2026vulnerabilityllmsbeliefsystems}), as well as instability under prompt/context variation (\cite{tosato2025persistentinstabilityllmspersonality,yu2026ptcbenchbenchmarkingcontextualstability}). Beyond correctness alone, multi-turn settings can also induce pathological *belief and confidence dynamics* (e.g., confidence escalation in adversarial debates) \cite{prasad2025llmsdebatethinktheyll}. However, evaluation protocols often (i) focus on single-turn outcomes or (ii) do not precisely characterize **the dynamics of failure across rounds** and **the possibility of recovery after a flip** on tasks with explicit ground truth.
 
 ### 1.2 Problem and evaluation gap
 
@@ -214,15 +214,15 @@ Rationale: multi-turn logs amplify formatting drift; boxed-first extraction redu
 ## 6. Related Work (condensed)
 
 ### 6.1 Sycophancy
-Sharma et al. (2025) show that RLHF and preference-model optimization can incentivize agreeable-but-wrong behavior and quantify sycophancy across realistic assistant settings. Fanous et al. (2025) propose SycEval to evaluate sycophancy via rebuttal-based prompts and distinguish progressive vs. regressive sycophancy on ground-truth tasks.
+Sharma et al. \cite{sharma2025understandingsycophancylanguagemodels} show that RLHF and preference-model optimization can incentivize agreeable-but-wrong behavior and quantify sycophancy across realistic assistant settings. Fanous et al. \cite{fanous2025sycevalevaluatingllmsycophancy} propose SycEval to evaluate sycophancy via rebuttal-based prompts and distinguish progressive vs. regressive sycophancy on ground-truth tasks.
 
 Cheng et al. (2025) introduce ELEPHANT to benchmark *social sycophancy* in open-ended contexts through face-preservation behaviors; our qualitative failure modes (e.g., hedging, deference) can be interpreted through a similar lens, while our primary metrics remain ground-truth and dynamics oriented. Petrov et al. (2025) study sycophancy in theorem proving; GALILEO instead targets a broader family of ground-truth tasks and emphasizes multi-turn dynamics plus recovery.
 
 ### 6.2 Persuasion and belief vulnerability
-Huang et al. (2026) systematize persuasion strategies under an SMCR framework and analyze belief changes in multi-turn interventions. GALILEO complements this line by providing a reproducible, ground-truth-centered protocol with explicit dynamics metrics (survival/TOF) and recovery evaluation.
+Huang et al. \cite{huang2026vulnerabilityllmsbeliefsystems} systematize persuasion strategies under an SMCR framework and analyze belief changes in multi-turn interventions. GALILEO complements this line by providing a reproducible, ground-truth-centered protocol with explicit dynamics metrics (survival/TOF) and recovery evaluation.
 
 ### 6.3 Stability under context
-Tosato et al. (2025) and Yu et al. (2026) report instability in measured traits/personality under prompt and conversation-history variations, supporting the motivation for studying robustness dynamics under accumulating context.
+Tosato et al. \cite{tosato2025persistentinstabilityllmspersonality} and Yu et al. \cite{yu2026ptcbenchbenchmarkingcontextualstability} report instability in measured traits/personality under prompt and conversation-history variations, supporting the motivation for studying robustness dynamics under accumulating context.
 
 ### 6.4 Positioning vs nearby multi-turn sycophancy/robustness benchmarks
 
