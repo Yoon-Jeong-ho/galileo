@@ -647,3 +647,9 @@ This prevents process drift where the checklist contradicts the heartbeat instru
 ### 2026-02-11 — Writing lane: integrate decoding sweep figure into paper draft (LaTeX snippet)
 
 - Updated `docs/paper/PAPER_DRAFT_EN.md` to reference `fig:decoding-sweep` and added a LaTeX include snippet for `docs/paper/figures/decoding_sweep_qwen_delta_seed1-2_20260211.svg`.
+
+### 2026-02-11 — Process lane: generate PDF figures (no-sudo Inkscape AppImage) + smoke-check
+
+- Generated PDFs from `docs/paper/figures/*.svg` into `paper_figures/pdf/*.pdf` using `scripts/convert_figures_svg_to_pdf.sh` (AppImage backend).
+- Verified PDFs via `bash scripts/check_pdf_figures.sh` (PASS). Includes:
+  - `paper_figures/pdf/decoding_sweep_qwen_delta_seed1-2_20260211.pdf`
