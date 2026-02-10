@@ -54,17 +54,17 @@ Ground-truth tasks에서 multi-turn persona pressure 하에 **정답 유지(surv
 
 ## 3) TOP GAPS (what still blocks paper quality)
 
-1) **LaTeX build readiness (PDF figures):** SVG→PDF conversion requires `librsvg2-bin` (or `inkscape`). If the build env has no sudo, convert elsewhere and copy PDFs (documented in `docs/paper/README.md`). Verify conversion + compilation.
-2) **Remote experiment access:** restore `ssh nlp16` access from this runtime so we can resume mandatory tmux/GPU/log checks.
-3) **Experiment extension decision:** decide whether we need seed5+ (tighter CI) or shift budget to cross-family generalization.
+1) **LaTeX build readiness (PDF figures):** ✅ PDFs can now be generated **without sudo** via Inkscape AppImage (`scripts/get_inkscape_appimage.sh` → `scripts/convert_figures_svg_to_pdf.sh`; output `paper_figures/pdf/*.pdf`). Remaining step: verify **actual EMNLP LaTeX template** include/compile is clean.
+2) **Claim→evidence map completion:** for each Abstract/Intro claim, pin 1 figure/table + 1 reproducer path (script + artifact/run alias) so reviewers can verify quickly.
+3) **Experiment extension decision (Tier‑1 only):** decide whether the next marginal compute should go to (a) decoding sensitivity sweep vs (b) an additional model family vs (c) more seeds (only if CI looks fragile).
 
 ---
 
 ## 4) NEXT HEARTBEAT (ONE step)
 
-**Experiments→paper analysis: compare recovery_variant=verify_then_answer vs baseline recovery (control vs persona) and decide whether to run seed2.**
+**Writing/process: start the claim→evidence map for the Abstract/Intro (3–5 core claims) and link each to one artifact/figure and one reproducer path.**
 
-- Deliverable: add a short tracked artifact under `docs/paper/artifacts/` summarizing recovery-collapsed deltas (baseline vs verify_then_answer) and update 1–2 sentences in the draft (clearly marking it as single-seed unless seed2 is run).
+- Deliverable: update `docs/paper/EMNLP_MAIN_SUBMISSION_CHECKLIST.md` (or a new small table in `PAPER_DRAFT_EN.md`) with 3–5 claim rows, each with: claim text → figure/table → artifact CSV → run alias under `results_paper/`.
 
 ---
 
