@@ -638,3 +638,8 @@ This prevents process drift where the checklist contradicts the heartbeat instru
 ### 2026-02-11 — Process lane: mark decoding sensitivity sweep as completed in submission checklist
 
 - Updated `docs/paper/EMNLP_MAIN_SUBMISSION_CHECKLIST.md` to check off the decoding sensitivity sweep item and link it to the tracked artifact + paper-ready `results_paper/` run aliases + `results_paper/GLOBAL_VALIDATE.log`.
+
+### 2026-02-11 — Writing lane: add decoding sweep figure (SVG, stdlib)
+
+- Added `scripts/make_decoding_sweep_figure_svg.py` and generated `docs/paper/figures/decoding_sweep_qwen_delta_seed1-2_20260211.svg` (ΔSurvival@5 and ΔFail@1 at temp=0.0 vs 0.7; seeds 1–2).
+- Added caption/provenance entry to `docs/paper/FIGURE_CAPTIONS.md`.
