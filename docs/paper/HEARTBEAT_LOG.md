@@ -507,3 +507,7 @@ This prevents process drift where the checklist contradicts the heartbeat instru
 
 - Added `scripts/check_pdf_figures.sh` to verify generated `paper_figures/pdf/*.pdf` exist and have valid PDF headers/sizes in environments without LaTeX.
 - Updated `docs/paper/EMNLP_MAIN_SUBMISSION_CHECKLIST.md` to include the smoke-check command.
+
+### 2026-02-10 — Writing/process lane: seed the claim→evidence map
+
+- Added an initial 5-row claim→evidence mapping table to `docs/paper/EMNLP_MAIN_SUBMISSION_CHECKLIST.md` linking C1/C2/C3 + generalization + intervention ablation to (i) a specific figure/table, (ii) tracked artifacts, and (iii) paper-ready `results_paper/` aliases.
