@@ -629,3 +629,8 @@ This prevents process drift where the checklist contradicts the heartbeat instru
   - `results_paper/qwen_temp0_seed2` (`--greedy_temperature 0.0`) → wrote full `paper_exports/` + `[OK]` + parity.
   - `results_paper/qwen_temp0p7_seed2` (`--greedy_temperature 0.7`) → wrote full `paper_exports/` + `[OK]` + parity.
 - Refreshed `results_paper/GLOBAL_VALIDATE.log` (all `[OK]`, includes seed1+seed2 temp runs).
+
+### 2026-02-11 — Writing/analysis lane: summarize decoding sensitivity sweep into tracked artifact + Results prose
+
+- Pulled a decoding sweep summary CSV into `docs/paper/artifacts/decoding_sweep_qwen_temp_summary_seed1-2_20260211.csv` (computed from paper-ready runs under `results_paper/qwen_temp{0,0p7}_seed{1,2}`).
+- Added a short Decoding sensitivity paragraph to `docs/paper/PAPER_DRAFT_EN.md` §7.4 referencing the tracked artifact and summarizing stable ΔSurvival@5 / ΔFail@1 across temperatures.
