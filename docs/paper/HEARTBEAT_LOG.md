@@ -335,3 +335,7 @@ This prevents process drift where the checklist contradicts the heartbeat instru
 
 - Added `docs/paper/SSH_TROUBLESHOOT_NLP16.md` (minimal info to share + common fixes: IdentityFile, IdentitiesOnly, ssh-agent).
 - Linked it from `docs/paper/REMOTE_EXPERIMENTS_RUNBOOK.md` so experiment lane unblocks faster.
+
+### 2026-02-10 (am) — Linked SSH troubleshooting SSOT from heartbeat checklist
+
+- Updated `docs/paper/HEARTBEAT_CHECKLIST.md` to point to `docs/paper/SSH_TROUBLESHOOT_NLP16.md` when SSH sanity checks fail, so the experiment lane can unblock faster.

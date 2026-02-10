@@ -14,6 +14,7 @@ This is a **process guardrail** to prevent drift (wrong server/GPU policy, lane 
 **If lane = Experiments:** first confirm you can actually reach the box.
 - Quick sanity: `ssh nlp16 'hostname; whoami'`
 - If SSH is blocked (keys/agent/etc.), **do not burn the heartbeat** debugging infra unless explicitly prioritized—switch this heartbeat to Writing/Development and record the SSH blocker in the DM update.
+- If you *do* need to fix SSH: follow `docs/paper/SSH_TROUBLESHOOT_NLP16.md` (in particular: set `IdentityFile` + `IdentitiesOnly yes`, and ensure the key is loaded in `ssh-agent`).
 
 ## B) If lane = Experiments (nlp16; tiered)
 
