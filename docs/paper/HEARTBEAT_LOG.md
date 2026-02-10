@@ -488,3 +488,9 @@ This prevents process drift where the checklist contradicts the heartbeat instru
 ### 2026-02-10 — Process lane: STATUS updated for vta seeds 1–2
 
 - Updated `docs/paper/STATUS.md` to reflect that the verify_then_answer recovery-variant ablation is now **seeds 1–2** and both aliases (`qwen_vta_seed1`, `qwen_vta_seed2`) are included in `results_paper/`.
+
+### 2026-02-10 — Development lane: no-sudo SVG→PDF conversion via Inkscape AppImage
+
+- Added `scripts/get_inkscape_appimage.sh` (downloads + sha256-verifies a pinned Inkscape AppImage to `tools/inkscape/inkscape.AppImage`).
+- Updated `scripts/convert_figures_svg_to_pdf.sh` to fallback to the AppImage when `rsvg-convert`/`inkscape` are not available.
+- Generated PDFs to `paper_figures/pdf/*.pdf` without sudo.

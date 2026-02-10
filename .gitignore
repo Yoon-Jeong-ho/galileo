@@ -39,5 +39,8 @@ results/
 # Scratch / staging
 tmp/
 
+# User-local tools (no-sudo environments)
+tools/inkscape/
+
 # OS
 .DS_Store

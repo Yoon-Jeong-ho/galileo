@@ -15,14 +15,23 @@ OUT_DIR="${2:-$ROOT/paper_figures/pdf}"
 
 mkdir -p "$OUT_DIR"
 
+INKSCAPE_APPIMAGE_DEFAULT="$ROOT/tools/inkscape/inkscape.AppImage"
+INKSCAPE_APPIMAGE="${INKSCAPE_APPIMAGE:-$INKSCAPE_APPIMAGE_DEFAULT}"
+
 if command -v rsvg-convert >/dev/null 2>&1; then
   CONVERTER="rsvg"
 elif command -v inkscape >/dev/null 2>&1; then
   CONVERTER="inkscape"
+elif [[ -x "$INKSCAPE_APPIMAGE" ]]; then
+  # No sudo: use a user-local Inkscape AppImage.
+  CONVERTER="inkscape_appimage"
 else
-  echo "[ERR] Need rsvg-convert (librsvg) or inkscape on PATH to convert SVG->PDF." >&2
-  echo "      Ubuntu: sudo apt-get install -y librsvg2-bin   (provides rsvg-convert)" >&2
-  echo "      or:     sudo apt-get install -y inkscape" >&2
+  echo "[ERR] Need rsvg-convert (librsvg) or inkscape to convert SVG->PDF." >&2
+  echo "      If you have sudo: sudo apt-get install -y librsvg2-bin   (provides rsvg-convert)" >&2
+  echo "      or:          sudo apt-get install -y inkscape" >&2
+  echo "      If you do NOT have sudo: download an Inkscape AppImage:" >&2
+  echo "        bash scripts/get_inkscape_appimage.sh" >&2
+  echo "      (expects to create: $INKSCAPE_APPIMAGE_DEFAULT)" >&2
   exit 2
 fi
 
@@ -38,9 +47,12 @@ for svg in "${svgs[@]}"; do
   out="$OUT_DIR/$base.pdf"
   if [[ "$CONVERTER" == "rsvg" ]]; then
     rsvg-convert -f pdf -o "$out" "$svg"
-  else
+  elif [[ "$CONVERTER" == "inkscape" ]]; then
     # Inkscape 1.x CLI
     inkscape "$svg" --export-type=pdf --export-filename="$out" >/dev/null
+  else
+    # AppImage CLI is identical to inkscape.
+    "$INKSCAPE_APPIMAGE" "$svg" --export-type=pdf --export-filename="$out" >/dev/null
   fi
   echo "[OK] $svg -> $out"
 done
