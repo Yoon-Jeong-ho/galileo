@@ -427,3 +427,8 @@ This prevents process drift where the checklist contradicts the heartbeat instru
 
 - Added tracked artifact `docs/paper/artifacts/tier1_llama3_8b_seed1_survival_summary_20260210.csv` (seed1 summary of Survival@5 and deltas vs control).
 - Extended cross-family sanity-check text in `docs/paper/PAPER_DRAFT_EN.md` to cite the Llama artifact.
+
+### 2026-02-10 — Paper writing lane: Llama cross-family artifact upgraded to seeds 1–2
+
+- Added tracked artifact: `docs/paper/artifacts/tier1_llama3_8b_seed1-2_survival_summary_20260210.csv` (mean/std Survival@5 + deltas vs control across seeds 1–2).
+- Updated `docs/paper/PAPER_DRAFT_EN.md` cross-family paragraph to cite the seed1–2 artifact and report mean Survival@5 numbers.

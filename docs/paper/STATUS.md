@@ -30,7 +30,8 @@ Ground-truth tasks에서 multi-turn persona pressure 하에 **정답 유지(surv
 
 ### Experiments / artifacts
 - ✅ **Seed1–4 (control vs persona) are auditable green** (Qwen2.5-7B-Instruct; 80 samples/seed) with validated `paper_exports/`.
-- ✅ **Mistral-7B seed2** is now auditable green (`results/tier1_mistral7b_seed2_20260210_1440/paper_exports`).
+- ✅ **Mistral-7B seeds 1–2** are auditable green and included in `results_paper/`.
+- ✅ **Llama-3.1-8B-Instruct seeds 1–2** are auditable green and included in `results_paper/` (seed2 export+metadata+validation completed).
 - ✅ Introduced a **paper-only validation root** `results_paper/` on nlp8 to keep global validation stable for cited runs (parity PASS).
 - ✅ **Table W artifacts tracked** under `docs/paper/artifacts/` and draft AUTO block updated to seed1–4.
 
@@ -60,9 +61,9 @@ Ground-truth tasks에서 multi-turn persona pressure 하에 **정답 유지(surv
 
 ## 4) NEXT HEARTBEAT (ONE step)
 
-**Development: generate a 2-seed (seed1_fix + seed2) tracked summary artifact for Mistral and wire it into the paper.**
+**Paper writing: update cross-family paragraph to reflect the completed Llama seed2 export + keep citations aligned; then consider LaTeX build readiness as the next development step.**
 
-- Deliverable: add a small CSV under `docs/paper/artifacts/` summarizing key metrics for Mistral seeds 1–2, and add 1–2 sentences in `docs/paper/PAPER_DRAFT_EN.md` that cite the artifact.
+- Deliverable: ensure the draft cites the **seed1–2** Llama cross-family artifact and reports the correct mean Survival@5 numbers (already tracked under `docs/paper/artifacts/`).
 
 ---
 
