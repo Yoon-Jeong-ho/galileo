@@ -24,11 +24,33 @@ copy() {
   cp -a "$src" "$dst"
 }
 
+sanitize_md() {
+  # Sanitize infra-identifying strings in staged Markdown (bundle-only; does not touch sources).
+  # Keep replacements simple + conservative.
+  sed -E \
+    -e 's#/mnt/raid6/aa007878/galileo#<REMOTE_REPO_ROOT>#g' \
+    -e 's#/data_x/aa007878/galileo#<REMOTE_REPO_ROOT>#g' \
+    -e 's#/mnt/raid6/#<REMOTE_PATH>/#g' \
+    -e 's#/data_x/#<REMOTE_PATH>/#g' \
+    -e 's#\bnlp16\b#<REMOTE_HOST>#g' \
+    -e 's#\bnlp8\b#<REMOTE_HOST>#g' \
+    -e 's#aa007878@[^ ]+#<REMOTE_USER>@<REMOTE_HOST>#g' \
+    -e 's#\b163\.152\.[0-9]+\.[0-9]+\b#<REMOTE_IP>#g' \
+    -e 's#163\.152\.\*#<REMOTE_IP>#g'
+}
+
+copy_md_sanitized() {
+  local src="$1"
+  local dst="$2"
+  mkdir -p "$(dirname "$dst")"
+  sanitize_md < "$src" > "$dst"
+}
+
 # --- Paper drafts (EN only by default) ---
-copy "$ROOT/docs/paper/PAPER_DRAFT_EN.md" "$OUT_DIR/docs/paper/PAPER_DRAFT_EN.md"
-copy "$ROOT/docs/paper/FIGURE_CAPTIONS.md" "$OUT_DIR/docs/paper/FIGURE_CAPTIONS.md"
-# Intentionally NOT copying ANONYMIZATION_NOTES.md into the anonymized bundle,
-# because it necessarily contains infra-identifying strings (it is the audit SSOT).
+copy_md_sanitized "$ROOT/docs/paper/PAPER_DRAFT_EN.md" "$OUT_DIR/docs/paper/PAPER_DRAFT_EN.md"
+copy_md_sanitized "$ROOT/docs/paper/FIGURE_CAPTIONS.md" "$OUT_DIR/docs/paper/FIGURE_CAPTIONS.md"
+# Include anonymization notes too, but sanitized (useful for the recipient).
+copy_md_sanitized "$ROOT/docs/paper/ANONYMIZATION_NOTES.md" "$OUT_DIR/docs/paper/ANONYMIZATION_NOTES.md"
 
 # --- Figures + artifacts ---
 mkdir -p "$OUT_DIR/docs/paper/figures" "$OUT_DIR/docs/paper/artifacts"

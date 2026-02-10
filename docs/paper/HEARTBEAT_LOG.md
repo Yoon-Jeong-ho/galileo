@@ -339,3 +339,8 @@ This prevents process drift where the checklist contradicts the heartbeat instru
 ### 2026-02-10 (am) — Linked SSH troubleshooting SSOT from heartbeat checklist
 
 - Updated `docs/paper/HEARTBEAT_CHECKLIST.md` to point to `docs/paper/SSH_TROUBLESHOOT_NLP16.md` when SSH sanity checks fail, so the experiment lane can unblock faster.
+
+### 2026-02-10 (am) — Anonymized bundle packager now sanitizes Markdown in staged bundle
+
+- Updated `scripts/package_anonymized_bundle.sh` to sanitize infra-identifying strings in staged Markdown files (bundle-only; does not touch sources).
+- The staged bundle now can include `ANONYMIZATION_NOTES.md` without failing the infra-string audit.
