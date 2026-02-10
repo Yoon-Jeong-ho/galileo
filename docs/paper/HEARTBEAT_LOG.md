@@ -527,3 +527,7 @@ This prevents process drift where the checklist contradicts the heartbeat instru
 ### 2026-02-11 — Research lane: close ReviseQA BibTeX TODO
 
 - Updated `docs/paper/related_work/papers/reviseqa_2024.md` to note that `helwe2025reviseqa` is already present in `references.bib`.
+
+### 2026-02-11 — Writing lane: sharpen ReviseQA contrast (no-new-evidence + control rationale)
+
+- Updated `docs/paper/PAPER_DRAFT_EN.md` to make the ReviseQA contrast more explicit: under fixed information, flips are attributable to pressure/drift, motivating the Neutral Re-asking Control for interpretation.
