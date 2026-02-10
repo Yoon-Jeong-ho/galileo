@@ -367,3 +367,8 @@ This prevents process drift where the checklist contradicts the heartbeat instru
 
 - Added a short paragraph in `docs/paper/PAPER_DRAFT_EN.md` Sec 6.4 contrasting evidence-driven belief revision (ReviseQA) with pressure-induced flips in our persona setting.
 - Added a placeholder BibTeX entry `@misc{reviseqa2025,...}` to `references.bib` (needs official BibTeX fields later).
+
+### 2026-02-10 (pm) — Replaced ReviseQA placeholder with official BibTeX (OpenReview)
+
+- Extracted official BibTeX from OpenReview `data-bibtex` field for ReviseQA.
+- Updated `references.bib` entry key to `helwe2025reviseqa` and updated the in-text citation in `docs/paper/PAPER_DRAFT_EN.md` accordingly.
