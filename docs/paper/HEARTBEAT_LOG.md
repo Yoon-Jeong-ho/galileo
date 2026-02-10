@@ -543,3 +543,7 @@ This prevents process drift where the checklist contradicts the heartbeat instru
 ### 2026-02-11 — Writing lane: make Abstract recovery definition explicit (conditional on flip)
 
 - Updated the Abstract in `docs/paper/PAPER_DRAFT_EN.md` to define recovery as **conditional on flip**, matching the C3 framing and avoiding ambiguity with “staying correct throughout.”
+
+### 2026-02-11 — Process lane: align C3 wording in claim→evidence map
+
+- Updated the C3 row in `docs/paper/EMNLP_MAIN_SUBMISSION_CHECKLIST.md` to define recovery explicitly as **conditional on flip** (return-to-truth after a flip), matching the Abstract/Intro framing.
