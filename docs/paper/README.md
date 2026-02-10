@@ -7,7 +7,7 @@ This folder contains the **MD-only** paper-writing workflow for the GALILEO EMNL
 - `PAPER_DRAFT_EN.md`: main English draft (submission-oriented wording scaffold)
 - `PAPER_DRAFT_KO.md`: Korean draft/notes
 - `FIGURE_CAPTIONS.md`: centralized draft captions + provenance for artifact-derived figures
-- `REMOTE_EXPERIMENTS_RUNBOOK.md`: nlp16 experiment lane runbook (tmux/GPU/log checks + launch discipline)
+- `REMOTE_EXPERIMENTS_RUNBOOK.md`: nlp8 experiment lane runbook (tmux/GPU/log checks + launch discipline)
 - `EMNLP_MAIN_SUBMISSION_CHECKLIST.md`: submission checklist + repo/paper readiness items
 - `LITERATURE_REVIEW_AND_POSITIONING_KO.md`: longer-form related-work notes + positioning
 - `PAPER_RESULTS_ANALYSIS_KO.md`: quantitative results analysis notes
@@ -18,7 +18,7 @@ This folder contains the **MD-only** paper-writing workflow for the GALILEO EMNL
 - Figures/tables are generated from `results/<run>/paper_exports/`.
 - `docs/paper/artifacts/` contains tracked CSV artifacts used for paper claims. If a one-off/single-seed artifact becomes superseded (e.g., after adding seed2), move the older file under `docs/paper/artifacts/archive/` to reduce confusion.
 - **Source-of-truth figures (vector):** `docs/paper/figures/*.svg` (generated from tracked CSV artifacts).
-- **Optional submission format:** if your LaTeX pipeline prefers PDFs, generate `paper_figures/pdf/*.pdf` from the SVGs (see below).
+- **Optional submission format:** if your LaTeX pipeline prefers PDFs, generate `paper_figures/pdf/*.pdf` from the SVGs (see below). We typically **commit PDFs that are actually included in the LaTeX build** to avoid build-environment surprises.
 - Prefer linking to artifact paths (CSV/SVG) from the draft so reviewers can verify claims.
 - Section numbering in drafts may be renumbered/removed during LaTeX conversion.
 
@@ -48,9 +48,11 @@ All figures below are **generated from tracked artifacts** and stored under `doc
 
 ### If PDF conversion is blocked (no root / no `rsvg-convert`)
 
-If your build environment cannot install system packages (no sudo), you have two options:
+If your build environment cannot install system packages (no sudo), you have three options:
 
-1) **Convert SVG→PDF elsewhere** (recommended): run conversion on any machine that has `rsvg-convert` (Ubuntu `librsvg2-bin`) or `inkscape`, then copy the resulting `paper_figures/pdf/*.pdf` into your LaTeX build.
+1) **No-sudo AppImage conversion (recommended in this repo):** download a pinned Inkscape AppImage via `bash scripts/get_inkscape_appimage.sh`, then run `./scripts/convert_figures_svg_to_pdf.sh`.
+
+2) **Convert SVG→PDF elsewhere:** run conversion on any machine that has `rsvg-convert` (Ubuntu `librsvg2-bin`) or `inkscape`, then copy the resulting `paper_figures/pdf/*.pdf` into your LaTeX build.
 
 2) **SVG-in-LaTeX fallback (brittle):** use the LaTeX `svg` package and compile with `--shell-escape` so LaTeX can call an external converter.
    - This can be convenient locally, but it is more fragile across build systems and may be disallowed by some conference build pipelines.

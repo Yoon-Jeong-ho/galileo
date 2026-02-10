@@ -653,3 +653,7 @@ This prevents process drift where the checklist contradicts the heartbeat instru
 - Generated PDFs from `docs/paper/figures/*.svg` into `paper_figures/pdf/*.pdf` using `scripts/convert_figures_svg_to_pdf.sh` (AppImage backend).
 - Verified PDFs via `bash scripts/check_pdf_figures.sh` (PASS). Includes:
   - `paper_figures/pdf/decoding_sweep_qwen_delta_seed1-2_20260211.pdf`
+
+### 2026-02-11 — Process lane: fix docs SSOT (nlp8) + clarify PDF figure policy
+
+- Updated `docs/paper/README.md` to (i) correct the remote runbook host reference to nlp8 and (ii) document the no-sudo Inkscape AppImage SVG→PDF conversion path + a practical “commit PDFs used in LaTeX” policy.
