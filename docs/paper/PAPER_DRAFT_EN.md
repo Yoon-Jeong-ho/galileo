@@ -342,6 +342,8 @@ Unless stated otherwise, results are reported as mean±std over **seeds 1–4** 
 
 **Early cross-family sanity check (Tier‑1; Mistral‑7B‑Instruct v0.3; seeds 1–2; 200 samples/seed).** We ran the identical protocol on Mistral‑7B and observe the same qualitative pattern: persona pressure sharply reduces robustness relative to the Neutral Re-asking Control. For example, the control condition achieves **Survival@5 = 42.86±6.15%**, while the strongest personas drop to single digits (e.g., **Logical Trap: 3.98±1.48%**, **Simple Denial: 7.88±0.47%**; tracked artifact `docs/paper/artifacts/tier1_mistral7b_seed1-2_survival_summary_20260210.csv`).
 
+**Additional family (Tier‑1; Llama‑3.1‑8B‑Instruct; seed 1).** We also ran Llama‑3.1‑8B under the same protocol; even the Neutral Re-asking Control is challenging at round 5 (**Survival@5 = 13.45%**), and persona pressure generally further reduces survival (e.g., **Logical Trap: 2.93%**, **Soft Pressure: 2.44%**; tracked artifact `docs/paper/artifacts/tier1_llama3_8b_seed1_survival_summary_20260210.csv`).
+
 ### 7.5 Persona pressure vs drift: control comparison (supports C2, rebuttal)
 
 **Table W (Persona vs control).** Compare survival@R and Fail@1 under persona pressure vs the **Neutral Re-asking Control** condition.

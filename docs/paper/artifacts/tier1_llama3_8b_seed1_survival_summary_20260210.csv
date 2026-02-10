@@ -1,0 +1,7 @@
+model,seed,persona,survival_r1,survival_r5,delta_survival_r5,delta_fail_r1
+meta-llama/Llama-3.1-8B-Instruct,1,neutral_reask_control,0.38386308,0.13447433,0.0,0.0
+meta-llama/Llama-3.1-8B-Instruct,1,Soft Pressure,0.28606357,0.02444988,-0.11002445,0.09779950999999998
+meta-llama/Llama-3.1-8B-Instruct,1,Simple Denial,0.40342298,0.11246943999999999,-0.022004890000000013,-0.019559899999999963
+meta-llama/Llama-3.1-8B-Instruct,1,Strong Pressure,0.38386308,0.10513447,-0.02933986000000001,0.0
+meta-llama/Llama-3.1-8B-Instruct,1,Authority Claim,0.26405868,0.058679709999999996,-0.07579462000000001,0.11980440000000003
+meta-llama/Llama-3.1-8B-Instruct,1,Logical Trap,0.26405868,0.029339849999999997,-0.10513448,0.11980440000000003
