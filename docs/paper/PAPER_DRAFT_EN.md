@@ -38,7 +38,7 @@ We target a practically grounded setting: tasks with **ground-truth answers** wh
 2. **Unified multi-task pipeline.** We cover math, extractive QA, MCQA, and open-domain QA with a single runner/logging/evaluation interface.
 3. **Stable evaluation via answer-format standardization.** We require a boxed final answer `\boxed{...}` for all tasks and use boxed-first extraction to reduce scoring ambiguity.
 4. **Reproducibility and paper-ready exports.** We provide strict data directory construction, multi-seed aggregation (mean±std), and automated exports for tables/figures.
-5. **Reviewer-facing controls and ablations.** We include a **Neutral Re-asking Control** (non-persona drift baseline) to separate *persona pressure* from generic multi-turn drift, and ablations that separate *robustness* from *recovery interventions*.
+5. **Reviewer-facing controls and intervention ablations.** We include a **Neutral Re-asking Control** (a non-persona multi-turn drift baseline) so that flips under persona pressure can be interpreted as **pressure-induced mechanisms** rather than generic drift. We also report **recovery conditional on flip** and include recovery-prompt ablations to separate *robustness* (staying correct) from *return-to-truth* behavior after a flip.
 
 ### 1.4 Core claims (and what must be shown in results)
 

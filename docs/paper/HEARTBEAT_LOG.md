@@ -535,3 +535,7 @@ This prevents process drift where the checklist contradicts the heartbeat instru
 ### 2026-02-11 — Writing lane: strengthen Abstract with multi-seed + cross-family evidence
 
 - Updated the Abstract in `docs/paper/PAPER_DRAFT_EN.md` to replace “initial snapshots” with a concrete statement grounded in our current paper-ready results: Qwen seeds 1–4 plus Mistral/Llama seeds 1–2 show consistent persona-dependent degradation relative to the Neutral Re-asking Control.
+
+### 2026-02-11 — Writing lane: align Contributions with claim→evidence framing
+
+- Updated the Introduction contributions list in `docs/paper/PAPER_DRAFT_EN.md` to explicitly (i) motivate the Neutral Re-asking Control as a drift baseline for interpreting pressure-induced flips and (ii) emphasize recovery measured conditional on flip plus recovery-prompt ablations.
