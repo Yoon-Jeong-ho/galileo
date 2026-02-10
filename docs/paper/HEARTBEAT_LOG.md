@@ -432,3 +432,8 @@ This prevents process drift where the checklist contradicts the heartbeat instru
 
 - Added tracked artifact: `docs/paper/artifacts/tier1_llama3_8b_seed1-2_survival_summary_20260210.csv` (mean/std Survival@5 + deltas vs control across seeds 1–2).
 - Updated `docs/paper/PAPER_DRAFT_EN.md` cross-family paragraph to cite the seed1–2 artifact and report mean Survival@5 numbers.
+
+### 2026-02-10 — Development lane: LaTeX build readiness preflight (SVG→PDF)
+
+- Ran `scripts/check_figure_tooling.sh` and confirmed the current environment is missing both `rsvg-convert` and `inkscape`, so SVG→PDF conversion cannot run yet.
+- Updated `docs/paper/README.md` to clarify that `make` may be unavailable in minimal environments and documented script-direct invocation.

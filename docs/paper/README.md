@@ -74,12 +74,20 @@ To avoid accidentally leaking hostnames/absolute paths in an anonymized submissi
 
 ## Make targets (optional)
 
-If you prefer `make`:
+If you prefer `make` (note: some minimal environments may not have `make` installed), you can run:
 
 ```bash
 make figures-check
 make figures-pdf
 make anonymized-bundle
+```
+
+If `make` is unavailable, run the scripts directly:
+
+```bash
+./scripts/check_figure_tooling.sh
+./scripts/convert_figures_svg_to_pdf.sh
+./scripts/package_anonymized_bundle.sh
 ```
 
 For what to sanitize/exclude, see `docs/paper/ANONYMIZATION_NOTES.md`.
