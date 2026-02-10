@@ -31,7 +31,8 @@ Ground-truth tasks에서 multi-turn persona pressure 하에 **정답 유지(surv
 ### Experiments / artifacts
 - ✅ **Seed1–4 (control vs persona) are auditable green** (Qwen2.5-7B-Instruct; 80 samples/seed) with validated `paper_exports/`.
 - ✅ **Mistral-7B seeds 1–2** are auditable green and included in `results_paper/`.
-- ✅ **Llama-3.1-8B-Instruct seeds 1–2** are auditable green and included in `results_paper/` (seed2 export+metadata+validation completed).
+- ✅ **Llama-3.1-8B-Instruct seeds 1–2** are auditable green and included in `results_paper/`.
+- ✅ **Recovery-variant ablation (verify_then_answer; Qwen seed1)** is auditable green and included in `results_paper/` (alias `qwen_vta_seed1`).
 - ✅ Introduced a **paper-only validation root** `results_paper/` on nlp8 to keep global validation stable for cited runs (parity PASS).
 - ✅ **Table W artifacts tracked** under `docs/paper/artifacts/` and draft AUTO block updated to seed1–4.
 
@@ -61,9 +62,9 @@ Ground-truth tasks에서 multi-turn persona pressure 하에 **정답 유지(surv
 
 ## 4) NEXT HEARTBEAT (ONE step)
 
-**Paper writing: update cross-family paragraph to reflect the completed Llama seed2 export + keep citations aligned; then consider LaTeX build readiness as the next development step.**
+**Experiments→paper analysis: compare recovery_variant=verify_then_answer vs baseline recovery (control vs persona) and decide whether to run seed2.**
 
-- Deliverable: ensure the draft cites the **seed1–2** Llama cross-family artifact and reports the correct mean Survival@5 numbers (already tracked under `docs/paper/artifacts/`).
+- Deliverable: add a short tracked artifact under `docs/paper/artifacts/` summarizing recovery-collapsed deltas (baseline vs verify_then_answer) and update 1–2 sentences in the draft (clearly marking it as single-seed unless seed2 is run).
 
 ---
 

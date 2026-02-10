@@ -456,3 +456,7 @@ This prevents process drift where the checklist contradicts the heartbeat instru
 
 - Added tracked artifact: `docs/paper/artifacts/tier1_qwen2p5_7b_vta_seed1_recovery_collapsed_20260210.csv` by collapsing `results/.../recovery_accuracy.csv` over tasks.
 - Updated `docs/paper/PAPER_DRAFT_EN.md` to cite the artifact and report control vs persona recovery rates for the intervention variant.
+
+### 2026-02-10 — Process lane: STATUS refresh for recovery-variant ablation
+
+- Updated `docs/paper/STATUS.md` to record the new paper-ready ablation alias (`results_paper/qwen_vta_seed1`) and to set the next-step focus on baseline vs verify_then_answer recovery comparison.
