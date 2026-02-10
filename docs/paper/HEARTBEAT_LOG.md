@@ -377,3 +377,7 @@ This prevents process drift where the checklist contradicts the heartbeat instru
 
 - Added arXiv BibTeX entry for Nguyen/Prasad debate confidence dynamics (`prasad2025llmsdebatethinktheyll`) to `references.bib`.
 - Added a single motivation sentence in `docs/paper/PAPER_DRAFT_EN.md` Sec 1.1 citing it to support the claim that multi-turn interaction can induce pathological belief/confidence dynamics.
+
+### 2026-02-10 (pm) — Writing lane: clarified Neutral Re-asking Control design principle (no new evidence)
+
+- Updated `docs/paper/PAPER_DRAFT_EN.md` Protocol section to explicitly state that Neutral Re-asking Control must not introduce new task-relevant evidence, to separate generic drift from evidence-based belief revision.
