@@ -511,3 +511,7 @@ This prevents process drift where the checklist contradicts the heartbeat instru
 ### 2026-02-10 — Writing/process lane: seed the claim→evidence map
 
 - Added an initial 5-row claim→evidence mapping table to `docs/paper/EMNLP_MAIN_SUBMISSION_CHECKLIST.md` linking C1/C2/C3 + generalization + intervention ablation to (i) a specific figure/table, (ii) tracked artifacts, and (iii) paper-ready `results_paper/` aliases.
+
+### 2026-02-10 — Writing/process lane: make claim→evidence map reproducible
+
+- Refined the claim→evidence table in `docs/paper/EMNLP_MAIN_SUBMISSION_CHECKLIST.md` to prefer a single primary figure per claim and to include concrete reproducer commands (validator invocation) and explicit `results_paper/` aliases.
