@@ -634,3 +634,7 @@ This prevents process drift where the checklist contradicts the heartbeat instru
 
 - Pulled a decoding sweep summary CSV into `docs/paper/artifacts/decoding_sweep_qwen_temp_summary_seed1-2_20260211.csv` (computed from paper-ready runs under `results_paper/qwen_temp{0,0p7}_seed{1,2}`).
 - Added a short Decoding sensitivity paragraph to `docs/paper/PAPER_DRAFT_EN.md` §7.4 referencing the tracked artifact and summarizing stable ΔSurvival@5 / ΔFail@1 across temperatures.
+
+### 2026-02-11 — Process lane: mark decoding sensitivity sweep as completed in submission checklist
+
+- Updated `docs/paper/EMNLP_MAIN_SUBMISSION_CHECKLIST.md` to check off the decoding sensitivity sweep item and link it to the tracked artifact + paper-ready `results_paper/` run aliases + `results_paper/GLOBAL_VALIDATE.log`.
