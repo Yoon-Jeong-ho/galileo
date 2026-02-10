@@ -714,3 +714,7 @@ This prevents process drift where the checklist contradicts the heartbeat instru
   - `INCLUDE_SVG=0` to disable SVGs
   - `SVG_USED_ONLY=0` to copy *all* SVGs
 - Smoke-tested: `./scripts/package_anonymized_bundle.sh tmp/anonymized_bundle_used_figs` (PASS; 8 SVGs + 8 PDFs staged).
+
+### 2026-02-11 — Process lane: document bundler defaults (PDF+SVG used-only)
+
+- Updated `scripts/package_anonymized_bundle.sh` header to document default behavior: include PDFs and SVGs, filtered to those referenced in `PAPER_DRAFT_EN.md`; disable via `INCLUDE_PDF=0` / `INCLUDE_SVG=0`.
