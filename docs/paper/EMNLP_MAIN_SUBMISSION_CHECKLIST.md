@@ -86,7 +86,8 @@ Recommended artifacts to cite in-paper:
   - [ ] SVG source-of-truth figures exist under `docs/paper/figures/` (generated from tracked artifacts).
   - [ ] Figure→artifact mapping is recorded (see `docs/paper/README.md` and/or `docs/paper/FIGURE_CAPTIONS.md`).
   - [ ] If LaTeX requires PDF, PDFs are generated reproducibly (see `scripts/convert_figures_svg_to_pdf.sh`) and included in the build.
-  - [ ] **Build env has SVG→PDF tooling**: either `rsvg-convert` (Ubuntu `librsvg2-bin`) or `inkscape` (validated via `scripts/check_figure_tooling.sh`).
+  - [ ] **Build env has SVG→PDF tooling**: either `rsvg-convert` (Ubuntu `librsvg2-bin`) or `inkscape`.
+    - No-sudo fallback supported: `scripts/get_inkscape_appimage.sh` + `scripts/convert_figures_svg_to_pdf.sh` (AppImage).
 
 ## 8) Final pre-submission pass
 - [ ] Anonymization (if required): remove identifying paths/names.

@@ -494,3 +494,7 @@ This prevents process drift where the checklist contradicts the heartbeat instru
 - Added `scripts/get_inkscape_appimage.sh` (downloads + sha256-verifies a pinned Inkscape AppImage to `tools/inkscape/inkscape.AppImage`).
 - Updated `scripts/convert_figures_svg_to_pdf.sh` to fallback to the AppImage when `rsvg-convert`/`inkscape` are not available.
 - Generated PDFs to `paper_figures/pdf/*.pdf` without sudo.
+
+### 2026-02-10 — Development lane: checklist updated for no-sudo SVG→PDF tooling
+
+- Updated `docs/paper/EMNLP_MAIN_SUBMISSION_CHECKLIST.md` to include the AppImage-based no-sudo SVG→PDF fallback (`scripts/get_inkscape_appimage.sh`).
