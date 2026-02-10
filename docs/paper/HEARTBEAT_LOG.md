@@ -412,3 +412,8 @@ This prevents process drift where the checklist contradicts the heartbeat instru
 
 - Updated `docs/paper/PAPER_DRAFT_EN.md` to merge duplicate statements about the Neutral Re-asking Control’s “no new evidence” principle and tightened the ReviseQA contrast to reference GALILEO’s no-new-evidence pressure/control design.
 - Commit: `12eb63c`
+
+### 2026-02-10 (pm) — Experiments lane: introduced `results_paper/` clean validation root
+
+- On nlp8, created a paper-only validation root `results_paper/` that symlinks only the runs we cite (paper_exports only), and validated it with `validate_paper_exports.py --check_runner_parity` to get a stable PASS.
+- Updated `docs/paper/REMOTE_EXPERIMENTS_RUNBOOK.md` with the `results_paper/` policy + validation command.

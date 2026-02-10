@@ -50,13 +50,32 @@ ssh nlp8 '
 
 ## 2) Launch discipline
 
-- Prefer **one run per GPU** (4/5/6/7).
+- Prefer **one run per GPU** (4/5/6).
 - Each run must have its own `OUT=results/<run>/`.
 - A run is paper-ready only if it emits:
   - `paper_exports/{survival_curve.csv,turn_of_failure.csv,flip_samples.csv}`
   - `paper_exports/metadata.json`
   - `paper_exports/runner_metadata.json`
   - validator prints `[OK] .../paper_exports` and `[OK] runner_metadata parity`
+
+### Paper-only validation root (`results_paper/`)
+
+We keep a **clean, paper-facing results root** that contains only the runs we actually cite.
+This avoids legacy directories breaking global validation.
+
+- Location: `results_paper/` (under the repo root on nlp8)
+- Structure: `results_paper/<alias>/paper_exports -> ../../results/<run>/paper_exports` (symlink)
+- Validation command:
+
+```bash
+ssh nlp8 '
+  cd /data_x/aa007878/galileo || exit 1
+  python3 scripts/validate_paper_exports.py --results_root results_paper --check_runner_parity \
+    2>&1 | tee results_paper/GLOBAL_VALIDATE.log
+'
+```
+
+Rule: **Only `results_paper/` needs to be PASS** for paper claims.
 
 ## 3) What to write into the DM update
 
