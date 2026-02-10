@@ -502,3 +502,8 @@ This prevents process drift where the checklist contradicts the heartbeat instru
 ### 2026-02-10 — Development lane: document AppImage conversion warnings
 
 - Added an inline note in `scripts/convert_figures_svg_to_pdf.sh` explaining that gio/dconf module warnings during Inkscape AppImage export are typically harmless for headless SVG→PDF conversion.
+
+### 2026-02-10 — Development lane: add PDF figure smoke-check (no LaTeX required)
+
+- Added `scripts/check_pdf_figures.sh` to verify generated `paper_figures/pdf/*.pdf` exist and have valid PDF headers/sizes in environments without LaTeX.
+- Updated `docs/paper/EMNLP_MAIN_SUBMISSION_CHECKLIST.md` to include the smoke-check command.
