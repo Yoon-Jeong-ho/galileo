@@ -571,3 +571,8 @@ This prevents process drift where the checklist contradicts the heartbeat instru
 
 - Added a LaTeX include snippet for `docs/paper/figures/cross_family_survival_r5_control_vs_logicaltrap_seed1-2_20260210.svg` in `docs/paper/PAPER_DRAFT_EN.md` §7.4.
 - Added a corresponding caption/provenance entry to `docs/paper/FIGURE_CAPTIONS.md`.
+
+### 2026-02-11 — Writing/process lane: add citation-key audit script
+
+- Added `scripts/audit_citations.py` to verify that all `\cite{...}` keys used in paper drafts exist in `references.bib` (quick pre-LaTeX guardrail).
+- Ran it: EN draft has 11 cite keys and **0 missing**; KO draft currently has 0 cite keys.
