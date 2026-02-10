@@ -605,3 +605,9 @@ This prevents process drift where the checklist contradicts the heartbeat instru
   - `results_paper/qwen_temp0_seed1` (GPU4; `--greedy_temperature 0.0`) → wrote full `paper_exports/` + `[OK]` + parity.
   - `results_paper/qwen_temp0p7_seed1` (GPU5; `--greedy_temperature 0.7`) → wrote full `paper_exports/` + `[OK]` + parity.
 - Updated `results_paper/GLOBAL_VALIDATE.log` via `scripts/validate_paper_exports.py --results_root results_paper --check_runner_parity` (all `[OK]`).
+
+### 2026-02-11 — Experiments lane: launch decoding sensitivity sweep (seed2)
+
+- Remote (nlp8): launched decoding sweep seed2 runs under `results_paper/` (tmux; auto export+validate on completion):
+  - `results_paper/qwen_temp0_seed2` (GPU4; `--greedy_temperature 0.0`)
+  - `results_paper/qwen_temp0p7_seed2` (GPU5; `--greedy_temperature 0.7`)

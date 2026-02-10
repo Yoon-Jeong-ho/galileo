@@ -23,7 +23,7 @@ Ground-truth tasks에서 multi-turn persona pressure 하에 **정답 유지(surv
 - We are in a **10-min heartbeat loop**; each heartbeat must deliver **one primary lane** result and keep continuity via `STATUS.md` + `HEARTBEAT_LOG.md`.
 - **Remote experiments policy:** use **nlp8**; GPUs **4/5/6** only; `tmux` required; paper-ready runs must include `paper_exports/*` + `metadata.json` + `runner_metadata.json` + validator `[OK]` + parity.
 - **Validator health (paper SSOT):** `results_paper/GLOBAL_VALIDATE.log` is **all [OK]** (includes `qwen_vta_seed1/2`).
-- **Decoding sweep (seed1) done:** `results_paper/qwen_temp0_seed1` + `results_paper/qwen_temp0p7_seed1` are paper-ready; `results_paper/GLOBAL_VALIDATE.log` remains all `[OK]`.
+- **Decoding sweep:** seed1 done (paper-ready). Seed2 **in flight**: `results_paper/qwen_temp0_seed2` + `results_paper/qwen_temp0p7_seed2` (tmux; auto export+validate).
 - **Current risk:** process drift (conflicting docs about host/GPU policy, lane starvation, missing commits) → we keep SSOT docs aligned (STATUS/CHECKLIST/RUNBOOK).
 
 ---
