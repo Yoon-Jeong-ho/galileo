@@ -531,3 +531,7 @@ This prevents process drift where the checklist contradicts the heartbeat instru
 ### 2026-02-11 — Writing lane: sharpen ReviseQA contrast (no-new-evidence + control rationale)
 
 - Updated `docs/paper/PAPER_DRAFT_EN.md` to make the ReviseQA contrast more explicit: under fixed information, flips are attributable to pressure/drift, motivating the Neutral Re-asking Control for interpretation.
+
+### 2026-02-11 — Writing lane: strengthen Abstract with multi-seed + cross-family evidence
+
+- Updated the Abstract in `docs/paper/PAPER_DRAFT_EN.md` to replace “initial snapshots” with a concrete statement grounded in our current paper-ready results: Qwen seeds 1–4 plus Mistral/Llama seeds 1–2 show consistent persona-dependent degradation relative to the Neutral Re-asking Control.
