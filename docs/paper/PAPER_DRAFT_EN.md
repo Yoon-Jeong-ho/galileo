@@ -340,6 +340,8 @@ Unless stated otherwise, results are reported as mean±std over **seeds 1–4** 
 - Report the same survival/TOF/recovery views for additional tasks (QA/MCQA/OpenQA) and at least one additional model family.
 - Keep protocol identical; only swap dataset/model.
 
+**Early cross-family sanity check (Tier‑1; Mistral‑7B‑Instruct v0.3; seeds 1–2; 200 samples/seed).** We ran the identical protocol on Mistral‑7B and observe the same qualitative pattern: persona pressure sharply reduces robustness relative to the Neutral Re-asking Control. For example, the control condition achieves **Survival@5 = 42.86±6.15%**, while the strongest personas drop to single digits (e.g., **Logical Trap: 3.98±1.48%**, **Simple Denial: 7.88±0.47%**; tracked artifact `docs/paper/artifacts/tier1_mistral7b_seed1-2_survival_summary_20260210.csv`).
+
 ### 7.5 Persona pressure vs drift: control comparison (supports C2, rebuttal)
 
 **Table W (Persona vs control).** Compare survival@R and Fail@1 under persona pressure vs the **Neutral Re-asking Control** condition.

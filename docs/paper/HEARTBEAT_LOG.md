@@ -417,3 +417,8 @@ This prevents process drift where the checklist contradicts the heartbeat instru
 
 - On nlp8, created a paper-only validation root `results_paper/` that symlinks only the runs we cite (paper_exports only), and validated it with `validate_paper_exports.py --check_runner_parity` to get a stable PASS.
 - Updated `docs/paper/REMOTE_EXPERIMENTS_RUNBOOK.md` with the `results_paper/` policy + validation command.
+
+### 2026-02-10 (pm) — Development lane: added 2-seed Mistral cross-family tracked artifact
+
+- Added tracked artifact `docs/paper/artifacts/tier1_mistral7b_seed1-2_survival_summary_20260210.csv` (Survival@5 and deltas vs control aggregated over seeds 1–2).
+- Wired a short cross-family sanity-check sentence into `docs/paper/PAPER_DRAFT_EN.md` citing the artifact.
