@@ -45,7 +45,17 @@ All figures below are **generated from tracked artifacts** and stored under `doc
 
 **Recommendation (default): use PDF in LaTeX builds.** Overleaf/LaTeX is most reliable with PDF/PNG figures. We keep SVG as the source of truth and generate PDFs as needed.
 
-(If you prefer SVG-in-LaTeX, use `\usepackage{svg}` or `inkscape`-based workflows, but that tends to be more brittle across environments.)
+### If PDF conversion is blocked (no root / no `rsvg-convert`)
+
+If your build environment cannot install system packages (no sudo), you have two options:
+
+1) **Convert SVG→PDF elsewhere** (recommended): run conversion on any machine that has `rsvg-convert` (Ubuntu `librsvg2-bin`) or `inkscape`, then copy the resulting `paper_figures/pdf/*.pdf` into your LaTeX build.
+
+2) **SVG-in-LaTeX fallback (brittle):** use the LaTeX `svg` package and compile with `--shell-escape` so LaTeX can call an external converter.
+   - This can be convenient locally, but it is more fragile across build systems and may be disallowed by some conference build pipelines.
+   - If using Overleaf, you may need to enable shell-escape (project settings) and ensure the backend supports conversion.
+
+We prefer option (1) for EMNLP submission packaging because it avoids relying on shell-escape.
 
 - Script: `scripts/convert_figures_svg_to_pdf.sh`
 - Preflight check: `scripts/check_figure_tooling.sh`

@@ -476,3 +476,7 @@ This prevents process drift where the checklist contradicts the heartbeat instru
 
 - Added tracked artifact: `docs/paper/artifacts/tier1_qwen2p5_7b_vta_seed1-2_survival_summary_20260210.csv` (Survival@1 and Survival@5 means across seeds 1–2).
 - Updated `docs/paper/PAPER_DRAFT_EN.md` intervention ablation paragraph to reference seeds 1–2 survival means and cite the new artifact.
+
+### 2026-02-10 — Development lane: document no-root fallback for SVG figures
+
+- Updated `docs/paper/README.md` with a practical fallback when SVG→PDF conversion is blocked in the build environment (no sudo): convert PDFs on any machine with `librsvg2-bin` and copy them into the LaTeX build, avoiding `--shell-escape`.
