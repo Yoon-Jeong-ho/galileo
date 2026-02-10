@@ -23,7 +23,7 @@ The following files contain absolute paths/hostnames and should be either:
 Flagged by grep:
 - `docs/paper/PAPER_DRAFT_KO.md` (many `/mnt/raid6/...` and `/data_x/...` examples)
 - `docs/paper/PAPER_RESULTS_ANALYSIS_KO.md` (results roots incl. `nlp8:/data_x/...`)
-- `docs/paper/REMOTE_EXPERIMENTS_RUNBOOK.md` (explicit `nlp16` + repo path)
+- `docs/paper/REMOTE_EXPERIMENTS_RUNBOOK.md` (explicit `nlp8` + repo path)
 - `docs/paper/HEARTBEAT_PROMPT.md`, `docs/paper/HEARTBEAT_CHECKLIST.md`, `docs/paper/STATUS.md` (infra policy notes)
 - `docs/paper/HEARTBEAT_LOG.md` (historical infra context)
 

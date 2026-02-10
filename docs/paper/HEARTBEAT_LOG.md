@@ -1,5 +1,7 @@
 # GALILEO EMNLP Main — Heartbeat log & next plan
 
+**SSOT (do not drift):** all EMNLP Main experiment work uses `ssh nlp8` + repo `/data_x/aa007878/galileo` + GPUs **4/5/6 only**. Older log entries may mention `nlp16` or `/mnt/raid6/...`; treat those as stale historical context.
+
 > Goal: avoid repeating the same shallow update every 10 minutes.
 >
 > This file is the **single source of truth** for:
@@ -665,3 +667,8 @@ This prevents process drift where the checklist contradicts the heartbeat instru
   - Fixed runbook DM checklist to report GPU util/mem for GPUs 4–6 (not 4–7).
   - Updated `docs/paper/TIER1_PLAN_CROSSFAMILY.md` to target nlp8 and GPUs 4/5/6.
   - Marked `docs/paper/SSH_TROUBLESHOOT_NLP16.md` as deprecated.
+
+### 2026-02-11 — Process lane: annotate SSOT + fix anonymization note drift
+
+- Added an explicit SSOT banner at the top of `docs/paper/HEARTBEAT_LOG.md` warning that older entries mentioning `nlp16` are stale.
+- Updated `docs/paper/ANONYMIZATION_NOTES.md` to reflect that the current runbook contains `nlp8` (not `nlp16`).
