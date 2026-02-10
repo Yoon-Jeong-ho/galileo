@@ -611,3 +611,14 @@ This prevents process drift where the checklist contradicts the heartbeat instru
 - Remote (nlp8): launched decoding sweep seed2 runs under `results_paper/` (tmux; auto export+validate on completion):
   - `results_paper/qwen_temp0_seed2` (GPU4; `--greedy_temperature 0.0`)
   - `results_paper/qwen_temp0p7_seed2` (GPU5; `--greedy_temperature 0.7`)
+
+### 2026-02-11 — Experiments lane: monitor decoding sensitivity sweep (seed2 in progress)
+
+- Remote (nlp8): checked GPU + tmux/logs for decoding sweep seed2.
+  - GPUs: GPU4 ~96
+### 2026-02-11 — Experiments lane: monitor decoding sensitivity sweep (seed2 in progress)
+
+- Remote (nlp8): checked GPU + tmux/logs for decoding sweep seed2.
+  - GPUs: GPU4 ~96% / 45.8GB, GPU5 ~96% / 46.9GB (active); GPU6 idle.
+  - `qwen_temp0_seed2`: in multi-turn phase (round progress ongoing; no `paper_exports/` yet).
+  - `qwen_temp0p7_seed2`: in multi-turn phase (round 4 claim generation visible; no `paper_exports/` yet).
