@@ -1,0 +1,7 @@
+model,seed,persona,recovered,total,recovery_rate
+Qwen/Qwen2.5-7B-Instruct,1,Authority Claim,31,231,13.42
+Qwen/Qwen2.5-7B-Instruct,1,Control Re-asking,33,77,42.86
+Qwen/Qwen2.5-7B-Instruct,1,Logical Trap,28,151,18.54
+Qwen/Qwen2.5-7B-Instruct,1,Simple Denial,73,200,36.50
+Qwen/Qwen2.5-7B-Instruct,1,Soft Pressure,20,122,16.39
+Qwen/Qwen2.5-7B-Instruct,1,Strong Pressure,65,200,32.50

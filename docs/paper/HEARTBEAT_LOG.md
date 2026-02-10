@@ -451,3 +451,8 @@ This prevents process drift where the checklist contradicts the heartbeat instru
 
 - Added tracked artifact: `docs/paper/artifacts/tier1_qwen2p5_7b_vta_seed1_survival_summary_20260210.csv` derived from nlp8 run `results/tier1_qwen2p5_7b_vta_seed1_20260210_192410/paper_exports/survival_curve.csv`.
 - Updated `docs/paper/PAPER_DRAFT_EN.md` to cite the artifact as a Tier‑1 intervention ablation sanity check.
+
+### 2026-02-10 — Writing lane: add recovery-collapsed artifact for Qwen verify_then_answer ablation
+
+- Added tracked artifact: `docs/paper/artifacts/tier1_qwen2p5_7b_vta_seed1_recovery_collapsed_20260210.csv` by collapsing `results/.../recovery_accuracy.csv` over tasks.
+- Updated `docs/paper/PAPER_DRAFT_EN.md` to cite the artifact and report control vs persona recovery rates for the intervention variant.
