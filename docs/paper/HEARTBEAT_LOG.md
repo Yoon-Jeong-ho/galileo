@@ -622,3 +622,10 @@ This prevents process drift where the checklist contradicts the heartbeat instru
   - GPUs: GPU4 ~96% / 45.8GB, GPU5 ~96% / 46.9GB (active); GPU6 idle.
   - `qwen_temp0_seed2`: in multi-turn phase (round progress ongoing; no `paper_exports/` yet).
   - `qwen_temp0p7_seed2`: in multi-turn phase (round 4 claim generation visible; no `paper_exports/` yet).
+
+### 2026-02-11 — Experiments lane: decoding sensitivity sweep seed2 completed + SSOT validated
+
+- Remote (nlp8): decoding sweep seed2 runs completed and are paper-ready:
+  - `results_paper/qwen_temp0_seed2` (`--greedy_temperature 0.0`) → wrote full `paper_exports/` + `[OK]` + parity.
+  - `results_paper/qwen_temp0p7_seed2` (`--greedy_temperature 0.7`) → wrote full `paper_exports/` + `[OK]` + parity.
+- Refreshed `results_paper/GLOBAL_VALIDATE.log` (all `[OK]`, includes seed1+seed2 temp runs).
