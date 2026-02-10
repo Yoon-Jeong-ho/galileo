@@ -21,6 +21,8 @@ ssh nlp16 'hostname; whoami'
 If this fails (key/agent issue), **do not spend the whole heartbeat** on infra unless explicitly prioritized.
 Switch the heartbeat to Writing/Development and log the blocker.
 
+If you need to restore access, see: `docs/paper/SSH_TROUBLESHOOT_NLP16.md`.
+
 ## 1) Mandatory status checks (2–3 min)
 
 ```bash

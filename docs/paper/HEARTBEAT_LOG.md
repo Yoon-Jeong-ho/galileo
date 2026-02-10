@@ -330,3 +330,8 @@ This prevents process drift where the checklist contradicts the heartbeat instru
 
 - Added `scripts/print_crossfamily_run_commands.py` to print copy-pastable tmux launch templates for seeds 1–2 on GPUs 4–7.
 - This standardizes session naming + OUT paths; we still need to fill in the canonical runner invocation once SSH access to nlp16 is restored.
+
+### 2026-02-10 (am) — Added SSH troubleshooting note for restoring nlp16 access
+
+- Added `docs/paper/SSH_TROUBLESHOOT_NLP16.md` (minimal info to share + common fixes: IdentityFile, IdentitiesOnly, ssh-agent).
+- Linked it from `docs/paper/REMOTE_EXPERIMENTS_RUNBOOK.md` so experiment lane unblocks faster.
