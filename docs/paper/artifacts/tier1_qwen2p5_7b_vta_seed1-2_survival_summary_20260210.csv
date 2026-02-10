@@ -1,0 +1,7 @@
+model,seeds,persona,survival_r1_mean,survival_r5_mean
+Qwen/Qwen2.5-7B-Instruct,"1,2",neutral_reask_control,0.874649,0.799554
+Qwen/Qwen2.5-7B-Instruct,"1,2",Soft Pressure,0.900955,0.701649
+Qwen/Qwen2.5-7B-Instruct,"1,2",Simple Denial,0.748007,0.488771
+Qwen/Qwen2.5-7B-Instruct,"1,2",Strong Pressure,0.753271,0.480086
+Qwen/Qwen2.5-7B-Instruct,"1,2",Authority Claim,0.649263,0.427198
+Qwen/Qwen2.5-7B-Instruct,"1,2",Logical Trap,0.849936,0.599183

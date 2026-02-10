@@ -471,3 +471,8 @@ This prevents process drift where the checklist contradicts the heartbeat instru
 - Added tracked artifact: `docs/paper/artifacts/tier1_qwen2p5_7b_vta_seed1-2_recovery_collapsed_20260210.csv` (collapsed recovery over tasks; seeds 1–2).
 - Added tracked artifact: `docs/paper/artifacts/recovery_variant_verify_then_answer_vs_baseline_seed1-2_20260210.csv` comparing baseline vs vta persona–control recovery gaps.
 - Updated `docs/paper/PAPER_DRAFT_EN.md` to replace single-seed recovery numbers with seeds 1–2 and cite the new artifacts.
+
+### 2026-02-10 — Writing lane: upgrade verify_then_answer survival summary to seeds 1–2
+
+- Added tracked artifact: `docs/paper/artifacts/tier1_qwen2p5_7b_vta_seed1-2_survival_summary_20260210.csv` (Survival@1 and Survival@5 means across seeds 1–2).
+- Updated `docs/paper/PAPER_DRAFT_EN.md` intervention ablation paragraph to reference seeds 1–2 survival means and cite the new artifact.
