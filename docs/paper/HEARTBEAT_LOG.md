@@ -403,3 +403,7 @@ This prevents process drift where the checklist contradicts the heartbeat instru
 
 - Updated `docs/paper/HEARTBEAT_CHECKLIST.md` to require a 2-line DM header (`LANE=...`, `DELIVERABLE=...`) and to forbid lane switching mid-heartbeat.
 - Rationale: reduce context drift across heartbeats and make dashboard verification easy.
+
+### 2026-02-10 (pm) — Process: added 4-lane rotation plan (writing/research/experiments/method)
+
+- Added `docs/paper/ROTATION_PLAN.md` to formalize the single-lane-per-heartbeat rotation and minimum deliverables per lane.
