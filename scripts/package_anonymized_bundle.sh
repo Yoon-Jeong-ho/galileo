@@ -59,6 +59,18 @@ mkdir -p "$OUT_DIR/docs/paper/figures" "$OUT_DIR/docs/paper/artifacts"
 cp -a "$ROOT/docs/paper/figures"/*.svg "$OUT_DIR/docs/paper/figures/"
 cp -a "$ROOT/docs/paper/artifacts"/*.csv "$OUT_DIR/docs/paper/artifacts/" || true
 
+# Optional: include PDFs for LaTeX-friendly bundles.
+# Enable via: INCLUDE_PDF=1 ./scripts/package_anonymized_bundle.sh
+INCLUDE_PDF="${INCLUDE_PDF:-0}"
+if [[ "$INCLUDE_PDF" == "1" ]]; then
+  if compgen -G "$ROOT/paper_figures/pdf/*.pdf" >/dev/null; then
+    mkdir -p "$OUT_DIR/paper_figures/pdf"
+    cp -a "$ROOT/paper_figures/pdf"/*.pdf "$OUT_DIR/paper_figures/pdf/"
+  else
+    echo "[WARN] INCLUDE_PDF=1 but no PDFs found under $ROOT/paper_figures/pdf" >&2
+  fi
+fi
+
 # --- Scripts needed to regenerate figures from artifacts ---
 mkdir -p "$OUT_DIR/scripts"
 copy "$ROOT/scripts/make_paper_figures_from_artifacts.py" "$OUT_DIR/scripts/make_paper_figures_from_artifacts.py"
@@ -67,9 +79,21 @@ copy "$ROOT/scripts/convert_figures_svg_to_pdf.sh" "$OUT_DIR/scripts/convert_fig
 
 # --- Audit staged bundle for infra-identifying strings ---
 PAT='(/mnt/raid6/|/data_x/|nlp16|nlp8|aa007878@|163\.152\.|ssh nlp)'
-if grep -RIn --exclude-dir='__pycache__' --exclude='*.svg' --exclude='*.png' -E "$PAT" "$OUT_DIR"; then
+if grep -RIn --exclude-dir='__pycache__' --exclude='*.svg' --exclude='*.png' --exclude='*.pdf' -E "$PAT" "$OUT_DIR"; then
   echo "[ERR] infra-identifying strings found in staged bundle. Fix before packaging." >&2
   exit 2
+fi
+
+# Best-effort PDF string scan (PDFs are binary; some generators embed metadata).
+if [[ "$INCLUDE_PDF" == "1" ]] && compgen -G "$OUT_DIR/paper_figures/pdf/*.pdf" >/dev/null; then
+  if command -v strings >/dev/null 2>&1; then
+    if strings "$OUT_DIR"/paper_figures/pdf/*.pdf | grep -E "$PAT" >/dev/null; then
+      echo "[ERR] infra-identifying strings found in PDF contents/metadata (via strings)." >&2
+      exit 3
+    fi
+  else
+    echo "[WARN] 'strings' not available; skipping best-effort PDF metadata scan." >&2
+  fi
 fi
 
 echo "[OK] staged anonymized bundle at: $OUT_DIR"

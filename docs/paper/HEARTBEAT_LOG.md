@@ -682,3 +682,9 @@ This prevents process drift where the checklist contradicts the heartbeat instru
 
 - Updated `scripts/package_anonymized_bundle.sh` to exclude internal process docs (README/checklists/runbooks/logs) by default.
 - Smoke-tested staging: `./scripts/package_anonymized_bundle.sh tmp/anonymized_bundle_test` (PASS; infra-string audit clean).
+
+### 2026-02-11 — Process lane: add optional PDF inclusion to anonymized bundle (with best-effort scan)
+
+- Updated `scripts/package_anonymized_bundle.sh` to support `INCLUDE_PDF=1` (copies `paper_figures/pdf/*.pdf` into the staged bundle).
+- Added a best-effort PDF metadata scan using `strings | grep` for infra-identifying patterns.
+- Smoke-tested: `INCLUDE_PDF=1 ./scripts/package_anonymized_bundle.sh tmp/anonymized_bundle_test_pdf` (PASS).
