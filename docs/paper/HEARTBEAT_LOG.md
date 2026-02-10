@@ -523,3 +523,7 @@ This prevents process drift where the checklist contradicts the heartbeat instru
 ### 2026-02-11 — Research lane: verify ReviseQA metadata source
 
 - Confirmed ReviseQA appears on OpenReview as “ReviseQA: A Benchmark for Belief Revision in Multi-Turn Logical Reasoning” (OpenReview id: Z4KBiAYXlI). Updated the note header to 2025/OpenReview and linked the canonical page for exact BibTeX metadata.
+
+### 2026-02-11 — Research lane: close ReviseQA BibTeX TODO
+
+- Updated `docs/paper/related_work/papers/reviseqa_2024.md` to note that `helwe2025reviseqa` is already present in `references.bib`.

@@ -14,4 +14,4 @@
 
 ## BibTeX
 - OpenReview page (for exact metadata): https://openreview.net/forum?id=Z4KBiAYXlI
-- TODO: add the BibTeX entry for ReviseQA to `references.bib` (need exact authors + venue; OpenReview lists it as a submission).
+- BibTeX is present in `references.bib` as `helwe2025reviseqa` (verify venue formatting as needed).
