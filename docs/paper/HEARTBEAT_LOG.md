@@ -547,3 +547,7 @@ This prevents process drift where the checklist contradicts the heartbeat instru
 ### 2026-02-11 — Process lane: align C3 wording in claim→evidence map
 
 - Updated the C3 row in `docs/paper/EMNLP_MAIN_SUBMISSION_CHECKLIST.md` to define recovery explicitly as **conditional on flip** (return-to-truth after a flip), matching the Abstract/Intro framing.
+
+### 2026-02-11 — Writing lane: compress Abstract (split protocol vs findings)
+
+- Split the Abstract’s second paragraph in `docs/paper/PAPER_DRAFT_EN.md` into (i) protocol/definitions/control/evaluation stability and (ii) key findings, improving readability while keeping the same factual scope.
