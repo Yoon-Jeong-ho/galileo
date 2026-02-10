@@ -643,3 +643,7 @@ This prevents process drift where the checklist contradicts the heartbeat instru
 
 - Added `scripts/make_decoding_sweep_figure_svg.py` and generated `docs/paper/figures/decoding_sweep_qwen_delta_seed1-2_20260211.svg` (ΔSurvival@5 and ΔFail@1 at temp=0.0 vs 0.7; seeds 1–2).
 - Added caption/provenance entry to `docs/paper/FIGURE_CAPTIONS.md`.
+
+### 2026-02-11 — Writing lane: integrate decoding sweep figure into paper draft (LaTeX snippet)
+
+- Updated `docs/paper/PAPER_DRAFT_EN.md` to reference `fig:decoding-sweep` and added a LaTeX include snippet for `docs/paper/figures/decoding_sweep_qwen_delta_seed1-2_20260211.svg`.
