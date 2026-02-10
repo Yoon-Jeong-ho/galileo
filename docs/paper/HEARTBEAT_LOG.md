@@ -344,3 +344,10 @@ This prevents process drift where the checklist contradicts the heartbeat instru
 
 - Updated `scripts/package_anonymized_bundle.sh` to sanitize infra-identifying strings in staged Markdown files (bundle-only; does not touch sources).
 - The staged bundle now can include `ANONYMIZATION_NOTES.md` without failing the infra-string audit.
+
+### 2026-02-10 (am) — Anonymized bundle now includes README + submission checklist (sanitized)
+
+- Updated `scripts/package_anonymized_bundle.sh` to include sanitized copies of:
+  - `docs/paper/README.md`
+  - `docs/paper/EMNLP_MAIN_SUBMISSION_CHECKLIST.md`
+- Verified staged bundle passes the infra-string audit.
