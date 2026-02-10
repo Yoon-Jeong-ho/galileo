@@ -44,7 +44,7 @@ Recommended artifacts to cite in-paper:
 ## 3) Experimental minimal set (submission-credible)
 - [ ] **At least 2 model families** (ideally 3) evaluated with the same protocol.
 - [ ] **Multi-seed** results for the main model(s) (report mean±std).
-- [ ] One **decoding sensitivity** sweep (temperature or greedy vs sampling).
+- [ ] One **decoding sensitivity** sweep (temperature or greedy vs sampling). (Plan/commands: `docs/paper/DECODING_SENSITIVITY_SWEEP.md`)
 - [ ] One **recovery prompt ablation** (baseline vs variant).
 - [ ] One **qualitative analysis** section with flip examples + taxonomy.
 - [ ] Include a **non-persona drift control** (aka **Neutral Re-asking Control**) reported alongside persona curves/tables.

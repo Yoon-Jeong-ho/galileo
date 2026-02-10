@@ -581,3 +581,8 @@ This prevents process drift where the checklist contradicts the heartbeat instru
 
 - Converted remaining inline author-year mentions in `docs/paper/PAPER_DRAFT_EN.md` to BibTeX-backed `\cite{...}` (ELEPHANT; theorem-proving sycophancy).
 - Re-ran `python3 scripts/audit_citations.py`: EN draft now cites 13 keys and **0 are missing** from `references.bib`.
+
+### 2026-02-11 — Process lane: add Tier‑1 decoding sensitivity sweep plan (paper SSOT)
+
+- Added `docs/paper/DECODING_SENSITIVITY_SWEEP.md` with a minimal Tier‑1 decoding sweep plan (Qwen seeds 1–2; greedy_temperature 0.0 vs 0.7) and paper-ready export/validation steps under `results_paper/`.
+- Linked the plan from `docs/paper/EMNLP_MAIN_SUBMISSION_CHECKLIST.md`.
