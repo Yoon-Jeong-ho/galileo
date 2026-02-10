@@ -437,3 +437,7 @@ This prevents process drift where the checklist contradicts the heartbeat instru
 
 - Ran `scripts/check_figure_tooling.sh` and confirmed the current environment is missing both `rsvg-convert` and `inkscape`, so SVG→PDF conversion cannot run yet.
 - Updated `docs/paper/README.md` to clarify that `make` may be unavailable in minimal environments and documented script-direct invocation.
+
+### 2026-02-10 — Paper development lane: add explicit SVG→PDF tooling check to submission checklist
+
+- Updated `docs/paper/EMNLP_MAIN_SUBMISSION_CHECKLIST.md` to include an explicit build-environment requirement for SVG→PDF conversion (`rsvg-convert`/`inkscape`) validated by `scripts/check_figure_tooling.sh`.
