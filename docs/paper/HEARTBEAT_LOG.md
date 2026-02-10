@@ -407,3 +407,8 @@ This prevents process drift where the checklist contradicts the heartbeat instru
 ### 2026-02-10 (pm) — Process: added 4-lane rotation plan (writing/research/experiments/method)
 
 - Added `docs/paper/ROTATION_PLAN.md` to formalize the single-lane-per-heartbeat rotation and minimum deliverables per lane.
+
+### 2026-02-10 (pm) — Writing lane: de-duplicated “no-new-evidence” framing (control vs ReviseQA)
+
+- Updated `docs/paper/PAPER_DRAFT_EN.md` to merge duplicate statements about the Neutral Re-asking Control’s “no new evidence” principle and tightened the ReviseQA contrast to reference GALILEO’s no-new-evidence pressure/control design.
+- Commit: `12eb63c`

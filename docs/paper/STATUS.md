@@ -36,6 +36,7 @@ Ground-truth tasks에서 multi-turn persona pressure 하에 **정답 유지(surv
 - ✅ Generated **submission-ready SVG figures** from tracked CSV artifacts under `docs/paper/figures/` (seed1–4; survival curves + ΔSurvival@5 + ΔFail@1 + ΔRecovery + Table W effect deltas).
 - ✅ Results section now has artifact-cited prose for survival/TOF/recovery/control-comparison (seed1–4) + a Results preface stating the seed/"auditable green" convention.
 - ✅ Table W (control vs persona) is supported by both mean±std and Δ(effect-size) tracked artifacts, and the Results text cites them.
+- ✅ De-duplicated “no-new-evidence” framing between protocol/control bullets and ReviseQA positioning (`docs/paper/PAPER_DRAFT_EN.md`).
 - ✅ Related-work tightening landed for:
   - TRUTH DECAY (protocol + models/datasets)
   - Challenging the Evaluator (protocol + accept-rate framing)
@@ -57,9 +58,9 @@ Ground-truth tasks에서 multi-turn persona pressure 하에 **정답 유지(surv
 
 ## 4) NEXT HEARTBEAT (ONE step)
 
-**Generate PDF figures in the target LaTeX build environment and verify they compile cleanly.**
+**Experiments: push the running nlp8 seed2 Tier‑1 run to “auditable green” (exports + validator OK).**
 
-- Deliverable: run `scripts/convert_figures_svg_to_pdf.sh` on the machine that will build the PDF (Overleaf/local) and confirm the LaTeX includes compile with `\includegraphics{...}`.
+- Deliverable: confirm `results/tier1_mistral7b_seed2_20260210_1440/paper_exports/` exists (CSV + metadata + runner_metadata) and validator logs show `[OK]` + parity.
 
 ---
 
