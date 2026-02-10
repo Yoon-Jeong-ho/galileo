@@ -54,7 +54,7 @@ Ground-truth tasks에서 multi-turn persona pressure 하에 **정답 유지(surv
 
 ## 3) TOP GAPS (what still blocks paper quality)
 
-1) **LaTeX build readiness (PDF figures):** SVG→PDF conversion currently requires installing `librsvg2-bin` (or `inkscape`) in the build environment; verify conversion + compilation.
+1) **LaTeX build readiness (PDF figures):** SVG→PDF conversion requires `librsvg2-bin` (or `inkscape`). If the build env has no sudo, convert elsewhere and copy PDFs (documented in `docs/paper/README.md`). Verify conversion + compilation.
 2) **Remote experiment access:** restore `ssh nlp16` access from this runtime so we can resume mandatory tmux/GPU/log checks.
 3) **Experiment extension decision:** decide whether we need seed5+ (tighter CI) or shift budget to cross-family generalization.
 

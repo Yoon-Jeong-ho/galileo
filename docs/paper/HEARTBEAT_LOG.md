@@ -480,3 +480,7 @@ This prevents process drift where the checklist contradicts the heartbeat instru
 ### 2026-02-10 — Development lane: document no-root fallback for SVG figures
 
 - Updated `docs/paper/README.md` with a practical fallback when SVG→PDF conversion is blocked in the build environment (no sudo): convert PDFs on any machine with `librsvg2-bin` and copy them into the LaTeX build, avoiding `--shell-escape`.
+
+### 2026-02-10 — Process lane: STATUS updated for no-root SVG→PDF conversion fallback
+
+- Updated `docs/paper/STATUS.md` to reference the documented no-sudo fallback for SVG→PDF conversion in `docs/paper/README.md`.
