@@ -62,13 +62,46 @@ cp -a "$ROOT/docs/paper/artifacts"/*.csv "$OUT_DIR/docs/paper/artifacts/" || tru
 
 # Optional: include PDFs for LaTeX-friendly bundles.
 # Default is ON for build reliability; disable via: INCLUDE_PDF=0 ./scripts/package_anonymized_bundle.sh
+# By default we include only PDFs that are referenced by PAPER_DRAFT_EN.md (keeps bundles small).
+# To include all PDFs instead: PDF_USED_ONLY=0
 INCLUDE_PDF="${INCLUDE_PDF:-1}"
+PDF_USED_ONLY="${PDF_USED_ONLY:-1}"
+
 if [[ "$INCLUDE_PDF" == "1" ]]; then
-  if compgen -G "$ROOT/paper_figures/pdf/*.pdf" >/dev/null; then
-    mkdir -p "$OUT_DIR/paper_figures/pdf"
-    cp -a "$ROOT/paper_figures/pdf"/*.pdf "$OUT_DIR/paper_figures/pdf/"
-  else
+  if ! compgen -G "$ROOT/paper_figures/pdf/*.pdf" >/dev/null; then
     echo "[WARN] INCLUDE_PDF=1 but no PDFs found under $ROOT/paper_figures/pdf" >&2
+  else
+    mkdir -p "$OUT_DIR/paper_figures/pdf"
+
+    if [[ "$PDF_USED_ONLY" == "1" ]]; then
+      # Extract figure basenames referenced in the EN draft (expects \includegraphics{figures/<name>} ).
+      # We keep this heuristic simple on purpose.
+      used=$(grep -oE "\\\\includegraphics\[[^]]*\]\{figures/[^}]+\}" "$ROOT/docs/paper/PAPER_DRAFT_EN.md" \
+        | sed -E 's#.*\{figures/([^}]+)\}#\1#' \
+        | sort -u)
+
+      if [[ -z "$used" ]]; then
+        echo "[WARN] PDF_USED_ONLY=1 but no \\includegraphics{figures/...} refs found; copying all PDFs." >&2
+        cp -a "$ROOT/paper_figures/pdf"/*.pdf "$OUT_DIR/paper_figures/pdf/"
+      else
+        missing=0
+        while IFS= read -r base; do
+          [[ -z "$base" ]] && continue
+          src="$ROOT/paper_figures/pdf/${base}.pdf"
+          if [[ -f "$src" ]]; then
+            cp -a "$src" "$OUT_DIR/paper_figures/pdf/"
+          else
+            echo "[WARN] referenced PDF not found: $src" >&2
+            missing=$((missing+1))
+          fi
+        done <<< "$used"
+        if [[ $missing -gt 0 ]]; then
+          echo "[WARN] $missing referenced PDFs missing; LaTeX bundle may be incomplete." >&2
+        fi
+      fi
+    else
+      cp -a "$ROOT/paper_figures/pdf"/*.pdf "$OUT_DIR/paper_figures/pdf/"
+    fi
   fi
 fi
 

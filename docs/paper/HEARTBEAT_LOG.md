@@ -698,3 +698,11 @@ This prevents process drift where the checklist contradicts the heartbeat instru
 ### 2026-02-11 — Process lane: document INCLUDE_PDF default in bundler header
 
 - Updated `scripts/package_anonymized_bundle.sh` header comments to state that PDFs are included by default and can be disabled with `INCLUDE_PDF=0`.
+
+### 2026-02-11 — Process lane: anonymized bundler copies only LaTeX-referenced PDFs by default
+
+- Updated `scripts/package_anonymized_bundle.sh` so when PDFs are included, it copies only `paper_figures/pdf/<name>.pdf` that are referenced in `docs/paper/PAPER_DRAFT_EN.md` via `\includegraphics{figures/<name>}`.
+- Added knobs:
+  - `INCLUDE_PDF=0` to disable PDFs
+  - `PDF_USED_ONLY=0` to copy *all* PDFs
+- Smoke-tested: `./scripts/package_anonymized_bundle.sh tmp/anonymized_bundle_pdf_used` (PASS).
