@@ -351,3 +351,10 @@ This prevents process drift where the checklist contradicts the heartbeat instru
   - `docs/paper/README.md`
   - `docs/paper/EMNLP_MAIN_SUBMISSION_CHECKLIST.md`
 - Verified staged bundle passes the infra-string audit.
+
+### 2026-02-10 (pm) — Research lane: related-work plan to strengthen methodology/positioning
+
+- Added `docs/paper/RELATED_WORK_RESEARCH_PLAN_20260210.md` with a concrete integration plan around:
+  - Time-To-Inconsistency (survival analysis framing)
+  - ReviseQA (evidence-based belief revision vs pressure-induced flips)
+  - Debate confidence escalation paper (motivation)
