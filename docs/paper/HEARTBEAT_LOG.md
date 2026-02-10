@@ -385,3 +385,7 @@ This prevents process drift where the checklist contradicts the heartbeat instru
 ### 2026-02-10 (pm) — Writing lane: added persona vs control definition-level summary
 
 - Updated `docs/paper/PAPER_DRAFT_EN.md` Protocol section with a compact bullet summary that contrasts persona pressure vs Neutral Re-asking Control at the definition level (same protocol/decoding/rounds; user-turn text differs; control introduces no new evidence).
+
+### 2026-02-10 (pm) — Writing lane: added compact persona taxonomy table (mechanism-focused)
+
+- Updated `docs/paper/PAPER_DRAFT_EN.md` Protocol section to include a compact 5-persona taxonomy table (mechanism + typical move), and explicitly noted the “no new evidence” design principle to avoid confounding with belief revision.
