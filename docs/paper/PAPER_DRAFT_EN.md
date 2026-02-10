@@ -221,6 +221,8 @@ In relation to these threads, SYCON-Bench operationalizes flip dynamics via Turn
 
 We borrow the *multi-turn dynamics* lens but focus on settings where correctness is objectively checkable, define failure as the **first** incorrect answer (TOF) over rounds (aligning conceptually with “turn-of-flip” style metrics), and add two missing ingredients: (i) a **Neutral Re-asking Control** to separate persona-induced effects from generic multi-turn drift, and (ii) **recovery after flipping** as a distinct axis.
 
+A closely related but complementary line studies **belief revision** under *changing evidence*: ReviseQA constructs multi-turn logical-reasoning dialogs where facts/rules are added or retracted across turns, requiring models to revise conclusions to maintain logical consistency \cite{reviseqa2025}. This contrasts with our setting, where the pressure mechanism is primarily *social/rhetorical* (personas) without introducing new ground-truth evidence, making it important to measure (and control for) pressure-induced flips separately from evidence-based belief updates.
+
 (We track paper-by-paper notes in `docs/paper/related_work/`.) **GALILEO’s intended delta** is to make *ground-truth, multi-turn dynamics* easy to measure and hard to misinterpret:
 
 - **Objective ground truth across tasks:** we emphasize settings where correctness is unambiguous (math/MCQA/extractive QA) rather than primarily subjective opinions or social/ethical dilemmas.

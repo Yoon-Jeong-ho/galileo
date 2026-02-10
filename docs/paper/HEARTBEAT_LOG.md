@@ -362,3 +362,8 @@ This prevents process drift where the checklist contradicts the heartbeat instru
 ### 2026-02-10 (pm) — Writing lane: integrated Time-To-Inconsistency positioning into Related Work
 
 - Updated `docs/paper/PAPER_DRAFT_EN.md` Sec 6.4 with a tight paragraph positioning GALILEO relative to survival-analysis-style time-to-event evaluation (Time-To-Inconsistency), clarifying our choice of direct ground-truth metrics + neutral drift control.
+
+### 2026-02-10 (pm) — Writing lane: added ReviseQA contrast (evidence-based revision vs pressure)
+
+- Added a short paragraph in `docs/paper/PAPER_DRAFT_EN.md` Sec 6.4 contrasting evidence-driven belief revision (ReviseQA) with pressure-induced flips in our persona setting.
+- Added a placeholder BibTeX entry `@misc{reviseqa2025,...}` to `references.bib` (needs official BibTeX fields later).
