@@ -381,3 +381,7 @@ This prevents process drift where the checklist contradicts the heartbeat instru
 ### 2026-02-10 (pm) — Writing lane: clarified Neutral Re-asking Control design principle (no new evidence)
 
 - Updated `docs/paper/PAPER_DRAFT_EN.md` Protocol section to explicitly state that Neutral Re-asking Control must not introduce new task-relevant evidence, to separate generic drift from evidence-based belief revision.
+
+### 2026-02-10 (pm) — Writing lane: added persona vs control definition-level summary
+
+- Updated `docs/paper/PAPER_DRAFT_EN.md` Protocol section with a compact bullet summary that contrasts persona pressure vs Neutral Re-asking Control at the definition level (same protocol/decoding/rounds; user-turn text differs; control introduces no new evidence).
