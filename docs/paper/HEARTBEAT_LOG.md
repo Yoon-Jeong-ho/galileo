@@ -372,3 +372,8 @@ This prevents process drift where the checklist contradicts the heartbeat instru
 
 - Extracted official BibTeX from OpenReview `data-bibtex` field for ReviseQA.
 - Updated `references.bib` entry key to `helwe2025reviseqa` and updated the in-text citation in `docs/paper/PAPER_DRAFT_EN.md` accordingly.
+
+### 2026-02-10 (pm) — Writing lane: added debate confidence-dynamics motivation + BibTeX
+
+- Added arXiv BibTeX entry for Nguyen/Prasad debate confidence dynamics (`prasad2025llmsdebatethinktheyll`) to `references.bib`.
+- Added a single motivation sentence in `docs/paper/PAPER_DRAFT_EN.md` Sec 1.1 citing it to support the claim that multi-turn interaction can induce pathological belief/confidence dynamics.
