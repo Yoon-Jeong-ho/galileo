@@ -539,3 +539,7 @@ This prevents process drift where the checklist contradicts the heartbeat instru
 ### 2026-02-11 — Writing lane: align Contributions with claim→evidence framing
 
 - Updated the Introduction contributions list in `docs/paper/PAPER_DRAFT_EN.md` to explicitly (i) motivate the Neutral Re-asking Control as a drift baseline for interpreting pressure-induced flips and (ii) emphasize recovery measured conditional on flip plus recovery-prompt ablations.
+
+### 2026-02-11 — Writing lane: make Abstract recovery definition explicit (conditional on flip)
+
+- Updated the Abstract in `docs/paper/PAPER_DRAFT_EN.md` to define recovery as **conditional on flip**, matching the C3 framing and avoiding ambiguity with “staying correct throughout.”
