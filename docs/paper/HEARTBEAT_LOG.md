@@ -484,3 +484,7 @@ This prevents process drift where the checklist contradicts the heartbeat instru
 ### 2026-02-10 — Process lane: STATUS updated for no-root SVG→PDF conversion fallback
 
 - Updated `docs/paper/STATUS.md` to reference the documented no-sudo fallback for SVG→PDF conversion in `docs/paper/README.md`.
+
+### 2026-02-10 — Process lane: STATUS updated for vta seeds 1–2
+
+- Updated `docs/paper/STATUS.md` to reflect that the verify_then_answer recovery-variant ablation is now **seeds 1–2** and both aliases (`qwen_vta_seed1`, `qwen_vta_seed2`) are included in `results_paper/`.
