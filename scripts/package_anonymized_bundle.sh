@@ -57,7 +57,42 @@ copy_md_sanitized "$ROOT/docs/paper/ANONYMIZATION_NOTES.md" "$OUT_DIR/docs/paper
 
 # --- Figures + artifacts ---
 mkdir -p "$OUT_DIR/docs/paper/figures" "$OUT_DIR/docs/paper/artifacts"
-cp -a "$ROOT/docs/paper/figures"/*.svg "$OUT_DIR/docs/paper/figures/"
+
+# By default include only figure SVGs referenced by PAPER_DRAFT_EN.md.
+# Disable SVGs entirely: INCLUDE_SVG=0
+# Copy all SVGs: SVG_USED_ONLY=0
+INCLUDE_SVG="${INCLUDE_SVG:-1}"
+SVG_USED_ONLY="${SVG_USED_ONLY:-1}"
+
+if [[ "$INCLUDE_SVG" == "1" ]]; then
+  if [[ "$SVG_USED_ONLY" == "1" ]]; then
+    used_svg=$(grep -oE "\\\\includegraphics\[[^]]*\]\{figures/[^}]+\}" "$ROOT/docs/paper/PAPER_DRAFT_EN.md" \
+      | sed -E 's#.*\{figures/([^}]+)\}#\1#' \
+      | sort -u)
+    if [[ -z "$used_svg" ]]; then
+      echo "[WARN] SVG_USED_ONLY=1 but no \\includegraphics{figures/...} refs found; copying all SVGs." >&2
+      cp -a "$ROOT/docs/paper/figures"/*.svg "$OUT_DIR/docs/paper/figures/"
+    else
+      missing_svg=0
+      while IFS= read -r base; do
+        [[ -z "$base" ]] && continue
+        src_svg="$ROOT/docs/paper/figures/${base}.svg"
+        if [[ -f "$src_svg" ]]; then
+          cp -a "$src_svg" "$OUT_DIR/docs/paper/figures/"
+        else
+          echo "[WARN] referenced SVG not found: $src_svg" >&2
+          missing_svg=$((missing_svg+1))
+        fi
+      done <<< "$used_svg"
+      if [[ $missing_svg -gt 0 ]]; then
+        echo "[WARN] $missing_svg referenced SVGs missing; SVG bundle may be incomplete." >&2
+      fi
+    fi
+  else
+    cp -a "$ROOT/docs/paper/figures"/*.svg "$OUT_DIR/docs/paper/figures/"
+  fi
+fi
+
 cp -a "$ROOT/docs/paper/artifacts"/*.csv "$OUT_DIR/docs/paper/artifacts/" || true
 
 # Optional: include PDFs for LaTeX-friendly bundles.

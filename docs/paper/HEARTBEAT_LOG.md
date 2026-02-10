@@ -706,3 +706,11 @@ This prevents process drift where the checklist contradicts the heartbeat instru
   - `INCLUDE_PDF=0` to disable PDFs
   - `PDF_USED_ONLY=0` to copy *all* PDFs
 - Smoke-tested: `./scripts/package_anonymized_bundle.sh tmp/anonymized_bundle_pdf_used` (PASS).
+
+### 2026-02-11 — Process lane: bundler copies only LaTeX-referenced SVGs by default
+
+- Updated `scripts/package_anonymized_bundle.sh` to copy only `docs/paper/figures/<name>.svg` that are referenced in `docs/paper/PAPER_DRAFT_EN.md` via `\includegraphics{figures/<name>}`.
+- Added knobs:
+  - `INCLUDE_SVG=0` to disable SVGs
+  - `SVG_USED_ONLY=0` to copy *all* SVGs
+- Smoke-tested: `./scripts/package_anonymized_bundle.sh tmp/anonymized_bundle_used_figs` (PASS; 8 SVGs + 8 PDFs staged).
