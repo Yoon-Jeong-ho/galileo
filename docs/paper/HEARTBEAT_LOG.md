@@ -398,3 +398,8 @@ This prevents process drift where the checklist contradicts the heartbeat instru
   - `docs/paper/REMOTE_EXPERIMENTS_RUNBOOK.md`
   - `docs/paper/STATUS.md`
 - Remote experiments are now: `ssh nlp8`, repo `/data_x/aa007878/galileo`, GPUs 4/5/6 only.
+
+### 2026-02-10 (pm) — Process: added hard anti-drift DM header rule
+
+- Updated `docs/paper/HEARTBEAT_CHECKLIST.md` to require a 2-line DM header (`LANE=...`, `DELIVERABLE=...`) and to forbid lane switching mid-heartbeat.
+- Rationale: reduce context drift across heartbeats and make dashboard verification easy.

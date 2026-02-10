@@ -11,6 +11,12 @@ This is a **process guardrail** to prevent drift (wrong server/GPU policy, lane 
    - Experiments / Research / Development / Writing
 3) Declare the deliverable *in one sentence* (what will be different in 10 minutes?).
 
+**Hard anti-drift rule (required):**
+- Write a 2-line header in your DM update:
+  - `LANE = <Experiments|Research|Development|Writing>`
+  - `DELIVERABLE = <one concrete file/change/result>`
+- Do **not** switch lanes mid-heartbeat. If an external interruption happens (SSH/UI/debug), treat that heartbeat as **Development** and stop.
+
 **If lane = Experiments:** first confirm you can actually reach the box.
 - Quick sanity: `ssh nlp8 'hostname; whoami'`
 - If SSH is blocked (keys/agent/etc.), **do not burn the heartbeat** debugging infra unless explicitly prioritized—switch this heartbeat to Writing/Development and record the SSH blocker in the DM update.
