@@ -586,3 +586,8 @@ This prevents process drift where the checklist contradicts the heartbeat instru
 
 - Added `docs/paper/DECODING_SENSITIVITY_SWEEP.md` with a minimal Tier‑1 decoding sweep plan (Qwen seeds 1–2; greedy_temperature 0.0 vs 0.7) and paper-ready export/validation steps under `results_paper/`.
 - Linked the plan from `docs/paper/EMNLP_MAIN_SUBMISSION_CHECKLIST.md`.
+
+### 2026-02-11 — Process lane: add lightweight CLI summary helper for run_experiment.py
+
+- Added `scripts/show_run_experiment_cli.sh` to list CLI flags without running `python run_experiment.py --help` (which can be slow/hang due to heavyweight imports).
+- Updated `docs/paper/DECODING_SENSITIVITY_SWEEP.md` to recommend using the helper when preparing decoding sweep runs.

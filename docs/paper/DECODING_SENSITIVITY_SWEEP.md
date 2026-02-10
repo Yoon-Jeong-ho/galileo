@@ -9,6 +9,7 @@ Scope (minimal, reviewer-risk focused):
 - Results root: **`results_paper/`** (paper SSOT)
 - Sweep variable: **`--greedy_temperature`** for adversarial+recovery turns.
   - Note: initial evaluation uses beam search; this sweep targets the multi-turn phase where pressure accumulates.
+  - Practical note: avoid `python run_experiment.py --help` on shared servers (may import heavy deps); use `bash scripts/show_run_experiment_cli.sh` for a lightweight flag summary.
 
 ## Proposed settings
 
