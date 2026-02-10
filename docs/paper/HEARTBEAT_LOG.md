@@ -688,3 +688,9 @@ This prevents process drift where the checklist contradicts the heartbeat instru
 - Updated `scripts/package_anonymized_bundle.sh` to support `INCLUDE_PDF=1` (copies `paper_figures/pdf/*.pdf` into the staged bundle).
 - Added a best-effort PDF metadata scan using `strings | grep` for infra-identifying patterns.
 - Smoke-tested: `INCLUDE_PDF=1 ./scripts/package_anonymized_bundle.sh tmp/anonymized_bundle_test_pdf` (PASS).
+
+### 2026-02-11 — Process lane: make anonymized bundle include PDFs by default
+
+- Updated `scripts/package_anonymized_bundle.sh` so `INCLUDE_PDF` defaults to 1 (PDFs included unless `INCLUDE_PDF=0`).
+- When PDFs are included, the bundle now also ships `scripts/check_pdf_figures.sh` for a quick PDF sanity check.
+- Smoke-tested default bundle staging: `./scripts/package_anonymized_bundle.sh tmp/anonymized_bundle_default_pdf` (PASS).

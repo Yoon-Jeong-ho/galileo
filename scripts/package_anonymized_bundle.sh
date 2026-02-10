@@ -60,8 +60,8 @@ cp -a "$ROOT/docs/paper/figures"/*.svg "$OUT_DIR/docs/paper/figures/"
 cp -a "$ROOT/docs/paper/artifacts"/*.csv "$OUT_DIR/docs/paper/artifacts/" || true
 
 # Optional: include PDFs for LaTeX-friendly bundles.
-# Enable via: INCLUDE_PDF=1 ./scripts/package_anonymized_bundle.sh
-INCLUDE_PDF="${INCLUDE_PDF:-0}"
+# Default is ON for build reliability; disable via: INCLUDE_PDF=0 ./scripts/package_anonymized_bundle.sh
+INCLUDE_PDF="${INCLUDE_PDF:-1}"
 if [[ "$INCLUDE_PDF" == "1" ]]; then
   if compgen -G "$ROOT/paper_figures/pdf/*.pdf" >/dev/null; then
     mkdir -p "$OUT_DIR/paper_figures/pdf"
@@ -76,6 +76,10 @@ mkdir -p "$OUT_DIR/scripts"
 copy "$ROOT/scripts/make_paper_figures_from_artifacts.py" "$OUT_DIR/scripts/make_paper_figures_from_artifacts.py"
 copy "$ROOT/scripts/make_protocol_figure_svg.py" "$OUT_DIR/scripts/make_protocol_figure_svg.py"
 copy "$ROOT/scripts/convert_figures_svg_to_pdf.sh" "$OUT_DIR/scripts/convert_figures_svg_to_pdf.sh"
+# If PDFs are included, also include the PDF smoke-check helper.
+if [[ "$INCLUDE_PDF" == "1" ]]; then
+  copy "$ROOT/scripts/check_pdf_figures.sh" "$OUT_DIR/scripts/check_pdf_figures.sh"
+fi
 
 # --- Audit staged bundle for infra-identifying strings ---
 PAT='(/mnt/raid6/|/data_x/|nlp16|nlp8|aa007878@|163\.152\.|ssh nlp)'
