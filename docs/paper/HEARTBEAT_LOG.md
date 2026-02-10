@@ -694,3 +694,7 @@ This prevents process drift where the checklist contradicts the heartbeat instru
 - Updated `scripts/package_anonymized_bundle.sh` so `INCLUDE_PDF` defaults to 1 (PDFs included unless `INCLUDE_PDF=0`).
 - When PDFs are included, the bundle now also ships `scripts/check_pdf_figures.sh` for a quick PDF sanity check.
 - Smoke-tested default bundle staging: `./scripts/package_anonymized_bundle.sh tmp/anonymized_bundle_default_pdf` (PASS).
+
+### 2026-02-11 — Process lane: document INCLUDE_PDF default in bundler header
+
+- Updated `scripts/package_anonymized_bundle.sh` header comments to state that PDFs are included by default and can be disabled with `INCLUDE_PDF=0`.

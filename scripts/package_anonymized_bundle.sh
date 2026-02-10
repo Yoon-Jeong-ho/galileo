@@ -9,6 +9,7 @@ set -euo pipefail
 #
 # Notes:
 # - Excludes internal-only process docs (heartbeat logs/runbooks/KO notes) by default.
+# - Includes PDF figures by default for LaTeX reliability (disable with INCLUDE_PDF=0).
 # - Runs an infra-string grep audit on the staged bundle and fails if matches are found.
 
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
