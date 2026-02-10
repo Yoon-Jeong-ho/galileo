@@ -557,3 +557,7 @@ This prevents process drift where the checklist contradicts the heartbeat instru
 - Remote (nlp8): checked tmux + nvidia-smi (GPUs 4/5/6 idle) and tailed logs for `results/tier1_qwen2p5_7b_vta_seed1_20260210_192410` + `results/tier1_qwen2p5_7b_vta_seed2_20260210_205204` (both wrote full `paper_exports/` and printed `[OK]` + parity).
 - Confirmed paper-only validation root remains green: `results_paper/GLOBAL_VALIDATE.log` is all `[OK]` incl. `qwen_vta_seed1/2`.
 - Updated `docs/paper/STATUS.md` NOW section with validator health.
+
+### 2026-02-10 — Writing/process lane: tighten claim→evidence map reproducers
+
+- Updated `docs/paper/EMNLP_MAIN_SUBMISSION_CHECKLIST.md` claim→evidence rows (C3/generalization/intervention) to use a single concrete reproducer: `scripts/validate_paper_exports.py --results_root results_paper --check_runner_parity` and to point generalization/ablation evidence to `PAPER_DRAFT_EN.md` §7.4.
