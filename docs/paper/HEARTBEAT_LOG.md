@@ -672,3 +672,8 @@ This prevents process drift where the checklist contradicts the heartbeat instru
 
 - Added an explicit SSOT banner at the top of `docs/paper/HEARTBEAT_LOG.md` warning that older entries mentioning `nlp16` are stale.
 - Updated `docs/paper/ANONYMIZATION_NOTES.md` to reflect that the current runbook contains `nlp8` (not `nlp16`).
+
+### 2026-02-11 — Process lane: tighten anonymization notes (ssh nlp8 mapping + paper-facing grep)
+
+- Updated `docs/paper/ANONYMIZATION_NOTES.md` to map both `ssh nlp8` and `ssh nlp16` to `ssh <REMOTE_HOST>` for anonymized bundles.
+- Added an optional suggestion to exclude internal process docs when running the infra-string grep, to reduce false positives.

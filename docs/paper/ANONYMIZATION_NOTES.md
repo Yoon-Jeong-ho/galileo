@@ -12,7 +12,7 @@ This is a checklist+map of **infra-identifying strings** that must not leak into
 Recommended replacement text in paper/repo-facing docs:
 - `/mnt/raid6/aa007878/galileo` → `<REMOTE_REPO_ROOT>`
 - `/data_x/aa007878/galileo` → `<REMOTE_REPO_ROOT>`
-- `ssh nlp16` → `ssh <REMOTE_HOST>`
+- `ssh nlp8` / `ssh nlp16` → `ssh <REMOTE_HOST>`
 
 ## 2) Where we currently have infra strings (internal-only docs)
 
@@ -35,6 +35,10 @@ Paper-facing EN draft: we have already removed server names from Results preface
 grep -RIn --exclude-dir='__pycache__' --exclude='*.svg' --exclude='*.png' \
   -E "(/mnt/raid6/|/data_x/|nlp16|nlp8|aa007878@|163\\.152\\.|ssh nlp)" \
   docs/paper
+
+# If you only want paper-facing files, consider excluding internal process docs:
+#   --exclude='HEARTBEAT_LOG.md' --exclude='HEARTBEAT_CHECKLIST.md' --exclude='HEARTBEAT_PROMPT.md'
+#   --exclude='REMOTE_EXPERIMENTS_RUNBOOK.md' --exclude='SSH_TROUBLESHOOT_*.md'
 ```
 
 ## 4) Packaging guidance
