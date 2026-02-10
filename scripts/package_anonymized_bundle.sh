@@ -46,11 +46,11 @@ copy_md_sanitized() {
   sanitize_md < "$src" > "$dst"
 }
 
-# --- Paper docs (EN only by default) ---
+# --- Paper docs (paper-facing only by default) ---
+# We intentionally exclude internal process docs (README/checklists/runbooks/logs)
+# from the anonymized bundle unless explicitly requested.
 copy_md_sanitized "$ROOT/docs/paper/PAPER_DRAFT_EN.md" "$OUT_DIR/docs/paper/PAPER_DRAFT_EN.md"
 copy_md_sanitized "$ROOT/docs/paper/FIGURE_CAPTIONS.md" "$OUT_DIR/docs/paper/FIGURE_CAPTIONS.md"
-copy_md_sanitized "$ROOT/docs/paper/README.md" "$OUT_DIR/docs/paper/README.md"
-copy_md_sanitized "$ROOT/docs/paper/EMNLP_MAIN_SUBMISSION_CHECKLIST.md" "$OUT_DIR/docs/paper/EMNLP_MAIN_SUBMISSION_CHECKLIST.md"
 # Include anonymization notes too, but sanitized (useful for the recipient).
 copy_md_sanitized "$ROOT/docs/paper/ANONYMIZATION_NOTES.md" "$OUT_DIR/docs/paper/ANONYMIZATION_NOTES.md"
 

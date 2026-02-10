@@ -677,3 +677,8 @@ This prevents process drift where the checklist contradicts the heartbeat instru
 
 - Updated `docs/paper/ANONYMIZATION_NOTES.md` to map both `ssh nlp8` and `ssh nlp16` to `ssh <REMOTE_HOST>` for anonymized bundles.
 - Added an optional suggestion to exclude internal process docs when running the infra-string grep, to reduce false positives.
+
+### 2026-02-11 — Process lane: make anonymized bundle paper-facing by default
+
+- Updated `scripts/package_anonymized_bundle.sh` to exclude internal process docs (README/checklists/runbooks/logs) by default.
+- Smoke-tested staging: `./scripts/package_anonymized_bundle.sh tmp/anonymized_bundle_test` (PASS; infra-string audit clean).
