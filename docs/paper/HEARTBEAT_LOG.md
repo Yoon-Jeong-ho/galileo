@@ -465,3 +465,9 @@ This prevents process drift where the checklist contradicts the heartbeat instru
 
 - Added tracked artifact: `docs/paper/artifacts/recovery_variant_verify_then_answer_vs_baseline_seed1_20260210.csv` comparing collapsed Recovery@flip persona–control gaps between baseline (seed1–4) and verify_then_answer (seed1).
 - Updated `docs/paper/PAPER_DRAFT_EN.md` to cite the comparison artifact and explicitly caveat non-comparability + single-seed status.
+
+### 2026-02-10 — Analysis lane: upgrade verify_then_answer recovery artifacts to seeds 1–2
+
+- Added tracked artifact: `docs/paper/artifacts/tier1_qwen2p5_7b_vta_seed1-2_recovery_collapsed_20260210.csv` (collapsed recovery over tasks; seeds 1–2).
+- Added tracked artifact: `docs/paper/artifacts/recovery_variant_verify_then_answer_vs_baseline_seed1-2_20260210.csv` comparing baseline vs vta persona–control recovery gaps.
+- Updated `docs/paper/PAPER_DRAFT_EN.md` to replace single-seed recovery numbers with seeds 1–2 and cite the new artifacts.

@@ -1,0 +1,2 @@
+metric,baseline_control_mean,baseline_persona_mean,baseline_delta_persona_minus_control,vta_seed1_2_control,vta_seed1_2_persona_pooled,vta_seed1_2_delta_persona_minus_control,delta_delta_vta_minus_baseline,unit,notes
+Recovery@flip (collapsed),76.7273,76.6573,-0.0700,35.00,24.10,-10.90,-10.83,percent,baseline: Qwen seed1-4 (mean±std); vta: Qwen seeds 1-2 (pooled over tasks/personas; control=Control Re-asking)
