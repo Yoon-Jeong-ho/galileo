@@ -561,3 +561,8 @@ This prevents process drift where the checklist contradicts the heartbeat instru
 ### 2026-02-10 — Writing/process lane: tighten claim→evidence map reproducers
 
 - Updated `docs/paper/EMNLP_MAIN_SUBMISSION_CHECKLIST.md` claim→evidence rows (C3/generalization/intervention) to use a single concrete reproducer: `scripts/validate_paper_exports.py --results_root results_paper --check_runner_parity` and to point generalization/ablation evidence to `PAPER_DRAFT_EN.md` §7.4.
+
+### 2026-02-10 — Writing lane: add cross-family generalization figure (SVG, stdlib)
+
+- Added `scripts/make_cross_family_figure_svg.py` to generate a compact cross-family Survival@5 comparison (control vs Logical Trap) from tracked artifacts.
+- Generated `docs/paper/figures/cross_family_survival_r5_control_vs_logicaltrap_seed1-2_20260210.svg` and referenced it in `docs/paper/PAPER_DRAFT_EN.md` §7.4.
