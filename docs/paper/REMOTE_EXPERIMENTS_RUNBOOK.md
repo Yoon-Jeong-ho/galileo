@@ -10,6 +10,8 @@ This runbook is for the **Experiments lane** in the 10-min heartbeat loop.
 - Always use `tmux` so runs survive disconnects.
 - Avoid CPU overload: keep worker counts small; avoid multiple heavy runs at once.
 
+**Anti-drift:** if any external prompt/poll text mentions `nlp16`, `/mnt/raid6/...`, or GPUs beyond 4/5/6, treat it as stale. This runbook is the SSOT.
+
 ## 0) Connectivity sanity (30s)
 
 Run:

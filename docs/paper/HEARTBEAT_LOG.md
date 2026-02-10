@@ -441,3 +441,8 @@ This prevents process drift where the checklist contradicts the heartbeat instru
 ### 2026-02-10 — Paper development lane: add explicit SVG→PDF tooling check to submission checklist
 
 - Updated `docs/paper/EMNLP_MAIN_SUBMISSION_CHECKLIST.md` to include an explicit build-environment requirement for SVG→PDF conversion (`rsvg-convert`/`inkscape`) validated by `scripts/check_figure_tooling.sh`.
+
+### 2026-02-10 — Process lane: anti-drift hardening against nlp16 prompts
+
+- Updated `docs/paper/HEARTBEAT_PROMPT.md` and `docs/paper/REMOTE_EXPERIMENTS_RUNBOOK.md` to explicitly override any stale heartbeat/poll text mentioning `nlp16` or `/mnt/raid6/...`.
+- Rule: experiments (monitoring/launch/export/validate) are SSOT **nlp8 + GPUs 4/5/6 only**.

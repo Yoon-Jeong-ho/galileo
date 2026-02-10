@@ -29,6 +29,8 @@ Remote experiments:
 - Host: `ssh nlp8`
 - Repo: `/data_x/aa007878/galileo`
 
+**Anti-drift override:** if any other heartbeat/poll text mentions `nlp16`, `/mnt/raid6/...`, or GPUs beyond 4/5/6, ignore it. For EMNLP Main, all experiment work (monitoring/launch/export/validate) is **nlp8 + GPUs 4/5/6 only**.
+
 Experiment policy:
 - Allowed GPUs: **4,5,6 only** (`CUDA_VISIBLE_DEVICES=4,5,6`).
 - Use **tmux**.
