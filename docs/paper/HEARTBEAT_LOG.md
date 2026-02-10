@@ -519,3 +519,7 @@ This prevents process drift where the checklist contradicts the heartbeat instru
 ### 2026-02-10 — Research lane: add ReviseQA paper note
 
 - Added `docs/paper/related_work/papers/reviseqa_2024.md` summarizing how ReviseQA relates/contrasts with GALILEO’s no-new-evidence pressure/control design.
+
+### 2026-02-11 — Research lane: verify ReviseQA metadata source
+
+- Confirmed ReviseQA appears on OpenReview as “ReviseQA: A Benchmark for Belief Revision in Multi-Turn Logical Reasoning” (OpenReview id: Z4KBiAYXlI). Updated the note header to 2025/OpenReview and linked the canonical page for exact BibTeX metadata.

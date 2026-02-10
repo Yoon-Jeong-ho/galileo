@@ -1,4 +1,4 @@
-# ReviseQA (2024) — Notes
+# ReviseQA (2025; OpenReview) — Notes
 
 ## What it is
 - Task setting: models revise an answer after receiving feedback; evaluates when revisions improve vs degrade.
@@ -13,4 +13,5 @@
 - Use as prior evidence that “revision under feedback can be harmful”, motivating why we need multi-turn dynamics rather than single-turn accuracy.
 
 ## BibTeX
-- TODO: add the BibTeX entry for ReviseQA to `references.bib` (verify exact title/authors/venue).
+- OpenReview page (for exact metadata): https://openreview.net/forum?id=Z4KBiAYXlI
+- TODO: add the BibTeX entry for ReviseQA to `references.bib` (need exact authors + venue; OpenReview lists it as a submission).
