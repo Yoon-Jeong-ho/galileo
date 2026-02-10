@@ -358,3 +358,7 @@ This prevents process drift where the checklist contradicts the heartbeat instru
   - Time-To-Inconsistency (survival analysis framing)
   - ReviseQA (evidence-based belief revision vs pressure-induced flips)
   - Debate confidence escalation paper (motivation)
+
+### 2026-02-10 (pm) — Writing lane: integrated Time-To-Inconsistency positioning into Related Work
+
+- Updated `docs/paper/PAPER_DRAFT_EN.md` Sec 6.4 with a tight paragraph positioning GALILEO relative to survival-analysis-style time-to-event evaluation (Time-To-Inconsistency), clarifying our choice of direct ground-truth metrics + neutral drift control.
