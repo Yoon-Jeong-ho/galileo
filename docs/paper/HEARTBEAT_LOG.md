@@ -515,3 +515,7 @@ This prevents process drift where the checklist contradicts the heartbeat instru
 ### 2026-02-10 — Writing/process lane: make claim→evidence map reproducible
 
 - Refined the claim→evidence table in `docs/paper/EMNLP_MAIN_SUBMISSION_CHECKLIST.md` to prefer a single primary figure per claim and to include concrete reproducer commands (validator invocation) and explicit `results_paper/` aliases.
+
+### 2026-02-10 — Research lane: add ReviseQA paper note
+
+- Added `docs/paper/related_work/papers/reviseqa_2024.md` summarizing how ReviseQA relates/contrasts with GALILEO’s no-new-evidence pressure/control design.
