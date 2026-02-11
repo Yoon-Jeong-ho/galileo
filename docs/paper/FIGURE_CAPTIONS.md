@@ -89,7 +89,7 @@ Cross-family generalization: Survival@5 for the Neutral Re-asking Control (drift
 
 ---
 
-## Fig: Decoding sensitivity sweep (ΔSurvival@5 and ΔFail@1)
+## Appendix Fig (A.1): Decoding sensitivity sweep (ΔSurvival@5 and ΔFail@1)
 
 - File: `docs/paper/figures/decoding_sweep_qwen_delta_seed1-2_20260211.svg`
 - LaTeX label (suggested): `fig:decoding-sweep`
@@ -97,4 +97,4 @@ Cross-family generalization: Survival@5 for the Neutral Re-asking Control (drift
 - Generator: `scripts/make_decoding_sweep_figure_svg.py`
 
 **Caption (draft):**
-Decoding sensitivity for the multi-turn phase. Bars show the persona-mean effect relative to the Neutral Re-asking Control: \(\Delta\)Survival@5 and \(\Delta\)Fail@1 (persona mean − control), averaged over seeds 1–2. The persona-induced robustness gap persists across temperatures.
+Appendix robustness check: decoding sensitivity for the multi-turn phase. Bars show the persona-mean effect relative to the Neutral Re-asking Control: \(\Delta\)Survival@5 and \(\Delta\)Fail@1 (persona mean − control), averaged over seeds 1–2. The persona-induced robustness gap persists across temperatures.
