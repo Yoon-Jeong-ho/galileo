@@ -51,7 +51,9 @@
 
 본 논문에서는 **GALILEO**를 제안한다. GALILEO는 (1) 정답이 있는 문제(수학, extractive QA, MCQA, open-domain QA)에 대해 초기 정답성을 평가하고, (2) 다섯 가지 adversarial persona(Soft Pressure, Simple Denial, Strong Pressure, Authority Claim, Logical Trap)를 **최대 5라운드** 적용하여 라운드별 정답 유지율을 측정하며, (3) 오답으로 전향한 샘플에 대해 회복 프롬프트를 제공하여 회복률을 평가한다. 또한 모든 태스크에서 최종 답을 `\boxed{...}`로 표준화하여 자동 채점의 안정성과 비교 가능성을 확보한다.
 
-초기 실험 스냅샷(예: Qwen2.5-7B-Instruct, TP=4, max context 16k)에서는, (i) persona에 따라 붕괴가 가속/지연되는 **라운드별 동역학의 차이**, (ii) 태스크 불확실성(예: open-domain QA)이 생존성을 급격히 저하시키는 경향, (iii) 전향 이후 회복이 태스크/설정에 따라 상이하게 나타나는 패턴을 확인했다. GALILEO는 정답 기반 멀티턴 상호작용에서 LLM의 **belief-consistency 취약성**과 **회복 가능성**을 체계적으로 측정하는 벤치마크/파이프라인으로 활용될 수 있다.
+실험 결과(메인: Qwen2.5-7B-Instruct seed1–4, 추가 패밀리: Mistral-7B/Llama-3.1-8B seed1–2)에서는, **비적대적 드리프트 베이스라인(Neutral Re-asking Control)** 대비 persona pressure가 survival/Fail@1/TOF를 일관되게 악화시키는 패턴이 관찰되며(Table W), 회복(recovery@flip)은 persona/태스크에 따라 방향과 크기가 달라 **robustness(끝까지 정답 유지)**와 **recovery(전향 후 return-to-truth)**가 서로 다른 축임을 시사한다. 또한 decoding sensitivity(temperature 0.0 vs 0.7; seed1–2)에서도 persona–control gap이 질적으로 유지되어, 결과가 특정 디코딩 설정에만 의존하지 않음을 확인했다(부록 robustness check).
+
+GALILEO는 정답 기반 멀티턴 상호작용에서 LLM의 **belief-consistency 취약성**과 **회복 가능성**을 재현 가능하고 감사 가능한 형태로 측정하는 벤치마크/파이프라인으로 활용될 수 있다.
 
 
 ---
