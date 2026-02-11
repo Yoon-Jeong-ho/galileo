@@ -5,6 +5,14 @@
 
 ---
 
+## (업데이트) 지금까지 확정된 결과/산출물 요약
+
+- **핵심 결과(드리프트 베이스라인 포함):** Neutral Re-asking Control(비적대적 drift baseline) 대비 persona pressure가 survival/Fail@1/TOF를 일관되게 악화시키는 패턴을 관찰했고, 이는 Table W(Δ metric)로 요약됨.
+- **주요 모델/시드:** Qwen2.5-7B-Instruct seed1–4(메인), Mistral-7B seed1–2, Llama-3.1-8B seed1–2.
+- **Robustness check:** decoding sensitivity(temp 0.0 vs 0.7; seed1–2)에서도 persona–control gap이 질적으로 유지(부록 배치).
+- **개념 분리:** robustness(끝까지 정답 유지)와 recovery(전향 후 return-to-truth)는 별개 축으로 취급(회복@flip 지표 및 persona-wise delta로 제시).
+- **재현성:** `results_paper/`(SSOT) + `validate_paper_exports.py --check_runner_parity` + 익명화 번들/LaTeX CI smoke-test까지 구축.
+
 
 ## 0. 제출 준비 체크리스트 (EMNLP 관점)
 
@@ -12,21 +20,28 @@
 
 ### 0.1 필수(accept 가능성에 가장 큰 영향)
 
-- [ ] **Multi-seed 통계**: seed 3~5개 반복, 평균±표준편차 + (가능하면) 95% CI
-- [ ] **모델 비교**: 최소 2~3개 계열(예: Qwen2.5 vs Llama 계열 vs 다른 instruct 모델) 또는 최소 2 스케일(7B/14B)
-- [ ] **핵심 그림**: persona별 survival curve(라운드 1~5) + turn-of-failure 분포
-- [ ] **정성 분석**: flip taxonomy(권위복종/갈등회피/논리함정/불확실성 붕괴/hedged flip) 라벨링 + 대표 사례
+- [x] **Multi-seed 통계**: Qwen2.5-7B-Instruct seed1–4, 평균±표준편차(artifact+figure로 고정)
+- [x] **모델 비교**: 최소 2개 추가 계열 완료 (Mistral-7B, Llama-3.1-8B; seed1–2)
+- [x] **핵심 그림**: persona별 survival curve(라운드 1~5) + TOF/Fail@1 분포 + Table W(control vs persona)
+- [ ] **정성 분석**: flip taxonomy 라벨링 + 대표 사례 (아직 부족; 남은 큰 갭)
 
 ### 0.2 강력 추천(리뷰어 방어/설명력)
 
-- [ ] **Ablation**: recovery prompt variant / boxed 강제 vs 자유형 / decoding(temperature) 변화
-- [ ] **Task uncertainty 분석**: open-domain QA에서 불확실성이 취약성을 증폭한다는 근거(초기 정확도/회피/hedging 등)
-- [ ] **재현성 문서화**: 데이터 생성 스크립트, strict data_dir(legacy 제외), 커맨드 라인, 환경
+- [x] **Ablation / robustness check**:
+  - decoding sensitivity (temperature 0.0 vs 0.7; seed1–2) 완료 (현재는 Appendix robustness로 배치)
+  - recovery prompt variant(verify_then_answer; seed1–2) 결과 존재
+- [ ] **Task uncertainty 분석**: open-domain QA에서 불확실성이 취약성을 증폭한다는 근거(초기 정확도/회피/hedging 등) — 추가 정리 필요
+- [x] **재현성 문서화**: `results_paper/` SSOT + validator + 익명화 번들 + LaTeX CI smoke-test까지 구축
 
 ### 0.3 현재 초안의 강점 / 약점(솔직 평가)
 
-- 강점: 정답 기반 멀티턴 압박 평가(survival–flip–recovery)라는 **명확한 프로토콜**과 로그/CSV 구조
-- 약점: (i) 아직 **통계(멀티-seed/CI)** 부재, (ii) 관련연구 인용/포지셔닝 강화 필요, (iii) ‘왜’에 대한 정성/메커니즘 분석이 더 필요
+- 강점:
+  - 정답 기반 멀티턴 압박 평가(survival–flip–recovery)라는 **명확한 프로토콜**과 로그/CSV 구조
+  - `results_paper/` SSOT + validator + paper_exports(메타데이터/runner_metadata parity)로 **리뷰어 감사 가능한 재현성**
+  - LaTeX(PDF figure) include가 CI에서 green인 상태까지 확보
+- 약점:
+  - (i) ‘왜’에 대한 **정성/메커니즘 분석(flip taxonomy + 대표 사례)**이 아직 부족
+  - (ii) open-domain QA 등 **불확실성/회피/hedging** 관련 분석을 더 명시적으로 써야 함
 
 ---
 
