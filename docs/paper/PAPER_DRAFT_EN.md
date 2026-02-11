@@ -454,6 +454,10 @@ We ran a minimal decoding sweep over the multi-turn phase temperature (`--greedy
 \end{figure}
 ```
 
+### A.2 Qualitative flip taxonomy: partial-overlap vs semantic-change (evaluator caveat)
+
+In extractive QA, strict exact-match (EM) scoring can label some *near-miss* flips as failures (e.g., over-answers that contain the correct entity plus modifiers). To avoid overstating “belief change,” we qualitatively bucket flip cases using token-overlap (F1) as a diagnostic: **boundary/overanswer** (high F1), **partial-overlap** (moderate F1), and **semantic-change** (low F1, typically different entities/labels). This taxonomy is complementary to the main survival/TOF metrics: it helps interpret *what kind* of errors the Neutral Re-asking Control produces (often partial-overlap) versus persona pressure (semantic-change dominates). For MCQA, the answer is a discrete label, so label flips correspond to unambiguous semantic changes.
+
 ---
 
 ## 9. Claims → evidence map (reviewer-facing)
