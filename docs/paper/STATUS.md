@@ -65,13 +65,12 @@ Ground-truth tasks에서 multi-turn persona pressure 하에 **정답 유지(surv
 
 ## 4) NEXT HEARTBEAT (ONE step)
 
-**Paper/LaTeX: do an EMNLP LaTeX template smoke-test that includes our PDF figures + 1 table, to confirm compile is clean.**
+**Paper writing: tighten the Abstract + Intro so the key claims (C1–C3) each point to one concrete figure/table and mention the Neutral Re-asking Control explicitly.**
 
-- Deliverable: a minimal LaTeX skeleton under `docs/paper/latex_skeleton/` that compiles (pdflatex/latexmk) and includes:
-  - `protocol_overview.pdf`
-  - `cross_family_survival_r5_control_vs_logicaltrap_seed1-2_20260210.pdf`
-  - the Appendix A.1 decoding sweep figure
-  - the claim→evidence table (as a simple tabular)
+- Deliverable: update `docs/paper/PAPER_DRAFT_EN.md` (Abstract + §1 Intro) with 2–4 sentences that reference:
+  - Fig.~\ref{fig:protocol} (protocol overview)
+  - Table W effect deltas (control vs persona) as the drift-baselined core result
+  - Recovery@flip (distinct axis) and the existence of the intervention ablation
 
 ---
 
