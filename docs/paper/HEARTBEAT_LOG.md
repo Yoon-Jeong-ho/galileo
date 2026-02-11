@@ -747,3 +747,12 @@ This prevents process drift where the checklist contradicts the heartbeat instru
   - `tmp/galileo_anonymized_bundle_20260211.tar.gz`
   - `tmp/galileo_anonymized_bundle_20260211.tar.gz.sha256`
   - sha256: `a443c2ccbdffde4c2e4811637940cd46a5573e6e09cf94453cc9a561d4de51e7`
+
+### 2026-02-11 — Process lane: add optional zip archive for anonymized bundle (no external deps)
+
+- Updated `scripts/archive_anonymized_bundle.sh` to support `MAKE_ZIP=1` and generate `<OUT>.zip` + `<OUT>.zip.sha256`.
+- Implemented a Python stdlib `zipfile` fallback when the `zip` CLI is unavailable.
+- Produced:
+  - `tmp/galileo_anonymized_bundle_20260211.zip`
+  - `tmp/galileo_anonymized_bundle_20260211.zip.sha256`
+  - sha256: `cebcb463447b844c4477bee5ffd14c6b5cdcde8cd2f01491450a79f804fc3b82`
