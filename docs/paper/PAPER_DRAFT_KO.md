@@ -104,6 +104,8 @@ GALILEO는 정답 기반 멀티턴 상호작용에서 LLM의 **belief-consistenc
 
 ### 3.4 대표 flip 사례(초기 채움; seed2)
 
+- 주의: 아래 대표 사례 발췌는 우선 seed2 중심으로 채웠고, 상단의 (S1)/(S2) 스냅샷 표는 seed1–4 multi-seed 집계 결과를 요약한다.
+
 ### 3.5 flip 분포 요약(초기; seed2)
 
 - 대상 파일: `results_paper/qwen_persona_seed2/paper_exports/flip_samples.csv`
