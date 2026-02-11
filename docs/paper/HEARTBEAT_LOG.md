@@ -723,3 +723,9 @@ This prevents process drift where the checklist contradicts the heartbeat instru
 
 - Updated `docs/paper/PAPER_DRAFT_EN.md` to replace a brace-expanded artifact path (`seed{1,2,3,4}`) with explicit per-seed filenames, so packaging scripts and readers resolve paths unambiguously.
 - Updated `scripts/package_anonymized_bundle.sh` to copy only paper-referenced artifact CSVs by default (from `PAPER_DRAFT_EN.md` + `FIGURE_CAPTIONS.md`).
+
+### 2026-02-11 — Process lane: audit artifact references vs inventory (paper-facing)
+
+- Checked `docs/paper/PAPER_DRAFT_EN.md` + `docs/paper/FIGURE_CAPTIONS.md` for brace-expanded artifact paths: none found.
+- Verified artifact references are complete: 15 referenced CSVs and 0 missing under `docs/paper/artifacts/`.
+- Found 8 unreferenced CSVs (safe to keep internal; bundler now excludes by default).
