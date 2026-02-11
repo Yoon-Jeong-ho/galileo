@@ -497,9 +497,18 @@ This section is written for reviewers: each claim is paired with the *minimum* e
 - Evidence:
   - Multi-seed aggregation (mean±std) and deterministic sampling.
   - One-command reproduction instructions.
+  - Paper-ready export schema + validator parity check (reviewer-auditable).
 - Artifacts:
   - `scripts/run_multiseed_tmux.sh`, `scripts/aggregate_multiseed.py`
+  - `scripts/validate_paper_exports.py --results_root results_paper --check_runner_parity` (see `results_paper/GLOBAL_VALIDATE.log`)
   - `README.md` (pipeline A/B/C + readiness)
+
+### Claim C6 (Robustness check, appendix): decoding sensitivity does not qualitatively change persona–control gaps
+- Evidence:
+  - Appendix~A.1 (Fig.~\ref{fig:decoding-sweep})
+- Artifacts:
+  - `docs/paper/artifacts/decoding_sweep_qwen_temp_summary_seed1-2_20260211.csv`
+  - paper-ready runs: `results_paper/qwen_temp0_seed{1,2}`, `results_paper/qwen_temp0p7_seed{1,2}` (validated in `results_paper/GLOBAL_VALIDATE.log`)
 
 
 ## 10. Limitations and ethics (draft notes)
