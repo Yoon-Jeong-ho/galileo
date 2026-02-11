@@ -58,6 +58,16 @@ GALILEO는 정답 기반 멀티턴 상호작용에서 LLM의 **belief-consistenc
 
 ---
 
+## (리뷰어용) Claim → Evidence 요약
+
+| Claim | Evidence(그림/표) | Tracked artifact | Reproducer(검증/런) |
+|---|---|---|---|
+| C1 (Dynamics): 단일 정확도 대신 멀티턴 동역학(survival/TOF)이 필요 | survival curves(라운드별) + Fail@1/TOF 분포 + Table W | `docs/paper/artifacts/survival_curve_personawise_control_vs_persona_seed1-4_mean_std_20260209.csv`; `docs/paper/artifacts/tof_personawise_fail1_never_control_vs_persona_seed1-4_mean_std_20260209.csv` | `python3 scripts/validate_paper_exports.py --results_root results_paper --check_runner_parity` (`results_paper/GLOBAL_VALIDATE.log`) |
+| C2 (Mechanism vs drift): persona 효과는 generic drift를 넘어서며, Neutral Re-asking Control이 필수 | Table W(Δ metric; control vs persona) | `docs/paper/artifacts/table_w_effect_delta_seed1-4_20260209.csv`; `docs/paper/artifacts/table_w_control_vs_persona_seed1-4_mean_std_20260209.csv` | `scripts/make_table_w_control_vs_persona.py --control_persona_id neutral_reask_control --round 5` + validator |
+| C3 (Robustness vs recovery): recovery@flip은 survival과 별개 축이며 intervention이 recovery를 바꿀 수 있음 | persona-wise recovery delta + ablation 요약 | `docs/paper/artifacts/recovery_personawise_control_vs_persona_seed1-4_mean_std_20260209.csv`; `docs/paper/artifacts/tier1_qwen2p5_7b_vta_seed1-2_recovery_collapsed_20260210.csv` | `results_paper/qwen_vta_seed{1,2}` + validator |
+| (부록 robustness) decoding sensitivity: temp 0.0/0.7에서도 gap 유지 | Appendix A.1 / decoding sweep figure | `docs/paper/artifacts/decoding_sweep_qwen_temp_summary_seed1-2_20260211.csv` | `results_paper/qwen_temp0_seed{1,2}`, `qwen_temp0p7_seed{1,2}` + validator |
+
+
 ## 1. 서론 (Introduction)
 
 ### 1.1 문제의식
