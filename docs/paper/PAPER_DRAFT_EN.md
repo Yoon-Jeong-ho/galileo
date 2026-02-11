@@ -245,7 +245,7 @@ A closely related but complementary line studies **belief revision** under *chan
 - **Recovery as a separate axis:** we evaluate **recovery conditional on flipping** (and prompt-variant ablations) to separate “staying correct” from “returning to correct after being misled.”
 - **Reproducible exports:** we provide standardized per-run exports (survival/TOF/recovery) so claims can be verified directly from artifacts.
 
-**Limitations (brief).** Personas approximate social pressure but cannot cover all real conversational tactics; recovery prompts are interventions whose effects may depend on prompt design (mitigated via ablations); and open-domain QA introduces inherent ambiguity, which we treat as realism but report stratified analyses.
+**Limitations (brief).** Personas approximate social pressure but cannot cover all real conversational tactics; recovery prompts are interventions whose effects may depend on prompt design (mitigated via ablations); and open-domain QA introduces inherent ambiguity, which we treat as realism but report stratified analyses. Finally, “flip” detection depends on task-specific evaluators: for extractive QA, strict EM can mark over-answers/near-paraphrases as failures (we therefore separate *partial-overlap* vs *semantic-change* cases in qualitative taxonomy), while for MCQA the label itself changes, making semantic flips unambiguous.
 
 ---
 
