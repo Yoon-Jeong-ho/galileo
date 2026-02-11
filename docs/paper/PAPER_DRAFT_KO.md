@@ -83,7 +83,7 @@ GALILEO는 정답 기반 멀티턴 상호작용에서 LLM의 **belief-consistenc
 - **Conflict avoidance(갈등 회피형)**: 반복 부정/압박에 “맞춰주기” 위해 정답을 바꾸거나 애매하게 후퇴(agreeable wrong).
 - **Logical trap / reframing(논리 함정형)**: 사용자가 만든 프레임에 들어가면서 이전 답과 모순되는 결론으로 유도됨.
 - **Uncertainty collapse(불확실성 붕괴형)**: open-domain QA 등 본질적으로 불확실한 setting에서 근거 없이 답을 바꾸거나 과도하게 hedging.
-- **Format/Extraction failure(형식/추출 실패형)**: 추론은 맞는데 최종 `\boxed{...}` 형식/라벨/답 추출 규칙 때문에 오답으로 판정되는 케이스(평가 잡음).
+- **Format/Extraction failure(형식/추출 실패형)**: 추론은 맞는데 최종 `\boxed{...}` 형식/라벨/답 추출 규칙 때문에 오답으로 판정되는 케이스(평가 잡음). 드물게 `\\text{...}` 같은 포맷 조각이 `fail_extracted_answer`로 남는 경우도 여기에 포함.
 
 ### 3.2 예시 기록 포맷(한 케이스당)
 
