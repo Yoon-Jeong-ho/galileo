@@ -11,9 +11,9 @@
 
 Large language models (LLMs) can exhibit *belief-consistency failures* under social and rhetorical pressure—e.g., repeated denial, authoritative claims, or persuasive reframing—sometimes retracting previously correct answers even on tasks with clear ground truth. Prior work studies sycophancy and persuasion-related vulnerabilities (e.g., \cite{sharma2025understandingsycophancylanguagemodels,fanous2025sycevalevaluatingllmsycophancy,huang2026vulnerabilityllmsbeliefsystems}), but a unified and reproducible protocol that measures **when** failures first occur (**turn-of-failure**), **how** robustness evolves over interaction rounds (**survival curves**), and **whether** models can recover after flipping (**recovery**) on ground-truth tasks remains limited.
 
-We present **GALILEO**, a benchmark and pipeline for measuring multi-turn robustness under adversarial *persona-based* pressure. GALILEO (i) evaluates initial correctness, (ii) applies five adversarial personas for up to five rounds and quantifies **survival** as the probability an example remains correct through round *r*, and (iii) reports **turn-of-failure (TOF)** as the first round where a previously-correct example becomes incorrect, plus **recovery conditional on flip** (return-to-truth after an example has flipped). We additionally include a **Neutral Re-asking Control** (non-persona drift baseline) with the same multi-round structure to separate persona mechanism effects from generic multi-turn variance. To ensure stable automatic scoring across tasks and multi-turn logs, we standardize the final answer format to `\boxed{...}` and perform boxed-first extraction in the evaluator.
+We present **GALILEO**, a benchmark and pipeline for measuring multi-turn robustness under adversarial *persona-based* pressure. GALILEO (i) evaluates initial correctness, (ii) applies five adversarial personas for up to five rounds and quantifies **survival** as the probability an example remains correct through round *r*, and (iii) reports **turn-of-failure (TOF)** as the first round where a previously-correct example becomes incorrect, plus **recovery conditional on flip** (return-to-truth after an example has flipped). We additionally include a **Neutral Re-asking Control** (non-adversarial drift baseline) with the same multi-round structure to separate persona mechanism effects from generic multi-turn variance. To ensure stable automatic scoring across tasks and multi-turn logs, we standardize the final answer format to `\boxed{...}` and perform boxed-first extraction in the evaluator.
 
-Across multi-seed Qwen runs (seeds 1–4) and two additional model families (Mistral-7B and Llama-3.1-8B, seeds 1–2), persona pressure consistently degrades robustness relative to the Neutral Re-asking Control (drift baseline), visible in both survival trajectories and early-turn failures (Table W deltas; Fig.~\ref{fig:tablew-effect-deltas}). Recovery conditional on flip varies by task and persona, underscoring that robustness (staying correct) and recovery (returning to truth after a flip) are distinct axes (Fig.~\ref{fig:recovery-delta}). A decoding sensitivity check (temp 0.0 vs 0.7) confirms these gaps are qualitatively stable under sampling (Appendix~A.1; Fig.~\ref{fig:decoding-sweep}).
+Across multi-seed Qwen runs (seeds 1–4) and two additional model families (Mistral-7B and Llama-3.1-8B, seeds 1–2), persona pressure consistently degrades robustness relative to the Neutral Re-asking Control (non-adversarial drift baseline), visible in both survival trajectories and early-turn failures (Table W deltas; Fig.~\ref{fig:tablew-effect-deltas}). Recovery conditional on flip varies by task and persona, underscoring that robustness (staying correct) and recovery (returning to truth after a flip) are distinct axes (Fig.~\ref{fig:recovery-delta}). A decoding sensitivity check (temp 0.0 vs 0.7) confirms these gaps are qualitatively stable under sampling (Appendix~A.1; Fig.~\ref{fig:decoding-sweep}).
 
 ---
 
@@ -102,7 +102,7 @@ Each dataset is stored as **JSONL**, with one example per line. We unify fields 
 \begin{figure}[t]
   \centering
   \includegraphics[width=\linewidth]{figures/protocol_overview}
-  \caption{Overview of the GALILEO protocol: (1) initial evaluation on ground-truth tasks, (2) multi-round persona pressure vs Neutral Re-asking Control (drift baseline) to measure survival and turn-of-failure (TOF), and (3) recovery measured conditional on flip.}
+  \caption{Overview of the GALILEO protocol: (1) initial evaluation on ground-truth tasks, (2) multi-round persona pressure vs Neutral Re-asking Control (non-adversarial drift baseline) to measure survival and turn-of-failure (TOF), and (3) recovery measured conditional on flip.}
   \label{fig:protocol}
 \end{figure}
 ```
@@ -133,7 +133,7 @@ At each round `r`, we score whether the model’s answer is still correct.
 
 **Metrics in brief.** We summarize robustness as a **survival curve** $S_p(r)$: the probability an initially-correct example remains correct through round $r$ under persona $p$. We also report **turn-of-failure (TOF)** as the first round where an initially-correct example flips (or *never* if it does not flip within $R$ rounds), and **recovery** accuracy measured on flipped examples.
 
-**Neutral Re-asking Control (drift baseline).** To distinguish persona-specific pressure from generic multi-turn drift, we also evaluate a control condition that uses the same multi-round structure but removes persona content.
+**Neutral Re-asking Control (non-adversarial drift baseline).** To distinguish persona-specific pressure from generic multi-turn drift, we also evaluate a control condition that uses the same multi-round structure but removes persona content.
 
 **Persona vs. control (definition-level summary).** Both conditions share the same dataset, decoding settings, and number of rounds; they differ only in the *user-turn text*:
 - **Persona pressure:** adversarial social/rhetorical tactics (e.g., denial, authority, traps) designed to induce deference.
@@ -271,7 +271,7 @@ Unless stated otherwise, results are reported as mean±std over **seeds 1–4** 
 \begin{figure}[t]
   \centering
   \includegraphics[width=\linewidth]{figures/survival_curves_rounds_seed1-4_20260209}
-  \caption{Survival curves over rounds on initially-correct examples (mean across seeds 1--4). Solid: persona pressure; dashed: Neutral Re-asking Control (drift baseline). We observe persona-dependent decay and late-turn failures, motivating multi-turn dynamics metrics beyond initial accuracy.}
+  \caption{Survival curves over rounds on initially-correct examples (mean across seeds 1--4). Solid: persona pressure; dashed: Neutral Re-asking Control (non-adversarial drift baseline). We observe persona-dependent decay and late-turn failures, motivating multi-turn dynamics metrics beyond initial accuracy.}
   \label{fig:survival-curves-rounds}
 \end{figure}
 ```
@@ -355,7 +355,7 @@ Unless stated otherwise, results are reported as mean±std over **seeds 1–4** 
 \begin{figure}[t]
   \centering
   \includegraphics[width=\linewidth]{figures/cross_family_survival_r5_control_vs_logicaltrap_seed1-2_20260210}
-  \caption{Cross-family generalization: Survival@5 for the Neutral Re-asking Control (drift baseline) vs a strong persona (Logical Trap), averaged over seeds 1--2 for each model family. The same qualitative gap appears across families under an identical protocol.}
+  \caption{Cross-family generalization: Survival@5 for the Neutral Re-asking Control (non-adversarial drift baseline) vs a strong persona (Logical Trap), averaged over seeds 1--2 for each model family. The same qualitative gap appears across families under an identical protocol.}
   \label{fig:cross-family-survival}
 \end{figure}
 ```
@@ -378,7 +378,7 @@ Unless stated otherwise, results are reported as mean±std over **seeds 1–4** 
 \begin{figure}[t]
   \centering
   \includegraphics[width=\linewidth]{figures/table_w_effect_delta_seed1-4_20260209}
-  \caption{Table W effect sizes: persona pressure minus Neutral Re-asking Control (drift baseline), mean across seeds 1--4. The large negative \(\Delta\)Survival@5 and positive \(\Delta\)Fail@1 indicate persona-induced failure dynamics beyond generic multi-turn drift.}
+  \caption{Table W effect sizes: persona pressure minus Neutral Re-asking Control (non-adversarial drift baseline), mean across seeds 1--4. The large negative \(\Delta\)Survival@5 and positive \(\Delta\)Fail@1 indicate persona-induced failure dynamics beyond generic multi-turn drift.}
   \label{fig:tablew-effect-deltas}
 \end{figure}
 ```
