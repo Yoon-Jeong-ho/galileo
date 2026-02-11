@@ -5,11 +5,13 @@ on:
   push:
     paths:
       - 'docs/paper/latex_skeleton/**'
+      - 'docs/paper/latex_skeleton_emnlp2023/**'
+      - 'docs/paper/emnlp_template/**'
       - 'paper_figures/pdf/**'
       - '.github/workflows/latex_smoketest.yml'
 
 jobs:
-  build:
+  build_skeleton:
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
@@ -24,14 +26,41 @@ jobs:
             texlive-fonts-recommended \
             latexmk
 
-      - name: Build LaTeX skeleton
+      - name: Build generic LaTeX skeleton
         working-directory: docs/paper/latex_skeleton
         run: |
           latexmk -pdf -interaction=nonstopmode -halt-on-error main.tex
 
-      - name: Upload PDF artifact
+      - name: Upload generic PDF artifact
         uses: actions/upload-artifact@v4
         with:
           name: latex_skeleton_pdf
           path: docs/paper/latex_skeleton/main.pdf
+          if-no-files-found: error
+
+  build_emnlp2023:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install TeX (minimal)
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends \
+            texlive-latex-base texlive-latex-recommended texlive-latex-extra \
+            texlive-fonts-recommended \
+            latexmk
+
+      - name: Build EMNLP2023 template skeleton
+        working-directory: docs/paper/latex_skeleton_emnlp2023
+        run: |
+          latexmk -pdf -interaction=nonstopmode -halt-on-error main_emnlp2023.tex
+
+      - name: Upload EMNLP2023 PDF artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: latex_emnlp2023_skeleton_pdf
+          path: docs/paper/latex_skeleton_emnlp2023/main_emnlp2023.pdf
           if-no-files-found: error

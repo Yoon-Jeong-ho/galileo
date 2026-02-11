@@ -1,0 +1,65 @@
+% Minimal EMNLP template smoke test.
+\pdfoutput=1
+\documentclass[11pt]{article}
+
+% Remove [review] for camera-ready; for smoke test either is fine.
+\usepackage[review]{EMNLP2023}
+
+\usepackage{times}
+\usepackage{latexsym}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{microtype}
+\usepackage{inconsolata}
+
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{hyperref}
+
+\title{GALILEO EMNLP Template Smoke Test}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section{Figure include smoke test}
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\linewidth]{figures/protocol_overview}
+  \caption{Protocol overview (PDF include smoke test).}
+\end{figure}
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\linewidth]{figures/cross_family_survival_r5_control_vs_logicaltrap_seed1-2_20260210}
+  \caption{Cross-family survival (PDF include smoke test).}
+\end{figure}
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\linewidth]{figures/decoding_sweep_qwen_delta_seed1-2_20260211}
+  \caption{Appendix robustness: decoding sensitivity (PDF include smoke test).}
+  \label{fig:decoding-sweep}
+\end{figure}
+
+\clearpage
+\section{Claim\texorpdfstring{$\rightarrow$}{->}evidence table smoke test}
+
+\begin{table}[t]
+\centering
+\small
+\begin{tabular}{p{0.14\linewidth} p{0.30\linewidth} p{0.30\linewidth} p{0.20\linewidth}}
+\toprule
+Claim & Evidence & Tracked artifacts & Reproducer \\
+\midrule
+C1 & Survival curves + TOF & survival\_curve\_personawise...; tof\_personawise... & validate\_paper\_exports.py (results\_paper) \\
+C2 & Table W deltas (control vs persona) & table\_w\_effect\_delta... & make\_table\_w... + validate \\
+C6 & Fig.~\ref{fig:decoding-sweep} & decoding\_sweep\_qwen\_temp\_summary... & results\_paper/qwen\_temp* \\
+\bottomrule
+\end{tabular}
+\caption{Minimal claim-to-evidence table (format smoke test).}
+\end{table}
+
+\end{document}
