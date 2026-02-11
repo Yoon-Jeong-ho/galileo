@@ -764,3 +764,10 @@ This prevents process drift where the checklist contradicts the heartbeat instru
 - Monitoring: confirmed `results_paper/GLOBAL_VALIDATE.log` remains all `[OK]` and runner_metadata parity PASS.
 - STATUS refreshed to reflect taxonomy progress + updated next-step focus.
 - Key commits (selected): `8e3625c` (STATUS), plus recent EN/KO taxonomy commits up to `a280759`.
+
+### 2026-02-11 — Experiments lane: make Llama-3.2-3B seed1 paper-ready (runner_metadata + results_paper staging)
+
+- Detected Tier-1 Llama-3.2-3B seed1 run had `paper_exports/*` but failed validation due to missing `paper_exports/runner_metadata.json`.
+- Added `runner_metadata.json` (gpu_list=4, TP=1, num_samples=80, max_model_len=8192, max_tokens=2048, env=galileo) and re-ran validator: `[OK]`.
+- Copied the now-auditable run into paper SSOT root: `results_paper/tier1_llama3_3b_seed1_20260212_030426/` and re-validated.
+- Ran global parity validation over `results_paper/`: `[OK] runner_metadata parity`.
