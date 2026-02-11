@@ -31,6 +31,10 @@ Ground-truth tasks에서 multi-turn persona pressure 하에 **정답 유지(surv
 
 ## 2) RECENTLY DONE (verifiable, high-signal)
 
+### Qualitative / taxonomy (interpretability)
+- ✅ KO qualitative taxonomy substantially expanded and reorganized with multi-seed snapshot tables + multi-seed representative examples (`docs/paper/PAPER_DRAFT_KO.md`).
+- ✅ EN Appendix A.2 added: evaluator-dependent flip taxonomy (boundary/partial/semantic) + explicit separation of rare format/extraction artifacts (`docs/paper/PAPER_DRAFT_EN.md`).
+
 ### Experiments / artifacts
 - ✅ **Seed1–4 (control vs persona) are auditable green** (Qwen2.5-7B-Instruct; 80 samples/seed) with validated `paper_exports/`.
 - ✅ **Mistral-7B seeds 1–2** are auditable green and included in `results_paper/`.
@@ -65,12 +69,9 @@ Ground-truth tasks에서 multi-turn persona pressure 하에 **정답 유지(surv
 
 ## 4) NEXT HEARTBEAT (ONE step)
 
-**Paper writing: tighten the Abstract + Intro so the key claims (C1–C3) each point to one concrete figure/table and mention the Neutral Re-asking Control explicitly.**
+**Paper writing: integrate the qualitative taxonomy into the main narrative without inflating the paper.**
 
-- Deliverable: update `docs/paper/PAPER_DRAFT_EN.md` (Abstract + §1 Intro) with 2–4 sentences that reference:
-  - Fig.~\ref{fig:protocol} (protocol overview)
-  - Table W effect deltas (control vs persona) as the drift-baselined core result
-  - Recovery@flip (distinct axis) and the existence of the intervention ablation
+- Deliverable: update `docs/paper/PAPER_DRAFT_EN.md` to add 1–2 short cross-references from Results/Limitations to Appendix~A.2 (avoid new figures), and ensure terminology is consistent (boundary/partial/semantic + format/extraction failure).
 
 ---
 
