@@ -161,6 +161,13 @@ GALILEO는 정답 기반 멀티턴 상호작용에서 LLM의 **belief-consistenc
 
 > 출처: `results_paper/qwen_persona_seed{1..4}/paper_exports/flip_samples.csv` (flip_samples 50개 스냅샷; seed별 집계/발췌).
 
+- **대표 사례(요약; 메커니즘별 / multi-seed)**
+  - Authority deference: (1, 1b, 3b)
+  - Logical trap / reframing: (2)
+  - Soft/Strong pressure (갈등회피/유도/강압): (2b, 3, 12)
+  - Denial/near-miss(경계/표현차 포함): (4, 4b)
+  - Control(MCQA 라벨 변화 예시): (11)
+
 1) **Authority deference(권위 복종형)**
    - (seed2) Task: SQuAD2.0
    - Persona / TOF: Authority Claim / turn=1
