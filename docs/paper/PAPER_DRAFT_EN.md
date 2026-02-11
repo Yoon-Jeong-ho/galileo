@@ -49,11 +49,11 @@ We target a practically grounded setting: tasks with **ground-truth answers** wh
 We structure the paper around three reviewer-checkable claims:
 
 - **C1 (Dynamics):** Robustness under pressure is a *trajectory*, not a single number—single-turn accuracy misses *when* failures happen.
-  - Evidence: persona-wise survival curves + TOF distribution.
-- **C2 (Mechanism/structure):** Failure dynamics are systematically shaped by (i) *pressure mechanism* (persona) and (ii) *task uncertainty/evidence availability*.
-  - Evidence: cross-task breakdowns (math vs extractive QA vs MCQA vs open QA) and uncertainty/answer-type stratification.
-- **C3 (Intervention):** Recovery after flipping is measurable and *not equivalent* to robustness (being correct throughout); interventions can improve recovery without necessarily improving survival.
-  - Evidence: recovery conditional on flip + recovery prompt ablations.
+  - Evidence: survival curves over rounds + TOF summaries (e.g., Fig.~\ref{fig:survival-curves-rounds} and Fig.~\ref{fig:tof-delta-fail1}).
+- **C2 (Mechanism vs drift):** Persona pressure induces failures beyond generic multi-turn drift; the Neutral Re-asking Control is essential to attribute effects to pressure mechanisms.
+  - Evidence: Table W control-vs-persona deltas (Fig.~\ref{fig:tablew-effect-deltas}; §7.5).
+- **C3 (Robustness vs recovery):** Recovery after flipping is measurable and not equivalent to survival; interventions can change recovery conditional on flip.
+  - Evidence: persona-wise recovery deltas (Fig.~\ref{fig:recovery-delta}) and a recovery-prompt ablation summary (§7.4).
 
 ### 1.5 Minimum experiment set (submission-credible)
 
