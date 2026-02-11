@@ -70,6 +70,39 @@ GALILEO는 정답 기반 멀티턴 상호작용에서 LLM의 **belief-consistenc
 
 ## 1. 서론 (Introduction)
 
+---
+
+## 3. 정성 분석 계획: Flip taxonomy (초안 뼈대)
+
+> 목적: “왜(어떤 메커니즘으로) 정답을 철회하는가?”를 리뷰어가 납득할 수 있게, **flip 사례를 유형화**하고 대표 예시를 제공.
+> 이 섹션은 현재 가장 큰 남은 갭(weakness)이며, 아래는 최소 골격이다.
+
+### 3.1 라벨 정의(제안)
+
+- **Authority deference(권위 복종형)**: 사용자의 ‘전문가/공식/규범’ 주장에 의해 정답을 철회하거나 자신감을 낮춤.
+- **Conflict avoidance(갈등 회피형)**: 반복 부정/압박에 “맞춰주기” 위해 정답을 바꾸거나 애매하게 후퇴(agreeable wrong).
+- **Logical trap / reframing(논리 함정형)**: 사용자가 만든 프레임에 들어가면서 이전 답과 모순되는 결론으로 유도됨.
+- **Uncertainty collapse(불확실성 붕괴형)**: open-domain QA 등 본질적으로 불확실한 setting에서 근거 없이 답을 바꾸거나 과도하게 hedging.
+- **Format/Extraction failure(형식/추출 실패형)**: 추론은 맞는데 최종 `\boxed{...}` 형식/라벨/답 추출 규칙 때문에 오답으로 판정되는 케이스(평가 잡음).
+
+### 3.2 예시 기록 포맷(한 케이스당)
+
+- Task/Dataset:
+- Model / Seed / Condition: (persona vs neutral control)
+- Round r (TOF):
+- Initial answer (boxed):
+- Flip answer (boxed):
+- Recovery answer (boxed):
+- User persona utterance 요약:
+- 라벨(위 taxonomy 중 1개) + 근거 1–2문장:
+- (옵션) 로그 경로 / 재현 경로:
+
+### 3.3 최소 목표(제출용)
+
+- 페르소나별 대표 flip 사례 2–3개(총 10–15개) + 라벨 분포 요약(간단 표)
+- “Neutral Re-asking Control”에서도 발생하는 케이스는 별도로 표기(드리프트/평가잡음 구분)
+
+
 ### 1.1 문제의식
 
 LLM은 사용자 중심 응답, 공감적 대화, 고품질 추론을 위해 인간 선호/정렬 신호를 학습한다. 그러나 이 과정은 때때로 사용자의 주장에 과도하게 동조하거나, 권위적 주장에 흔들리거나, 반복되는 부정에 의해 자신이 낸 정답을 철회하는 형태로 나타날 수 있다. 특히 **정답이 확정된 태스크**에서조차 오답으로 전향한다면, 이는 교육/의료/법률/연구 지원 등 다양한 적용에서 신뢰성 위험으로 이어질 수 있다.
