@@ -458,57 +458,16 @@ We ran a minimal decoding sweep over the multi-turn phase temperature (`--greedy
 
 ## 9. Claims → evidence map (reviewer-facing)
 
-This section is written for reviewers: each claim is paired with the *minimum* evidence we will provide (table/figure/analysis) and where it lives in the repo.
+This section is written for reviewers: each claim is paired with the *minimum* evidence we will provide and where it lives in the repo.
 
-### Claim C1: Robustness under pressure is a *multi-turn dynamic*, not a single number
-- Evidence:
-  - **Survival curves** (persona × round) per dataset + aggregated.
-  - **Turn-of-failure (TOF)** distribution (fail@1 / never-fail).
-- Artifacts:
-  - `results/**/paper_exports/survival_curve.csv`
-  - `results/**/paper_exports/turn_of_failure.csv`
-  - `paper_figures/` (SVG survival curves and TOF plots)
-
-### Claim C2: Persona mechanisms induce systematically different failure dynamics
-- Evidence:
-  - Persona-wise survival@R and TOF heatmaps/tables **with the Neutral Re-asking Control as drift baseline**.
-  - Qualitative flip taxonomy with representative examples per persona.
-- Artifacts:
-  - `results/**/paper_tables_final/table_survival_r5.csv`
-  - `results/**/paper_tables_final/table_control_vs_persona.csv` (or Table W equivalent)
-  - `results/**/paper_taxonomy/*.csv`
-  - `PAPER_RESULTS_ANALYSIS_KO.md` + `PAPER_RESULTS_QUAL_EXAMPLES_KO.md`
-
-### Claim C3: Recovery is measurable and behaves differently across tasks/personas
-- Evidence:
-  - Recovery accuracy conditional on flip (`Recovery(p)`), with variant ablation.
-- Artifacts:
-  - `results/**/paper_tables_final/table_recovery.csv`
-  - `run_experiment.py --recovery_variant ...` (documented in README)
-
-### Claim C4: The phenomenon generalizes beyond a single model family
-- Evidence:
-  - At least one additional family (e.g., Llama/Mistral/EXAONE) with the same protocol.
-- Artifacts:
-  - Additional `results/...` roots + same export schema.
-  - README “EMNLP Main readiness” checklist section.
-
-### Claim C5: Reproducibility is first-class (strict data, multi-seed, paper-ready exports)
-- Evidence:
-  - Multi-seed aggregation (mean±std) and deterministic sampling.
-  - One-command reproduction instructions.
-  - Paper-ready export schema + validator parity check (reviewer-auditable).
-- Artifacts:
-  - `scripts/run_multiseed_tmux.sh`, `scripts/aggregate_multiseed.py`
-  - `scripts/validate_paper_exports.py --results_root results_paper --check_runner_parity` (see `results_paper/GLOBAL_VALIDATE.log`)
-  - `README.md` (pipeline A/B/C + readiness)
-
-### Claim C6 (Robustness check, appendix): decoding sensitivity does not qualitatively change persona–control gaps
-- Evidence:
-  - Appendix~A.1 (Fig.~\ref{fig:decoding-sweep})
-- Artifacts:
-  - `docs/paper/artifacts/decoding_sweep_qwen_temp_summary_seed1-2_20260211.csv`
-  - paper-ready runs: `results_paper/qwen_temp0_seed{1,2}`, `results_paper/qwen_temp0p7_seed{1,2}` (validated in `results_paper/GLOBAL_VALIDATE.log`)
+Claim | Evidence (figure/table) | Tracked artifact(s) | Reproducer / paper-ready run
+---|---|---|---
+C1 (Dynamics): failures are multi-turn trajectories; survival/TOF needed beyond initial accuracy. | `docs/paper/figures/survival_curves_rounds_seed1-4_20260209.svg`; `docs/paper/figures/tof_personawise_fail1_delta_seed1-4_20260209.svg` | `docs/paper/artifacts/survival_curve_personawise_control_vs_persona_seed1-4_mean_std_20260209.csv`; `docs/paper/artifacts/tof_personawise_fail1_never_control_vs_persona_seed1-4_mean_std_20260209.csv` | nlp8: `python3 scripts/validate_paper_exports.py --results_root results_paper --check_runner_parity` (see `results_paper/GLOBAL_VALIDATE.log`)
+C2 (Mechanism vs drift): persona pressure causes effects beyond generic drift; control baseline is essential. | `docs/paper/figures/table_w_effect_delta_seed1-4_20260209.svg` (includes Neutral Re-asking Control as drift baseline) | `docs/paper/artifacts/table_w_effect_delta_seed1-4_20260209.csv`; `docs/paper/artifacts/table_w_control_vs_persona_seed1-4_mean_std_20260209.csv` | generator: `scripts/make_table_w_control_vs_persona.py --control_persona_id neutral_reask_control --round 5`; validate via `results_paper/GLOBAL_VALIDATE.log`
+C3 (Robustness vs recovery): recovery@flip is distinct from survival; interventions affect recovery differently. | `docs/paper/figures/recovery_personawise_delta_seed1-4_20260209.svg` (baseline) + cross-ref §7.4 ablation summary | `docs/paper/artifacts/recovery_personawise_control_vs_persona_seed1-4_mean_std_20260209.csv`; `docs/paper/artifacts/tier1_qwen2p5_7b_vta_seed1-2_recovery_collapsed_20260210.csv` | paper-ready runs: `results_paper/qwen_control_seed{1..4}`, `results_paper/qwen_persona_seed{1..4}`, `results_paper/qwen_vta_seed{1,2}`; validate via `scripts/validate_paper_exports.py --results_root results_paper --check_runner_parity`
+C4 (Cross-family): effects replicate across model families under the same protocol. | `docs/paper/figures/cross_family_survival_r5_control_vs_logicaltrap_seed1-2_20260210.svg` | `docs/paper/artifacts/tier1_mistral7b_seed1-2_survival_summary_20260210.csv`; `docs/paper/artifacts/tier1_llama3_8b_seed1-2_survival_summary_20260210.csv` | paper-ready runs: `results_paper/mistral_seed{1,2}`, `results_paper/llama_seed{1,2}`; validate via `results_paper/GLOBAL_VALIDATE.log`
+C5 (Reproducibility): strict data + paper-ready exports + parity validation. | (protocol+pipeline) `docs/paper/figures/protocol_overview.svg` + validator log | `results/**/paper_exports/{survival_curve.csv,turn_of_failure.csv,flip_samples.csv,metadata.json,runner_metadata.json}` | `python3 scripts/validate_paper_exports.py --results_root results_paper --check_runner_parity` (PASS in `results_paper/GLOBAL_VALIDATE.log`)
+C6 (Appendix robustness): decoding sensitivity does not qualitatively change persona–control gaps. | Appendix~A.1, Fig.~\ref{fig:decoding-sweep} | `docs/paper/artifacts/decoding_sweep_qwen_temp_summary_seed1-2_20260211.csv` | `results_paper/qwen_temp0_seed{1,2}`, `results_paper/qwen_temp0p7_seed{1,2}`; validate via `results_paper/GLOBAL_VALIDATE.log`
 
 
 ## 10. Limitations and ethics (draft notes)
