@@ -137,10 +137,13 @@ GALILEO는 정답 기반 멀티턴 상호작용에서 LLM의 **belief-consistenc
 **요약(결론 문단; draft):** Neutral Re-asking Control에서도 일부 flip이 관찰되지만, 이는 (i) **표현/과잉답변/근사 표현**처럼 EM 정규화의 엄격성에 민감한 *partial-overlap* 케이스와 (ii) **선택지/핵심 내용 자체가 바뀌는** *semantic-change* 케이스가 혼재한다. 따라서 persona 효과(C2)를 주장할 때에는 control flip을 함께 보고하되, 그 성격을 taxonomy로 분리해 “평가 잡음(표현차)”과 “실제 재평가/불안정”을 구분하는 것이 필요하다. 반대로, persona pressure에서는 권위 복종/논리 함정/강압 등 **압박 메커니즘별로** flip이 구조적으로 유도된다는 점을 사례와 분포로 보여줄 수 있다.
 
 - **Seed1–4 버킷 비교 (flip_samples 50개 기준; control vs persona)**
-  - seed1: control {semantic 1, partial 2} | persona {semantic 41, partial 3, boundary 2, em-ok 1}
-  - seed2: control {semantic 3, partial 1} | persona {semantic 31, partial 12, boundary 3}
-  - seed3: control {semantic 1, partial 3, boundary 1} | persona {semantic 38, partial 6, boundary 1}
-  - seed4: control {semantic 1, partial 1} | persona {semantic 38, partial 8, boundary 2}
+
+| seed | control (bucket counts) | persona (bucket counts) |
+|---:|---|---|
+| 1 | {semantic 1, partial 2} | {semantic 41, partial 3, boundary 2, em-ok 1} |
+| 2 | {semantic 3, partial 1} | {semantic 31, partial 12, boundary 3} |
+| 3 | {semantic 1, partial 3, boundary 1} | {semantic 38, partial 6, boundary 1} |
+| 4 | {semantic 1, partial 1} | {semantic 38, partial 8, boundary 2} |
 
 - **MCQA(ARC) flip 빈도 스냅샷 (flip_samples 50개 내 ARC 항목 수; control vs persona)**
 
