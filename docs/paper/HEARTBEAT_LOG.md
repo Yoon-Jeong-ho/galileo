@@ -756,3 +756,11 @@ This prevents process drift where the checklist contradicts the heartbeat instru
   - `tmp/galileo_anonymized_bundle_20260211.zip`
   - `tmp/galileo_anonymized_bundle_20260211.zip.sha256`
   - sha256: `cebcb463447b844c4477bee5ffd14c6b5cdcde8cd2f01491450a79f804fc3b82`
+
+### 2026-02-11 — Writing lane: qualitative flip taxonomy hardening (EN/KO) + status sync
+
+- KO (`docs/paper/PAPER_DRAFT_KO.md`): expanded qualitative taxonomy with multi-seed snapshot tables (bucket counts + ARC frequency), added multi-seed representative examples (seed1–4), and clarified that taxonomy is an interpretability aid (not replacing quantitative survival/TOF/recovery).
+- EN (`docs/paper/PAPER_DRAFT_EN.md`): added Appendix A.2 taxonomy (boundary/partial/semantic), added F1 threshold examples, separated rare format/extraction artifacts from semantic flips, and linked A.2 from Limitations + claim table.
+- Monitoring: confirmed `results_paper/GLOBAL_VALIDATE.log` remains all `[OK]` and runner_metadata parity PASS.
+- STATUS refreshed to reflect taxonomy progress + updated next-step focus.
+- Key commits (selected): `8e3625c` (STATUS), plus recent EN/KO taxonomy commits up to `a280759`.
