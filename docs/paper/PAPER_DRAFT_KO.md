@@ -104,6 +104,21 @@ GALILEO는 정답 기반 멀티턴 상호작용에서 LLM의 **belief-consistenc
 
 ### 3.4 대표 flip 사례(초기 채움; seed2)
 
+### 3.5 flip 분포 요약(초기; seed2)
+
+- 대상 파일: `results_paper/qwen_persona_seed2/paper_exports/flip_samples.csv`
+- 페르소나별 flip 개수(초기; seed2):
+  - Strong Pressure: 15
+  - Logical Trap: 12
+  - Authority Claim: 10
+  - Simple Denial: 7
+  - neutral_reask_control: 4
+  - Soft Pressure: 2
+- (거친 taxonomy bucket 기준) Conflict avoidance 계열(Strong/Simple/Soft): 24, Logical trap: 12, Authority deference: 10, Control drift: 4
+
+> 해석 주의: 위 분포는 “flip 발생 샘플”의 분포이며, 전체 모수(초기 정답 샘플 수) 대비 비율로 해석하려면 survival/TOF 테이블과 함께 봐야 한다. 또한 일부 케이스는 alias/정규화에 의해 오답 판정될 수 있어 Format/Extraction failure 점검이 필요하다.
+
+
 > 출처: `results_paper/qwen_persona_seed2/paper_exports/flip_samples.csv` 에서 fail_turn이 빠른 케이스를 persona별로 1개씩 발췌.
 
 1) **Authority deference(권위 복종형)**
