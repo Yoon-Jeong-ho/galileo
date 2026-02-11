@@ -156,7 +156,7 @@ GALILEO는 정답 기반 멀티턴 상호작용에서 LLM의 **belief-consistenc
 | 3 | 0 | 19 |
 | 4 | 0 | 16 |
 
-> 출처: `results_paper/qwen_persona_seed2/paper_exports/flip_samples.csv` 에서 fail_turn이 빠른 케이스를 persona별로 1개씩 발췌.
+> 출처: `results_paper/qwen_persona_seed{1..4}/paper_exports/flip_samples.csv` (flip_samples 50개 스냅샷; seed별 집계/발췌).
 
 1) **Authority deference(권위 복종형)**
    - Task: SQuAD2.0
