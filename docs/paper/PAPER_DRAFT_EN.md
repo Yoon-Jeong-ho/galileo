@@ -362,19 +362,7 @@ Unless stated otherwise, results are reported as mean±std over **seeds 1–4** 
 
 **Intervention ablation (Tier‑1; Qwen2.5‑7B‑Instruct; seeds 1–2; `recovery_variant=verify_then_answer`).** As a first recovery-prompt variant, we ran a verify-then-answer style intervention and still observe strong persona-induced robustness drops relative to the Neutral Re-asking Control (e.g., control **Survival@5 mean = 79.96%**, while **Authority Claim mean: 42.72%**, **Simple Denial mean: 48.88%**; tracked artifact `docs/paper/artifacts/tier1_qwen2p5_7b_vta_seed1-2_survival_summary_20260210.csv`). Collapsing recovery conditional on flip across tasks, the control recovers **35.00%** (56/160) while persona settings recover **24.10%** (443/1838; tracked artifact `docs/paper/artifacts/tier1_qwen2p5_7b_vta_seed1-2_recovery_collapsed_20260210.csv`). Note this variant is not directly comparable to the seed1–4 baseline recovery numbers (different recovery prompt); relative to the baseline’s near-zero persona–control gap (Δ≈−0.07 points), this two-seed variant exhibits a larger negative gap (Δ≈−10.90 points; tracked artifact `docs/paper/artifacts/recovery_variant_verify_then_answer_vs_baseline_seed1-2_20260210.csv`).
 
-**Decoding sensitivity (Tier‑1; Qwen2.5‑7B‑Instruct; seeds 1–2).** We ran a minimal decoding sweep over the multi-turn phase temperature (`--greedy_temperature` for adversarial+recovery turns) and the main robustness gap persists. Aggregating over seeds 1–2, the Neutral Re-asking Control achieves **Survival@5 = 82.17%** at temp=0.0 and **80.15%** at temp=0.7, while the mean Survival@5 across personas is **56.65%** (temp=0.0) and **53.56%** (temp=0.7), corresponding to a stable persona–control effect of **ΔSurvival@5 ≈ −25.52 to −26.59 points**. Early-turn vulnerability is also stable: **ΔFail@1 ≈ +8.08 to +8.90 points** (persona mean − control) across the two temperatures. See Fig.~\ref{fig:decoding-sweep} and tracked artifact `docs/paper/artifacts/decoding_sweep_qwen_temp_summary_seed1-2_20260211.csv` (paper-ready runs: `results_paper/qwen_temp0_seed{1,2}`, `results_paper/qwen_temp0p7_seed{1,2}`; `results_paper/GLOBAL_VALIDATE.log` all `[OK]`).
-
-**Paper include (LaTeX snippet).**
-
-```latex
-% Source SVG (repo): docs/paper/figures/decoding_sweep_qwen_delta_seed1-2_20260211.svg
-\begin{figure}[t]
-  \centering
-  \includegraphics[width=\linewidth]{figures/decoding_sweep_qwen_delta_seed1-2_20260211}
-  \caption{Decoding sensitivity for the multi-turn phase. Bars show the persona-mean effect relative to the Neutral Re-asking Control: \(\Delta\)Survival@5 and \(\Delta\)Fail@1 (persona mean − control), averaged over seeds 1--2. The persona-induced robustness gap persists across temperatures.}
-  \label{fig:decoding-sweep}
-\end{figure}
-```
+**Decoding sensitivity (appendix robustness check).** See Appendix~A.1 (Fig.~\ref{fig:decoding-sweep}) and tracked artifact `docs/paper/artifacts/decoding_sweep_qwen_temp_summary_seed1-2_20260211.csv` (paper-ready runs: `results_paper/qwen_temp0_seed{1,2}`, `results_paper/qwen_temp0p7_seed{1,2}`; `results_paper/GLOBAL_VALIDATE.log` all `[OK]`).
 
 ### 7.5 Persona pressure vs drift: control comparison (supports C2, rebuttal)
 
@@ -445,6 +433,26 @@ Never-fail | 80.32±0.67 | 57.86±0.84 | 57.83±0.81
   - Source-of-truth vector figures are generated as SVG under `docs/paper/figures/` (from tracked artifacts).
   - If the LaTeX pipeline prefers PDF, we provide a reproducible conversion script: `scripts/convert_figures_svg_to_pdf.sh`.
 - **Control condition is always exported.** Export schema includes the **Neutral Re-asking Control** under a stable identifier (e.g., `neutral_reask_control`) so plots/tables can include it by default.
+
+---
+
+## Appendix A. Robustness checks (optional)
+
+### A.1 Decoding sensitivity (Tier‑1; Qwen2.5‑7B‑Instruct; seeds 1–2)
+
+We ran a minimal decoding sweep over the multi-turn phase temperature (`--greedy_temperature` for adversarial+recovery turns) and the main robustness gap persists. Aggregating over seeds 1–2, the Neutral Re-asking Control achieves **Survival@5 = 82.17%** at temp=0.0 and **80.15%** at temp=0.7, while the mean Survival@5 across personas is **56.65%** (temp=0.0) and **53.56%** (temp=0.7), corresponding to a stable persona–control effect of **ΔSurvival@5 ≈ −25.52 to −26.59 points**. Early-turn vulnerability is also stable: **ΔFail@1 ≈ +8.08 to +8.90 points** (persona mean − control) across the two temperatures. See tracked artifact `docs/paper/artifacts/decoding_sweep_qwen_temp_summary_seed1-2_20260211.csv` (paper-ready runs: `results_paper/qwen_temp0_seed{1,2}`, `results_paper/qwen_temp0p7_seed{1,2}`; `results_paper/GLOBAL_VALIDATE.log` all `[OK]`).
+
+**Paper include (LaTeX snippet).**
+
+```latex
+% Source SVG (repo): docs/paper/figures/decoding_sweep_qwen_delta_seed1-2_20260211.svg
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\linewidth]{figures/decoding_sweep_qwen_delta_seed1-2_20260211}
+  \caption{Decoding sensitivity for the multi-turn phase. Bars show the persona-mean effect relative to the Neutral Re-asking Control: \(\Delta\)Survival@5 and \(\Delta\)Fail@1 (persona mean − control), averaged over seeds 1--2. The persona-induced robustness gap persists across temperatures.}
+  \label{fig:decoding-sweep}
+\end{figure}
+```
 
 ---
 
