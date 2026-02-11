@@ -52,6 +52,14 @@ ssh nlp8 '
 
 ## 2) Launch discipline
 
+### Known model/hardware pitfalls (nlp8 RTX8000)
+
+- **Gemma2 + vLLM (Triton unified attention)** can fail on RTX8000 (cc7.5) with:
+  - `OutOfResources: shared memory ... Required: 81920, Hardware limit: 65536`
+  - and/or a strict check when `--max_model_len` exceeds the model's `max_position_embeddings`.
+
+If you need an additional cross-family model, prefer a model family already known to run cleanly on this hardware, or run a quick smoke test before committing a full seed sweep.
+
 - Prefer **one run per GPU** (4/5/6).
 - Each run must have its own `OUT=results/<run>/`.
 - A run is paper-ready only if it emits:
