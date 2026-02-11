@@ -771,3 +771,6 @@ This prevents process drift where the checklist contradicts the heartbeat instru
 - Added `runner_metadata.json` (gpu_list=4, TP=1, num_samples=80, max_model_len=8192, max_tokens=2048, env=galileo) and re-ran validator: `[OK]`.
 - Copied the now-auditable run into paper SSOT root: `results_paper/tier1_llama3_3b_seed1_20260212_030426/` and re-validated.
 - Ran global parity validation over `results_paper/`: `[OK] runner_metadata parity`.
+
+### 2026-02-11 — Writing lane: mention Llama-3.2-3B seed1 cross-family check
+- PAPER_DRAFT_EN: note additional Llama-3.2-3B seed1 check + add results_paper path to claim→evidence row.
