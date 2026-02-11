@@ -114,7 +114,12 @@ GALILEO는 정답 기반 멀티턴 상호작용에서 LLM의 **belief-consistenc
   - Simple Denial: 7
   - neutral_reask_control: 4
   - Soft Pressure: 2
-- (거친 taxonomy bucket 기준) Conflict avoidance 계열(Strong/Simple/Soft): 24, Logical trap: 12, Authority deference: 10, Control drift: 4
+- (multi-seed 스냅샷; seed1–4 각각 flip_samples는 50개 사례를 포함)
+  - seed1: Strong 15 / Authority 13 / Soft 8 / Logical 6 / Simple 5 / Control 3
+  - seed2: Strong 15 / Logical 12 / Authority 10 / Simple 7 / Control 4 / Soft 2
+  - seed3: Simple 13 / Authority 12 / Strong 7 / Soft 7 / Logical 6 / Control 5
+  - seed4: Simple 12 / Authority 10 / Strong 9 / Logical 9 / Soft 8 / Control 2
+- (거친 taxonomy bucket 기준; seed2) Conflict avoidance 계열(Strong/Simple/Soft): 24, Logical trap: 12, Authority deference: 10, Control drift: 4
 
 > 해석 주의: 위 분포는 “flip 발생 샘플”의 분포이며, 전체 모수(초기 정답 샘플 수) 대비 비율로 해석하려면 survival/TOF 테이블과 함께 봐야 한다. 또한 일부 케이스는 alias/정규화에 의해 오답 판정될 수 있어 Format/Extraction failure 점검이 필요하다.
 
