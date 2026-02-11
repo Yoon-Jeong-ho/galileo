@@ -50,7 +50,10 @@ Recommended artifacts to cite in-paper:
 - [ ] Include a **non-persona drift control** (aka **Neutral Re-asking Control**) reported alongside persona curves/tables.
 
 ## 4) Reproducibility / engineering checklist
-- [ ] Single command (or 2–3 commands) to reproduce the main tables/figures.
+- [x] Single command (or 2–3 commands) to reproduce the main tables/figures.
+  - SVG figures from tracked artifacts (stdlib-only): `python3 scripts/make_paper_figures_from_artifacts.py`
+  - (Optional for LaTeX) SVG→PDF (no-sudo AppImage path): `bash scripts/get_inkscape_appimage.sh && bash scripts/convert_figures_svg_to_pdf.sh && bash scripts/check_pdf_figures.sh`
+  - Paper-ready export validation (paper SSOT): `python3 scripts/validate_paper_exports.py --results_root results_paper --check_runner_parity`
 - [ ] Results directories are self-contained and documented (what each CSV/JSONL means).
 - [ ] Each reported result bundle has a passing validation log (e.g., `GLOBAL_VALIDATE.log` from `scripts/validate_paper_exports.py --check_runner_parity`).
 - [ ] Fixed seeds documented; randomization sources described.
