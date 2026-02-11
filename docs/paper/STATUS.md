@@ -65,9 +65,13 @@ Ground-truth tasks에서 multi-turn persona pressure 하에 **정답 유지(surv
 
 ## 4) NEXT HEARTBEAT (ONE step)
 
-**Writing/process: start the claim→evidence map for the Abstract/Intro (3–5 core claims) and link each to one artifact/figure and one reproducer path.**
+**Paper/LaTeX: do an EMNLP LaTeX template smoke-test that includes our PDF figures + 1 table, to confirm compile is clean.**
 
-- Deliverable: update `docs/paper/EMNLP_MAIN_SUBMISSION_CHECKLIST.md` (or a new small table in `PAPER_DRAFT_EN.md`) with 3–5 claim rows, each with: claim text → figure/table → artifact CSV → run alias under `results_paper/`.
+- Deliverable: a minimal LaTeX skeleton under `docs/paper/latex_skeleton/` that compiles (pdflatex/latexmk) and includes:
+  - `protocol_overview.pdf`
+  - `cross_family_survival_r5_control_vs_logicaltrap_seed1-2_20260210.pdf`
+  - the Appendix A.1 decoding sweep figure
+  - the claim→evidence table (as a simple tabular)
 
 ---
 
