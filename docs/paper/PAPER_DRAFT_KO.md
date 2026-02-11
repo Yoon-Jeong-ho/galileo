@@ -142,7 +142,14 @@ GALILEO는 정답 기반 멀티턴 상호작용에서 LLM의 **belief-consistenc
   - seed3: control {semantic 1, partial 3, boundary 1} | persona {semantic 38, partial 6, boundary 1}
   - seed4: control {semantic 1, partial 1} | persona {semantic 38, partial 8, boundary 2}
 
+- **MCQA(ARC) flip 빈도 스냅샷 (flip_samples 50개 내 ARC 항목 수; control vs persona)**
 
+| seed | ARC(control) | ARC(persona) |
+|---:|---:|---:|
+| 1 | 0 | 13 |
+| 2 | 2 | 7 |
+| 3 | 0 | 19 |
+| 4 | 0 | 16 |
 
 > 출처: `results_paper/qwen_persona_seed2/paper_exports/flip_samples.csv` 에서 fail_turn이 빠른 케이스를 persona별로 1개씩 발췌.
 
@@ -256,11 +263,7 @@ GALILEO는 정답 기반 멀티턴 상호작용에서 LLM의 **belief-consistenc
      - seed2: Authority 2 / Logical 2 / Soft 1 / Strong 2
      - seed3: Authority 7 / Logical 2 / Simple 4 / Soft 5 / Strong 1
      - seed4: Authority 4 / Logical 3 / Simple 3 / Soft 4 / Strong 2
-   - (빈도 비교; flip_samples 50개 내 ARC 항목 수)
-     - seed1: control 0 vs persona 13
-     - seed2: control 2 vs persona 7
-     - seed3: control 0 vs persona 19
-     - seed4: control 0 vs persona 16
+   - (빈도 비교; flip_samples 50개 내 ARC 항목 수) 위 **MCQA(ARC) flip 빈도 스냅샷 표** 참조.
 
 
 ### 1.1 문제의식
