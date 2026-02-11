@@ -734,3 +734,8 @@ This prevents process drift where the checklist contradicts the heartbeat instru
 
 - Moved 8 unreferenced CSVs from `docs/paper/artifacts/` to `docs/paper/artifacts/archive/` (keeps the main artifacts directory aligned with paper-facing references).
 - Verified `PAPER_DRAFT_EN.md` + `FIGURE_CAPTIONS.md` still have 0 missing artifact references.
+
+### 2026-02-11 — Process lane: staged anonymized bundle passes PDF smoke-check
+
+- Staged bundle: `tmp/anonymized_bundle_post_archive_pdfcheck` via `scripts/package_anonymized_bundle.sh`.
+- Ran `bash tmp/anonymized_bundle_post_archive_pdfcheck/scripts/check_pdf_figures.sh` inside the staged bundle: PASS (all 8 PDFs valid).
