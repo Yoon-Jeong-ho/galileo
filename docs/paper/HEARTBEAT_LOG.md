@@ -774,3 +774,11 @@ This prevents process drift where the checklist contradicts the heartbeat instru
 
 ### 2026-02-11 — Writing lane: mention Llama-3.2-3B seed1 cross-family check
 - PAPER_DRAFT_EN: note additional Llama-3.2-3B seed1 check + add results_paper path to claim→evidence row.
+
+### 2026-02-11 — Experiments lane: launch Llama-3.2-3B seed2 (complete Tier‑1 cross-family seeds 1–2)
+
+- Launched on nlp8 GPU5 (TP=1, max_model_len=8192, max_tokens=2048, num_samples=80) in tmux:
+  - session: `tier1_llama3_3b_s2_g5_20260212_042339`
+  - OUT: `results/tier1_llama3_3b_seed2_20260212_042339/`
+- Command (in tmux): `CUDA_VISIBLE_DEVICES=5 conda run -n galileo python run_experiment.py --model meta-llama/Llama-3.2-3B-Instruct ... --seed 2`.
+- Next when finished: run `scripts/paper_export.py`, add `paper_exports/runner_metadata.json`, validate, then copy into `results_paper/` and run global parity validation.
