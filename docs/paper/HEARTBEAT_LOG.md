@@ -739,3 +739,11 @@ This prevents process drift where the checklist contradicts the heartbeat instru
 
 - Staged bundle: `tmp/anonymized_bundle_post_archive_pdfcheck` via `scripts/package_anonymized_bundle.sh`.
 - Ran `bash tmp/anonymized_bundle_post_archive_pdfcheck/scripts/check_pdf_figures.sh` inside the staged bundle: PASS (all 8 PDFs valid).
+
+### 2026-02-11 — Process lane: archive anonymized bundle (tar.gz + sha256)
+
+- Added `scripts/archive_anonymized_bundle.sh` to create a tar.gz archive + sha256 checksum from a staged bundle dir.
+- Produced:
+  - `tmp/galileo_anonymized_bundle_20260211.tar.gz`
+  - `tmp/galileo_anonymized_bundle_20260211.tar.gz.sha256`
+  - sha256: `a443c2ccbdffde4c2e4811637940cd46a5573e6e09cf94453cc9a561d4de51e7`
