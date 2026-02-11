@@ -134,7 +134,7 @@ GALILEO는 정답 기반 멀티턴 상호작용에서 LLM의 **belief-consistenc
 
 > 해석 주의: 위 분포는 “flip 발생 샘플”의 분포이며, 전체 모수(초기 정답 샘플 수) 대비 비율로 해석하려면 survival/TOF 테이블과 함께 봐야 한다. 또한 일부 케이스는 alias/정규화에 의해 오답 판정될 수 있어 Format/Extraction failure 점검이 필요하다.
 
-**요약(결론 문단; draft):** Neutral Re-asking Control에서도 일부 flip이 관찰되지만, 이는 (i) **표현/과잉답변/근사 표현**처럼 EM 정규화의 엄격성에 민감한 *partial-overlap* 케이스와 (ii) **선택지/핵심 내용 자체가 바뀌는** *semantic-change* 케이스가 혼재한다. 따라서 persona 효과(C2)를 주장할 때에는 control flip을 함께 보고하되, 그 성격을 taxonomy로 분리해 “평가 잡음(표현차)”과 “실제 재평가/불안정”을 구분하는 것이 필요하다. 반대로, persona pressure에서는 권위 복종/논리 함정/강압 등 **압박 메커니즘별로** flip이 구조적으로 유도된다는 점을 사례와 분포로 보여줄 수 있다. (예: seed2의 flip_samples 50개에서 control(4개)은 semantic-change 3 / partial-overlap 1인 반면, persona(46개)는 semantic-change 31 / partial-overlap 12 / boundary 3으로 의미 변화 비중이 더 큼.)
+**요약(결론 문단; draft):** Neutral Re-asking Control에서도 일부 flip이 관찰되지만, 이는 (i) **표현/과잉답변/근사 표현**처럼 EM 정규화의 엄격성에 민감한 *partial-overlap* 케이스와 (ii) **선택지/핵심 내용 자체가 바뀌는** *semantic-change* 케이스가 혼재한다. 따라서 persona 효과(C2)를 주장할 때에는 control flip을 함께 보고하되, 그 성격을 taxonomy로 분리해 “평가 잡음(표현차)”과 “실제 재평가/불안정”을 구분하는 것이 필요하다. 반대로, persona pressure에서는 권위 복종/논리 함정/강압 등 **압박 메커니즘별로** flip이 구조적으로 유도된다는 점을 사례와 분포로 보여줄 수 있다. (예: flip_samples 50개 기준으로 seed1/2/3에서 control은 각각 {semantic 1, partial 2} / {semantic 3, partial 1} / {semantic 1, partial 3, boundary 1}인 반면, persona는 seed1: {semantic 41, partial 3, boundary 2, em-ok 1}, seed2: {semantic 31, partial 12, boundary 3}, seed3: {semantic 38, partial 6, boundary 1}로 semantic-change 비중이 훨씬 큼.)
 
 
 > 출처: `results_paper/qwen_persona_seed2/paper_exports/flip_samples.csv` 에서 fail_turn이 빠른 케이스를 persona별로 1개씩 발췌.
