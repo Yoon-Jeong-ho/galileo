@@ -251,7 +251,7 @@ A closely related but complementary line studies **belief revision** under *chan
 
 ## 7. Results
 
-Unless stated otherwise, results are reported as mean±std over **seeds 1–4** (Qwen2.5-7B-Instruct; 80 samples/seed) from **auditable green** runs, with paper-ready exports under `results/<run>/paper_exports/` and small, tracked summary artifacts under `docs/paper/artifacts/`. For an interpretive breakdown of flip *types* (boundary/partial-overlap/semantic-change, plus rare format/extraction artifacts), see Appendix~A.2.
+Unless stated otherwise, results are reported as mean±std over **seeds 1–4** (Qwen2.5-7B-Instruct; 80 samples/seed) from **auditable green** runs, with paper-ready exports under `results/<run>/paper_exports/` and small, tracked summary artifacts under `docs/paper/artifacts/`. For an interpretive breakdown of flip *types* (boundary/partial-overlap/semantic-change, plus rare format/extraction artifacts), we refer readers to Appendix~A.2.
 
 ### 7.1 Main robustness dynamics: survival curves (supports C1, C2)
 
