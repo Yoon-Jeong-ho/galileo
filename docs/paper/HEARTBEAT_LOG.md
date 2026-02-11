@@ -729,3 +729,8 @@ This prevents process drift where the checklist contradicts the heartbeat instru
 - Checked `docs/paper/PAPER_DRAFT_EN.md` + `docs/paper/FIGURE_CAPTIONS.md` for brace-expanded artifact paths: none found.
 - Verified artifact references are complete: 15 referenced CSVs and 0 missing under `docs/paper/artifacts/`.
 - Found 8 unreferenced CSVs (safe to keep internal; bundler now excludes by default).
+
+### 2026-02-11 — Process lane: archive unreferenced artifacts to reduce confusion
+
+- Moved 8 unreferenced CSVs from `docs/paper/artifacts/` to `docs/paper/artifacts/archive/` (keeps the main artifacts directory aligned with paper-facing references).
+- Verified `PAPER_DRAFT_EN.md` + `FIGURE_CAPTIONS.md` still have 0 missing artifact references.
