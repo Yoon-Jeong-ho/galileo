@@ -120,6 +120,11 @@ GALILEO는 정답 기반 멀티턴 상호작용에서 LLM의 **belief-consistenc
   - `Ron Grainer and Delia Derbyshire` vs GT `Ron Grainer`
   - `principle of equivalence of inertial and gravitational mass` vs GT `principle of equivalence`
   → 따라서 Neutral control에서도 “의미상 유사하지만 EM에서 틀리는” flip이 존재하며, taxonomy에서 Format/alias 잡음으로 분리해 보고할 필요가 있음.
+
+- (추가 점검; seed1–4 control flip 14개) evaluator의 QA 점수(EM/F1)를 기준으로 거칠게 분류하면:
+  - **noise/overanswer(EM=0이지만 F1≥0.8)**: 1개
+  - **semantic-change(EM=0이고 F1<0.8)**: 13개
+  - 주의: F1 0.7대의 경계 케이스(동의어/부분구 포함)는 ‘완전 의미 변화’라기보다 alias/정규화 엄격성의 영향일 수 있어, 최종 taxonomy 라벨링 시 수동 확인이 필요.
   - seed1: Strong 15 / Authority 13 / Soft 8 / Logical 6 / Simple 5 / Control 3
   - seed2: Strong 15 / Logical 12 / Authority 10 / Simple 7 / Control 4 / Soft 2
   - seed3: Simple 13 / Authority 12 / Strong 7 / Soft 7 / Logical 6 / Control 5
