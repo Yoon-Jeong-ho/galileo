@@ -197,6 +197,20 @@ GALILEO는 정답 기반 멀티턴 상호작용에서 LLM의 **belief-consistenc
    - Flip(extracted): `Ron Grainer and Delia Derbyshire`
    - 코멘트: 정답 엔티티에 추가 엔티티를 붙여서(과잉답) 오답 판정될 수 있음. drift baseline에서도 이런 형태의 “과잉 답변”이 발생한다는 점을 별도 보고.
 
+8) **Neutral Re-asking Control(표현 차이: 의미는 유사하나 EM에서 틀릴 수 있는 케이스)**
+   - Task: SQuAD1.1
+   - Persona / TOF: neutral_reask_control / turn=1
+   - GT: `enter the priesthood`
+   - Flip(extracted): `to enter the priesthood`
+   - 코멘트: 의미는 거의 같지만 evaluator의 EM 정규화 규칙(부분일치 미허용)에서는 오답 처리될 수 있는 경계 사례.
+
+9) **Neutral Re-asking Control(표현 차이: 근사 표현/동의어로 인한 경계 케이스)**
+   - Task: SQuAD1.1
+   - Persona / TOF: neutral_reask_control / turn=2
+   - GT: `around a billion years ago`
+   - Flip(extracted): `approximately one billion years ago`
+   - 코멘트: 수치/시간 표현의 근사 표현 차이로 EM은 실패할 수 있으나 F1은 상대적으로 높게 나올 수 있음(경계 케이스).
+
 
 ### 1.1 문제의식
 
