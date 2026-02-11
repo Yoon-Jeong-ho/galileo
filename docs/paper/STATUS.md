@@ -57,7 +57,7 @@ Ground-truth tasks에서 multi-turn persona pressure 하에 **정답 유지(surv
 
 ## 3) TOP GAPS (what still blocks paper quality)
 
-1) **LaTeX build readiness (PDF figures):** ✅ PDFs can now be generated **without sudo** via Inkscape AppImage (`scripts/get_inkscape_appimage.sh` → `scripts/convert_figures_svg_to_pdf.sh`; output `paper_figures/pdf/*.pdf`). Remaining step: verify **actual EMNLP LaTeX template** include/compile is clean.
+1) **LaTeX build readiness (PDF figures):** ✅ PDFs can now be generated **without sudo** via Inkscape AppImage (`scripts/get_inkscape_appimage.sh` → `scripts/convert_figures_svg_to_pdf.sh`; output `paper_figures/pdf/*.pdf`). ✅ A LaTeX smoke-test compiles in CI (`latex-smoketest` workflow builds `docs/paper/latex_skeleton/main.tex` and uploads `main.pdf`). Remaining step: run the same check under the **official EMNLP template** (documentclass/style).
 2) **Claim→evidence map completion:** for each Abstract/Intro claim, pin 1 figure/table + 1 reproducer path (script + artifact/run alias) so reviewers can verify quickly.
 3) **Experiment extension decision (Tier‑1 only):** decide whether the next marginal compute should go to (a) decoding sensitivity sweep vs (b) an additional model family vs (c) more seeds (only if CI looks fragile).
 
