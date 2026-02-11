@@ -718,3 +718,8 @@ This prevents process drift where the checklist contradicts the heartbeat instru
 ### 2026-02-11 — Process lane: document bundler defaults (PDF+SVG used-only)
 
 - Updated `scripts/package_anonymized_bundle.sh` header to document default behavior: include PDFs and SVGs, filtered to those referenced in `PAPER_DRAFT_EN.md`; disable via `INCLUDE_PDF=0` / `INCLUDE_SVG=0`.
+
+### 2026-02-11 — Process/writing lane: make artifact paths literal (avoid brace expansion)
+
+- Updated `docs/paper/PAPER_DRAFT_EN.md` to replace a brace-expanded artifact path (`seed{1,2,3,4}`) with explicit per-seed filenames, so packaging scripts and readers resolve paths unambiguously.
+- Updated `scripts/package_anonymized_bundle.sh` to copy only paper-referenced artifact CSVs by default (from `PAPER_DRAFT_EN.md` + `FIGURE_CAPTIONS.md`).

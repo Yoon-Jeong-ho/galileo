@@ -96,7 +96,43 @@ if [[ "$INCLUDE_SVG" == "1" ]]; then
   fi
 fi
 
-cp -a "$ROOT/docs/paper/artifacts"/*.csv "$OUT_DIR/docs/paper/artifacts/" || true
+# Artifacts: by default include only CSVs explicitly referenced in PAPER_DRAFT_EN.md
+# or FIGURE_CAPTIONS.md (paper-facing). This keeps bundles smaller and avoids shipping
+# internal/archived artifacts.
+# Disable artifacts entirely: INCLUDE_ARTIFACTS=0
+# Copy all artifacts: ARTIFACT_USED_ONLY=0
+INCLUDE_ARTIFACTS="${INCLUDE_ARTIFACTS:-1}"
+ARTIFACT_USED_ONLY="${ARTIFACT_USED_ONLY:-1}"
+
+if [[ "$INCLUDE_ARTIFACTS" == "1" ]]; then
+  if [[ "$ARTIFACT_USED_ONLY" == "1" ]]; then
+    used_csv=$(cat "$ROOT/docs/paper/PAPER_DRAFT_EN.md" "$ROOT/docs/paper/FIGURE_CAPTIONS.md" \
+      | grep -oE 'docs/paper/artifacts/[^` )]+\.csv' \
+      | sed -E 's#.*/##' \
+      | sort -u)
+    if [[ -z "$used_csv" ]]; then
+      echo "[WARN] ARTIFACT_USED_ONLY=1 but no artifact CSV refs found; copying all artifacts." >&2
+      cp -a "$ROOT/docs/paper/artifacts"/*.csv "$OUT_DIR/docs/paper/artifacts/" 2>/dev/null || true
+    else
+      missing_csv=0
+      while IFS= read -r fn; do
+        [[ -z "$fn" ]] && continue
+        src_csv="$ROOT/docs/paper/artifacts/${fn}"
+        if [[ -f "$src_csv" ]]; then
+          cp -a "$src_csv" "$OUT_DIR/docs/paper/artifacts/"
+        else
+          echo "[WARN] referenced artifact not found: $src_csv" >&2
+          missing_csv=$((missing_csv+1))
+        fi
+      done <<< "$used_csv"
+      if [[ $missing_csv -gt 0 ]]; then
+        echo "[WARN] $missing_csv referenced artifacts missing; artifact bundle may be incomplete." >&2
+      fi
+    fi
+  else
+    cp -a "$ROOT/docs/paper/artifacts"/*.csv "$OUT_DIR/docs/paper/artifacts/" 2>/dev/null || true
+  fi
+fi
 
 # Optional: include PDFs for LaTeX-friendly bundles.
 # Default is ON for build reliability; disable via: INCLUDE_PDF=0 ./scripts/package_anonymized_bundle.sh
