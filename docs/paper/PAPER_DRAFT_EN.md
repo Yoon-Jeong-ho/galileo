@@ -245,7 +245,7 @@ A closely related but complementary line studies **belief revision** under *chan
 - **Recovery as a separate axis:** we evaluate **recovery conditional on flipping** (and prompt-variant ablations) to separate “staying correct” from “returning to correct after being misled.”
 - **Reproducible exports:** we provide standardized per-run exports (survival/TOF/recovery) so claims can be verified directly from artifacts.
 
-**Limitations (brief).** Personas approximate social pressure but cannot cover all real conversational tactics; recovery prompts are interventions whose effects may depend on prompt design (mitigated via ablations); and open-domain QA introduces inherent ambiguity, which we treat as realism but report stratified analyses. Finally, “flip” detection depends on task-specific evaluators: for extractive QA, strict EM can mark over-answers/near-paraphrases as failures (we therefore separate *partial-overlap* vs *semantic-change* cases in a qualitative taxonomy; see Appendix~A.2), while for MCQA the label itself changes, making semantic flips unambiguous.
+**Limitations (brief).** Personas approximate social pressure but cannot cover all real conversational tactics; recovery prompts are interventions whose effects may depend on prompt design (mitigated via ablations); and open-domain QA introduces inherent ambiguity, which we treat as realism but report stratified analyses. Finally, “flip” detection depends on task-specific evaluators: for extractive QA, strict EM can mark over-answers/near-paraphrases as failures (we therefore separate boundary/partial-overlap/semantic-change cases in a qualitative taxonomy; see Appendix~A.2), while for MCQA the label itself changes, making semantic flips unambiguous.
 
 ---
 
@@ -454,7 +454,7 @@ We ran a minimal decoding sweep over the multi-turn phase temperature (`--greedy
 \end{figure}
 ```
 
-### A.2 Qualitative flip taxonomy: partial-overlap vs semantic-change (evaluator caveat)
+### A.2 Qualitative flip taxonomy: boundary vs partial-overlap vs semantic-change (evaluator caveat)
 
 In extractive QA, strict exact-match (EM) scoring can label some *near-miss* flips as failures (e.g., over-answers that contain the correct entity plus modifiers). To avoid overstating “belief change,” we qualitatively bucket flip cases using token-overlap (F1) as a diagnostic: **boundary/overanswer** (high F1), **partial-overlap** (moderate F1), and **semantic-change** (low F1, typically different entities/labels). This taxonomy is complementary to the main survival/TOF metrics: it helps interpret *what kind* of errors the Neutral Re-asking Control produces (often partial-overlap) versus persona pressure (semantic-change dominates). For MCQA, the answer is a discrete label, so label flips correspond to unambiguous semantic changes. In our qualitative samples, ARC-Easy flips under persona pressure frequently manifest as pure label flips, and the same pattern appears across multiple seeds in the Qwen2.5-7B runs.
 
