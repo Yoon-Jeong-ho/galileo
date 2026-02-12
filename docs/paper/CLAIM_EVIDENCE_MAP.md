@@ -73,15 +73,12 @@ This file is intentionally short and pragmatic (SSOT for “what proves what”)
 
 **Primary evidence (paper-facing)**
 - Cross-family visualization (control vs strong persona):
-  - Figure (SVG): `docs/paper/figures/cross_family_survival_r5_control_vs_logicaltrap_seed1-2_20260210.svg`
+  - Figure (SVG): `docs/paper/figures/cross_family_survival_r5_control_vs_logicaltrap_seed1-2_20260212.svg`
   - Regeneration: `scripts/make_cross_family_figure_svg.py` (reads `docs/paper/artifacts/*`)
 - Family-wise survival summaries (CSV → figure):
   - Artifact (CSV): `docs/paper/artifacts/tier1_mistral7b_seed1-2_survival_summary_20260210.csv`
   - Artifact (CSV): `docs/paper/artifacts/tier1_llama3_8b_seed1-2_survival_summary_20260210.csv`
-
-**Coverage note (avoid accidental overclaim)**
-- The *currently committed* cross-family figure/csv set covers **Mistral-7B** + **Llama-3.1-8B** (seeds 1–2).
-- We also have auditable paper-ready runs for **Llama-3.2-3B** (seeds 1–2) on the experiment SSOT machine, but the corresponding *repo-tracked* artifact(s) and inclusion in the cross-family figure are **not yet committed**.
+  - Artifact (CSV): `docs/paper/artifacts/tier1_llama3_3b_seed1-2_survival_summary_20260212.csv`
 
 **Audit hook (when the paper bundle is present locally)**
 - If you have a local copy of the paper SSOT results directory (often `results_paper/`, *not tracked in git*), run:

@@ -6,9 +6,10 @@ We intentionally avoid matplotlib to keep the writing environment lightweight.
 Input (tracked artifacts):
 - docs/paper/artifacts/tier1_mistral7b_seed1-2_survival_summary_20260210.csv
 - docs/paper/artifacts/tier1_llama3_8b_seed1-2_survival_summary_20260210.csv
+- docs/paper/artifacts/tier1_llama3_3b_seed1-2_survival_summary_20260212.csv
 
 Output:
-- docs/paper/figures/cross_family_survival_r5_control_vs_logicaltrap_seed1-2_20260210.svg
+- docs/paper/figures/cross_family_survival_r5_control_vs_logicaltrap_seed1-2_20260212.svg
 
 Plot:
 - For each model family: Survival@5 for Neutral Re-asking Control vs Logical Trap persona.
@@ -26,7 +27,7 @@ from typing import Dict, List, Tuple
 ROOT = Path(__file__).resolve().parents[1]
 ART = ROOT / "docs" / "paper" / "artifacts"
 OUT = ROOT / "docs" / "paper" / "figures"
-DATE_TAG = "20260210"
+DATE_TAG = "20260212"
 
 
 def read_csv(path: Path) -> List[Dict[str, str]]:
@@ -145,13 +146,16 @@ def make_svg(items: List[Tuple[str, float, float, float, float]]) -> str:
 
 
 def main() -> None:
-    mistral = read_csv(ART / f"tier1_mistral7b_seed1-2_survival_summary_{DATE_TAG}.csv")
-    llama = read_csv(ART / f"tier1_llama3_8b_seed1-2_survival_summary_{DATE_TAG}.csv")
+    # Note: Mistral/Llama8B artifacts were generated on 20260210; Llama3.2-3B artifact on 20260212.
+    mistral = read_csv(ART / "tier1_mistral7b_seed1-2_survival_summary_20260210.csv")
+    llama8b = read_csv(ART / "tier1_llama3_8b_seed1-2_survival_summary_20260210.csv")
+    llama3b = read_csv(ART / "tier1_llama3_3b_seed1-2_survival_summary_20260212.csv")
 
     items = []
     for name, rows in [
         ("Mistral-7B-Instruct v0.3", mistral),
-        ("Llama-3.1-8B-Instruct", llama),
+        ("Llama-3.1-8B-Instruct", llama8b),
+        ("Llama-3.2-3B-Instruct", llama3b),
     ]:
         c_mean, c_std = _pick(rows, "neutral_reask_control")
         t_mean, t_std = _pick(rows, "Logical Trap")

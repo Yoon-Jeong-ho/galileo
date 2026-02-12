@@ -819,3 +819,11 @@ This prevents process drift where the checklist contradicts the heartbeat instru
 ### 2026-02-12 — Writing lane: add SSOT note to prevent overclaiming flip=belief-change
 
 - Updated `docs/paper/CLAIM_EVIDENCE_MAP.md` with an explicit “flip interpretation caveat” section pointing to Appendix~A.2 and stating taxonomy buckets are diagnostic (not metrics).
+
+### 2026-02-12 — Paper dev lane: make Llama-3.2-3B cross-family evidence repo-auditable
+
+- Generated and committed a repo-tracked Tier-1 summary CSV for Llama-3.2-3B seeds 1–2:
+  - `docs/paper/artifacts/tier1_llama3_3b_seed1-2_survival_summary_20260212.csv`
+- Updated the cross-family figure generator to include the 3B family and produced:
+  - `docs/paper/figures/cross_family_survival_r5_control_vs_logicaltrap_seed1-2_20260212.svg`
+- Synced paper-facing references in `PAPER_DRAFT_EN.md` and SSOT references in `CLAIM_EVIDENCE_MAP.md`.
