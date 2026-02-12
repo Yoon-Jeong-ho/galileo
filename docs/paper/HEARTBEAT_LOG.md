@@ -827,3 +827,8 @@ This prevents process drift where the checklist contradicts the heartbeat instru
 - Updated the cross-family figure generator to include the 3B family and produced:
   - `docs/paper/figures/cross_family_survival_r5_control_vs_logicaltrap_seed1-2_20260212.svg`
 - Synced paper-facing references in `PAPER_DRAFT_EN.md` and SSOT references in `CLAIM_EVIDENCE_MAP.md`.
+
+### 2026-02-12 — Paper dev lane: eliminate cross-family figure filename drift (20260210→20260212)
+
+- Updated checklist + LaTeX skeletons to reference the canonical cross-family figure: `cross_family_survival_r5_control_vs_logicaltrap_seed1-2_20260212`.
+- Added a one-line canonical filename note in `docs/paper/STATUS.md`.
