@@ -785,7 +785,9 @@ This prevents process drift where the checklist contradicts the heartbeat instru
 
 ## 2026-02-12 (cron: paper-10min-research-checkin)
 - Paper: tightened the reviewer-facing *Claims → evidence map* to be **local-first** (removed hardcoded nlp8 mention) and added explicit ‘requires results_paper/ present’ notes.
-  - File: docs/paper/PAPER_DRAFT_EN.md
+  - File: `docs/paper/PAPER_DRAFT_EN.md`
+- Paper: added explicit **LaTeX figure labels → repo files** to the Claims→evidence table (proof-pointer anti-drift).
+  - File: `docs/paper/PAPER_DRAFT_EN.md`
 
 ### 2026-02-12 — Experiments lane: finish + stage Llama-3.2-3B seed2 as paper-ready
 
