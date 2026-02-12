@@ -49,6 +49,7 @@ Ground-truth tasks에서 multi-turn persona pressure 하에 **정답 유지(surv
 ### Paper writing / positioning
 - ✅ Generated **submission-ready SVG figures** from tracked CSV artifacts under `docs/paper/figures/` (seed1–4; survival curves + ΔSurvival@5 + ΔFail@1 + ΔRecovery + Table W effect deltas).
 - ✅ Results section now has artifact-cited prose for survival/TOF/recovery/control-comparison (seed1–4) + a Results preface stating the seed/"auditable green" convention.
+- ✅ Added an explicit **Abstract proof-pointer line** (protocol/survival/TOF/recovery/Table W) to reduce reviewer search cost (`docs/paper/PAPER_DRAFT_EN.md`).
 - ✅ Table W (control vs persona) is supported by both mean±std and Δ(effect-size) tracked artifacts, and the Results text cites them.
 - ✅ De-duplicated “no-new-evidence” framing between protocol/control bullets and ReviseQA positioning (`docs/paper/PAPER_DRAFT_EN.md`).
 - ✅ Related-work tightening landed for:
@@ -78,9 +79,9 @@ Ground-truth tasks에서 multi-turn persona pressure 하에 **정답 유지(surv
 
 ## 4) NEXT HEARTBEAT (ONE step)
 
-**Paper writing: wire Abstract/Intro wording to the claim→evidence checklist (one pass).**
+**Paper writing: propagate proof pointers beyond the Abstract (Intro + core claims).**
 
-- Deliverable: in `docs/paper/PAPER_DRAFT_EN.md`, add 1 short parenthetical pointer per Abstract/Intro claim (e.g., “Fig. 2”, “Table W”, “App. A.2”), aligned with `docs/paper/CLAIM_EVIDENCE_MAP.md`.
+- Deliverable: in `docs/paper/PAPER_DRAFT_EN.md`, add/standardize brief proof pointers for the key Intro/core-claim sentences (protocol / survival / TOF / recovery / control deltas / cross-family / decoding sweep), aligned with `docs/paper/CLAIM_EVIDENCE_MAP.md`.
 
 ---
 

@@ -865,3 +865,8 @@ Next:
 - Add explicit Fig/Table pointers in `docs/paper/PAPER_DRAFT_EN.md` Abstract/Intro aligned with the claim map.
 - Audit `docs/paper/PAPER_DRAFT_EN.md` §1.4 claims for any missing evidence pointers.
 - (Optional) add a tiny “how to verify” snippet (validator + artifact regeneration) to the draft appendix.
+
+### 2026-02-12 (pm) — Writing lane: add explicit Abstract proof pointers (reviewer-auditable)
+
+- Updated `docs/paper/PAPER_DRAFT_EN.md` Abstract to include a compact “Proof pointers” sentence that lists the key evidence hooks (protocol / survival / TOF / recovery / Table W deltas).
+- Updated `docs/paper/STATUS.md` to record this and set the next step (propagate proof pointers into Intro/core claims).
