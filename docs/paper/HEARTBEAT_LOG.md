@@ -797,3 +797,8 @@ This prevents process drift where the checklist contradicts the heartbeat instru
 ### 2026-02-12 — Writing lane: add Results TOF→Appendix A.2 cross-reference
 
 - Added a 1-sentence caveat in §7.2 TOF results pointing readers to Appendix~A.2 for extractive-QA boundary/overanswer flip artifacts under strict EM.
+
+### 2026-02-12 — Writing lane: sync cross-family SSOTs (C4 seeds 1–2)
+
+- Updated `docs/paper/CLAIM_EVIDENCE_MAP.md` to add a C4 Cross-family section with correct Llama-3.2-3B seed1+seed2 run roots.
+- Updated `docs/paper/STATUS.md` to remove the stale “seed1-only” phrasing and state seeds 1–2 are staged + parity OK.

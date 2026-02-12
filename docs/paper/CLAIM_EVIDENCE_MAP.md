@@ -65,6 +65,33 @@ This file is intentionally short and pragmatic (SSOT for “what proves what”)
 
 ---
 
+## C4 (Cross-family): Effects replicate across model families under the same protocol
+
+**Where stated**
+- `docs/paper/PAPER_DRAFT_EN.md` → §7.4 Cross-task / cross-family generalization (if included in main)
+- `docs/paper/PAPER_DRAFT_EN.md` → §1 Abstract / intro summary (brief cross-family mention)
+
+**Primary evidence (paper-facing)**
+- Cross-family visualization (control vs strong persona):
+  - Figure (SVG): `docs/paper/figures/cross_family_survival_r5_control_vs_logicaltrap_seed1-2_20260210.svg`
+  - Regeneration: `scripts/make_figures_svg.py` (or the paper-figures-from-artifacts pipeline; figure is artifact-derived)
+- Family-wise survival summaries:
+  - Artifact (CSV): `docs/paper/artifacts/tier1_mistral7b_seed1-2_survival_summary_20260210.csv`
+  - Artifact (CSV): `docs/paper/artifacts/tier1_llama3_8b_seed1-2_survival_summary_20260210.csv`
+
+**Auditable run roots (paper SSOT; required for validator)**
+- `results_paper/mistral_seed{1,2}`
+- `results_paper/llama_seed{1,2}`
+- `results_paper/tier1_llama3_3b_seed1_20260212_030426`
+- `results_paper/tier1_llama3_3b_seed2_20260212_042339`
+
+**Sanity / audit hooks**
+- Local validation (requires `results_paper/` present):
+  - `python3 scripts/validate_paper_exports.py --results_root results_paper --check_runner_parity`
+  - Check log: `results_paper/GLOBAL_VALIDATE.log`
+
+---
+
 ## Minimal reproducibility checklist (local repo)
 
 - Artifacts are tracked under `docs/paper/artifacts/` (CSV) and rendered figures under `docs/paper/figures/` (SVG).

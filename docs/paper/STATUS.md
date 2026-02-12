@@ -69,7 +69,7 @@ Ground-truth tasks에서 multi-turn persona pressure 하에 **정답 유지(surv
    - SSOT: `docs/paper/CLAIM_EVIDENCE_MAP.md`
 3) **Experiment extension decision (Tier‑1 only):** decide whether the next marginal compute should go to (a) decoding sensitivity sweep vs (b) an additional model family vs (c) more seeds (only if CI looks fragile).
 
-**Update:** launched Llama‑3.2‑3B‑Instruct **seed2** on nlp8 (GPU5) to upgrade the Tier‑1 cross-family extension from seed1-only → seeds 1–2 (run in tmux; OUT logged in HEARTBEAT_LOG).
+**Update:** Llama‑3.2‑3B‑Instruct **seeds 1–2** are now paper-ready and staged under `results_paper/` (see `results_paper/GLOBAL_VALIDATE.log` for validator + parity `[OK]`).
 
 ---
 
