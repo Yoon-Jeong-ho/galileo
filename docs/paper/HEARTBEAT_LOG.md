@@ -802,3 +802,7 @@ This prevents process drift where the checklist contradicts the heartbeat instru
 
 - Updated `docs/paper/CLAIM_EVIDENCE_MAP.md` to add a C4 Cross-family section with correct Llama-3.2-3B seed1+seed2 run roots.
 - Updated `docs/paper/STATUS.md` to remove the stale “seed1-only” phrasing and state seeds 1–2 are staged + parity OK.
+
+### 2026-02-12 — Writing lane: clarify A.2 taxonomy terminology (diagnostic buckets)
+
+- Added a 1-line terminology note in Appendix~A.2 stating boundary/overanswer, partial-overlap, semantic-change are diagnostic buckets (not new metrics).
