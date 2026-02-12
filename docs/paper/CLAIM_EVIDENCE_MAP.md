@@ -33,6 +33,10 @@ These are the claims most likely to be read *without* looking at appendices. Eac
    - Evidence: `docs/paper/figures/cross_family_survival_r5_control_vs_logicaltrap_seed1-2_20260212.svg`
    - Artifact inputs: `docs/paper/artifacts/tier1_*_survival_summary_*.csv`
    - Regenerate: `python3 scripts/make_cross_family_figure_svg.py`
+6) **Decoding sensitivity check: persona-vs-control gaps are qualitatively stable under sampling.**
+   - Evidence: `docs/paper/figures/decoding_sweep_qwen_delta_seed1-2_20260211.svg`
+   - Artifact: `docs/paper/artifacts/decoding_sweep_qwen_temp_summary_seed1-2_20260211.csv`
+   - Regenerate: `python3 scripts/make_decoding_sweep_figure_svg.py`
 
 ---
 
@@ -119,6 +123,19 @@ These are the claims most likely to be read *without* looking at appendices. Eac
 - If you have a local copy of the paper SSOT results directory (often `results_paper/`, *not tracked in git*), run:
   - `python3 scripts/validate_paper_exports.py --results_root results_paper --check_runner_parity`
   - (optional) inspect: `results_paper/GLOBAL_VALIDATE.log`
+
+---
+
+## Sensitivity check (decoding): gaps are qualitatively stable under sampling
+
+**Where stated**
+- `docs/paper/PAPER_DRAFT_EN.md` → Abstract + Appendix~A.1 (Decoding sensitivity)
+
+**Primary evidence**
+- Decoding sweep (Qwen; temp 0.0 vs 0.7; seeds 1–2):
+  - Artifact (CSV): `docs/paper/artifacts/decoding_sweep_qwen_temp_summary_seed1-2_20260211.csv`
+  - Figure (SVG): `docs/paper/figures/decoding_sweep_qwen_delta_seed1-2_20260211.svg`
+  - Regeneration: `python3 scripts/make_decoding_sweep_figure_svg.py`
 
 ---
 

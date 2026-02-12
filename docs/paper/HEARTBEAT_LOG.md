@@ -874,3 +874,10 @@ Next:
 ### 2026-02-12 — Writing lane: tighten Intro contributions proof pointers (avoid section-number churn)
 
 - Updated §1.3 Contributions pointers to use stable anchors (Task setting / Evaluation details / artifacts+captions SSOT) instead of brittle section numbers.
+
+### 2026-02-12 18:38 KST — Claim→evidence map: add decoding-sensitivity proof pointers
+
+- Updated `docs/paper/CLAIM_EVIDENCE_MAP.md` to include a reviewer-auditable decoding sensitivity checklist item (temp 0.0 vs 0.7; seeds 1–2) and a dedicated section with artifact + script pointers.
+  - Evidence: `docs/paper/figures/decoding_sweep_qwen_delta_seed1-2_20260211.svg`
+  - Artifact: `docs/paper/artifacts/decoding_sweep_qwen_temp_summary_seed1-2_20260211.csv`
+  - Regeneration: `python3 scripts/make_decoding_sweep_figure_svg.py`
