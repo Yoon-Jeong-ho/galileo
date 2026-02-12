@@ -245,13 +245,13 @@ A closely related but complementary line studies **belief revision** under *chan
 - **Recovery as a separate axis:** we evaluate **recovery conditional on flipping** (and prompt-variant ablations) to separate “staying correct” from “returning to correct after being misled.”
 - **Reproducible exports:** we provide standardized per-run exports (survival/TOF/recovery) so claims can be verified directly from artifacts.
 
-**Limitations (brief).** Personas approximate social pressure but cannot cover all real conversational tactics; recovery prompts are interventions whose effects may depend on prompt design (mitigated via ablations); and open-domain QA introduces inherent ambiguity, which we treat as realism but report stratified analyses. Finally, “flip” detection depends on task-specific evaluators: for extractive QA, strict EM can mark *overanswers* or near-paraphrases as failures, so we separate boundary/partial-overlap/semantic-change cases (Appendix~A.2) to avoid overstating semantic belief change; for MCQA the label itself changes, making semantic flips unambiguous.
+**Limitations (brief).** Personas approximate social pressure but cannot cover all real conversational tactics; recovery prompts are interventions whose effects may depend on prompt design (mitigated via ablations); and open-domain QA introduces inherent ambiguity, which we treat as realism but report stratified analyses. Finally, “flip” detection depends on task-specific evaluators: for extractive QA, strict EM can mark *overanswers*, small span-boundary differences, or near-paraphrases as failures. To avoid overstating semantic belief change, we separate boundary / partial-overlap / semantic-change cases and also track rare format/extraction artifacts (Appendix~A.2). For MCQA, the label itself changes, making flips unambiguous.
 
 ---
 
 ## 7. Results
 
-Unless stated otherwise, results are reported as mean±std over **seeds 1–4** (Qwen2.5-7B-Instruct; 80 samples/seed) from **auditable green** runs, with paper-ready exports under `results/<run>/paper_exports/` and small, tracked summary artifacts under `docs/paper/artifacts/`. For an interpretive breakdown of flip *types* (boundary/partial-overlap/semantic-change, plus rare format/extraction artifacts), we refer readers to Appendix~A.2.
+Unless stated otherwise, results are reported as mean±std over **seeds 1–4** (Qwen2.5-7B-Instruct; 80 samples/seed) from **auditable green** runs, with paper-ready exports under `results/<run>/paper_exports/` and small, tracked summary artifacts under `docs/paper/artifacts/`. When discussing flips, we treat aggregate flip rates as a *robustness* signal rather than a direct measure of semantic belief change; Appendix~A.2 breaks down flip *types* (boundary / partial-overlap / semantic-change) and isolates rare format/extraction artifacts.
 
 ### 7.1 Main robustness dynamics: survival curves (supports C1, C2)
 
