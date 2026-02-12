@@ -236,6 +236,8 @@ We borrow the *multi-turn dynamics* lens but focus on settings where correctness
 
 A closely related but complementary line studies **belief revision** under *changing evidence*: ReviseQA constructs multi-turn logical-reasoning dialogs where facts/rules are added or retracted across turns, requiring models to revise conclusions to maintain logical consistency \cite{helwe2025reviseqa}. This contrasts with GALILEO’s *no-new-evidence* pressure/control design: when the information state is held fixed, any correctness changes across turns reflect conversational pressure or generic multi-turn drift, not rational evidence updating. The Neutral Re-asking Control is therefore essential for interpreting flips as persona-induced mechanisms rather than expected belief revision.
 
+Separately, work on **self-verification / verify-then-answer** (e.g., Chain-of-Verification; CoVe \cite{dhuliawala-etal-2024-chain}) focuses on reducing hallucinations by prompting the model to verify and revise its own answer. GALILEO is complementary: we evaluate multi-turn *pressure-induced* failures (survival/TOF) and **recovery conditional on flipping** under an explicit drift control, rather than proposing a specific verification algorithm.
+
 (We track paper-by-paper notes in `docs/paper/related_work/`.) **GALILEO’s intended delta** is to make *ground-truth, multi-turn dynamics* easy to measure and hard to misinterpret:
 
 - **Objective ground truth across tasks:** we emphasize settings where correctness is unambiguous (math/MCQA/extractive QA) rather than primarily subjective opinions or social/ethical dilemmas.

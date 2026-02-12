@@ -806,3 +806,7 @@ This prevents process drift where the checklist contradicts the heartbeat instru
 ### 2026-02-12 — Writing lane: clarify A.2 taxonomy terminology (diagnostic buckets)
 
 - Added a 1-line terminology note in Appendix~A.2 stating boundary/overanswer, partial-overlap, semantic-change are diagnostic buckets (not new metrics).
+
+### 2026-02-12 — Writing lane: cite CoVe (verify-then-answer) in Related Work
+
+- Added 1 short paragraph in Related Work contrasting CoVe-style self-verification (verify-then-answer) with GALILEO’s multi-turn pressure + survival/TOF + recovery evaluation framing.
