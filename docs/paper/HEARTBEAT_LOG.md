@@ -870,3 +870,7 @@ Next:
 
 - Updated `docs/paper/PAPER_DRAFT_EN.md` Abstract to include a compact “Proof pointers” sentence that lists the key evidence hooks (protocol / survival / TOF / recovery / Table W deltas).
 - Updated `docs/paper/STATUS.md` to record this and set the next step (propagate proof pointers into Intro/core claims).
+
+### 2026-02-12 — Writing lane: tighten Intro contributions proof pointers (avoid section-number churn)
+
+- Updated §1.3 Contributions pointers to use stable anchors (Task setting / Evaluation details / artifacts+captions SSOT) instead of brittle section numbers.

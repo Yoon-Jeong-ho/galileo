@@ -39,10 +39,10 @@ We target a practically grounded setting: tasks with **ground-truth answers** wh
 ### 1.3 Contributions
 
 1. **Ground-truth multi-turn dynamics.** We operationalize robustness under pressure as **survival curves** and **turn-of-failure**, and evaluate **recovery** in the same protocol (Figs.~\ref{fig:survival-curves-rounds}, \ref{fig:tof-delta-fail1}, \ref{fig:recovery-delta}).
-2. **Unified multi-task pipeline.** We cover math, extractive QA, MCQA, and open-domain QA with a single runner/logging/evaluation interface (Tasks: §2).
-3. **Stable evaluation via answer-format standardization.** We require a boxed final answer `\boxed{...}` for all tasks and use boxed-first extraction to reduce scoring ambiguity (Evaluator details: §3).
-4. **Reproducibility and paper-ready exports.** We provide strict data directory construction, multi-seed aggregation (mean±std), and automated exports for tables/figures (Exports: §7; artifacts under `docs/paper/artifacts/`).
-5. **Reviewer-facing controls and intervention ablations.** We include a **Neutral Re-asking Control** (a non-persona multi-turn drift baseline) so that flips under persona pressure can be interpreted as **pressure-induced mechanisms** rather than generic drift (Table W; Fig.~\ref{fig:tablew-effect-deltas}). We also report **recovery conditional on flip** and include recovery-prompt ablations to separate *robustness* (staying correct) from *return-to-truth* behavior after a flip (§7.4).
+2. **Unified multi-task pipeline.** We cover math, extractive QA, MCQA, and open-domain QA with a single runner/logging/evaluation interface (Task setting: §2).
+3. **Stable evaluation via answer-format standardization.** We require a boxed final answer `\boxed{...}` for all tasks and use boxed-first extraction to reduce scoring ambiguity (Evaluation details: §5).
+4. **Reproducibility and paper-ready exports.** We provide strict data directory construction, multi-seed aggregation (mean±std), and automated exports for tables/figures (Results + artifacts; see `docs/paper/artifacts/` and `docs/paper/FIGURE_CAPTIONS.md`).
+5. **Reviewer-facing controls and intervention ablations.** We include a **Neutral Re-asking Control** (a non-persona multi-turn drift baseline) so that flips under persona pressure can be interpreted as **pressure-induced mechanisms** rather than generic drift (Table W; Fig.~\ref{fig:tablew-effect-deltas}). We also report **recovery conditional on flip** and include recovery-prompt ablations to separate *robustness* (staying correct) from *return-to-truth* behavior after a flip (Tier‑1 ablation summary in Results).
 
 ### 1.4 Core claims (and what must be shown in results)
 
