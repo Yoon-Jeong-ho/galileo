@@ -92,6 +92,20 @@ This file is intentionally short and pragmatic (SSOT for “what proves what”)
 
 ---
 
+## Flip interpretation caveat (anti-overclaim): taxonomy is diagnostic, not a metric
+
+**Why this exists**
+- Reviewers may over-read flip/TOF rates as direct evidence of *semantic belief change*, especially under strict EM in extractive QA.
+
+**What we claim (and what we do not)**
+- Primary claims remain on evaluator-defined **survival / TOF / recovery**.
+- Appendix~A.2 provides **diagnostic** interpretation buckets for flips: **boundary/overanswer**, **partial-overlap**, **semantic-change**, plus rare **format/extraction artifacts**.
+
+**Where stated**
+- `docs/paper/PAPER_DRAFT_EN.md` → Results intro + Appendix~A.2
+
+---
+
 ## Minimal reproducibility checklist (local repo)
 
 - Artifacts are tracked under `docs/paper/artifacts/` (CSV) and rendered figures under `docs/paper/figures/` (SVG).

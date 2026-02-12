@@ -815,3 +815,7 @@ This prevents process drift where the checklist contradicts the heartbeat instru
 
 - Updated `docs/paper/SSH_TROUBLESHOOT_NLP16.md` to clearly state SSOT host is `nlp8` and to treat `nlp16` references as historical/template only.
 - Replaced example commands/config blocks to use `nlp8` (reduces drift when copy-pasting).
+
+### 2026-02-12 — Writing lane: add SSOT note to prevent overclaiming flip=belief-change
+
+- Updated `docs/paper/CLAIM_EVIDENCE_MAP.md` with an explicit “flip interpretation caveat” section pointing to Appendix~A.2 and stating taxonomy buckets are diagnostic (not metrics).
