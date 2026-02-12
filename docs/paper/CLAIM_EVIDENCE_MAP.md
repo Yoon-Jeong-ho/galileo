@@ -20,6 +20,22 @@ These definitions should be used consistently in the draft, captions, and artifa
 
 ---
 
+## LaTeX label ↔ repo artifact mapping (anti-drift)
+
+When converting the draft to LaTeX, keep these **label → file** mappings stable so proof pointers remain correct.
+
+- `fig:protocol` → `docs/paper/figures/protocol_overview.svg`
+- `fig:survival-curves-rounds` → `docs/paper/figures/survival_curves_rounds_seed1-4_20260209.svg`
+- `fig:tof-delta-fail1` → `docs/paper/figures/tof_personawise_fail1_delta_seed1-4_20260209.svg`
+- `fig:recovery-delta` → `docs/paper/figures/recovery_personawise_delta_seed1-4_20260209.svg`
+- `fig:tablew-effect-deltas` → `docs/paper/figures/table_w_effect_delta_seed1-4_20260209.svg`
+- `fig:cross-family-survival` → `docs/paper/figures/cross_family_survival_r5_control_vs_logicaltrap_seed1-2_20260212.svg`
+- `fig:decoding-sweep` → `docs/paper/figures/decoding_sweep_qwen_delta_seed1-2_20260211.svg`
+
+(If the figure filenames change due to regeneration, update **both** this map and the LaTeX labels in the draft in the same commit.)
+
+---
+
 ## Abstract/Intro (reviewer-auditable checklist)
 
 These are the claims most likely to be read *without* looking at appendices. Each should have an obvious proof pointer.
