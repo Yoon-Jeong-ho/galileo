@@ -32,7 +32,7 @@ Single-turn accuracy does not answer:
 - **How does robustness compound over rounds?** (survival curves)
 - **Can a model recover after being misled?** (intervention/recovery)
 
-**Proof pointers (what the reader should check):** survival trajectories (Fig.~\ref{fig:survival-curves-rounds}), early-turn vulnerability/TOF (Fig.~\ref{fig:tof-delta-fail1}), recovery conditional on flip (Fig.~\ref{fig:recovery-delta}), and the Neutral Re-asking Control comparison (Table W deltas; Fig.~\ref{fig:tablew-effect-deltas}).
+**Proof pointers (what the reader should check):** survival trajectories (Fig.~\ref{fig:survival-curves-rounds}), early-turn vulnerability/TOF (Fig.~\ref{fig:tof-delta-fail1}), recovery conditional on flip (Fig.~\ref{fig:recovery-delta}), and the Neutral Re-asking Control comparison (Table W deltas; Fig.~\ref{fig:tablew-effect-deltas}). For generalization and robustness checks, see the cross-family replication (Fig.~\ref{fig:cross-family-survival}) and the decoding sensitivity sweep (Appendix~A.1; Fig.~\ref{fig:decoding-sweep}).
 
 We target a practically grounded setting: tasks with **ground-truth answers** where failure is unambiguous, while pressure is delivered through realistic conversational personas.
 
@@ -43,6 +43,7 @@ We target a practically grounded setting: tasks with **ground-truth answers** wh
 3. **Stable evaluation via answer-format standardization.** We require a boxed final answer `\boxed{...}` for all tasks and use boxed-first extraction to reduce scoring ambiguity (Evaluation details: §5).
 4. **Reproducibility and paper-ready exports.** We provide strict data directory construction, multi-seed aggregation (mean±std), and automated exports for tables/figures (Results + artifacts; see `docs/paper/artifacts/` and `docs/paper/FIGURE_CAPTIONS.md`).
 5. **Reviewer-facing controls and intervention ablations.** We include a **Neutral Re-asking Control** (a non-persona multi-turn drift baseline) so that flips under persona pressure can be interpreted as **pressure-induced mechanisms** rather than generic drift (Table W; Fig.~\ref{fig:tablew-effect-deltas}). We also report **recovery conditional on flip** and include recovery-prompt ablations to separate *robustness* (staying correct) from *return-to-truth* behavior after a flip (Tier‑1 ablation summary in Results).
+6. **Generalization + robustness checks (minimal but auditable).** We provide a cross-family replication under the same protocol (Fig.~\ref{fig:cross-family-survival}) and a decoding sensitivity sweep to verify the qualitative stability of the persona-vs-control gap under sampling (Appendix~A.1; Fig.~\ref{fig:decoding-sweep}).
 
 ### 1.4 Core claims (and what must be shown in results)
 
