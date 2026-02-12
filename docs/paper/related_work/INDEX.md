@@ -19,3 +19,5 @@ Columns:
   - Note: `papers/challenging_the_evaluator_2025.md`
 - robustness / survival analysis — **Time-To-Inconsistency (arXiv 2025)** — explicit survival/time-to-failure framing in multi-turn robustness; cite as methodological neighbor.  
   - Note: `papers/time_to_inconsistency_2025.md`
+- truthfulness / self-verification — **Chain-of-Verification (CoVe) (Findings ACL 2024)** — verify-then-answer style procedure reduces hallucinations; useful contrast for our *dialogue* survival/TOF + recovery framing.  
+  - Note: `papers/chain_of_verification_cove_2024.md`
