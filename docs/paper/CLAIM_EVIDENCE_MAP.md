@@ -42,7 +42,10 @@ These are the claims most likely to be read *without* looking at appendices. Eac
    - Regenerate: `python3 scripts/make_paper_figures_from_artifacts.py`
 5) **Cross-family replication under the same protocol (at least seeds 1–2).**
    - Evidence: `docs/paper/figures/cross_family_survival_r5_control_vs_logicaltrap_seed1-2_20260212.svg`
-   - Artifact inputs: `docs/paper/artifacts/tier1_*_survival_summary_*.csv`
+   - Artifact inputs (CSV → figure):
+     - `docs/paper/artifacts/tier1_mistral7b_seed1-2_survival_summary_20260210.csv`
+     - `docs/paper/artifacts/tier1_llama3_8b_seed1-2_survival_summary_20260210.csv`
+     - `docs/paper/artifacts/tier1_llama3_3b_seed1-2_survival_summary_20260212.csv`
    - Regenerate: `python3 scripts/make_cross_family_figure_svg.py`
 6) **Decoding sensitivity check: persona-vs-control gaps are qualitatively stable under sampling.**
    - Evidence: `docs/paper/figures/decoding_sweep_qwen_delta_seed1-2_20260211.svg`
@@ -119,7 +122,7 @@ These are the claims most likely to be read *without* looking at appendices. Eac
 **Primary evidence (paper-facing)**
 - Cross-family visualization (control vs strong persona):
   - Figure (SVG): `docs/paper/figures/cross_family_survival_r5_control_vs_logicaltrap_seed1-2_20260212.svg`
-  - Regeneration: `scripts/make_cross_family_figure_svg.py` (reads `docs/paper/artifacts/*`)
+  - Regeneration: `python3 scripts/make_cross_family_figure_svg.py` (reads `docs/paper/artifacts/*`)
 - Family-wise survival summaries (CSV → figure):
   - Artifact (CSV): `docs/paper/artifacts/tier1_mistral7b_seed1-2_survival_summary_20260210.csv`
   - Artifact (CSV): `docs/paper/artifacts/tier1_llama3_8b_seed1-2_survival_summary_20260210.csv`
