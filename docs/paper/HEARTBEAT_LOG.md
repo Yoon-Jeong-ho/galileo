@@ -786,3 +786,10 @@ This prevents process drift where the checklist contradicts the heartbeat instru
 ## 2026-02-12 (cron: paper-10min-research-checkin)
 - Paper: tightened the reviewer-facing *Claims → evidence map* to be **local-first** (removed hardcoded nlp8 mention) and added explicit ‘requires results_paper/ present’ notes.
   - File: docs/paper/PAPER_DRAFT_EN.md
+
+### 2026-02-12 — Experiments lane: finish + stage Llama-3.2-3B seed2 as paper-ready
+
+- The tmux run `tier1_llama3_3b_s2_g5_20260212_042339` completed (OUT: `results/tier1_llama3_3b_seed2_20260212_042339/`).
+- Ran `scripts/paper_export.py`, wrote `paper_exports/*` + `paper_exports/runner_metadata.json`, then validated: `[OK]`.
+- Copied to paper SSOT root: `results_paper/tier1_llama3_3b_seed2_20260212_042339/` and re-validated.
+- Re-ran global validation over `results_paper/` with parity check: `[OK] runner_metadata parity`.
