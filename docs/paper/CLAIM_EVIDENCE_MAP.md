@@ -61,7 +61,10 @@ This file is intentionally short and pragmatic (SSOT for “what proves what”)
   - Regeneration: `scripts/make_figures_svg.py`
 - Intervention ablation (verify_then_answer vs baseline):
   - Artifact (CSV): `docs/paper/artifacts/recovery_variant_verify_then_answer_vs_baseline_seed1-2_20260210.csv`
-  - Regeneration: `scripts/make_figures_svg.py` (if plotted) + the run exports used to compute it
+  - Paper SSOT run aliases (auditable exports): `results_paper/qwen_vta_seed{1,2}`
+  - Regeneration notes:
+    - The comparison is computed from `paper_exports/recovery_accuracy.csv` (collapsed over tasks) from the baseline paper SSOT runs vs the verify_then_answer aliases above.
+    - (figure rendering, if plotted) `python3 scripts/make_figures_svg.py`
 
 ---
 

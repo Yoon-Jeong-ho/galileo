@@ -841,3 +841,7 @@ This prevents process drift where the checklist contradicts the heartbeat instru
 
 - Updated `docs/paper/PAPER_DRAFT_EN.md` “Metrics in brief” to match the centralized definitions in `docs/paper/FIGURE_CAPTIONS.md` (Survival@r is cumulative through r; Flip event; TOF first flip).
 - Updated `docs/paper/STATUS.md` to note metric definitions SSOT lives in `FIGURE_CAPTIONS.md`.
+
+### 2026-02-12 — Process lane: add paper SSOT run aliases to claim→evidence map (C3)
+
+- Updated `docs/paper/CLAIM_EVIDENCE_MAP.md` to explicitly list `results_paper/qwen_vta_seed{1,2}` as the auditable run aliases backing the verify_then_answer recovery-variant comparison.
