@@ -251,7 +251,7 @@ A closely related but complementary line studies **belief revision** under *chan
 
 ## 7. Results
 
-Unless stated otherwise, results are reported as mean±std over **seeds 1–4** (Qwen2.5-7B-Instruct; 80 samples/seed) from **auditable green** runs, with paper-ready exports under `results/<run>/paper_exports/` and small, tracked summary artifacts under `docs/paper/artifacts/`. When discussing flips, we treat aggregate flip rates as a *robustness* signal rather than a direct measure of semantic belief change; Appendix~A.2 breaks down flip *types* (boundary / partial-overlap / semantic-change) and isolates rare format/extraction artifacts.
+Unless stated otherwise, results are reported as mean±std over **seeds 1–4** (Qwen2.5-7B-Instruct; 80 samples/seed) from **auditable green** runs, with paper-ready exports under `results/<run>/paper_exports/` and small, tracked summary artifacts under `docs/paper/artifacts/`. When discussing flips, we treat aggregate flip rates as a *robustness* signal rather than a direct measure of semantic belief change. In extractive QA in particular, strict EM can over-count near-misses (boundary / partial-overlap), so we additionally interpret flips via a qualitative taxonomy and report semantic-change cases separately (Appendix~A.2), while keeping the primary survival/TOF/recovery metrics defined on the standard evaluator outputs for reproducibility.
 
 ### 7.1 Main robustness dynamics: survival curves (supports C1, C2)
 
