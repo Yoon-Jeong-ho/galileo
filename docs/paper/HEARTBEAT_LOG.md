@@ -793,3 +793,7 @@ This prevents process drift where the checklist contradicts the heartbeat instru
 - Ran `scripts/paper_export.py`, wrote `paper_exports/*` + `paper_exports/runner_metadata.json`, then validated: `[OK]`.
 - Copied to paper SSOT root: `results_paper/tier1_llama3_3b_seed2_20260212_042339/` and re-validated.
 - Re-ran global validation over `results_paper/` with parity check: `[OK] runner_metadata parity`.
+
+### 2026-02-12 — Writing lane: add Results TOF→Appendix A.2 cross-reference
+
+- Added a 1-sentence caveat in §7.2 TOF results pointing readers to Appendix~A.2 for extractive-QA boundary/overanswer flip artifacts under strict EM.

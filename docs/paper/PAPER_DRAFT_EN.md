@@ -311,7 +311,7 @@ Unless stated otherwise, results are reported as mean±std over **seeds 1–4** 
 \end{figure}
 ```
 
-**Results (seed1–4; Qwen2.5-7B-Instruct; aggregated over tasks/personas).** The overall TOF mass is distributed across early and late turns, with a majority of examples never failing within 5 rounds. In the Neutral Re-asking Control, **Never-fail = 58.87±1.04%**, while persona pressure yields **Never-fail = 57.85±0.84%**; the remaining probability mass spreads across fail-at-1..5 (tracked artifact `docs/paper/artifacts/tof_distribution_control_vs_persona_seed1-4_mean_std_20260209.csv`).
+**Results (seed1–4; Qwen2.5-7B-Instruct; aggregated over tasks/personas).** The overall TOF mass is distributed across early and late turns, with a majority of examples never failing within 5 rounds. In the Neutral Re-asking Control, **Never-fail = 58.87±1.04%**, while persona pressure yields **Never-fail = 57.85±0.84%**; the remaining probability mass spreads across fail-at-1..5 (tracked artifact `docs/paper/artifacts/tof_distribution_control_vs_persona_seed1-4_mean_std_20260209.csv`). For extractive QA, note that a subset of early-turn failures can be evaluator-boundary/overanswer artifacts under strict EM; see Appendix~A.2 for the flip-type breakdown.
 
 **Persona-wise TOF (Fail@1 / Never-fail).** When breaking TOF down by persona, the direction and magnitude vary (tracked artifact `docs/paper/artifacts/tof_personawise_fail1_never_control_vs_persona_seed1-4_mean_std_20260209.csv`), motivating persona-specific analysis rather than relying solely on collapsed averages. For example, **Logical Trap** decreases Fail@1 by **2.68** points (16.83→14.15), while **Simple Denial** increases Fail@1 by **1.63** points (23.25→24.88) under persona pressure (seed1–4 mean).
 
