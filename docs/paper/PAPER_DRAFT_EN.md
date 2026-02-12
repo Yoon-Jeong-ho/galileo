@@ -291,7 +291,7 @@ Unless stated otherwise, results are reported as mean±std over **seeds 1–4** 
 
 **In-text callout suggestion.** “Figure~\ref{fig:survival-curves-rounds} shows that robustness under pressure is a trajectory over rounds; Figure~\ref{fig:survival-delta-r5} summarizes persona-wise \(\Delta\)Survival@5 relative to the drift baseline.”
 
-**Results (seed1–4; Qwen2.5-7B-Instruct).** Survival dynamics at round 5 vary substantially by persona (tracked artifact `docs/paper/artifacts/survival_r5_personawise_control_vs_persona_seed1-4_mean_std_20260209.csv`): e.g., **Simple Denial** drops by **2.37** points under persona pressure (51.03→48.66), while **Authority Claim** shows a near-zero change (+0.18; 41.44→41.62). This heterogeneity motivates persona-wise survival curves rather than a single aggregate number.
+**Results (seed1–4; Qwen2.5-7B-Instruct).** Survival dynamics at round 5 vary substantially by persona (tracked artifact `docs/paper/artifacts/survival_r5_personawise_control_vs_persona_seed1-4_mean_std_20260209.csv`): e.g., **Simple Denial** drops by **2.37** points under persona pressure (51.03→48.66), while **Authority Claim** shows a near-zero change (+0.18; 41.44→41.62). This heterogeneity motivates persona-wise survival curves rather than a single aggregate number. For interpretability, we further analyze detected flips with a qualitative taxonomy (boundary/overanswer vs partial-overlap vs semantic-change) and provide representative examples in Appendix~A.2.
 
 ### 7.2 When failures happen: turn-of-failure (TOF) (supports C1)
 
@@ -481,6 +481,7 @@ C6 (Appendix robustness): decoding sensitivity does not qualitatively change per
 - Personas approximate social pressure but cannot cover all real conversational tactics.
 - Recovery prompts are interventions; results may depend on prompt design. We mitigate this via variant ablations.
 - Open-domain QA introduces inherent ambiguity; we treat this as part of the realism but report task uncertainty effects explicitly.
+- Flip detection depends on task-specific evaluators; for extractive QA we mitigate over-interpretation by decomposing flips into diagnostic buckets and isolating rare format/extraction artifacts (Appendix~A.2).
 
 ---
 
