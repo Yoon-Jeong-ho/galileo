@@ -79,6 +79,11 @@ This file is intentionally short and pragmatic (SSOT for “what proves what”)
   - Artifact (CSV): `docs/paper/artifacts/tier1_mistral7b_seed1-2_survival_summary_20260210.csv`
   - Artifact (CSV): `docs/paper/artifacts/tier1_llama3_8b_seed1-2_survival_summary_20260210.csv`
   - Artifact (CSV): `docs/paper/artifacts/tier1_llama3_3b_seed1-2_survival_summary_20260212.csv`
+  - Regeneration (when `results_paper/` is synced locally; not tracked in git):
+    - `python3 scripts/make_tier1_survival_summary.py --run_roots <run1>,<run2> --out_csv <artifact.csv>`
+    - For Llama-3.2-3B seeds 1–2 specifically:
+      - `results_paper/tier1_llama3_3b_seed1_20260212_030426/`
+      - `results_paper/tier1_llama3_3b_seed2_20260212_042339/`
 
 **Audit hook (when the paper bundle is present locally)**
 - If you have a local copy of the paper SSOT results directory (often `results_paper/`, *not tracked in git*), run:
