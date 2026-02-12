@@ -883,3 +883,7 @@ Next:
   - Evidence: `docs/paper/figures/decoding_sweep_qwen_delta_seed1-2_20260211.svg`
   - Artifact: `docs/paper/artifacts/decoding_sweep_qwen_temp_summary_seed1-2_20260211.csv`
   - Regeneration: `python3 scripts/make_decoding_sweep_figure_svg.py`
+
+### 2026-02-12 — Paper dev lane: add LaTeX anti-drift pointer (labels ↔ repo filenames)
+
+- Updated LaTeX skeleton READMEs to point to the SSOT label↔filename mapping in `docs/paper/CLAIM_EVIDENCE_MAP.md`.
