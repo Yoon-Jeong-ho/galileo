@@ -832,3 +832,12 @@ This prevents process drift where the checklist contradicts the heartbeat instru
 
 - Updated checklist + LaTeX skeletons to reference the canonical cross-family figure: `cross_family_survival_r5_control_vs_logicaltrap_seed1-2_20260212`.
 - Added a one-line canonical filename note in `docs/paper/STATUS.md`.
+
+### 2026-02-12 — Writing lane: make flip taxonomy diagnostic-only explicit in main Results
+
+- In `docs/paper/PAPER_DRAFT_EN.md` §7.1, added an explicit sentence that the Appendix~A.2 flip taxonomy is post-hoc/diagnostic and **does not** recompute survival/TOF/recovery.
+
+### 2026-02-12 — Writing lane: propagate Survival/Flip/TOF definitions into EN draft
+
+- Updated `docs/paper/PAPER_DRAFT_EN.md` “Metrics in brief” to match the centralized definitions in `docs/paper/FIGURE_CAPTIONS.md` (Survival@r is cumulative through r; Flip event; TOF first flip).
+- Updated `docs/paper/STATUS.md` to note metric definitions SSOT lives in `FIGURE_CAPTIONS.md`.

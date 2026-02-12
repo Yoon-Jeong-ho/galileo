@@ -131,7 +131,7 @@ Logical Trap | Reframing / rhetorical trap | Leads the model into an inconsisten
 
 At each round `r`, we score whether the model’s answer is still correct.
 
-**Metrics in brief.** We summarize robustness as a **survival curve** $S_p(r)$: the probability an initially-correct example remains correct through round $r$ under persona $p$. We also report **turn-of-failure (TOF)** as the first round where an initially-correct example flips (or *never* if it does not flip within $R$ rounds), and **recovery** accuracy measured on flipped examples.
+**Metrics in brief.** We summarize robustness as a **survival curve** $S_p(r)$: the probability an initially-correct example remains correct for **all rounds $1..r$** (i.e., remains correct *through* round $r$) under persona $p$. A **flip** is a correct→incorrect transition at some round. We report **turn-of-failure (TOF)** as the first round where a flip occurs (or *never* if it does not flip within $R$ rounds), and **recovery** accuracy measured on flipped examples.
 
 **Neutral Re-asking Control (non-adversarial drift baseline).** To distinguish persona-specific pressure from generic multi-turn drift, we also evaluate a control condition that uses the same multi-round structure but removes persona content.
 
@@ -291,7 +291,7 @@ Unless stated otherwise, results are reported as mean±std over **seeds 1–4** 
 
 **In-text callout suggestion.** “Figure~\ref{fig:survival-curves-rounds} shows that robustness under pressure is a trajectory over rounds; Figure~\ref{fig:survival-delta-r5} summarizes persona-wise \(\Delta\)Survival@5 relative to the drift baseline.”
 
-**Results (seed1–4; Qwen2.5-7B-Instruct).** Survival dynamics at round 5 vary substantially by persona (tracked artifact `docs/paper/artifacts/survival_r5_personawise_control_vs_persona_seed1-4_mean_std_20260209.csv`): e.g., **Simple Denial** drops by **2.37** points under persona pressure (51.03→48.66), while **Authority Claim** shows a near-zero change (+0.18; 41.44→41.62). This heterogeneity motivates persona-wise survival curves rather than a single aggregate number. For interpretability, we further analyze detected flips with a qualitative taxonomy (boundary/overanswer vs partial-overlap vs semantic-change) and provide representative examples in Appendix~A.2.
+**Results (seed1–4; Qwen2.5-7B-Instruct).** Survival dynamics at round 5 vary substantially by persona (tracked artifact `docs/paper/artifacts/survival_r5_personawise_control_vs_persona_seed1-4_mean_std_20260209.csv`): e.g., **Simple Denial** drops by **2.37** points under persona pressure (51.03→48.66), while **Authority Claim** shows a near-zero change (+0.18; 41.44→41.62). This heterogeneity motivates persona-wise survival curves rather than a single aggregate number. For interpretability, we further analyze detected flips with a qualitative taxonomy (boundary/overanswer vs partial-overlap vs semantic-change) and provide representative examples in Appendix~A.2. **Importantly, this taxonomy is post-hoc and diagnostic-only; we do not recompute survival/TOF/recovery with taxonomy labels.**
 
 ### 7.2 When failures happen: turn-of-failure (TOF) (supports C1)
 

@@ -61,6 +61,7 @@ Ground-truth tasks에서 multi-turn persona pressure 하에 **정답 유지(surv
 - ✅ Added heartbeat checklist guardrails: `docs/paper/HEARTBEAT_CHECKLIST.md`
 - ✅ De-confused deprecated `nlp16` SSH note to reduce copy/paste drift: `docs/paper/SSH_TROUBLESHOOT_NLP16.md`
 - ✅ Canonical cross-family figure filename (anti-drift): `docs/paper/figures/cross_family_survival_r5_control_vs_logicaltrap_seed1-2_20260212.svg`
+- ✅ Metric definitions SSOT: `docs/paper/FIGURE_CAPTIONS.md` (Survival@r / Flip / TOF)
 
 ---
 
@@ -77,9 +78,9 @@ Ground-truth tasks에서 multi-turn persona pressure 하에 **정답 유지(surv
 
 ## 4) NEXT HEARTBEAT (ONE step)
 
-**Paper writing: integrate the qualitative taxonomy into the main narrative without inflating the paper.**
+**Paper process: finish claim→evidence map for Abstract/Intro (reviewer-auditable).**
 
-- Deliverable: update `docs/paper/PAPER_DRAFT_EN.md` to add 1–2 short cross-references from Results/Limitations to Appendix~A.2 (avoid new figures), and ensure terminology is consistent (boundary/partial/semantic + format/extraction failure).
+- Deliverable: update `docs/paper/CLAIM_EVIDENCE_MAP.md` so that every Abstract/Intro claim has (i) one figure/table pointer and (ii) one concrete reproducer pointer (artifact CSV + generator script; and run alias under `results_paper/` when relevant).
 
 ---
 
