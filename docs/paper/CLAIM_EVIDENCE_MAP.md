@@ -74,10 +74,13 @@ This file is intentionally short and pragmatic (SSOT for “what proves what”)
 **Primary evidence (paper-facing)**
 - Cross-family visualization (control vs strong persona):
   - Figure (SVG): `docs/paper/figures/cross_family_survival_r5_control_vs_logicaltrap_seed1-2_20260210.svg`
-  - Regeneration: `scripts/make_figures_svg.py` (or the paper-figures-from-artifacts pipeline; figure is artifact-derived)
-- Family-wise survival summaries:
+  - Regeneration: `scripts/make_cross_family_figure_svg.py` (reads `docs/paper/artifacts/*`)
+- Family-wise survival summaries (CSV → figure):
   - Artifact (CSV): `docs/paper/artifacts/tier1_mistral7b_seed1-2_survival_summary_20260210.csv`
   - Artifact (CSV): `docs/paper/artifacts/tier1_llama3_8b_seed1-2_survival_summary_20260210.csv`
+
+**Coverage note (avoid accidental overclaim)**
+- The current committed cross-family figure/csv set covers **Mistral-7B** + **Llama-3.1-8B** (seeds 1–2). We also have auditable paper-ready runs for **Llama-3.2-3B** (seeds 1–2) under `results_paper/`, but the corresponding local CSV artifact + inclusion in the cross-family figure is **not yet committed**.
 
 **Auditable run roots (paper SSOT; required for validator)**
 - `results_paper/mistral_seed{1,2}`
