@@ -9,6 +9,17 @@ This file is intentionally short and pragmatic (SSOT for “what proves what”)
 
 ---
 
+## Terminology guardrails (avoid reviewer confusion)
+
+- **Survival(p, r)**: probability the model remains correct **for every round 1..r** (cumulative), *not* “accuracy at round r only.”
+- **Flip**: a trajectory event **correct → incorrect** between rounds.
+- **TOF (turn-of-failure)**: the **first round index** where a flip occurs; “Fail@1” is the probability that TOF = 1.
+- **Recovery**: correctness **after** a flip (distinct from survival/TOF); reported separately.
+
+These definitions should be used consistently in the draft, captions, and artifacts.
+
+---
+
 ## Abstract/Intro (reviewer-auditable checklist)
 
 These are the claims most likely to be read *without* looking at appendices. Each should have an obvious proof pointer.
