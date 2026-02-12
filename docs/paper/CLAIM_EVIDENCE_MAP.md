@@ -9,6 +9,33 @@ This file is intentionally short and pragmatic (SSOT for “what proves what”)
 
 ---
 
+## Abstract/Intro (reviewer-auditable checklist)
+
+These are the claims most likely to be read *without* looking at appendices. Each should have an obvious proof pointer.
+
+1) **Multi-turn persona pressure degrades robustness over rounds** (not captured by single-turn accuracy).
+   - Evidence: `docs/paper/figures/survival_curves_rounds_seed1-4_20260209.svg`
+   - Artifact: `docs/paper/artifacts/survival_curve_personawise_control_vs_persona_seed1-4_mean_std_20260209.csv`
+   - Regenerate: `python3 scripts/make_paper_figures_from_artifacts.py` (or `python3 scripts/make_figures_svg.py`)
+2) **Failures happen early (TOF / Fail@1 changes) and the effect is persona-dependent.**
+   - Evidence: `docs/paper/figures/tof_personawise_fail1_delta_seed1-4_20260209.svg`
+   - Artifact: `docs/paper/artifacts/tof_personawise_fail1_never_control_vs_persona_seed1-4_mean_std_20260209.csv`
+   - Regenerate: `python3 scripts/make_paper_figures_from_artifacts.py`
+3) **Neutral Re-asking Control separates generic drift from persona-induced failures.**
+   - Evidence: Table W + deltas figure `docs/paper/figures/table_w_effect_delta_seed1-4_20260209.svg`
+   - Artifact: `docs/paper/artifacts/table_w_control_vs_persona_seed1-4_mean_std_20260209.csv` and `docs/paper/artifacts/table_w_effect_delta_seed1-4_20260209.csv`
+   - Regenerate: `python3 scripts/make_table_w_control_vs_persona.py` + `python3 scripts/make_paper_figures_from_artifacts.py`
+4) **Recovery after flipping is distinct and measurable (not implied by survival/TOF).**
+   - Evidence: `docs/paper/figures/recovery_personawise_delta_seed1-4_20260209.svg`
+   - Artifact: `docs/paper/artifacts/recovery_personawise_control_vs_persona_seed1-4_mean_std_20260209.csv`
+   - Regenerate: `python3 scripts/make_paper_figures_from_artifacts.py`
+5) **Cross-family replication under the same protocol (at least seeds 1–2).**
+   - Evidence: `docs/paper/figures/cross_family_survival_r5_control_vs_logicaltrap_seed1-2_20260212.svg`
+   - Artifact inputs: `docs/paper/artifacts/tier1_*_survival_summary_*.csv`
+   - Regenerate: `python3 scripts/make_cross_family_figure_svg.py`
+
+---
+
 ## C1 (Dynamics): Robustness under pressure is a trajectory (survival + TOF), not a single number
 
 **Where stated**
@@ -17,16 +44,16 @@ This file is intentionally short and pragmatic (SSOT for “what proves what”)
 **Primary evidence (paper-facing)**
 - Survival curves across rounds (persona vs control):
   - Artifact (CSV): `docs/paper/artifacts/survival_curve_personawise_control_vs_persona_seed1-4_mean_std_20260209.csv`
-  - Figure (SVG): `docs/paper/figures/survival_curves_rounds.svg`
-  - Regeneration: `scripts/make_figures_svg.py` (reads `docs/paper/artifacts/*`)
-- Early-turn failure / TOF deltas:
-  - Artifact (CSV): `docs/paper/artifacts/table_w_effect_delta_seed1-4_20260209.csv`
-  - Figure (SVG): `docs/paper/figures/tof_delta_fail1.svg`
-  - Regeneration: `scripts/make_figures_svg.py`
+  - Figure (SVG): `docs/paper/figures/survival_curves_rounds_seed1-4_20260209.svg`
+  - Regeneration: `python3 scripts/make_paper_figures_from_artifacts.py` (reads `docs/paper/artifacts/*`)
+- Early-turn failure / TOF deltas (persona-wise Fail@1):
+  - Artifact (CSV): `docs/paper/artifacts/tof_personawise_fail1_never_control_vs_persona_seed1-4_mean_std_20260209.csv`
+  - Figure (SVG): `docs/paper/figures/tof_personawise_fail1_delta_seed1-4_20260209.svg`
+  - Regeneration: `python3 scripts/make_paper_figures_from_artifacts.py`
 
 **Sanity / audit hooks**
 - Paper exports per run (required for auditable aggregation): `paper_exports/` + `metadata.json` + `runner_metadata.json`
-- Validator: `scripts/validate_paper_exports.py`
+- Validator: `python3 scripts/validate_paper_exports.py`
 
 ---
 
@@ -39,10 +66,10 @@ This file is intentionally short and pragmatic (SSOT for “what proves what”)
 - Table W (control vs persona) + effect deltas (ΔSurvival@5, ΔFail@1, etc.):
   - Artifact (CSV): `docs/paper/artifacts/table_w_control_vs_persona_seed1-4_mean_std_20260209.csv`
   - Artifact (CSV): `docs/paper/artifacts/table_w_effect_delta_seed1-4_20260209.csv`
-  - Figure (SVG): `docs/paper/figures/tablew_effect_deltas.svg`
+  - Figure (SVG): `docs/paper/figures/table_w_effect_delta_seed1-4_20260209.svg`
   - Regeneration:
-    - `scripts/make_table_w_control_vs_persona.py` (build Table W + deltas)
-    - `scripts/make_figures_svg.py` (render SVG)
+    - `python3 scripts/make_table_w_control_vs_persona.py` (build Table W + deltas)
+    - `python3 scripts/make_paper_figures_from_artifacts.py` (render SVG)
 
 **Interpretation check**
 - Ensure the Neutral Re-asking Control is described as a *drift baseline* (not adversarial evidence injection).
@@ -57,8 +84,8 @@ This file is intentionally short and pragmatic (SSOT for “what proves what”)
 **Primary evidence**
 - Recovery conditional on flip (persona-wise):
   - Artifact (CSV): `docs/paper/artifacts/recovery_personawise_control_vs_persona_seed1-4_mean_std_20260209.csv`
-  - Figure (SVG): `docs/paper/figures/recovery_delta.svg`
-  - Regeneration: `scripts/make_figures_svg.py`
+  - Figure (SVG): `docs/paper/figures/recovery_personawise_delta_seed1-4_20260209.svg`
+  - Regeneration: `python3 scripts/make_paper_figures_from_artifacts.py`
 - Intervention ablation (verify_then_answer vs baseline):
   - Artifact (CSV): `docs/paper/artifacts/recovery_variant_verify_then_answer_vs_baseline_seed1-2_20260210.csv`
   - Paper SSOT run aliases (auditable exports): `results_paper/qwen_vta_seed{1,2}`

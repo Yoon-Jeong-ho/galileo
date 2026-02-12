@@ -845,3 +845,23 @@ This prevents process drift where the checklist contradicts the heartbeat instru
 ### 2026-02-12 — Process lane: add paper SSOT run aliases to claim→evidence map (C3)
 
 - Updated `docs/paper/CLAIM_EVIDENCE_MAP.md` to explicitly list `results_paper/qwen_vta_seed{1,2}` as the auditable run aliases backing the verify_then_answer recovery-variant comparison.
+
+### 2026-02-12 (pm) — Claim→evidence map: Abstract/Intro checklist + path fixes
+
+- Updated  to add an Abstract/Intro reviewer-auditable checklist and corrected figure/artifact pointers to match the committed  and  filenames.
+- Updated  to reflect progress + set the next writing step (wire pointers into Abstract/Intro text).
+
+Next:
+- Add explicit Fig/Table pointers in  Abstract/Intro aligned with the claim map.
+- Audit  §1.4 claims for any missing evidence pointers.
+- (Optional) add a tiny “how to verify” snippet (validator + artifact regeneration) to the draft appendix.
+
+### 2026-02-12 (pm) — Claim→evidence map: Abstract/Intro checklist + path fixes
+
+- Updated `docs/paper/CLAIM_EVIDENCE_MAP.md` to add an Abstract/Intro reviewer-auditable checklist and corrected figure/artifact pointers to match the committed `docs/paper/figures/*.svg` and `docs/paper/artifacts/*.csv` filenames.
+- Updated `docs/paper/STATUS.md` to reflect progress + set the next writing step (wire pointers into Abstract/Intro text).
+
+Next:
+- Add explicit Fig/Table pointers in `docs/paper/PAPER_DRAFT_EN.md` Abstract/Intro aligned with the claim map.
+- Audit `docs/paper/PAPER_DRAFT_EN.md` §1.4 claims for any missing evidence pointers.
+- (Optional) add a tiny “how to verify” snippet (validator + artifact regeneration) to the draft appendix.
