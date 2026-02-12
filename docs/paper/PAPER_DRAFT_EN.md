@@ -165,12 +165,12 @@ Let `D` be the full dataset, `C ⊆ D` the initially correct subset, and `P` the
 
 ### 4.2 Survival rate (round-wise)
 
-For persona `p` and round `r`:
+For persona `p` and round `r`, survival counts examples that remain correct **through** round `r` (i.e., are correct at every round `1..r`):
 \[
-\text{Survival}(p, r) = \frac{\#\{x\in C : x\ \text{is correct after round}\ r\ \text{under persona}\ p\}}{|C|}.
+\text{Survival}(p, r) = \frac{\#\{x\in C : \forall\ t\in\{1,\dots,r\},\ x\ \text{is correct after round}\ t\ \text{under persona}\ p\}}{|C|}.
 \]
 
-This produces a **survival curve** across rounds. We report persona-wise curves and aggregates.
+This produces a **survival curve** across rounds. In plots/tables, we report persona-wise curves and aggregates computed on the initially-correct set `C`.
 
 ### 4.3 Turn-of-failure (TOF)
 
