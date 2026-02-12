@@ -810,3 +810,8 @@ This prevents process drift where the checklist contradicts the heartbeat instru
 ### 2026-02-12 — Writing lane: cite CoVe (verify-then-answer) in Related Work
 
 - Added 1 short paragraph in Related Work contrasting CoVe-style self-verification (verify-then-answer) with GALILEO’s multi-turn pressure + survival/TOF + recovery evaluation framing.
+
+### 2026-02-12 (pm) — Local docs: de-confuse deprecated nlp16 SSH note
+
+- Updated `docs/paper/SSH_TROUBLESHOOT_NLP16.md` to clearly state SSOT host is `nlp8` and to treat `nlp16` references as historical/template only.
+- Replaced example commands/config blocks to use `nlp8` (reduces drift when copy-pasting).

@@ -59,6 +59,7 @@ Ground-truth tasks에서 multi-turn persona pressure 하에 **정답 유지(surv
 ### Process guardrails
 - ✅ Added SSOT heartbeat prompt: `docs/paper/HEARTBEAT_PROMPT.md`
 - ✅ Added heartbeat checklist guardrails: `docs/paper/HEARTBEAT_CHECKLIST.md`
+- ✅ De-confused deprecated `nlp16` SSH note to reduce copy/paste drift: `docs/paper/SSH_TROUBLESHOOT_NLP16.md`
 
 ---
 
