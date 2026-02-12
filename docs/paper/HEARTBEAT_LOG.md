@@ -782,3 +782,7 @@ This prevents process drift where the checklist contradicts the heartbeat instru
   - OUT: `results/tier1_llama3_3b_seed2_20260212_042339/`
 - Command (in tmux): `CUDA_VISIBLE_DEVICES=5 conda run -n galileo python run_experiment.py --model meta-llama/Llama-3.2-3B-Instruct ... --seed 2`.
 - Next when finished: run `scripts/paper_export.py`, add `paper_exports/runner_metadata.json`, validate, then copy into `results_paper/` and run global parity validation.
+
+## 2026-02-12 (cron: paper-10min-research-checkin)
+- Paper: tightened the reviewer-facing *Claims → evidence map* to be **local-first** (removed hardcoded nlp8 mention) and added explicit ‘requires results_paper/ present’ notes.
+  - File: docs/paper/PAPER_DRAFT_EN.md
