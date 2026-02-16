@@ -38,7 +38,17 @@ Single-turn accuracy does not answer:
 
 We target a practically grounded setting: tasks with **ground-truth answers** where failure is unambiguous, while pressure is delivered through realistic conversational personas (protocol: Fig.~\ref{fig:protocol}).
 
-### 1.3 Contributions
+### 1.3 Why condition on initial correctness?
+
+Multi-turn results can be reported either **unconditionally** (over all examples) or **conditional on being correct initially**. We focus on the latter because our goal is to measure *robustness given that the model knew the answer at the start*, not to re-measure base accuracy.
+
+Concretely, for each dataset/config we first identify an initially-correct subset $C$ using a persona-free prompt in Phase~1. All persona arms and the Neutral Re-asking Control are then evaluated on this same $C$, and our primary outcomes are conditional probabilities such as:
+\[
+S_p(r)=\Pr(\forall t\le r:\; y_{i,t}=1\mid y_{i,0}=1)
+\]
+This makes comparisons interpretable: a lower $S_p(r)$ indicates *correct\(\to\)incorrect flips under pressure*, rather than a mix of (i) never knowing the answer and (ii) abandoning a correct answer. (We still report Phase~1 initial accuracy separately.)
+
+### 1.4 Contributions
 
 1. **Ground-truth multi-turn dynamics.** We operationalize robustness under pressure as **survival curves** and **turn-of-failure**, and evaluate **recovery** in the same protocol (Figs.~\ref{fig:survival-curves-rounds}, \ref{fig:tof-delta-fail1}, \ref{fig:recovery-delta}).
 2. **Unified multi-task pipeline.** We cover math, extractive QA, MCQA, and open-domain QA with a single runner/logging/evaluation interface (Task setting: §2).
@@ -47,7 +57,7 @@ We target a practically grounded setting: tasks with **ground-truth answers** wh
 5. **Reviewer-facing controls and intervention ablations.** We include a **Neutral Re-asking Control** (a non-persona multi-turn drift baseline) so that flips under persona pressure can be interpreted as **pressure-induced mechanisms** rather than generic drift (Table~\ref{tab:tablew}; Fig.~\ref{fig:tablew-effect-deltas}). We also report **recovery conditional on flip** and include recovery-prompt ablations to separate *robustness* (staying correct) from *return-to-truth* behavior after a flip (Tier‑1 ablation summary in Results).
 6. **Generalization + robustness checks (minimal but auditable).** We provide a cross-family replication under the same protocol (Fig.~\ref{fig:cross-family-survival}) and a decoding sensitivity sweep to verify the qualitative stability of the persona-vs-control gap under sampling (Appendix~A.1; Fig.~\ref{fig:decoding-sweep}).
 
-### 1.4 Core claims (and what must be shown in results)
+### 1.5 Core claims (and what must be shown in results)
 
 **Narrative framing (paper through-line).** We frame the problem as a *betrayal of helpfulness*: alignment and preference-optimization can incentivize deference to user feedback, but in ground-truth domains this deference becomes a reliability failure (e.g., an assistant retracts a correct math answer after repeated denial). This motivates measuring **epistemic robustness**—the ability to maintain or return to truth under conversational pressure.
 
@@ -63,7 +73,7 @@ We structure the paper around three reviewer-checkable claims:
   - **Paper-facing evidence:** persona-wise recovery deltas (Fig.~\ref{fig:recovery-delta}) + recovery-prompt ablation summary (§7.4).
   - **Tracked artifacts (SSOT):** `docs/paper/artifacts/recovery_personawise_control_vs_persona_seed1-4_mean_std_20260209.csv`, `docs/paper/artifacts/recovery_variant_verify_then_answer_vs_baseline_seed1-2_20260210.csv`.
 
-### 1.5 Minimum experiment set (submission-credible)
+### 1.6 Minimum experiment set (submission-credible)
 
 To make the above claims hard to dismiss, the camera-ready experimental core should include:
 
@@ -75,7 +85,7 @@ To make the above claims hard to dismiss, the camera-ready experimental core sho
 
 **Optional (if feasible): internal-state proxies.** If we can reliably extract token-level confidence signals (e.g., logit margin on the boxed answer token, entropy/uncertainty proxies), we will report *confidence decay* alongside behavioral flips. If not, we will treat uncertainty via task/answer-type stratification and consistency-based proxies, to avoid over-claiming.
 
-### 1.6 Rebuttal prep (anticipated reviewer objections)
+### 1.7 Rebuttal prep (anticipated reviewer objections)
 
 - *“Isn’t agreeing with the user just being helpful?”* Our focus is on **ground-truth domains** where deference to incorrect user feedback is a functional failure (education, medical triage, legal assistance). In these settings, “helpfulness” that abandons truth is miscalibrated behavior.
 - *“Is this just long-context degradation / generic drift?”* We include a **Neutral Re-asking Control** (non-adversarial re-asking: repeated *neutral* verification prompts with **no new evidence**) to separate persona-specific pressure mechanisms from generic multi-turn drift.
