@@ -46,7 +46,7 @@ These are the claims most likely to be read *without* looking at appendices. Eac
 1) **Multi-turn persona pressure degrades robustness over rounds** (not captured by single-turn accuracy).
    - Evidence: `docs/paper/figures/survival_curves_rounds_seed1-4_20260209.svg`
    - Artifact: `docs/paper/artifacts/survival_curve_personawise_control_vs_persona_seed1-4_mean_std_20260209.csv`
-   - Regenerate: `python3 scripts/make_paper_figures_from_artifacts.py` (or `python3 scripts/make_figures_svg.py`)
+   - Regenerate: `python3 scripts/make_paper_figures_from_artifacts.py` (reads tracked CSVs under `docs/paper/artifacts/` and overwrites SVGs under `docs/paper/figures/`; safe/idempotent).
 2) **Failures happen early (TOF / Fail@1 changes) and the effect is persona-dependent.**
    - Evidence: `docs/paper/figures/tof_personawise_fail1_delta_seed1-4_20260209.svg`
    - Artifact: `docs/paper/artifacts/tof_personawise_fail1_never_control_vs_persona_seed1-4_mean_std_20260209.csv`
@@ -54,7 +54,9 @@ These are the claims most likely to be read *without* looking at appendices. Eac
 3) **Neutral Re-asking Control separates generic drift from persona-induced failures.**
    - Evidence: Table W + deltas figure `docs/paper/figures/table_w_effect_delta_seed1-4_20260209.svg`
    - Artifact: `docs/paper/artifacts/table_w_control_vs_persona_seed1-4_mean_std_20260209.csv` and `docs/paper/artifacts/table_w_effect_delta_seed1-4_20260209.csv`
-   - Regenerate: `python3 scripts/make_table_w_control_vs_persona.py` + `python3 scripts/make_paper_figures_from_artifacts.py`
+   - Regenerate:
+     1) `python3 scripts/make_table_w_control_vs_persona.py` (writes/updates the Table-W CSV artifacts under `docs/paper/artifacts/`)
+     2) `python3 scripts/make_paper_figures_from_artifacts.py` (renders/overwrites the SVG figure under `docs/paper/figures/`; safe/idempotent)
 4) **Recovery after flipping is distinct and measurable (not implied by survival/TOF).**
    - Evidence: `docs/paper/figures/recovery_personawise_delta_seed1-4_20260209.svg`
    - Artifact: `docs/paper/artifacts/recovery_personawise_control_vs_persona_seed1-4_mean_std_20260209.csv`
@@ -113,8 +115,8 @@ These are the exact “proof pointer” hooks we want a reviewer to notice in th
   - Artifact (CSV): `docs/paper/artifacts/table_w_effect_delta_seed1-4_20260209.csv`
   - Figure (SVG): `docs/paper/figures/table_w_effect_delta_seed1-4_20260209.svg`
   - Regeneration:
-    - `python3 scripts/make_table_w_control_vs_persona.py` (build Table W + deltas)
-    - `python3 scripts/make_paper_figures_from_artifacts.py` (render SVG)
+    1) `python3 scripts/make_table_w_control_vs_persona.py` (build/refresh Table W + delta CSVs under `docs/paper/artifacts/`)
+    2) `python3 scripts/make_paper_figures_from_artifacts.py` (render/overwrite the SVG figure under `docs/paper/figures/`)
 
 **Interpretation check**
 - Ensure the Neutral Re-asking Control is described as a *drift baseline* (not adversarial evidence injection).
@@ -136,7 +138,7 @@ These are the exact “proof pointer” hooks we want a reviewer to notice in th
   - Paper SSOT run aliases (auditable exports): `results_paper/qwen_vta_seed{1,2}`
   - Regeneration notes:
     - The comparison is computed from `paper_exports/recovery_accuracy.csv` (collapsed over tasks) from the baseline paper SSOT runs vs the verify_then_answer aliases above.
-    - (figure rendering, if plotted) `python3 scripts/make_figures_svg.py`
+    - (optional figure rendering, if plotted) `python3 scripts/make_paper_figures_from_artifacts.py` (preferred: renders from tracked artifacts only)
 
 ---
 
@@ -198,7 +200,7 @@ These are the exact “proof pointer” hooks we want a reviewer to notice in th
 ## Minimal reproducibility checklist (local repo)
 
 - Artifacts are tracked under `docs/paper/artifacts/` (CSV) and rendered figures under `docs/paper/figures/` (SVG).
-- The figure pipeline entrypoint is typically one of:
-  - `scripts/make_figures_svg.py`
-  - `scripts/make_paper_figures_from_artifacts.py`
-- Any new claim added to Abstract/Intro should be added here with at least one artifact + script pointer.
+- **Preferred figure pipeline entrypoint (artifact → SVG, no experiments):**
+  - `python3 scripts/make_paper_figures_from_artifacts.py`
+  - This script reads **only** the tracked CSV artifacts under `docs/paper/artifacts/` and overwrites the corresponding SVGs under `docs/paper/figures/` (safe/idempotent).
+- Any new claim added to Abstract/Intro should be added here with at least one artifact + script pointer (so reviewers can trace claim → CSV → figure).
