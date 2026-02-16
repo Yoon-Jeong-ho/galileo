@@ -6,13 +6,15 @@ Conventions:
 - All figures are generated from tracked CSV artifacts under `docs/paper/artifacts/`.
 - SVGs live under `docs/paper/figures/`.
 - If PDFs are needed for LaTeX, generate via `scripts/convert_figures_svg_to_pdf.sh`.
+- Unless otherwise stated, error bars / uncertainty annotations reflect **variation across random seeds** (reported as mean ± std).
 
 Metric definitions (to keep captions consistent across drafts):
 - **Table W** (canonical LaTeX label: `tab:tablew`): control vs persona summary + effect deltas (see artifacts `table_w_*`).
 - **Survival@r**: fraction of **initially-correct** examples that remain correct for **all rounds 1..r** (cumulative; “still correct through round r”).
-- **Flip**: correct→incorrect transition at some round.
+- **Flip**: a correct→incorrect transition at some round.
 - **TOF (turn-of-failure)**: the first round where a flip occurs (or “never”).
-- **Effect deltas** (caption shorthand): by default, \(\Delta\text{Metric}\) means **persona pressure minus Neutral Re-asking Control** on the *matched initially-correct subset* for that persona arm.
+- **Fail@1**: probability of flipping at the **first** pressure round (i.e., TOF=1).
+- **Effect deltas** (caption shorthand): by default, \(\Delta\text{Metric}\) means **persona pressure minus Neutral Re-asking Control** under an identical protocol (same rounds/decoding/scoring). Deltas are computed on the **initially-correct subset**, so that survival/TOF/recovery reflect robustness dynamics rather than initial capability.
   - \(\Delta\text{Survival@5} < 0\): reduced robustness under persona pressure.
   - \(\Delta\text{Fail@1} > 0\): increased immediate vulnerability.
   - \(\Delta\text{Recovery@flip} < 0\): worse return-to-truth conditional on flip.
@@ -37,7 +39,7 @@ Overview of the GALILEO protocol: (1) initial evaluation on ground-truth tasks, 
 - Source artifact: `docs/paper/artifacts/survival_curve_personawise_control_vs_persona_seed1-4_mean_std_20260209.csv`
 
 **Caption (draft):**
-Survival curves over interaction rounds on initially-correct examples (mean across seeds 1–4). Solid lines show persona pressure; the dashed line shows the Neutral Re-asking Control (drift baseline). Persona pressure produces heterogeneous degradation patterns, including both early-turn and late-turn failures, motivating multi-turn robustness metrics beyond initial accuracy.
+Survival curves over interaction rounds on initially-correct examples (mean ± std across seeds 1–4). Solid lines show persona pressure; the dashed line shows the Neutral Re-asking Control (drift baseline). Persona pressure produces heterogeneous degradation patterns, including both early-turn and late-turn failures, motivating multi-turn robustness metrics beyond initial accuracy.
 
 ---
 
@@ -48,7 +50,7 @@ Survival curves over interaction rounds on initially-correct examples (mean acro
 - Source artifact: `docs/paper/artifacts/survival_r5_personawise_control_vs_persona_seed1-4_mean_std_20260209.csv`
 
 **Caption (draft):**
-Persona-wise effect size at round 5: \(\Delta\)Survival@5 (persona pressure − control), mean across seeds 1–4. Negative values indicate reduced robustness under persona pressure relative to the neutral drift baseline.
+Persona-wise effect size at round 5: \(\Delta\)Survival@5 (persona pressure − control), mean ± std across seeds 1–4. Negative values indicate reduced robustness under persona pressure relative to the neutral drift baseline.
 
 ---
 
@@ -59,7 +61,7 @@ Persona-wise effect size at round 5: \(\Delta\)Survival@5 (persona pressure − 
 - Source artifact: `docs/paper/artifacts/tof_personawise_fail1_never_control_vs_persona_seed1-4_mean_std_20260209.csv`
 
 **Caption (draft):**
-Persona-wise effect size on early-turn vulnerability: \(\Delta\)Fail@1 (persona pressure − control), mean across seeds 1–4. Turn-of-failure (TOF) separates immediate flips (Fail@1) from sustained robustness (Never-fail), complementing survival curves.
+Persona-wise effect size on early-turn vulnerability: \(\Delta\)Fail@1 (persona pressure − control), mean ± std across seeds 1–4. Turn-of-failure (TOF) separates immediate flips (Fail@1) from sustained robustness (Never-fail), complementing survival curves.
 
 ---
 
@@ -70,7 +72,7 @@ Persona-wise effect size on early-turn vulnerability: \(\Delta\)Fail@1 (persona 
 - Source artifact: `docs/paper/artifacts/recovery_personawise_control_vs_persona_seed1-4_mean_std_20260209.csv`
 
 **Caption (draft):**
-Persona-wise effect size on recovery after flipping: \(\Delta\)Recovery@flip (persona pressure − control), mean across seeds 1–4. Recovery is measured conditional on flip, separating intervention-style “return to truth” behavior from robustness (staying correct throughout).
+Persona-wise effect size on recovery after flipping: \(\Delta\)Recovery@flip (persona pressure − control), mean ± std across seeds 1–4. Recovery is measured conditional on flip, separating intervention-style “return to truth” behavior from robustness (staying correct throughout).
 
 ---
 
@@ -81,7 +83,7 @@ Persona-wise effect size on recovery after flipping: \(\Delta\)Recovery@flip (pe
 - Source artifact: `docs/paper/artifacts/table_w_effect_delta_seed1-4_20260209.csv`
 
 **Caption (draft):**
-Table W effect sizes: persona pressure minus Neutral Re-asking Control (drift baseline), mean across seeds 1–4. Large negative \(\Delta\)Survival@5 and positive \(\Delta\)Fail@1 indicate persona-induced failure dynamics beyond generic multi-turn drift under identical rounds/decoding/scoring.
+Table W effect sizes: persona pressure minus Neutral Re-asking Control (drift baseline), mean ± std across seeds 1–4. Large negative \(\Delta\)Survival@5 and positive \(\Delta\)Fail@1 indicate persona-induced failure dynamics beyond generic multi-turn drift under identical rounds/decoding/scoring.
 
 ---
 
@@ -96,7 +98,7 @@ Table W effect sizes: persona pressure minus Neutral Re-asking Control (drift ba
 - Generator: `scripts/make_cross_family_figure_svg.py`
 
 **Caption (draft):**
-Cross-family generalization: Survival@5 for the Neutral Re-asking Control (drift baseline) vs a strong persona (Logical Trap), averaged over seeds 1–2 for each model family. The same qualitative gap appears across families under an identical protocol.
+Cross-family generalization: Survival@5 for the Neutral Re-asking Control (drift baseline) vs a strong persona (Logical Trap), mean ± std over seeds 1–2 for each model family. The same qualitative gap appears across families under an identical protocol.
 
 ---
 
@@ -108,4 +110,4 @@ Cross-family generalization: Survival@5 for the Neutral Re-asking Control (drift
 - Generator: `scripts/make_decoding_sweep_figure_svg.py`
 
 **Caption (draft):**
-Appendix robustness check: decoding sensitivity for the multi-turn phase. Bars show the persona-mean effect relative to the Neutral Re-asking Control: \(\Delta\)Survival@5 and \(\Delta\)Fail@1 (persona mean − control), averaged over seeds 1–2. The persona-induced robustness gap persists across temperatures.
+Appendix robustness check: decoding sensitivity for the multi-turn phase. Bars show the persona-mean effect relative to the Neutral Re-asking Control: \(\Delta\)Survival@5 and \(\Delta\)Fail@1 (persona mean − control), mean ± std over seeds 1–2. The persona-induced robustness gap persists across temperatures.
