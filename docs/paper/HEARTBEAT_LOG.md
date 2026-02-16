@@ -939,3 +939,13 @@ Notes:
 Next:
 - When seed2 finishes, validate + (if green) ensure `GLOBAL_VALIDATE.log` parity remains `[OK]`.
 - Decide whether to change the conda env (transformers pin/upgrade) for EXAONE vs. switch to another model family.
+
+### 2026-02-17 06:16 KST — Experiments lane: Phi-3-mini seed2 exported + validator OK + global parity PASS
+
+- Remote (nlp8): `results_paper/tier1_phi3mini_seed2_20260217_033953/` produced core CSVs and `paper_exports/` (survival/TOF/flip_samples/metadata).
+- Validator fix: added missing `paper_exports/runner_metadata.json` (required keys incl. gpu_list/num_samples/max_model_len/max_tokens/conda_env), then `validate_paper_exports.py --results_root ...` → `[OK]`.
+- Re-ran global parity: `python scripts/validate_paper_exports.py --results_root results_paper --check_runner_parity` → `[OK] runner_metadata parity` (now includes phi3mini seed2).
+
+Next:
+- Decide next Tier‑1 model family (EXAONE currently blocked by transformers import).
+- Optionally update repo-tracked cross-family artifacts/figures to include Phi‑3‑mini seeds 1–2.
