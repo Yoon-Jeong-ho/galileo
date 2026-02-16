@@ -125,7 +125,7 @@ We prompt the model to answer each question and score the response against groun
 
 ### Phase 2: Adversarial persona pressure (multi-round)
 
-For each example in `C_p`, we run a multi-turn conversation where the user adopts an adversarial persona that challenges the model’s answer for up to `R` rounds (default: `R=5`). Personas are designed to represent qualitatively different pressure mechanisms:
+For each example in the initially-correct set (recommended: shared `C`; if runs are executed separately per persona, arm-specific `C_p`), we run a multi-turn conversation where the user adopts an adversarial persona that challenges the model’s answer for up to `R` rounds (default: `R=5`). Personas are designed to represent qualitatively different pressure mechanisms:
 
 **Persona taxonomy (pressure mechanisms; no new ground-truth evidence).**
 
@@ -191,6 +191,12 @@ Let `D` be the full dataset and `P` the set of personas. In the **recommended pr
 
 ### 4.1 Initial accuracy
 
+In the **recommended protocol** (single shared initially-correct set `C`), initial accuracy is persona-independent:
+\[
+\text{InitialAcc} = \frac{|C|}{|D|}.
+\]
+
+When runs are executed separately per persona (arm-specific filtering), we report arm-wise initial accuracy:
 \[
 \text{InitialAcc}(p) = \frac{|C_p|}{|D|}.
 \]
