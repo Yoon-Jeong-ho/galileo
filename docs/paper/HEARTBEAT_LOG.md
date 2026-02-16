@@ -913,3 +913,7 @@ Next:
 
 Notes:
 - GPUs at check time: GPU4~99% util, GPU5~100% util, GPU6 idle (work in progress sessions).
+
+### 2026-02-17 — Paper dev lane: set canonical Table W LaTeX label (anti-drift)
+
+- Declared canonical table label `tab:tablew` in the SSOT label↔artifact mapping (`CLAIM_EVIDENCE_MAP.md`) and noted it in `FIGURE_CAPTIONS.md`.

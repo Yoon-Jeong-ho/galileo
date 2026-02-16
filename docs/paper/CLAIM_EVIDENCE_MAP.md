@@ -29,6 +29,7 @@ When converting the draft to LaTeX, keep these **label → file** mappings stabl
 - `fig:tof-delta-fail1` → `docs/paper/figures/tof_personawise_fail1_delta_seed1-4_20260209.svg`
 - `fig:recovery-delta` → `docs/paper/figures/recovery_personawise_delta_seed1-4_20260209.svg`
 - `fig:tablew-effect-deltas` → `docs/paper/figures/table_w_effect_delta_seed1-4_20260209.svg`
+- `tab:tablew` → (Table W; artifacts) `docs/paper/artifacts/table_w_control_vs_persona_seed1-4_mean_std_20260209.csv` and `docs/paper/artifacts/table_w_effect_delta_seed1-4_20260209.csv`
 - `fig:cross-family-survival` → `docs/paper/figures/cross_family_survival_r5_control_vs_logicaltrap_seed1-2_20260212.svg`
 - `fig:decoding-sweep` → `docs/paper/figures/decoding_sweep_qwen_delta_seed1-2_20260211.svg`
 

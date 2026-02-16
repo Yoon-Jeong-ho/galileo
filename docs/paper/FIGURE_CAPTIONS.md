@@ -8,6 +8,7 @@ Conventions:
 - If PDFs are needed for LaTeX, generate via `scripts/convert_figures_svg_to_pdf.sh`.
 
 Metric definitions (to keep captions consistent across drafts):
+- **Table W** (canonical LaTeX label: `tab:tablew`): control vs persona summary + effect deltas (see artifacts `table_w_*`).
 - **Survival@r**: fraction of **initially-correct** examples that remain correct for **all rounds 1..r** (cumulative; “still correct through round r”).
 - **Flip**: correct→incorrect transition at some round.
 - **TOF (turn-of-failure)**: the first round where a flip occurs (or “never”).
