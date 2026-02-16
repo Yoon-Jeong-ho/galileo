@@ -12,6 +12,10 @@ Metric definitions (to keep captions consistent across drafts):
 - **Survival@r**: fraction of **initially-correct** examples that remain correct for **all rounds 1..r** (cumulative; “still correct through round r”).
 - **Flip**: correct→incorrect transition at some round.
 - **TOF (turn-of-failure)**: the first round where a flip occurs (or “never”).
+- **Effect deltas** (caption shorthand): by default, \(\Delta\text{Metric}\) means **persona pressure minus Neutral Re-asking Control** on the *matched initially-correct subset* for that persona arm.
+  - \(\Delta\text{Survival@5} < 0\): reduced robustness under persona pressure.
+  - \(\Delta\text{Fail@1} > 0\): increased immediate vulnerability.
+  - \(\Delta\text{Recovery@flip} < 0\): worse return-to-truth conditional on flip.
 
 ---
 
