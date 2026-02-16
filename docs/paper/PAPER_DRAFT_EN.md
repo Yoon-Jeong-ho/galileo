@@ -258,6 +258,17 @@ Across tasks, we require the final answer to appear as `\boxed{...}`. Chain-of-t
 
 This convention is robust to multi-turn formatting drift and to “draft boxes” that some models emit before their final boxed answer.
 
+**Reproducibility note (paper-friendly pseudocode).**
+
+```text
+extract_final_answer(text):
+  boxes = all substrings matching \\boxed{...} (non-greedy; allow nested braces if supported)
+  if len(boxes) >= 1:
+    return content(boxes[-1])   # last box wins
+  else:
+    return fallback_heuristic(text)
+```
+
 Rationale: multi-turn logs amplify formatting drift; boxed-priority extraction reduces scoring failures due to superficial phrasing differences.
 
 ### 5.2 Task-specific scoring
