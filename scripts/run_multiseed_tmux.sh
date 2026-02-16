@@ -60,6 +60,9 @@ echo "RESULTS_ROOT: ${RESULTS_ROOT}"
 echo "NUM_SAMPLES: ${NUM_SAMPLES}, MAX_MODEL_LEN: ${MAX_MODEL_LEN}, MAX_TOKENS: ${MAX_TOKENS}"
 echo "SEEDS: ${SEEDS}"
 
+# Ensure python output is streamed to run.log in real time.
+export PYTHONUNBUFFERED=1
+
 to_array() {
   local s="$1"
   IFS=, read -r -a arr <<< "$s"
@@ -76,7 +79,7 @@ run_one() {
   echo "[$(date)] seed=${seed} model=${model} tag=${tag}" | tee -a "$out_dir/run.log"
 
   CUDA_VISIBLE_DEVICES="${GPU_LIST}" \
-  "${CONDA_BIN}" run -n "${CONDA_ENV}" python run_experiment.py \
+  stdbuf -oL -eL "${CONDA_BIN}" run -n "${CONDA_ENV}" python run_experiment.py \
     --model "${model}" \
     --data_dir "${DATA_ALL_DIR}" \
     --results_dir "${out_dir}" \
@@ -123,7 +126,7 @@ for seed in "${seeds[@]}"; do
 done
 
 # Global validation across the entire results root (parity of runner settings across repeated runs).
-"${CONDA_BIN}" run -n "${CONDA_ENV}" python scripts/validate_paper_exports.py --results_root "${RESULTS_ROOT}" --check_runner_parity \
+stdbuf -oL -eL "${CONDA_BIN}" run -n "${CONDA_ENV}" python scripts/validate_paper_exports.py --results_root "${RESULTS_ROOT}" --check_runner_parity \
   2>&1 | tee -a "${RESULTS_ROOT}/GLOBAL_VALIDATE.log"
 
 echo "=== Galileo multi-seed done: $(date) ==="
