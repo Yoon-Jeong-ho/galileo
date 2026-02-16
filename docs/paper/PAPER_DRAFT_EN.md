@@ -23,18 +23,18 @@ Across multi-seed runs and multiple model families, persona pressure consistentl
 
 In interactive settings, correctness is not a one-shot property. Even if an assistant produces a correct answer initially, subsequent conversation can apply pressure that nudges the model toward *agreeable* but wrong responses. This matters for high-stakes deployments (education, healthcare, legal assistance, research support), where a user may insist the model is wrong, cite “expert authority,” or repeatedly deny evidence. We operationalize and measure this with the GALILEO protocol and its drift control (Fig.~\ref{fig:protocol}; Table~W; Fig.~\ref{fig:tablew-effect-deltas}).
 
-A growing body of work investigates sycophancy (agreeing with user beliefs at the expense of truth) and persuasion-induced behavior change in LLMs (\cite{sharma2025understandingsycophancylanguagemodels,fanous2025sycevalevaluatingllmsycophancy,huang2026vulnerabilityllmsbeliefsystems}), as well as instability under prompt/context variation (\cite{tosato2025persistentinstabilityllmspersonality,yu2026ptcbenchbenchmarkingcontextualstability}). Beyond correctness alone, multi-turn settings can also induce pathological *belief and confidence dynamics* (e.g., confidence escalation in adversarial debates) \cite{prasad2025llmsdebatethinktheyll}. However, evaluation protocols often (i) focus on single-turn outcomes or (ii) do not precisely characterize **the dynamics of failure across rounds** and **the possibility of recovery after a flip** on tasks with explicit ground truth.
+A growing body of work investigates sycophancy (agreeing with user beliefs at the expense of truth) and persuasion-induced behavior change in LLMs (\cite{sharma2025understandingsycophancylanguagemodels,fanous2025sycevalevaluatingllmsycophancy,huang2026vulnerabilityllmsbeliefsystems}), as well as instability under prompt/context variation (\cite{tosato2025persistentinstabilityllmspersonality,yu2026ptcbenchbenchmarkingcontextualstability}). Beyond correctness alone, multi-turn settings can also induce pathological *belief and confidence dynamics* (e.g., confidence escalation in adversarial debates) \cite{prasad2025llmsdebatethinktheyll}. However, evaluation protocols often (i) focus on single-turn outcomes or (ii) do not precisely characterize **the dynamics of failure across rounds** and **the possibility of recovery after a flip** on tasks with explicit ground truth (survival/TOF/recovery: Figs.~\ref{fig:survival-curves-rounds}, \ref{fig:tof-delta-fail1}, \ref{fig:recovery-delta}).
 
 ### 1.2 Problem and evaluation gap
 
 Single-turn accuracy does not answer:
-- **When does a model first fail under pressure?** (early-turn vs late-turn failures)
-- **How does robustness compound over rounds?** (survival curves)
-- **Can a model recover after being misled?** (intervention/recovery)
+- **When does a model first fail under pressure?** (early-turn vs late-turn failures; TOF / Fail@1: Fig.~\ref{fig:tof-delta-fail1})
+- **How does robustness compound over rounds?** (survival curves across rounds: Fig.~\ref{fig:survival-curves-rounds})
+- **Can a model recover after being misled?** (recovery conditional on flip: Fig.~\ref{fig:recovery-delta})
 
 **Proof pointers (what the reader should check):** survival trajectories (Fig.~\ref{fig:survival-curves-rounds}), early-turn vulnerability/TOF (Fig.~\ref{fig:tof-delta-fail1}), recovery conditional on flip (Fig.~\ref{fig:recovery-delta}), and the Neutral Re-asking Control comparison (Table W deltas; Fig.~\ref{fig:tablew-effect-deltas}). For generalization and robustness checks, see the cross-family replication (Fig.~\ref{fig:cross-family-survival}) and the decoding sensitivity sweep (Appendix~A.1; Fig.~\ref{fig:decoding-sweep}).
 
-We target a practically grounded setting: tasks with **ground-truth answers** where failure is unambiguous, while pressure is delivered through realistic conversational personas.
+We target a practically grounded setting: tasks with **ground-truth answers** where failure is unambiguous, while pressure is delivered through realistic conversational personas (protocol: Fig.~\ref{fig:protocol}).
 
 ### 1.3 Contributions
 

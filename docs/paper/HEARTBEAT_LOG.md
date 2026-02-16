@@ -887,3 +887,15 @@ Next:
 ### 2026-02-12 — Paper dev lane: add LaTeX anti-drift pointer (labels ↔ repo filenames)
 
 - Updated LaTeX skeleton READMEs to point to the SSOT label↔filename mapping in `docs/paper/CLAIM_EVIDENCE_MAP.md`.
+
+### 2026-02-17 (am) — Writing lane: extend proof pointers in Intro (reduce reviewer search cost)
+
+- Updated `docs/paper/PAPER_DRAFT_EN.md` Intro to attach explicit proof pointers to the evaluation gap bullets and the motivation paragraph:
+  - failure dynamics sentence now points to survival/TOF/recovery figures (Figs.~\ref{fig:survival-curves-rounds}, \ref{fig:tof-delta-fail1}, \ref{fig:recovery-delta})
+  - evaluation-gap bullets now each point to the exact figure
+  - protocol sentence now explicitly points to Fig.~\ref{fig:protocol}
+- Ran `python3 scripts/audit_citations.py`: EN draft has 14 cite keys and **0 missing**.
+
+Next:
+- Scan the rest of Intro/Contributions for any remaining “floating” claim sentences without a nearby proof pointer.
+- Ensure the LaTeX labels in `docs/paper/CLAIM_EVIDENCE_MAP.md` still match the draft refs.

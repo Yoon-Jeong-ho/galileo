@@ -80,9 +80,9 @@ Ground-truth tasks에서 multi-turn persona pressure 하에 **정답 유지(surv
 
 ## 4) NEXT HEARTBEAT (ONE step)
 
-**Paper writing: propagate proof pointers beyond the Abstract (Intro + core claims).**
+**Paper writing: extend proof pointers beyond the Abstract (Intro sentences).**
 
-- Deliverable: in `docs/paper/PAPER_DRAFT_EN.md`, add/standardize brief proof pointers for the key Intro/core-claim sentences (protocol / survival / TOF / recovery / control deltas / cross-family / decoding sweep), aligned with `docs/paper/CLAIM_EVIDENCE_MAP.md`.
+- Deliverable: tighten the Intro so key “why multi-turn matters” sentences point to the exact evidence (survival/TOF/recovery/control) and protocol figure, consistent with `docs/paper/CLAIM_EVIDENCE_MAP.md`.
 
 ---
 
