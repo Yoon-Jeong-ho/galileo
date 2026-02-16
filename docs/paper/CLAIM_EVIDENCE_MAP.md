@@ -71,6 +71,14 @@ These are the claims most likely to be read *without* looking at appendices. Eac
    - Artifact: `docs/paper/artifacts/decoding_sweep_qwen_temp_summary_seed1-2_20260211.csv`
    - Regenerate: `python3 scripts/make_decoding_sweep_figure_svg.py`
 
+### Intro proof-pointer sentences (keep these aligned)
+
+These are the exact “proof pointer” hooks we want a reviewer to notice in the Introduction; if you edit them in the draft, update the mapping here in the same commit.
+
+- **Protocol + drift baseline:** Introduction §1.1 should point to the protocol figure and control-vs-persona summary (Fig.~`fig:protocol`; Table~`tab:tablew`; Fig.~`fig:tablew-effect-deltas`).
+- **Dynamics + recovery:** Introduction §1.1 should explicitly name survival/TOF/recovery and point to the three core figures (Figs.~`fig:survival-curves-rounds`, `fig:tof-delta-fail1`, `fig:recovery-delta`) plus Table~`tab:tablew`.
+- **Evaluation gap bullets:** Introduction §1.2 bullets should each have a single obvious proof pointer (TOF → `fig:tof-delta-fail1`, survival → `fig:survival-curves-rounds`, recovery → `fig:recovery-delta`).
+
 ---
 
 ## C1 (Dynamics): Robustness under pressure is a trajectory (survival + TOF), not a single number
