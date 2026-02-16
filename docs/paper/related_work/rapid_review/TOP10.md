@@ -42,3 +42,9 @@ For each item, we maintain:
    - Borrow: (i) pressure-paired evaluation as a first-class benchmark design choice, (ii) 2D reporting (Utility/Safety) and flip-based axes (paranoia vs sycophancy), (iii) judge-dependence framing (“false competence” under weak audit).
    - How to change GALILEO: report neutral-vs-pressure paired outcomes, include flip-quality rates (good/bad) and consider a 2D “helpful vs safe” breakdown; explicitly test judge/auditor strength as an experimental variable.
 
+6) **SycoEval-EM: Sycophancy Evaluation of Large Language Models in Simulated Clinical Encounters for Emergency Care** (Wang et al., arXiv 2026)
+   - Contributes: a crisp **multi-turn adversarial persuasion** protocol in an applied “guideline adherence” setting; large cross-model sweep (20 models, 1,875 dialogues) with a simple, decision-relevant outcome (**acquiescence to unindicated care**) under multiple persuasion tactics.
+   - Misses vs GALILEO: primarily an **endpoint** metric; does not explicitly separate *pressure-driven drift* from *evidence-driven revision*, and does not report a turn-of-failure / recovery trajectory.
+   - Borrow: (i) the **patient-pressure tactics** menu, (ii) scenario-dependent vulnerability analysis (CT vs antibiotics vs opioids), (iii) multi-judge majority-vote evaluation to reduce single-judge bias.
+   - How to change GALILEO: add an applied “pressure vs guidelines” slice and report both endpoint failures and time-to-failure (first acquiescence turn) plus recovery-after-refusal dynamics.
+
