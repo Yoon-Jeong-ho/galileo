@@ -209,6 +209,12 @@ This produces a **survival curve** across rounds. In plots/tables, we report per
 For each example `x ∈ C_p` under persona `p`, define `TOF(x, p)` as the earliest round where the answer first becomes incorrect. If it never flips within `R` rounds, set `TOF = never`.
 
 We report the distribution over `{1, 2, …, R, never}` and summarize statistics such as:
+
+**Implementation/audit note (discrete censoring).** In CSV artifacts and plotting scripts, we often encode `never` as `R+1` (a right-censored “no failure observed within the horizon”). This makes the TOF distribution easy to aggregate. Survival can be computed directly from TOF via:
+\[
+\text{Survival}(p,r)=\Pr(\mathrm{TOF}>r\mid y_{0}=1)
+\]
+(i.e., the fraction of initially-correct examples whose first failure occurs *after* round `r`, or never). When reporting a “mean TOF”, we use a **truncated** mean over `1..R` plus a separate NeverFail/Survival@R term, rather than treating `never` as a literal numeric time-to-event.
 - **Fail@1** rate (immediate vulnerability):
   \[
   \text{Fail@1}(p) = 1 - \text{Survival}(p, 1).
