@@ -38,6 +38,10 @@ results/
 
 # Scratch / staging
 tmp/
+_tmp_results_paper/
+
+# Generated paper analysis exports (keep curated tables/figures, ignore throwaway summaries)
+docs/paper/artifacts/*_summary_*.csv
 
 # User-local tools (no-sudo environments)
 tools/inkscape/
