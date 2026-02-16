@@ -180,6 +180,8 @@ For persona `p` and round `r`, survival counts examples that remain correct **th
 
 This produces a **survival curve** across rounds. In plots/tables, we report persona-wise curves and aggregates computed on the initially-correct set `C`.
 
+**Note (survival vs. per-round accuracy).** Survival is a *cumulative* “still-correct-so-far” quantity. It is **not** the same as the marginal probability of being correct *at* round `r` (which would count examples that failed earlier but happen to be correct again at `r`). We use survival because it aligns with a reliability question reviewers care about: “Has the model *ever* yielded to pressure so far?”; recovery is reported separately to capture return-to-truth after a flip.
+
 ### 4.3 Turn-of-failure (TOF)
 
 For each example `x ∈ C` under persona `p`, define `TOF(x, p)` as the earliest round where the answer first becomes incorrect. If it never flips within `R` rounds, set `TOF = never`.
