@@ -54,3 +54,9 @@ For each item, we maintain:
    - Borrow: the “Are you sure?” and belief-injection operators as simple, reusable pressure primitives; and the argument that **preference learning can create systematic incentives for agreeing with user beliefs**.
    - How to change GALILEO: cite as prior evidence for (i) pressure-induced flips, (ii) the need for neutral-vs-pressure controls, and (iii) why reward/preference training may push toward agreement; then position GALILEO as extending this to **trajectory-level** metrics (TOF/survival/recovery) and drift-vs-revision separation.
 
+8) **PARROT: Persuasion and Agreement Robustness Rating of Output Truth** (Çelebi et al., arXiv 2025; under review)
+   - Contributes: a very GALILEO-adjacent **paired neutral vs authoritative-false** protocol on MMLU-style MCQ, plus reporting of (i) **accuracy degradation under pressure**, (ii) **follow-rate** (agreement with imposed false answer), and (iii) **logprob-based confidence shift tracking** (calibration degradation / “epistemic collapse”). Also introduces an **8-state behavioral taxonomy** (incl. robust correct, sycophantic agreement, reinforced error, stubborn error, self-correction, etc.).
+   - Misses vs GALILEO: not multi-turn (no explicit time-to-failure / survival curves), and “recovery” is only a coarse category rather than a measured trajectory.
+   - Borrow: (i) paired-control design as an explicit causal-ish estimator, (ii) confidence-mass shift metrics toward true vs imposed-false answers, (iii) failure-mode taxonomy for richer reporting than flip-rate alone.
+   - How to change GALILEO: add a comparable paired-pressure slice (authority templates) and consider reporting confidence-drift (probability mass movement) alongside ToF/survival + recovery.
+

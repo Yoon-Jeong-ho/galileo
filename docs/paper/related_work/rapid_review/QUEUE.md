@@ -19,6 +19,6 @@ Format (one per line):
 
 - [x] 2026 | SycoEval-EM: Sycophancy Evaluation of Large Language Models in Simulated Clinical Encounters for Emergency Care | arXiv | https://arxiv.org/abs/2601.16529 | tags: sycophancy, persuasion, multi-turn, social-pressure, clinical | note: papers/20260217_sycoeval-em.md
 - [x] 2023 | Towards Understanding Sycophancy in Language Models | arXiv | https://arxiv.org/abs/2310.13548 | tags: sycophancy, rlhf, preference-modeling | note: papers/20260217_towards-understanding-sycophancy.md
-- [ ] 2025 | PARROT: Persuasion and Agreement Robustness Rating of Output Truth -- A Sycophancy Robustness Benchmark for LLMs | arXiv | https://arxiv.org/abs/2511.17220 | tags: persuasion, robustness, truthfulness, metrics
+- [x] 2025 | PARROT: Persuasion and Agreement Robustness Rating of Output Truth -- A Sycophancy Robustness Benchmark for LLMs | arXiv | https://arxiv.org/abs/2511.17220 | tags: persuasion, robustness, truthfulness, metrics | note: papers/20260217_parrot.md
 - [ ] 2026 | Moral Sycophancy in Vision Language Models | arXiv | https://arxiv.org/abs/2602.08311 | tags: sycophancy, vlm, moral, flip-metrics
 - [ ] 2025 | SycEval: Evaluating LLM Sycophancy | arXiv | https://arxiv.org/abs/2502.08177 | tags: sycophancy, persistence, multi-turn
