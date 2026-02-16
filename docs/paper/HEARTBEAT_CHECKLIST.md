@@ -45,6 +45,12 @@ Launch discipline:
 - Every run must have its own `OUT=results/<run>/`.
 - A run is "paper-ready" only if `paper_exports/` + `metadata.json` + `runner_metadata.json` exist and validator prints `[OK]` + `[OK] runner_metadata parity`.
 
+**Canonical launcher (anti-drift):**
+- Prefer `scripts/run_multiseed_tmux.sh` (remote) for long runs; it writes `paper_exports/runner_metadata.json` and is configured to **stream logs** (avoid long silent `run.log`).
+- If using an ad-hoc tmux one-liner, ensure:
+  - `PYTHONUNBUFFERED=1`
+  - optionally wrap python/conda with `stdbuf -oL -eL ... | tee -a run.log`
+
 ## C) If lane = Research (continuous)
 
 Deliverable must be one of:
