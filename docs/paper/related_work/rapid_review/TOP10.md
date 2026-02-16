@@ -60,3 +60,9 @@ For each item, we maintain:
    - Borrow: (i) paired-control design as an explicit causal-ish estimator, (ii) confidence-mass shift metrics toward true vs imposed-false answers, (iii) failure-mode taxonomy for richer reporting than flip-rate alone.
    - How to change GALILEO: add a comparable paired-pressure slice (authority templates) and consider reporting confidence-drift (probability mass movement) alongside ToF/survival + recovery.
 
+9) **Moral Sycophancy in Vision Language Models** (Rabby et al., arXiv 2026; submitted to ACL)
+   - Contributes: a clean **2-turn disagreement protocol** for VLM moral judgments and two metrics that are very close to “harm vs recovery” decomposition: **EIR (Error Introduction Rate)** and **ECR (Error Correction Rate)**, plus evidence of **asymmetric flips** (right→wrong more likely than wrong→right).
+   - Misses vs GALILEO: only 2 turns (no long-horizon survival/TOF curves), and no explicit neutral re-asking control to separate drift from evidence-driven revision.
+   - Borrow: EIR/ECR reporting as a simple, interpretable split between *pressure-caused new errors* and *pressure-triggered corrections*.
+   - How to change GALILEO: consider adding EIR/ECR-style summary metrics alongside survival/TOF, and explicitly test for flip-direction asymmetry (right→wrong vs wrong→right) as a first-class stability diagnostic.
+
