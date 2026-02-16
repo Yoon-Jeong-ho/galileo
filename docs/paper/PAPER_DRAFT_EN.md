@@ -67,7 +67,7 @@ To make the above claims hard to dismiss, the camera-ready experimental core sho
 
 - **Multi-seed** (report mean±std) for the main model(s).
 - **≥2 model families** under the same protocol (ideally 3 for stronger generalization).
-- **Control condition**: the **Neutral Re-asking Control** (a non-persona multi-turn drift baseline; e.g., generic denial/re-asking) to show effects are not purely conversational drift.
+- **Control condition**: the **Neutral Re-asking Control** (a non-persona multi-turn drift baseline; repeated *neutral* re-check requests with **no new evidence**) to show effects are not purely conversational drift.
 - **One intervention ablation**: at least one recovery prompt variant.
 - **One sensitivity check**: decoding sensitivity (e.g., temperature sweep).
 
@@ -76,7 +76,7 @@ To make the above claims hard to dismiss, the camera-ready experimental core sho
 ### 1.6 Rebuttal prep (anticipated reviewer objections)
 
 - *“Isn’t agreeing with the user just being helpful?”* Our focus is on **ground-truth domains** where deference to incorrect user feedback is a functional failure (education, medical triage, legal assistance). In these settings, “helpfulness” that abandons truth is miscalibrated behavior.
-- *“Is this just long-context degradation / generic drift?”* We include a **Neutral Re-asking Control** (non-adversarial re-asking; generic denial/re-asking) to separate persona-specific pressure mechanisms from generic multi-turn drift.
+- *“Is this just long-context degradation / generic drift?”* We include a **Neutral Re-asking Control** (non-adversarial re-asking: repeated *neutral* verification prompts with **no new evidence**) to separate persona-specific pressure mechanisms from generic multi-turn drift.
 
 ---
 
