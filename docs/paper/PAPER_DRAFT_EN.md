@@ -403,6 +403,10 @@ Unless stated otherwise, results are reported as mean±std over **seeds 1–4** 
   - Fail@1 rises from **13.10** (control mean) to **20.03** (persona weighted mean).
 - Presentation note: when plotting survival curves, render personas as **solid** lines and the **Neutral Re-asking Control** as a **dashed** line (same axes/rounds/decoding) to make the drift baseline visually unmissable.
 
+**Definition/interpretation notes (avoid reviewer confusion).**
+- **Survival@R vs Never-fail:** under our definition, `Survival@R` counts examples that remain correct for *all* rounds 1..R. This is therefore numerically identical to the **Never-fail** rate (no flip within R rounds). We sometimes report both labels because reviewers expect `never-fail` phrasing; in the camera-ready version we can keep one to reduce redundancy.
+- **Persona pressure weighted vs unweighted:** `weighted` averages persona metrics by the per-persona sample counts in the run; `unweighted` treats each persona equally. In balanced runs these coincide; we keep both to make aggregation choices explicit.
+
 <!-- AUTO:TABLE_W_SEED1234_START -->
 **Seed1–4 snapshot+aggregate (Qwen2.5-7B-Instruct, 80 samples/seed; auditable green).**
 - Seed1 control root: `results/c2run_control_20260209_172640/`
