@@ -925,3 +925,7 @@ Notes:
 ### 2026-02-17 — Writing lane: tighten SYCON Bench positioning (ToF/NoF vs our TOF)
 
 - Updated Related Work §6.4 to explicitly name SYCON Bench’s Turn of Flip / Number of Flips metrics and relate Turn of Flip to our TOF framing (without conflating task/scoring).
+
+### 2026-02-17 — Writing lane: remove brittle section pointer for Table W in core-claims
+
+- Replaced “Table W in §7.5” with canonical `Table~\ref{tab:tablew}` in §1.4 core-claims evidence pointers.

@@ -55,7 +55,7 @@ We structure the paper around three reviewer-checkable claims:
   - **Paper-facing evidence:** survival trajectories + early-turn vulnerability/TOF (Figs.~\ref{fig:survival-curves-rounds}, \ref{fig:tof-delta-fail1}).
   - **Tracked artifacts (SSOT):** `docs/paper/artifacts/survival_curve_personawise_control_vs_persona_seed1-4_mean_std_20260209.csv`, `docs/paper/artifacts/tof_personawise_fail1_never_control_vs_persona_seed1-4_mean_std_20260209.csv`.
 - **C2 (Mechanism vs drift):** Persona pressure induces failures beyond generic multi-turn drift; the Neutral Re-asking Control is essential to attribute effects to pressure mechanisms.
-  - **Paper-facing evidence:** Table W deltas (Fig.~\ref{fig:tablew-effect-deltas}; Table W in §7.5).
+  - **Paper-facing evidence:** Table~\ref{tab:tablew} [Table W] + deltas view (Fig.~\ref{fig:tablew-effect-deltas}).
   - **Tracked artifacts (SSOT):** `docs/paper/artifacts/table_w_control_vs_persona_seed1-4_mean_std_20260209.csv`, `docs/paper/artifacts/table_w_effect_delta_seed1-4_20260209.csv`.
 - **C3 (Robustness vs recovery):** Recovery after flipping is measurable and not equivalent to survival; interventions can change recovery conditional on flip.
   - **Paper-facing evidence:** persona-wise recovery deltas (Fig.~\ref{fig:recovery-delta}) + recovery-prompt ablation summary (§7.4).
