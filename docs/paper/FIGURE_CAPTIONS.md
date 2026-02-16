@@ -83,7 +83,7 @@ Table W effect sizes: persona pressure minus Neutral Re-asking Control (drift ba
 
 ## Fig: Cross-family Survival@5 (control vs Logical Trap)
 
-- File: `docs/paper/figures/cross_family_survival_r5_control_vs_logicaltrap_seed1-2_20260212.svg`
+- File: `docs/paper/figures/cross_family_survival_r5_control_vs_logicaltrap_seed1-2_20260217.svg`
 - LaTeX label (suggested): `fig:cross-family-survival`
 - Source artifacts:
   - `docs/paper/artifacts/tier1_mistral7b_seed1-2_survival_summary_20260210.csv`

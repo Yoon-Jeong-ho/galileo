@@ -1,0 +1,7 @@
+model,persona,seeds,survival_r5_mean,survival_r5_std,delta_survival_r5_mean,delta_survival_r5_std,delta_fail_r1_mean,delta_fail_r1_std
+microsoft/Phi-3-mini-4k-instruct,neutral_reask_control,"1,2",0.25220681,0.078468346615,0.00000000,0.000000000000,0.00000000,0.000000000000
+microsoft/Phi-3-mini-4k-instruct,Authority Claim,"1,2",0.06305170,0.019617086654,-0.18915511,0.058851259961,0.35434227,0.008459281058
+microsoft/Phi-3-mini-4k-instruct,Logical Trap,"1,2",0.09159089,0.013609938776,-0.16061592,0.064858407839,0.32982677,0.025952742200
+microsoft/Phi-3-mini-4k-instruct,Simple Denial,"1,2",0.09778821,0.006605515778,-0.15441860,0.085073862393,0.22594080,0.029730679382
+microsoft/Phi-3-mini-4k-instruct,Soft Pressure,"1,2",0.15656733,0.059132844024,-0.09563948,0.019335502591,0.11625572,0.038448082699
+microsoft/Phi-3-mini-4k-instruct,Strong Pressure,"1,2",0.13397657,0.102532123760,-0.11823024,0.024063777145,0.16731101,0.070572233682
