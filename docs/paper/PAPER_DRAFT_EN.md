@@ -259,7 +259,9 @@ We interpret recovery as an intervention-style metric that is intentionally dist
 
 ### 4.5 Multi-seed aggregation
 
-For each seed, we compute the above metrics per persona/dataset/round. We then aggregate across seeds by reporting **mean ± std** (optionally with confidence intervals in the final version).
+For each seed, we compute the above metrics per persona/dataset/round on that seed’s initially-correct subset (recommended: the shared `C`; otherwise `C_p`). We then aggregate across seeds by reporting **mean ± std** of the *per-seed* metrics (optionally with confidence intervals in the final version).
+
+**Why per-seed averaging (vs. pooling).** We prefer “compute metric per seed, then average” over pooling all examples across seeds because the effective evaluation set size (e.g., `|C|`) can differ slightly by seed. Per-seed aggregation keeps each run equally weighted and makes variance across seeds explicit.
 
 ---
 
