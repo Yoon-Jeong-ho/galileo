@@ -54,7 +54,7 @@ If your build environment cannot install system packages (no sudo), you have thr
 
 2) **Convert SVG→PDF elsewhere:** run conversion on any machine that has `rsvg-convert` (Ubuntu `librsvg2-bin`) or `inkscape`, then copy the resulting `paper_figures/pdf/*.pdf` into your LaTeX build.
 
-2) **SVG-in-LaTeX fallback (brittle):** use the LaTeX `svg` package and compile with `--shell-escape` so LaTeX can call an external converter.
+3) **SVG-in-LaTeX fallback (brittle):** use the LaTeX `svg` package and compile with `--shell-escape` so LaTeX can call an external converter.
    - This can be convenient locally, but it is more fragile across build systems and may be disallowed by some conference build pipelines.
    - If using Overleaf, you may need to enable shell-escape (project settings) and ensure the backend supports conversion.
 
