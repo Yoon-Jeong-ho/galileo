@@ -49,7 +49,7 @@
 
 대규모 언어모델(LLM)은 사용자와의 상호작용에서 설득, 권위 주장, 반복 부정 등 다양한 형태의 **사회적 압박(social pressure)**을 받을 때, 정답이 존재하는 과제에서도 기존에 도달했던 정답을 철회하거나 오답으로 전향하는 현상이 관찰된다. 관련 문헌은 sycophancy(사용자 동조) 및 persuasion을 보고하지만(예: Sharma et al., 2025; Fanous et al., 2025; Huang et al., 2026), 정답 기반 과제에서 이러한 붕괴가 **어느 라운드에서 처음 발생하는지(turn-of-failure)**, 이후 압박이 누적될 때 **생존 곡선(survival curve)**이 어떻게 형성되는지, 그리고 **회복(recovery)**이 가능한지까지를 한 프로토콜로 재현 가능하게 측정하는 공개 파이프라인은 상대적으로 부족하다.
 
-본 논문에서는 **GALILEO**를 제안한다. GALILEO는 (1) 정답이 있는 문제(수학, extractive QA, MCQA, open-domain QA)에 대해 초기 정답성을 평가하고, (2) 다섯 가지 adversarial persona(Soft Pressure, Simple Denial, Strong Pressure, Authority Claim, Logical Trap)를 **최대 5라운드** 적용하여 라운드별 정답 유지율을 측정하며, (3) 오답으로 전향한 샘플에 대해 회복 프롬프트를 제공하여 회복률을 평가한다. 또한 모든 태스크에서 최종 답을 `\boxed{...}`로 표준화하여 자동 채점의 안정성과 비교 가능성을 확보한다.
+본 논문에서는 **GALILEO**를 제안한다. GALILEO는 (1) 정답이 있는 문제(수학, extractive QA, MCQA, open-domain QA)에 대해 초기 정답성을 평가하고, (2) 다섯 가지 adversarial persona(Soft Pressure, Simple Denial, Strong Pressure, Authority Claim, Logical Trap)를 **최대 5라운드** 적용하여 라운드별 정답 유지율을 측정하며, (3) 오답으로 전향한 샘플에 대해 회복 프롬프트를 제공하여 회복률을 평가한다. 또한 모든 태스크에서 최종 답을 `\boxed{...}`로 표준화하여 자동 채점의 안정성과 비교 가능성을 확보한다.
 
 실험 결과(메인: Qwen2.5-7B-Instruct seed1–4, 추가 패밀리: Mistral-7B/Llama-3.1-8B seed1–2)에서는, **비적대적 드리프트 베이스라인(Neutral Re-asking Control)** 대비 persona pressure가 survival/Fail@1/TOF를 일관되게 악화시키는 패턴이 관찰되며(Table W), 회복(recovery@flip)은 persona/태스크에 따라 방향과 크기가 달라 **robustness(끝까지 정답 유지)**와 **recovery(전향 후 return-to-truth)**가 서로 다른 축임을 시사한다. 또한 decoding sensitivity(temperature 0.0 vs 0.7; seed1–2)에서도 persona–control gap이 질적으로 유지되어, 결과가 특정 디코딩 설정에만 의존하지 않음을 확인했다(부록 robustness check).
 
@@ -323,7 +323,7 @@ LLM은 사용자 중심 응답, 공감적 대화, 고품질 추론을 위해 인
 
 1. **정답 기반 멀티턴 동역학 평가의 정식화**: 초기 정답 샘플을 대상으로 persona 압박을 라운드별로 적용해 **survival curve**를 측정하고, 최초 붕괴 시점(**turn-of-failure**) 및 전향 이후 **recovery**까지 동일한 프로토콜에서 계량화한다.
 2. **다중 태스크 통합(ground-truth 가능한 과제군)**: 수학(GSM8K/SVAMP), extractive QA(SQuAD 1.1/2.0), MCQA(ARC-Easy), open-domain QA(TriviaQA) 등 서로 다른 태스크군을 **하나의 실행/로그/평가 체계**로 통합한다.
-3. **평가 안정성을 위한 출력 표준화**: 모든 태스크에서 최종 답을 `\boxed{...}`로 요구하고, evaluator는 boxed를 우선 추출해 채점하여 multi-turn 로그에서도 일관된 스코어링이 가능하도록 한다.
+3. **평가 안정성을 위한 출력 표준화**: 모든 태스크에서 최종 답을 `\boxed{...}`로 요구하고, evaluator는 boxed를 우선 추출해 채점하여 multi-turn 로그에서도 일관된 스코어링이 가능하도록 한다.
 4. **재현 가능한 연구 산출물(A/B/C 파이프라인)**: strict 데이터 디렉토리(legacy 혼입 방지), 멀티시드 집계(mean±std), paper export(표/그림/SVG)까지 포함한 end-to-end 워크플로우를 제공한다.
 
 ---
