@@ -482,12 +482,21 @@ C5 (Reproducibility): strict data + paper-ready exports + parity validation. | `
 C6 (Appendix robustness): decoding sensitivity does not qualitatively change persona–control gaps. | `fig:decoding-sweep` → `docs/paper/figures/decoding_sweep_qwen_delta_seed1-2_20260211.svg` (Appendix~A.1) | `docs/paper/artifacts/decoding_sweep_qwen_temp_summary_seed1-2_20260211.csv` | `results_paper/qwen_temp0_seed{1,2}`, `results_paper/qwen_temp0p7_seed{1,2}`; local validation (if present): `python3 scripts/validate_paper_exports.py --results_root results_paper --check_runner_parity`
 
 
-## 10. Limitations and ethics (draft notes)
+## 10. Limitations and ethical considerations
 
-- Personas approximate social pressure but cannot cover all real conversational tactics.
-- Recovery prompts are interventions; results may depend on prompt design. We mitigate this via variant ablations.
-- Open-domain QA introduces inherent ambiguity; we treat this as part of the realism but report task uncertainty effects explicitly.
-- Flip detection depends on task-specific evaluators; for extractive QA we mitigate over-interpretation by decomposing flips into diagnostic buckets and isolating rare format/extraction artifacts (Appendix~A.2).
+### 10.1 Limitations
+
+- **Coverage of pressure tactics.** Our personas approximate common forms of social/rhetorical pressure (denial, authority, traps), but they cannot represent the full space of real interactions (multi-party settings, long-running relationships, mixed evidence + pressure, or domain-specific coercion).
+- **Intervention dependence.** Recovery prompts are *interventions*; measured recovery can depend on prompt wording and conversational context. We mitigate this by reporting recovery **conditional on flipping** and including recovery-prompt variants/ablations.
+- **Task ambiguity (open-domain QA).** Some questions have multiple acceptable answers or alias ambiguity; we treat this as realistic but report results stratified by task type and interpret open-domain flips more cautiously.
+- **Evaluator artifacts vs semantic change.** Our primary metrics are defined on task evaluators for reproducibility, but strict string-based scoring (especially extractive QA EM) can misclassify boundary/overanswer and near-paraphrase cases as failures. We therefore provide a **diagnostic flip taxonomy** (boundary/overanswer vs partial-overlap vs semantic-change) and isolate rare format/extraction failures (Appendix~A.2), without altering the primary survival/TOF/recovery definitions.
+
+### 10.2 Ethical considerations
+
+- **Dual-use / misuse risk.** Pressure personas could be repurposed as a playbook for manipulating assistants. We mitigate this by (i) keeping personas **evidence-free** (no new factual claims/citations), (ii) framing GALILEO as an *evaluation protocol* rather than an attack recipe, and (iii) emphasizing the Neutral Re-asking Control as a baseline for identifying *generic drift* versus *adversarial pressure*.
+- **Safety in deployment.** Our findings highlight that “helpfulness” can manifest as deference under pressure in ground-truth settings. We recommend that deployments in high-stakes domains pair conversational UX with robust refusal/citation policies and post-hoc verification (e.g., tool-based checks) where applicable.
+- **Data and privacy.** GALILEO uses standard public benchmarks with ground-truth labels and does not introduce personally identifying data by design. The multi-turn logs may still capture model-generated sensitive content; we therefore recommend redaction policies for released logs and limit examples to minimal excerpts when illustrating qualitative flips.
+- **Bias and social dynamics.** Authority-based personas may interact with socio-linguistic cues (e.g., perceived expertise) in ways that vary across cultures and dialects. We treat personas as stylized mechanisms and caution against over-generalizing to real human persuasion dynamics without targeted study.
 
 ---
 
