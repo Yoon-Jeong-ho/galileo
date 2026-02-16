@@ -52,11 +52,14 @@ We target a practically grounded setting: tasks with **ground-truth answers** wh
 We structure the paper around three reviewer-checkable claims:
 
 - **C1 (Dynamics):** Robustness under pressure is a *trajectory*, not a single number—single-turn accuracy misses *when* failures happen.
-  - Evidence: survival curves over rounds + TOF summaries (e.g., Fig.~\ref{fig:survival-curves-rounds} and Fig.~\ref{fig:tof-delta-fail1}).
+  - **Paper-facing evidence:** survival trajectories + early-turn vulnerability/TOF (Figs.~\ref{fig:survival-curves-rounds}, \ref{fig:tof-delta-fail1}).
+  - **Tracked artifacts (SSOT):** `docs/paper/artifacts/survival_curve_personawise_control_vs_persona_seed1-4_mean_std_20260209.csv`, `docs/paper/artifacts/tof_personawise_fail1_never_control_vs_persona_seed1-4_mean_std_20260209.csv`.
 - **C2 (Mechanism vs drift):** Persona pressure induces failures beyond generic multi-turn drift; the Neutral Re-asking Control is essential to attribute effects to pressure mechanisms.
-  - Evidence: Table W control-vs-persona deltas (Fig.~\ref{fig:tablew-effect-deltas}; §7.5).
+  - **Paper-facing evidence:** Table W deltas (Fig.~\ref{fig:tablew-effect-deltas}; Table W in §7.5).
+  - **Tracked artifacts (SSOT):** `docs/paper/artifacts/table_w_control_vs_persona_seed1-4_mean_std_20260209.csv`, `docs/paper/artifacts/table_w_effect_delta_seed1-4_20260209.csv`.
 - **C3 (Robustness vs recovery):** Recovery after flipping is measurable and not equivalent to survival; interventions can change recovery conditional on flip.
-  - Evidence: persona-wise recovery deltas (Fig.~\ref{fig:recovery-delta}) and a recovery-prompt ablation summary (§7.4).
+  - **Paper-facing evidence:** persona-wise recovery deltas (Fig.~\ref{fig:recovery-delta}) + recovery-prompt ablation summary (§7.4).
+  - **Tracked artifacts (SSOT):** `docs/paper/artifacts/recovery_personawise_control_vs_persona_seed1-4_mean_std_20260209.csv`, `docs/paper/artifacts/recovery_variant_verify_then_answer_vs_baseline_seed1-2_20260210.csv`.
 
 ### 1.5 Minimum experiment set (submission-credible)
 
