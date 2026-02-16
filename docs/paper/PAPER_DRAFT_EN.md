@@ -198,12 +198,14 @@ We report the distribution over `{1, 2, …, R, never}` and summarize statistics
 
 ### 4.4 Recovery accuracy
 
-Let `F_p` be the set of examples in `C` that flipped at least once under persona `p`. Then:
+Let `F_p` be the set of examples in `C` that flipped at least once under persona `p` (i.e., were initially correct but became incorrect at some round during Phase 2). Then:
 \[
 \text{Recovery}(p) = \frac{\#\{x\in F_p : x\ \text{is correct after recovery}\}}{|F_p|}.
 \]
 
-We emphasize that recovery is evaluated **conditional on flipping**, and interpret it as an intervention-style metric.
+**Denominator note (important).** Recovery is evaluated **conditional on flipping**. When `|F_p|=0` (no flips), recovery is undefined; in tables we should report it as `NA` (or omit) and always interpret it alongside flip rates / survival.
+
+We interpret recovery as an intervention-style metric that is intentionally distinct from survival: a model can (i) resist flipping (high survival) yet (ii) fail to return to truth once it does flip (low recovery), and vice versa.
 
 ### 4.5 Multi-seed aggregation
 
