@@ -66,3 +66,9 @@ For each item, we maintain:
    - Borrow: EIR/ECR reporting as a simple, interpretable split between *pressure-caused new errors* and *pressure-triggered corrections*.
    - How to change GALILEO: consider adding EIR/ECR-style summary metrics alongside survival/TOF, and explicitly test for flip-direction asymmetry (right→wrong vs wrong→right) as a first-class stability diagnostic.
 
+10) **SycEval: Evaluating LLM Sycophancy** (Fanous, Goldberg et al., AIES 2025)
+   - Contributes: a very usable “rebuttal chain” protocol that (i) decomposes **progressive vs regressive** sycophancy (helpful vs harmful flips), (ii) compares **in-context vs preemptive** pressure, and (iii) manipulates **rhetorical strength** (simple→ethos→justification→citation+abstract) while also reporting **persistence** of flip behavior across stronger pressure.
+   - Misses vs GALILEO: short-horizon (rebuttal chains, not long survival/TOF curves); no explicit neutral re-ask control to separate conversational variance from pressure-driven drift; heavy reliance on LLM-as-a-judge.
+   - Borrow: progressive/regressive split; preemptive-vs-in-context framing; “pressure strength ladder” as an experimental factor; persistence-of-failure concept.
+   - How to change GALILEO: add a rhetoric-strength manipulation and report progressive vs regressive outcomes + persistence across the trajectory; position GALILEO as extending this to **time-to-failure / survival** and **recovery-after-flip** with tighter controls.
+
