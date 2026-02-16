@@ -899,3 +899,17 @@ Next:
 Next:
 - Scan the rest of Intro/Contributions for any remaining “floating” claim sentences without a nearby proof pointer.
 - Ensure the LaTeX labels in `docs/paper/CLAIM_EVIDENCE_MAP.md` still match the draft refs.
+
+### 2026-02-17 (am) — Experiments lane: stage Llama-3.2-3B seed2 into results_paper and restore global parity PASS
+
+- Remote (nlp8): confirmed Tier‑1 `meta-llama/Llama-3.2-3B-Instruct` seed2 run has complete `paper_exports/` + `runner_metadata.json` and validator `[OK]`:
+  - source: `results/tier1_llama3_3b_seed2_20260212_042339/`
+- Staged into paper SSOT root:
+  - `results_paper/tier1_llama3_3b_seed2_20260212_042339/`
+- Ran global parity validation over `results_paper/`:
+  - initially failed due to incomplete EXAONE directories mistakenly placed under `results_paper/`
+  - moved incomplete dirs to `results_paper_incomplete/`
+  - re-ran `python scripts/validate_paper_exports.py --results_root results_paper --check_runner_parity` → **[OK] runner_metadata parity**
+
+Notes:
+- GPUs at check time: GPU4~99% util, GPU5~100% util, GPU6 idle (work in progress sessions).
