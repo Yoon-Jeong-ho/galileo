@@ -929,3 +929,13 @@ Notes:
 ### 2026-02-17 — Writing lane: remove brittle section pointer for Table W in core-claims
 
 - Replaced “Table W in §7.5” with canonical `Table~\ref{tab:tablew}` in §1.4 core-claims evidence pointers.
+
+### 2026-02-17 04:12 KST — Experiments lane: Phi-3-mini seed1 validated; seed2 running; EXAONE blocked by transformers import
+
+- Remote (nlp8): confirmed `results_paper/tier1_phi3mini_seed1_20260217_011737/` has complete `paper_exports/` and validator `[OK]`.
+- Remote (nlp8): `results_paper/tier1_phi3mini_seed2_20260217_033953/` is running on GPU6 (tmux: `tier1_phi3mini_s2_g6_20260217_033953`).
+- Remote (nlp8): EXAONE Tier‑1 attempts are **not paper-ready** and kept under `results_paper_incomplete/` due to `ImportError: RopeParameters` from `transformers.modeling_rope_utils` when loading EXAONE remote code.
+
+Next:
+- When seed2 finishes, validate + (if green) ensure `GLOBAL_VALIDATE.log` parity remains `[OK]`.
+- Decide whether to change the conda env (transformers pin/upgrade) for EXAONE vs. switch to another model family.

@@ -23,9 +23,11 @@ Ground-truth tasks에서 multi-turn persona pressure 하에 **정답 유지(surv
 - We are in a **10-min heartbeat loop**; each heartbeat must deliver **one primary lane** result and keep continuity via `STATUS.md` + `HEARTBEAT_LOG.md`.
 - **Remote experiments policy:** use **nlp8**; GPUs **4/5/6** only; `tmux` required; paper-ready runs must include `paper_exports/*` + `metadata.json` + `runner_metadata.json` + validator `[OK]` + parity.
 - **Validator health (paper SSOT):** `results_paper/` parity validation is **all [OK]** (includes `qwen_vta_seed1/2` and `tier1_llama3_3b_seed1/2`).
+- **Phi-3-mini Tier-1 (cross-family):** seed1 is **paper-ready** (validated); seed2 is **running** on GPU6 (`results_paper/tier1_phi3mini_seed2_20260217_033953`).
 - **Decoding sweep (seed1–2) done:** `results_paper/qwen_temp0_seed{1,2}` + `results_paper/qwen_temp0p7_seed{1,2}` are paper-ready; `results_paper/GLOBAL_VALIDATE.log` remains all `[OK]`.
 - **Current risk:** process drift (conflicting docs about host/GPU policy, lane starvation, missing commits) → we keep SSOT docs aligned (STATUS/CHECKLIST/RUNBOOK).
 - **Cross-family extension note:** attempted adding Gemma2 (google/gemma-2-2b-it) on nlp8 RTX8000 via vLLM; it fails due to (i) max_model_len>8192 guardrail and (ii) Triton unified-attention shared-memory OOR on cc7.5. Avoid Gemma2 on this hardware unless we change vLLM backend/settings.
+- **EXAONE Tier-1 attempt status:** currently **failed/incomplete** due to `ImportError: RopeParameters` from `transformers.modeling_rope_utils` when loading EXAONE remote code; kept under `results_paper_incomplete/` (do not cite as evidence).
 
 ---
 
@@ -42,6 +44,7 @@ Ground-truth tasks에서 multi-turn persona pressure 하에 **정답 유지(surv
 - ✅ **Tier‑1 cross-family extension:** `meta-llama/Llama-3.2-3B-Instruct` **seeds 1–2** are now auditable green and staged under:
   - `results_paper/tier1_llama3_3b_seed1_20260212_030426/`
   - `results_paper/tier1_llama3_3b_seed2_20260212_042339/`.
+- ✅ **Tier‑1 cross-family extension:** `microsoft/Phi-3-mini-4k-instruct` seed1 is auditable green (paper-ready) under `results_paper/tier1_phi3mini_seed1_20260217_011737/` (seed2 running).
 - ✅ **Recovery-variant ablation (verify_then_answer; Qwen seeds 1–2)** is auditable green and included in `results_paper/` (aliases `qwen_vta_seed1`, `qwen_vta_seed2`).
 - ✅ Introduced a **paper-only validation root** `results_paper/` on nlp8 to keep global validation stable for cited runs (parity PASS).
 - ✅ **Table W artifacts tracked** under `docs/paper/artifacts/` and draft AUTO block updated to seed1–4.
