@@ -11,7 +11,7 @@
 
 Large language models (LLMs) can abandon previously correct answers when confronted with social or rhetorical pressure (e.g., repeated denial, appeals to authority, or persuasive reframing), even on tasks with clear ground truth. However, evaluation protocols for ground-truth tasks rarely quantify (i) **when** a model first flips from correct to incorrect over interaction rounds, (ii) **how** robustness decays across turns, and (iii) **whether** the model can **recover** after being misled.
 
-We present **GALILEO**, a benchmark and pipeline for measuring multi-turn robustness under adversarial *persona-based* pressure. GALILEO (1) filters to **initially-correct** examples, (2) applies five adversarial personas for up to five rounds and reports **survival curves** (probability an example remains correct through round *r*) and **turn-of-failure (TOF)** (the first round where correctness flips), and (3) measures **recovery accuracy conditional on flip** via a dedicated recovery prompt. Because all multi-turn metrics are computed on the initially-correct subset, GALILEO isolates *robustness given initial correctness* rather than conflating it with base accuracy. To attribute flips to pressure mechanisms rather than generic multi-turn drift, we include a **Neutral Re-asking Control** with the same round structure but non-adversarial user turns (no new task-relevant evidence). For stable automatic scoring across tasks and multi-turn logs, we standardize final answers to `\boxed{...}` and use boxed-first extraction.
+We present **GALILEO**, a benchmark and pipeline for measuring multi-turn robustness under adversarial *persona-based* pressure. GALILEO (1) filters to **initially-correct** examples, (2) applies five adversarial personas for up to five rounds and reports **survival curves** (probability an example remains correct through round *r*) and **turn-of-failure (TOF)** (the first round where correctness flips), and (3) measures **recovery accuracy conditional on flip** via a dedicated recovery prompt. Because all multi-turn metrics are computed on the initially-correct subset, GALILEO isolates *robustness given initial correctness* rather than conflating it with base accuracy. To attribute flips to pressure mechanisms rather than generic multi-turn drift, we include a **Neutral Re-asking Control** with the same round structure but non-adversarial user turns (no new task-relevant evidence). For stable automatic scoring across tasks and multi-turn logs, we standardize final answers to `\boxed{...}` and use **boxed-priority extraction** (we extract from `\boxed{...}` when present; if multiple boxes appear, we take the **last** box as the final answer).
 
 Across multi-seed runs and multiple model families, persona pressure consistently reduces robustness relative to the Neutral Re-asking Control, often with substantial early-turn vulnerability. Recovery conditional on flip varies by task and persona, indicating that *staying correct* and *returning to truth* are distinct behavioral axes.
 
@@ -40,7 +40,7 @@ We target a practically grounded setting: tasks with **ground-truth answers** wh
 
 1. **Ground-truth multi-turn dynamics.** We operationalize robustness under pressure as **survival curves** and **turn-of-failure**, and evaluate **recovery** in the same protocol (Figs.~\ref{fig:survival-curves-rounds}, \ref{fig:tof-delta-fail1}, \ref{fig:recovery-delta}).
 2. **Unified multi-task pipeline.** We cover math, extractive QA, MCQA, and open-domain QA with a single runner/logging/evaluation interface (Task setting: §2).
-3. **Stable evaluation via answer-format standardization.** We require a boxed final answer `\boxed{...}` for all tasks and use boxed-first extraction to reduce scoring ambiguity (Evaluation details: §5).
+3. **Stable evaluation via answer-format standardization.** We require a boxed final answer `\boxed{...}` for all tasks and use boxed-priority extraction (and last-box selection if multiple boxes appear) to reduce scoring ambiguity (Evaluation details: §5).
 4. **Reproducibility and paper-ready exports.** We provide strict data directory construction, multi-seed aggregation (mean±std), and automated exports for tables/figures (Results + artifacts; see `docs/paper/artifacts/` and `docs/paper/FIGURE_CAPTIONS.md`).
 5. **Reviewer-facing controls and intervention ablations.** We include a **Neutral Re-asking Control** (a non-persona multi-turn drift baseline) so that flips under persona pressure can be interpreted as **pressure-induced mechanisms** rather than generic drift (Table~\ref{tab:tablew} [Table W]; Fig.~\ref{fig:tablew-effect-deltas}). We also report **recovery conditional on flip** and include recovery-prompt ablations to separate *robustness* (staying correct) from *return-to-truth* behavior after a flip (Tier‑1 ablation summary in Results).
 6. **Generalization + robustness checks (minimal but auditable).** We provide a cross-family replication under the same protocol (Fig.~\ref{fig:cross-family-survival}) and a decoding sensitivity sweep to verify the qualitative stability of the persona-vs-control gap under sampling (Appendix~A.1; Fig.~\ref{fig:decoding-sweep}).
@@ -219,9 +219,14 @@ For each seed, we compute the above metrics per persona/dataset/round. We then a
 
 ### 5.1 Boxed final answer standardization
 
-Across tasks, we require the final answer to appear as `\boxed{...}`. Chain-of-thought reasoning (if any) may appear outside the box, but the evaluator extracts boxed content first.
+Across tasks, we require the final answer to appear as `\boxed{...}`. Chain-of-thought reasoning (if any) may appear outside the box, but the evaluator uses **boxed-priority** extraction:
 
-Rationale: multi-turn logs amplify formatting drift; boxed-first extraction reduces scoring failures due to superficial phrasing differences.
+- If one or more `\boxed{...}` spans appear, we extract the content of the **last** box (treating it as the final answer).
+- If no box appears, we fall back to task-specific heuristics (e.g., answer patterns / first line for QA).
+
+This convention is robust to multi-turn formatting drift and to “draft boxes” that some models emit before their final boxed answer.
+
+Rationale: multi-turn logs amplify formatting drift; boxed-priority extraction reduces scoring failures due to superficial phrasing differences.
 
 ### 5.2 Task-specific scoring
 
