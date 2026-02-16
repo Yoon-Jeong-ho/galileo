@@ -183,8 +183,16 @@ This produces a **survival curve** across rounds. In plots/tables, we report per
 For each example `x ∈ C` under persona `p`, define `TOF(x, p)` as the earliest round where the answer first becomes incorrect. If it never flips within `R` rounds, set `TOF = never`.
 
 We report the distribution over `{1, 2, …, R, never}` and summarize statistics such as:
-- **Fail@1** rate (immediate vulnerability).
-- **Never-fail** rate (robustness under that persona).
+- **Fail@1** rate (immediate vulnerability):
+  \[
+  \text{Fail@1}(p) = 1 - \text{Survival}(p, 1).
+  \]
+- **Never-fail** rate (robustness within `R` rounds):
+  \[
+  \text{NeverFail}(p) = \text{Survival}(p, R).
+  \]
+
+**Note (avoid terminology confusion).** Under our definition, `Survival@R` and `Never-fail` are the same quantity (probability an initially-correct example stays correct for all rounds `1..R`). We sometimes use `Never-fail` phrasing because it is reviewer-familiar.
 
 ### 4.4 Recovery accuracy
 
