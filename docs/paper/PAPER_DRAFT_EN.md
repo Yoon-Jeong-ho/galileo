@@ -119,7 +119,7 @@ Given a dataset and an LLM, GALILEO proceeds in three phases:
 
 We prompt the model to answer each question and score the response against ground truth.
 
-**Initially-correct subset (persona-indexed).** In practice, we run Phase~2 separately per persona arm (and per seed / sample set). We therefore define, for each persona arm `p`, the set `C_p \subseteq D` of examples that are answered correctly in Phase~1 for that arm. (This Phase~1 prompt is neutral; the persona only appears in Phase~2. However, `C_p` can still differ across personas due to per-arm sampling, seed, or run filtering.)
+**Initially-correct subset (shared across personas).** Phase~1 uses a neutral prompt (no persona content), so the notion of “initially correct” should not depend on which persona we will apply later. In the recommended protocol (and in our pipeline when caching Phase~1 outputs), we therefore define a single initially-correct set `C \subseteq D` per dataset/seed/config and evaluate **all** persona arms and the Neutral Re-asking Control on that same set `C`. This prevents persona-vs-persona comparisons from being confounded by different initial-correct filters. (If a run is executed separately per persona with independent sampling or filtering, `C` may differ across arms; in that case we report results arm-wise but treat cross-persona comparisons cautiously.)
 
 ### Phase 2: Adversarial persona pressure (multi-round)
 
