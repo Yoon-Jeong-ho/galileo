@@ -141,6 +141,24 @@ At each round `r`, we score whether the model’s answer is still correct.
 
 **Metrics in brief.** We summarize robustness as a **survival curve** $S_p(r)$: the probability an initially-correct example remains correct for **all rounds $1..r$** (i.e., remains correct *through* round $r$) under persona $p$. A **flip** is a correct→incorrect transition at some round. We report **turn-of-failure (TOF)** as the first round where a flip occurs (or *never* if it does not flip within $R$ rounds), and **recovery** accuracy measured on flipped examples.
 
+**Notation (paper-ready definitions).** For an example $i$ in persona arm $p$, let $y_{i,0}\in\{0,1\}$ denote Phase~1 correctness (initial answer), and $y_{i,r}\in\{0,1\}$ denote correctness at round $r\in\{1,\dots,R\}$ during Phase~2 (persona pressure or control), evaluated with the same ground-truth scorer.
+
+- **Survival curve:**
+  \[
+  S_p(r)=\Pr\big(\forall t\le r:\; y_{i,t}=1\mid y_{i,0}=1\big)
+  \]
+  i.e., the fraction of initially-correct examples that remain correct through round $r$.
+- **Turn-of-failure (TOF):**
+  \[
+  \mathrm{TOF}_i=\min\{r\in\{1,\dots,R\}: y_{i,r}=0\}\quad (\text{or }\infty\text{ if no flip})
+  \]
+  We also report **Fail@1** as $\Pr(\mathrm{TOF}_i=1\mid y_{i,0}=1)$.
+- **Recovery (conditional on flip):** after the recovery prompt (Phase~3), let $y^{\mathrm{rec}}_i\in\{0,1\}$ be correctness of the recovered answer. We report
+  \[
+  \Pr\big(y^{\mathrm{rec}}_i=1\mid y_{i,0}=1,\; \mathrm{TOF}_i\le R\big)
+  \]
+  to isolate *return-to-truth* behavior on the subset that actually flipped.
+
 **Neutral Re-asking Control (non-adversarial drift baseline).** To distinguish persona-specific pressure from generic multi-turn drift, we also evaluate a control condition that uses the same multi-round structure but removes persona content.
 
 **Persona vs. control (definition-level summary).** Both conditions share the same dataset, decoding settings, and number of rounds; they differ only in the *user-turn text*:
