@@ -921,3 +921,7 @@ Notes:
 ### 2026-02-17 — Writing lane: lock Table W LaTeX label usage in Intro proof pointers
 
 - Updated Intro proof pointers to cite `Table~\ref{tab:tablew}` (with “[Table W]” text) alongside Fig.~\ref{fig:tablew-effect-deltas}, aligning with the canonical table label.
+
+### 2026-02-17 — Writing lane: tighten SYCON Bench positioning (ToF/NoF vs our TOF)
+
+- Updated Related Work §6.4 to explicitly name SYCON Bench’s Turn of Flip / Number of Flips metrics and relate Turn of Flip to our TOF framing (without conflating task/scoring).
