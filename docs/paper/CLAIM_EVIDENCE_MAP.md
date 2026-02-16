@@ -12,6 +12,7 @@ This file is intentionally short and pragmatic (SSOT for “what proves what”)
 ## Terminology guardrails (avoid reviewer confusion)
 
 - **Survival(p, r)**: probability the model remains correct **for every round 1..r** (cumulative), *not* “accuracy at round r only.”
+  - In tracked artifacts, we store both the **full curve** (`survival_curve_personawise_*`) and the **round-5 summary** (`survival_r5_personawise_*`). Keep proof pointers consistent about which one is being cited.
 - **Flip**: a trajectory event **correct → incorrect** between rounds.
 - **TOF (turn-of-failure)**: the **first round index** where a flip occurs; “Fail@1” is the probability that TOF = 1.
 - **Recovery**: correctness **after** a flip (distinct from survival/TOF); reported separately.
