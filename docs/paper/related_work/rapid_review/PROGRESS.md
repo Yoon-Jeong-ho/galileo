@@ -5,8 +5,8 @@
 
 ## Counters
 
-- Papers read (notes written): 0
-- Shortlisted into TOP10: 0
+- Papers read (notes written): 2
+- Shortlisted into TOP10: 1
 
 ## Coverage tags (desired)
 

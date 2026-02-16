@@ -5,8 +5,8 @@ Format (one per line):
 
 ## Seed items (edit freely)
 
-- [ ] 2025 | TRUTH DECAY: ... (fill exact title) | arXiv | <TODO_URL> | tags: multi-turn, truthfulness, robustness
-- [ ] 2025 | SYCON Bench: ... (fill exact title) | arXiv | <TODO_URL> | tags: sycophancy, multi-turn
+- [x] 2025 | TRUTH DECAY: Quantifying Multi-Turn Sycophancy in Language Models | arXiv | https://arxiv.org/abs/2503.11656 | tags: sycophancy, persuasion, multi-turn, robustness, truthfulness | note: papers/20260217_truth-decay.md
+- [x] 2025 | SYCON Bench: ... (fill exact title) | arXiv | <TODO_URL> | tags: sycophancy, multi-turn | note: papers/20260217_sycon-bench.md (failed: missing URL/metadata)
 - [ ] 2025 | ReviseQA: A Benchmark for Belief Revision in Multi-Turn Logical Reasoning | OpenReview | https://openreview.net/forum?id=Z4KBiAYXlI | tags: belief-revision, multi-turn
 
 ## Auto-discovered (append below)
