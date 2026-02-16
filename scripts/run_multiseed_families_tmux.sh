@@ -132,7 +132,7 @@ run_one() {
 JSON
 
   # Fail fast if exports are incomplete.
-  python scripts/validate_paper_exports.py --results_root "${out_dir}" \
+  "${CONDA_BIN}" run -n "${CONDA_ENV}" python scripts/validate_paper_exports.py --results_root "${out_dir}" \
     2>&1 | tee -a "$out_dir/run.log"
 }
 
@@ -167,7 +167,7 @@ for idx in "${!tags[@]}"; do
 done
 
 # Global validation across the entire results root (parity of runner settings across repeated runs).
-python scripts/validate_paper_exports.py --results_root "${RESULTS_ROOT}" --check_runner_parity \
+"${CONDA_BIN}" run -n "${CONDA_ENV}" python scripts/validate_paper_exports.py --results_root "${RESULTS_ROOT}" --check_runner_parity \
   2>&1 | tee -a "${RESULTS_ROOT}/GLOBAL_VALIDATE.log"
 
 echo "=== Galileo multiseed families done: $(date) ==="

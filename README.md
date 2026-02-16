@@ -403,7 +403,7 @@ GALILEO는 “동조(sycophancy) 측정” 계열 연구의 흐름 위에 서되
 
 ```bash
 # (권장) 가상환경 생성
-python -m venv .venv
+python3 -m venv .venv
 source .venv/bin/activate
 
 # PyTorch (CUDA 버전에 맞게 설치)
