@@ -917,3 +917,7 @@ Notes:
 ### 2026-02-17 — Paper dev lane: set canonical Table W LaTeX label (anti-drift)
 
 - Declared canonical table label `tab:tablew` in the SSOT label↔artifact mapping (`CLAIM_EVIDENCE_MAP.md`) and noted it in `FIGURE_CAPTIONS.md`.
+
+### 2026-02-17 — Writing lane: lock Table W LaTeX label usage in Intro proof pointers
+
+- Updated Intro proof pointers to cite `Table~\ref{tab:tablew}` (with “[Table W]” text) alongside Fig.~\ref{fig:tablew-effect-deltas}, aligning with the canonical table label.
