@@ -411,6 +411,8 @@ For interpretability, we further analyze detected flips with a qualitative taxon
 
 **Cross-family visualization (control vs strong persona).** A compact view of Survival@5 for the Neutral Re-asking Control vs a strong persona (Logical Trap) across families is in `docs/paper/figures/cross_family_survival_r5_control_vs_logicaltrap_seed1-2_20260217.svg`.
 
+Concretely, Phi-3-mini also shows a sizeable gap under the same protocol (seeds 1–2: Neutral Re-asking Control **Survival@5 = 25.22%±7.85**, Logical Trap **Survival@5 = 9.16%±1.36**; tracked artifact `docs/paper/artifacts/tier1_phi3mini_seed1-2_survival_summary_20260217.csv`).
+
 **Paper include (LaTeX snippet).**
 
 ```latex
