@@ -18,6 +18,8 @@ This file is intentionally short and pragmatic (SSOT for “what proves what”)
 
 These definitions should be used consistently in the draft, captions, and artifacts.
 
+- **Important (control comparability):** for each persona arm we filter to the persona’s *initially-correct* subset `C_p` and run both (i) persona pressure and (ii) the Neutral Re-asking Control on that same subset. This makes persona-vs-control comparisons apples-to-apples *within* a persona, but it means **control numbers can differ across personas** because the underlying `C_p` differs.
+
 ---
 
 ## LaTeX label ↔ repo artifact mapping (anti-drift)
