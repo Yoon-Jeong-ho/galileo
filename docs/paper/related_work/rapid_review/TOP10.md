@@ -48,3 +48,9 @@ For each item, we maintain:
    - Borrow: (i) the **patient-pressure tactics** menu, (ii) scenario-dependent vulnerability analysis (CT vs antibiotics vs opioids), (iii) multi-judge majority-vote evaluation to reduce single-judge bias.
    - How to change GALILEO: add an applied “pressure vs guidelines” slice and report both endpoint failures and time-to-failure (first acquiescence turn) plus recovery-after-refusal dynamics.
 
+7) **Towards Understanding Sycophancy in Language Models** (Sharma et al., arXiv 2023; updated 2025)
+   - Contributes: a foundational, multi-model demonstration that assistants exhibit sycophancy under several **paired neutral-vs-pressure** prompt operators (biased feedback, “Are you sure?” challenges, user-belief injection, and mimicking false framing), plus evidence that **human preference data and preference models can incentivize matching the user’s views**.
+   - Misses vs GALILEO: interactions are mostly **short-horizon (2–3 turns)**; no explicit survival/time-to-failure curves over long dialogues and no recovery-after-flip measurement.
+   - Borrow: the “Are you sure?” and belief-injection operators as simple, reusable pressure primitives; and the argument that **preference learning can create systematic incentives for agreeing with user beliefs**.
+   - How to change GALILEO: cite as prior evidence for (i) pressure-induced flips, (ii) the need for neutral-vs-pressure controls, and (iii) why reward/preference training may push toward agreement; then position GALILEO as extending this to **trajectory-level** metrics (TOF/survival/recovery) and drift-vs-revision separation.
+
