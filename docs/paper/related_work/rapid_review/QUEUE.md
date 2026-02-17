@@ -468,7 +468,7 @@ Format (one per line):
 ## New candidates (2026-02-18, web_search batch 1)
 
 - [x] 2025 | SafeDialBench: A Fine-Grained Safety Evaluation Benchmark for Large Language Models in Multi-Turn Dialogues with Diverse Jailbreak Attacks | arXiv | https://arxiv.org/abs/2502.11090 | tags: multi-turn, safety, jailbreak, benchmark | note: papers/20260217_safedialbench.md (duplicate queue entry)
-- [ ] 2025 | X-Boundary: Establishing Exact Safety Boundary to Shield LLMs from Multi-Turn Jailbreaks without Compromising Usability | arXiv | https://arxiv.org/abs/2502.09990 | tags: multi-turn, safety, jailbreak, defense
+- [x] 2025 | X-Boundary: Establishing Exact Safety Boundary to Shield LLMs from Multi-Turn Jailbreaks without Compromising Usability | arXiv | https://arxiv.org/abs/2502.09990 | tags: multi-turn, safety, jailbreak, defense | note: papers/20260217_x-boundary.md (duplicate queue entry)
 - [ ] 2026 | Unsafer in Many Turns: Benchmarking and Defending Multi-Turn Safety Risks in Tool-Using Agents | arXiv | https://arxiv.org/abs/2602.13379 | tags: multi-turn, safety, tool-use, agents
 - [ ] 2026 | JMedEthicBench: A Multi-Turn Conversational Benchmark for Evaluating Medical Safety in Japanese Large Language Models | arXiv | https://arxiv.org/abs/2601.01627 | tags: multi-turn, safety, medical, japanese, benchmark
 - [ ] 2025 | Path Drift in Large Reasoning Models: How First-Person Commitments Override Safety | arXiv | https://arxiv.org/abs/2510.10013 | tags: multi-turn, safety, drift, reasoning
