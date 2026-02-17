@@ -271,7 +271,7 @@ Format (one per line):
 ## New candidates (2026-02-17, web_search batch 30)
 
 - [x] 2025 | MindEval: Benchmarking Language Models on Multi-turn Mental Health Support | arXiv | https://arxiv.org/abs/2511.18491 | tags: multi-turn, mental-health, overvalidation, safety, evaluation | note: papers/20260217_mindeval-mental-health.md
-- [ ] 2026 | PatientHub: A Unified Framework for Patient Simulation | arXiv | https://arxiv.org/abs/2602.11684 | tags: multi-turn, patient-simulation, framework, evaluation
+- [x] 2026 | PatientHub: A Unified Framework for Patient Simulation | arXiv | https://arxiv.org/abs/2602.11684 | tags: multi-turn, patient-simulation, framework, evaluation | note: papers/20260217_patienthub.md
 - [ ] 2026 | MedPI: Evaluating AI Systems in Medical Patient-facing Interactions | arXiv | https://arxiv.org/abs/2601.04195 | tags: multi-turn, medical, patient-facing, evaluation, rubrics
 - [ ] 2025 | MATRIX: Multi-Agent simulaTion fRamework for safe Interactions and conteXtual clinical conversational evaluation | arXiv | https://arxiv.org/abs/2508.19163 | tags: multi-turn, medical, safety, simulation, evaluation
 - [ ] 2025 | Chatbot To Help Patients Understand Their Health | arXiv | https://arxiv.org/abs/2509.05818 | tags: multi-turn, medical, patient-education, evaluation
