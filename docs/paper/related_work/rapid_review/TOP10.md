@@ -66,13 +66,14 @@ For each item, we maintain:
    - Borrow: (i) PWC as an early-failure-sensitive metric, (ii) randomized follow-up ordering to reduce position bias, (iii) failure-mode labels (Self-Doubt, Social Conformity, Suggestion Hijacking, Emotional Susceptibility, Reasoning Fatigue).
    - How to change GALILEO: include a “misleading suggestion” pressure operator as a canonical strong adversary; add PWC/trajectory-pattern reporting; and explicitly note that **confidence-based defenses (CARG) can fail on reasoning models** due to reasoning-induced overconfidence—so GALILEO should avoid over-claiming logprob confidence as an uncertainty signal.
 
-10) **Firm or Fickle? Evaluating Large Language Models Consistency in Sequential Interactions** (Li et al., ACL 2025 / arXiv 2025)
-   - Contributes: a very GALILEO-adjacent *multi-turn* framework for “don’t get swayed by follow-ups,” including (i) a curated MCQ benchmark (MMLU/CSQA/TruthfulQA), (ii) a set of pressure operators (misleading suggestion + expert/consensus/false-agreement + tone), and (iii) a useful metric: **Position-Weighted Consistency (PWC)** that makes *early failure* much worse than late failure and is mildly **recovery-aware**.
-   - Misses vs GALILEO: does not cleanly separate *evidence-driven belief revision* from *pressure-only drift* (follow-ups are challenge/pressure, not new evidence); “recovery” is mostly implicit in the metric rather than an explicit flip→intervention→return trajectory.
-   - Borrow: (i) PWC as an early-failure-sensitive summary metric (strong precedent for why turn-1 flips are catastrophic), (ii) randomized follow-up ordering (their Exp2) to reduce order artifacts, (iii) prompt-type stratification (expert vs consensus vs rude) since vulnerabilities differ by operator.
-   - How to change GALILEO: add a PWC-like metric (or explicitly argue survival/ToF is strictly better), and include an “operator-mix randomization” evaluation slice.
-
+10) **Persuasion Propagation in LLM Agents** (Jeong et al., arXiv 2026)
+   - Contributes: introduces **persuasion propagation** for tool-using agents—task-irrelevant persuasive stance can later alter **execution traces** (web/coding) even when outputs look normal; proposes evaluating agents via **trace-level behavior** not just final answers.
+   - Misses vs GALILEO: does not (as framed) cleanly separate *evidence-driven revision* vs *pressure-driven drift*, and focuses more on search/source breadth than explicit flip/recovery trajectories.
+   - Borrow: (i) the on-the-fly vs **belief-prefill** disentangling to isolate belief-state effects, (ii) simple, auditable process metrics (search count, unique sources/domains) as “silent failure” signals.
+   - How to change GALILEO: add an agentic evaluation slice that reports **exploration/evidence diversity** under pressure (searches, unique sources/domains), and cite this as motivation for going beyond outcome-only evaluation.
 ## Changelog
+
+- 2026-02-17: Added *Persuasion Propagation in LLM Agents* (arXiv 2026) for its trace-level “persuasion → downstream agent behavior drift” framing (search/source narrowing). Displaced *Firm or Fickle?* (ACL 2025): strong PWC metric/protocol neighbor, but less directly about agentic tool-use traces and belief-state propagation across tasks.
 
 - 2026-02-17: Added *Time-To-Inconsistency* (arXiv 2025) for its survival-analysis / censoring framing (fills a key metric gap). Displaced *SycoEval-EM* (arXiv 2026): strong applied endpoint evaluation, but less central than survival/time-to-event methodology for GALILEO’s core claims.
 - 2026-02-17: Added *Consistency of Large Reasoning Models Under Multi-Turn Attack* (arXiv 2026) for its 8-round protocol + PWC/trajectory analysis + evidence that confidence-based defenses can fail on reasoning models. Displaced *Moral Sycophancy in Vision Language Models* (arXiv 2026): useful EIR/ECR idea, but less central (2-turn, VLM-specific).
