@@ -312,7 +312,11 @@ Huang et al. \cite{huang2026vulnerabilityllmsbeliefsystems} systematize persuasi
 ### 6.3 Stability under context
 Tosato et al. \cite{tosato2025persistentinstabilityllmspersonality} and Yu et al. \cite{yu2026ptcbenchbenchmarkingcontextualstability} report instability in measured traits/personality under prompt and conversation-history variations, supporting the motivation for studying robustness dynamics under accumulating context.
 
+Methodologically, even ``semantics-preserving'' surface changes can strongly affect measured preferences: Oh and Demberg \cite{ohdemberg2025robustnessmoraljudgements} show that Moral Machine--style LLM moral choices (and downstream AMCE preference estimates) can flip under simple label/presentation tweaks (e.g., ``Case 1/2'' vs ``(A)/(B)'') and that unbalanced scenario generation can confound conclusions. This reinforces our emphasis on counterbalancing, standardized answer formats, and a Neutral Re-asking Control to separate persona effects from generic prompt sensitivity.
+
 ### 6.4 Positioning vs nearby multi-turn sycophancy/robustness benchmarks
+
+Adjacent work evaluates other undesirable multi-turn behaviors such as deception: Abdulhai et al. \cite{abdulhai2025evaluatingreducingdeceptive} propose a *listener-effect* deception metric based on belief misalignment over a dialogue trajectory and show multi-turn RL can reduce deceptive behavior. This supports the broader point that many safety-relevant properties are best characterized over turns rather than per-utterance.
 
 Recent benchmarks also probe multi-turn *flip* behavior under disagreement or rebuttals (e.g., SYCON-style multi-turn disagreement, rebuttal-type benchmarks such as SycEval, and long-context degradation studies sometimes framed as “truth decay” \cite{hong2025measuringsycophancylanguagemodels,liu2025truthdecayquantifyingmultiturn,kim2025challengingevaluatorllmsycophancy}). Complementarily, recent work argues that multi-turn robustness is naturally a **time-to-event** problem and applies survival-analysis tools to conversational inconsistency (e.g., *Time-To-Inconsistency* \cite{li2026timetoinconsistencysurvivalanalysislarge}).
 
