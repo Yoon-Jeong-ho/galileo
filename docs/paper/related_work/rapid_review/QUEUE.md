@@ -251,3 +251,11 @@ Format (one per line):
 - [x] 2025 | MLLM-CTBench: A Benchmark for Continual Instruction Tuning with Reasoning Process Diagnosis | arXiv | https://arxiv.org/abs/2508.08275 | tags: continual-learning, instruction-tuning, drift, benchmark | note: papers/20260217_mllm-ctbench.md
 - [x] 2026 | Optimizing Conversational Quality in Spoken Dialogue Systems with Reinforcement Learning from AI Feedback | arXiv | https://arxiv.org/abs/2601.19063 | tags: spoken-dialogue, multi-turn, rlaif, robustness-adjacent | note: papers/20260217_optimizing-conversational-quality-rlaif-sds.md
 - [x] 2025 | Self-Improvement of Language Models by Post-Training on Multi-Agent Debate | arXiv | https://arxiv.org/abs/2509.15172 | tags: multi-agent, debate, self-improvement, self-consistency | note: papers/20260217_self-improvement-multi-agent-debate.md
+
+## New candidates (2026-02-17, web_search batch 29)
+
+- [x] 2025 | How Do LLMs Persuade? Linear Probes Can Uncover Persuasion Dynamics in Multi-Turn Conversations | arXiv | https://arxiv.org/abs/2508.05625 | tags: persuasion, multi-turn, probes, dynamics, detection | note: papers/20260217_how-do-llms-persuade-linear-probes.md
+- [ ] 2025 | M3-SLU: Evaluating Speaker-Attributed Reasoning in Multimodal Large Language Models | arXiv | https://arxiv.org/abs/2510.19358 | tags: multi-turn, multi-speaker, speech, evaluation, multimodal
+- [ ] 2025 | GraphIF: Enhancing Multi-Turn Instruction Following for Large Language Models with Relation Graph Prompt | arXiv | https://arxiv.org/abs/2511.10051 | tags: multi-turn, instruction-following, prompting, graphs
+- [ ] 2024 | A Survey on Recent Advances in LLM-Based Multi-turn Dialogue Systems | arXiv | https://arxiv.org/abs/2402.18013 | tags: survey, multi-turn, dialogue-systems
+- [ ] 2025 | StructFlowBench: A Structured Flow Benchmark for Multi-turn Instruction Following | arXiv | https://arxiv.org/abs/2502.14494 | tags: benchmark, multi-turn, instruction-following, structure
