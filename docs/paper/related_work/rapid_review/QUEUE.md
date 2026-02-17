@@ -94,3 +94,11 @@ Format (one per line):
 - [x] 2025 | Learning an Efficient Multi-Turn Dialogue Evaluator from Multiple LLM Judges | arXiv | https://arxiv.org/abs/2508.00454 | tags: multi-turn, evaluation, judges, preference-modeling | note: papers/20260217_mtd-eval.md
 - [x] 2026 | CAR-bench: Evaluating the Consistency and Limit-Awareness of LLM Agents under Real-World Uncertainty | arXiv | https://arxiv.org/abs/2601.22027 | tags: multi-turn, consistency, uncertainty, limit-awareness, agents | note: papers/20260217_car-bench.md
 - [x] 2025 | Evaluating Long-Term Memory for Long-Context Question Answering (LoCoMo) | arXiv | https://arxiv.org/abs/2510.23730 | tags: long-horizon, memory, multi-turn, robustness, evaluation | note: papers/20260217_locomo.md
+
+## New candidates (2026-02-17, web_search batch 10)
+
+- [x] 2025 | MultiChallenge: A Realistic Multi-Turn Conversation Evaluation Benchmark Challenging to Frontier LLMs | arXiv | https://arxiv.org/abs/2501.17399 | tags: multi-turn, persistence, context, evaluation | note: papers/20260217_multichallenge.md
+- [ ] 2025 | One Battle After Another: Probing LLMs’ Limits on Multi-Turn Instruction Following with a Benchmark Evolving Framework | arXiv | https://arxiv.org/abs/2511.03508 | tags: multi-turn, instruction-following, survival-curves, recovery
+- [ ] 2025 | Modeling and Predicting Multi-Turn Answer Instability in Large Language Models | arXiv | https://arxiv.org/abs/2511.10688 | tags: multi-turn, instability, prediction, markov
+- [ ] 2025 | ERGO: Entropy-guided Resetting for Generation Optimization in Multi-turn Language Models | arXiv | https://arxiv.org/abs/2510.14077 | tags: multi-turn, intervention, recovery, stability
+- [ ] 2025 | LM-Fix: Lightweight Bit-Flip Detection and Rapid Recovery Framework for Language Models | arXiv | https://arxiv.org/abs/2511.02866 | tags: reliability, recovery, bit-flip, deployment
