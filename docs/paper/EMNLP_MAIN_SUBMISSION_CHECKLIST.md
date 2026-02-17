@@ -89,6 +89,10 @@ Recommended artifacts to cite in-paper:
 - [ ] One main result figure: survival curves (persona-wise).
 - [ ] One table: turn-of-failure distribution or Fail@1 / Never-fail.
 - [ ] One table: recovery conditional on flipping.
+- [ ] **Aggregation clarity (avoid Table~W confusion):**
+  - [ ] Table~W caption states whether it is **matched persona-wise** vs **pooled across personas**.
+  - [ ] If pooled, caption specifies the weighting (e.g., weights proportional to \(|C_p|\) or uniform over personas/examples).
+  - [ ] For persona-wise rows, report \(|C_p|\) (or initial-correct count) so reviewers can interpret control baselines that differ by persona.
 - [ ] Captions explain metrics without forcing readers into the appendix.
 - [ ] Figure pipeline is unambiguous:
   - [ ] SVG source-of-truth figures exist under `docs/paper/figures/` (generated from tracked artifacts).
