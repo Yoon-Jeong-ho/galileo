@@ -70,3 +70,11 @@ Format (one per line):
 - [x] 2024 | Are language models rational? The case of coherence norms and belief revision | arXiv | https://arxiv.org/abs/2406.03442 | tags: belief-revision, rationality, coherence | note: papers/20260217_lm-rational-coherence.md
 - [x] 2024 | Fundamental Problems With Model Editing: How Should Rational Belief Revision Work in LLMs? | arXiv | https://arxiv.org/abs/2406.19354 | tags: belief-revision, model-editing, rationality | note: papers/20260217_fundamental-problems-model-editing.md
 - [x] 2025 | Interpreting and Mitigating Unwanted Uncertainty in LLMs | arXiv | https://arxiv.org/abs/2510.22866 | tags: uncertainty, inconsistency, robustness | note: papers/20260217_unwanted-uncertainty.md
+
+## New candidates (2026-02-17, web_search batch 7)
+
+- [x] 2025 | Firm or Fickle? Evaluating Large Language Models Consistency in Sequential Interactions | arXiv | https://arxiv.org/abs/2503.22353 | tags: multi-turn, consistency, misleading-followups, recovery | note: papers/20260217_firm-or-fickle-mt-consistency.md
+- [ ] 2025 | LLMs Get Lost In Multi-Turn Conversation | arXiv | https://arxiv.org/abs/2505.06120 | tags: multi-turn, error-propagation, recovery
+- [ ] 2025 | How does Misinformation Affect Large Language Model Behaviors and Preferences? (MisBench) | arXiv | https://arxiv.org/abs/2505.21608 | tags: misinformation, robustness, preferences, benchmark
+- [ ] 2025 | Evaluating and Improving Robustness in Large Language Models: A Survey and Future Directions | arXiv | https://arxiv.org/abs/2506.11111 | tags: survey, robustness, evaluation
+- [ ] 2026 | RobustExplain: Evaluating Robustness of LLM-Based Explanation Agents for Recommendation | arXiv | https://arxiv.org/abs/2601.19120 | tags: multi-turn, robustness, perturbations, recommendation
