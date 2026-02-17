@@ -224,6 +224,6 @@ Format (one per line):
 - [x] 2024 | Get my drift? Catching LLM Task Drift with Activation Deltas | arXiv | https://arxiv.org/abs/2406.00799 | tags: drift, detection, activations, multi-turn, monitoring | note: papers/20260217_task-drift-activation-deltas.md
 - [x] 2025 | Memory Management and Contextual Consistency for Long-Running Low-Code Agents | arXiv | https://arxiv.org/abs/2509.25250 | tags: agents, long-horizon, memory, consistency, evaluation | note: papers/20260217_memory-management-contextual-consistency-low-code-agents.md
 - [x] 2025 | Enhancing Goal-oriented Proactive Dialogue Systems via Consistency Reflection and Correction | arXiv | https://arxiv.org/abs/2506.13366 | tags: dialogue, consistency, reflection, correction, goal-oriented | note: papers/20260217_crc-goal-oriented-proactive-dialogue.md
-- [ ] 2025 | UltraHorizon: Benchmarking Agent Capabilities in Ultra Long-Horizon Scenarios | arXiv | https://arxiv.org/abs/2509.21766 | tags: agents, long-horizon, benchmark, robustness, degradation
+- [x] 2025 | UltraHorizon: Benchmarking Agent Capabilities in Ultra Long-Horizon Scenarios | arXiv | https://arxiv.org/abs/2509.21766 | tags: agents, long-horizon, benchmark, robustness, degradation | note: papers/20260217_ultrahorizon.md
 
 - [x] 2026 | WavBench: Benchmarking Reasoning, Colloquialism, and Paralinguistics for End-to-End Spoken Dialogue Models | arXiv | https://arxiv.org/abs/2602.12135 | tags: spoken-dialogue, multi-turn, benchmark, paralinguistics, robustness | note: papers/20260217_wavbench.md
