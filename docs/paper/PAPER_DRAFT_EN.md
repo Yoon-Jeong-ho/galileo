@@ -171,6 +171,11 @@ At each round `r`, we score whether the model’s answer is still correct.
   S_p(r)=\Pr\big(\forall t\in\{1,\dots,r\}:\; y_{i,t}=1\mid y_{i,0}=1\big)
   \]
   i.e., the fraction of initially-correct examples that remain correct through round $r$.
+- **Round-$r$ accuracy (not our headline metric):**
+  \[
+  A_p(r)=\Pr\big(y_{i,r}=1\mid y_{i,0}=1\big).
+  \]
+  Note $A_p(r)$ can be **higher** than $S_p(r)$ if some examples flip earlier and later recover; we therefore use survival/TOF as the primary “staying-correct” measures and reserve recovery for a separate analysis.
 - **Turn-of-failure (TOF):**
   \[
   \mathrm{TOF}_i=\min\{r\in\{1,\dots,R\}: y_{i,r}=0\}\quad (\text{or }\infty\text{ if no flip})
