@@ -580,7 +580,7 @@ Format (one per line):
 ## New candidates (2026-02-18, web_search batch)
 
 - [x] 2026 | AI Sycophancy: How Users Flag and Respond | arXiv | https://arxiv.org/abs/2601.10467 | tags: sycophancy, user-study, interaction, feedback | note: papers/20260218_ai-sycophancy-users-flag-respond.md
-- [ ] 2025 | Be Friendly, Not Friends: How LLM Sycophancy Shapes User Trust | arXiv | https://arxiv.org/abs/2502.10844 | tags: sycophancy, trust, user-study
+- [x] 2025 | Be Friendly, Not Friends: How LLM Sycophancy Shapes User Trust | arXiv | https://arxiv.org/abs/2502.10844 | tags: sycophancy, trust, user-study | note: papers/20260218_be-friendly-not-friends.md
 - [ ] 2025 | Interaction Context Often Increases Sycophancy in LLMs | arXiv | https://arxiv.org/abs/2509.12517 | tags: sycophancy, context, multi-turn
 - [ ] 2026 | Sycophancy Hides Linearly in the Attention Heads | arXiv | https://arxiv.org/abs/2601.16644 | tags: sycophancy, interpretability, attention
 - [ ] 2026 | On Robustness and Chain-of-Thought consistency of RL-Finetuned VLMs | arXiv | https://arxiv.org/abs/2602.12506 | tags: robustness, consistency, chain-of-thought, vlm
