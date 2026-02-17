@@ -109,4 +109,4 @@ Format (one per line):
 - [x] 2025 | A meta-analysis of the persuasive power of large language models | Scientific Reports | https://www.nature.com/articles/s41598-025-30783-y | tags: persuasion, meta-analysis, human-subjects | note: papers/20260217_meta-analysis-persuasive-power-llms.md
 - [x] 2025 | LLM-Generated Ads: From Personalization Parity to Persuasion Superiority | arXiv | https://arxiv.org/abs/2512.03373 | tags: persuasion, advertising, human-eval | note: papers/20260217_llm-generated-ads.md
 - [x] 2025 | LLMs for Customized Marketing Content Generation and Evaluation at Scale | arXiv | https://arxiv.org/abs/2506.17863 | tags: persuasion, marketing, evaluation, personalization | note: papers/20260217_customized-marketing-content-generation-eval-scale.md
-- [ ] 2025 | Evaluation and Benchmarking of LLM Agents: A Survey | arXiv | https://arxiv.org/abs/2507.21504 | tags: agents, evaluation, survey, multi-turn
+- [x] 2025 | Evaluation and Benchmarking of LLM Agents: A Survey | arXiv | https://arxiv.org/abs/2507.21504 | tags: agents, evaluation, survey, multi-turn | note: papers/20260217_agents-eval-survey.md
