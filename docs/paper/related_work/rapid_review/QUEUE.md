@@ -291,3 +291,11 @@ Format (one per line):
 - [x] 2026 | MTMCS-Bench: Evaluating Contextual Safety of Multimodal Large Language Models in Multi-Turn Dialogues | arXiv | https://arxiv.org/abs/2601.06757 | tags: multimodal, safety, multi-turn, benchmark | note: papers/20260217_mtmcs-bench.md
 - [x] 2025 | Death by a Thousand Prompts: Open Model Vulnerability Analysis | arXiv | https://arxiv.org/abs/2511.03247 | tags: prompt-injection, safety, evaluation, attacks | note: papers/20260217_death-by-thousand-prompts.md
 - [x] 2026 | MPIB: A Benchmark for Medical Prompt Injection Attacks and Clinical Safety in LLMs | arXiv | https://arxiv.org/abs/2602.06268 | tags: prompt-injection, medical, safety, benchmark | note: docs/paper/related_work/rapid_review/papers/20260217_mpib-medical-prompt-injection-benchmark.md
+
+## New candidates (2026-02-17, web_search batch 13)
+
+- [x] 2025 | Quantifying Conversation Drift in MCP via Latent Polytope | arXiv | https://arxiv.org/abs/2508.06418 | tags: drift, mcp, conversation, diagnostics | note: papers/20260217_mcp-latent-polytope-drift.md
+- [ ] 2025 | A Benchmark for Evaluating Outcome-Driven Constraint Violations in Autonomous AI Agents | arXiv | https://arxiv.org/abs/2512.20798 | tags: agents, constraint-violations, multi-step, safety
+- [ ] 2026 | Prompt Injection Attacks on Agentic Coding Assistants: A Systematic Analysis of Vulnerabilities in Skills, Tools, and Protocol Ecosystems | arXiv | https://arxiv.org/abs/2601.17548 | tags: prompt-injection, agents, coding, security, survey
+- [ ] 2026 | JMedEthicBench: A Multi-Turn Conversational Benchmark for Evaluating Medical Safety in Japanese Large Language Models | arXiv | https://arxiv.org/abs/2601.01627 | tags: medical, safety, multi-turn, benchmark
+- [ ] 2025 | HealthBench: Evaluating Large Language Models Towards Improved Human Health | arXiv | https://arxiv.org/abs/2505.08775 | tags: medical, safety, multi-turn, benchmark
