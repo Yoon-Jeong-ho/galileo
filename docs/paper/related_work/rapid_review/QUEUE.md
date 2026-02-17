@@ -568,3 +568,11 @@ Format (one per line):
 - [x] 2025 | Beyond Single-Turn: A Survey on Multi-Turn Interactions with Large Language Models | arXiv | https://arxiv.org/abs/2504.04717 | tags: survey, multi-turn, robustness, evaluation | note: papers/20260217_beyond-single-turn-survey.md  # duplicate queue entry; note already exists
 - [x] 2025 | Consistently Simulating Human Personas with Multi-Turn Reinforcement Learning | arXiv | https://arxiv.org/abs/2511.00222 | tags: persona, consistency, multi-turn, rl | note: papers/20260217_persona-consistency-mt-rl.md  # duplicate queue entry; note already exists
 - [x] 2023 | Are You Sure? Challenging LLMs Leads to Performance Drops in The FlipFlop Experiment | arXiv | https://arxiv.org/abs/2311.08596 | tags: flipflop, challenge-prompt, robustness, answer-revision | note: papers/20260218_are-you-sure_flipflop-experiment.md  # duplicate queue entry
+
+## New candidates (2026-02-18)
+
+- [x] 2025 | MultiChallenge: A Realistic Multi-Turn Conversation Evaluation Benchmark Challenging to Frontier LLMs | arXiv | https://arxiv.org/abs/2501.17399 | tags: multi-turn, evaluation, persistence, self-coherence, sycophancy | note: papers/20260217_multichallenge.md  # duplicate queue entry
+- [ ] 2025 | Beyond Single-Turn: A Survey on Multi-Turn Interactions with Large Language Models | arXiv | https://arxiv.org/abs/2504.04717 | tags: multi-turn, survey, interaction, evaluation
+- [ ] 2026 | Confidence Estimation for LLMs in Multi-turn Interactions | arXiv | https://arxiv.org/abs/2601.02179 | tags: multi-turn, uncertainty, calibration, confidence
+- [ ] 2025 | Assessing Large Language Models in Updating Their Forecasts with New Information | arXiv | https://arxiv.org/abs/2509.23936 | tags: belief-update, forecasting, uncertainty, longitudinal
+- [ ] 2025 | Beacon: Single-Turn Diagnosis and Mitigation of Latent Sycophancy in Large Language Models | arXiv | https://arxiv.org/abs/2510.16727 | tags: sycophancy, diagnosis, mitigation, evaluation
