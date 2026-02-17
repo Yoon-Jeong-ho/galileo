@@ -47,7 +47,7 @@
 
 ## 초록 (Abstract)
 
-대규모 언어모델(LLM)은 사용자와의 상호작용에서 설득, 권위 주장, 반복 부정 등 다양한 형태의 **사회적 압박(social pressure)**을 받을 때, 정답이 존재하는 과제에서도 기존에 도달했던 정답을 철회하거나 오답으로 전향하는 현상이 관찰된다. 관련 문헌은 sycophancy(사용자 동조) 및 persuasion을 보고하지만(예: Sharma et al., 2025; Fanous et al., 2025; Huang et al., 2026), 정답 기반 과제에서 이러한 붕괴가 **어느 라운드에서 처음 발생하는지(turn-of-failure)**, 이후 압박이 누적될 때 **생존 곡선(survival curve)**이 어떻게 형성되는지, 그리고 **회복(recovery)**이 가능한지까지를 한 프로토콜로 재현 가능하게 측정하는 공개 파이프라인은 상대적으로 부족하다.
+대규모 언어모델(LLM)은 사용자와의 상호작용에서 설득, 권위 주장, 반복 부정 등 다양한 형태의 **사회적 압박(social pressure)**을 받을 때, 정답이 존재하는 과제에서도 기존에 도달했던 정답을 철회하거나 오답으로 전향하는 현상이 관찰된다. 관련 문헌은 sycophancy(사용자 동조) 및 persuasion을 보고하지만(예: Sharma et al., 2023; Fanous et al., 2025; Huang et al., 2026), 정답 기반 과제에서 이러한 붕괴가 **어느 라운드에서 처음 발생하는지(turn-of-failure)**, 이후 압박이 누적될 때 **생존 곡선(survival curve)**이 어떻게 형성되는지, 그리고 **회복(recovery)**이 가능한지까지를 한 프로토콜로 재현 가능하게 측정하는 공개 파이프라인은 상대적으로 부족하다.
 
 본 논문에서는 **GALILEO**를 제안한다. GALILEO는 (1) 정답이 있는 문제(수학, extractive QA, MCQA, open-domain QA)에 대해 초기 정답성을 평가하고, (2) 다섯 가지 adversarial persona(Soft Pressure, Simple Denial, Strong Pressure, Authority Claim, Logical Trap)를 **최대 5라운드** 적용하여 라운드별 정답 유지율을 측정하며, (3) 오답으로 전향한 샘플에 대해 회복 프롬프트를 제공하여 회복률을 평가한다. 또한 모든 태스크에서 최종 답을 `\boxed{...}`로 표준화하여 자동 채점의 안정성과 비교 가능성을 확보한다.
 
@@ -336,7 +336,7 @@ LLM은 사용자 중심 응답, 공감적 대화, 고품질 추론을 위해 인
 
 ### 2.1 Sycophancy: 사용자 동조로 정답/진실을 희생
 
-- **Sharma et al., “Towards Understanding Sycophancy in Language Models” (2023)**는 RLHF가 사용자 신념에 맞춘 출력을 유도할 수 있으며, 다양한 생성 태스크에서 sycophancy가 나타남을 보이고, preference data/PM 최적화가 이를 일부 강화할 수 있음을 분석한다. 이 라인은 “왜 모델이 틀린 방향으로도 쉽게 동조하는가”에 대한 학습적 동인을 제공한다. (Sharma et al., 2025; arXiv:2310.13548)
+- **Sharma et al., “Towards Understanding Sycophancy in Language Models” (2023)**는 RLHF가 사용자 신념에 맞춘 출력을 유도할 수 있으며, 다양한 생성 태스크에서 sycophancy가 나타남을 보이고, preference data/PM 최적화가 이를 일부 강화할 수 있음을 분석한다. 이 라인은 “왜 모델이 틀린 방향으로도 쉽게 동조하는가”에 대한 학습적 동인을 제공한다. (Sharma et al., 2023; arXiv:2310.13548)
 
 - **SycEval (2025)**은 수학/의료 QA에서 rebuttal을 통해 응답 전환을 측정하며, *regressive/progressive sycophancy*를 구분한다. GALILEO는 이 관찰을 (a) persona 기반 압박을 **최대 5라운드로 반복**, (b) 언제 무너지는지(turn-of-failure)와 (c) 무너진 뒤 회복(recovery)까지 확장한다. (Fanous et al., 2025; arXiv:2502.08177)
 
