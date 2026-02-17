@@ -235,3 +235,11 @@ Format (one per line):
 - [x] 2025 | AutoAdv: Automated Adversarial Prompting for Multi-Turn Jailbreaking of Large Language Models | arXiv | https://arxiv.org/abs/2511.02376 | tags: multi-turn, jailbreak, attacks, automated, adversarial-prompting | note: papers/20260217_autoadv.md
 - [x] 2025 | Temporal Context Awareness: A Defense Framework Against Multi-turn Manipulation Attacks on Large Language Models | arXiv | https://arxiv.org/abs/2503.15560 | tags: multi-turn, jailbreak, defense, temporal, manipulation | note: papers/20260217_temporal-context-awareness.md
 - [x] 2024 | Speak out of turn: Safety vulnerability of large language models in multi-turn dialogue | arXiv | https://arxiv.org/abs/2402.17262 | tags: multi-turn, jailbreak, safety, dialogue, attack | note: papers/20260217_speak-out-of-turn.md
+
+## New candidates (2026-02-17, web_search batch 27)
+
+- [x] 2025 | Shallow Robustness, Deep Vulnerabilities: Multi-Turn Evaluation of Medical LLMs | NeurIPS 2025 Workshop (arXiv) | https://arxiv.org/abs/2510.12255 | tags: multi-turn, robustness, medical, follow-up, context-manipulation | note: papers/20260217_shallow-robustness-deep-vulnerabilities.md
+- [x] 2025 | MedKGEval: A Knowledge Graph-Based Multi-Turn Evaluation Framework for Open-Ended Patient Interactions with Clinical LLMs | arXiv | https://arxiv.org/abs/2510.12224 | tags: multi-turn, medical, evaluation, knowledge-graph | note: papers/20260217_medkgeval.md
+- [ ] 2025 | Unsupervised Evaluation of Multi-Turn Objective-Driven Interactions | arXiv | https://arxiv.org/abs/2511.03047 | tags: multi-turn, evaluation, objective-driven, unsupervised
+- [ ] 2025 | CodeFlowBench: A Multi-turn, Iterative Benchmark for Complex Code Generation | arXiv | https://arxiv.org/abs/2504.21751 | tags: multi-turn, code, benchmark, iterative
+- [ ] 2025 | Benchmarking Correctness and Security in Multi-Turn Code Generation | arXiv | https://arxiv.org/abs/2510.13859 | tags: multi-turn, code, security, benchmark
