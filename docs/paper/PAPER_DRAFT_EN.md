@@ -284,6 +284,23 @@ For each seed, we compute the above metrics per persona/dataset/round on that se
 
 **Why per-seed averaging (vs. pooling).** We prefer “compute metric per seed, then average” over pooling all examples across seeds because the effective evaluation set size (e.g., `|C|`) can differ slightly by seed. Per-seed aggregation keeps each run equally weighted and makes variance across seeds explicit.
 
+### 4.6 Matched vs pooled aggregation (avoid Table~W confusion)
+
+We use two complementary aggregation choices that answer different questions:
+
+- **Matched persona-wise view (mechanism-specific; apples-to-apples within a persona).** For each persona \(p\), compute the metric under persona pressure and under the Neutral Re-asking Control on the **same** initially-correct subset \(C_p\), then report
+  \[
+  \Delta_p = \text{metric}_{\text{persona},p} - \text{metric}_{\text{control},p}.
+  \]
+  This isolates the incremental effect of the persona’s pressure wording beyond generic multi-turn re-asking drift **on a matched subset**.
+
+- **Pooled headline view (overall reliability impact vs drift).** Pool across personas/examples first (equivalently: weight personas by evaluation set size), then compare pooled persona pressure vs pooled control:
+  \[
+  \Delta_{\mathrm{pool}} = \sum_p w_p\,\text{metric}_{\text{persona},p} - \sum_p w_p\,\text{metric}_{\text{control},p},\quad w_p \propto |C_p|.
+  \]
+
+These can differ materially when \(|C_p|\) varies across personas (common when Phase~1 filtering/caching is arm-specific). In the camera-ready paper, any pooled table (e.g., “Table~W”) should state its weighting explicitly (e.g., “pooled across personas with weights proportional to \(|C_p|\)”).
+
 ---
 
 ## 5. Evaluation details
