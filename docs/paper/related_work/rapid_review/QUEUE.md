@@ -169,3 +169,11 @@ Format (one per line):
 
 ## Added candidates (auto)
 - [x] 2025 | Challenging the Evaluator: LLM Sycophancy Under User Rebuttal | arXiv:2509.16533 | https://arxiv.org/abs/2509.16533 | tags: sycophancy, rebuttal, persuasion, multi-turn | note: papers/20260217_challenging-the-evaluator.md
+
+## New candidates (2026-02-17, web_search batch 19)
+
+- [x] 2024 | Multi-IF: Benchmarking LLMs on Multi-Turn and Multilingual Instruction Following | arXiv | https://arxiv.org/abs/2410.15553 | tags: multi-turn, instruction-following, multilingual, benchmark | note: papers/20260217_multi-if.md
+- [ ] 2025 | Can Language Models Follow Multiple Turns of Entangled Instructions? (MultiTurnInstruct) | arXiv | https://arxiv.org/abs/2503.13222 | tags: multi-turn, instruction-following, conflicting-instructions, benchmark
+- [ ] 2025 | InfoQuest: Evaluating Multi-Turn Dialogue Agents for Open-Ended Conversations with Hidden Context | arXiv | https://arxiv.org/abs/2502.12257 | tags: multi-turn, dialogue-agents, hidden-context, evaluation
+- [ ] 2026 | One Battle After Another: Probing LLMs’ Limits on Multi-Turn Instruction Following with a Benchmark Evolving Framework | arXiv | https://arxiv.org/abs/2511.03508 | tags: multi-turn, instruction-following, evolving-benchmark, saturation
+- [ ] 2025 | A Multi-Dimensional Constraint Framework for Evaluating and Improving Instruction Following in Large Language Models | arXiv | https://arxiv.org/abs/2505.07591 | tags: instruction-following, evaluation, constraints, multi-turn
