@@ -344,7 +344,7 @@ Format (one per line):
 ## New candidates (2026-02-17, web_search batch 99)
 
 - [x] 2025 | Foot-In-The-Door: A Multi-turn Jailbreak for LLMs | arXiv | https://arxiv.org/abs/2502.19820 | tags: multi-turn, jailbreak, psychology, self-corruption | note: papers/20260217_fitd_multi_turn_jailbreak.md
-- [ ] 2024 | Great, Now Write an Article About That: The Crescendo Multi-Turn LLM Jailbreak Attack | arXiv | https://arxiv.org/abs/2404.01833 | tags: multi-turn, jailbreak, gradual-escalation, attacks
+- [x] 2024 | Great, Now Write an Article About That: The Crescendo Multi-Turn LLM Jailbreak Attack | arXiv | https://arxiv.org/abs/2404.01833 | tags: multi-turn, jailbreak, gradual-escalation, attacks | note: papers/20260217_crescendo-multi-turn-jailbreak.md
 - [ ] 2026 | The Echo Chamber Multi-Turn LLM Jailbreak | arXiv | https://arxiv.org/abs/2601.05742 | tags: multi-turn, jailbreak, attacks, echo-chamber
 - [ ] 2025 | Automating Deception: Scalable Multi-Turn LLM Jailbreaks | arXiv | https://arxiv.org/abs/2511.19517 | tags: multi-turn, jailbreak, automation, deception
 - [ ] 2025 | A Representation Engineering Perspective on the Effectiveness of Multi-Turn Jailbreaks | arXiv | https://arxiv.org/abs/2507.02956 | tags: multi-turn, jailbreak, representations, analysis
