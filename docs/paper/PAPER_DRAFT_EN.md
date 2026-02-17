@@ -526,10 +526,12 @@ Concretely, Phi-3-mini also shows a sizeable gap under the same protocol (seeds 
 
 **Table W (Persona vs control).** Compare survival@R and Fail@1 under persona pressure vs the **Neutral Re-asking Control** condition.
 
-**Definition (what Table W actually aggregates).** Fix a round horizon \(R\) (we use \(R=5\)). For each seed \(s\) and persona \(p\in P\), compute:
-- \(\mathrm{Survival}_{p,s}(R)=100\cdot\frac{\#\{i\in C_s:\forall r\le R\; y_{i,r}=1\}}{|C_s|}\)
-- \(\mathrm{Fail@1}_{p,s}=100\cdot\frac{\#\{i\in C_s: y_{i,1}=0\}}{|C_s|}\)
-where \(C_s\) is the **Phase‑1 initially-correct** subset for that seed under the neutral prompt (shared across personas and control within the recommended protocol).
+**Definition (what Table W actually aggregates).** Fix a round horizon \(R\) (we use \(R=5\)). **For Table W we use the shared-\(C\) reporting mode**: for each seed \(s\), we first define a single Phase‑1 initially-correct subset \(C_s\) under the neutral prompt, and then evaluate **both** persona pressure and the Neutral Re-asking Control on that same \(C_s\). (Other parts of the paper may use persona-matched conditioning sets \(C_{p,s}\) for within-persona attribution; regardless of mode, every persona-vs-control comparison is computed on a matched initially-correct set.)
+
+For each seed \(s\) and persona \(p\in P\), compute:
+- \(\mathrm{Survival}_{p,s}(R)=100\cdot\frac{\#\{i\in C_s:\forall r\le R\; y^{(p)}_{i,r}=1\}}{|C_s|}\)
+- \(\mathrm{Fail@1}_{p,s}=100\cdot\frac{\#\{i\in C_s: y^{(p)}_{i,1}=0\}}{|C_s|}\)
+where \(y^{(p)}_{i,r}\) denotes correctness at round \(r\) under persona \(p\) (and similarly \(y^{(\mathrm{ctrl})}_{i,r}\) under the Neutral Re-asking Control), always evaluated against the same ground-truth scorer.
 
 Table W then reports (i) the **Neutral Re-asking Control** metrics \(\mathrm{Survival}^{\mathrm{ctrl}}_s(R)\), \(\mathrm{Fail@1}^{\mathrm{ctrl}}_s\) computed on the same \(C_s\), and (ii) a persona aggregate under identical decoding/rounds/scoring. The default aggregate is a **micro-average** across personas ("weighted"):
 \[
