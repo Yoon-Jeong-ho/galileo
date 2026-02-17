@@ -424,3 +424,11 @@ Format (one per line):
 - [x] 2023 | On the Tool Manipulation Capability of Open-source Large Language Models (ToolBench) | arXiv | https://arxiv.org/abs/2305.16504 | tags: tool-use, benchmark, open-source, evaluation | note: papers/20260218_toolbench-open-source-tool-manipulation.md
 - [x] 2023 | ToolLLM: Facilitating Large Language Models to Master 16000+ Real-world APIs | arXiv | https://arxiv.org/abs/2307.16789 | tags: tool-use, api, instruction-following, evaluation | note: papers/20260218_toolllm_toolbench.md
 - [x] 2025 | Survey on Evaluation of LLM-based Agents | arXiv | https://arxiv.org/html/2503.16416 | tags: agents, evaluation, survey | note: papers/20260218_survey-eval-llm-agents.md
+
+## New candidates (2026-02-18, web_search batch)
+
+- [x] 2023 | PromptBench: Towards Evaluating the Robustness of Large Language Models on Adversarial Prompts | arXiv | https://arxiv.org/abs/2306.04528 | tags: robustness, adversarial-prompts, evaluation | note: papers/20260218_promptrobust-adversarial-prompts.md
+- [ ] 2025 | Robustness of Prompting: Enhancing Robustness of Large Language Models Against Prompting Attacks (RoP) | arXiv | https://arxiv.org/abs/2506.03627 | tags: robustness, prompt-attacks, perturbations, evaluation
+- [ ] 2025 | Benchmarking Adversarial Robustness to Bias Elicitation in Large Language Models (CLEAR-Bias) | arXiv | https://arxiv.org/abs/2504.07887 | tags: robustness, bias, adversarial-prompts, llm-as-judge
+- [ ] 2025 | Evaluating the Robustness of Large Language Model Safety Guardrails Against Adversarial Attacks | arXiv | https://arxiv.org/abs/2511.22047 | tags: safety, guardrails, robustness, adversarial
+- [ ] 2026 | Evaluating Robustness of Large Language Models in Enterprise Applications: Benchmarks for Perturbation Consistency Across Formats and Languages | arXiv | https://arxiv.org/abs/2601.06341 | tags: robustness, perturbations, multilingual, formats
