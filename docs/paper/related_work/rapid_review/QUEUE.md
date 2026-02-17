@@ -605,3 +605,10 @@ Format (one per line):
 - [x] 2025 | Benchmarking Gaslighting Attacks Against Speech Large Language Models | arXiv | https://arxiv.org/abs/2509.19858 | tags: gaslighting, speech-llm, multimodal, robustness | note: papers/20260218_gaslighting_attacks_speech_llms.md
 - [x] 2025 | Boosting Large Language Models for Mental Manipulation Detection via Data Augmentation and Distillation | arXiv | https://arxiv.org/abs/2505.15255 | tags: manipulation, detection, safety, evaluation | note: papers/20260218_mentalmad_manipulation_detection.md
 - [x] 2025 | Negation: A Pink Elephant in the Large Language Models' Room? | arXiv | https://arxiv.org/abs/2503.22395 | tags: negation, logical-reasoning, robustness, consistency | note: papers/20260218_negation_pink_elephant_llms.md
+
+## New candidates (2026-02-18, web_search batch 3)
+- [x] 2025 | Galileo: Learning Global & Local Features of Many Remote Sensing Modalities | arXiv | https://arxiv.org/abs/2502.09356 | tags: remote-sensing, multimodal, foundation-model | note: papers/20260218_galileo-remote-sensing-modalities.md
+- [ ] 2025 | Survey on Evaluation of LLM-based Agents | arXiv | https://arxiv.org/html/2503.16416v1 | tags: agents, evaluation, benchmarks
+- [ ] 2025 | Galileo Project Observatory Class System Architecture | arXiv | https://arxiv.org/abs/2506.00125 | tags: system-architecture
+- [ ] 2025 | Ionosphere of Ganymede: Galileo observations versus test particle simulation | arXiv | https://arxiv.org/abs/2502.13052 | tags: space-physics, simulation
+- [ ] 2026 | Causality in Physics: From Galileo to Einstein, and Beyond | arXiv | https://arxiv.org/abs/2601.00037 | tags: physics, causality
