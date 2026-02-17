@@ -404,6 +404,15 @@ Format (one per line):
 
 - [x] 2025 | Modeling and Predicting Multi-Turn Answer Instability in Large Language Models | arXiv | https://arxiv.org/abs/2511.10688 | tags: multi-turn, answer-instability, drift, robustness, evaluation | note: papers/20260217_modeling-multi-turn-answer-instability.md (duplicate queue entry)
 - [x] 2025 | Drift No More? Context Equilibria in Multi-Turn LLM Interactions | arXiv | https://arxiv.org/abs/2510.07777 | tags: multi-turn, drift, context, robustness | note: papers/20260217_drift-no-more.md (duplicate queue entry)
-- [ ] 2025 | Measuring Sycophancy of Language Models in Multi-turn Dialogues | arXiv | https://arxiv.org/abs/2505.23840 | tags: sycophancy, multi-turn, evaluation, dialogue | note: 
-- [ ] 2026 | SycoEval-EM: Sycophancy Evaluation of Large Language Models in Simulated Clinical Encounters for Emergency Care | arXiv | https://arxiv.org/abs/2601.16529 | tags: sycophancy, persuasion, clinical, safety, evaluation | note: 
-- [ ] 2025 | Towards Understanding Sycophancy in Language Models | arXiv | https://arxiv.org/abs/2310.13548 | tags: sycophancy, preference-modeling, RLHF, truthfulness | note: 
+- [x] 2025 | Measuring Sycophancy of Language Models in Multi-turn Dialogues | arXiv | https://arxiv.org/abs/2505.23840 | tags: sycophancy, multi-turn, evaluation, dialogue | note: papers/20260217_sycon-bench.md (duplicate queue entry)
+- [x] 2026 | SycoEval-EM: Sycophancy Evaluation of Large Language Models in Simulated Clinical Encounters for Emergency Care | arXiv | https://arxiv.org/abs/2601.16529 | tags: sycophancy, persuasion, clinical, safety, evaluation | note: papers/20260217_sycoeval-em.md (duplicate queue entry)
+- [x] 2025 | Towards Understanding Sycophancy in Language Models | arXiv | https://arxiv.org/abs/2310.13548 | tags: sycophancy, preference-modeling, RLHF, truthfulness | note: papers/20260217_towards-understanding-sycophancy.md (duplicate queue entry)
+
+
+## New candidates (2026-02-18, web_search batch)
+
+- [x] 2025 | MARS-Bench: A Multi-turn Athletic Real-world Scenario Benchmark for Dialogue Evaluation | arXiv | https://arxiv.org/abs/2505.23810 | tags: multi-turn, benchmark, dialogue, evaluation | note: papers/20260217_mars-bench.md (duplicate queue entry)
+- [x] 2025 | MultiChallenge: A Realistic Multi-Turn Conversation Evaluation Benchmark Challenging to Frontier LLMs | arXiv | https://arxiv.org/abs/2501.17399 | tags: multi-turn, instruction-following, benchmark, evaluation | note: papers/20260217_multichallenge.md (duplicate queue entry)
+- [x] 2025 | One Battle After Another: Probing LLMs’ Limits on Multi-Turn Instruction Following with a Benchmark Evolving Framework | arXiv | https://arxiv.org/abs/2511.03508 | tags: multi-turn, instruction-following, benchmark, robustness | note: papers/20260217_evolif-multi-turn-instruction-following.md (duplicate queue entry)
+- [x] 2026 | MemoryRewardBench: Benchmarking Reward Models for Long-Term Memory Management in Large Language Models | arXiv | https://arxiv.org/abs/2601.11969 | tags: long-context, memory, reward-model, benchmark | note: papers/20260218_memoryrewardbench_reward_models_memory_mgmt.md
+- [ ] 2025 | Full-Duplex-Bench: A Benchmark to Evaluate Full-duplex Spoken Dialogue Models on Turn-taking Capabilities | arXiv | https://arxiv.org/abs/2503.04721 | tags: spoken-dialogue, multi-turn, turn-taking, benchmark | note: 

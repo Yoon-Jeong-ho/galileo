@@ -358,7 +358,11 @@ LLM은 사용자 중심 응답, 공감적 대화, 고품질 추론을 위해 인
 
 - **PTCBench (2026)**는 상황/이벤트 맥락 변화가 personality traits를 변화시키는지 평가한다. GALILEO는 “상황=압박 persona”로 재해석할 수 있으나, personality trait 대신 **정답 기반 belief consistency**를 타깃으로 한다는 점에서 차별화된다. (Yu et al., 2026; arXiv:2602.00016)
 
-### 2.4 비교표(Setting/Metric 관점)
+### 2.4 Survival analysis / time-to-failure 스타일의 동역학 지표
+
+- **Time-To-Inconsistency (2025)**는 다중 턴 공격/교란 하에서 모델이 *언제* 일관성을 잃는지를 **survival analysis(time-to-event)** 관점으로 정식화해, 단일 정확도 대신 *time-to-failure* 분포/곡선을 보고한다. GALILEO의 survival curve 및 turn-of-failure(TOF)는 같은 문제의식을 공유하지만, (i) 정답 기반 태스크 전반(math/QA/MCQA/OpenQA)에 대해 통일된 채점/로그 체계를 제공하고, (ii) drift baseline(Neutral Re-asking Control)을 포함해 persona 효과를 분리하며, (iii) flip 이후 **recovery(return-to-truth)**까지 동일 프로토콜에서 측정한다는 점에서 확장된다. (Time-To-Inconsistency, 2025; arXiv:2510.02712)
+
+### 2.5 비교표(Setting/Metric 관점)
 
 | Work | Core setting | Multi-turn | Ground-truth | Dynamics (curve / TOF) | Recovery | Notes vs GALILEO |
 |---|---|---:|---:|---:|---:|---|
@@ -366,6 +370,7 @@ LLM은 사용자 중심 응답, 공감적 대화, 고품질 추론을 위해 인
 | SycEval 2025 | rebuttal로 sycophancy 측정 (math/medical) | ✓ | ✓ | 제한적 | ✗ | GALILEO는 persona×라운드×recovery로 확장 |
 | ELEPHANT 2025 | social sycophancy (face) | 일부 | ✗ | 제한적 | ✗ | GALILEO 정성 분석을 face theory와 연결 가능 |
 | Huang et al. 2026 (SMCR) | persuasion 전략/시점 | ✓ | 일부 | ✓ (when) | 부분 | GALILEO는 정답 기반으로 더 안정적 비교 가능 |
+| Time-To-Inconsistency 2025 | adversarial multi-turn에서 일관성 붕괴 시점(time-to-failure) | ✓ | 다양 | ✓ (survival) | ✗ | GALILEO는 drift control + 정답 기반 태스크 통합 + recovery까지 포함 |
 | PERSIST 2025 | personality instability | ✓ | ✗ | ✓ | ✗ | “왜 multi-turn에서 흔들리는가” 메타-근거 |
 | PTCBench 2026 | context-induced trait change | ✓ | ✗ | ✓ | ✗ | 상황 변화 vs 압박 persona의 대응 관계 |
 | BrokenMath 2025 | theorem proving sycophancy | ✓ | ✓ | 일부 | ✗ | proof-level; GALILEO는 범용 태스크+recovery |
