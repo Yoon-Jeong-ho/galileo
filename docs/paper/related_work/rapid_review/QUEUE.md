@@ -587,7 +587,7 @@ Format (one per line):
 
 ## New candidates (2026-02-18, web_search batch)
 - [x] 2025 | Modeling and Predicting Multi-Turn Answer Instability in Large Language Models | arXiv | https://arxiv.org/abs/2511.10688 | tags: multi-turn, answer-instability, robustness | note: papers/20260217_modeling-multi-turn-answer-instability.md  # duplicate queue entry
-- [ ] 2025 | The Chameleon Nature of LLMs: Quantifying Multi-Turn Stance Instability in Search-Enabled Language Models | arXiv | https://arxiv.org/abs/2510.16712 | tags: multi-turn, stance-instability, search-enabled
+- [x] 2025 | The Chameleon Nature of LLMs: Quantifying Multi-Turn Stance Instability in Search-Enabled Language Models | arXiv | https://arxiv.org/abs/2510.16712 | tags: multi-turn, stance-instability, search-enabled | note: papers/20260217_chameleon-stances-search-enabled.md  # duplicate queue entry; URL already reviewed
 - [ ] 2026 | Disentangling Ambiguity from Instability in Large Language Models: A Clinical Text-to-SQL Case Study | arXiv | https://arxiv.org/abs/2602.12015 | tags: instability, ambiguity, multi-turn, text-to-sql
 - [ ] 2025 | Beyond Single-Turn: A Survey on Multi-Turn Interactions with Large Language Models | arXiv | https://arxiv.org/abs/2504.04717 | tags: survey, multi-turn, evaluation
 - [ ] 2025 | Robustness of large language models in moral judgements | Royal Society Open Science | https://royalsocietypublishing.org/rsos/article/12/4/241229/235626/Robustness-of-large-language-models-in-moral | tags: robustness, moral-judgment, prompt-variance
