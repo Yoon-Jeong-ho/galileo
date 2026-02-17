@@ -201,3 +201,11 @@ Format (one per line):
 - [x] 2025 | Technical Report: Evaluating Goal Drift in Language Model Agents | arXiv | https://arxiv.org/abs/2505.02709 | tags: agents, goal-drift, long-horizon, robustness | note: papers/20260217_goal-drift-agents.md
 - [x] 2026 | Quantifying non deterministic drift in large language models | arXiv | https://arxiv.org/abs/2601.19934 | tags: nondeterminism, drift, reliability, repeated-runs | note: papers/20260217_nondeterministic-drift-llms.md
 - [x] 2024 | Me, Myself, and AI: The Situational Awareness Dataset (SAD) for LLMs | arXiv | https://arxiv.org/abs/2407.04694 | tags: situational-awareness, evaluation, robustness | note: papers/20260217_situational-awareness-dataset-sad.md
+
+## New candidates (2026-02-17, web_search batch 23)
+
+- [x] 2025 | Why Synthetic Isn’t Real Yet: A Diagnostic Framework for Contact Center Dialogue Generation | arXiv | https://arxiv.org/abs/2508.18210 | tags: dialogue-generation, diagnostics, contact-center, multi-turn | note: papers/20260217_why-synthetic-isnt-real-yet.md
+- [x] 2025 | ContextualLVLM-Agent: A Holistic Framework for Multi-Turn Visually-Grounded Dialogue and Complex Instruction Following | arXiv | https://arxiv.org/abs/2508.15164 | tags: multimodal, visually-grounded, multi-turn, benchmark | note: papers/20260217_contextuallvlm-agent.md
+- [ ] 2026 | MMDeepResearch-Bench: A Benchmark for Multimodal Deep Research Agents | arXiv | https://arxiv.org/abs/2601.12346 | tags: agents, multimodal, web-search, long-horizon, evaluation
+- [ ] 2025 | MMCR: Advancing Visual Language Model in Multimodal Multi-Turn Contextual Reasoning | arXiv | https://arxiv.org/abs/2503.18533 | tags: multimodal, multi-turn, contextual-reasoning, dataset
+- [ ] 2025 | MDK12-Bench: A Multi-Discipline Benchmark for Evaluating Reasoning in Multimodal Large Language Models | arXiv | https://arxiv.org/abs/2504.05782 | tags: multimodal, benchmark, reasoning, robustness
