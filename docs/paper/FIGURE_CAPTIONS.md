@@ -100,7 +100,7 @@ Table W effect sizes (pooled across personas with weights \(w_p\propto |C_p|\)):
 - Generator: `scripts/make_cross_family_figure_svg.py`
 
 **Caption (draft):**
-Cross-family generalization: Survival@5 for the Neutral Re-asking Control (drift baseline) vs a strong persona (Logical Trap), mean ± std over seeds 1–2 for each model family. The same qualitative gap appears across families under an identical protocol.
+Cross-family generalization: Survival@5 for the Neutral Re-asking Control (drift baseline) vs a strong persona (Logical Trap), mean ± std over seeds 1–2 for each model family. The same qualitative gap appears across families under an identical protocol. For some families we cap `max_model_len` for KV-cache feasibility on the available hardware (e.g., Mistral-Nemo at 32k); the interaction protocol (rounds, personas, decoding, scoring) is otherwise identical.
 
 ---
 
