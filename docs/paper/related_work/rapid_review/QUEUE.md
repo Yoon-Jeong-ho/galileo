@@ -131,6 +131,6 @@ Format (one per line):
 
 - [x] 2025 | X-Boundary: Establishing Exact Safety Boundary to Shield LLMs from Multi-Turn Jailbreaks without Compromising Usability | arXiv | https://arxiv.org/abs/2502.09990 | tags: multi-turn, jailbreak, defense, safety-boundary | note: papers/20260217_x-boundary.md
 - [x] 2025 | Full-Duplex-Bench: A Benchmark to Evaluate Full-duplex Spoken Dialogue Models on Turn-taking Capabilities | arXiv | https://arxiv.org/abs/2503.04721 | tags: multi-turn, spoken-dialogue, turn-taking, benchmark | note: papers/20260217_full-duplex-bench.md
-- [ ] 2025 | Evaluating the Sensitivity of LLMs to Prior Context | arXiv | https://arxiv.org/abs/2506.00069 | tags: multi-turn, context-sensitivity, robustness, evaluation
+- [x] 2025 | Evaluating the Sensitivity of LLMs to Prior Context | arXiv | https://arxiv.org/abs/2506.00069 | tags: multi-turn, context-sensitivity, robustness, evaluation | note: papers/20260217_prior-context-sensitivity.md
 - [ ] 2025 | Audio MultiChallenge: A Multi-Turn Evaluation of Spoken Dialogue Systems on Natural Human Interaction | arXiv | https://arxiv.org/abs/2512.14865 | tags: multi-turn, spoken-dialogue, benchmark, long-range-context
 - [ ] 2025 | MTR-DuplexBench: Towards a Comprehensive Evaluation of Multi-Round Conversations for Full-Duplex Speech Language Models | arXiv | https://arxiv.org/abs/2511.10262 | tags: multi-turn, spoken-dialogue, full-duplex, benchmark
