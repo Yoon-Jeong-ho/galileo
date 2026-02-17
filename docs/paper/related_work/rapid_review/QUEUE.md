@@ -51,6 +51,6 @@ Format (one per line):
 
 - [x] 2025 | LLMs Can’t Handle Peer Pressure: Crumbling under Multi-Agent Social Interactions | arXiv | https://arxiv.org/abs/2508.18321 | tags: social-pressure, multi-agent, robustness, belief-stability | note: papers/20260217_kairos-peer-pressure.md
 - [x] 2025 | PReSS: A Black-Box Framework for Evaluating Political Stance Stability in LLMs via Argumentative Pressure | arXiv | https://arxiv.org/abs/2504.17052 | tags: social-pressure, argumentative, stance-stability, drift | note: papers/20260217_press.md
-- [ ] 2025 | Behavioral Fingerprinting of Large Language Models | arXiv | https://arxiv.org/abs/2509.04504 | tags: sycophancy-adjacent, diagnostics, robustness
+- [x] 2025 | Behavioral Fingerprinting of Large Language Models | arXiv | https://arxiv.org/abs/2509.04504 | tags: sycophancy-adjacent, diagnostics, robustness | note: papers/20260217_behavioral-fingerprinting-llms.md
 - [ ] 2025 | Robustness of large language models in moral judgements | Royal Society Open Science | https://royalsocietypublishing.org/rsos/article/12/4/241229/235626/Robustness-of-large-language-models-in-moral | tags: moral, robustness, consistency
 - [ ] 2024 | GermanPartiesQA: Benchmarking Commercial Large Language Models and AI Companions for Political Alignment and Sycophancy | arXiv | https://arxiv.org/abs/2407.18008 | tags: sycophancy, politics, alignment, role-play
