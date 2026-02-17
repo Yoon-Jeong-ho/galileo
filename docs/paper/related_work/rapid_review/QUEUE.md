@@ -472,3 +472,11 @@ Format (one per line):
 - [x] 2026 | Unsafer in Many Turns: Benchmarking and Defending Multi-Turn Safety Risks in Tool-Using Agents | arXiv | https://arxiv.org/abs/2602.13379 | tags: multi-turn, safety, tool-use, agents | note: papers/20260217_mt-agentrisk-toolshield.md (duplicate queue entry)
 - [x] 2026 | JMedEthicBench: A Multi-Turn Conversational Benchmark for Evaluating Medical Safety in Japanese Large Language Models | arXiv | https://arxiv.org/abs/2601.01627 | tags: multi-turn, safety, medical, japanese, benchmark | note: papers/20260217_jmedethicbench.md (duplicate queue entry)
 - [x] 2025 | Path Drift in Large Reasoning Models: How First-Person Commitments Override Safety | arXiv | https://arxiv.org/abs/2510.10013 | tags: multi-turn, safety, drift, reasoning | note: papers/20260218_path-drift-longcot-safety.md
+
+## New candidates (2026-02-18, web_search batch)
+
+- [x] 2025 | LIFBench: Evaluating the Instruction Following Performance and Stability of Large Language Models in Long-Context Scenarios | arXiv | https://arxiv.org/abs/2411.07037 | tags: instruction-following, stability, long-context, benchmark | note: papers/20260218_lifbench.md
+- [ ] 2025 | Technical Report: Evaluating Goal Drift in Language Model Agents | arXiv | https://arxiv.org/abs/2505.02709 | tags: goal-drift, long-context, agents, evaluation
+- [ ] 2026 | One Battle After Another: Probing LLMs’ Limits on Multi-Turn Instruction Following with a Benchmark Evolving Framework | arXiv | https://arxiv.org/abs/2511.03508 | tags: multi-turn, instruction-following, benchmark, evolving
+- [ ] 2026 | Communication Enhances LLMs’ Stability in Strategic Thinking | arXiv | https://arxiv.org/abs/2602.06081 | tags: stability, multi-turn, strategic-thinking, communication
+- [ ] 2025 | T3: Reducing Belief Deviation in Reinforcement Learning for Active Reasoning | arXiv | https://arxiv.org/abs/2510.12264 | tags: belief-deviation, active-reasoning, rl, robustness
