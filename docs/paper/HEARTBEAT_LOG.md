@@ -1014,3 +1014,14 @@ Reason: reduce wasted Tier‑1 budget by making “known-bad” configs obvious 
 - tmux: `tier1_pythia2p8b_s1_g4_20260218_0424`
 
 Next: wait for `paper_exports/` + run validator on the run root.
+
+---
+
+### 2026-02-18 05:07 KST — Pythia Tier-1 rerun: switch from conda-run to conda-activate runner (fix silent logs)
+
+- Observed: `tier1_pythia2p8b_seed1_len2048_20260218_0424` had GPU4 100% util for ~40min but `run.log` stayed 0 bytes under `conda run ... | tee`.
+- Action: killed the silent tmux session and restarted via a small `run.sh` that does `source conda.sh; conda activate galileo; python run_experiment.py ...`.
+- New tmux: `tier1_pythia2p8b_s1_g4_20260218_0510` (same OUT dir).
+- Result: logs now stream (vLLM init + checkpoint shard loading) and GPU4 util resumed.
+
+NOTE: first restart attempt had `OUT` unset under `set -u`; fixed by hardcoding OUT in the script.
