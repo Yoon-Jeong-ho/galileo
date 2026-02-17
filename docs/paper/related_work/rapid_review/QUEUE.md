@@ -164,5 +164,5 @@ Format (one per line):
 - [x] 2024 | MT-Eval: A Multi-Turn Capabilities Evaluation Benchmark for Large Language Models | arXiv | https://arxiv.org/abs/2401.16745 | tags: multi-turn, evaluation, benchmark | note: papers/20260217_mt-eval.md
 - [x] 2024 | AgentBoard: An Analytical Evaluation Board of Multi-turn LLM Agents | arXiv | https://arxiv.org/abs/2401.13178 | tags: agents, multi-turn, evaluation, benchmark | note: papers/20260217_agentboard.md
 - [x] 2026 | Unsafer in Many Turns: Benchmarking and Defending Multi-Turn Safety Risks in Tool-Using Agents | arXiv | https://arxiv.org/abs/2602.13379 | tags: multi-turn, safety, tool-use, jailbreak, benchmark | note: papers/20260217_mt-agentrisk-toolshield.md
-- [ ] 2025 | M2S: Multi-turn to Single-turn jailbreak in Red Teaming for LLMs | arXiv | https://arxiv.org/abs/2503.04856 | tags: multi-turn, jailbreak, attacks, distillation
+- [x] 2025 | M2S: Multi-turn to Single-turn jailbreak in Red Teaming for LLMs | arXiv | https://arxiv.org/abs/2503.04856 | tags: multi-turn, jailbreak, attacks, distillation | note: papers/20260217_m2s-multi-turn-to-single-turn-jailbreak.md
 - [ ] 2025 | Siege: Autonomous Multi-Turn Jailbreaking of Large Language Models with Tree Search | arXiv | https://arxiv.org/abs/2503.10619 | tags: multi-turn, jailbreak, tree-search, attacks
