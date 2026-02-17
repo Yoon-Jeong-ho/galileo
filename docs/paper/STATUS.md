@@ -23,8 +23,11 @@ Ground-truth tasks에서 multi-turn persona pressure 하에 **정답 유지(surv
 - We are in a **10-min heartbeat loop**; each heartbeat must deliver **one primary lane** result and keep continuity via `STATUS.md` + `HEARTBEAT_LOG.md`.
 - **Remote experiments policy:** use **nlp8**; GPUs **4/5/6** only; `tmux` required; paper-ready runs must include `paper_exports/*` + `metadata.json` + `runner_metadata.json` + validator `[OK]` + parity.
 - **Canonical remote launcher (anti-drift):** prefer `scripts/run_multiseed_tmux.sh` (streams logs + writes `runner_metadata.json`). Other launch scripts are allowed only when explicitly justified in `results/<run>/run.log`.
-- **Validator health (paper SSOT):** `results_paper/` parity validation is **all [OK]** (includes `qwen_vta_seed1/2` and `tier1_llama3_3b_seed1/2`).
+- **Validator health (paper SSOT):** `results_paper/` global validation + runner-metadata parity is **[OK]** (Tier‑1 families incl. Llama‑3.2‑3B, Phi‑3‑mini, **Mistral‑Nemo**). Incomplete runs are quarantined under `results_paper_incomplete/` to keep paper SSOT clean.
 - **Phi-3-mini Tier-1 (cross-family):** seed1–2 are **paper-ready** (validated) under `results_paper/tier1_phi3mini_seed{1,2}_20260217_*`.
+- **Mistral-Nemo Tier-1 (cross-family):** seed1–2 are **paper-ready** under:
+  - `results_paper/tier1_mistralnemo_seed1_20260217_173907/`
+  - `results_paper/tier1_mistralnemo_seed2_20260217_180951/`
 - **Decoding sweep (seed1–2) done:** `results_paper/qwen_temp0_seed{1,2}` + `results_paper/qwen_temp0p7_seed{1,2}` are paper-ready; `results_paper/GLOBAL_VALIDATE.log` remains all `[OK]`.
 - **Current risk:** process drift (conflicting docs about host/GPU policy, lane starvation, missing commits) → we keep SSOT docs aligned (STATUS/CHECKLIST/RUNBOOK).
 - **Cross-family extension note:** attempted adding Gemma2 (google/gemma-2-2b-it) on nlp8 RTX8000 via vLLM; it fails due to (i) max_model_len>8192 guardrail and (ii) Triton unified-attention shared-memory OOR on cc7.5. Avoid Gemma2 on this hardware unless we change vLLM backend/settings.
@@ -69,7 +72,7 @@ Ground-truth tasks에서 multi-turn persona pressure 하에 **정답 유지(surv
 - ✅ Added SSOT heartbeat prompt: `docs/paper/HEARTBEAT_PROMPT.md`
 - ✅ Added heartbeat checklist guardrails: `docs/paper/HEARTBEAT_CHECKLIST.md`
 - ✅ De-confused deprecated `nlp16` SSH note to reduce copy/paste drift: `docs/paper/SSH_TROUBLESHOOT_NLP16.md`
-- ✅ Canonical cross-family figure filename (anti-drift): `docs/paper/figures/cross_family_survival_r5_control_vs_logicaltrap_seed1-2_20260212.svg`
+- ✅ Canonical cross-family figure filename (anti-drift): `docs/paper/figures/cross_family_survival_r5_control_vs_logicaltrap_seed1-2_20260217.svg`
 - ✅ Metric definitions SSOT: `docs/paper/FIGURE_CAPTIONS.md` (Survival@r / Flip / TOF)
 
 ---
@@ -81,15 +84,15 @@ Ground-truth tasks에서 multi-turn persona pressure 하에 **정답 유지(surv
    - SSOT: `docs/paper/CLAIM_EVIDENCE_MAP.md`
 3) **Experiment extension decision (Tier‑1 only):** decide whether the next marginal compute should go to (a) decoding sensitivity sweep vs (b) an additional model family vs (c) more seeds (only if CI looks fragile).
 
-**Update:** Llama‑3.2‑3B‑Instruct **seeds 1–2** are now paper-ready and staged under `results_paper/` (see `results_paper/GLOBAL_VALIDATE.log` for validator + parity `[OK]`).
+**Update:** Llama‑3.2‑3B‑Instruct, Phi‑3‑mini, and **Mistral‑Nemo** all have Tier‑1 **seeds 1–2** that are paper-ready and reflected in the tracked cross-family artifact/figure set (see `docs/paper/artifacts/tier1_*_survival_summary_*.csv` and the canonical SVG under `docs/paper/figures/`).
 
 ---
 
 ## 4) NEXT HEARTBEAT (ONE step)
 
-**Paper writing: do a fast “Related work → positioning” pass for the Neutral Re-asking Control.**
+**Paper writing: add a transparency note about cross-family context-length caps (Nemo max_model_len=32768).**
 
-- Deliverable: add 2–3 crisp sentences in Related Work clarifying why *matched neutral re-asking* is the right drift baseline (vs denial personas / evidence injection) and ensure the same framing appears once in Intro (no duplication).
+- Deliverable: one short sentence (Limitations/footnote) explaining that some Tier‑1 families require a reduced `max_model_len` for KV-cache feasibility, and that the protocol remains identical otherwise (so cross-family replication is about pressure effects, not max-context).
 
 ---
 

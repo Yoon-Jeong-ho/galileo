@@ -953,3 +953,11 @@ Next:
 ## 2026-02-17 12:08 (KST) — Intro proof pointers: “Evidence at a glance”
 - Added an explicit “Evidence at a glance” bullet list in Intro §1.1 to reduce reviewer search cost and make protocol/dynamics/recovery pointers unmissable.
 - Updated CLAIM_EVIDENCE_MAP to require keeping this skim hook aligned with the same figure/table labels.
+
+### 2026-02-17 18:54–20:00 KST — Tier‑1 cross-family extension: Mistral‑Nemo seeds 1–2 paper-visible
+
+- Remote (nlp8): `tier1_mistralnemo_seed2_20260217_180951/` finished; ran `paper_export.py`, wrote `paper_exports/runner_metadata.json`, validator `[OK]`.
+- Remote (nlp8): global validate initially failed due to an incomplete Zephyr dir under `results_paper/`; moved it to `results_paper_incomplete/` and re-ran global parity → `[OK] runner_metadata parity`.
+- Local (writing repo): generated tracked artifact `docs/paper/artifacts/tier1_mistralnemo_seed1-2_survival_summary_20260217.csv` from synced `paper_exports/`.
+- Local: updated `scripts/make_cross_family_figure_svg.py` and regenerated canonical cross-family SVG `docs/paper/figures/cross_family_survival_r5_control_vs_logicaltrap_seed1-2_20260217.svg`.
+- Local: added EN draft numeric callout for Mistral‑Nemo (Survival@5 control 32.54±4.77 vs Logical Trap 9.29±0.44) + updated C4 artifact list; updated proof pointers in `CLAIM_EVIDENCE_MAP.md` + `FIGURE_CAPTIONS.md`.
