@@ -82,7 +82,7 @@ Format (one per line):
 ## New candidates (2026-02-17, web_search batch 8)
 
 - [x] 2025 | Peacemaker or Troublemaker: How Sycophancy Shapes Multi-Agent Debate | arXiv | https://arxiv.org/abs/2509.23055 | tags: sycophancy, multi-agent, debate, social-pressure | note: papers/20260217_peacemaker-troublemaker-mads.md
-- [ ] 2026 | Not Your Typical Sycophant: The Elusive Nature of Sycophancy in Large Language Models | arXiv | https://arxiv.org/abs/2601.15436 | tags: sycophancy, measurement, mitigation
+- [x] 2026 | Not Your Typical Sycophant: The Elusive Nature of Sycophancy in Large Language Models | arXiv | https://arxiv.org/abs/2601.15436 | tags: sycophancy, measurement, mitigation | note: papers/20260217_not-your-typical-sycophant.md
 - [ ] 2026 | Persuasion Propagation in LLM Agents | arXiv | https://arxiv.org/abs/2602.00851 | tags: persuasion, multi-agent, propagation, social-influence
 - [ ] 2025 | Persuasion Dynamics in LLMs: Investigating Robustness and Adaptability in Knowledge and Safety with DuET-PD | arXiv | https://arxiv.org/abs/2508.17450 | tags: persuasion, robustness, multi-turn, flip-metrics
 - [ ] 2025 | TeleAI-Safety: A comprehensive LLM jailbreaking benchmark towards attacks, defenses, and evaluations | arXiv | https://arxiv.org/abs/2512.05485 | tags: multi-turn, jailbreak, benchmark, robustness, stability
