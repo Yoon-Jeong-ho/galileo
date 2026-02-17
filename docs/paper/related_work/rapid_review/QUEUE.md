@@ -591,3 +591,17 @@ Format (one per line):
 - [x] 2026 | Disentangling Ambiguity from Instability in Large Language Models: A Clinical Text-to-SQL Case Study | arXiv | https://arxiv.org/abs/2602.12015 | tags: instability, ambiguity, multi-turn, text-to-sql | note: papers/20260218_clues_ambiguity_vs_instability.md
 - [x] 2025 | Beyond Single-Turn: A Survey on Multi-Turn Interactions with Large Language Models | arXiv | https://arxiv.org/abs/2504.04717 | tags: survey, multi-turn, evaluation | note: papers/20260217_beyond-single-turn-survey.md  # duplicate queue entry; note already exists
 - [x] 2025 | Robustness of large language models in moral judgements | Royal Society Open Science | https://royalsocietypublishing.org/rsos/article/12/4/241229/235626/Robustness-of-large-language-models-in-moral | tags: robustness, moral-judgment, prompt-variance | note: papers/20260218_robustness-llms-moral-judgements.md
+
+## New candidates (2026-02-18, web_search batch)
+- [x] 2026 | Consistency of Large Reasoning Models Under Multi-Turn Attack | arXiv | https://arxiv.org/abs/2602.13093 | tags: multi-turn, adversarial, consistency, attacks | note: papers/20260218_consistency-lrm-multiturn-attack.md  # duplicate queue entry; URL already reviewed
+- [x] 2025 | Persuasion Dynamics in LLMs: Investigating Robustness and Adaptability in Knowledge and Safety with DuET-PD | arXiv | https://arxiv.org/abs/2508.17450 | tags: persuasion, robustness, multi-turn, safety, knowledge | note: papers/20260217_duet-pd.md  # duplicate queue entry; URL already reviewed
+- [x] 2025 | Challenging the Evaluator: LLM Sycophancy Under User Rebuttal | arXiv | https://arxiv.org/abs/2509.16533 | tags: sycophancy, rebuttal, multi-turn, persuasion, evaluation | note: papers/20260217_challenging-the-evaluator.md  # duplicate queue entry; URL already reviewed
+- [x] 2026 | Vulnerability of LLMs' Belief Systems? LLMs Belief Resistance Check Through Strategic Persuasive Conversation Interventions | arXiv | https://arxiv.org/abs/2601.13590 | tags: belief-robustness, persuasion, multi-turn, belief-change | note: papers/20260217_llm-belief-resistance-smcr.md  # duplicate queue entry; URL already reviewed
+- [x] 2025 | Time-To-Inconsistency: A Survival Analysis of Large Language Model Robustness to Adversarial Attacks | arXiv | https://arxiv.org/abs/2510.02712 | tags: survival-analysis, time-to-failure, multi-turn, adversarial | note: papers/20260217_time-to-inconsistency.md  # duplicate queue entry; URL already reviewed
+
+## New candidates (2026-02-18, web_search batch 2)
+- [x] 2025 | Flattery in Motion: Benchmarking and Analyzing Sycophancy in Video-LLMs | arXiv | https://arxiv.org/abs/2506.07180 | tags: sycophancy, video-llm, multimodal, robustness | note: papers/20260218_flattery-in-motion_vise.md
+- [ ] 2025 | Benchmarking Gaslighting Negation Attacks Against Multimodal Large Language Models | arXiv | https://arxiv.org/abs/2501.19017 | tags: gaslighting, negation, multimodal, robustness, consistency
+- [ ] 2025 | Benchmarking Gaslighting Attacks Against Speech Large Language Models | arXiv | https://arxiv.org/abs/2509.19858 | tags: gaslighting, speech-llm, multimodal, robustness
+- [ ] 2025 | Boosting Large Language Models for Mental Manipulation Detection via Data Augmentation and Distillation | arXiv | https://arxiv.org/abs/2505.15255 | tags: manipulation, detection, safety, evaluation
+- [ ] 2025 | Negation: A Pink Elephant in the Large Language Models' Room? | arXiv | https://arxiv.org/abs/2503.22395 | tags: negation, logical-reasoning, robustness, consistency
