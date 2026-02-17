@@ -62,3 +62,11 @@ Format (one per line):
 - [x] 2025 | Beyond Single-Turn: A Survey on Multi-Turn Interactions with Large Language Models | arXiv | https://arxiv.org/abs/2504.04717 | tags: survey, multi-turn, robustness, evaluation | note: papers/20260217_beyond-single-turn-survey.md
 - [x] 2025 | Evaluating LLM-based Agents for Multi-Turn Conversations: A Survey | arXiv | https://arxiv.org/abs/2503.22458 | tags: survey, multi-turn, evaluation | note: papers/20260217_evaluating-llm-agents-multi-turn-survey.md
 - [x] 2025 | Can large language models independently complete tasks? A dynamic evaluation framework for multi-turn task planning and completion | Neurocomputing (ScienceDirect) | https://www.sciencedirect.com/science/article/pii/S0925231225008070 | tags: multi-turn, evaluation, task-planning, task-completion | note: papers/20260217_def-mt-multi-turn-task-planning.md
+
+## New candidates (2026-02-17, web_search batch 6)
+
+- [x] 2023 | Are You Sure? Challenging LLMs Leads to Performance Drops in The FlipFlop Experiment | arXiv | https://arxiv.org/abs/2311.08596 | tags: multi-turn, flipflop, inconsistency, social-pressure-adjacent, robustness | note: papers/20260217_flipflop-experiment.md
+- [x] 2025 | Flip-Flop Consistency: Unsupervised Training for Robustness to Prompt Perturbations in LLMs (F^2C) | arXiv | https://arxiv.org/abs/2510.14242 | tags: inconsistency, robustness, training, prompt-perturbation | note: papers/20260217_flip-flop-consistency-f2c.md
+- [ ] 2024 | Are language models rational? The case of coherence norms and belief revision | arXiv | https://arxiv.org/abs/2406.03442 | tags: belief-revision, rationality, coherence
+- [ ] 2024 | Fundamental Problems With Model Editing: How Should Rational Belief Revision Work in LLMs? | arXiv | https://arxiv.org/abs/2406.19354 | tags: belief-revision, model-editing, rationality
+- [ ] 2025 | Interpreting and Mitigating Unwanted Uncertainty in LLMs | arXiv | https://arxiv.org/abs/2510.22866 | tags: uncertainty, inconsistency, robustness
