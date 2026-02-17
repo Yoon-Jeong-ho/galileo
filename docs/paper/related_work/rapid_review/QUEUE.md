@@ -319,7 +319,7 @@ Format (one per line):
 ## New candidates (2026-02-17, web_search batch 14)
 
 - [x] 2025 | Steering Dialogue Dynamics for Robustness against Multi-turn Jailbreaking Attacks | arXiv | https://arxiv.org/abs/2503.00187 | tags: multi-turn, jailbreak, safety, steering | note: papers/20260217_steering-dialogue-dynamics-multi-turn-jailbreaking.md
-- [ ] 2025 | Stress-Aware Learning under KL Drift via Trust-Decayed Mirror Descent | arXiv | https://arxiv.org/abs/2510.15222 | tags: drift, kl, belief-update, mirror-descent
+- [x] 2025 | Stress-Aware Learning under KL Drift via Trust-Decayed Mirror Descent | arXiv | https://arxiv.org/abs/2510.15222 | tags: drift, kl, belief-update, mirror-descent | note: papers/20260217_stress-aware-learning-kl-drift-trust-decayed-mirror-descent.md
 - [ ] 2026 | Generative Modeling via Drifting | arXiv | https://arxiv.org/abs/2602.04770 | tags: drifting, representation, robustness
 - [ ] 2025 | Auditing cognitive drift in AI-driven recommendation: a responsible AI methods protocol with a health case demonstration | Frontiers | https://www.frontiersin.org/journals/neuroscience/articles/10.3389/fnins.2025.1697053/full | tags: cognitive-drift, auditing, protocol
 - [ ] 2025 | Steering Dialogue Dynamics for Robustness against Multi-turn Jailbreaking Attacks (alt link) | ResearchGate | https://www.researchgate.net/publication/389547855_Steering_Dialogue_Dynamics_for_Robustness_against_Multi-turn_Jailbreaking_Attacks | tags: multi-turn, jailbreak, safety
