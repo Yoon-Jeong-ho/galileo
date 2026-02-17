@@ -420,7 +420,7 @@ Format (one per line):
 ## New candidates (2026-02-18, web_search)
 
 - [x] 2023 | AgentBench: Evaluating LLMs as Agents | arXiv | https://arxiv.org/abs/2308.03688 | tags: agents, evaluation, benchmark, tool-use | note: papers/20260218_agentbench.md
-- [ ] 2023 | API-Bank: A Comprehensive Benchmark for Tool-Augmented LLMs | arXiv | https://arxiv.org/abs/2304.08244 | tags: tool-use, benchmark, api-calling, agents
+- [x] 2023 | API-Bank: A Comprehensive Benchmark for Tool-Augmented LLMs | arXiv | https://arxiv.org/abs/2304.08244 | tags: tool-use, benchmark, api-calling, agents | note: papers/20260218_api-bank.md
 - [ ] 2023 | On the Tool Manipulation Capability of Open-source Large Language Models (ToolBench) | arXiv | https://arxiv.org/abs/2305.16504 | tags: tool-use, benchmark, open-source, evaluation
 - [ ] 2023 | ToolLLM: Facilitating Large Language Models to Master 16000+ Real-world APIs | arXiv | https://arxiv.org/abs/2307.16789 | tags: tool-use, api, instruction-following, evaluation
 - [ ] 2025 | Survey on Evaluation of LLM-based Agents | arXiv | https://arxiv.org/html/2503.16416 | tags: agents, evaluation, survey
