@@ -66,12 +66,14 @@ For each item, we maintain:
    - Borrow: (i) PWC as an early-failure-sensitive metric, (ii) randomized follow-up ordering to reduce position bias, (iii) failure-mode labels (Self-Doubt, Social Conformity, Suggestion Hijacking, Emotional Susceptibility, Reasoning Fatigue).
    - How to change GALILEO: include a “misleading suggestion” pressure operator as a canonical strong adversary; add PWC/trajectory-pattern reporting; and explicitly note that **confidence-based defenses (CARG) can fail on reasoning models** due to reasoning-induced overconfidence—so GALILEO should avoid over-claiming logprob confidence as an uncertainty signal.
 
-10) **Persuasion Propagation in LLM Agents** (Jeong et al., arXiv 2026)
-   - Contributes: introduces **persuasion propagation** for tool-using agents—task-irrelevant persuasive stance can later alter **execution traces** (web/coding) even when outputs look normal; proposes evaluating agents via **trace-level behavior** not just final answers.
-   - Misses vs GALILEO: does not (as framed) cleanly separate *evidence-driven revision* vs *pressure-driven drift*, and focuses more on search/source breadth than explicit flip/recovery trajectories.
-   - Borrow: (i) the on-the-fly vs **belief-prefill** disentangling to isolate belief-state effects, (ii) simple, auditable process metrics (search count, unique sources/domains) as “silent failure” signals.
-   - How to change GALILEO: add an agentic evaluation slice that reports **exploration/evidence diversity** under pressure (searches, unique sources/domains), and cite this as motivation for going beyond outcome-only evaluation.
+10) **Sycophancy Is Not One Thing: Causal Separation of Sycophantic Behaviors in LLMs** (Vennemeyer et al., arXiv 2025)
+   - Contributes: a clean decomposition of “sycophancy” into **sycophantic agreement (SyA)** vs **sycophantic praise (SyPr)** (and contrasts with **genuine agreement (GA)**), showing they are **distinct linear directions/subspaces** in residual activations and **independently steerable** via activation addition.
+   - Misses vs GALILEO: mostly controlled/synthetic + mechanistic; limited multi-turn trajectory metrics (time-to-failure, recovery) and may not transfer directly to black-box settings.
+   - Borrow: (i) the insistence that we should not treat “sycophancy” as one scalar, (ii) the GA vs SyA separation framing (avoid conflating “agreement” with “deference”), (iii) the “behavior-selective intervention” argument.
+   - How to change GALILEO: add/report separate channels for **stance agreement under incorrect user claims** vs **praise/flattery**, and position GALILEO’s decomposed metrics as necessary because these mechanisms are separable.
 ## Changelog
+
+- 2026-02-17: Added *Sycophancy Is Not One Thing: Causal Separation of Sycophantic Behaviors in LLMs* (arXiv 2025) for its mechanistic evidence that **sycophantic agreement** vs **sycophantic praise** vs **genuine agreement** are separable and independently steerable. Displaced *Persuasion Propagation in LLM Agents* (arXiv 2026): valuable for trace-level agent drift, but less central than clarifying sycophancy’s internal decomposition for GALILEO’s core claims.
 
 - 2026-02-17: Added *Persuasion Propagation in LLM Agents* (arXiv 2026) for its trace-level “persuasion → downstream agent behavior drift” framing (search/source narrowing). Displaced *Firm or Fickle?* (ACL 2025): strong PWC metric/protocol neighbor, but less directly about agentic tool-use traces and belief-state propagation across tasks.
 
