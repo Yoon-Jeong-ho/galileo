@@ -193,3 +193,11 @@ Format (one per line):
 - [x] 2025 | Joint Evaluation of Answer and Reasoning Consistency for Hallucination Detection in Large Reasoning Models (RACE) | arXiv | https://arxiv.org/abs/2506.04832 | tags: consistency, reasoning, hallucination, evaluation | note: papers/20260217_race-reasoning-answer-consistency.md
 - [x] 2025 | Visual reasoning consistency and robustness analysis of multimodal LLMs | Pattern Recognition (ScienceDirect) | https://www.sciencedirect.com/science/article/pii/S0031320325014281 | tags: multimodal, robustness, consistency, evaluation | note: papers/20260217_visual-reasoning-consistency-robustness-multimodal-llms.md
 - [x] 2025 | Memory in Large Language Models: Mechanisms, Evaluation and Evolution | arXiv | https://arxiv.org/abs/2509.18868 | tags: memory, evaluation, robustness, long-context | note: papers/20260217_memory-llm-mechanisms-eval-evolution.md
+
+## New candidates (2026-02-17, web_search batch 22)
+
+- [x] 2024 | Measuring and Controlling Instruction (In)Stability in Language Model Dialogs | COLM 2024 (arXiv) | https://arxiv.org/abs/2402.10962 | tags: instruction-drift, multi-turn, stability, attention-decay | note: papers/20260217_instruction-instability-dialogs.md
+- [x] 2025 | StructFlowBench: A Structured Flow Benchmark for Multi-turn Instruction Following | arXiv | https://arxiv.org/abs/2502.14494 | tags: multi-turn, instruction-following, dialogue-structure, benchmark | note: papers/20260217_structflowbench.md
+- [ ] 2025 | Technical Report: Evaluating Goal Drift in Language Model Agents | arXiv | https://arxiv.org/abs/2505.02709 | tags: agents, goal-drift, long-horizon, robustness
+- [ ] 2026 | Quantifying non deterministic drift in large language models | arXiv | https://arxiv.org/abs/2601.19934 | tags: nondeterminism, drift, reliability, repeated-runs
+- [ ] 2024 | Me, Myself, and AI: The Situational Awareness Dataset (SAD) for LLMs | arXiv | https://arxiv.org/abs/2407.04694 | tags: situational-awareness, evaluation, robustness
