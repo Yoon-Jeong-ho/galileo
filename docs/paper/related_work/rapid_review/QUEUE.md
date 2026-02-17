@@ -394,7 +394,7 @@ Format (one per line):
 ## New candidates (2026-02-18, web_search batch)
 
 - [x] 2026 | Learning an Efficient Multi-Turn Dialogue Evaluator from Multiple LLM Judges (MTDEval) | arXiv | https://arxiv.org/abs/2508.00454 | tags: evaluation, multi-turn, llm-judge, metrics | note: papers/20260217_mtd-eval.md (duplicate queue entry)
-- [ ] 2025 | Beyond Single-Turn: A Survey on Multi-Turn Interactions with Large Language Models | arXiv | https://arxiv.org/abs/2504.04717 | tags: survey, multi-turn, agents, evaluation
+- [x] 2025 | Beyond Single-Turn: A Survey on Multi-Turn Interactions with Large Language Models | arXiv | https://arxiv.org/abs/2504.04717 | tags: survey, multi-turn, agents, evaluation | note: papers/20260217_beyond-single-turn-survey.md (duplicate queue entry)
 - [ ] 2026 | Alignment Drift in Multimodal LLMs: A Two-Phase, Longitudinal Evaluation of Harm Across Eight Model Releases | arXiv | https://arxiv.org/abs/2602.04739 | tags: drift, longitudinal, safety, multimodal
 - [ ] 2025 | Multi-turn evaluation of anthropomorphic behaviours in large language models | arXiv | https://arxiv.org/abs/2502.07077 | tags: multi-turn, anthropomorphism, evaluation, behavior
 - [ ] 2024 | RESPACT: Harmonizing Reasoning, Speaking, and Acting towards Building LLM-based Conversational AI Agents | arXiv | https://arxiv.org/abs/2411.00927 | tags: agents, multi-turn, speech-act, planning
