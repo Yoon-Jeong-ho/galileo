@@ -612,3 +612,7 @@ Format (one per line):
 - [x] 2025 | Galileo Project Observatory Class System Architecture | arXiv | https://arxiv.org/abs/2506.00125 | tags: system-architecture | note: papers/20260218_galileo-ocicp-architecture.md
 - [x] 2025 | Ionosphere of Ganymede: Galileo observations versus test particle simulation | arXiv | https://arxiv.org/abs/2502.13052 | tags: space-physics, simulation | note: papers/20260218_ganymede-ionosphere-galileo-test-particles.md
 - [x] 2026 | Causality in Physics: From Galileo to Einstein, and Beyond | arXiv | https://arxiv.org/abs/2601.00037 | tags: physics, causality | note: papers/20260218_causality-in-physics-galileo-einstein.md
+- [x] 2026 | PersistBench: When Should Long-Term Memories Be Forgotten by LLMs? | arXiv | https://arxiv.org/abs/2602.01146 | tags: agents, memory, forgetting, benchmark, long-term | note: papers/20260218_persistbench.md
+- [ ] 2026 | Memory in the Age of AI Agents | arXiv | https://arxiv.org/abs/2512.13564 | tags: agents, memory, survey
+- [ ] 2025 | Forgetful but Faithful: A Cognitive Memory Architecture and Benchmark for Privacy-Aware Generative Agents | arXiv | https://arxiv.org/abs/2512.12856 | tags: agents, memory, forgetting, privacy, benchmark
+- [ ] 2025 | Hindsight is 20/20: Building Agent Memory that Retains, Recalls, and Reflects | arXiv | https://arxiv.org/abs/2512.12818 | tags: agents, memory, reflection, long-horizon
