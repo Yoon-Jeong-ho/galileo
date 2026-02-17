@@ -314,4 +314,4 @@ Format (one per line):
 - [x] 2025 | Context-aware Fairness Evaluation and Mitigation in LLMs | arXiv | https://arxiv.org/abs/2510.18914 | tags: multi-turn, context, fairness, robustness | note: papers/20260217_context-aware-fairness-neuron-masking.md
 - [x] 2025 | Full-Duplex-Bench: A Benchmark to Evaluate Full-duplex Spoken Dialogue Models on Turn-taking Capabilities | arXiv | https://arxiv.org/abs/2503.04721 | tags: multi-turn, dialogue, turn-taking, benchmark | note: papers/20260217_full-duplex-bench.md
 - [x] 2025 | StoryBench: A Dynamic Benchmark for Evaluating Long-Term Memory with Multi Turns | arXiv | https://arxiv.org/abs/2506.13356 | tags: multi-turn, memory, long-term, benchmark | note: papers/20260217_storybench.md
-- [ ] 2024 | A Survey on Recent Advances in LLM-Based Multi-turn Dialogue Systems | arXiv | https://arxiv.org/abs/2402.18013 | tags: survey, multi-turn, dialogue-systems
+- [x] 2024 | A Survey on Recent Advances in LLM-Based Multi-turn Dialogue Systems | arXiv | https://arxiv.org/abs/2402.18013 | tags: survey, multi-turn, dialogue-systems | note: papers/20260217_survey-llm-multi-turn-dialogue-systems.md
