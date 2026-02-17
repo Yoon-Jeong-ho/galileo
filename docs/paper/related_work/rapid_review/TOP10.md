@@ -42,11 +42,11 @@ For each item, we maintain:
    - Borrow: (i) pressure-paired evaluation as a first-class benchmark design choice, (ii) 2D reporting (Utility/Safety) and flip-based axes (paranoia vs sycophancy), (iii) judge-dependence framing (“false competence” under weak audit).
    - How to change GALILEO: report neutral-vs-pressure paired outcomes, include flip-quality rates (good/bad) and consider a 2D “helpful vs safe” breakdown; explicitly test judge/auditor strength as an experimental variable.
 
-6) **SycoEval-EM: Sycophancy Evaluation of Large Language Models in Simulated Clinical Encounters for Emergency Care** (Wang et al., arXiv 2026)
-   - Contributes: a crisp **multi-turn adversarial persuasion** protocol in an applied “guideline adherence” setting; large cross-model sweep (20 models, 1,875 dialogues) with a simple, decision-relevant outcome (**acquiescence to unindicated care**) under multiple persuasion tactics.
-   - Misses vs GALILEO: primarily an **endpoint** metric; does not explicitly separate *pressure-driven drift* from *evidence-driven revision*, and does not report a turn-of-failure / recovery trajectory.
-   - Borrow: (i) the **patient-pressure tactics** menu, (ii) scenario-dependent vulnerability analysis (CT vs antibiotics vs opioids), (iii) multi-judge majority-vote evaluation to reduce single-judge bias.
-   - How to change GALILEO: add an applied “pressure vs guidelines” slice and report both endpoint failures and time-to-failure (first acquiescence turn) plus recovery-after-refusal dynamics.
+6) **Time-To-Inconsistency: A Survival Analysis of Large Language Model Robustness to Adversarial Attacks** (Li, Krishnan, Padman, arXiv 2025)
+   - Contributes: a very direct **survival-analysis framing** for multi-turn robustness with censoring (8-turn horizon) and rich reporting beyond flip-rate: hazards, survival curves, and calibrated predictive metrics (**C-index**, **Integrated Brier Score**).
+   - Misses vs GALILEO: evaluates “inconsistency under adversarial follow-ups” rather than specifically *social pressure / persuasion*; the event is **first inconsistency** (no recovery-after-flip trajectory); no explicit drift-vs-revision control.
+   - Borrow: (i) treat failure as **time-to-event** with censoring (strong precedent for our TOF/survival claims), (ii) calibration-aware evaluation (IBS) for trajectory risk models, (iii) the “turn-level risk monitor” concept (warning several turns before failure).
+   - How to change GALILEO: add a survival-analysis reporting layer (hazard + censored survival), and optionally convert our metrics into a risk-monitor score to predict imminent flips under pressure.
 
 7) **Towards Understanding Sycophancy in Language Models** (Sharma et al., arXiv 2023; updated 2025)
    - Contributes: a foundational, multi-model demonstration that assistants exhibit sycophancy under several **paired neutral-vs-pressure** prompt operators (biased feedback, “Are you sure?” challenges, user-belief injection, and mimicking false framing), plus evidence that **human preference data and preference models can incentivize matching the user’s views**.
@@ -71,4 +71,8 @@ For each item, we maintain:
    - Misses vs GALILEO: short-horizon (rebuttal chains, not long survival/TOF curves); no explicit neutral re-ask control to separate conversational variance from pressure-driven drift; heavy reliance on LLM-as-a-judge.
    - Borrow: progressive/regressive split; preemptive-vs-in-context framing; “pressure strength ladder” as an experimental factor; persistence-of-failure concept.
    - How to change GALILEO: add a rhetoric-strength manipulation and report progressive vs regressive outcomes + persistence across the trajectory; position GALILEO as extending this to **time-to-failure / survival** and **recovery-after-flip** with tighter controls.
+
+## Changelog
+
+- 2026-02-17: Added *Time-To-Inconsistency* (arXiv 2025) for its survival-analysis / censoring framing (fills a key metric gap). Displaced *SycoEval-EM* (arXiv 2026): strong applied endpoint evaluation, but less central than survival/time-to-event methodology for GALILEO’s core claims.
 

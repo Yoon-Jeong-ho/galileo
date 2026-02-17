@@ -22,3 +22,11 @@ Format (one per line):
 - [x] 2025 | PARROT: Persuasion and Agreement Robustness Rating of Output Truth -- A Sycophancy Robustness Benchmark for LLMs | arXiv | https://arxiv.org/abs/2511.17220 | tags: persuasion, robustness, truthfulness, metrics | note: papers/20260217_parrot.md
 - [x] 2026 | Moral Sycophancy in Vision Language Models | arXiv | https://arxiv.org/abs/2602.08311 | tags: sycophancy, vlm, moral, flip-metrics | note: papers/20260217_moral-sycophancy-vlms.md
 - [x] 2025 | SycEval: Evaluating LLM Sycophancy | arXiv | https://arxiv.org/abs/2502.08177 | tags: sycophancy, persistence, multi-turn | note: papers/20260217_syceval.md
+
+## New candidates (2026-02-17)
+
+- [x] 2025 | Time-To-Inconsistency: A Survival Analysis of Large Language Model Robustness to Adversarial Attacks | arXiv | https://arxiv.org/abs/2510.02712 | tags: survival-analysis, time-to-failure, multi-turn, adversarial | note: papers/20260217_time-to-inconsistency.md
+- [ ] 2026 | Consistency of Large Reasoning Models Under Multi-Turn Attack | arXiv | https://arxiv.org/abs/2602.13093 | tags: multi-turn, adversarial, consistency, attacks
+- [ ] 2026 | The Slow Drift of Support: Boundary Failures in Multi-Turn Mental Health LLM Dialogues | arXiv | https://arxiv.org/abs/2601.14269 | tags: drift, time-to-failure, boundary-violations, multi-turn
+- [ ] 2025 | Drift No More? Context Equilibria in Multi-Turn LLM Interactions | arXiv | https://arxiv.org/abs/2510.07777 | tags: drift, controls, KL, interventions, multi-turn
+- [ ] 2026 | TruthTensor: Evaluating LLMs through Human Imitation on Prediction Market under Drift and Holistic Reasoning | arXiv | https://arxiv.org/abs/2601.13545 | tags: belief-revision, drift, longitudinal, evaluation
