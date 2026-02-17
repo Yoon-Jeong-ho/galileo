@@ -134,3 +134,11 @@ Format (one per line):
 - [x] 2025 | Evaluating the Sensitivity of LLMs to Prior Context | arXiv | https://arxiv.org/abs/2506.00069 | tags: multi-turn, context-sensitivity, robustness, evaluation | note: papers/20260217_prior-context-sensitivity.md
 - [x] 2025 | Audio MultiChallenge: A Multi-Turn Evaluation of Spoken Dialogue Systems on Natural Human Interaction | arXiv | https://arxiv.org/abs/2512.14865 | tags: multi-turn, spoken-dialogue, benchmark, long-range-context | note: papers/20260217_audio-multichallenge.md
 - [x] 2025 | MTR-DuplexBench: Towards a Comprehensive Evaluation of Multi-Round Conversations for Full-Duplex Speech Language Models | arXiv | https://arxiv.org/abs/2511.10262 | tags: multi-turn, spoken-dialogue, full-duplex, benchmark | note: papers/20260217_mtr-duplexbench.md
+
+## New candidates (2026-02-17, web_search batch 15)
+
+- [x] 2026 | Stress Tests REVEAL Fragile Temporal and Visual Grounding in Video-Language Models | arXiv | https://arxiv.org/abs/2602.11244 | tags: robustness, stress-test, temporal-grounding, video-language, sycophancy-adjacent | note: papers/20260217_reveal-vidlm-stress-tests.md
+- [ ] 2026 | The ICASSP 2026 HumDial Challenge: Benchmarking Human-like Spoken Dialogue Systems in the LLM Era | arXiv | https://arxiv.org/abs/2601.05564 | tags: spoken-dialogue, benchmark, multi-turn, humanlike
+- [ ] 2026 | MedDialogRubrics: A Comprehensive Benchmark and Evaluation Framework for Multi-turn Medical Consultations in Large Language Models | arXiv | https://arxiv.org/abs/2601.03023 | tags: multi-turn, medical, benchmark, evaluation, rubrics
+- [ ] 2026 | HalluHard: A Hard Multi-Turn Hallucination Benchmark | arXiv | https://arxiv.org/abs/2602.01031 | tags: hallucination, multi-turn, benchmark, robustness
+- [ ] 2025 | HaluMem: Evaluating Hallucinations in Memory Systems of Agents | arXiv | https://arxiv.org/abs/2511.03506 | tags: agents, memory, hallucination, benchmark, long-horizon
