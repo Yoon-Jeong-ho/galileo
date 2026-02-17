@@ -102,3 +102,11 @@ Format (one per line):
 - [x] 2025 | Modeling and Predicting Multi-Turn Answer Instability in Large Language Models | arXiv | https://arxiv.org/abs/2511.10688 | tags: multi-turn, instability, prediction, markov | note: papers/20260217_modeling-multi-turn-answer-instability.md
 - [x] 2025 | ERGO: Entropy-guided Resetting for Generation Optimization in Multi-turn Language Models | arXiv | https://arxiv.org/abs/2510.14077 | tags: multi-turn, intervention, recovery, stability | note: papers/20260217_ergo-entropy-guided-resetting.md
 - [x] 2025 | LM-Fix: Lightweight Bit-Flip Detection and Rapid Recovery Framework for Language Models | arXiv | https://arxiv.org/abs/2511.02866 | tags: reliability, recovery, bit-flip, deployment | note: papers/20260217_lm-fix.md
+
+## New candidates (2026-02-17, web_search batch 11)
+
+- [ ] 2025 | Disagreements in Reasoning: How a Model’s Thinking Process Dictates Persuasion in Multi-Agent Systems | arXiv | https://arxiv.org/abs/2509.21054 | tags: persuasion, multi-agent, reasoning-traces, disagreement
+- [ ] 2025 | A meta-analysis of the persuasive power of large language models | Scientific Reports | https://www.nature.com/articles/s41598-025-30783-y | tags: persuasion, meta-analysis, human-subjects
+- [ ] 2025 | LLM-Generated Ads: From Personalization Parity to Persuasion Superiority | arXiv | https://arxiv.org/abs/2512.03373 | tags: persuasion, advertising, human-eval
+- [ ] 2025 | LLMs for Customized Marketing Content Generation and Evaluation at Scale | arXiv | https://arxiv.org/abs/2506.17863 | tags: persuasion, marketing, evaluation, personalization
+- [ ] 2025 | Evaluation and Benchmarking of LLM Agents: A Survey | arXiv | https://arxiv.org/abs/2507.21504 | tags: agents, evaluation, survey, multi-turn
