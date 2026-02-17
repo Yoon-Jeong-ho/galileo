@@ -243,3 +243,11 @@ Format (one per line):
 - [x] 2025 | Unsupervised Evaluation of Multi-Turn Objective-Driven Interactions | arXiv | https://arxiv.org/abs/2511.03047 | tags: multi-turn, evaluation, objective-driven, unsupervised | note: papers/20260217_unsupervised-eval-multiturn-objective.md
 - [x] 2025 | CodeFlowBench: A Multi-turn, Iterative Benchmark for Complex Code Generation | arXiv | https://arxiv.org/abs/2504.21751 | tags: multi-turn, code, benchmark, iterative | note: papers/20260217_codeflowbench.md
 - [x] 2025 | Benchmarking Correctness and Security in Multi-Turn Code Generation | arXiv | https://arxiv.org/abs/2510.13859 | tags: multi-turn, code, security, benchmark | note: papers/20260217_mt-sec-multi-turn-code-security.md
+
+## New candidates (2026-02-17, web_search batch 28)
+
+- [x] 2026 | A Theoretical Framework for Adaptive Utility-Weighted Benchmarking | arXiv | https://arxiv.org/abs/2602.12356 | tags: benchmarking, evaluation, robustness, theory | note: papers/20260217_adaptive-utility-weighted-benchmarking.md
+- [ ] 2026 | Decoupled Reasoning with Implicit Fact Tokens (DRIFT): A Dual-Model Framework for Efficient Long-Context Inference | arXiv | https://arxiv.org/abs/2602.10021 | tags: long-context, inference, drift (term), robustness-adjacent
+- [ ] 2025 | MLLM-CTBench: A Benchmark for Continual Instruction Tuning with Reasoning Process Diagnosis | arXiv | https://arxiv.org/abs/2508.08275 | tags: continual-learning, instruction-tuning, drift, benchmark
+- [ ] 2026 | Optimizing Conversational Quality in Spoken Dialogue Systems with Reinforcement Learning from AI Feedback | arXiv | https://arxiv.org/abs/2601.19063 | tags: spoken-dialogue, multi-turn, rlaif, robustness-adjacent
+- [ ] 2025 | Self-Improvement of Language Models by Post-Training on Multi-Agent Debate | arXiv | https://arxiv.org/abs/2509.15172 | tags: multi-agent, debate, self-improvement, self-consistency
