@@ -264,6 +264,6 @@ Format (one per line):
 
 - [x] 2025 | The Levers of Political Persuasion with Conversational AI | arXiv | https://arxiv.org/abs/2507.13919 | tags: persuasion, political, dialogue, human-subjects, multi-turn | note: papers/20260217_levers-political-persuasion.md
 - [x] 2025 | When AI Gets Persuaded, Humans Follow: Inducing the Conformity Effect in Persuasive Dialogue | arXiv | https://arxiv.org/abs/2510.04229 | tags: persuasion, conformity, dialogue, social-influence | note: papers/20260217_conformity-effect-persuasive-dialogue.md
-- [ ] 2025 | How Do LLMs Persuade? Linear Probes Can Uncover Persuasion Dynamics in Multi-Turn Conversations | arXiv | https://arxiv.org/abs/2508.05625 | tags: persuasion, multi-turn, interpretability, dynamics
+- [x] 2025 | How Do LLMs Persuade? Linear Probes Can Uncover Persuasion Dynamics in Multi-Turn Conversations | arXiv | https://arxiv.org/abs/2508.05625 | tags: persuasion, multi-turn, interpretability, dynamics | note: papers/20260217_llms-persuade-linear-probes.md
 - [ ] 2024 | Conformity in Large Language Models | arXiv | https://arxiv.org/abs/2410.12428 | tags: conformity, social-influence, bias, robustness
 - [ ] 2025 | On the Adaptive Psychological Persuasion of Large Language Models | arXiv | https://arxiv.org/abs/2506.06800 | tags: persuasion, psychology, strategies, dialogue
