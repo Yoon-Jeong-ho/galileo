@@ -378,7 +378,7 @@ Format (one per line):
 ## New candidates (2026-02-18, web_search batch)
 
 - [x] 2025 | OpenDeception: Learning Deception and Trust in Human–AI Interaction via Multi-Agent Simulation | arXiv | https://arxiv.org/abs/2504.13707 | tags: deception, trust, multi-agent, simulation, multi-turn | note: papers/20260218_opendeception.md
-- [ ] 2025 | MAD: A Benchmark for Multi-Turn Audio Dialogue Fact-Checking | arXiv | https://arxiv.org/abs/2508.12186 | tags: multi-turn, fact-checking, audio, multimodal, dialogue
+- [x] 2025 | MAD: A Benchmark for Multi-Turn Audio Dialogue Fact-Checking | arXiv | https://arxiv.org/abs/2508.12186 | tags: multi-turn, fact-checking, audio, multimodal, dialogue | note: papers/20260218_mad-audio-dialogue-fact-checking.md
 - [ ] 2025 | Multi-Faceted Evaluation of Tool-Augmented Dialogue Systems (TRACE/SCOPE) | arXiv | https://arxiv.org/abs/2510.19186 | tags: tool-use, multi-turn, evaluation, benchmarks
 - [ ] 2025 | Many-Turn Jailbreaking (MTJ-Bench) | arXiv | https://arxiv.org/abs/2508.06755 | tags: multi-turn, jailbreak, benchmark, many-turn
 - [ ] 2025 | MultiBreak: A Scalable and Diverse Multi-turn Jailbreak Benchmark for Stress-testing LLM Safety | OpenReview | https://openreview.net/forum?id=uJgfj5EJ2W | tags: multi-turn, jailbreak, benchmark, safety
