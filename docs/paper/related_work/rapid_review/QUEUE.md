@@ -512,3 +512,11 @@ Format (one per line):
 - [x] 2025 | Assessing Large Language Models in Updating Their Forecasts with New Information | arXiv | https://arxiv.org/abs/2509.23936 | tags: belief-update, forecasting, belief-revision, evaluation | note: papers/20260217_evolvecast-forecast-updates.md (duplicate queue entry)
 - [x] 2025 | Beyond the Strongest LLM: Multi-Turn Multi-Agent Orchestration vs. Single LLMs on Benchmarks | arXiv | https://arxiv.org/abs/2509.23537 | tags: multi-turn, multi-agent, orchestration, evaluation | note: papers/20260217_beyond-strongest-llm-orchestration.md (duplicate queue entry)
 - [x] 2025 | One Battle After Another: Probing LLMs’ Limits on Multi-Turn Instruction Following with a Benchmark Evolving Framework | arXiv | https://arxiv.org/abs/2511.03508 | tags: instruction-following, multi-turn, benchmark, constraints | note: papers/20260217_evolif-multi-turn-instruction-following.md (duplicate queue entry)
+
+## New candidates (2026-02-18, web_search batch 5)
+
+- [x] 2025 | UI-TARS-2 Technical Report: Advancing GUI Agent with Multi-Turn Reinforcement Learning | arXiv | https://arxiv.org/abs/2509.02544 | tags: agents, gui, multi-turn, RL, robustness | note: papers/20260218_ui-tars-2.md
+- [ ] 2025 | Adaptation of Agentic AI | arXiv | https://arxiv.org/abs/2512.16301 | tags: agents, adaptation, multi-turn, search
+- [ ] 2026 | Agentic Memory: Learning Unified Long-Term and Short-Term Memory Management for Large Language Model Agents | arXiv | https://arxiv.org/abs/2601.01885 | tags: agents, memory, long-horizon, multi-turn
+- [ ] 2025 | Training Long-Context, Multi-Turn Software Engineering Agents with Reinforcement Learning | arXiv | https://arxiv.org/abs/2508.03501 | tags: agents, software-engineering, long-context, multi-turn, RL
+- [ ] 2025 | Stabilizing Long-term Multi-turn Reinforcement Learning with Gated Rewards | arXiv | https://arxiv.org/abs/2508.10548 | tags: RL, multi-turn, stability, rewards
