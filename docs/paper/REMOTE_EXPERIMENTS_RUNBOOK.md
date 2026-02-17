@@ -54,11 +54,21 @@ ssh nlp8 '
 
 ### Known model/hardware pitfalls (nlp8 RTX8000)
 
+Keep this section up-to-date; it prevents wasting Tier‑1 budget on runs that will never become “paper-ready.”
+
 - **Gemma2 + vLLM (Triton unified attention)** can fail on RTX8000 (cc7.5) with:
   - `OutOfResources: shared memory ... Required: 81920, Hardware limit: 65536`
   - and/or a strict check when `--max_model_len` exceeds the model's `max_position_embeddings`.
 
-If you need an additional cross-family model, prefer a model family already known to run cleanly on this hardware, or run a quick smoke test before committing a full seed sweep.
+- **Falcon-7B (`tiiuae/falcon-7b-instruct`) + vLLM** can fail at engine init with:
+  - `AttributeError: 'FalconConfig' object has no attribute 'rope_parameters'`
+  - Interpretation: likely a **transformers ↔ vLLM compatibility** mismatch for this model.
+
+- **Pythia-2.8B (`EleutherAI/pythia-2.8b-deduped`) max context**:
+  - vLLM will reject `--max_model_len 4096` because the model-derived max is **2048**.
+  - Fix: run with `--max_model_len 2048` (preferred) rather than setting `VLLM_ALLOW_LONG_MAX_MODEL_LEN=1`.
+
+If you need an additional cross-family model, prefer a family already known to run cleanly on this hardware, or do a **smoke run** first (1 seed, small `--num_samples`) before committing a full sweep.
 
 - Prefer **one run per GPU** (4/5/6).
 - Each run must have its own `OUT=results/<run>/`.

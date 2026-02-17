@@ -993,3 +993,14 @@ Next:
 
 Decision for next experiment heartbeat:
 - Rerun the “easy fixes” first: **Pythia-2.8B with `--max_model_len 2048`** and **Zephyr-7B rerun** (both should be compatible), then reconsider Falcon/Gemma2 only if we change stack/backend.
+
+---
+
+### 2026-02-18 (am) — Runbook: add Tier-1 failure signatures + fixes
+
+- Updated `docs/paper/REMOTE_EXPERIMENTS_RUNBOOK.md` with concrete failure signatures + mitigations observed on nlp8 RTX8000:
+  - Falcon-7B: missing `rope_parameters` (transformers/vLLM compat)
+  - Pythia-2.8B: enforce `--max_model_len 2048`
+  - (kept) Gemma2: Triton shared-memory OOR
+
+Reason: reduce wasted Tier‑1 budget by making “known-bad” configs obvious before launches.
