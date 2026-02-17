@@ -584,3 +584,10 @@ Format (one per line):
 - [x] 2025 | Interaction Context Often Increases Sycophancy in LLMs | arXiv | https://arxiv.org/abs/2509.12517 | tags: sycophancy, context, multi-turn | note: papers/20260218_interaction-context-increases-sycophancy.md
 - [x] 2026 | Sycophancy Hides Linearly in the Attention Heads | arXiv | https://arxiv.org/abs/2601.16644 | tags: sycophancy, interpretability, attention | note: papers/20260218_sycophancy-attention-heads.md
 - [x] 2026 | On Robustness and Chain-of-Thought consistency of RL-Finetuned VLMs | arXiv | https://arxiv.org/abs/2602.12506 | tags: robustness, consistency, chain-of-thought, vlm | note: papers/20260218_robustness-cot-consistency-rl-vlms.md
+
+## New candidates (2026-02-18, web_search batch)
+- [x] 2025 | Modeling and Predicting Multi-Turn Answer Instability in Large Language Models | arXiv | https://arxiv.org/abs/2511.10688 | tags: multi-turn, answer-instability, robustness | note: papers/20260217_modeling-multi-turn-answer-instability.md  # duplicate queue entry
+- [ ] 2025 | The Chameleon Nature of LLMs: Quantifying Multi-Turn Stance Instability in Search-Enabled Language Models | arXiv | https://arxiv.org/abs/2510.16712 | tags: multi-turn, stance-instability, search-enabled
+- [ ] 2026 | Disentangling Ambiguity from Instability in Large Language Models: A Clinical Text-to-SQL Case Study | arXiv | https://arxiv.org/abs/2602.12015 | tags: instability, ambiguity, multi-turn, text-to-sql
+- [ ] 2025 | Beyond Single-Turn: A Survey on Multi-Turn Interactions with Large Language Models | arXiv | https://arxiv.org/abs/2504.04717 | tags: survey, multi-turn, evaluation
+- [ ] 2025 | Robustness of large language models in moral judgements | Royal Society Open Science | https://royalsocietypublishing.org/rsos/article/12/4/241229/235626/Robustness-of-large-language-models-in-moral | tags: robustness, moral-judgment, prompt-variance
