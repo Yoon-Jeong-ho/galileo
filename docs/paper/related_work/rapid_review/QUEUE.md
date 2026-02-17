@@ -357,3 +357,11 @@ Format (one per line):
 - [x] 2025 | Benchmarking Adversarial Robustness to Bias Elicitation in Large Language Models: Scalable Automated Assessment with LLM-as-a-Judge | arXiv | https://arxiv.org/abs/2504.07887 | tags: bias-elicitation, robustness, llm-as-judge, evaluation | note: papers/20260217_bias-elicitation-robustness-llm-judge.md
 - [x] 2025 | Sycophancy Claims about Language Models: The Missing Human-in-the-Loop | arXiv | https://arxiv.org/abs/2512.00656 | tags: sycophancy, conceptual, evaluation, human-in-the-loop | note: papers/20260217_sycophancy-claims-missing-human-in-the-loop.md
 - [x] 2026 | Internal Reasoning vs. External Control: A Thermodynamic Analysis of Sycophancy in Large Language Models | arXiv | https://arxiv.org/abs/2601.03263 | tags: sycophancy, theory, control, thermodynamics | note: papers/20260217_internal-reasoning-external-control-sycophancy.md
+
+## New candidates (2026-02-18, web_search batch)
+
+- [x] 2026 | LUMINA: Long-horizon Understanding for Multi-turn Interactive Agents | arXiv | https://arxiv.org/abs/2601.16649 | tags: multi-turn, agents, long-horizon, understanding, evaluation | note: papers/20260218_lumina.md
+- [ ] 2026 | TravelBench: A Broader Real-World Benchmark for Multi-Turn and Tool-Using Travel Planning | arXiv | https://arxiv.org/abs/2512.22673 | tags: multi-turn, tool-use, planning, benchmark, robustness
+- [ ] 2025 | AgentProg: Empowering Long-Horizon GUI Agents with Program-Guided Context Management | arXiv | https://arxiv.org/abs/2512.10371 | tags: agents, long-horizon, gui, context-management, robustness
+- [ ] 2025 | OdysseyBench: Evaluating LLM Agents on Long-Horizon Complex Office Application Workflows | arXiv | https://arxiv.org/abs/2508.09124 | tags: agents, long-horizon, office, workflows, benchmark
+- [ ] 2025 | NL2Repo-Bench: Towards Long-Horizon Repository Generation Evaluation of Coding Agents | arXiv | https://arxiv.org/abs/2512.12730 | tags: agents, coding, long-horizon, benchmark, robustness
