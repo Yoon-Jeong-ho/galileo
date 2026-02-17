@@ -30,3 +30,11 @@ Format (one per line):
 - [x] 2026 | The Slow Drift of Support: Boundary Failures in Multi-Turn Mental Health LLM Dialogues | arXiv | https://arxiv.org/abs/2601.14269 | tags: drift, time-to-failure, boundary-violations, multi-turn | note: papers/20260217_slow-drift-of-support.md
 - [x] 2025 | Drift No More? Context Equilibria in Multi-Turn LLM Interactions | arXiv | https://arxiv.org/abs/2510.07777 | tags: drift, controls, KL, interventions, multi-turn | note: papers/20260217_drift-no-more.md
 - [x] 2026 | TruthTensor: Evaluating LLMs through Human Imitation on Prediction Market under Drift and Holistic Reasoning | arXiv | https://arxiv.org/abs/2601.13545 | tags: belief-revision, drift, longitudinal, evaluation | note: papers/20260217_truthtensor.md
+
+## New candidates (2026-02-17, web_search batch 2)
+
+- [x] 2026 | How RLHF Amplifies Sycophancy | arXiv | https://arxiv.org/abs/2602.01002 | tags: sycophancy, rlhf, reward-model, drift, KL | note: papers/20260217_rlhf-amplifies-sycophancy.md
+- [ ] 2026 | Vulnerability of LLMs' Belief Systems? LLMs Belief Resistance Check Through Strategic Persuasive Conversation Interventions | arXiv | https://arxiv.org/abs/2601.13590 | tags: belief-robustness, persuasion, multi-turn, belief-change
+- [ ] 2025 | Persuade Me if You Can: A Framework for Evaluating Persuasion Effectiveness and Susceptibility Among Large Language Models | arXiv | https://arxiv.org/abs/2503.01829 | tags: persuasion, multi-agent, susceptibility, benchmark
+- [ ] 2025 | It’s the Thought that Counts: Evaluating the Attempts of Frontier LLMs to Persuade on Harmful Topics (APE benchmark) | arXiv | https://arxiv.org/abs/2506.02873 | tags: persuasion, harmful, multi-turn, attempts, safety
+- [ ] 2025 | LLM Can be a Dangerous Persuader: Empirical Study of Persuasion Safety in Large Language Models (PersuSafety) | arXiv | https://arxiv.org/abs/2504.10430 | tags: persuasion, safety, unethical-strategies, refusal, multi-turn
