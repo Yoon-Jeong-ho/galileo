@@ -137,12 +137,12 @@ Given a dataset and an LLM, GALILEO proceeds in three phases:
 
 We prompt the model to answer each question and score the response against ground truth.
 
-**Initially-correct subset(s).** Phase~1 uses a neutral prompt (no persona content), so the notion of “initially correct” does not *conceptually* depend on which persona we will apply later. In practice, we distinguish two evaluation/reporting modes:
+**Initially-correct subset(s).** Phase~1 uses a neutral prompt (no persona content), so the notion of “initially correct” does not *conceptually* depend on which persona we will apply later. In practice, however, results can be computed on different *conditioning sets*, and it is easy for reviewers to get confused if this is not stated explicitly. We therefore distinguish two reporting modes:
 
-1) **Shared initially-correct set** `C \subseteq D` (persona-free): evaluate *all* persona arms and the Neutral Re-asking Control on the same `C`. This is the cleanest choice for **cross-persona** comparisons.
-2) **Persona-conditioned initially-correct set** `C_p \subseteq D`: for each persona arm `p`, filter to the subset initially correct under the Phase~1 prompt *used for that arm*, then run both (i) persona pressure and (ii) the Neutral Re-asking Control on that same `C_p`. This makes **persona-vs-control attribution** within each persona apples-to-apples, but implies that **control values can differ across personas** because the underlying `C_p` differs.
+1) **Shared initially-correct set** `C \subseteq D` (persona-free): run Phase~1 once to define `C`, then evaluate *every* persona arm and the Neutral Re-asking Control on exactly the same `C`. This is the cleanest choice for **cross-persona** comparisons because all arms are conditioned on the same examples.
+2) **Persona-arm matched set** `C_p \subseteq D`: for each persona arm `p`, define an arm-specific initially-correct set `C_p` (using the Phase~1 outputs associated with that arm’s run configuration), and then evaluate **both** (i) persona pressure and (ii) the Neutral Re-asking Control on that same `C_p`. This yields the fairest **within-persona attribution** (persona vs. control) but implies that **control numbers can differ across personas** because the underlying conditioning set differs.
 
-Our paper-facing “persona-wise control vs persona” artifacts (and Table~W) use mode (2); when we need cross-persona comparisons, we additionally report (or recommend reporting) mode (1) where possible.
+**Paper default.** Our main “persona-wise control vs persona” artifacts (including Table~W and persona-vs-control deltas) use mode (2) because our primary claim is *attribution beyond drift within each persona mechanism*. When we make statements that compare personas to each other (e.g., “Authority Claim is the most damaging persona”), we either (a) use mode (1), or (b) explicitly phrase claims as *within-persona deltas* to avoid mixing different conditioning sets.
 
 ### Phase 2: Adversarial persona pressure (multi-round)
 
