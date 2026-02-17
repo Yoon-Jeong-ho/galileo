@@ -275,3 +275,11 @@ Format (one per line):
 - [ ] 2026 | MedPI: Evaluating AI Systems in Medical Patient-facing Interactions | arXiv | https://arxiv.org/abs/2601.04195 | tags: multi-turn, medical, patient-facing, evaluation, rubrics
 - [ ] 2025 | MATRIX: Multi-Agent simulaTion fRamework for safe Interactions and conteXtual clinical conversational evaluation | arXiv | https://arxiv.org/abs/2508.19163 | tags: multi-turn, medical, safety, simulation, evaluation
 - [ ] 2025 | Chatbot To Help Patients Understand Their Health | arXiv | https://arxiv.org/abs/2509.05818 | tags: multi-turn, medical, patient-education, evaluation
+
+## New candidates (2026-02-17, web_search batch 23)
+
+- [x] 2026 | WavBench: Benchmarking Reasoning, Colloquialism, and Paralinguistics for End-to-End Spoken Dialogue Models | arXiv | https://arxiv.org/abs/2602.12135 | tags: spoken-dialogue, multi-turn, benchmark, paralinguistics | note: papers/20260217_wavbench.md
+- [ ] 2025 | MTBench: A Multimodal Time Series Benchmark for Temporal Reasoning and Question Answering | arXiv | https://arxiv.org/abs/2503.16858 | tags: benchmark, temporal-reasoning, multimodal
+- [ ] 2025 | Learning-Based Automated Adversarial Red-Teaming for Robustness Evaluation of Large Language Models | arXiv | https://arxiv.org/abs/2512.20677 | tags: robustness, adversarial, red-teaming, evaluation
+- [ ] 2026 | SEAD: Self-Evolving Agent for Multi-Turn Service Dialogue | arXiv | https://arxiv.org/abs/2602.03548 | tags: agents, service-dialogue, multi-turn
+- [ ] 2026 | LingxiDiagBench: A Multi-Agent Framework for Benchmarking LLMs in Chinese Psychiatric Consultation and Diagnosis | arXiv | https://arxiv.org/abs/2602.09379 | tags: multi-agent, clinical, benchmark, multi-turn
