@@ -315,3 +315,11 @@ Format (one per line):
 - [x] 2025 | Full-Duplex-Bench: A Benchmark to Evaluate Full-duplex Spoken Dialogue Models on Turn-taking Capabilities | arXiv | https://arxiv.org/abs/2503.04721 | tags: multi-turn, dialogue, turn-taking, benchmark | note: papers/20260217_full-duplex-bench.md
 - [x] 2025 | StoryBench: A Dynamic Benchmark for Evaluating Long-Term Memory with Multi Turns | arXiv | https://arxiv.org/abs/2506.13356 | tags: multi-turn, memory, long-term, benchmark | note: papers/20260217_storybench.md
 - [x] 2024 | A Survey on Recent Advances in LLM-Based Multi-turn Dialogue Systems | arXiv | https://arxiv.org/abs/2402.18013 | tags: survey, multi-turn, dialogue-systems | note: papers/20260217_survey-llm-multi-turn-dialogue-systems.md
+
+## New candidates (2026-02-17, web_search batch 14)
+
+- [x] 2025 | Steering Dialogue Dynamics for Robustness against Multi-turn Jailbreaking Attacks | arXiv | https://arxiv.org/abs/2503.00187 | tags: multi-turn, jailbreak, safety, steering | note: papers/20260217_steering-dialogue-dynamics-multi-turn-jailbreaking.md
+- [ ] 2025 | Stress-Aware Learning under KL Drift via Trust-Decayed Mirror Descent | arXiv | https://arxiv.org/abs/2510.15222 | tags: drift, kl, belief-update, mirror-descent
+- [ ] 2026 | Generative Modeling via Drifting | arXiv | https://arxiv.org/abs/2602.04770 | tags: drifting, representation, robustness
+- [ ] 2025 | Auditing cognitive drift in AI-driven recommendation: a responsible AI methods protocol with a health case demonstration | Frontiers | https://www.frontiersin.org/journals/neuroscience/articles/10.3389/fnins.2025.1697053/full | tags: cognitive-drift, auditing, protocol
+- [ ] 2025 | Steering Dialogue Dynamics for Robustness against Multi-turn Jailbreaking Attacks (alt link) | ResearchGate | https://www.researchgate.net/publication/389547855_Steering_Dialogue_Dynamics_for_Robustness_against_Multi-turn_Jailbreaking_Attacks | tags: multi-turn, jailbreak, safety
