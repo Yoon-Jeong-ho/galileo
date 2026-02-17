@@ -445,6 +445,6 @@ Format (one per line):
 
 - [x] 2025 | Consistency in Language Models: Current Landscape, Challenges, and Future Directions | arXiv | https://arxiv.org/abs/2505.00268 | tags: consistency, survey, robustness | note: papers/20260217_consistency-in-language-models-survey.md  # duplicate queue entry
 - [x] 2025 | Robustness in Large Language Models: A Survey of Mitigation Strategies and Evaluation Metrics | arXiv | https://arxiv.org/abs/2505.18658 | tags: robustness, survey, evaluation | note: papers/20260218_llm-robustness-survey-tmlr.md
-- [ ] 2025 | When Punctuation Matters: A Large-Scale Comparison of Prompt Robustness Methods for LLMs | arXiv | https://arxiv.org/abs/2508.11383 | tags: prompt-robustness, sensitivity, evaluation
+- [x] 2025 | When Punctuation Matters: A Large-Scale Comparison of Prompt Robustness Methods for LLMs | arXiv | https://arxiv.org/abs/2508.11383 | tags: prompt-robustness, sensitivity, evaluation | note: papers/20260218_punctuation_prompt_robustness.md
 - [ ] 2025 | Structured Prompting Enables More Robust Evaluation of Language Models | arXiv | https://arxiv.org/abs/2511.20836 | tags: prompting, evaluation, robustness
 - [ ] 2026 | Revisiting Prompt Sensitivity in Large Language Models for Text Classification: The Role of Prompt Underspecification | arXiv | https://arxiv.org/abs/2602.04297 | tags: prompt-sensitivity, underspecification, robustness
