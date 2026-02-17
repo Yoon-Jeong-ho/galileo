@@ -266,4 +266,4 @@ Format (one per line):
 - [x] 2025 | When AI Gets Persuaded, Humans Follow: Inducing the Conformity Effect in Persuasive Dialogue | arXiv | https://arxiv.org/abs/2510.04229 | tags: persuasion, conformity, dialogue, social-influence | note: papers/20260217_conformity-effect-persuasive-dialogue.md
 - [x] 2025 | How Do LLMs Persuade? Linear Probes Can Uncover Persuasion Dynamics in Multi-Turn Conversations | arXiv | https://arxiv.org/abs/2508.05625 | tags: persuasion, multi-turn, interpretability, dynamics | note: papers/20260217_llms-persuade-linear-probes.md
 - [x] 2024 | Conformity in Large Language Models | arXiv | https://arxiv.org/abs/2410.12428 | tags: conformity, social-influence, bias, robustness | note: papers/20260217_conformity-in-llms.md
-- [ ] 2025 | On the Adaptive Psychological Persuasion of Large Language Models | arXiv | https://arxiv.org/abs/2506.06800 | tags: persuasion, psychology, strategies, dialogue
+- [x] 2025 | On the Adaptive Psychological Persuasion of Large Language Models | arXiv | https://arxiv.org/abs/2506.06800 | tags: persuasion, psychology, strategies, dialogue | note: papers/20260217_adaptive-psychological-persuasion.md
