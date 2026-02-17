@@ -93,10 +93,11 @@ Recommended artifacts to cite in-paper:
   - [ ] Table~W caption states whether it is **matched persona-wise** vs **pooled across personas**.
   - [ ] If pooled, caption specifies the weighting (e.g., weights proportional to \(|C_p|\) or uniform over personas/examples).
   - [ ] For persona-wise rows, report \(|C_p|\) (or initial-correct count) so reviewers can interpret control baselines that differ by persona.
-  - [ ] **Paste-ready Table~W caption template (recommended):**
-    > *Table W: Neutral Re-asking Control (drift baseline) vs persona pressure on initially-correct examples.* We report Survival@R, Fail@1, and Never-fail (Survival@R) averaged over seeds (mean±std). Persona pressure is aggregated across personas in two ways: **persona-weighted** (pooling across personas with weights proportional to each persona’s evaluation-set size \(|C_p|\)) and **persona-unweighted** (simple mean across personas). Weighted is the headline measure; unweighted is included for transparency.
-  - [ ] **Paste-ready persona-wise delta caption note:**
-    > Persona-wise control values are computed on the **same initially-correct subset** as the corresponding persona arm (matched \(C_p\)). Therefore, control baselines can differ across personas because \(C_p\) differs; persona-vs-control gaps within a row are apples-to-apples.
+  - [ ] **Paste-ready Table~W caption template (recommended; match current artifacts):**
+    > *Table W: Pooled effect of persona pressure vs Neutral Re-asking Control (drift baseline) on initially-correct examples.* For each persona \(p\), we compute metrics on that persona’s initially-correct subset \(C_p\) and evaluate both arms (persona pressure and control) on the same \(C_p\) (matched). We then pool across personas with weights \(w_p\propto |C_p|\) (i.e., proportional to the evaluation-set size) and report mean±std across seeds. Control values in this pooled table therefore reflect the matched per-persona control baselines, not a single global control run.
+  - [ ] **Paste-ready persona-wise delta caption note (for persona-wise tables/figures):**
+    > Control values are computed on the **same initially-correct subset** as the corresponding persona arm (matched \(C_p\)). Because \(C_p\) can differ by persona, control baselines can differ across personas; within-persona gaps are apples-to-apples.
+  - [ ] *(Optional, if you also include an unweighted variant):* state explicitly: “unweighted mean across personas (each persona counts equally)” and justify why you show both.
 - [ ] Captions explain metrics without forcing readers into the appendix.
 - [ ] Figure pipeline is unambiguous:
   - [ ] SVG source-of-truth figures exist under `docs/paper/figures/` (generated from tracked artifacts).
