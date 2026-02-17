@@ -93,6 +93,10 @@ Recommended artifacts to cite in-paper:
   - [ ] Table~W caption states whether it is **matched persona-wise** vs **pooled across personas**.
   - [ ] If pooled, caption specifies the weighting (e.g., weights proportional to \(|C_p|\) or uniform over personas/examples).
   - [ ] For persona-wise rows, report \(|C_p|\) (or initial-correct count) so reviewers can interpret control baselines that differ by persona.
+  - [ ] **Paste-ready Table~W caption template (recommended):**
+    > *Table W: Neutral Re-asking Control (drift baseline) vs persona pressure on initially-correct examples.* We report Survival@R, Fail@1, and Never-fail (Survival@R) averaged over seeds (mean±std). Persona pressure is aggregated across personas in two ways: **persona-weighted** (pooling across personas with weights proportional to each persona’s evaluation-set size \(|C_p|\)) and **persona-unweighted** (simple mean across personas). Weighted is the headline measure; unweighted is included for transparency.
+  - [ ] **Paste-ready persona-wise delta caption note:**
+    > Persona-wise control values are computed on the **same initially-correct subset** as the corresponding persona arm (matched \(C_p\)). Therefore, control baselines can differ across personas because \(C_p\) differs; persona-vs-control gaps within a row are apples-to-apples.
 - [ ] Captions explain metrics without forcing readers into the appendix.
 - [ ] Figure pipeline is unambiguous:
   - [ ] SVG source-of-truth figures exist under `docs/paper/figures/` (generated from tracked artifacts).
