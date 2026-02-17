@@ -949,3 +949,7 @@ Next:
 Next:
 - Decide next Tier‑1 model family (EXAONE currently blocked by transformers import).
 - Optionally update repo-tracked cross-family artifacts/figures to include Phi‑3‑mini seeds 1–2.
+
+## 2026-02-17 12:08 (KST) — Intro proof pointers: “Evidence at a glance”
+- Added an explicit “Evidence at a glance” bullet list in Intro §1.1 to reduce reviewer search cost and make protocol/dynamics/recovery pointers unmissable.
+- Updated CLAIM_EVIDENCE_MAP to require keeping this skim hook aligned with the same figure/table labels.

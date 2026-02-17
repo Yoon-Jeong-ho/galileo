@@ -81,6 +81,7 @@ These are the exact “proof pointer” hooks we want a reviewer to notice in th
 - **Protocol + drift baseline:** Introduction §1.1 should point to the protocol figure and control-vs-persona summary (Fig.~`fig:protocol`; Table~`tab:tablew`; Fig.~`fig:tablew-effect-deltas`). It should also include the *within-persona initially-correct subset* comparability caveat (control values can differ across personas).
 - **Dynamics + recovery:** Introduction §1.1 should explicitly name survival/TOF/recovery and point to the three core figures (Figs.~`fig:survival-curves-rounds`, `fig:tof-delta-fail1`, `fig:recovery-delta`) plus Table~`tab:tablew`.
 - **Evaluation gap bullets:** Introduction §1.2 bullets should each have a single obvious proof pointer (TOF → `fig:tof-delta-fail1`, survival → `fig:survival-curves-rounds`, recovery → `fig:recovery-delta`).
+- **Intro skim hook:** Introduction §1.1 should contain a short “Evidence at a glance” bullet list pointing to (i) protocol+control, (ii) survival+TOF, and (iii) recovery (Figs.~`fig:protocol`, `fig:survival-curves-rounds`, `fig:tof-delta-fail1`, `fig:recovery-delta`; Table~`tab:tablew`).
 
 ---
 

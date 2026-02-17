@@ -57,6 +57,7 @@ Ground-truth tasks에서 multi-turn persona pressure 하에 **정답 유지(surv
 - ✅ Tightened the reviewer-facing **Claims → evidence** table to include explicit **LaTeX figure labels** (reduces proof-pointer drift): `docs/paper/PAPER_DRAFT_EN.md` (§9).
 - ✅ Results section now has artifact-cited prose for survival/TOF/recovery/control-comparison (seed1–4) + a Results preface stating the seed/"auditable green" convention.
 - ✅ Added an explicit **Abstract proof-pointer line** (protocol/survival/TOF/recovery/Table W) to reduce reviewer search cost (`docs/paper/PAPER_DRAFT_EN.md`).
+- ✅ Made Intro §1.1 reviewer-skim friendly by adding an **“Evidence at a glance”** bullet list with explicit figure/table pointers; kept SSOT alignment via `docs/paper/CLAIM_EVIDENCE_MAP.md`.
 - ✅ Table W (control vs persona) is supported by both mean±std and Δ(effect-size) tracked artifacts, and the Results text cites them.
 - ✅ De-duplicated “no-new-evidence” framing between protocol/control bullets and ReviseQA positioning (`docs/paper/PAPER_DRAFT_EN.md`).
 - ✅ Related-work tightening landed for:
@@ -86,9 +87,9 @@ Ground-truth tasks에서 multi-turn persona pressure 하에 **정답 유지(surv
 
 ## 4) NEXT HEARTBEAT (ONE step)
 
-**Paper writing: extend proof pointers beyond the Abstract (Intro sentences).**
+**Paper writing: do a fast “Related work → positioning” pass for the Neutral Re-asking Control.**
 
-- Deliverable: tighten the Intro so key “why multi-turn matters” sentences point to the exact evidence (survival/TOF/recovery/control) and protocol figure, consistent with `docs/paper/CLAIM_EVIDENCE_MAP.md`.
+- Deliverable: add 2–3 crisp sentences in Related Work clarifying why *matched neutral re-asking* is the right drift baseline (vs denial personas / evidence injection) and ensure the same framing appears once in Intro (no duplication).
 
 ---
 
