@@ -549,6 +549,6 @@ Format (one per line):
 
 - [x] 2025 | X-Boundary: Establishing Exact Safety Boundary to Shield LLMs from Multi-Turn Jailbreaks without Compromising Usability | arXiv | https://arxiv.org/abs/2502.09990 | tags: multi-turn, jailbreak, defense, safety-boundary | note: papers/20260217_x-boundary.md  # duplicate queue entry
 - [x] 2025 | SafeDialBench: A Fine-Grained Safety Evaluation Benchmark for Large Language Models in Multi-Turn Dialogues with Diverse Jailbreak Attacks | arXiv | https://arxiv.org/abs/2502.11090 | tags: multi-turn, safety, jailbreak, benchmark | note: papers/20260217_safedialbench.md  # duplicate queue entry
-- [ ] 2025 | StructFlowBench: A Structured Flow Benchmark for Multi-turn Instruction Following | arXiv | https://arxiv.org/abs/2502.14494 | tags: multi-turn, instruction-following, benchmark
+- [x] 2025 | StructFlowBench: A Structured Flow Benchmark for Multi-turn Instruction Following | arXiv | https://arxiv.org/abs/2502.14494 | tags: multi-turn, instruction-following, benchmark | note: papers/20260217_structflowbench.md  # duplicate queue entry
 - [ ] 2024 | LIFBench: Evaluating the Instruction Following Performance and Stability of Large Language Models in Long-Context Scenarios | arXiv | https://arxiv.org/abs/2411.07037 | tags: long-context, instruction-following, stability
 - [ ] 2026 | Deconstructing Instruction-Following: A New Benchmark for Granular Evaluation of Large Language Model Instruction Compliance Abilities | arXiv | https://arxiv.org/abs/2601.18554 | tags: instruction-following, granular-eval, benchmark
