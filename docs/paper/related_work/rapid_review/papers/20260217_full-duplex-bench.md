@@ -1,71 +1,70 @@
-# Full-Duplex-Bench: A Benchmark to Evaluate Full-duplex Spoken Dialogue Models on Turn-taking Capabilities
+# Full-Duplex-Bench: A Benchmark to Evaluate Full-Duplex Spoken Dialogue Models on Turn-taking Capabilities
 
 - Year: 2025
-- Venue: ASRU 2025 (arXiv)
+- Venue: ASRU 2025 (per arXiv comment)
 - Authors: Guan-Ting Lin; Jiachen Lian; Tingle Li; Qirui Wang; Gopala Anumanchipalli; Alexander H. Liu; Hung-yi Lee
 - URL: https://arxiv.org/abs/2503.04721
-- BibTeX key (if we add it): fullduplexbench2025lin
-- Tags: multi-turn, spoken-dialogue, full-duplex, turn-taking, benchmark, evaluation
+- BibTeX key (if we add it): lin2025full
+- Tags: multi-turn, dialogue, turn-taking, benchmark, speech, full-duplex
 
 ## One-sentence takeaway
 
-Full-Duplex-Bench is a scenario-driven, fully automatic benchmark to diagnose full-duplex spoken dialogue models’ real-time interaction behaviors (pause handling, backchanneling, turn-taking, interruptions).
+Full-Duplex-Bench is a scenario-driven, fully-automatic benchmark to diagnose full-duplex spoken dialogue models on timing-centric interaction behaviors (pause handling, backchannels, turn-taking, interruptions) using reproducible metrics.
 
 ## What problem does it solve?
 
-- Full-duplex spoken dialogue models (SDMs) can *listen and speak simultaneously*, but evaluation has lagged: most benchmarks assume turn-based (half-duplex) interactions or rely on coarse corpus-level timing stats / non-reproducible user studies.
-- Need a fair, fast, reproducible evaluation protocol that focuses on *interaction timing behaviors* rather than only content quality.
+- Existing spoken dialogue benchmarks mostly assume half-duplex/turn-based interaction, leaving real-time *timing* behaviors of full-duplex SDMs under-measured.
+- Prior work on interaction timing is either coarse (corpus-level gap statistics) or less reproducible (user studies / trained judge tied to a dataset), making cross-model comparisons hard.
 
 ## What is the core method / protocol?
 
-- Define scenario-driven test cases that elicit four key behaviors:
-  - pause handling
-  - backchanneling
-  - turn-taking
-  - user interruption management
-- Run a full-duplex SDM on user audio streams to get time-synchronous outputs.
-- Post-process to align user/model streams at the transcript level and apply automatic detectors/metrics per behavior.
-- Emphasis: metrics are intended to be *descriptive diagnostics* (not necessarily a single scalar objective), supporting rapid iteration and cross-model comparison.
+- Scenario-driven test set covering four interactive dimensions:
+  - Pause handling (don’t “take over” during user hesitations/pauses)
+  - Backchanneling (produce brief acknowledgments while user is speaking)
+  - Smooth turn-taking (take the turn promptly when appropriate)
+  - User interruption management (respond appropriately when user interrupts)
+- Evaluation pipeline:
+  - Feed a controlled user audio stream into a full-duplex SDM (continuous input, time-synchronous output).
+  - Post-process + align the produced output at transcript level.
+  - Run an ASR system to obtain word-level timestamps, then compute dimension-specific metrics.
+- Simple operational definitions for diagnostic detectors (example: backchannel = <1s and <2 words; “takeover” = any non-silence that is not a backchannel).
 
 ## What are the key metrics?
 
-- Automatic behavior-detection metrics for:
-  - whether/when the model backchannels
-  - whether/when the model yields/claims the floor (turn-taking)
-  - whether the model properly handles pauses
-  - interruption handling (e.g., stopping/adjusting when the user speaks)
-
-(Details are in the benchmark definitions; the paper positions them as objective and reproducible across models.)
+- Behavior detection rates / descriptive statistics per dimension (intended as diagnostic, not prescriptive).
+- Explicitly defined “takeover” and “takeover rate (TOR)” for pause-handling-style scenarios.
+- Backchannel detection based on duration + word-count thresholds (acknowledged as a simplification).
 
 ## What are the main results?
 
-- Primary contribution is the benchmark + toolkit release rather than a new model; the paper argues the framework enables consistent, rapid evaluation of full-duplex interactive behaviors across many SDMs.
-- Provides an overview of contemporary full-duplex SDMs and highlights missing/opaque capabilities in many public systems.
+- Primary contribution is the benchmark + automatic evaluation framework (and a taxonomy/table of full-duplex SDMs).
+- Paper emphasizes fast, fair, reproducible evaluation for emerging full-duplex SDMs; (specific leaderboard numbers not captured from the truncated HTML extract).
 
 ## How is this similar to GALILEO?
 
-- Shared theme: *multi-turn interaction evaluation* with diagnostics that go beyond single-turn/task accuracy.
-- Similar framing: evaluation should be reproducible, scenario-driven, and should isolate specific failure modes/behaviors.
+- Same overall spirit: *protocol-first evaluation* for multi-turn interaction properties that are not captured by single-turn metrics.
+- Focus on diagnosing *trajectory/interaction-level* failure modes rather than only final-answer correctness.
 
 ## How is this different from GALILEO?
 
-- Targets *spoken*, real-time, full-duplex interaction (timing, overlaps, interruptions), not textual belief/stance robustness.
-- Focuses on interaction *dynamics* and paralinguistic/turn-taking behaviors rather than semantic robustness to persuasion/misinformation.
+- Domain is spoken, real-time, full-duplex audio interaction; the measured phenomena are timing/overlap behaviors (pauses, overlaps, interruptions) rather than belief/stance drift or truthfulness under pressure.
+- Uses ASR-based alignment + timing heuristics; GALILEO is primarily text-dialogue / content-and-consistency oriented.
 
 ## Where GALILEO is stronger / cleaner (if true)
 
-- If GALILEO is about textual multi-turn robustness (drift, persuasion, belief revision), it can more directly connect behaviors to truthfulness/consistency objectives and controlled perturbations.
+- GALILEO can isolate semantic drift / robustness mechanisms in text with tighter control over content, whereas ASR + timing heuristics introduce measurement noise and threshold sensitivity.
 
 ## Where GALILEO is weaker / needs to improve
 
-- If GALILEO ignores real-time interactive dynamics (timing/backchannels/interruptions), it may miss an important class of “multi-turn” failures that appear in voice agents and could correlate with user influence/pressure.
+- GALILEO may under-measure *interaction timing* behaviors that matter in real deployments (especially for voice agents): interruptions, overlap management, and backchannel appropriateness.
 
 ## Action items for GALILEO (experiments / method / writing)
 
-- [ ] In related work: cite as an example of *scenario-driven, diagnostic multi-turn evaluation*—a parallel to how GALILEO decomposes multi-turn robustness into measurable behaviors.
-- [ ] Consider whether GALILEO should explicitly declare scope as text-only, and (optionally) mention that spoken full-duplex evaluation adds another axis of multi-turn robustness.
+- [ ] Consider a “timing/turn-taking” appendix section for voice-agent-adjacent robustness: define analogous metrics for *when* the model speaks/acts (interruptibility, overlap tolerance) even in text (e.g., tool calls during user clarification).
+- [ ] Borrow the paper’s framing: metrics should be *descriptive diagnostic signals* (not normative) to help developers choose target behavior tradeoffs.
 
 ## Quotes / details to potentially cite
 
-- Benchmark evaluates “pause handling, backchanneling, turn-taking, and interruption management” with “automatic metrics” for “fair, fast evaluation” (from abstract).
-- “The metrics are intentionally descriptive rather than prescriptive, allowing developers to prioritize behaviors according to specific application requirements.” (from introduction)
+- Benchmark focus: “pause handling, backchanneling, turn-taking, and interruption management” (Abstract).
+- Backchannel heuristic definition: backchannel segment if (1) duration < 1s and (2) fewer than two words.
+- Takeover definition: any non-silence that is not a backchannel; TOR is the average takeover indicator across samples.
