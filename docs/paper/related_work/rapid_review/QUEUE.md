@@ -544,3 +544,11 @@ Format (one per line):
 - [x] 2026 | GraphIF: Enhancing Multi-Turn Instruction Following for Large Language Models with Relation Graph Prompt | arXiv | https://arxiv.org/abs/2511.10051 | tags: multi-turn, instruction-following, constraints, prompting | note: papers/20260217_graphif.md  # duplicate queue entry
 - [x] 2025 | SLR: A Logic Benchmark for LLMs and Meta-Learning | arXiv | https://arxiv.org/abs/2506.15787 | tags: logic, benchmark, reasoning, robustness | note: papers/20260218_slr-scalable-logical-reasoning.md
 - [x] 2025 | MatheMagic: Generating Dynamic Mathematics Benchmarks Robust to Memorization | arXiv | https://arxiv.org/abs/2510.05962 | tags: benchmark, memorization, robustness, math | note: papers/20260218_mathemagic-dynamic-math-benchmarks.md
+
+## New candidates (2026-02-18, web_search batch 13)
+
+- [x] 2025 | X-Boundary: Establishing Exact Safety Boundary to Shield LLMs from Multi-Turn Jailbreaks without Compromising Usability | arXiv | https://arxiv.org/abs/2502.09990 | tags: multi-turn, jailbreak, defense, safety-boundary | note: papers/20260217_x-boundary.md  # duplicate queue entry
+- [ ] 2025 | SafeDialBench: A Fine-Grained Safety Evaluation Benchmark for Large Language Models in Multi-Turn Dialogues with Diverse Jailbreak Attacks | arXiv | https://arxiv.org/abs/2502.11090 | tags: multi-turn, safety, jailbreak, benchmark
+- [ ] 2025 | StructFlowBench: A Structured Flow Benchmark for Multi-turn Instruction Following | arXiv | https://arxiv.org/abs/2502.14494 | tags: multi-turn, instruction-following, benchmark
+- [ ] 2024 | LIFBench: Evaluating the Instruction Following Performance and Stability of Large Language Models in Long-Context Scenarios | arXiv | https://arxiv.org/abs/2411.07037 | tags: long-context, instruction-following, stability
+- [ ] 2026 | Deconstructing Instruction-Following: A New Benchmark for Granular Evaluation of Large Language Model Instruction Compliance Abilities | arXiv | https://arxiv.org/abs/2601.18554 | tags: instruction-following, granular-eval, benchmark
