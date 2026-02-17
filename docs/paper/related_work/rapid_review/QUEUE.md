@@ -335,7 +335,7 @@ Format (one per line):
 ## New candidates (2026-02-17, web_search batch 32)
 
 - [x] 2026 | LUMINA: Long-horizon Understanding for Multi-turn Interactive Agents | arXiv | https://arxiv.org/abs/2601.16649 | tags: agents, long-horizon, multi-turn, interactive | note: papers/20260217_lumina.md
-- [ ] 2025 | OdysseyBench: Evaluating LLM Agents on Long-Horizon Complex Office Application Workflows | arXiv | https://arxiv.org/abs/2508.09124 | tags: agents, long-horizon, workflows, evaluation
+- [x] 2025 | OdysseyBench: Evaluating LLM Agents on Long-Horizon Complex Office Application Workflows | arXiv | https://arxiv.org/abs/2508.09124 | tags: agents, long-horizon, workflows, evaluation | note: papers/20260217_odysseybench-office-workflows.md
 - [ ] 2025 | SWE-Bench Pro: Can AI Agents Solve Long-Horizon Software Engineering Tasks? | arXiv | https://arxiv.org/abs/2509.16941 | tags: agents, long-horizon, software-engineering, benchmark
 - [ ] 2026 | NL2Repo-Bench: Towards Long-Horizon Repository Generation Evaluation of Coding Agents | arXiv | https://arxiv.org/abs/2512.12730 | tags: agents, coding, repository-generation, long-horizon, benchmark
 - [ ] 2025 | HeroBench: A Benchmark for Long-Horizon Planning and Structured Reasoning in Virtual Worlds | arXiv | https://arxiv.org/abs/2508.12782 | tags: agents, planning, long-horizon, virtual-worlds, benchmark
