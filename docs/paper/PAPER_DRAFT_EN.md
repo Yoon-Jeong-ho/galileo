@@ -395,9 +395,9 @@ Unless stated otherwise, results are reported as mean±std over **seeds 1–4** 
 
 **How to read persona-wise deltas.** In `survival_r5_personawise_control_vs_persona_*`, the “control” curve is the **Neutral Re-asking Control run on the same initially-correct subset** used for that persona arm. Therefore, the reported deltas should be interpreted as the *incremental* effect of adversarial persona wording **beyond** generic multi-turn re-asking drift on a matched subset (apples-to-apples within each persona row). For instance, **Simple Denial** decreases Survival@5 by **2.37** points relative to the matched neutral re-asking baseline (51.03→48.66), whereas **Authority Claim** is approximately unchanged on this matched comparison (+0.18; 41.44→41.62).
 
-This does **not** contradict the much larger persona-vs-control gap in **Table W**, which compares persona pressure against the Neutral Re-asking Control at the **aggregate** level (and can involve different initially-correct subsets and aggregation weights).
+This does **not** contradict the headline persona-vs-control gap reported in **Table W**. The persona-wise plots/tables and Table~W answer slightly different aggregation questions.
 
-**Aggregation note (to preempt reviewer confusion).** We report *two* complementary views, which can differ numerically because they weight examples/personas differently:
+**Aggregation note (to preempt reviewer confusion).** We intentionally report *two* complementary views:
 
 1. **Matched persona-wise deltas (mechanism-specific; apples-to-apples within a persona).** For each persona \(p\), compute the metric under persona pressure and under the Neutral Re-asking Control on the *same* initially-correct subset \(C_p\), then report
    \[
@@ -405,14 +405,13 @@ This does **not** contradict the much larger persona-vs-control gap in **Table W
    \]
    This is what persona-wise delta figures/tables show.
 
-2. **Collapsed “persona pressure vs control” headline (overall reliability impact vs drift).** Pool across personas and compare persona pressure vs control *after pooling*.
-   A concrete way to state this in the paper is: choose weights \(w_p\) (default: \(w_p\propto |C_p|\)), and compute
+2. **Pooled “persona pressure vs control” headline (overall reliability impact vs drift).** Pool across personas/examples first (equivalently: weight each persona by its evaluation set size), then compare pooled persona pressure vs pooled control. A clear paper statement is:
    \[
-   \Delta_{\mathrm{pool}} = \sum_p w_p\,\text{metric}_{\text{persona},p} - \sum_p w_p\,\text{metric}_{\text{control},p}.
+   \Delta_{\mathrm{pool}} = \sum_p w_p\,\text{metric}_{\text{persona},p} - \sum_p w_p\,\text{metric}_{\text{control},p},\quad w_p\propto |C_p|.
    \]
    This is what Table~W is intended to summarize.
 
-**Why they can disagree.** If \(|C_p|\) varies across personas (e.g., when Phase~1 filtering is arm-specific), then \(\Delta_{\mathrm{pool}}\) can be substantially larger (or smaller) than the unweighted average of \(\Delta_p\). In the camera-ready version, we should keep both views and make Table~W’s weighting explicit in the caption (e.g., “pooled across personas with weights proportional to \(|C_p|\)”).
+**Why they can disagree.** If \(|C_p|\) differs across personas (common when Phase~1 filtering/caching is arm-specific), then the pooled headline is dominated by personas with larger \(|C_p|\). As a result, \(\Delta_{\mathrm{pool}}\) can be noticeably different from the simple (unweighted) average of persona-wise \(\Delta_p\), even if every individual \(\Delta_p\) is small. In the camera-ready version, we should keep both views and make Table~W’s weighting explicit in the caption (e.g., “pooled across personas with weights proportional to \(|C_p|\)”).
 
 For interpretability, we further analyze detected flips with a qualitative taxonomy (boundary/overanswer vs partial-overlap vs semantic-change) and provide representative examples in Appendix~A.2. **Importantly, this taxonomy is post-hoc and diagnostic-only; we do not recompute survival/TOF/recovery with taxonomy labels.**
 
