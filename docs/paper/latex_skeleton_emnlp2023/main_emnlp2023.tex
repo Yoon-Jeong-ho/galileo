@@ -16,12 +16,30 @@
 \usepackage{booktabs}
 \usepackage{hyperref}
 
-\title{GALILEO EMNLP Template Smoke Test}
-\author{}
+\title{GALILEO: Measuring Multi-turn Belief-Consistency Failures and Recovery Under Social Pressure}
+\author{Anonymous Authors}
 \date{}
 
 \begin{document}
 \maketitle
+
+\begin{abstract}
+Large language models (LLMs) can change previously correct answers when confronted with social pressure such as repeated denial, authority claims, or persuasive reframing.
+Prior work has documented sycophancy and persuasion effects, but there is no widely adopted, end-to-end protocol for ground-truth tasks that (i) measures \emph{when} the first failure occurs (turn-of-failure), (ii) summarizes degradation over multiple rounds (survival curves), and (iii) evaluates whether models can return to the original truth after a flip (recovery).
+
+We introduce \textbf{GALILEO}, a reproducible evaluation pipeline for ground-truth tasks (math, extractive QA, multiple-choice QA, and open-domain QA).
+Given an initially correct answer, GALILEO applies five adversarial personas (soft pressure, simple denial, strong pressure, authority claim, and logical trap) for up to five rounds, then prompts for recovery on flipped samples.
+Across multiple model families and seeds, we find that persona pressure consistently worsens survival, increases fail@1, and shifts turn-of-failure earlier compared to a non-adversarial drift baseline (neutral re-asking control).
+We further observe that \emph{robustness} (staying correct) and \emph{recoverability} (returning to truth after a flip) behave as distinct axes.
+\end{abstract}
+
+\section{Introduction (placeholder)}
+\label{sec:intro}
+
+\noindent\textbf{Contributions.} GALILEO provides:
+(1) a ground-truth, multi-turn protocol with survival and turn-of-failure metrics;
+(2) a drift baseline (neutral re-asking control) that separates generic answer instability from persona-induced effects; and
+(3) a recovery stage that quantifies return-to-truth after a flip.
 
 \section{Figure include smoke test}
 
