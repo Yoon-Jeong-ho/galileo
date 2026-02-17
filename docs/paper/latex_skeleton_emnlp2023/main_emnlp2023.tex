@@ -44,8 +44,10 @@ We further observe that \emph{robustness} (staying correct) and \emph{recoverabi
 \section{Related Work}
 \label{sec:related}
 
-Prior work has documented sycophancy and social-pressure failure modes in instruction-tuned LLMs, including analyses of when models defer to user assertions even when those assertions conflict with task truth \citep{sharma2023understandingsycophancylanguagemodels}.
-GALILEO complements this line of work by (i) grounding evaluation in tasks with externally checkable correctness, (ii) explicitly separating generic multi-turn drift (neutral re-asking control) from persona-induced pressure, and (iii) adding a recovery stage to quantify return-to-truth after a flip.
+Prior work has documented sycophancy and social-pressure failure modes in instruction-tuned LLMs, including analyses of when models defer to user assertions even when those assertions conflict with task truth \citep{sharma2023understandingsycophancylanguagemodels}. Subsequent benchmarks and diagnostics extend this agenda to broader settings and measurement choices, e.g., sycophancy-focused evaluation suites \citep{fanous2025sycevalevaluatingllmsycophancy,cheng2025elephantmeasuringunderstandingsocial} and multi-agent/peer-pressure scenarios \citep{song2025kairospeerpressure}.
+
+A complementary thread studies stability and consistency under sequential interaction, highlighting that models may change answers across turns even without explicit adversarial pressure \citep{li2025firmorfickle,tosato2025persistentinstabilityllmspersonality}. GALILEO builds on these observations by (i) grounding evaluation in tasks with externally checkable correctness, (ii) explicitly separating generic multi-turn drift (neutral re-asking control) from persona-induced pressure, and (iii) adding a recovery stage to quantify return-to-truth after a flip. Related work also examines belief resistance under strategic persuasion in longer conversations \citep{huang2026vulnerabilityllmsbeliefsystems}; our protocol targets a more standardized, end-to-end measurement stack with survival/turn-of-failure metrics and reproducible exports.
+
 More broadly, our emphasis on verifiable truth connects to work on truthfulness benchmarks such as TruthfulQA \citep{lin2022truthfulqameasuringmodelsmimic}, while focusing on a different axis: multi-turn belief-consistency failures and recovery under conversational pressure.
 
 \section{Figure include smoke test}
