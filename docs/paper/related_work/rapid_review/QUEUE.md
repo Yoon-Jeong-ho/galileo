@@ -428,7 +428,7 @@ Format (one per line):
 ## New candidates (2026-02-18, web_search batch)
 
 - [x] 2023 | PromptBench: Towards Evaluating the Robustness of Large Language Models on Adversarial Prompts | arXiv | https://arxiv.org/abs/2306.04528 | tags: robustness, adversarial-prompts, evaluation | note: papers/20260218_promptrobust-adversarial-prompts.md
-- [ ] 2025 | Robustness of Prompting: Enhancing Robustness of Large Language Models Against Prompting Attacks (RoP) | arXiv | https://arxiv.org/abs/2506.03627 | tags: robustness, prompt-attacks, perturbations, evaluation
+- [x] 2025 | Robustness of Prompting: Enhancing Robustness of Large Language Models Against Prompting Attacks (RoP) | arXiv | https://arxiv.org/abs/2506.03627 | tags: robustness, prompt-attacks, perturbations, evaluation | note: papers/20260218_robustness-of-prompting-rop.md
 - [ ] 2025 | Benchmarking Adversarial Robustness to Bias Elicitation in Large Language Models (CLEAR-Bias) | arXiv | https://arxiv.org/abs/2504.07887 | tags: robustness, bias, adversarial-prompts, llm-as-judge
 - [ ] 2025 | Evaluating the Robustness of Large Language Model Safety Guardrails Against Adversarial Attacks | arXiv | https://arxiv.org/abs/2511.22047 | tags: safety, guardrails, robustness, adversarial
 - [ ] 2026 | Evaluating Robustness of Large Language Models in Enterprise Applications: Benchmarks for Perturbation Consistency Across Formats and Languages | arXiv | https://arxiv.org/abs/2601.06341 | tags: robustness, perturbations, multilingual, formats
