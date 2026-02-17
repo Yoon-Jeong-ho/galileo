@@ -158,3 +158,11 @@ Format (one per line):
 - [x] 2025 | On Robustness and Reliability of Benchmark-Based Evaluation of LLMs | arXiv | https://arxiv.org/abs/2509.04013 | tags: evaluation, robustness, reliability, benchmarks | note: papers/20260217_benchmark-eval-paraphrase-robustness.md
 - [x] 2025 | SCORE: Systematic COnsistency and Robustness Evaluation for Large Language Models | arXiv | https://arxiv.org/abs/2503.00137 | tags: robustness, consistency, evaluation | note: papers/20260217_score-robustness-eval.md
 - [x] 2025 | Consistency in Language Models: Current Landscape, Challenges, and Future Directions | arXiv | https://arxiv.org/abs/2505.00268 | tags: survey, consistency, robustness | note: papers/20260217_consistency-in-language-models-survey.md
+
+## New candidates (2026-02-17, web_search batch 18)
+
+- [x] 2024 | MT-Eval: A Multi-Turn Capabilities Evaluation Benchmark for Large Language Models | arXiv | https://arxiv.org/abs/2401.16745 | tags: multi-turn, evaluation, benchmark | note: papers/20260217_mt-eval.md
+- [ ] 2024 | AgentBoard: An Analytical Evaluation Board of Multi-turn LLM Agents | arXiv | https://arxiv.org/abs/2401.13178 | tags: agents, multi-turn, evaluation, benchmark
+- [ ] 2026 | Unsafer in Many Turns: Benchmarking and Defending Multi-Turn Safety Risks in Tool-Using Agents | arXiv | https://arxiv.org/abs/2602.13379 | tags: multi-turn, safety, tool-use, jailbreak, benchmark
+- [ ] 2025 | M2S: Multi-turn to Single-turn jailbreak in Red Teaming for LLMs | arXiv | https://arxiv.org/abs/2503.04856 | tags: multi-turn, jailbreak, attacks, distillation
+- [ ] 2025 | Siege: Autonomous Multi-Turn Jailbreaking of Large Language Models with Tree Search | arXiv | https://arxiv.org/abs/2503.10619 | tags: multi-turn, jailbreak, tree-search, attacks
