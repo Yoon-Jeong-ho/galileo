@@ -1,6 +1,6 @@
 # GALILEO helper Makefile (paper-facing utilities)
 
-.PHONY: figures-pdf figures-check anonymized-bundle
+.PHONY: figures-pdf figures-check anonymized-bundle citations-check
 
 # Preflight for SVG->PDF conversion tooling
 figures-check:
@@ -13,3 +13,7 @@ figures-pdf: figures-check
 # Stage a minimal anonymized bundle under tmp/anonymized_bundle/
 anonymized-bundle:
 	./scripts/package_anonymized_bundle.sh
+
+# Guardrail: ensure all \\cite{...} keys referenced in the main draft exist in references.bib
+citations-check:
+	./scripts/check_citations_vs_bib.sh
