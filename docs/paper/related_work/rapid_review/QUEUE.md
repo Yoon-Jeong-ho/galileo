@@ -227,3 +227,11 @@ Format (one per line):
 - [x] 2025 | UltraHorizon: Benchmarking Agent Capabilities in Ultra Long-Horizon Scenarios | arXiv | https://arxiv.org/abs/2509.21766 | tags: agents, long-horizon, benchmark, robustness, degradation | note: papers/20260217_ultrahorizon.md
 
 - [x] 2026 | WavBench: Benchmarking Reasoning, Colloquialism, and Paralinguistics for End-to-End Spoken Dialogue Models | arXiv | https://arxiv.org/abs/2602.12135 | tags: spoken-dialogue, multi-turn, benchmark, paralinguistics, robustness | note: papers/20260217_wavbench.md
+
+## New candidates (2026-02-17, web_search batch 26)
+
+- [x] 2026 | Knowledge-Driven Multi-Turn Jailbreaking on Large Language Models | arXiv | https://arxiv.org/abs/2601.05445 | tags: multi-turn, jailbreak, attacks, planning, fuzzing | note: papers/20260217_mastermind-jailbreak.md
+- [ ] 2025 | The Trojan Knowledge: Bypassing Commercial LLM Guardrails via Harmless Prompt Weaving and Adaptive Tree Search | arXiv | https://arxiv.org/abs/2512.01353 | tags: multi-turn, jailbreak, attacks, tree-search, guardrails
+- [ ] 2025 | AutoAdv: Automated Adversarial Prompting for Multi-Turn Jailbreaking of Large Language Models | arXiv | https://arxiv.org/abs/2511.02376 | tags: multi-turn, jailbreak, attacks, automated, adversarial-prompting
+- [ ] 2025 | Temporal Context Awareness: A Defense Framework Against Multi-turn Manipulation Attacks on Large Language Models | arXiv | https://arxiv.org/abs/2503.15560 | tags: multi-turn, jailbreak, defense, temporal, manipulation
+- [ ] 2024 | Speak out of turn: Safety vulnerability of large language models in multi-turn dialogue | arXiv | https://arxiv.org/abs/2402.17262 | tags: multi-turn, jailbreak, safety, dialogue, attack
