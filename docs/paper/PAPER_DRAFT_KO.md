@@ -415,6 +415,7 @@ LLM은 사용자 중심 응답, 공감적 대화, 고품질 추론을 위해 인
 
 - 모든 태스크에서 최종 답은 `\boxed{...}`로 강제한다.
 - 추론/설명(CoT)은 박스 밖에 허용하되, 평가기는 boxed를 우선 추출한다.
+- **QA 채점은 SQuAD-style로 EM(Exact Match)과 token-level F1을 모두 계산**한다. 본문에서의 survival/TOF/flip 판정은 재현성과 해석의 단순성을 위해 기본적으로 **EM** 기준을 사용하되, `inequality` vs `inequality in society`처럼 표현/과잉답변으로 인한 경계 사례는 **F1을 함께 보고** 정성 taxonomy에서 별도로 분리한다.
 - 출력:
   - JSONL 로그: `*_initial.jsonl`, `*_adversarial.jsonl`, `*_recovery.jsonl`
   - CSV 요약: `initial_accuracy.csv`, `adversarial_survival.csv`, `recovery_accuracy.csv`
