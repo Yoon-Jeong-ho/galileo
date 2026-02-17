@@ -154,7 +154,7 @@ Format (one per line):
 ## New candidates (2026-02-17, web_search batch 17)
 
 - [x] 2025 | The Chameleon Nature of LLMs: Quantifying Multi-Turn Stance Instability in Search-Enabled Language Models | arXiv / OpenReview | https://arxiv.org/abs/2510.16712 | tags: multi-turn, stance-instability, search-enabled, robustness | note: papers/20260217_chameleon-stances-search-enabled.md
-- [ ] 2025 | ReasonBENCH: Benchmarking the (In)Stability of LLM Reasoning | arXiv | https://arxiv.org/abs/2512.07795 | tags: reasoning, instability, variability, benchmark
+- [x] 2025 | ReasonBENCH: Benchmarking the (In)Stability of LLM Reasoning | arXiv | https://arxiv.org/abs/2512.07795 | tags: reasoning, instability, variability, benchmark | note: papers/20260217_reasonbench.md
 - [ ] 2025 | On Robustness and Reliability of Benchmark-Based Evaluation of LLMs | arXiv | https://arxiv.org/abs/2509.04013 | tags: evaluation, robustness, reliability, benchmarks
 - [ ] 2025 | SCORE: Systematic COnsistency and Robustness Evaluation for Large Language Models | arXiv | https://arxiv.org/abs/2503.00137 | tags: robustness, consistency, evaluation
 - [ ] 2025 | Consistency in Language Models: Current Landscape, Challenges, and Future Directions | arXiv | https://arxiv.org/abs/2505.00268 | tags: survey, consistency, robustness
