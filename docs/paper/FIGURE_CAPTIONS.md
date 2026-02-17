@@ -9,7 +9,7 @@ Conventions:
 - Unless otherwise stated, error bars / uncertainty annotations reflect **variation across random seeds** (reported as mean ± std).
 
 Metric definitions (to keep captions consistent across drafts):
-- **Table W** (canonical LaTeX label: `tab:tablew`): control vs persona summary + effect deltas (see artifacts `table_w_*`).
+- **Table W** (canonical LaTeX label: `tab:tablew`): pooled control vs persona summary + effect deltas (see artifacts `table_w_*`). **Important:** Table W is a *collapsed* view that pools across persona arms; in the current artifacts, pooling uses weights proportional to the size of each arm’s initially-correct subset (\(|C_p|\)). Control metrics in Table W are therefore computed on the same matched subsets as the persona metrics (within each persona arm) before pooling, so “control” values can differ from the control shown in persona-wise figures/tables.
 - **Survival@r**: fraction of **initially-correct** examples that remain correct for **all rounds 1..r** (cumulative; “still correct through round r”).
 - **Flip**: a correct→incorrect transition at some round.
 - **TOF (turn-of-failure)**: the first round where a flip occurs (or “never”).
@@ -83,7 +83,7 @@ Persona-wise effect size on recovery after flipping: \(\Delta\)Recovery@flip (pe
 - Source artifact: `docs/paper/artifacts/table_w_effect_delta_seed1-4_20260209.csv`
 
 **Caption (draft):**
-Table W effect sizes: persona pressure minus Neutral Re-asking Control (drift baseline), mean ± std across seeds 1–4. Large negative \(\Delta\)Survival@5 and positive \(\Delta\)Fail@1 indicate persona-induced failure dynamics beyond generic multi-turn drift under identical rounds/decoding/scoring.
+Table W effect sizes (pooled across personas with weights \(w_p\propto |C_p|\)): persona pressure minus Neutral Re-asking Control (drift baseline), mean ± std across seeds 1–4. Large negative \(\Delta\)Survival@5 and positive \(\Delta\)Fail@1 indicate persona-induced failure dynamics beyond generic multi-turn drift under identical rounds/decoding/scoring.
 
 ---
 
