@@ -150,3 +150,11 @@ Format (one per line):
 - [x] 2025 | DeepDialogue: A Multi-Turn Emotionally-Rich Spoken Dialogue Dataset | arXiv | https://arxiv.org/abs/2505.19978 | tags: multi-turn, dataset, spoken-dialogue, emotion | note: papers/20260217_deepdialogue-dataset.md
 - [x] 2025 | EduDial: Constructing a Large-scale Multi-turn Teacher–Student Dialogue Corpus | arXiv | https://arxiv.org/abs/2510.12899 | tags: multi-turn, dataset, tutoring, education | note: papers/20260217_edudial.md
 - [x] 2025 | MathTutorBench: A Benchmark for Measuring Open-ended Pedagogical Capabilities of LLM Tutors | arXiv | https://arxiv.org/abs/2502.18940 | tags: multi-turn, tutoring, pedagogy, benchmark | note: papers/20260217_mathtutorbench.md
+
+## New candidates (2026-02-17, web_search batch 17)
+
+- [x] 2025 | The Chameleon Nature of LLMs: Quantifying Multi-Turn Stance Instability in Search-Enabled Language Models | arXiv / OpenReview | https://arxiv.org/abs/2510.16712 | tags: multi-turn, stance-instability, search-enabled, robustness | note: papers/20260217_chameleon-stances-search-enabled.md
+- [ ] 2025 | ReasonBENCH: Benchmarking the (In)Stability of LLM Reasoning | arXiv | https://arxiv.org/abs/2512.07795 | tags: reasoning, instability, variability, benchmark
+- [ ] 2025 | On Robustness and Reliability of Benchmark-Based Evaluation of LLMs | arXiv | https://arxiv.org/abs/2509.04013 | tags: evaluation, robustness, reliability, benchmarks
+- [ ] 2025 | SCORE: Systematic COnsistency and Robustness Evaluation for Large Language Models | arXiv | https://arxiv.org/abs/2503.00137 | tags: robustness, consistency, evaluation
+- [ ] 2025 | Consistency in Language Models: Current Landscape, Challenges, and Future Directions | arXiv | https://arxiv.org/abs/2505.00268 | tags: survey, consistency, robustness
