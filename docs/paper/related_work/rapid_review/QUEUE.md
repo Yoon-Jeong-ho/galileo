@@ -496,3 +496,11 @@ Format (one per line):
 - [x] 2026 | Vulnerability of LLMs’ Belief Systems? LLMs Belief Resistance Check Through Strategic Persuasive Conversation Interventions | arXiv | https://arxiv.org/abs/2601.13590 | tags: belief-robustness, persuasion, multi-turn, evaluation | note: papers/20260217_llm-belief-resistance-smcr.md (duplicate queue entry)
 - [x] 2025 | Challenging the Evaluator: LLM Sycophancy Under User Rebuttal | arXiv | https://arxiv.org/abs/2509.16533 | tags: sycophancy, persuasion, multi-turn, evaluation | note: papers/20260217_challenging-the-evaluator.md (duplicate queue entry)
 - [x] 2026 | SycoEval-EM: Sycophancy Evaluation of Large Language Models in Simulated Clinical Encounters for Emergency Care | arXiv | https://arxiv.org/abs/2601.16529 | tags: sycophancy, medical, multi-turn, evaluation, safety | note: papers/20260217_sycoeval-em.md (duplicate queue entry)
+
+## New candidates (2026-02-18, web_search batch 4)
+
+- [x] 2025 | Steering Dialogue Dynamics for Robustness against Multi-turn Jailbreaking Attacks | arXiv | https://arxiv.org/abs/2503.00187 | tags: multi-turn, jailbreak, safety, robustness, steering | note: papers/20260217_steering-dialogue-dynamics-nbf.md (duplicate queue entry)
+- [ ] 2025 | MultiChallenge: A Realistic Multi-Turn Conversation Evaluation Benchmark Challenging to Frontier LLMs | arXiv | https://arxiv.org/abs/2501.17399 | tags: multi-turn, benchmark, conversation, evaluation
+- [ ] 2025 | Beyond Single-Turn: A Survey on Multi-Turn Interactions with Large Language Models | arXiv | https://arxiv.org/abs/2504.04717 | tags: multi-turn, survey, evaluation, robustness
+- [ ] 2025 | Reinforcing Multi-Turn Reasoning in LLM Agents via Turn-Level Reward Design | arXiv | https://arxiv.org/abs/2505.11821 | tags: multi-turn, agents, RL, reward-design, reasoning
+- [ ] 2025 | Modeling and Predicting Multi-Turn Answer Instability in Large Language Models | arXiv | https://arxiv.org/abs/2511.10688 | tags: multi-turn, instability, robustness, probing, evaluation
