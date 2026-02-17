@@ -480,3 +480,11 @@ Format (one per line):
 - [x] 2026 | One Battle After Another: Probing LLMs’ Limits on Multi-Turn Instruction Following with a Benchmark Evolving Framework | arXiv | https://arxiv.org/abs/2511.03508 | tags: multi-turn, instruction-following, benchmark, evolving | note: papers/20260217_evolif-multi-turn-instruction-following.md (duplicate queue entry)
 - [x] 2026 | Communication Enhances LLMs’ Stability in Strategic Thinking | arXiv | https://arxiv.org/abs/2602.06081 | tags: stability, multi-turn, strategic-thinking, communication | note: papers/20260218_cheap_talk_stability_pd.md
 - [x] 2025 | T3: Reducing Belief Deviation in Reinforcement Learning for Active Reasoning | arXiv | https://arxiv.org/abs/2510.12264 | tags: belief-deviation, active-reasoning, rl, robustness | note: papers/20260218_t3-belief-deviation-truncation.md
+
+## New candidates (2026-02-18, web_search batch 2)
+
+- [x] 2026 | GT-HarmBench: Benchmarking AI Safety Risks Through the Lens of Game Theory | arXiv | https://arxiv.org/abs/2602.12316 | tags: safety, multi-agent, game-theory, benchmark | note: papers/20260218_gt-harmbench.md
+- [ ] 2026 | Security Threat Modeling for Emerging AI-Agent Protocols: A Comparative Analysis of MCP, A2A, Agora, and ANP | arXiv | https://arxiv.org/abs/2602.11327 | tags: agents, protocols, security, threat-modeling
+- [ ] 2026 | WavBench: Benchmarking Reasoning, Colloquialism, and Paralinguistics for End-to-End Spoken Dialogue Models | arXiv | https://arxiv.org/abs/2602.12135 | tags: spoken-dialogue, multi-turn, benchmark, paralinguistics
+- [ ] 2026 | Peak + Accumulation: A Proxy-Level Scoring Formula for Multi-Turn LLM Attack Detection | arXiv | https://arxiv.org/abs/2602.11247 | tags: multi-turn, safety, jailbreak, detection, scoring
+- [ ] 2026 | GISA: A Benchmark for General Information-Seeking Assistant | arXiv | https://arxiv.org/abs/2602.08543 | tags: agents, information-seeking, web, multi-turn, benchmark
