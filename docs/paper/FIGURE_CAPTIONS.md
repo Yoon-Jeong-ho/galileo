@@ -93,8 +93,10 @@ Table W effect sizes (pooled across personas with weights \(w_p\propto |C_p|\)):
 - LaTeX label (suggested): `fig:cross-family-survival`
 - Source artifacts:
   - `docs/paper/artifacts/tier1_mistral7b_seed1-2_survival_summary_20260210.csv`
+  - `docs/paper/artifacts/tier1_mistralnemo_seed1-2_survival_summary_20260217.csv`
   - `docs/paper/artifacts/tier1_llama3_8b_seed1-2_survival_summary_20260210.csv`
   - `docs/paper/artifacts/tier1_llama3_3b_seed1-2_survival_summary_20260212.csv`
+  - `docs/paper/artifacts/tier1_phi3mini_seed1-2_survival_summary_20260217.csv`
 - Generator: `scripts/make_cross_family_figure_svg.py`
 
 **Caption (draft):**

@@ -73,8 +73,10 @@ These are the claims most likely to be read *without* looking at appendices. Eac
    - Evidence: `docs/paper/figures/cross_family_survival_r5_control_vs_logicaltrap_seed1-2_20260217.svg`
    - Artifact inputs (CSV → figure):
      - `docs/paper/artifacts/tier1_mistral7b_seed1-2_survival_summary_20260210.csv`
+     - `docs/paper/artifacts/tier1_mistralnemo_seed1-2_survival_summary_20260217.csv`
      - `docs/paper/artifacts/tier1_llama3_8b_seed1-2_survival_summary_20260210.csv`
      - `docs/paper/artifacts/tier1_llama3_3b_seed1-2_survival_summary_20260212.csv`
+     - `docs/paper/artifacts/tier1_phi3mini_seed1-2_survival_summary_20260217.csv`
    - Regenerate: `python3 scripts/make_cross_family_figure_svg.py`
 6) **Decoding sensitivity check: persona-vs-control gaps are qualitatively stable under sampling.**
    - Evidence: `docs/paper/figures/decoding_sweep_qwen_delta_seed1-2_20260211.svg`
@@ -163,6 +165,7 @@ These are the exact “proof pointer” hooks we want a reviewer to notice in th
   - Regeneration: `python3 scripts/make_cross_family_figure_svg.py` (reads `docs/paper/artifacts/*`)
 - Family-wise survival summaries (CSV → figure):
   - Artifact (CSV): `docs/paper/artifacts/tier1_mistral7b_seed1-2_survival_summary_20260210.csv`
+  - Artifact (CSV): `docs/paper/artifacts/tier1_mistralnemo_seed1-2_survival_summary_20260217.csv`
   - Artifact (CSV): `docs/paper/artifacts/tier1_llama3_8b_seed1-2_survival_summary_20260210.csv`
   - Artifact (CSV): `docs/paper/artifacts/tier1_llama3_3b_seed1-2_survival_summary_20260212.csv`
   - Artifact (CSV): `docs/paper/artifacts/tier1_phi3mini_seed1-2_survival_summary_20260217.csv`
