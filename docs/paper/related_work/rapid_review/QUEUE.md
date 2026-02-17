@@ -519,4 +519,4 @@ Format (one per line):
 - [x] 2025 | Adaptation of Agentic AI | arXiv | https://arxiv.org/abs/2512.16301 | tags: agents, adaptation, tool-use, survey | note: papers/20260218_adaptation_of_agentic_ai.md
 - [x] 2026 | Agentic Memory: Learning Unified Long-Term and Short-Term Memory Management for Large Language Model Agents | arXiv | https://arxiv.org/abs/2601.01885 | tags: agents, memory, long-horizon, multi-turn | note: papers/20260218_agentic-memory-agemem.md
 - [x] 2025 | Training Long-Context, Multi-Turn Software Engineering Agents with Reinforcement Learning | arXiv | https://arxiv.org/abs/2508.03501 | tags: agents, software-engineering, long-context, multi-turn, RL | note: papers/20260218_training-long-context-multi-turn-swe-agents-rl.md
-- [ ] 2025 | Stabilizing Long-term Multi-turn Reinforcement Learning with Gated Rewards | arXiv | https://arxiv.org/abs/2508.10548 | tags: RL, multi-turn, stability, rewards
+- [x] 2025 | Stabilizing Long-term Multi-turn Reinforcement Learning with Gated Rewards | arXiv | https://arxiv.org/abs/2508.10548 | tags: RL, multi-turn, stability, rewards | note: papers/20260218_gated-reward-accumulation-swe-rl.md
