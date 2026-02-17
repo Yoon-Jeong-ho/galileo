@@ -65,7 +65,7 @@ Format (one per line):
 
 ## New candidates (2026-02-17, web_search batch 6)
 
-- [x] 2023 | Are You Sure? Challenging LLMs Leads to Performance Drops in The FlipFlop Experiment | arXiv | https://arxiv.org/abs/2311.08596 | tags: multi-turn, flipflop, inconsistency, social-pressure-adjacent, robustness | note: papers/20260217_flipflop-experiment.md
+- [x] 2023 | Are You Sure? Challenging LLMs Leads to Performance Drops in The FlipFlop Experiment | arXiv | https://arxiv.org/abs/2311.08596 | tags: multi-turn, flipflop, inconsistency, social-pressure-adjacent, robustness | note: papers/20260218_are-you-sure_flipflop-experiment.md
 - [x] 2025 | Flip-Flop Consistency: Unsupervised Training for Robustness to Prompt Perturbations in LLMs (F^2C) | arXiv | https://arxiv.org/abs/2510.14242 | tags: inconsistency, robustness, training, prompt-perturbation | note: papers/20260217_flip-flop-consistency-f2c.md
 - [x] 2024 | Are language models rational? The case of coherence norms and belief revision | arXiv | https://arxiv.org/abs/2406.03442 | tags: belief-revision, rationality, coherence | note: papers/20260217_lm-rational-coherence.md
 - [x] 2024 | Fundamental Problems With Model Editing: How Should Rational Belief Revision Work in LLMs? | arXiv | https://arxiv.org/abs/2406.19354 | tags: belief-revision, model-editing, rationality | note: papers/20260217_fundamental-problems-model-editing.md
@@ -567,4 +567,4 @@ Format (one per line):
 - [x] 2025 | The Chameleon Nature of LLMs: Quantifying Multi-Turn Stance Instability in Search-Enabled Language Models | arXiv | https://arxiv.org/abs/2510.16712 | tags: multi-turn, stance-instability, search, robustness | note: papers/20260217_chameleon-stances-search-enabled.md  # duplicate queue entry
 - [x] 2025 | Beyond Single-Turn: A Survey on Multi-Turn Interactions with Large Language Models | arXiv | https://arxiv.org/abs/2504.04717 | tags: survey, multi-turn, robustness, evaluation | note: papers/20260217_beyond-single-turn-survey.md  # duplicate queue entry; note already exists
 - [x] 2025 | Consistently Simulating Human Personas with Multi-Turn Reinforcement Learning | arXiv | https://arxiv.org/abs/2511.00222 | tags: persona, consistency, multi-turn, rl | note: papers/20260217_persona-consistency-mt-rl.md  # duplicate queue entry; note already exists
-- [ ] 2023 | Are You Sure? Challenging LLMs Leads to Performance Drops in The FlipFlop Experiment | arXiv | https://arxiv.org/abs/2311.08596 | tags: flipflop, challenge-prompt, robustness, answer-revision
+- [x] 2023 | Are You Sure? Challenging LLMs Leads to Performance Drops in The FlipFlop Experiment | arXiv | https://arxiv.org/abs/2311.08596 | tags: flipflop, challenge-prompt, robustness, answer-revision | note: papers/20260218_are-you-sure_flipflop-experiment.md  # duplicate queue entry
