@@ -610,5 +610,5 @@ Format (one per line):
 - [x] 2025 | Galileo: Learning Global & Local Features of Many Remote Sensing Modalities | arXiv | https://arxiv.org/abs/2502.09356 | tags: remote-sensing, multimodal, foundation-model | note: papers/20260218_galileo-remote-sensing-modalities.md
 - [x] 2025 | Survey on Evaluation of LLM-based Agents | arXiv | https://arxiv.org/html/2503.16416v1 | tags: agents, evaluation, benchmarks | note: papers/20260218_survey_eval_llm_agents.md
 - [x] 2025 | Galileo Project Observatory Class System Architecture | arXiv | https://arxiv.org/abs/2506.00125 | tags: system-architecture | note: papers/20260218_galileo-ocicp-architecture.md
-- [ ] 2025 | Ionosphere of Ganymede: Galileo observations versus test particle simulation | arXiv | https://arxiv.org/abs/2502.13052 | tags: space-physics, simulation
+- [x] 2025 | Ionosphere of Ganymede: Galileo observations versus test particle simulation | arXiv | https://arxiv.org/abs/2502.13052 | tags: space-physics, simulation | note: papers/20260218_ganymede-ionosphere-galileo-test-particles.md
 - [ ] 2026 | Causality in Physics: From Galileo to Einstein, and Beyond | arXiv | https://arxiv.org/abs/2601.00037 | tags: physics, causality
