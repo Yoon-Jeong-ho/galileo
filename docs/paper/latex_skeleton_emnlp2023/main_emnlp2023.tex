@@ -41,6 +41,13 @@ We further observe that \emph{robustness} (staying correct) and \emph{recoverabi
 (2) a drift baseline (neutral re-asking control) that separates generic answer instability from persona-induced effects; and
 (3) a recovery stage that quantifies return-to-truth after a flip.
 
+\section{Related Work}
+\label{sec:related}
+
+Prior work has documented sycophancy and social-pressure failure modes in instruction-tuned LLMs, including analyses of when models defer to user assertions even when those assertions conflict with task truth \citep{sharma2023understandingsycophancylanguagemodels}.
+GALILEO complements this line of work by (i) grounding evaluation in tasks with externally checkable correctness, (ii) explicitly separating generic multi-turn drift (neutral re-asking control) from persona-induced pressure, and (iii) adding a recovery stage to quantify return-to-truth after a flip.
+More broadly, our emphasis on verifiable truth connects to work on truthfulness benchmarks such as TruthfulQA \citep{lin2022truthfulqameasuringmodelsmimic}, while focusing on a different axis: multi-turn belief-consistency failures and recovery under conversational pressure.
+
 \section{Figure include smoke test}
 
 \begin{figure}[t]
@@ -79,5 +86,9 @@ C6 & Fig.~\ref{fig:decoding-sweep} & decoding\_sweep\_qwen\_temp\_summary... & r
 \end{tabular}
 \caption{Minimal claim-to-evidence table (format smoke test).}
 \end{table}
+
+\clearpage
+\bibliographystyle{acl_natbib}
+\bibliography{references}
 
 \end{document}
