@@ -22,6 +22,28 @@ This folder contains the **MD-only** paper-writing workflow for the GALILEO EMNL
 - Prefer linking to artifact paths (CSV/SVG) from the draft so reviewers can verify claims.
 - Section numbering in drafts may be renumbered/removed during LaTeX conversion.
 
+## Qualitative taxonomy labeling sheet (flip samples → manual labels)
+
+We maintain a **reviewer-auditable** qualitative labeling workflow based on the tracked `flip_samples.csv` exports.
+
+- Output (tracked artifact):
+  - `docs/paper/artifacts/taxonomy_labeling_sheet_from_flip_samples_qwen_persona_seed1-4_20260217.csv`
+- Generator script:
+  - `scripts/make_taxonomy_sheet_from_flip_samples.py`
+- Sampling strategy:
+  - balanced across `(task_group inferred from test_name) × persona`, `--per_cell` examples each
+  - deterministic given `--seed`
+
+Usage (example):
+
+```bash
+python3 scripts/make_taxonomy_sheet_from_flip_samples.py \
+  --flip_csvs results/<RUN1>/paper_exports/flip_samples.csv,results/<RUN2>/paper_exports/flip_samples.csv \
+  --out_csv docs/paper/artifacts/taxonomy_labeling_sheet_from_flip_samples_<MODEL>_seed1-2_<YYYYMMDD>.csv \
+  --per_cell 10 \
+  --seed 42
+```
+
 ## Figure inventory (current)
 
 All figures below are **generated from tracked artifacts** and stored under `docs/paper/figures/`.
