@@ -43,6 +43,6 @@ Format (one per line):
 
 - [x] 2025 | RecToM: A Benchmark for Evaluating Machine Theory of Mind in LLM-based Conversational Recommender Systems | arXiv | https://arxiv.org/abs/2511.22275 | tags: multi-turn, social-pressure, sycophancy-adjacent, dialogue, evaluation | note: papers/20260217_rectom.md
 - [x] 2025 | Flipping the Dialogue: Training and Evaluating User Language Models | arXiv | https://arxiv.org/abs/2510.06552 | tags: multi-turn, user-modeling, dialogue, flip, evaluation | note: papers/20260217_flipping-dialogue-userlms.md
-- [ ] 2025 | Debunking with Dialogue? Exploring AI-Generated Counterspeech to Challenge Conspiracy Theories | arXiv | https://arxiv.org/abs/2504.16604 | tags: persuasion, belief-change, multi-turn, intervention
+- [x] 2025 | Debunking with Dialogue? Exploring AI-Generated Counterspeech to Challenge Conspiracy Theories | arXiv | https://arxiv.org/abs/2504.16604 | tags: persuasion, belief-change, multi-turn, intervention | note: papers/20260217_debunking-with-dialogue.md
 - [ ] 2025 | Multi-Turn Jailbreaks Are Simpler Than They Seem | arXiv | https://arxiv.org/abs/2508.07646 | tags: multi-turn, time-to-failure, refusal-retry, attacks
 - [ ] 2026 | Multi-Turn Jailbreaking of Aligned LLMs via Lexical Anchor Tree Search | arXiv | https://arxiv.org/abs/2601.02670 | tags: multi-turn, attacks, search, time-to-failure
