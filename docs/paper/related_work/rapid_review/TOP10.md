@@ -60,11 +60,11 @@ For each item, we maintain:
    - Borrow: (i) paired-control design as an explicit causal-ish estimator, (ii) confidence-mass shift metrics toward true vs imposed-false answers, (iii) failure-mode taxonomy for richer reporting than flip-rate alone.
    - How to change GALILEO: add a comparable paired-pressure slice (authority templates) and consider reporting confidence-drift (probability mass movement) alongside ToF/survival + recovery.
 
-9) **Moral Sycophancy in Vision Language Models** (Rabby et al., arXiv 2026; submitted to ACL)
-   - Contributes: a clean **2-turn disagreement protocol** for VLM moral judgments and two metrics that are very close to “harm vs recovery” decomposition: **EIR (Error Introduction Rate)** and **ECR (Error Correction Rate)**, plus evidence of **asymmetric flips** (right→wrong more likely than wrong→right).
-   - Misses vs GALILEO: only 2 turns (no long-horizon survival/TOF curves), and no explicit neutral re-asking control to separate drift from evidence-driven revision.
-   - Borrow: EIR/ECR reporting as a simple, interpretable split between *pressure-caused new errors* and *pressure-triggered corrections*.
-   - How to change GALILEO: consider adding EIR/ECR-style summary metrics alongside survival/TOF, and explicitly test for flip-direction asymmetry (right→wrong vs wrong→right) as a first-class stability diagnostic.
+9) **Consistency of Large Reasoning Models Under Multi-Turn Attack** (Li, Krishnan, Padman, arXiv 2026)
+   - Contributes: a direct, **8-round randomized multi-turn attack protocol** on factual MCQ that isolates *answer flipping under pressure* for **frontier reasoning models**, plus strong reporting: Acc_init/Acc_avg, **Position-Weighted Consistency (PWC)**, trajectory-pattern taxonomy (recovery vs oscillation vs terminal capitulation), and an attack-type vulnerability profile.
+   - Misses vs GALILEO: does not cleanly separate **evidence-driven revision** from pressure-only drift (attacks are rhetorical/social rather than “new evidence” controls); limited focus on explicit recovery objectives beyond pattern counts.
+   - Borrow: (i) PWC as an early-failure-sensitive metric, (ii) randomized follow-up ordering to reduce position bias, (iii) failure-mode labels (Self-Doubt, Social Conformity, Suggestion Hijacking, Emotional Susceptibility, Reasoning Fatigue).
+   - How to change GALILEO: include a “misleading suggestion” pressure operator as a canonical strong adversary; add PWC/trajectory-pattern reporting; and explicitly note that **confidence-based defenses (CARG) can fail on reasoning models** due to reasoning-induced overconfidence—so GALILEO should avoid over-claiming logprob confidence as an uncertainty signal.
 
 10) **SycEval: Evaluating LLM Sycophancy** (Fanous, Goldberg et al., AIES 2025)
    - Contributes: a very usable “rebuttal chain” protocol that (i) decomposes **progressive vs regressive** sycophancy (helpful vs harmful flips), (ii) compares **in-context vs preemptive** pressure, and (iii) manipulates **rhetorical strength** (simple→ethos→justification→citation+abstract) while also reporting **persistence** of flip behavior across stronger pressure.
@@ -75,4 +75,5 @@ For each item, we maintain:
 ## Changelog
 
 - 2026-02-17: Added *Time-To-Inconsistency* (arXiv 2025) for its survival-analysis / censoring framing (fills a key metric gap). Displaced *SycoEval-EM* (arXiv 2026): strong applied endpoint evaluation, but less central than survival/time-to-event methodology for GALILEO’s core claims.
+- 2026-02-17: Added *Consistency of Large Reasoning Models Under Multi-Turn Attack* (arXiv 2026) for its 8-round protocol + PWC/trajectory analysis + evidence that confidence-based defenses can fail on reasoning models. Displaced *Moral Sycophancy in Vision Language Models* (arXiv 2026): useful EIR/ECR idea, but less central (2-turn, VLM-specific).
 
