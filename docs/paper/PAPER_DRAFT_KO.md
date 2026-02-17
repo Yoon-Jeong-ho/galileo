@@ -30,6 +30,10 @@
 
 10) 현재 **Recovery가 ‘프롬프트 개입’이라 설득력이 약해 보일 위험**이 있고 → verify_then_answer 등 variant 결과를 본문에서 “intervention-dependence를 점검하는 최소 ablation”으로 위치시키고 → recovery claim을 ‘절대값’이 아니라 ‘distinct axis/상대 비교’로 제한해 주장 강도를 조정해야 한다.
 
+11) 현재 **재현성(artifacts/validator/runner_metadata parity)의 reviewer-facing 설명이 길게 흩어져** 있고 → “한 페이지: 어떻게 재현/검증하는가”를 README/Appendix 형태로 묶고(경로/커맨드 3줄) → reviewer가 5분 안에 검증 루트를 따라갈 수 있도록 수정해야 한다.
+
+12) 현재 **익명화(호스트 경로/모델 실행 환경) 리스크가 본문/부록에 잔존**할 수 있고 → ANONYMIZATION_NOTES 기준으로 `<REMOTE_HOST>/<REMOTE_REPO_ROOT>` 표기 규칙을 전면 적용해서 → 제출 직전 익명성 사고를 방지하도록 수정해야 한다.
+
 ## (업데이트) 지금까지 확정된 결과/산출물 요약
 
 - **핵심 결과(드리프트 베이스라인 포함):** Neutral Re-asking Control(비적대적 drift baseline) 대비 persona pressure가 survival/Fail@1/TOF를 일관되게 악화시키는 패턴을 관찰했고, 이는 Table W(Δ metric)로 요약됨.
