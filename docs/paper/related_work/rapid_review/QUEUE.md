@@ -110,3 +110,11 @@ Format (one per line):
 - [x] 2025 | LLM-Generated Ads: From Personalization Parity to Persuasion Superiority | arXiv | https://arxiv.org/abs/2512.03373 | tags: persuasion, advertising, human-eval | note: papers/20260217_llm-generated-ads.md
 - [x] 2025 | LLMs for Customized Marketing Content Generation and Evaluation at Scale | arXiv | https://arxiv.org/abs/2506.17863 | tags: persuasion, marketing, evaluation, personalization | note: papers/20260217_customized-marketing-content-generation-eval-scale.md
 - [x] 2025 | Evaluation and Benchmarking of LLM Agents: A Survey | arXiv | https://arxiv.org/abs/2507.21504 | tags: agents, evaluation, survey, multi-turn | note: papers/20260217_agents-eval-survey.md
+
+## New candidates (2026-02-17, web_search batch 12)
+
+- [x] 2025 | BrokenMath: A Benchmark for Sycophancy in Theorem Proving with LLMs | arXiv | https://arxiv.org/abs/2510.04721 | tags: sycophancy, benchmark, theorem-proving, robustness | note: papers/20260217_brokenmath.md
+- [x] 2025 | MARS-Bench: A Multi-turn Athletic Real-world Scenario Benchmark for Dialogue Evaluation | arXiv | https://arxiv.org/abs/2505.23810 | tags: multi-turn, dialogue, evaluation, benchmark | note: papers/20260217_mars-bench.md
+- [ ] 2025 | Steering Dialogue Dynamics for Robustness against Multi-turn Jailbreaking Attacks | arXiv | https://arxiv.org/abs/2503.00187 | tags: multi-turn, jailbreak, defense, steering, robustness
+- [ ] 2025 | AgentChangeBench: A Multi-Dimensional Evaluation Framework for Goal-Shift Robustness in Conversational AI | arXiv | https://arxiv.org/abs/2510.18170 | tags: multi-turn, agents, goal-shift, robustness, benchmark
+- [ ] 2026 | User-Oriented Multi-Turn Dialogue Generation with Tool Use at scale | arXiv | https://arxiv.org/abs/2601.08225 | tags: multi-turn, tool-use, data-generation, robustness
