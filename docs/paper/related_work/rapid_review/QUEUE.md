@@ -217,3 +217,11 @@ Format (one per line):
 - [x] 2025 | Understanding and Mitigating Numerical Sources of Nondeterminism in LLM Inference | arXiv | https://arxiv.org/abs/2506.09501 | tags: nondeterminism, reproducibility, inference, evaluation | note: papers/20260217_numerical-nondeterminism-inference.md
 - [x] 2026 | Beyond Reproducibility: Token Probabilities Expose Large Language Model Nondeterminism | arXiv | https://arxiv.org/abs/2601.06118 | tags: nondeterminism, reproducibility, token-probs, evaluation | note: papers/20260217_token-probabilities-nondeterminism.md
 - [x] 2026 | When LLMs get significantly worse: A statistical approach to detect model degradations | arXiv | https://arxiv.org/abs/2602.10144 | tags: monitoring, degradation-detection, drift, evaluation | note: papers/20260217_llm-degradation-detection-mcnemar.md
+
+## New candidates (2026-02-17, web_search batch 25)
+
+- [x] 2024 | MT-Bench-101: A Fine-Grained Benchmark for Evaluating Large Language Models in Multi-Turn Dialogues | ACL 2024 (arXiv) | https://arxiv.org/abs/2402.14762 | tags: multi-turn, dialogue, evaluation, benchmark, fine-grained | note: papers/20260217_mt-bench-101.md
+- [ ] 2024 | Get my drift? Catching LLM Task Drift with Activation Deltas | arXiv | https://arxiv.org/abs/2406.00799 | tags: drift, detection, activations, multi-turn, monitoring
+- [ ] 2025 | Memory Management and Contextual Consistency for Long-Running Low-Code Agents | arXiv | https://arxiv.org/abs/2509.25250 | tags: agents, long-horizon, memory, consistency, evaluation
+- [ ] 2025 | Enhancing Goal-oriented Proactive Dialogue Systems via Consistency Reflection and Correction | arXiv | https://arxiv.org/abs/2506.13366 | tags: dialogue, consistency, reflection, correction, goal-oriented
+- [ ] 2025 | UltraHorizon: Benchmarking Agent Capabilities in Ultra Long-Horizon Scenarios | arXiv | https://arxiv.org/abs/2509.21766 | tags: agents, long-horizon, benchmark, robustness, degradation
