@@ -213,7 +213,7 @@ Format (one per line):
 ## New candidates (2026-02-17, web_search batch 24)
 
 - [x] 2026 | Agent Drift: Quantifying Behavioral Degradation in Multi-Agent LLM Systems Over Extended Interactions | arXiv | https://arxiv.org/abs/2601.04170 | tags: multi-agent, drift, long-horizon, monitoring, stability-metrics | note: papers/20260217_agent-drift.md
-- [ ] 2025 | LLM Output Drift: Cross-Provider Validation & Mitigation for Financial Workflows | arXiv | https://arxiv.org/abs/2511.07585 | tags: drift, reproducibility, evaluation, finance
+- [x] 2025 | LLM Output Drift: Cross-Provider Validation & Mitigation for Financial Workflows | arXiv | https://arxiv.org/abs/2511.07585 | tags: drift, reproducibility, evaluation, finance | note: papers/20260217_llm-output-drift-finance.md
 - [ ] 2025 | Understanding and Mitigating Numerical Sources of Nondeterminism in LLM Inference | arXiv | https://arxiv.org/abs/2506.09501 | tags: nondeterminism, reproducibility, inference, evaluation
 - [ ] 2026 | Beyond Reproducibility: Token Probabilities Expose Large Language Model Nondeterminism | arXiv | https://arxiv.org/abs/2601.06118 | tags: nondeterminism, reproducibility, token-probs, evaluation
 - [ ] 2026 | When LLMs get significantly worse: A statistical approach to detect model degradations | arXiv | https://arxiv.org/abs/2602.10144 | tags: monitoring, degradation-detection, drift, evaluation
