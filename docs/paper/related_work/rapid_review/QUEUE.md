@@ -423,4 +423,4 @@ Format (one per line):
 - [x] 2023 | API-Bank: A Comprehensive Benchmark for Tool-Augmented LLMs | arXiv | https://arxiv.org/abs/2304.08244 | tags: tool-use, benchmark, api-calling, agents | note: papers/20260218_api-bank.md
 - [x] 2023 | On the Tool Manipulation Capability of Open-source Large Language Models (ToolBench) | arXiv | https://arxiv.org/abs/2305.16504 | tags: tool-use, benchmark, open-source, evaluation | note: papers/20260218_toolbench-open-source-tool-manipulation.md
 - [x] 2023 | ToolLLM: Facilitating Large Language Models to Master 16000+ Real-world APIs | arXiv | https://arxiv.org/abs/2307.16789 | tags: tool-use, api, instruction-following, evaluation | note: papers/20260218_toolllm_toolbench.md
-- [ ] 2025 | Survey on Evaluation of LLM-based Agents | arXiv | https://arxiv.org/html/2503.16416 | tags: agents, evaluation, survey
+- [x] 2025 | Survey on Evaluation of LLM-based Agents | arXiv | https://arxiv.org/html/2503.16416 | tags: agents, evaluation, survey | note: papers/20260218_survey-eval-llm-agents.md
