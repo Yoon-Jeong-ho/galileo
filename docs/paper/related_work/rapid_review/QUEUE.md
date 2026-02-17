@@ -74,7 +74,7 @@ Format (one per line):
 ## New candidates (2026-02-17, web_search batch 7)
 
 - [x] 2025 | Firm or Fickle? Evaluating Large Language Models Consistency in Sequential Interactions | arXiv | https://arxiv.org/abs/2503.22353 | tags: multi-turn, consistency, misleading-followups, recovery | note: papers/20260217_firm-or-fickle-mt-consistency.md
-- [ ] 2025 | LLMs Get Lost In Multi-Turn Conversation | arXiv | https://arxiv.org/abs/2505.06120 | tags: multi-turn, error-propagation, recovery
+- [x] 2025 | LLMs Get Lost In Multi-Turn Conversation | arXiv | https://arxiv.org/abs/2505.06120 | tags: multi-turn, error-propagation, recovery | note: papers/20260217_llms-get-lost-multi-turn.md
 - [ ] 2025 | How does Misinformation Affect Large Language Model Behaviors and Preferences? (MisBench) | arXiv | https://arxiv.org/abs/2505.21608 | tags: misinformation, robustness, preferences, benchmark
 - [ ] 2025 | Evaluating and Improving Robustness in Large Language Models: A Survey and Future Directions | arXiv | https://arxiv.org/abs/2506.11111 | tags: survey, robustness, evaluation
 - [ ] 2026 | RobustExplain: Evaluating Robustness of LLM-Based Explanation Agents for Recommendation | arXiv | https://arxiv.org/abs/2601.19120 | tags: multi-turn, robustness, perturbations, recommendation
