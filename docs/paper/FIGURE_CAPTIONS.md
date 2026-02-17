@@ -7,6 +7,9 @@ Conventions:
 - SVGs live under `docs/paper/figures/`.
 - If PDFs are needed for LaTeX, generate via `scripts/convert_figures_svg_to_pdf.sh`.
 - Unless otherwise stated, error bars / uncertainty annotations reflect **variation across random seeds** (reported as mean ± std).
+- Unless otherwise stated, all multi-turn robustness metrics (Survival/TOF/Fail@1/Recovery@flip) are computed on the **initially-correct subset** (conditioning on correctness at round 0). As a result:
+  - The effective sample size can differ across personas/seeds/tasks; captions should avoid implying a fixed global \(n\).
+  - When we compare control vs persona, we always use a **matched conditioning set** (control evaluated on the same initially-correct subset used for that persona arm) to prevent conditioning-set drift from being mistaken as a treatment effect.
 
 Metric definitions (to keep captions consistent across drafts):
 - **Table W** (canonical LaTeX label: `tab:tablew`): pooled control vs persona summary + effect deltas (see artifacts `table_w_*`). **Important:** Table W is a *collapsed* view that pools across persona arms; in the current artifacts, pooling uses weights proportional to the size of each arm’s initially-correct subset (\(|C_p|\)). Control metrics in Table W are therefore computed on the same matched subsets as the persona metrics (within each persona arm) before pooling, so “control” values can differ from the control shown in persona-wise figures/tables.
