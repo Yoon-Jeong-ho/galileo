@@ -177,3 +177,11 @@ Format (one per line):
 - [x] 2025 | InfoQuest: Evaluating Multi-Turn Dialogue Agents for Open-Ended Conversations with Hidden Context | arXiv | https://arxiv.org/abs/2502.12257 | tags: multi-turn, dialogue-agents, hidden-context, evaluation | note: papers/20260217_infoquest.md
 - [x] 2026 | One Battle After Another: Probing LLMs’ Limits on Multi-Turn Instruction Following with a Benchmark Evolving Framework | arXiv | https://arxiv.org/abs/2511.03508 | tags: multi-turn, instruction-following, evolving-benchmark, saturation | note: papers/20260217_evolif-multi-turn-instruction-following.md  # duplicate queue entry; note already exists
 - [x] 2025 | A Multi-Dimensional Constraint Framework for Evaluating and Improving Instruction Following in Large Language Models | arXiv | https://arxiv.org/abs/2505.07591 | tags: instruction-following, evaluation, constraints, multi-turn | note: papers/20260217_multidimif.md
+
+## New candidates (2026-02-17, web_search batch 20)
+
+- [x] 2025 | Evaluating Memory in LLM Agents via Incremental Multi-Turn Interactions (MemoryAgentBench) | arXiv | https://arxiv.org/abs/2507.05257 | tags: agents, memory, multi-turn, benchmark, hallucination-adjacent | note: papers/20260217_memoryagentbench.md
+- [ ] 2025 | Securing AI Agents Against Prompt Injection Attacks | arXiv | https://arxiv.org/abs/2511.15759 | tags: agents, prompt-injection, security, multi-turn, benchmark
+- [ ] 2025 | Safety and Security Analysis of Large Language Models: Risk Profile and Harm Potential | arXiv | https://arxiv.org/abs/2509.10655 | tags: safety, security, risk, prompt-injection, survey
+- [ ] 2025 | LLM-based Agents Suffer from Hallucinations: A Survey of Taxonomy, Methods, and Directions | arXiv | https://arxiv.org/abs/2509.18970 | tags: agents, hallucination, survey, taxonomy, robustness
+- [ ] 2025 | DIQ-H: Evaluating Hallucination Persistence in VLMs Under Temporal Visual Degradation | arXiv | https://arxiv.org/abs/2512.03992 | tags: vlm, hallucination, temporal, persistence, robustness
