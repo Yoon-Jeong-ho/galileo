@@ -331,3 +331,11 @@ Format (one per line):
 - [x] 2024 | Flattering to Deceive: The Impact of Sycophantic Behavior on User Trust in Large Language Model | arXiv | https://arxiv.org/abs/2412.02802 | tags: sycophancy, user-trust, human-factors | note: papers/20260217_flattering-to-deceive-user-trust.md
 - [x] 2025 | Sycophancy Mitigation Through Reinforcement Learning with Uncertainty-Aware Adaptive Reasoning Trajectories | arXiv | https://arxiv.org/abs/2509.16742 | tags: sycophancy, mitigation, RL, uncertainty | note: papers/20260217_smart-sycophancy-mitigation-ua-mcts.md
 - [x] 2025 | Sycophancy Is Not One Thing: Causal Separation of Sycophantic Behaviors in LLMs | arXiv | https://arxiv.org/abs/2509.21305 | tags: sycophancy, causal, taxonomy, evaluation | note: papers/20260217_sycophancy-not-one-thing-causal-separation.md
+
+## New candidates (2026-02-17, web_search batch 32)
+
+- [x] 2026 | LUMINA: Long-horizon Understanding for Multi-turn Interactive Agents | arXiv | https://arxiv.org/abs/2601.16649 | tags: agents, long-horizon, multi-turn, interactive | note: papers/20260217_lumina.md
+- [ ] 2025 | OdysseyBench: Evaluating LLM Agents on Long-Horizon Complex Office Application Workflows | arXiv | https://arxiv.org/abs/2508.09124 | tags: agents, long-horizon, workflows, evaluation
+- [ ] 2025 | SWE-Bench Pro: Can AI Agents Solve Long-Horizon Software Engineering Tasks? | arXiv | https://arxiv.org/abs/2509.16941 | tags: agents, long-horizon, software-engineering, benchmark
+- [ ] 2026 | NL2Repo-Bench: Towards Long-Horizon Repository Generation Evaluation of Coding Agents | arXiv | https://arxiv.org/abs/2512.12730 | tags: agents, coding, repository-generation, long-horizon, benchmark
+- [ ] 2025 | HeroBench: A Benchmark for Long-Horizon Planning and Structured Reasoning in Virtual Worlds | arXiv | https://arxiv.org/abs/2508.12782 | tags: agents, planning, long-horizon, virtual-worlds, benchmark
