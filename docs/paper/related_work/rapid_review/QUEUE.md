@@ -477,6 +477,6 @@ Format (one per line):
 
 - [x] 2025 | LIFBench: Evaluating the Instruction Following Performance and Stability of Large Language Models in Long-Context Scenarios | arXiv | https://arxiv.org/abs/2411.07037 | tags: instruction-following, stability, long-context, benchmark | note: papers/20260218_lifbench.md
 - [x] 2025 | Technical Report: Evaluating Goal Drift in Language Model Agents | arXiv | https://arxiv.org/abs/2505.02709 | tags: goal-drift, long-context, agents, evaluation | note: papers/20260217_goal-drift-agents.md (duplicate queue entry)
-- [ ] 2026 | One Battle After Another: Probing LLMs’ Limits on Multi-Turn Instruction Following with a Benchmark Evolving Framework | arXiv | https://arxiv.org/abs/2511.03508 | tags: multi-turn, instruction-following, benchmark, evolving
+- [x] 2026 | One Battle After Another: Probing LLMs’ Limits on Multi-Turn Instruction Following with a Benchmark Evolving Framework | arXiv | https://arxiv.org/abs/2511.03508 | tags: multi-turn, instruction-following, benchmark, evolving | note: papers/20260217_evolif-multi-turn-instruction-following.md (duplicate queue entry)
 - [ ] 2026 | Communication Enhances LLMs’ Stability in Strategic Thinking | arXiv | https://arxiv.org/abs/2602.06081 | tags: stability, multi-turn, strategic-thinking, communication
 - [ ] 2025 | T3: Reducing Belief Deviation in Reinforcement Learning for Active Reasoning | arXiv | https://arxiv.org/abs/2510.12264 | tags: belief-deviation, active-reasoning, rl, robustness
