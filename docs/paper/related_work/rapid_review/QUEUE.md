@@ -403,7 +403,7 @@ Format (one per line):
 ## New candidates (2026-02-18, web_search batch)
 
 - [x] 2025 | Modeling and Predicting Multi-Turn Answer Instability in Large Language Models | arXiv | https://arxiv.org/abs/2511.10688 | tags: multi-turn, answer-instability, drift, robustness, evaluation | note: papers/20260217_modeling-multi-turn-answer-instability.md (duplicate queue entry)
-- [ ] 2025 | Drift No More? Context Equilibria in Multi-Turn LLM Interactions | arXiv | https://arxiv.org/abs/2510.07777 | tags: multi-turn, drift, context, robustness | note: 
+- [x] 2025 | Drift No More? Context Equilibria in Multi-Turn LLM Interactions | arXiv | https://arxiv.org/abs/2510.07777 | tags: multi-turn, drift, context, robustness | note: papers/20260217_drift-no-more.md (duplicate queue entry)
 - [ ] 2025 | Measuring Sycophancy of Language Models in Multi-turn Dialogues | arXiv | https://arxiv.org/abs/2505.23840 | tags: sycophancy, multi-turn, evaluation, dialogue | note: 
 - [ ] 2026 | SycoEval-EM: Sycophancy Evaluation of Large Language Models in Simulated Clinical Encounters for Emergency Care | arXiv | https://arxiv.org/abs/2601.16529 | tags: sycophancy, persuasion, clinical, safety, evaluation | note: 
 - [ ] 2025 | Towards Understanding Sycophancy in Language Models | arXiv | https://arxiv.org/abs/2310.13548 | tags: sycophancy, preference-modeling, RLHF, truthfulness | note: 
