@@ -387,6 +387,6 @@ Format (one per line):
 
 - [x] 2025 | ConsistencyAI: A Benchmark to Assess LLMs' Factual Consistency When Responding to Different Demographic Groups | arXiv | https://arxiv.org/abs/2510.13852 | tags: consistency, fairness-adjacent, robustness, evaluation | note: papers/20260218_consistencyai-demographic-factual-consistency.md
 - [x] 2024 | Mitigating sycophancy in decoder-only transformer architectures: Synthetic data intervention | arXiv | https://arxiv.org/abs/2411.10156 | tags: sycophancy, mitigation, synthetic-data, robustness | note: papers/20260218_mitigating-sycophancy-sdi.md
-- [ ] 2025 | Multi-Faceted Evaluation of Tool-Augmented Dialogue Systems | arXiv | https://arxiv.org/abs/2510.19186 | tags: multi-turn, tool-use, evaluation, dialogue
+- [x] 2025 | Multi-Faceted Evaluation of Tool-Augmented Dialogue Systems | arXiv | https://arxiv.org/abs/2510.19186 | tags: multi-turn, tool-use, evaluation, dialogue | note: papers/20260218_trace_scope_tool_aug_dialogue_eval.md (duplicate of TRACE/SCOPE entry above)
 - [ ] 2025 | ConvCodeWorld: Benchmarking Conversational Code Generation in Reproducible Feedback Environments | arXiv | https://arxiv.org/abs/2502.19852 | tags: multi-turn, code, feedback, evaluation
 - [ ] 2025 | CodeAssistBench (CAB): Dataset & Benchmarking for Multi-turn Chat-Based Code Assistance | arXiv | https://arxiv.org/abs/2507.10646 | tags: multi-turn, code, benchmark, evaluation
