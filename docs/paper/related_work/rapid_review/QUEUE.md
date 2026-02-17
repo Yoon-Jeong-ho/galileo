@@ -323,3 +323,11 @@ Format (one per line):
 - [x] 2026 | Generative Modeling via Drifting | arXiv | https://arxiv.org/abs/2602.04770 | tags: drifting, representation, robustness | note: papers/20260217_generative-modeling-via-drifting.md
 - [x] 2025 | Auditing cognitive drift in AI-driven recommendation: a responsible AI methods protocol with a health case demonstration | Frontiers | https://www.frontiersin.org/journals/neuroscience/articles/10.3389/fnins.2025.1697053/full | tags: cognitive-drift, auditing, protocol | note: papers/20260217_auditing-cognitive-drift-recommenders.md
 - [x] 2025 | Steering Dialogue Dynamics for Robustness against Multi-turn Jailbreaking Attacks (alt link) | ResearchGate | https://www.researchgate.net/publication/389547855_Steering_Dialogue_Dynamics_for_Robustness_against_Multi-turn_Jailbreaking_Attacks | tags: multi-turn, jailbreak, safety | note: papers/20260217_steering-dialogue-dynamics-multi-turn-jailbreaking-altlink.md (duplicate of arXiv entry; RG blocked)
+
+## New candidates (2026-02-17, web_search batch 32)
+
+- [x] 2024 | Simple Synthetic Data Reduces Sycophancy in Large Language Models | arXiv | https://arxiv.org/abs/2308.03958 | tags: sycophancy, mitigation, synthetic-data, preference-modeling | note: papers/20260217_simple-synthetic-data-reduces-sycophancy.md
+- [x] 2024 | Mitigating Sycophancy in Decoder-Only Transformer Architectures: Synthetic Data Intervention | arXiv | https://arxiv.org/abs/2411.10156 | tags: sycophancy, mitigation, synthetic-data, training | note: papers/20260217_mitigating-sycophancy-decoder-only-sdi.md
+- [ ] 2024 | Flattering to Deceive: The Impact of Sycophantic Behavior on User Trust in Large Language Model | arXiv | https://arxiv.org/abs/2412.02802 | tags: sycophancy, user-trust, human-factors
+- [ ] 2025 | Sycophancy Mitigation Through Reinforcement Learning with Uncertainty-Aware Adaptive Reasoning Trajectories | arXiv | https://arxiv.org/abs/2509.16742 | tags: sycophancy, mitigation, RL, uncertainty
+- [ ] 2025 | Sycophancy Is Not One Thing: Causal Separation of Sycophantic Behaviors in LLMs | arXiv | https://arxiv.org/abs/2509.21305 | tags: sycophancy, causal, taxonomy, evaluation
