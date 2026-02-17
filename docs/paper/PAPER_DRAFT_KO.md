@@ -5,6 +5,10 @@
 
 ---
 
+## (수정/보완해야 할 것만) 리비전 TODO (SSOT)
+
+- `docs/paper/REVISION_TODO_KO.md` (요청 포맷: “현재 → 해서 → 로”)
+
 ## (업데이트) 지금까지 확정된 결과/산출물 요약
 
 - **핵심 결과(드리프트 베이스라인 포함):** Neutral Re-asking Control(비적대적 drift baseline) 대비 persona pressure가 survival/Fail@1/TOF를 일관되게 악화시키는 패턴을 관찰했고, 이는 Table W(Δ metric)로 요약됨.
