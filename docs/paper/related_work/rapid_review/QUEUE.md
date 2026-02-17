@@ -416,3 +416,11 @@ Format (one per line):
 - [x] 2025 | One Battle After Another: Probing LLMs’ Limits on Multi-Turn Instruction Following with a Benchmark Evolving Framework | arXiv | https://arxiv.org/abs/2511.03508 | tags: multi-turn, instruction-following, benchmark, robustness | note: papers/20260217_evolif-multi-turn-instruction-following.md (duplicate queue entry)
 - [x] 2026 | MemoryRewardBench: Benchmarking Reward Models for Long-Term Memory Management in Large Language Models | arXiv | https://arxiv.org/abs/2601.11969 | tags: long-context, memory, reward-model, benchmark | note: papers/20260218_memoryrewardbench_reward_models_memory_mgmt.md
 - [x] 2025 | Full-Duplex-Bench: A Benchmark to Evaluate Full-duplex Spoken Dialogue Models on Turn-taking Capabilities | arXiv | https://arxiv.org/abs/2503.04721 | tags: spoken-dialogue, multi-turn, turn-taking, benchmark | note: papers/20260217_full-duplex-bench.md (duplicate queue entry)
+
+## New candidates (2026-02-18, web_search)
+
+- [x] 2023 | AgentBench: Evaluating LLMs as Agents | arXiv | https://arxiv.org/abs/2308.03688 | tags: agents, evaluation, benchmark, tool-use | note: papers/20260218_agentbench.md
+- [ ] 2023 | API-Bank: A Comprehensive Benchmark for Tool-Augmented LLMs | arXiv | https://arxiv.org/abs/2304.08244 | tags: tool-use, benchmark, api-calling, agents
+- [ ] 2023 | On the Tool Manipulation Capability of Open-source Large Language Models (ToolBench) | arXiv | https://arxiv.org/abs/2305.16504 | tags: tool-use, benchmark, open-source, evaluation
+- [ ] 2023 | ToolLLM: Facilitating Large Language Models to Master 16000+ Real-world APIs | arXiv | https://arxiv.org/abs/2307.16789 | tags: tool-use, api, instruction-following, evaluation
+- [ ] 2025 | Survey on Evaluation of LLM-based Agents | arXiv | https://arxiv.org/html/2503.16416 | tags: agents, evaluation, survey
