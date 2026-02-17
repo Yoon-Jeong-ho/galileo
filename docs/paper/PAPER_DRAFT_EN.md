@@ -383,12 +383,22 @@ Unless stated otherwise, results are reported as mean±std over **seeds 1–4** 
 
 This does **not** contradict the much larger persona-vs-control gap in **Table W**, which compares persona pressure against the Neutral Re-asking Control at the **aggregate** level (and can involve different initially-correct subsets and aggregation weights).
 
-**Aggregation note (to preempt reviewer confusion).** There are two reasonable aggregation choices in this project, and they answer different questions:
+**Aggregation note (to preempt reviewer confusion).** We report *two* complementary views, which can differ numerically because they weight examples/personas differently:
 
-1. **Matched persona-wise deltas (mechanism-specific, apples-to-apples within a persona).** For each persona \(p\), compute metrics for persona pressure and control on the *same* initially-correct subset \(C_p\), then report \(\Delta_p = \text{metric}_{\text{persona},p} - \text{metric}_{\text{control},p}\). This is what the persona-wise delta figures/tables show.
-2. **Collapsed “persona pressure vs control” headline (overall reliability impact).** Pool examples across personas (effectively weighting personas by the size of their evaluation sets, e.g., \(|C_p|\) or an explicitly chosen per-persona weight) and then compute the persona-vs-control gap on the pooled data. This is what Table~W summarizes.
+1. **Matched persona-wise deltas (mechanism-specific; apples-to-apples within a persona).** For each persona \(p\), compute the metric under persona pressure and under the Neutral Re-asking Control on the *same* initially-correct subset \(C_p\), then report
+   \[
+   \Delta_p = \text{metric}_{\text{persona},p} - \text{metric}_{\text{control},p}.
+   \]
+   This is what persona-wise delta figures/tables show.
 
-Because \(|C_p|\) can differ across personas (especially if runs were executed separately per persona with arm-specific Phase~1 filtering), the pooled Table~W gap can be substantially larger than the average of matched persona-wise deltas. In the camera-ready version, we will keep both views: (i) matched persona-wise deltas (mechanism-specific incremental effect) and (ii) Table~W’s collapsed gap (headline reliability impact vs drift baseline), and we will state the pooling/weighting explicitly in the Table~W caption.
+2. **Collapsed “persona pressure vs control” headline (overall reliability impact vs drift).** Pool across personas and compare persona pressure vs control *after pooling*.
+   A concrete way to state this in the paper is: choose weights \(w_p\) (default: \(w_p\propto |C_p|\)), and compute
+   \[
+   \Delta_{\mathrm{pool}} = \sum_p w_p\,\text{metric}_{\text{persona},p} - \sum_p w_p\,\text{metric}_{\text{control},p}.
+   \]
+   This is what Table~W is intended to summarize.
+
+**Why they can disagree.** If \(|C_p|\) varies across personas (e.g., when Phase~1 filtering is arm-specific), then \(\Delta_{\mathrm{pool}}\) can be substantially larger (or smaller) than the unweighted average of \(\Delta_p\). In the camera-ready version, we should keep both views and make Table~W’s weighting explicit in the caption (e.g., “pooled across personas with weights proportional to \(|C_p|\)”).
 
 For interpretability, we further analyze detected flips with a qualitative taxonomy (boundary/overanswer vs partial-overlap vs semantic-change) and provide representative examples in Appendix~A.2. **Importantly, this taxonomy is post-hoc and diagnostic-only; we do not recompute survival/TOF/recovery with taxonomy labels.**
 
