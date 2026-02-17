@@ -98,7 +98,7 @@ Format (one per line):
 ## New candidates (2026-02-17, web_search batch 10)
 
 - [x] 2025 | MultiChallenge: A Realistic Multi-Turn Conversation Evaluation Benchmark Challenging to Frontier LLMs | arXiv | https://arxiv.org/abs/2501.17399 | tags: multi-turn, persistence, context, evaluation | note: papers/20260217_multichallenge.md
-- [ ] 2025 | One Battle After Another: Probing LLMs’ Limits on Multi-Turn Instruction Following with a Benchmark Evolving Framework | arXiv | https://arxiv.org/abs/2511.03508 | tags: multi-turn, instruction-following, survival-curves, recovery
-- [ ] 2025 | Modeling and Predicting Multi-Turn Answer Instability in Large Language Models | arXiv | https://arxiv.org/abs/2511.10688 | tags: multi-turn, instability, prediction, markov
+- [x] 2025 | One Battle After Another: Probing LLMs’ Limits on Multi-Turn Instruction Following with a Benchmark Evolving Framework | arXiv | https://arxiv.org/abs/2511.03508 | tags: multi-turn, instruction-following, survival-curves, recovery | note: papers/20260217_evolif-multi-turn-instruction-following.md
+- [x] 2025 | Modeling and Predicting Multi-Turn Answer Instability in Large Language Models | arXiv | https://arxiv.org/abs/2511.10688 | tags: multi-turn, instability, prediction, markov | note: papers/20260217_modeling-multi-turn-answer-instability.md
 - [ ] 2025 | ERGO: Entropy-guided Resetting for Generation Optimization in Multi-turn Language Models | arXiv | https://arxiv.org/abs/2510.14077 | tags: multi-turn, intervention, recovery, stability
 - [ ] 2025 | LM-Fix: Lightweight Bit-Flip Detection and Rapid Recovery Framework for Language Models | arXiv | https://arxiv.org/abs/2511.02866 | tags: reliability, recovery, bit-flip, deployment
