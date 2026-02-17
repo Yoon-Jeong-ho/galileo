@@ -141,4 +141,4 @@ Format (one per line):
 - [x] 2026 | The ICASSP 2026 HumDial Challenge: Benchmarking Human-like Spoken Dialogue Systems in the LLM Era | arXiv | https://arxiv.org/abs/2601.05564 | tags: spoken-dialogue, benchmark, multi-turn, humanlike | note: papers/20260217_humdial-icassp2026.md
 - [x] 2026 | MedDialogRubrics: A Comprehensive Benchmark and Evaluation Framework for Multi-turn Medical Consultations in Large Language Models | arXiv | https://arxiv.org/abs/2601.03023 | tags: multi-turn, medical, benchmark, evaluation, rubrics | note: papers/20260217_meddialogrubrics.md
 - [x] 2026 | HalluHard: A Hard Multi-Turn Hallucination Benchmark | arXiv | https://arxiv.org/abs/2602.01031 | tags: hallucination, multi-turn, benchmark, robustness | note: papers/20260217_halluhard.md
-- [ ] 2025 | HaluMem: Evaluating Hallucinations in Memory Systems of Agents | arXiv | https://arxiv.org/abs/2511.03506 | tags: agents, memory, hallucination, benchmark, long-horizon
+- [x] 2026 | HaluMem: Evaluating Hallucinations in Memory Systems of Agents | arXiv | https://arxiv.org/abs/2511.03506 | tags: agents, memory, hallucination, benchmark, long-horizon | note: papers/20260217_halumem.md
