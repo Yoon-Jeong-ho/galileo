@@ -107,6 +107,16 @@ To avoid accidentally leaking hostnames/absolute paths in an anonymized submissi
 # then zip/tar tmp/anonymized_bundle/
 ```
 
+## Sanity checks (fast)
+
+- **BibTeX key check (avoid LaTeX build failures):**
+
+```bash
+python3 tools/check_bibkeys.py
+```
+
+By default this scans `docs/paper/` and `tmp/emnlp2023_smoketest/` for `\cite{...}` keys and checks they exist in `references.bib`.
+
 ## Make targets (optional)
 
 If you prefer `make` (note: some minimal environments may not have `make` installed), you can run:
