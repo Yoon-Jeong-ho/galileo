@@ -23,8 +23,9 @@ CITE_KEYS="$TMP_DIR/cite_keys.txt"
 BIB_KEYS="$TMP_DIR/bib_keys.txt"
 MISSING_KEYS="$TMP_DIR/missing_keys.txt"
 
-# Extract citation keys from \cite{...}. Split multi-key cites on commas.
-perl -0777 -ne 'while(/\\cite\{([^}]+)\}/g){print "$1\n"}' "$DRAFT_PATH" \
+# Extract citation keys from \cite{...}, \citet{...}, \citep{...}, etc.
+# Split multi-key cites on commas.
+perl -0777 -ne 'while(/\\cite\w*\{([^}]+)\}/g){print "$1\n"}' "$DRAFT_PATH" \
   | tr ',' '\n' \
   | sed 's/^ *//;s/ *$//' \
   | grep -v '^$' \
