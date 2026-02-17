@@ -168,4 +168,4 @@ Format (one per line):
 - [x] 2025 | Tempest: Autonomous Multi-Turn Jailbreaking of Large Language Models with Tree Search | arXiv | https://arxiv.org/abs/2503.10619 | tags: multi-turn, jailbreak, tree-search, attacks | note: papers/20260217_tempest-tree-search-jailbreak.md
 
 ## Added candidates (auto)
-- [ ] 2025 | Challenging the Evaluator: LLM Sycophancy Under User Rebuttal | arXiv:2509.16533 | https://arxiv.org/abs/2509.16533 | tags: sycophancy, rebuttal, persuasion, multi-turn
+- [x] 2025 | Challenging the Evaluator: LLM Sycophancy Under User Rebuttal | arXiv:2509.16533 | https://arxiv.org/abs/2509.16533 | tags: sycophancy, rebuttal, persuasion, multi-turn | note: papers/20260217_challenging-the-evaluator.md
