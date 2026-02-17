@@ -398,3 +398,12 @@ Format (one per line):
 - [x] 2026 | Alignment Drift in Multimodal LLMs: A Two-Phase, Longitudinal Evaluation of Harm Across Eight Model Releases | arXiv | https://arxiv.org/abs/2602.04739 | tags: drift, longitudinal, safety, multimodal | note: papers/20260218_alignment-drift-mllms-harm-longitudinal.md
 - [x] 2025 | Multi-turn evaluation of anthropomorphic behaviours in large language models | arXiv | https://arxiv.org/abs/2502.07077 | tags: multi-turn, anthropomorphism, evaluation, behavior | note: papers/20260218_multi-turn-eval-anthropomorphic-llms.md
 - [x] 2024 | RESPACT: Harmonizing Reasoning, Speaking, and Acting towards Building LLM-based Conversational AI Agents | arXiv | https://arxiv.org/abs/2411.00927 | tags: agents, multi-turn, speech-act, planning | note: papers/20260218_respact_reason_speak_act.md
+
+
+## New candidates (2026-02-18, web_search batch)
+
+- [x] 2025 | Modeling and Predicting Multi-Turn Answer Instability in Large Language Models | arXiv | https://arxiv.org/abs/2511.10688 | tags: multi-turn, answer-instability, drift, robustness, evaluation | note: papers/20260217_modeling-multi-turn-answer-instability.md (duplicate queue entry)
+- [ ] 2025 | Drift No More? Context Equilibria in Multi-Turn LLM Interactions | arXiv | https://arxiv.org/abs/2510.07777 | tags: multi-turn, drift, context, robustness | note: 
+- [ ] 2025 | Measuring Sycophancy of Language Models in Multi-turn Dialogues | arXiv | https://arxiv.org/abs/2505.23840 | tags: sycophancy, multi-turn, evaluation, dialogue | note: 
+- [ ] 2026 | SycoEval-EM: Sycophancy Evaluation of Large Language Models in Simulated Clinical Encounters for Emergency Care | arXiv | https://arxiv.org/abs/2601.16529 | tags: sycophancy, persuasion, clinical, safety, evaluation | note: 
+- [ ] 2025 | Towards Understanding Sycophancy in Language Models | arXiv | https://arxiv.org/abs/2310.13548 | tags: sycophancy, preference-modeling, RLHF, truthfulness | note: 
