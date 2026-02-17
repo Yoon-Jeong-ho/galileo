@@ -970,3 +970,9 @@ Next:
 Next:
 - Draft KO "수정/보완해야 할 것만" TODO list (8–12 items) in the requested "현재 → 해서 → 로" format.
 - Ensure the same context-length note is reflected (briefly) in KO draft or appendix if we cite Nemo numbers prominently.
+
+## 2026-02-17 20:24 (KST) — KO revision TODO list ("현재 → 해서 → 로")
+
+- Added an SSOT revision TODO list in the requested "현재 ~~가 부족/문제이고 → ~~해서 → ~~로 수정해야 한다" format (12 items; reviewer-risk only).
+  - New: `docs/paper/REVISION_TODO_KO.md`
+  - Linked from: `docs/paper/PAPER_DRAFT_KO.md` (top)
