@@ -448,3 +448,11 @@ Format (one per line):
 - [x] 2025 | When Punctuation Matters: A Large-Scale Comparison of Prompt Robustness Methods for LLMs | arXiv | https://arxiv.org/abs/2508.11383 | tags: prompt-robustness, sensitivity, evaluation | note: papers/20260218_punctuation_prompt_robustness.md
 - [x] 2025 | Structured Prompting Enables More Robust Evaluation of Language Models | arXiv | https://arxiv.org/abs/2511.20836 | tags: prompting, evaluation, robustness | note: papers/20260218_structured-prompting-robust-eval-lms.md
 - [x] 2026 | Revisiting Prompt Sensitivity in Large Language Models for Text Classification: The Role of Prompt Underspecification | arXiv | https://arxiv.org/abs/2602.04297 | tags: prompt-sensitivity, underspecification, robustness | note: papers/20260218_prompt-underspecification-prompt-sensitivity.md
+
+## New candidates (2026-02-18, stance/opinion batch)
+
+- [x] 2025 | Language Model Fine-Tuning on Scaled Survey Data for Predicting Distributions of Public Opinions | arXiv | https://arxiv.org/abs/2502.16761 | tags: opinions, stability, survey, evaluation | note: papers/20260218_subpop_survey_finetuning.md
+- [ ] 2025 | PrimeX: A Dataset of Worldview, Opinion, and Explanation | arXiv | https://arxiv.org/abs/2510.00174 | tags: opinions, user-modeling, personalization, stability
+- [ ] 2025 | Multilingual Political Views of Large Language Models: Identification and Steering | arXiv | https://arxiv.org/abs/2507.22623 | tags: political-stance, multilingual, steering, stability
+- [ ] 2025 | LLMs, Virtual Users, and Bias: Predicting Any Survey Question Without Human Data | arXiv | https://arxiv.org/abs/2503.16498 | tags: synthetic-users, survey, bias, evaluation
+- [ ] 2025 | Linear Representations of Political Perspective Emerge in Large Language Models | arXiv | https://arxiv.org/abs/2503.02080 | tags: representations, political-stance, probing, stability
