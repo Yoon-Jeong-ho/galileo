@@ -528,3 +528,11 @@ Format (one per line):
 - [x] 2025 | Modeling and Predicting Multi-Turn Answer Instability in Large Language Models | arXiv | https://arxiv.org/abs/2511.10688 | tags: instability, multi-turn, reliability | note: papers/20260217_modeling-multi-turn-answer-instability.md  # duplicate queue entry
 - [x] 2025 | One Battle After Another: Probing LLMs’ Limits on Multi-Turn Instruction Following with a Benchmark Evolving Framework | arXiv | https://arxiv.org/abs/2511.03508 | tags: multi-turn, instruction-following, benchmark | note: papers/20260217_evolif-multi-turn-instruction-following.md (duplicate queue entry)
 - [x] 2024 | Sycophancy in Large Language Models: Causes and Mitigations | arXiv | https://arxiv.org/abs/2411.15287 | tags: sycophancy, causes, mitigation, survey | note: papers/20260218_sycophancy-llms-survey.md
+
+## New candidates (2026-02-18, web_search batch)
+
+- [x] 2025 | HopRAG: Multi-Hop Reasoning for Logic-Aware Retrieval-Augmented Generation | arXiv | https://arxiv.org/abs/2502.12442 | tags: rag, multi-hop, retrieval, reasoning | note: papers/20260218_hoprag.md
+- [ ] 2025 | Retrieval-Augmented Generation: A Comprehensive Survey of Architectures, Enhancements, and Robustness Frontiers | arXiv | https://arxiv.org/abs/2506.00054 | tags: rag, survey, robustness
+- [ ] 2024 | MultiHop-RAG: Benchmarking Retrieval-Augmented Generation for Multi-Hop Queries | arXiv | https://arxiv.org/abs/2401.15391 | tags: rag, benchmark, multi-hop, evaluation
+- [ ] 2025 | RAP-RAG: A Retrieval-Augmented Generation Framework with Adaptive Retrieval Task Planning | Electronics (MDPI) | https://www.mdpi.com/2079-9292/14/21/4269 | tags: rag, planning, adaptive-retrieval
+- [ ] 2025 | Tracert-Retrieval-Augmented Generation: Boosting Multi-Hop Retrieval-Augmented Generation with Direction-Aware Graph Traversal | Proceedings (MDPI) | https://www.mdpi.com/2673-4591/120/1/47 | tags: rag, graph-traversal, multi-hop
