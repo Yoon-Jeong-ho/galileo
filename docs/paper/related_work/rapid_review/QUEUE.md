@@ -282,7 +282,7 @@ Format (one per line):
 - [x] 2025 | MTBench: A Multimodal Time Series Benchmark for Temporal Reasoning and Question Answering | arXiv | https://arxiv.org/abs/2503.16858 | tags: benchmark, temporal-reasoning, multimodal | note: papers/20260217_mtbench-multimodal-time-series.md
 - [x] 2025 | Learning-Based Automated Adversarial Red-Teaming for Robustness Evaluation of Large Language Models | arXiv | https://arxiv.org/abs/2512.20677 | tags: robustness, adversarial, red-teaming, evaluation | note: papers/20260217_learning-based-auto-red-teaming.md
 - [x] 2026 | SEAD: Self-Evolving Agent for Multi-Turn Service Dialogue | arXiv | https://arxiv.org/abs/2602.03548 | tags: agents, service-dialogue, multi-turn | note: papers/20260217_sead-self-evolving-agent-service-dialogue.md
-- [ ] 2026 | LingxiDiagBench: A Multi-Agent Framework for Benchmarking LLMs in Chinese Psychiatric Consultation and Diagnosis | arXiv | https://arxiv.org/abs/2602.09379 | tags: multi-agent, clinical, benchmark, multi-turn
+- [x] 2026 | LingxiDiagBench: A Multi-Agent Framework for Benchmarking LLMs in Chinese Psychiatric Consultation and Diagnosis | arXiv | https://arxiv.org/abs/2602.09379 | tags: multi-agent, clinical, benchmark, multi-turn | note: papers/20260217_lingxidiagbench.md
 
 ## New candidates (2026-02-17, web_search batch 23)
 
