@@ -50,7 +50,7 @@ Multi-turn results can be reported either **unconditionally** (over all examples
 
 Concretely, for each dataset/config we first identify an initially-correct subset $C$ using a persona-free prompt in Phase~1. All persona arms and the Neutral Re-asking Control are then evaluated on this same $C$, and our primary outcomes are conditional probabilities such as:
 \[
-S_p(r)=\Pr(\forall t\le r:\; y_{i,t}=1\mid y_{i,0}=1)
+S_p(r)=\Pr\big(\forall t\in\{1,\dots,r\}:\; y_{i,t}=1\mid y_{i,0}=1\big)
 \]
 This makes comparisons interpretable: a lower $S_p(r)$ indicates *correct\(\to\)incorrect flips under pressure*, rather than a mix of (i) never knowing the answer and (ii) abandoning a correct answer. (We still report Phase~1 initial accuracy separately.)
 
@@ -168,7 +168,7 @@ At each round `r`, we score whether the model’s answer is still correct.
 
 - **Survival curve:**
   \[
-  S_p(r)=\Pr\big(\forall t\le r:\; y_{i,t}=1\mid y_{i,0}=1\big)
+  S_p(r)=\Pr\big(\forall t\in\{1,\dots,r\}:\; y_{i,t}=1\mid y_{i,0}=1\big)
   \]
   i.e., the fraction of initially-correct examples that remain correct through round $r$.
 - **Turn-of-failure (TOF):**
