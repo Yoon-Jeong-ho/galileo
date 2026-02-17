@@ -267,3 +267,11 @@ Format (one per line):
 - [x] 2025 | How Do LLMs Persuade? Linear Probes Can Uncover Persuasion Dynamics in Multi-Turn Conversations | arXiv | https://arxiv.org/abs/2508.05625 | tags: persuasion, multi-turn, interpretability, dynamics | note: papers/20260217_llms-persuade-linear-probes.md
 - [x] 2024 | Conformity in Large Language Models | arXiv | https://arxiv.org/abs/2410.12428 | tags: conformity, social-influence, bias, robustness | note: papers/20260217_conformity-in-llms.md
 - [x] 2025 | On the Adaptive Psychological Persuasion of Large Language Models | arXiv | https://arxiv.org/abs/2506.06800 | tags: persuasion, psychology, strategies, dialogue | note: papers/20260217_adaptive-psychological-persuasion.md
+
+## New candidates (2026-02-17, web_search batch 30)
+
+- [x] 2025 | MindEval: Benchmarking Language Models on Multi-turn Mental Health Support | arXiv | https://arxiv.org/abs/2511.18491 | tags: multi-turn, mental-health, overvalidation, safety, evaluation | note: papers/20260217_mindeval-mental-health.md
+- [ ] 2026 | PatientHub: A Unified Framework for Patient Simulation | arXiv | https://arxiv.org/abs/2602.11684 | tags: multi-turn, patient-simulation, framework, evaluation
+- [ ] 2026 | MedPI: Evaluating AI Systems in Medical Patient-facing Interactions | arXiv | https://arxiv.org/abs/2601.04195 | tags: multi-turn, medical, patient-facing, evaluation, rubrics
+- [ ] 2025 | MATRIX: Multi-Agent simulaTion fRamework for safe Interactions and conteXtual clinical conversational evaluation | arXiv | https://arxiv.org/abs/2508.19163 | tags: multi-turn, medical, safety, simulation, evaluation
+- [ ] 2025 | Chatbot To Help Patients Understand Their Health | arXiv | https://arxiv.org/abs/2509.05818 | tags: multi-turn, medical, patient-education, evaluation
