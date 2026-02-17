@@ -573,6 +573,6 @@ Format (one per line):
 
 - [x] 2025 | MultiChallenge: A Realistic Multi-Turn Conversation Evaluation Benchmark Challenging to Frontier LLMs | arXiv | https://arxiv.org/abs/2501.17399 | tags: multi-turn, evaluation, persistence, self-coherence, sycophancy | note: papers/20260217_multichallenge.md  # duplicate queue entry
 - [x] 2025 | Beyond Single-Turn: A Survey on Multi-Turn Interactions with Large Language Models | arXiv | https://arxiv.org/abs/2504.04717 | tags: multi-turn, survey, interaction, evaluation | note: papers/20260217_beyond-single-turn-survey.md  # duplicate queue entry; note already exists
-- [ ] 2026 | Confidence Estimation for LLMs in Multi-turn Interactions | arXiv | https://arxiv.org/abs/2601.02179 | tags: multi-turn, uncertainty, calibration, confidence
+- [x] 2026 | Confidence Estimation for LLMs in Multi-turn Interactions | arXiv | https://arxiv.org/abs/2601.02179 | tags: multi-turn, uncertainty, calibration, confidence | note: papers/20260217_confidence-estimation-multi-turn.md  # duplicate queue entry
 - [ ] 2025 | Assessing Large Language Models in Updating Their Forecasts with New Information | arXiv | https://arxiv.org/abs/2509.23936 | tags: belief-update, forecasting, uncertainty, longitudinal
 - [ ] 2025 | Beacon: Single-Turn Diagnosis and Mitigation of Latent Sycophancy in Large Language Models | arXiv | https://arxiv.org/abs/2510.16727 | tags: sycophancy, diagnosis, mitigation, evaluation
