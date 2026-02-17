@@ -540,7 +540,7 @@ Format (one per line):
 ## New candidates (2026-02-18, web_search batch 13)
 
 - [x] 2026 | SpeakerSleuth: Evaluating Large Audio-Language Models as Judges for Multi-turn Speaker Consistency | arXiv | https://arxiv.org/abs/2601.04029 | tags: multi-turn, consistency, evaluation, audio | note: papers/20260217_speakersleuth.md  # duplicate queue entry
-- [ ] 2025 | TurnBench-MS: A Benchmark for Evaluating Multi-Turn, Multi-Step Reasoning in Large Language Models | arXiv | https://arxiv.org/abs/2506.01341 | tags: multi-turn, benchmark, reasoning, sequential-feedback
+- [x] 2025 | TurnBench-MS: A Benchmark for Evaluating Multi-Turn, Multi-Step Reasoning in Large Language Models | arXiv | https://arxiv.org/abs/2506.01341 | tags: multi-turn, benchmark, reasoning, sequential-feedback | note: papers/20260217_turnbench-ms.md  # duplicate queue entry
 - [ ] 2026 | GraphIF: Enhancing Multi-Turn Instruction Following for Large Language Models with Relation Graph Prompt | arXiv | https://arxiv.org/abs/2511.10051 | tags: multi-turn, instruction-following, constraints, prompting
 - [ ] 2025 | SLR: A Logic Benchmark for LLMs and Meta-Learning | arXiv | https://arxiv.org/abs/2506.15787 | tags: logic, benchmark, reasoning, robustness
 - [ ] 2025 | MatheMagic: Generating Dynamic Mathematics Benchmarks Robust to Memorization | arXiv | https://arxiv.org/abs/2510.05962 | tags: benchmark, memorization, robustness, math
