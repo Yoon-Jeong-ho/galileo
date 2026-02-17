@@ -560,3 +560,11 @@ Format (one per line):
 - [x] 2026 | Consistency of Large Reasoning Models Under Multi-Turn Attack | arXiv | https://arxiv.org/abs/2602.13093 | tags: multi-turn, consistency, attack, reasoning | note: papers/20260218_consistency-lrm-multiturn-attack.md  # duplicate queue entry
 - [x] 2025 | Modeling and Predicting Multi-Turn Answer Instability in Large Language Models (HTML) | arXiv | https://arxiv.org/html/2511.10688v1 | tags: multi-turn, answer-instability, pressure | note: papers/20260217_modeling-multi-turn-answer-instability.md  # duplicate URL variant
 - [x] 2025 | Time-To-Inconsistency (HTML) | arXiv | https://arxiv.org/html/2510.02712 | tags: multi-turn, inconsistency, adversarial | note: papers/20260217_time-to-inconsistency.md  # duplicate URL variant
+
+## New candidates (2026-02-18, web_search batch 15)
+
+- [x] 2025 | Firm or Fickle? Evaluating Large Language Models Consistency in Sequential Interactions | arXiv | https://arxiv.org/abs/2503.22353 | tags: multi-turn, consistency, pwc-metric, sequential-interaction | note: papers/20260217_firm-or-fickle-mt-consistency.md  # duplicate queue entry
+- [ ] 2025 | The Chameleon Nature of LLMs: Quantifying Multi-Turn Stance Instability in Search-Enabled Language Models | arXiv | https://arxiv.org/abs/2510.16712 | tags: multi-turn, stance-instability, search, robustness
+- [ ] 2025 | Beyond Single-Turn: A Survey on Multi-Turn Interactions with Large Language Models | arXiv | https://arxiv.org/abs/2504.04717 | tags: survey, multi-turn, robustness, evaluation
+- [ ] 2025 | Consistently Simulating Human Personas with Multi-Turn Reinforcement Learning | arXiv | https://arxiv.org/abs/2511.00222 | tags: persona, consistency, multi-turn, rl
+- [ ] 2023 | Are You Sure? Challenging LLMs Leads to Performance Drops in The FlipFlop Experiment | arXiv | https://arxiv.org/abs/2311.08596 | tags: flipflop, challenge-prompt, robustness, answer-revision
