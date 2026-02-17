@@ -9,7 +9,11 @@ Conventions:
 - Unless otherwise stated, error bars / uncertainty annotations reflect **variation across random seeds** (reported as mean ± std).
 - Unless otherwise stated, all multi-turn robustness metrics (Survival/TOF/Fail@1/Recovery@flip) are computed on the **initially-correct subset** (conditioning on correctness at round 0). As a result:
   - The effective sample size can differ across personas/seeds/tasks; captions should avoid implying a fixed global \(n\).
-  - When we compare control vs persona, we always use a **matched conditioning set** (control evaluated on the same initially-correct subset used for that persona arm) to prevent conditioning-set drift from being mistaken as a treatment effect.
+  - When comparing persona pressure to the **Neutral Re-asking Control** (drift baseline), we use a **matched conditioning set**: the control arm is evaluated on the same initially-correct subset as the persona arm. This prevents conditioning-set drift from being mistaken as a treatment effect.
+
+Caption style notes (paper-ready):
+- First mention expands abbreviations (TOF, Fail@1, etc.).
+- Captions explicitly state the comparison direction for \(\Delta\) metrics (persona − control).
 
 Metric definitions (to keep captions consistent across drafts):
 - **Table W** (canonical LaTeX label: `tab:tablew`): pooled control vs persona summary + effect deltas (see artifacts `table_w_*`). **Important:** Table W is a *collapsed* view that pools across persona arms; in the current artifacts, pooling uses weights proportional to the size of each arm’s initially-correct subset (\(|C_p|\)). Control metrics in Table W are therefore computed on the same matched subsets as the persona metrics (within each persona arm) before pooling, so “control” values can differ from the control shown in persona-wise figures/tables.
@@ -42,7 +46,7 @@ Overview of the GALILEO protocol: (1) initial evaluation on ground-truth tasks, 
 - Source artifact: `docs/paper/artifacts/survival_curve_personawise_control_vs_persona_seed1-4_mean_std_20260209.csv`
 
 **Caption (draft):**
-Survival curves over interaction rounds on initially-correct examples (mean ± std across seeds 1–4). Solid lines show persona pressure; dashed lines show the Neutral Re-asking Control (drift baseline). **For each persona, the control curve is computed on the same persona-matched initially-correct subset** (so control values can differ across personas when conditioning sets differ). Persona pressure produces heterogeneous degradation patterns, including both early-turn and late-turn failures, motivating multi-turn robustness metrics beyond initial accuracy.
+Survival curves over interaction rounds on the initially-correct subset (mean ± std across seeds 1–4). Solid lines: persona pressure. Dashed lines: Neutral Re-asking Control (drift baseline), evaluated on the same persona-matched initially-correct subset. Persona pressure induces heterogeneous failure dynamics (early-turn vs late-turn flips), motivating multi-turn robustness metrics beyond initial accuracy.
 
 ---
 
@@ -64,7 +68,7 @@ Persona-wise effect size at round 5: \(\Delta\)Survival@5 (persona pressure − 
 - Source artifact: `docs/paper/artifacts/tof_personawise_fail1_never_control_vs_persona_seed1-4_mean_std_20260209.csv`
 
 **Caption (draft):**
-Persona-wise effect size on early-turn vulnerability: \(\Delta\)Fail@1 (persona pressure − control), mean ± std across seeds 1–4. Turn-of-failure (TOF) separates immediate flips (Fail@1) from sustained robustness (Never-fail), complementing survival curves.
+Persona-wise effect size on early-turn vulnerability: \(\Delta\)Fail@1 (persona pressure − control), mean ± std across seeds 1–4. We also report turn-of-failure (TOF), which separates immediate flips at round 1 (Fail@1) from sustained robustness (never-fail), complementing survival curves.
 
 ---
 
