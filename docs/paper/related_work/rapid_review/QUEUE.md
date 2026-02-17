@@ -365,3 +365,12 @@ Format (one per line):
 - [x] 2025 | AgentProg: Empowering Long-Horizon GUI Agents with Program-Guided Context Management | arXiv | https://arxiv.org/abs/2512.10371 | tags: agents, long-horizon, gui, context-management, robustness | note: papers/20260218_agentprog_context_management.md
 - [x] 2025 | OdysseyBench: Evaluating LLM Agents on Long-Horizon Complex Office Application Workflows | arXiv | https://arxiv.org/abs/2508.09124 | tags: agents, long-horizon, office, workflows, benchmark | note: papers/20260218_odysseybench.md
 - [x] 2025 | NL2Repo-Bench: Towards Long-Horizon Repository Generation Evaluation of Coding Agents | arXiv | https://arxiv.org/abs/2512.12730 | tags: agents, coding, long-horizon, benchmark, robustness | note: papers/20260218_nl2repo-bench.md
+
+
+## New candidates (2026-02-18, web_search)
+
+- [x] 2026 | ToolACE-MT: Non-Autoregressive Generation for Agentic Multi-Turn Interaction | arXiv | https://arxiv.org/abs/2508.12685 | tags: agents, tool-use, multi-turn, data-generation | note: papers/20260218_toolace-mt.md
+- [ ] 2026 | SciAgentGym: Benchmarking Multi-Step Scientific Tool-use in LLM Agents | arXiv | https://arxiv.org/abs/2602.12984 | tags: agents, tool-use, scientific, benchmark, multi-step
+- [ ] 2026 | TSR: Trajectory-Search Rollouts for Multi-Turn RL of LLM Agents | arXiv | https://arxiv.org/abs/2602.11767 | tags: agents, multi-turn, RL, rollouts, search
+- [ ] 2026 | Peak + Accumulation: A Proxy-Level Scoring Formula for Multi-Turn LLM Attack Detection | arXiv | https://arxiv.org/abs/2602.11247 | tags: multi-turn, attack-detection, proxy-metrics, safety
+- [ ] 2026 | Agent World Model: Infinity Synthetic Environments for Agentic Reinforcement Learning | arXiv | https://arxiv.org/abs/2602.10090 | tags: agents, synthetic-data, environments, tool-use, multi-turn
