@@ -445,7 +445,7 @@ This does **not** contradict the headline persona-vs-control gap reported in **T
 
 **Why they can disagree.** If \(|C_p|\) differs across personas (common when Phase~1 filtering/caching is arm-specific), then the pooled headline is dominated by personas with larger \(|C_p|\). As a result, \(\Delta_{\mathrm{pool}}\) can be noticeably different from the simple (unweighted) average of persona-wise \(\Delta_p\), even if every individual \(\Delta_p\) is small. In the camera-ready version, we should keep both views and make Table~W’s weighting explicit in the caption (e.g., “pooled across personas with weights proportional to \(|C_p|\)”).
 
-For interpretability, we further analyze detected flips with a qualitative taxonomy (boundary/overanswer vs partial-overlap vs semantic-change) and provide representative examples in Appendix~A.2. **Importantly, this taxonomy is post-hoc and diagnostic-only; we do not recompute survival/TOF/recovery with taxonomy labels.**
+For interpretability, we further analyze detected flips with a qualitative taxonomy (boundary/overanswer vs partial-overlap vs semantic-change) and provide representative examples in Appendix~A.2. We implement this as a reviewer-auditable manual labeling sheet derived from exported `flip_samples.csv` (tracked artifact: `docs/paper/artifacts/taxonomy_labeling_sheet_from_flip_samples_qwen_persona_seed1-4_20260217.csv`; label schema: `docs/paper/artifacts/taxonomy_label_schema_v1_20260218.md`). **Importantly, this taxonomy is post-hoc and diagnostic-only; we do not recompute survival/TOF/recovery with taxonomy labels.**
 
 ### 7.2 When failures happen: turn-of-failure (TOF) (supports C1)
 
