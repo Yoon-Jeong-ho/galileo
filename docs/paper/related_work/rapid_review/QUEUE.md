@@ -182,6 +182,6 @@ Format (one per line):
 
 - [x] 2025 | Evaluating Memory in LLM Agents via Incremental Multi-Turn Interactions (MemoryAgentBench) | arXiv | https://arxiv.org/abs/2507.05257 | tags: agents, memory, multi-turn, benchmark, hallucination-adjacent | note: papers/20260217_memoryagentbench.md
 - [x] 2025 | Securing AI Agents Against Prompt Injection Attacks | arXiv | https://arxiv.org/abs/2511.15759 | tags: agents, prompt-injection, security, multi-turn, benchmark | note: papers/20260217_securing-ai-agents-prompt-injection.md
-- [ ] 2025 | Safety and Security Analysis of Large Language Models: Risk Profile and Harm Potential | arXiv | https://arxiv.org/abs/2509.10655 | tags: safety, security, risk, prompt-injection, survey
+- [x] 2025 | Safety and Security Analysis of Large Language Models: Risk Profile and Harm Potential | arXiv | https://arxiv.org/abs/2509.10655 | tags: safety, security, risk, prompt-injection, survey | note: papers/20260217_safety-security-analysis-rsi.md
 - [ ] 2025 | LLM-based Agents Suffer from Hallucinations: A Survey of Taxonomy, Methods, and Directions | arXiv | https://arxiv.org/abs/2509.18970 | tags: agents, hallucination, survey, taxonomy, robustness
 - [ ] 2025 | DIQ-H: Evaluating Hallucination Persistence in VLMs Under Temporal Visual Degradation | arXiv | https://arxiv.org/abs/2512.03992 | tags: vlm, hallucination, temporal, persistence, robustness
