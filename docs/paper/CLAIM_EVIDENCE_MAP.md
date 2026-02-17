@@ -21,6 +21,13 @@ These definitions should be used consistently in the draft, captions, and artifa
 
 - **Important (control comparability):** for each persona arm we filter to the persona’s *initially-correct* subset `C_p` and run both (i) persona pressure and (ii) the Neutral Re-asking Control on that same subset. This makes persona-vs-control comparisons apples-to-apples *within* a persona, but it means **control numbers can differ across personas** because the underlying `C_p` differs.
 
+- **Important (Table W aggregation; avoid “why doesn’t this match the persona-wise deltas?” confusion):** Table W intentionally reports **two** persona aggregates:
+  - **persona\_weighted:** pool counts across personas first (equivalently: weight each persona by its evaluation-set size; implemented by summing `survived/total` at round `R` and summing TOF counts across personas).
+  - **persona\_unweighted:** simple mean of persona-wise rates.
+
+  **Caption template (recommended):**
+  > *Table W: Control vs persona pressure on initially-correct examples.* We compare the Neutral Re-asking Control (drift baseline) to persona pressure using (i) Survival@R, (ii) Fail@1, and (iii) Never-fail, averaged over seeds (mean±std). For persona pressure we report both a **weighted** aggregate (pooling across personas with weights proportional to each persona’s evaluation-set size) and an **unweighted** aggregate (simple mean across personas). Weighted is the headline measure; unweighted is included for transparency.
+
 ---
 
 ## LaTeX label ↔ repo artifact mapping (anti-drift)
