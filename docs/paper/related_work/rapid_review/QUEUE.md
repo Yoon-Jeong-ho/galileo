@@ -225,3 +225,5 @@ Format (one per line):
 - [ ] 2025 | Memory Management and Contextual Consistency for Long-Running Low-Code Agents | arXiv | https://arxiv.org/abs/2509.25250 | tags: agents, long-horizon, memory, consistency, evaluation
 - [ ] 2025 | Enhancing Goal-oriented Proactive Dialogue Systems via Consistency Reflection and Correction | arXiv | https://arxiv.org/abs/2506.13366 | tags: dialogue, consistency, reflection, correction, goal-oriented
 - [ ] 2025 | UltraHorizon: Benchmarking Agent Capabilities in Ultra Long-Horizon Scenarios | arXiv | https://arxiv.org/abs/2509.21766 | tags: agents, long-horizon, benchmark, robustness, degradation
+
+- [x] 2026 | WavBench: Benchmarking Reasoning, Colloquialism, and Paralinguistics for End-to-End Spoken Dialogue Models | arXiv | https://arxiv.org/abs/2602.12135 | tags: spoken-dialogue, multi-turn, benchmark, paralinguistics, robustness | note: papers/20260217_wavbench.md
