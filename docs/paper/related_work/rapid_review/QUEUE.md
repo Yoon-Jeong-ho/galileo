@@ -432,3 +432,11 @@ Format (one per line):
 - [x] 2025 | Benchmarking Adversarial Robustness to Bias Elicitation in Large Language Models (CLEAR-Bias) | arXiv | https://arxiv.org/abs/2504.07887 | tags: robustness, bias, adversarial-prompts, llm-as-judge | note: papers/20260217_bias-elicitation-robustness-llm-judge.md (duplicate queue entry)
 - [x] 2025 | Evaluating the Robustness of Large Language Model Safety Guardrails Against Adversarial Attacks | arXiv | https://arxiv.org/abs/2511.22047 | tags: safety, guardrails, robustness, adversarial | note: papers/20260218_llm-guardrail-robustness-adversarial-attacks.md
 - [x] 2026 | Evaluating Robustness of Large Language Models in Enterprise Applications: Benchmarks for Perturbation Consistency Across Formats and Languages | arXiv | https://arxiv.org/abs/2601.06341 | tags: robustness, perturbations, multilingual, formats | note: papers/20260218_evaluating-robustness-llm-enterprise.md
+
+## New candidates (2026-02-18, web_search)
+
+- [x] 2025 | Retrieval-Augmented Generation: A Comprehensive Survey of Architectures, Enhancements, and Robustness Frontiers | arXiv | https://arxiv.org/abs/2506.00054 | tags: rag, survey, robustness | note: papers/20260218_rag-survey-architectures-robustness.md
+- [ ] 2025 | Retrieval Augmented Generation Evaluation in the Era of Large Language Models: A Comprehensive Survey | arXiv | https://arxiv.org/abs/2504.14891 | tags: rag, evaluation, survey
+- [ ] 2025 | A Survey on Retrieval And Structuring Augmented Generation with Large Language Models | arXiv | https://arxiv.org/abs/2509.10697 | tags: rag, structuring, survey
+- [ ] 2025 | Reliable Decision-Making via Calibration-Oriented Retrieval-Augmented Generation | arXiv | https://arxiv.org/abs/2411.08891 | tags: rag, calibration, uncertainty
+- [ ] 2025 | Trusted Uncertainty in Large Language Models: A Unified Framework for Confidence Calibration and Risk-Controlled Refusal | arXiv | https://arxiv.org/abs/2509.01455 | tags: calibration, uncertainty, refusal, rag
