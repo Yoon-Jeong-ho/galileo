@@ -122,7 +122,7 @@ Format (one per line):
 ## New candidates (2026-02-17, web_search batch 13)
 
 - [x] 2025 | Consistently Simulating Human Personas with Multi-Turn Reinforcement Learning | arXiv | https://arxiv.org/abs/2511.00222 | tags: multi-turn, persona, consistency, RLHF, stability | note: papers/20260217_persona-consistency-mt-rl.md
-- [ ] 2026 | SpeakerSleuth: Evaluating Large Audio-Language Models as Judges for Multi-turn Speaker Consistency | arXiv | https://arxiv.org/abs/2601.04029 | tags: multi-turn, consistency, judging, audio, identity
+- [x] 2026 | SpeakerSleuth: Evaluating Large Audio-Language Models as Judges for Multi-turn Speaker Consistency | arXiv | https://arxiv.org/abs/2601.04029 | tags: multi-turn, consistency, judging, audio, identity | note: papers/20260217_speakersleuth.md
 - [ ] 2025 | MultiVerse: A Multi-Turn Conversation Benchmark for Evaluating Large Vision and Language Models | arXiv | https://arxiv.org/abs/2510.16641 | tags: multi-turn, benchmark, VLM, conversation
 - [ ] 2025 | SafeDialBench: A Fine-Grained Safety Evaluation Benchmark for Large Language Models in Multi-Turn Dialogues with Diverse Jailbreak Attacks | arXiv | https://arxiv.org/abs/2502.11090 | tags: multi-turn, safety, jailbreak, benchmark
 - [ ] 2024 | A Survey on Recent Advances in LLM-Based Multi-turn Dialogue Systems | arXiv | https://arxiv.org/abs/2402.18013 | tags: survey, multi-turn, dialogue-systems, consistency
