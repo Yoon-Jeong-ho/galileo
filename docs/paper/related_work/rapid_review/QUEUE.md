@@ -484,7 +484,7 @@ Format (one per line):
 ## New candidates (2026-02-18, web_search batch 2)
 
 - [x] 2026 | GT-HarmBench: Benchmarking AI Safety Risks Through the Lens of Game Theory | arXiv | https://arxiv.org/abs/2602.12316 | tags: safety, multi-agent, game-theory, benchmark | note: papers/20260218_gt-harmbench.md
-- [ ] 2026 | Security Threat Modeling for Emerging AI-Agent Protocols: A Comparative Analysis of MCP, A2A, Agora, and ANP | arXiv | https://arxiv.org/abs/2602.11327 | tags: agents, protocols, security, threat-modeling
+- [x] 2026 | Security Threat Modeling for Emerging AI-Agent Protocols: A Comparative Analysis of MCP, A2A, Agora, and ANP | arXiv | https://arxiv.org/abs/2602.11327 | tags: agents, protocols, security, threat-modeling | note: papers/20260218_security-threat-modeling-ai-agent-protocols.md
 - [ ] 2026 | WavBench: Benchmarking Reasoning, Colloquialism, and Paralinguistics for End-to-End Spoken Dialogue Models | arXiv | https://arxiv.org/abs/2602.12135 | tags: spoken-dialogue, multi-turn, benchmark, paralinguistics
 - [ ] 2026 | Peak + Accumulation: A Proxy-Level Scoring Formula for Multi-Turn LLM Attack Detection | arXiv | https://arxiv.org/abs/2602.11247 | tags: multi-turn, safety, jailbreak, detection, scoring
 - [ ] 2026 | GISA: A Benchmark for General Information-Seeking Assistant | arXiv | https://arxiv.org/abs/2602.08543 | tags: agents, information-seeking, web, multi-turn, benchmark
