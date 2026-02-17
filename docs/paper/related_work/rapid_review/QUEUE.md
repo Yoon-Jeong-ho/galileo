@@ -295,7 +295,7 @@ Format (one per line):
 ## New candidates (2026-02-17, web_search batch 13)
 
 - [x] 2025 | Quantifying Conversation Drift in MCP via Latent Polytope | arXiv | https://arxiv.org/abs/2508.06418 | tags: drift, mcp, conversation, diagnostics | note: papers/20260217_mcp-latent-polytope-drift.md
-- [ ] 2025 | A Benchmark for Evaluating Outcome-Driven Constraint Violations in Autonomous AI Agents | arXiv | https://arxiv.org/abs/2512.20798 | tags: agents, constraint-violations, multi-step, safety
+- [x] 2025 | A Benchmark for Evaluating Outcome-Driven Constraint Violations in Autonomous AI Agents | arXiv | https://arxiv.org/abs/2512.20798 | tags: agents, constraint-violations, multi-step, safety | note: papers/20260217_outcome-driven-constraint-violations-benchmark.md
 - [ ] 2026 | Prompt Injection Attacks on Agentic Coding Assistants: A Systematic Analysis of Vulnerabilities in Skills, Tools, and Protocol Ecosystems | arXiv | https://arxiv.org/abs/2601.17548 | tags: prompt-injection, agents, coding, security, survey
 - [ ] 2026 | JMedEthicBench: A Multi-Turn Conversational Benchmark for Evaluating Medical Safety in Japanese Large Language Models | arXiv | https://arxiv.org/abs/2601.01627 | tags: medical, safety, multi-turn, benchmark
 - [ ] 2025 | HealthBench: Evaluating Large Language Models Towards Improved Human Health | arXiv | https://arxiv.org/abs/2505.08775 | tags: medical, safety, multi-turn, benchmark
