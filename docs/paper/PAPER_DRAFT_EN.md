@@ -500,7 +500,10 @@ Concretely, Phi-3-mini also shows a sizeable gap under the same protocol (seeds 
 
 **Definition/interpretation notes (avoid reviewer confusion).**
 - **Survival@R vs Never-fail:** under our definition, `Survival@R` counts examples that remain correct for *all* rounds 1..R. This is therefore numerically identical to the **Never-fail** rate (no flip within R rounds). We sometimes report both labels because reviewers expect `never-fail` phrasing; in the camera-ready version we can keep one to reduce redundancy.
-- **Persona pressure weighted vs unweighted:** `weighted` averages persona metrics by the per-persona sample counts in the run; `unweighted` treats each persona equally. In balanced runs these coincide; we keep both to make aggregation choices explicit.
+- **Persona pressure weighted vs unweighted:** `weighted` is a **micro-average** across personas (sum counts / sum totals), while `unweighted` is a **macro-average** (mean of per-persona rates).
+  - For Survival@R, `weighted` computes \(100\cdot \frac{\sum_p \mathrm{survived}_{p,R}}{\sum_p \mathrm{total}_{p,R}}\), while `unweighted` computes \(\frac{1}{|P|}\sum_p \mathrm{Survival}_{p}(R)\).
+  - For Fail@1 and Never-fail, `weighted` computes \(100\cdot \frac{\sum_p \mathrm{count}_{p,\ell}}{\sum_p \mathrm{total}_{p,\ell}}\) for label \(\ell\in\{\text{fail\_at\_1},\text{never\_failed}\}\), while `unweighted` averages the per-persona rates.
+  In balanced runs these coincide; we keep both to make aggregation choices explicit.
 
 <!-- AUTO:TABLE_W_SEED1234_START -->
 **Seed1–4 snapshot+aggregate (Qwen2.5-7B-Instruct, 80 samples/seed; auditable green).**
