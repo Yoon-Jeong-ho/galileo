@@ -576,3 +576,11 @@ Format (one per line):
 - [x] 2026 | Confidence Estimation for LLMs in Multi-turn Interactions | arXiv | https://arxiv.org/abs/2601.02179 | tags: multi-turn, uncertainty, calibration, confidence | note: papers/20260217_confidence-estimation-multi-turn.md  # duplicate queue entry
 - [x] 2025 | Assessing Large Language Models in Updating Their Forecasts with New Information | arXiv | https://arxiv.org/abs/2509.23936 | tags: belief-update, forecasting, uncertainty, longitudinal | note: papers/20260217_evolvecast-forecast-updates.md  # duplicate queue entry; URL already reviewed
 - [x] 2025 | Beacon: Single-Turn Diagnosis and Mitigation of Latent Sycophancy in Large Language Models | arXiv | https://arxiv.org/abs/2510.16727 | tags: sycophancy, diagnosis, mitigation, evaluation | note: papers/20260218_beacon_latent_sycophancy.md
+
+## New candidates (2026-02-18, web_search batch)
+
+- [x] 2026 | AI Sycophancy: How Users Flag and Respond | arXiv | https://arxiv.org/abs/2601.10467 | tags: sycophancy, user-study, interaction, feedback | note: papers/20260218_ai-sycophancy-users-flag-respond.md
+- [ ] 2025 | Be Friendly, Not Friends: How LLM Sycophancy Shapes User Trust | arXiv | https://arxiv.org/abs/2502.10844 | tags: sycophancy, trust, user-study
+- [ ] 2025 | Interaction Context Often Increases Sycophancy in LLMs | arXiv | https://arxiv.org/abs/2509.12517 | tags: sycophancy, context, multi-turn
+- [ ] 2026 | Sycophancy Hides Linearly in the Attention Heads | arXiv | https://arxiv.org/abs/2601.16644 | tags: sycophancy, interpretability, attention
+- [ ] 2026 | On Robustness and Chain-of-Thought consistency of RL-Finetuned VLMs | arXiv | https://arxiv.org/abs/2602.12506 | tags: robustness, consistency, chain-of-thought, vlm
