@@ -90,7 +90,7 @@ Format (one per line):
 ## New candidates (2026-02-17, web_search batch 9)
 
 - [x] 2025 | Consistency Training Helps Stop Sycophancy and Jailbreaks | arXiv | https://arxiv.org/abs/2510.27062 | tags: sycophancy, jailbreak, training, consistency, robustness | note: papers/20260217_consistency-training-sycophancy-jailbreaks.md
-- [ ] 2026 | Confidence Estimation for LLMs in Multi-turn Interactions | arXiv | https://arxiv.org/abs/2601.02179 | tags: multi-turn, robustness, uncertainty, calibration
+- [x] 2026 | Confidence Estimation for LLMs in Multi-turn Interactions | arXiv | https://arxiv.org/abs/2601.02179 | tags: multi-turn, robustness, uncertainty, calibration | note: papers/20260217_confidence-estimation-multi-turn.md
 - [ ] 2025 | Learning an Efficient Multi-Turn Dialogue Evaluator from Multiple LLM Judges | arXiv | https://arxiv.org/abs/2508.00454 | tags: multi-turn, evaluation, judges, preference-modeling
 - [ ] 2026 | CAR-bench: Evaluating the Consistency and Limit-Awareness of LLM Agents under Real-World Uncertainty | arXiv | https://arxiv.org/abs/2601.22027 | tags: multi-turn, consistency, uncertainty, limit-awareness, agents
 - [ ] 2025 | Evaluating Long-Term Memory for Long-Context Question Answering (LoCoMo) | arXiv | https://arxiv.org/abs/2510.23730 | tags: long-horizon, memory, multi-turn, robustness, evaluation
