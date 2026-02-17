@@ -516,7 +516,7 @@ Format (one per line):
 ## New candidates (2026-02-18, web_search batch 5)
 
 - [x] 2025 | UI-TARS-2 Technical Report: Advancing GUI Agent with Multi-Turn Reinforcement Learning | arXiv | https://arxiv.org/abs/2509.02544 | tags: agents, gui, multi-turn, RL, robustness | note: papers/20260218_ui-tars-2.md
-- [ ] 2025 | Adaptation of Agentic AI | arXiv | https://arxiv.org/abs/2512.16301 | tags: agents, adaptation, multi-turn, search
+- [x] 2025 | Adaptation of Agentic AI | arXiv | https://arxiv.org/abs/2512.16301 | tags: agents, adaptation, tool-use, survey | note: papers/20260218_adaptation_of_agentic_ai.md
 - [ ] 2026 | Agentic Memory: Learning Unified Long-Term and Short-Term Memory Management for Large Language Model Agents | arXiv | https://arxiv.org/abs/2601.01885 | tags: agents, memory, long-horizon, multi-turn
 - [ ] 2025 | Training Long-Context, Multi-Turn Software Engineering Agents with Reinforcement Learning | arXiv | https://arxiv.org/abs/2508.03501 | tags: agents, software-engineering, long-context, multi-turn, RL
 - [ ] 2025 | Stabilizing Long-term Multi-turn Reinforcement Learning with Gated Rewards | arXiv | https://arxiv.org/abs/2508.10548 | tags: RL, multi-turn, stability, rewards
