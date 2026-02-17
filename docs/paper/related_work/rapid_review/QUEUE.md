@@ -247,7 +247,7 @@ Format (one per line):
 ## New candidates (2026-02-17, web_search batch 28)
 
 - [x] 2026 | A Theoretical Framework for Adaptive Utility-Weighted Benchmarking | arXiv | https://arxiv.org/abs/2602.12356 | tags: benchmarking, evaluation, robustness, theory | note: papers/20260217_adaptive-utility-weighted-benchmarking.md
-- [ ] 2026 | Decoupled Reasoning with Implicit Fact Tokens (DRIFT): A Dual-Model Framework for Efficient Long-Context Inference | arXiv | https://arxiv.org/abs/2602.10021 | tags: long-context, inference, drift (term), robustness-adjacent
+- [x] 2026 | Decoupled Reasoning with Implicit Fact Tokens (DRIFT): A Dual-Model Framework for Efficient Long-Context Inference | arXiv | https://arxiv.org/abs/2602.10021 | tags: long-context, inference, drift (term), robustness-adjacent | note: papers/20260217_drift-implicit-fact-tokens.md
 - [ ] 2025 | MLLM-CTBench: A Benchmark for Continual Instruction Tuning with Reasoning Process Diagnosis | arXiv | https://arxiv.org/abs/2508.08275 | tags: continual-learning, instruction-tuning, drift, benchmark
 - [ ] 2026 | Optimizing Conversational Quality in Spoken Dialogue Systems with Reinforcement Learning from AI Feedback | arXiv | https://arxiv.org/abs/2601.19063 | tags: spoken-dialogue, multi-turn, rlaif, robustness-adjacent
 - [ ] 2025 | Self-Improvement of Language Models by Post-Training on Multi-Agent Debate | arXiv | https://arxiv.org/abs/2509.15172 | tags: multi-agent, debate, self-improvement, self-consistency
