@@ -46,3 +46,11 @@ Format (one per line):
 - [x] 2025 | Debunking with Dialogue? Exploring AI-Generated Counterspeech to Challenge Conspiracy Theories | arXiv | https://arxiv.org/abs/2504.16604 | tags: persuasion, belief-change, multi-turn, intervention | note: papers/20260217_debunking-with-dialogue.md
 - [x] 2025 | Multi-Turn Jailbreaks Are Simpler Than They Seem | arXiv | https://arxiv.org/abs/2508.07646 | tags: multi-turn, time-to-failure, refusal-retry, attacks | note: papers/20260217_multi-turn-jailbreaks-simpler.md
 - [x] 2026 | Multi-Turn Jailbreaking of Aligned LLMs via Lexical Anchor Tree Search | arXiv | https://arxiv.org/abs/2601.02670 | tags: multi-turn, attacks, search, time-to-failure | note: papers/20260217_lats-lexical-anchor-tree-search.md
+
+## New candidates (2026-02-17, web_search batch 4)
+
+- [x] 2025 | LLMs Can’t Handle Peer Pressure: Crumbling under Multi-Agent Social Interactions | arXiv | https://arxiv.org/abs/2508.18321 | tags: social-pressure, multi-agent, robustness, belief-stability | note: papers/20260217_kairos-peer-pressure.md
+- [ ] 2025 | PReSS: A Black-Box Framework for Evaluating Political Stance Stability in LLMs via Argumentative Pressure | arXiv | https://arxiv.org/abs/2504.17052 | tags: social-pressure, argumentative, stance-stability, drift
+- [ ] 2025 | Behavioral Fingerprinting of Large Language Models | arXiv | https://arxiv.org/abs/2509.04504 | tags: sycophancy-adjacent, diagnostics, robustness
+- [ ] 2025 | Robustness of large language models in moral judgements | Royal Society Open Science | https://royalsocietypublishing.org/rsos/article/12/4/241229/235626/Robustness-of-large-language-models-in-moral | tags: moral, robustness, consistency
+- [ ] 2024 | GermanPartiesQA: Benchmarking Commercial Large Language Models and AI Companions for Political Alignment and Sycophancy | arXiv | https://arxiv.org/abs/2407.18008 | tags: sycophancy, politics, alignment, role-play
