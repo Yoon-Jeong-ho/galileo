@@ -39,7 +39,7 @@ Overview of the GALILEO protocol: (1) initial evaluation on ground-truth tasks, 
 - Source artifact: `docs/paper/artifacts/survival_curve_personawise_control_vs_persona_seed1-4_mean_std_20260209.csv`
 
 **Caption (draft):**
-Survival curves over interaction rounds on initially-correct examples (mean ± std across seeds 1–4). Solid lines show persona pressure; the dashed line shows the Neutral Re-asking Control (drift baseline). Persona pressure produces heterogeneous degradation patterns, including both early-turn and late-turn failures, motivating multi-turn robustness metrics beyond initial accuracy.
+Survival curves over interaction rounds on initially-correct examples (mean ± std across seeds 1–4). Solid lines show persona pressure; dashed lines show the Neutral Re-asking Control (drift baseline). **For each persona, the control curve is computed on the same persona-matched initially-correct subset** (so control values can differ across personas when conditioning sets differ). Persona pressure produces heterogeneous degradation patterns, including both early-turn and late-turn failures, motivating multi-turn robustness metrics beyond initial accuracy.
 
 ---
 
