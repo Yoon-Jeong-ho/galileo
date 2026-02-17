@@ -71,10 +71,16 @@ Recommended artifacts to cite in-paper:
     - ARC (AI2 Reasoning Challenge):
       - Dataset card: https://huggingface.co/datasets/allenai/ai2_arc
       - License: CC BY-SA 4.0 (as listed on the dataset card)
-    - SQuAD:
-      - Source: https://rajpurkar.github.io/SQuAD-explorer/ (check dataset terms/license on the official site)
+    - SQuAD (v1.1):
+      - Homepage: https://rajpurkar.github.io/SQuAD-explorer/
+      - License: **CC BY-SA 4.0**
+        - Hugging Face dataset card front-matter shows `license: cc-by-sa-4.0`: https://huggingface.co/datasets/rajpurkar/squad/raw/main/README.md
+      - Citation: Rajpurkar et al., 2016 (EMNLP) — https://arxiv.org/abs/1606.05250
     - TriviaQA:
-      - Source: https://nlp.cs.washington.edu/triviaqa/ (check dataset terms/license on the official site)
+      - Homepage: https://nlp.cs.washington.edu/triviaqa/
+      - Licensing note: the homepage states **“The University of Washington does not own the copyright of the questions and documents included in TriviaQA.”** Treat as **license/terms = unclear/unknown**, and avoid redistributing underlying documents unless the source terms are satisfied.
+      - Hugging Face dataset card front-matter currently lists `license: unknown`: https://huggingface.co/datasets/mandarjoshi/trivia_qa/raw/main/README.md
+      - Citation: Joshi et al., 2017 — https://arxiv.org/abs/1705.03551
 - [ ] Any derived/preprocessed artifacts: documented generation steps (script + exact command).
 - [ ] If releasing new data (personas/prompts/annotations/taxonomy labels): include license + intended use.
 - [ ] Usage notes: clarify what is redistributed vs what users must download themselves.
