@@ -961,3 +961,12 @@ Next:
 - Local (writing repo): generated tracked artifact `docs/paper/artifacts/tier1_mistralnemo_seed1-2_survival_summary_20260217.csv` from synced `paper_exports/`.
 - Local: updated `scripts/make_cross_family_figure_svg.py` and regenerated canonical cross-family SVG `docs/paper/figures/cross_family_survival_r5_control_vs_logicaltrap_seed1-2_20260217.svg`.
 - Local: added EN draft numeric callout for Mistral‑Nemo (Survival@5 control 32.54±4.77 vs Logical Trap 9.29±0.44) + updated C4 artifact list; updated proof pointers in `CLAIM_EVIDENCE_MAP.md` + `FIGURE_CAPTIONS.md`.
+
+## 2026-02-17 20:22 (KST) — Limitations: cross-family max_model_len transparency
+
+- Updated EN draft Limitations to explicitly note cross-family context-length feasibility constraints (some families use reduced `max_model_len` for KV-cache fit; protocol otherwise unchanged).
+  - File: `docs/paper/PAPER_DRAFT_EN.md` (Limitations §10.1)
+
+Next:
+- Draft KO "수정/보완해야 할 것만" TODO list (8–12 items) in the requested "현재 → 해서 → 로" format.
+- Ensure the same context-length note is reflected (briefly) in KO draft or appendix if we cite Nemo numbers prominently.

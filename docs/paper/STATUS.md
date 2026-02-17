@@ -90,9 +90,11 @@ Ground-truth tasks에서 multi-turn persona pressure 하에 **정답 유지(surv
 
 ## 4) NEXT HEARTBEAT (ONE step)
 
-**Paper writing: add a transparency note about cross-family context-length caps (Nemo max_model_len=32768).**
+**Paper writing: produce a “수정/보완해야 할 것만” TODO list in KO draft (reviewer-risk only).**
 
-- Deliverable: one short sentence (Limitations/footnote) explaining that some Tier‑1 families require a reduced `max_model_len` for KV-cache feasibility, and that the protocol remains identical otherwise (so cross-family replication is about pressure effects, not max-context).
+- Deliverable: `docs/paper/PAPER_DRAFT_KO.md`에 섹션 0 또는 별도 섹션으로, 각 항목을
+  - “현재 ~~가 부족/문제이고 → ~~해서 → ~~로 수정해야 한다”
+  형태로 8–12개만 정리 (불필요한 일반론/칭찬 없이, 수정 포인트만).
 
 ---
 

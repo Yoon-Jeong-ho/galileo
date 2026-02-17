@@ -660,6 +660,7 @@ C6 (Appendix robustness): decoding sensitivity does not qualitatively change per
 - **Intervention dependence.** Recovery prompts are *interventions*; measured recovery can depend on prompt wording and conversational context. We mitigate this by reporting recovery **conditional on flipping** and including recovery-prompt variants/ablations.
 - **Task ambiguity (open-domain QA).** Some questions have multiple acceptable answers or alias ambiguity; we treat this as realistic but report results stratified by task type and interpret open-domain flips more cautiously.
 - **Evaluator artifacts vs semantic change.** Our primary metrics are defined on task evaluators for reproducibility, but strict string-based scoring (especially extractive QA EM) can misclassify boundary/overanswer and near-paraphrase cases as failures. We therefore provide a **diagnostic flip taxonomy** (boundary/overanswer vs partial-overlap vs semantic-change) and isolate rare format/extraction failures (Appendix~A.2), without altering the primary survival/TOF/recovery definitions.
+- **Cross-family context-length feasibility.** Some model families require a reduced `max_model_len` (e.g., Mistral-Nemo set to 32k) to fit KV-cache constraints on our hardware. We keep the evaluation protocol and prompts identical otherwise, and treat the cross-family comparison as replication of *persona pressure effects* rather than a study of maximum-context scaling.
 
 ### 10.2 Ethical considerations
 
