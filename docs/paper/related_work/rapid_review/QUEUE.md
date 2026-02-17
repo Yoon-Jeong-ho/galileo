@@ -189,7 +189,7 @@ Format (one per line):
 ## New candidates (2026-02-17, web_search batch 21)
 
 - [x] 2026 | AgentNoiseBench: Benchmarking Robustness of Tool-Using LLM Agents Under Noisy Condition | arXiv | https://arxiv.org/abs/2602.11348 | tags: agents, tool-use, robustness, noise, multi-turn | note: papers/20260217_agentnoisebench.md
-- [ ] 2025 | A Benchmark for Evaluating Outcome-Driven Constraint Violations in Autonomous AI Agents | arXiv | https://arxiv.org/abs/2512.20798 | tags: agents, safety, constraints, robustness, evaluation
+- [x] 2025 | A Benchmark for Evaluating Outcome-Driven Constraint Violations in Autonomous AI Agents | arXiv | https://arxiv.org/abs/2512.20798 | tags: agents, safety, constraints, robustness, evaluation | note: papers/20260217_odcv-bench.md
 - [ ] 2025 | Joint Evaluation of Answer and Reasoning Consistency for Large Language Models | arXiv | https://arxiv.org/abs/2506.04832 | tags: consistency, reasoning, hallucination, evaluation
 - [ ] 2025 | Visual reasoning consistency and robustness analysis of multimodal LLMs | Pattern Recognition (ScienceDirect) | https://www.sciencedirect.com/science/article/pii/S0031320325014281 | tags: multimodal, robustness, consistency, evaluation
 - [ ] 2025 | Memory in Large Language Models: Mechanisms, Evaluation and Evolution | arXiv | https://arxiv.org/abs/2509.18868 | tags: memory, evaluation, robustness, long-context
