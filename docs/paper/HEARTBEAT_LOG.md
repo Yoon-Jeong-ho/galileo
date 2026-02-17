@@ -1025,3 +1025,12 @@ Next: wait for `paper_exports/` + run validator on the run root.
 - Result: logs now stream (vLLM init + checkpoint shard loading) and GPU4 util resumed.
 
 NOTE: first restart attempt had `OUT` unset under `set -u`; fixed by hardcoding OUT in the script.
+
+---
+
+### 2026-02-18 05:17 KST — Pythia Tier-1 run is now executing (post-log-fix)
+
+- nlp8 GPU4 run `results_paper/tier1_pythia2p8b_seed1_len2048_20260218_0424/` is past vLLM init and has queued all 80 samples (progress bar now at `Processed prompts: 0/800`).
+- Noted warnings: no chat_template (expected for GPTNeoX) and `max_tokens` capped due to `max_model_len=2048`.
+
+Next: wait for completion → ensure `paper_exports/` exists → validate with `scripts/validate_paper_exports.py`.
