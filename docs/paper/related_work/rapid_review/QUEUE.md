@@ -41,7 +41,7 @@ Format (one per line):
 
 ## New candidates (2026-02-17, web_search batch 3)
 
-- [ ] 2025 | RecToM: A Benchmark for Evaluating Machine Theory of Mind in LLM-based Conversational Recommender Systems | arXiv | https://arxiv.org/abs/2511.22275 | tags: multi-turn, social-pressure, sycophancy-adjacent, dialogue, evaluation
+- [x] 2025 | RecToM: A Benchmark for Evaluating Machine Theory of Mind in LLM-based Conversational Recommender Systems | arXiv | https://arxiv.org/abs/2511.22275 | tags: multi-turn, social-pressure, sycophancy-adjacent, dialogue, evaluation | note: papers/20260217_rectom.md
 - [ ] 2025 | Flipping the Dialogue: Training and Evaluating User Language Models | arXiv | https://arxiv.org/abs/2510.06552 | tags: multi-turn, user-modeling, dialogue, flip, evaluation
 - [ ] 2025 | Debunking with Dialogue? Exploring AI-Generated Counterspeech to Challenge Conspiracy Theories | arXiv | https://arxiv.org/abs/2504.16604 | tags: persuasion, belief-change, multi-turn, intervention
 - [ ] 2025 | Multi-Turn Jailbreaks Are Simpler Than They Seem | arXiv | https://arxiv.org/abs/2508.07646 | tags: multi-turn, time-to-failure, refusal-retry, attacks
