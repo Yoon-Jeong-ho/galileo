@@ -976,3 +976,20 @@ Next:
 - Added an SSOT revision TODO list in the requested "현재 ~~가 부족/문제이고 → ~~해서 → ~~로 수정해야 한다" format (12 items; reviewer-risk only).
   - New: `docs/paper/REVISION_TODO_KO.md`
   - Linked from: `docs/paper/PAPER_DRAFT_KO.md` (top)
+
+---
+
+### 2026-02-18 (am) — Tier-1 cross-family validation sweep (nlp8 results_paper)
+
+- Ran `scripts/validate_paper_exports.py` across all `results_paper/tier1_*_20260217_*` on **nlp8**.
+- ✅ Paper-ready (validator `[OK] paper_exports`):
+  - `tier1_phi3mini_seed{1,2}_20260217_*`
+  - `tier1_mistralnemo_seed{1,2}_20260217_*`
+- ❌ Incomplete / no `paper_exports/` found (diagnosed via `run.log` tails):
+  - `tier1_falcon7b_seed1_20260217_145044`: vLLM init fail (`FalconConfig` missing `rope_parameters`; transformers/vLLM compat)
+  - `tier1_gemma2_2b_seed1_20260217_141927` (+ len4096 variant): Triton shared-memory OOR on RTX8000 (cc7.5)
+  - `tier1_pythia2p8b_seed1_20260217_155743` (+ len2048 variant): vLLM rejects `max_model_len 4096 > derived 2048` (use 2048)
+  - `tier1_zephyr7b_seed1_20260217_150053`: empty `run.log` / interrupted; needs rerun
+
+Decision for next experiment heartbeat:
+- Rerun the “easy fixes” first: **Pythia-2.8B with `--max_model_len 2048`** and **Zephyr-7B rerun** (both should be compatible), then reconsider Falcon/Gemma2 only if we change stack/backend.

@@ -30,7 +30,10 @@ Ground-truth tasks에서 multi-turn persona pressure 하에 **정답 유지(surv
   - `results_paper/tier1_mistralnemo_seed2_20260217_180951/`
 - **Decoding sweep (seed1–2) done:** `results_paper/qwen_temp0_seed{1,2}` + `results_paper/qwen_temp0p7_seed{1,2}` are paper-ready; `results_paper/GLOBAL_VALIDATE.log` remains all `[OK]`.
 - **Current risk:** process drift (conflicting docs about host/GPU policy, lane starvation, missing commits) → we keep SSOT docs aligned (STATUS/CHECKLIST/RUNBOOK).
-- **Cross-family extension note:** attempted adding Gemma2 (google/gemma-2-2b-it) on nlp8 RTX8000 via vLLM; it fails due to (i) max_model_len>8192 guardrail and (ii) Triton unified-attention shared-memory OOR on cc7.5. Avoid Gemma2 on this hardware unless we change vLLM backend/settings.
+- **Cross-family extension note (Gemma2):** attempted adding Gemma2 (google/gemma-2-2b-it) on nlp8 RTX8000 via vLLM; it fails due to (i) max_model_len>8192 guardrail and (ii) Triton unified-attention shared-memory OOR on cc7.5. Avoid Gemma2 on this hardware unless we change vLLM backend/settings.
+- **Cross-family extension note (Falcon-7B):** `tiiuae/falcon-7b-instruct` fails at vLLM init (`FalconConfig` missing `rope_parameters`) → likely transformers/vLLM compatibility issue; run is **incomplete** (no exports).
+- **Cross-family extension note (Pythia-2.8B):** fails because we requested `--max_model_len 4096` but model-derived max is 2048; fix by using `--max_model_len 2048` (preferred) instead of `VLLM_ALLOW_LONG_MAX_MODEL_LEN=1`.
+- **Cross-family extension note (Zephyr-7B):** `tier1_zephyr7b_seed1_20260217_150053` has an empty `run.log` (likely interrupted before any output); treat as **incomplete** until rerun.
 - **EXAONE Tier-1 attempt status:** currently **failed/incomplete** due to `ImportError: RopeParameters` from `transformers.modeling_rope_utils` when loading EXAONE remote code; kept under `results_paper_incomplete/` (do not cite as evidence).
 
 ---
