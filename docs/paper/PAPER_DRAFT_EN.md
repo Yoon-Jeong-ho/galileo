@@ -162,7 +162,7 @@ Logical Trap | Reframing / rhetorical trap | Leads the model into an inconsisten
 
 At each round `r`, we score whether the model’s answer is still correct.
 
-**Metrics in brief.** We summarize robustness as a **survival curve** $S_p(r)$: the probability an initially-correct example remains correct for **all rounds $1..r$** (i.e., remains correct *through* round $r$) under persona $p$. A **flip** is a correct→incorrect transition at some round. We report **turn-of-failure (TOF)** as the first round where a flip occurs (or *never* if it does not flip within $R$ rounds), and **recovery** accuracy measured on flipped examples.
+**Metrics in brief.** We summarize robustness as a **survival curve** $S_p(r)$: the probability an initially-correct example remains correct for **all rounds $1..r$** (i.e., remains correct *through* round $r$) under persona $p$. A **flip** is a correct→incorrect transition at some round. We report **turn-of-failure (TOF)** as the first round where a flip occurs (or *never-fail* if it does not flip within $R$ rounds), and **recovery** accuracy measured on flipped examples.
 
 **Notation (paper-ready definitions).** For an example $i$ in persona arm $p$, let $y_{i,0}\in\{0,1\}$ denote Phase~1 correctness (initial answer), and $y_{i,r}\in\{0,1\}$ denote correctness at round $r\in\{1,\dots,R\}$ during Phase~2 (persona pressure or control), evaluated with the same ground-truth scorer.
 
@@ -175,7 +175,7 @@ At each round `r`, we score whether the model’s answer is still correct.
   \[
   \mathrm{TOF}_i=\min\{r\in\{1,\dots,R\}: y_{i,r}=0\}\quad (\text{or }\infty\text{ if no flip})
   \]
-  Examples that remain correct through round $R$ are **right-censored** at the dialogue horizon (reported as *never* in plots/tables).
+  Examples that remain correct through round $R$ are **right-censored** at the dialogue horizon (reported as *never-fail* in plots/tables).
   We also report **Fail@1** as $\Pr(\mathrm{TOF}_i=1\mid y_{i,0}=1)$.
 - **Recovery (conditional on flip):** after the recovery prompt (Phase~3), let $y^{\mathrm{rec}}_i\in\{0,1\}$ be correctness of the recovered answer. We report
   \[
@@ -247,15 +247,15 @@ This produces a **survival curve** across rounds. In plots/tables, we report per
 
 ### 4.3 Turn-of-failure (TOF)
 
-For each example `x ∈ C_p` under persona `p`, define `TOF(x, p)` as the earliest round where the answer first becomes incorrect. If it never flips within `R` rounds, set `TOF = never`.
+For each example `x ∈ C_p` under persona `p`, define `TOF(x, p)` as the earliest round where the answer first becomes incorrect. If it never flips within `R` rounds, set `TOF = never-fail`.
 
-We report the distribution over `{1, 2, …, R, never}` and summarize statistics such as:
+We report the distribution over `{1, 2, …, R, never-fail}` and summarize statistics such as:
 
-**Implementation/audit note (discrete censoring).** In CSV artifacts and plotting scripts, we often encode `never` as `R+1` (a right-censored “no failure observed within the horizon”). This makes the TOF distribution easy to aggregate. Survival can be computed directly from TOF via:
+**Implementation/audit note (discrete censoring).** In CSV artifacts and plotting scripts, we often encode `never-fail` as `R+1` (a right-censored “no failure observed within the horizon”). This makes the TOF distribution easy to aggregate. Survival can be computed directly from TOF via:
 \[
 \text{Survival}(p,r)=\Pr(\mathrm{TOF}>r\mid y_{0}=1)
 \]
-(i.e., the fraction of initially-correct examples whose first failure occurs *after* round `r`, or never). When reporting a “mean TOF”, we use a **truncated** mean over `1..R` plus a separate NeverFail/Survival@R term, rather than treating `never` as a literal numeric time-to-event.
+(i.e., the fraction of initially-correct examples whose first failure occurs *after* round `r`, or never-fail). When reporting a “mean TOF”, we use a **truncated** mean over `1..R` plus a separate NeverFail/Survival@R term, rather than treating `never-fail` as a literal numeric time-to-event.
 - **Fail@1** rate (immediate vulnerability):
   \[
   \text{Fail@1}(p) = 1 - \text{Survival}(p, 1).
