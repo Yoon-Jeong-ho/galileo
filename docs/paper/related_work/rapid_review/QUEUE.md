@@ -374,3 +374,11 @@ Format (one per line):
 - [x] 2026 | TSR: Trajectory-Search Rollouts for Multi-Turn RL of LLM Agents | arXiv | https://arxiv.org/abs/2602.11767 | tags: agents, multi-turn, RL, rollouts, search | note: papers/20260218_tsr-trajectory-search-rollouts.md
 - [x] 2026 | Peak + Accumulation: A Proxy-Level Scoring Formula for Multi-Turn LLM Attack Detection | arXiv | https://arxiv.org/abs/2602.11247 | tags: multi-turn, attack-detection, proxy-metrics, safety | note: papers/20260218_peak-accumulation-attack-detection.md
 - [x] 2026 | Agent World Model: Infinity Synthetic Environments for Agentic Reinforcement Learning | arXiv | https://arxiv.org/abs/2602.10090 | tags: agents, synthetic-data, environments, tool-use, multi-turn | note: papers/20260218_agent-world-model-infinity-synth-envs.md
+
+## New candidates (2026-02-18, web_search batch)
+
+- [x] 2025 | OpenDeception: Learning Deception and Trust in Human–AI Interaction via Multi-Agent Simulation | arXiv | https://arxiv.org/abs/2504.13707 | tags: deception, trust, multi-agent, simulation, multi-turn | note: papers/20260218_opendeception.md
+- [ ] 2025 | MAD: A Benchmark for Multi-Turn Audio Dialogue Fact-Checking | arXiv | https://arxiv.org/abs/2508.12186 | tags: multi-turn, fact-checking, audio, multimodal, dialogue
+- [ ] 2025 | Multi-Faceted Evaluation of Tool-Augmented Dialogue Systems (TRACE/SCOPE) | arXiv | https://arxiv.org/abs/2510.19186 | tags: tool-use, multi-turn, evaluation, benchmarks
+- [ ] 2025 | Many-Turn Jailbreaking (MTJ-Bench) | arXiv | https://arxiv.org/abs/2508.06755 | tags: multi-turn, jailbreak, benchmark, many-turn
+- [ ] 2025 | MultiBreak: A Scalable and Diverse Multi-turn Jailbreak Benchmark for Stress-testing LLM Safety | OpenReview | https://openreview.net/forum?id=uJgfj5EJ2W | tags: multi-turn, jailbreak, benchmark, safety
