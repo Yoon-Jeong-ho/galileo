@@ -259,3 +259,11 @@ Format (one per line):
 - [x] 2025 | GraphIF: Enhancing Multi-Turn Instruction Following for Large Language Models with Relation Graph Prompt | arXiv | https://arxiv.org/abs/2511.10051 | tags: multi-turn, instruction-following, prompting, graphs | note: papers/20260217_graphif.md
 - [x] 2024 | A Survey on Recent Advances in LLM-Based Multi-turn Dialogue Systems | arXiv | https://arxiv.org/abs/2402.18013 | tags: survey, multi-turn, dialogue-systems | note: papers/20260217_survey-llm-multi-turn-dialogue-systems-duplicate.md  # duplicate queue entry; primary note already exists
 - [x] 2025 | StructFlowBench: A Structured Flow Benchmark for Multi-turn Instruction Following | arXiv | https://arxiv.org/abs/2502.14494 | tags: benchmark, multi-turn, instruction-following, structure | note: papers/20260217_structflowbench.md
+
+## New candidates (2026-02-17, web_search batch 13)
+
+- [x] 2025 | The Levers of Political Persuasion with Conversational AI | arXiv | https://arxiv.org/abs/2507.13919 | tags: persuasion, political, dialogue, human-subjects, multi-turn | note: papers/20260217_levers-political-persuasion.md
+- [ ] 2025 | When AI Gets Persuaded, Humans Follow: Inducing the Conformity Effect in Persuasive Dialogue | arXiv | https://arxiv.org/abs/2510.04229 | tags: persuasion, conformity, dialogue, social-influence
+- [ ] 2025 | How Do LLMs Persuade? Linear Probes Can Uncover Persuasion Dynamics in Multi-Turn Conversations | arXiv | https://arxiv.org/abs/2508.05625 | tags: persuasion, multi-turn, interpretability, dynamics
+- [ ] 2024 | Conformity in Large Language Models | arXiv | https://arxiv.org/abs/2410.12428 | tags: conformity, social-influence, bias, robustness
+- [ ] 2025 | On the Adaptive Psychological Persuasion of Large Language Models | arXiv | https://arxiv.org/abs/2506.06800 | tags: persuasion, psychology, strategies, dialogue
