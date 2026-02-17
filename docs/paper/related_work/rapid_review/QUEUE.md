@@ -69,4 +69,4 @@ Format (one per line):
 - [x] 2025 | Flip-Flop Consistency: Unsupervised Training for Robustness to Prompt Perturbations in LLMs (F^2C) | arXiv | https://arxiv.org/abs/2510.14242 | tags: inconsistency, robustness, training, prompt-perturbation | note: papers/20260217_flip-flop-consistency-f2c.md
 - [x] 2024 | Are language models rational? The case of coherence norms and belief revision | arXiv | https://arxiv.org/abs/2406.03442 | tags: belief-revision, rationality, coherence | note: papers/20260217_lm-rational-coherence.md
 - [x] 2024 | Fundamental Problems With Model Editing: How Should Rational Belief Revision Work in LLMs? | arXiv | https://arxiv.org/abs/2406.19354 | tags: belief-revision, model-editing, rationality | note: papers/20260217_fundamental-problems-model-editing.md
-- [ ] 2025 | Interpreting and Mitigating Unwanted Uncertainty in LLMs | arXiv | https://arxiv.org/abs/2510.22866 | tags: uncertainty, inconsistency, robustness
+- [x] 2025 | Interpreting and Mitigating Unwanted Uncertainty in LLMs | arXiv | https://arxiv.org/abs/2510.22866 | tags: uncertainty, inconsistency, robustness | note: papers/20260217_unwanted-uncertainty.md
