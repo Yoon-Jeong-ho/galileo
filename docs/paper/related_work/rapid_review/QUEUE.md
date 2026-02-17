@@ -390,3 +390,11 @@ Format (one per line):
 - [x] 2025 | Multi-Faceted Evaluation of Tool-Augmented Dialogue Systems | arXiv | https://arxiv.org/abs/2510.19186 | tags: multi-turn, tool-use, evaluation, dialogue | note: papers/20260218_trace_scope_tool_aug_dialogue_eval.md (duplicate of TRACE/SCOPE entry above)
 - [x] 2025 | ConvCodeWorld: Benchmarking Conversational Code Generation in Reproducible Feedback Environments | arXiv | https://arxiv.org/abs/2502.19852 | tags: multi-turn, code, feedback, evaluation | note: papers/20260218_convcodeworld.md
 - [x] 2025 | CodeAssistBench (CAB): Dataset & Benchmarking for Multi-turn Chat-Based Code Assistance | arXiv | https://arxiv.org/abs/2507.10646 | tags: multi-turn, code, benchmark, evaluation | note: papers/20260218_codeassistbench_cab.md
+
+## New candidates (2026-02-18, web_search batch)
+
+- [x] 2026 | Learning an Efficient Multi-Turn Dialogue Evaluator from Multiple LLM Judges (MTDEval) | arXiv | https://arxiv.org/abs/2508.00454 | tags: evaluation, multi-turn, llm-judge, metrics | note: papers/20260217_mtd-eval.md (duplicate queue entry)
+- [ ] 2025 | Beyond Single-Turn: A Survey on Multi-Turn Interactions with Large Language Models | arXiv | https://arxiv.org/abs/2504.04717 | tags: survey, multi-turn, agents, evaluation
+- [ ] 2026 | Alignment Drift in Multimodal LLMs: A Two-Phase, Longitudinal Evaluation of Harm Across Eight Model Releases | arXiv | https://arxiv.org/abs/2602.04739 | tags: drift, longitudinal, safety, multimodal
+- [ ] 2025 | Multi-turn evaluation of anthropomorphic behaviours in large language models | arXiv | https://arxiv.org/abs/2502.07077 | tags: multi-turn, anthropomorphism, evaluation, behavior
+- [ ] 2024 | RESPACT: Harmonizing Reasoning, Speaking, and Acting towards Building LLM-based Conversational AI Agents | arXiv | https://arxiv.org/abs/2411.00927 | tags: agents, multi-turn, speech-act, planning
