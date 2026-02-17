@@ -54,3 +54,11 @@ Format (one per line):
 - [x] 2025 | Behavioral Fingerprinting of Large Language Models | arXiv | https://arxiv.org/abs/2509.04504 | tags: sycophancy-adjacent, diagnostics, robustness | note: papers/20260217_behavioral-fingerprinting-llms.md
 - [x] 2025 | Robustness of large language models in moral judgements | Royal Society Open Science | https://royalsocietypublishing.org/rsos/article/12/4/241229/235626/Robustness-of-large-language-models-in-moral | tags: moral, robustness, consistency | note: papers/20260217_robustness-moral-judgements.md
 - [x] 2024 | GermanPartiesQA: Benchmarking Commercial Large Language Models and AI Companions for Political Alignment and Sycophancy | arXiv | https://arxiv.org/abs/2407.18008 | tags: sycophancy, politics, alignment, role-play | note: papers/20260217_germanpartiesqa.md
+
+## New candidates (2026-02-17, web_search batch 5)
+
+- [x] 2025 | Evaluating & Reducing Deceptive Dialogue From Language Models with Multi-turn RL | arXiv | https://arxiv.org/abs/2510.14318 | tags: multi-turn, deception, robustness, RL, trajectory-metrics | note: papers/20260217_deceptive-dialogue-multi-turn-rl.md
+- [x] 2025 | When Two LLMs Debate, Both Think They’ll Win | arXiv | https://arxiv.org/abs/2505.19184 | tags: multi-turn, debate, belief-revision, confidence, persuasion | note: papers/20260217_two-llms-debate-win.md
+- [ ] 2025 | Beyond Single-Turn: A Survey on Multi-Turn Interactions with Large Language Models | arXiv | https://arxiv.org/abs/2504.04717 | tags: survey, multi-turn, robustness, evaluation
+- [ ] 2025 | Evaluating LLM-based Agents for Multi-Turn Conversations: A Survey | arXiv | https://arxiv.org/abs/2503.22458 | tags: survey, multi-turn, evaluation
+- [ ] 2025 | Can large language models independently complete tasks? A dynamic evaluation framework for multi-turn task planning and completion | Expert Systems with Applications | https://www.sciencedirect.com/science/article/abs/pii/S0925231225008070 | tags: multi-turn, evaluation, time-to-failure, task-completion
