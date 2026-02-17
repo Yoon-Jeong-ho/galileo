@@ -500,7 +500,7 @@ Format (one per line):
 ## New candidates (2026-02-18, web_search batch 4)
 
 - [x] 2025 | Steering Dialogue Dynamics for Robustness against Multi-turn Jailbreaking Attacks | arXiv | https://arxiv.org/abs/2503.00187 | tags: multi-turn, jailbreak, safety, robustness, steering | note: papers/20260217_steering-dialogue-dynamics-nbf.md (duplicate queue entry)
-- [ ] 2025 | MultiChallenge: A Realistic Multi-Turn Conversation Evaluation Benchmark Challenging to Frontier LLMs | arXiv | https://arxiv.org/abs/2501.17399 | tags: multi-turn, benchmark, conversation, evaluation
+- [x] 2025 | MultiChallenge: A Realistic Multi-Turn Conversation Evaluation Benchmark Challenging to Frontier LLMs | arXiv | https://arxiv.org/abs/2501.17399 | tags: multi-turn, benchmark, conversation, evaluation | note: papers/20260217_multichallenge.md (duplicate queue entry)
 - [ ] 2025 | Beyond Single-Turn: A Survey on Multi-Turn Interactions with Large Language Models | arXiv | https://arxiv.org/abs/2504.04717 | tags: multi-turn, survey, evaluation, robustness
 - [ ] 2025 | Reinforcing Multi-Turn Reasoning in LLM Agents via Turn-Level Reward Design | arXiv | https://arxiv.org/abs/2505.11821 | tags: multi-turn, agents, RL, reward-design, reasoning
 - [ ] 2025 | Modeling and Predicting Multi-Turn Answer Instability in Large Language Models | arXiv | https://arxiv.org/abs/2511.10688 | tags: multi-turn, instability, robustness, probing, evaluation
