@@ -185,3 +185,11 @@ Format (one per line):
 - [x] 2025 | Safety and Security Analysis of Large Language Models: Risk Profile and Harm Potential | arXiv | https://arxiv.org/abs/2509.10655 | tags: safety, security, risk, prompt-injection, survey | note: papers/20260217_safety-security-analysis-rsi.md
 - [x] 2025 | LLM-based Agents Suffer from Hallucinations: A Survey of Taxonomy, Methods, and Directions | arXiv | https://arxiv.org/abs/2509.18970 | tags: agents, hallucination, survey, taxonomy, robustness | note: papers/20260217_llm-agent-hallucinations-survey.md
 - [x] 2025 | DIQ-H: Evaluating Hallucination Persistence in VLMs Under Temporal Visual Degradation | arXiv | https://arxiv.org/abs/2512.03992 | tags: vlm, hallucination, temporal, persistence, robustness | note: papers/20260217_diq-h.md
+
+## New candidates (2026-02-17, web_search batch 21)
+
+- [x] 2026 | AgentNoiseBench: Benchmarking Robustness of Tool-Using LLM Agents Under Noisy Condition | arXiv | https://arxiv.org/abs/2602.11348 | tags: agents, tool-use, robustness, noise, multi-turn | note: papers/20260217_agentnoisebench.md
+- [ ] 2025 | A Benchmark for Evaluating Outcome-Driven Constraint Violations in Autonomous AI Agents | arXiv | https://arxiv.org/abs/2512.20798 | tags: agents, safety, constraints, robustness, evaluation
+- [ ] 2025 | Joint Evaluation of Answer and Reasoning Consistency for Large Language Models | arXiv | https://arxiv.org/abs/2506.04832 | tags: consistency, reasoning, hallucination, evaluation
+- [ ] 2025 | Visual reasoning consistency and robustness analysis of multimodal LLMs | Pattern Recognition (ScienceDirect) | https://www.sciencedirect.com/science/article/pii/S0031320325014281 | tags: multimodal, robustness, consistency, evaluation
+- [ ] 2025 | Memory in Large Language Models: Mechanisms, Evaluation and Evolution | arXiv | https://arxiv.org/abs/2509.18868 | tags: memory, evaluation, robustness, long-context
