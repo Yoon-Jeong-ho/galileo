@@ -524,7 +524,7 @@ Format (one per line):
 ## New candidates (2026-02-18, web_search)
 
 - [x] 2025 | Beyond Single-Turn: A Survey on Multi-Turn Interactions with Large Language Models | arXiv | https://arxiv.org/abs/2504.04717 | tags: survey, multi-turn, instruction-following, evaluation | note: papers/20260217_beyond-single-turn-survey.md  # duplicate queue entry
-- [ ] 2025 | LIFBench: Evaluating the Instruction Following Performance and Stability of Large Language Models in Long-Context Scenarios | arXiv | https://arxiv.org/abs/2411.07037 | tags: instruction-following, stability, long-context
+- [x] 2025 | LIFBench: Evaluating the Instruction Following Performance and Stability of Large Language Models in Long-Context Scenarios | arXiv | https://arxiv.org/abs/2411.07037 | tags: instruction-following, stability, long-context | note: papers/20260218_lifbench.md (duplicate queue entry)
 - [ ] 2025 | Modeling and Predicting Multi-Turn Answer Instability in Large Language Models | arXiv | https://arxiv.org/abs/2511.10688 | tags: instability, multi-turn, reliability
 - [ ] 2025 | One Battle After Another: Probing LLMs’ Limits on Multi-Turn Instruction Following with a Benchmark Evolving Framework | arXiv | https://arxiv.org/abs/2511.03508 | tags: multi-turn, instruction-following, benchmark
 - [ ] 2024 | Sycophancy in Large Language Models: Causes and Mitigations | arXiv | https://arxiv.org/abs/2411.15287 | tags: sycophancy, causes, mitigation, survey
