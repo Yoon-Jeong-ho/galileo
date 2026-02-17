@@ -34,7 +34,7 @@ Format (one per line):
 ## New candidates (2026-02-17, web_search batch 2)
 
 - [x] 2026 | How RLHF Amplifies Sycophancy | arXiv | https://arxiv.org/abs/2602.01002 | tags: sycophancy, rlhf, reward-model, drift, KL | note: papers/20260217_rlhf-amplifies-sycophancy.md
-- [ ] 2026 | Vulnerability of LLMs' Belief Systems? LLMs Belief Resistance Check Through Strategic Persuasive Conversation Interventions | arXiv | https://arxiv.org/abs/2601.13590 | tags: belief-robustness, persuasion, multi-turn, belief-change
+- [x] 2026 | Vulnerability of LLMs' Belief Systems? LLMs Belief Resistance Check Through Strategic Persuasive Conversation Interventions | arXiv | https://arxiv.org/abs/2601.13590 | tags: belief-robustness, persuasion, multi-turn, belief-change | note: papers/20260217_llm-belief-resistance-smcr.md
 - [ ] 2025 | Persuade Me if You Can: A Framework for Evaluating Persuasion Effectiveness and Susceptibility Among Large Language Models | arXiv | https://arxiv.org/abs/2503.01829 | tags: persuasion, multi-agent, susceptibility, benchmark
 - [ ] 2025 | It’s the Thought that Counts: Evaluating the Attempts of Frontier LLMs to Persuade on Harmful Topics (APE benchmark) | arXiv | https://arxiv.org/abs/2506.02873 | tags: persuasion, harmful, multi-turn, attempts, safety
 - [ ] 2025 | LLM Can be a Dangerous Persuader: Empirical Study of Persuasion Safety in Large Language Models (PersuSafety) | arXiv | https://arxiv.org/abs/2504.10430 | tags: persuasion, safety, unethical-strategies, refusal, multi-turn
