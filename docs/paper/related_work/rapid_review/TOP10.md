@@ -66,14 +66,15 @@ For each item, we maintain:
    - Borrow: (i) PWC as an early-failure-sensitive metric, (ii) randomized follow-up ordering to reduce position bias, (iii) failure-mode labels (Self-Doubt, Social Conformity, Suggestion Hijacking, Emotional Susceptibility, Reasoning Fatigue).
    - How to change GALILEO: include a “misleading suggestion” pressure operator as a canonical strong adversary; add PWC/trajectory-pattern reporting; and explicitly note that **confidence-based defenses (CARG) can fail on reasoning models** due to reasoning-induced overconfidence—so GALILEO should avoid over-claiming logprob confidence as an uncertainty signal.
 
-10) **SycEval: Evaluating LLM Sycophancy** (Fanous, Goldberg et al., AIES 2025)
-   - Contributes: a very usable “rebuttal chain” protocol that (i) decomposes **progressive vs regressive** sycophancy (helpful vs harmful flips), (ii) compares **in-context vs preemptive** pressure, and (iii) manipulates **rhetorical strength** (simple→ethos→justification→citation+abstract) while also reporting **persistence** of flip behavior across stronger pressure.
-   - Misses vs GALILEO: short-horizon (rebuttal chains, not long survival/TOF curves); no explicit neutral re-ask control to separate conversational variance from pressure-driven drift; heavy reliance on LLM-as-a-judge.
-   - Borrow: progressive/regressive split; preemptive-vs-in-context framing; “pressure strength ladder” as an experimental factor; persistence-of-failure concept.
-   - How to change GALILEO: add a rhetoric-strength manipulation and report progressive vs regressive outcomes + persistence across the trajectory; position GALILEO as extending this to **time-to-failure / survival** and **recovery-after-flip** with tighter controls.
+10) **Drift No More? Context Equilibria in Multi-Turn LLM Interactions** (Dongre et al., arXiv/workshop 2025)
+   - Contributes: a trajectory-first drift definition and dynamical framing: **per-turn KL divergence to a goal-consistent reference policy** \(D_t = D_{KL}(q_t\|p_t)\), with empirical evidence that multi-turn drift often reaches **stable, noise-limited equilibria** (not runaway monotone decay), and that simple **reminder interventions** shift the equilibrium downward.
+   - Misses vs GALILEO: not about social pressure/persuasion; relies on access to a reference policy’s token distribution; does not explicitly separate evidence-driven belief revision from pressure-driven drift nor measure recovery-after-flip.
+   - Borrow: (i) treat drift as an explicit **time series** (not a scalar end score), (ii) “equilibrium + intervention” language as a clean way to motivate control conditions and reminder-style baselines, (iii) derived metrics like “turn until divergence exceeds threshold” as a TOF analogue.
+   - How to change GALILEO: add a drift-control subsection that (a) defines an operational drift signal over turns, (b) includes reminder interventions, and (c) reports whether behavior is equilibrium-like vs runaway under different pressures.
 
 ## Changelog
 
 - 2026-02-17: Added *Time-To-Inconsistency* (arXiv 2025) for its survival-analysis / censoring framing (fills a key metric gap). Displaced *SycoEval-EM* (arXiv 2026): strong applied endpoint evaluation, but less central than survival/time-to-event methodology for GALILEO’s core claims.
 - 2026-02-17: Added *Consistency of Large Reasoning Models Under Multi-Turn Attack* (arXiv 2026) for its 8-round protocol + PWC/trajectory analysis + evidence that confidence-based defenses can fail on reasoning models. Displaced *Moral Sycophancy in Vision Language Models* (arXiv 2026): useful EIR/ECR idea, but less central (2-turn, VLM-specific).
+- 2026-02-17: Added *Drift No More? Context Equilibria in Multi-Turn LLM Interactions* (arXiv/workshop 2025) for its KL-to-reference drift signal + equilibrium/intervention framing (fills a key “drift control” gap). Displaced *SycEval: Evaluating LLM Sycophancy* (AIES 2025): strong pressure-strength ladder, but less central than an explicit drift-control/equilibrium framework for GALILEO’s drift-vs-revision positioning.
 
