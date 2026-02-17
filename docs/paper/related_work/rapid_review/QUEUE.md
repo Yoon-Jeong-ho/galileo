@@ -488,3 +488,11 @@ Format (one per line):
 - [x] 2026 | WavBench: Benchmarking Reasoning, Colloquialism, and Paralinguistics for End-to-End Spoken Dialogue Models | arXiv | https://arxiv.org/abs/2602.12135 | tags: spoken-dialogue, multi-turn, benchmark, paralinguistics | note: papers/20260217_wavbench.md (duplicate queue entry)
 - [x] 2026 | Peak + Accumulation: A Proxy-Level Scoring Formula for Multi-Turn LLM Attack Detection | arXiv | https://arxiv.org/abs/2602.11247 | tags: multi-turn, safety, jailbreak, detection, scoring | note: papers/20260218_peak-accumulation-attack-detection.md (duplicate queue entry)
 - [x] 2026 | GISA: A Benchmark for General Information-Seeking Assistant | arXiv | https://arxiv.org/abs/2602.08543 | tags: agents, information-seeking, web, multi-turn, benchmark | note: papers/20260218_gisa-benchmark-general-information-seeking-assistants.md
+
+## New candidates (2026-02-18, web_search batch 3)
+
+- [x] 2026 | Consistency of Large Reasoning Models Under Multi-Turn Attacks | arXiv | https://arxiv.org/abs/2602.13093 | tags: multi-turn, attack, robustness, reasoning, persuasion | note: papers/20260218_consistency-lrm-multiturn-attack.md
+- [ ] 2025 | Persuasion Dynamics in LLMs: Investigating Robustness and Adaptability in Knowledge and Safety with DuET-PD | arXiv | https://arxiv.org/abs/2508.17450 | tags: persuasion, robustness, safety, multi-turn, benchmark | note: 
+- [ ] 2026 | Vulnerability of LLMs’ Belief Systems? LLMs Belief Resistance Check Through Strategic Persuasive Conversation Interventions | arXiv | https://arxiv.org/abs/2601.13590 | tags: belief-robustness, persuasion, multi-turn, evaluation | note: 
+- [ ] 2025 | Challenging the Evaluator: LLM Sycophancy Under User Rebuttal | arXiv | https://arxiv.org/abs/2509.16533 | tags: sycophancy, persuasion, multi-turn, evaluation | note: 
+- [ ] 2026 | SycoEval-EM: Sycophancy Evaluation of Large Language Models in Simulated Clinical Encounters for Emergency Care | arXiv | https://arxiv.org/abs/2601.16529 | tags: sycophancy, medical, multi-turn, evaluation, safety | note: 
