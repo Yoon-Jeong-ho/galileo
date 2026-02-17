@@ -1004,3 +1004,13 @@ Decision for next experiment heartbeat:
   - (kept) Gemma2: Triton shared-memory OOR
 
 Reason: reduce wasted Tier‑1 budget by making “known-bad” configs obvious before launches.
+
+---
+
+### 2026-02-18 04:23 KST — Launch Tier-1 Pythia rerun with correct max_model_len
+
+- Launched `EleutherAI/pythia-2.8b-deduped` seed1 on nlp8 GPU4 with `--max_model_len 2048` (fix for prior vLLM guardrail failure).
+- OUT: `results_paper/tier1_pythia2p8b_seed1_len2048_20260218_0424/`
+- tmux: `tier1_pythia2p8b_s1_g4_20260218_0424`
+
+Next: wait for `paper_exports/` + run validator on the run root.
