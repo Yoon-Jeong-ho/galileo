@@ -137,7 +137,12 @@ Given a dataset and an LLM, GALILEO proceeds in three phases:
 
 We prompt the model to answer each question and score the response against ground truth.
 
-**Initially-correct subset (shared across personas).** Phase~1 uses a neutral prompt (no persona content), so the notion of “initially correct” should not depend on which persona we will apply later. In the recommended protocol (and in our pipeline when caching Phase~1 outputs), we therefore define a single initially-correct set `C \subseteq D` per dataset/seed/config and evaluate **all** persona arms and the Neutral Re-asking Control on that same set `C`. This prevents persona-vs-persona comparisons from being confounded by different initial-correct filters. (If a run is executed separately per persona with independent sampling or filtering, `C` may differ across arms; in that case we report results arm-wise but treat cross-persona comparisons cautiously.)
+**Initially-correct subset(s).** Phase~1 uses a neutral prompt (no persona content), so the notion of “initially correct” does not *conceptually* depend on which persona we will apply later. In practice, we distinguish two evaluation/reporting modes:
+
+1) **Shared initially-correct set** `C \subseteq D` (persona-free): evaluate *all* persona arms and the Neutral Re-asking Control on the same `C`. This is the cleanest choice for **cross-persona** comparisons.
+2) **Persona-conditioned initially-correct set** `C_p \subseteq D`: for each persona arm `p`, filter to the subset initially correct under the Phase~1 prompt *used for that arm*, then run both (i) persona pressure and (ii) the Neutral Re-asking Control on that same `C_p`. This makes **persona-vs-control attribution** within each persona apples-to-apples, but implies that **control values can differ across personas** because the underlying `C_p` differs.
+
+Our paper-facing “persona-wise control vs persona” artifacts (and Table~W) use mode (2); when we need cross-persona comparisons, we additionally report (or recommend reporting) mode (1) where possible.
 
 ### Phase 2: Adversarial persona pressure (multi-round)
 
@@ -183,9 +188,12 @@ At each round `r`, we score whether the model’s answer is still correct.
 - **Persona pressure:** adversarial social/rhetorical tactics (e.g., denial, authority, traps) designed to induce deference.
 - **Neutral Re-asking Control:** a neutral re-check request that explicitly **introduces no new task-relevant evidence** (no new facts, counterexamples, citations, or alternative solutions). This is intended to measure generic multi-turn variance (e.g., re-evaluation drift, formatting drift) rather than evidence-based belief revision.
 
-**Important (fair comparison set).** In the **recommended protocol**, we construct a single initially-correct subset `C` in Phase~1 (using a neutral, persona-free prompt) and then run **all** persona arms *and* the Neutral Re-asking Control on that same `C`. This makes persona-vs-control and persona-vs-persona comparisons apples-to-apples without confounding from different initial-correct filters.
+**Important (fair comparison set).** Regardless of whether we use a shared initially-correct set `C` or persona-conditioned sets `C_p`, we ensure that every **persona pressure vs Neutral Re-asking Control** comparison is computed on the **same** initially-correct subset.
 
-If runs are executed separately per persona (e.g., independent Phase~1 caching or sampling), the initially-correct set may differ across arms (call it `C_p`). In that case, we still ensure **persona pressure vs control** is computed on the same subset within each arm, but we treat cross-persona comparisons more cautiously and report the underlying `|C_p|`.
+- In the **shared-`C` mode**, both persona pressure and control are evaluated on the same `C` (making cross-persona comparisons clean).
+- In the **persona-conditioned `C_p` mode** (used by our persona-wise artifacts and Table~W), for each persona `p` we compare persona pressure to control on that persona’s own initially-correct subset `C_p`.
+
+In the latter case, we treat cross-persona comparisons cautiously and report the underlying `|C_p|`, since the control baseline can vary across personas by construction.
 
 - **Control prompt pattern:** the user repeatedly requests re-checking with neutral phrasing (e.g., “Are you sure? Please verify again.”) without authority claims, traps, or adversarial rhetoric.
   - Example control utterances:
