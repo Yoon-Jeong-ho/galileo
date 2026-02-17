@@ -361,7 +361,7 @@ Format (one per line):
 ## New candidates (2026-02-18, web_search batch)
 
 - [x] 2026 | LUMINA: Long-horizon Understanding for Multi-turn Interactive Agents | arXiv | https://arxiv.org/abs/2601.16649 | tags: multi-turn, agents, long-horizon, understanding, evaluation | note: papers/20260218_lumina.md
-- [ ] 2026 | TravelBench: A Broader Real-World Benchmark for Multi-Turn and Tool-Using Travel Planning | arXiv | https://arxiv.org/abs/2512.22673 | tags: multi-turn, tool-use, planning, benchmark, robustness
+- [x] 2026 | TravelBench: A Broader Real-World Benchmark for Multi-Turn and Tool-Using Travel Planning | arXiv | https://arxiv.org/abs/2512.22673 | tags: multi-turn, tool-use, planning, benchmark, robustness | note: papers/20260218_travelbench.md
 - [ ] 2025 | AgentProg: Empowering Long-Horizon GUI Agents with Program-Guided Context Management | arXiv | https://arxiv.org/abs/2512.10371 | tags: agents, long-horizon, gui, context-management, robustness
 - [ ] 2025 | OdysseyBench: Evaluating LLM Agents on Long-Horizon Complex Office Application Workflows | arXiv | https://arxiv.org/abs/2508.09124 | tags: agents, long-horizon, office, workflows, benchmark
 - [ ] 2025 | NL2Repo-Bench: Towards Long-Horizon Repository Generation Evaluation of Coding Agents | arXiv | https://arxiv.org/abs/2512.12730 | tags: agents, coding, long-horizon, benchmark, robustness
