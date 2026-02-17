@@ -471,6 +471,19 @@ Concretely, Phi-3-mini also shows a sizeable gap under the same protocol (seeds 
 
 **Table W (Persona vs control).** Compare survival@R and Fail@1 under persona pressure vs the **Neutral Re-asking Control** condition.
 
+**Definition (what Table W actually aggregates).** Fix a round horizon \(R\) (we use \(R=5\)). For each seed \(s\) and persona \(p\in P\), compute:
+- \(\mathrm{Survival}_{p,s}(R)=100\cdot\frac{\#\{i\in C_s:\forall r\le R\; y_{i,r}=1\}}{|C_s|}\)
+- \(\mathrm{Fail@1}_{p,s}=100\cdot\frac{\#\{i\in C_s: y_{i,1}=0\}}{|C_s|}\)
+where \(C_s\) is the **Phase‑1 initially-correct** subset for that seed under the neutral prompt (shared across personas and control within the recommended protocol).
+
+Table W then reports (i) the **Neutral Re-asking Control** metrics \(\mathrm{Survival}^{\mathrm{ctrl}}_s(R)\), \(\mathrm{Fail@1}^{\mathrm{ctrl}}_s\) computed on the same \(C_s\), and (ii) a persona aggregate under identical decoding/rounds/scoring. The default aggregate is a **micro-average** across personas ("weighted"):
+\[
+\mathrm{Survival}^{\mathrm{persona,wt}}_s(R)=100\cdot\frac{\sum_{p\in P}\#\{i\in C_s:\forall r\le R\; y^{(p)}_{i,r}=1\}}{\sum_{p\in P}|C_s|}
+\]
+(and analogously for Fail@1). We optionally also show the **macro-average** across personas ("unweighted") to make aggregation choices explicit.
+
+Finally, we summarize across seeds with mean±std.
+
 - Figure file (artifact-derived SVG; committed): `docs/paper/figures/table_w_effect_delta_seed1-4_20260209.svg` (Δ metric view; seed1–4)
 
 **Paper include (LaTeX snippet).**
