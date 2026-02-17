@@ -464,3 +464,11 @@ Format (one per line):
 - [x] 2025 | MULTI-Bench: A Multi-Turn Interactive Benchmark for Assessing Emotional Intelligence ability of Spoken Dialogue Models | arXiv | https://arxiv.org/abs/2511.00850 | tags: multi-turn, spoken-dialogue, emotional-intelligence, benchmark | note: papers/20260217_multi-bench-ei.md  # duplicate queue entry
 - [x] 2025 | MTalk-Bench: Evaluating Speech-to-Speech Models in Multi-Turn Dialogues via Arena-style and Rubrics Protocols | arXiv | https://arxiv.org/abs/2508.18240 | tags: speech-to-speech, multi-turn, evaluation, benchmark | note: papers/20260218_mtalk-bench-s2s-multiturn-eval.md
 - [x] 2024 | A Survey on Recent Advances in LLM-Based Multi-turn Dialogue Systems | arXiv | https://arxiv.org/abs/2402.18013 | tags: survey, multi-turn, dialogue-systems | note: papers/20260217_survey-llm-multi-turn-dialogue-systems.md (duplicate queue entry)
+
+## New candidates (2026-02-18, web_search batch 1)
+
+- [x] 2025 | SafeDialBench: A Fine-Grained Safety Evaluation Benchmark for Large Language Models in Multi-Turn Dialogues with Diverse Jailbreak Attacks | arXiv | https://arxiv.org/abs/2502.11090 | tags: multi-turn, safety, jailbreak, benchmark | note: papers/20260217_safedialbench.md (duplicate queue entry)
+- [ ] 2025 | X-Boundary: Establishing Exact Safety Boundary to Shield LLMs from Multi-Turn Jailbreaks without Compromising Usability | arXiv | https://arxiv.org/abs/2502.09990 | tags: multi-turn, safety, jailbreak, defense
+- [ ] 2026 | Unsafer in Many Turns: Benchmarking and Defending Multi-Turn Safety Risks in Tool-Using Agents | arXiv | https://arxiv.org/abs/2602.13379 | tags: multi-turn, safety, tool-use, agents
+- [ ] 2026 | JMedEthicBench: A Multi-Turn Conversational Benchmark for Evaluating Medical Safety in Japanese Large Language Models | arXiv | https://arxiv.org/abs/2601.01627 | tags: multi-turn, safety, medical, japanese, benchmark
+- [ ] 2025 | Path Drift in Large Reasoning Models: How First-Person Commitments Override Safety | arXiv | https://arxiv.org/abs/2510.10013 | tags: multi-turn, safety, drift, reasoning
