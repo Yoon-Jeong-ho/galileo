@@ -106,7 +106,7 @@ Format (one per line):
 ## New candidates (2026-02-17, web_search batch 11)
 
 - [x] 2025 | Disagreements in Reasoning: How a Model’s Thinking Process Dictates Persuasion in Multi-Agent Systems | arXiv | https://arxiv.org/abs/2509.21054 | tags: persuasion, multi-agent, reasoning-traces, disagreement | note: papers/20260217_disagreements-reasoning-persuasion.md
-- [ ] 2025 | A meta-analysis of the persuasive power of large language models | Scientific Reports | https://www.nature.com/articles/s41598-025-30783-y | tags: persuasion, meta-analysis, human-subjects
+- [x] 2025 | A meta-analysis of the persuasive power of large language models | Scientific Reports | https://www.nature.com/articles/s41598-025-30783-y | tags: persuasion, meta-analysis, human-subjects | note: papers/20260217_meta-analysis-persuasive-power-llms.md
 - [ ] 2025 | LLM-Generated Ads: From Personalization Parity to Persuasion Superiority | arXiv | https://arxiv.org/abs/2512.03373 | tags: persuasion, advertising, human-eval
 - [ ] 2025 | LLMs for Customized Marketing Content Generation and Evaluation at Scale | arXiv | https://arxiv.org/abs/2506.17863 | tags: persuasion, marketing, evaluation, personalization
 - [ ] 2025 | Evaluation and Benchmarking of LLM Agents: A Survey | arXiv | https://arxiv.org/abs/2507.21504 | tags: agents, evaluation, survey, multi-turn
