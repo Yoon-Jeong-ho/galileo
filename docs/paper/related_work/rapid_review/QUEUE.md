@@ -274,7 +274,7 @@ Format (one per line):
 - [x] 2026 | PatientHub: A Unified Framework for Patient Simulation | arXiv | https://arxiv.org/abs/2602.11684 | tags: multi-turn, patient-simulation, framework, evaluation | note: papers/20260217_patienthub.md
 - [x] 2026 | MedPI: Evaluating AI Systems in Medical Patient-facing Interactions | arXiv | https://arxiv.org/abs/2601.04195 | tags: multi-turn, medical, patient-facing, evaluation, rubrics | note: papers/20260217_medpi.md
 - [x] 2025 | MATRIX: Multi-Agent simulaTion fRamework for safe Interactions and conteXtual clinical conversational evaluation | arXiv | https://arxiv.org/abs/2508.19163 | tags: multi-turn, medical, safety, simulation, evaluation | note: papers/20260217_matrix.md
-- [ ] 2025 | Chatbot To Help Patients Understand Their Health | arXiv | https://arxiv.org/abs/2509.05818 | tags: multi-turn, medical, patient-education, evaluation
+- [x] 2025 | Chatbot To Help Patients Understand Their Health | arXiv | https://arxiv.org/abs/2509.05818 | tags: multi-turn, medical, patient-education, evaluation | note: papers/20260217_noteaid-chatbot.md
 
 ## New candidates (2026-02-17, web_search batch 23)
 
