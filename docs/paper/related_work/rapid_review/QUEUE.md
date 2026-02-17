@@ -508,7 +508,7 @@ Format (one per line):
 ## New candidates (2026-02-18, web_search batch)
 
 - [x] 2025 | TurnBench-MS: A Benchmark for Evaluating Multi-Turn, Multi-Step Reasoning in Large Language Models | arXiv | https://arxiv.org/abs/2506.01341 | tags: multi-turn, multi-step, reasoning, benchmark | note: papers/20260217_turnbench-ms.md (duplicate queue entry)
-- [ ] 2025 | Beyond Single-Turn: A Survey on Multi-Turn Interactions with Large Language Models | arXiv | https://arxiv.org/abs/2504.04717 | tags: multi-turn, survey, robustness, drift, sycophancy
+- [x] 2025 | Beyond Single-Turn: A Survey on Multi-Turn Interactions with Large Language Models | arXiv | https://arxiv.org/abs/2504.04717 | tags: multi-turn, survey, robustness, drift, sycophancy | note: papers/20260217_beyond-single-turn-survey.md (duplicate queue entry)
 - [ ] 2025 | Assessing Large Language Models in Updating Their Forecasts with New Information | arXiv | https://arxiv.org/abs/2509.23936 | tags: belief-update, forecasting, belief-revision, evaluation
 - [ ] 2025 | Beyond the Strongest LLM: Multi-Turn Multi-Agent Orchestration vs. Single LLMs on Benchmarks | arXiv | https://arxiv.org/abs/2509.23537 | tags: multi-turn, multi-agent, orchestration, evaluation
 - [ ] 2025 | One Battle After Another: Probing LLMs’ Limits on Multi-Turn Instruction Following with a Benchmark Evolving Framework | arXiv | https://arxiv.org/abs/2511.03508 | tags: instruction-following, multi-turn, benchmark, constraints
