@@ -126,3 +126,11 @@ Format (one per line):
 - [x] 2025 | MultiVerse: A Multi-Turn Conversation Benchmark for Evaluating Large Vision and Language Models | arXiv | https://arxiv.org/abs/2510.16641 | tags: multi-turn, benchmark, VLM, conversation | note: papers/20260217_multiverse-vlm-multi-turn-benchmark.md
 - [x] 2025 | SafeDialBench: A Fine-Grained Safety Evaluation Benchmark for Large Language Models in Multi-Turn Dialogues with Diverse Jailbreak Attacks | arXiv | https://arxiv.org/abs/2502.11090 | tags: multi-turn, safety, jailbreak, benchmark | note: papers/20260217_safedialbench.md
 - [x] 2024 | A Survey on Recent Advances in LLM-Based Multi-turn Dialogue Systems | arXiv | https://arxiv.org/abs/2402.18013 | tags: survey, multi-turn, dialogue-systems, consistency | note: papers/20260217_survey-llm-multi-turn-dialogue-systems.md
+
+## New candidates (2026-02-17, web_search batch 14)
+
+- [x] 2025 | X-Boundary: Establishing Exact Safety Boundary to Shield LLMs from Multi-Turn Jailbreaks without Compromising Usability | arXiv | https://arxiv.org/abs/2502.09990 | tags: multi-turn, jailbreak, defense, safety-boundary | note: papers/20260217_x-boundary.md
+- [ ] 2025 | Full-Duplex-Bench: A Benchmark to Evaluate Full-duplex Spoken Dialogue Models on Turn-taking Capabilities | arXiv | https://arxiv.org/abs/2503.04721 | tags: multi-turn, spoken-dialogue, turn-taking, benchmark
+- [ ] 2025 | Evaluating the Sensitivity of LLMs to Prior Context | arXiv | https://arxiv.org/abs/2506.00069 | tags: multi-turn, context-sensitivity, robustness, evaluation
+- [ ] 2025 | Audio MultiChallenge: A Multi-Turn Evaluation of Spoken Dialogue Systems on Natural Human Interaction | arXiv | https://arxiv.org/abs/2512.14865 | tags: multi-turn, spoken-dialogue, benchmark, long-range-context
+- [ ] 2025 | MTR-DuplexBench: Towards a Comprehensive Evaluation of Multi-Round Conversations for Full-Duplex Speech Language Models | arXiv | https://arxiv.org/abs/2511.10262 | tags: multi-turn, spoken-dialogue, full-duplex, benchmark
