@@ -283,3 +283,11 @@ Format (one per line):
 - [x] 2025 | Learning-Based Automated Adversarial Red-Teaming for Robustness Evaluation of Large Language Models | arXiv | https://arxiv.org/abs/2512.20677 | tags: robustness, adversarial, red-teaming, evaluation | note: papers/20260217_learning-based-auto-red-teaming.md
 - [x] 2026 | SEAD: Self-Evolving Agent for Multi-Turn Service Dialogue | arXiv | https://arxiv.org/abs/2602.03548 | tags: agents, service-dialogue, multi-turn | note: papers/20260217_sead-self-evolving-agent-service-dialogue.md
 - [ ] 2026 | LingxiDiagBench: A Multi-Agent Framework for Benchmarking LLMs in Chinese Psychiatric Consultation and Diagnosis | arXiv | https://arxiv.org/abs/2602.09379 | tags: multi-agent, clinical, benchmark, multi-turn
+
+## New candidates (2026-02-17, web_search batch 23)
+
+- [x] 2025 | A Multi-Agent LLM Defense Pipeline Against Prompt Injection Attacks | arXiv | https://arxiv.org/abs/2509.14285 | tags: agents, prompt-injection, defenses, benchmark, multi-turn-adjacent | note: papers/20260217_multi-agent-prompt-injection-defense.md
+- [ ] 2025 | From prompt injections to protocol exploits: Threats in LLM-powered AI agents workflows | ScienceDirect | https://www.sciencedirect.com/science/article/pii/S2405959525001997 | tags: agents, prompt-injection, protocol-exploits, survey
+- [ ] 2026 | MTMCS-Bench: Evaluating Contextual Safety of Multimodal Large Language Models in Multi-Turn Dialogues | arXiv | https://arxiv.org/abs/2601.06757 | tags: multimodal, safety, multi-turn, benchmark
+- [ ] 2025 | Death by a Thousand Prompts: Open Model Vulnerability Analysis | arXiv | https://arxiv.org/abs/2511.03247 | tags: prompt-injection, safety, evaluation, attacks
+- [ ] 2026 | MPIB: A Benchmark for Medical Prompt Injection Attacks and Clinical Safety in LLMs | arXiv | https://arxiv.org/abs/2602.06268 | tags: prompt-injection, medical, safety, benchmark
