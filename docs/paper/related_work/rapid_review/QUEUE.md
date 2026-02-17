@@ -200,4 +200,4 @@ Format (one per line):
 - [x] 2025 | StructFlowBench: A Structured Flow Benchmark for Multi-turn Instruction Following | arXiv | https://arxiv.org/abs/2502.14494 | tags: multi-turn, instruction-following, dialogue-structure, benchmark | note: papers/20260217_structflowbench.md
 - [x] 2025 | Technical Report: Evaluating Goal Drift in Language Model Agents | arXiv | https://arxiv.org/abs/2505.02709 | tags: agents, goal-drift, long-horizon, robustness | note: papers/20260217_goal-drift-agents.md
 - [x] 2026 | Quantifying non deterministic drift in large language models | arXiv | https://arxiv.org/abs/2601.19934 | tags: nondeterminism, drift, reliability, repeated-runs | note: papers/20260217_nondeterministic-drift-llms.md
-- [ ] 2024 | Me, Myself, and AI: The Situational Awareness Dataset (SAD) for LLMs | arXiv | https://arxiv.org/abs/2407.04694 | tags: situational-awareness, evaluation, robustness
+- [x] 2024 | Me, Myself, and AI: The Situational Awareness Dataset (SAD) for LLMs | arXiv | https://arxiv.org/abs/2407.04694 | tags: situational-awareness, evaluation, robustness | note: papers/20260217_situational-awareness-dataset-sad.md
