@@ -34,7 +34,7 @@ Single-turn accuracy does not answer:
 - **How does robustness compound over rounds?** (survival curves across rounds: Fig.~\ref{fig:survival-curves-rounds})
 - **Can a model recover after being misled?** (recovery conditional on flip: Fig.~\ref{fig:recovery-delta})
 
-**Proof pointers (what the reader should check):** survival trajectories (Fig.~\ref{fig:survival-curves-rounds}), early-turn vulnerability/TOF (Fig.~\ref{fig:tof-delta-fail1}), recovery conditional on flip (Fig.~\ref{fig:recovery-delta}), and the Neutral Re-asking Control comparison (Table~\ref{tab:tablew} deltas; Fig.~\ref{fig:tablew-effect-deltas}). For generalization and robustness checks, see the cross-family replication (Fig.~\ref{fig:cross-family-survival}) and the decoding sensitivity sweep (Appendix~A.1; Fig.~\ref{fig:decoding-sweep}).
+**Evidence checklist (what the reader should verify):** (i) the protocol + matched Neutral Re-asking Control design (Fig.~\ref{fig:protocol}); (ii) robustness decay across rounds via survival trajectories (Fig.~\ref{fig:survival-curves-rounds}); (iii) early-turn vulnerability via TOF / Fail@1 (Fig.~\ref{fig:tof-delta-fail1}); (iv) return-to-truth behavior via recovery conditional on flip (Fig.~\ref{fig:recovery-delta}); and (v) attribution beyond generic drift via persona-vs-control deltas (Table~\ref{tab:tablew}; Fig.~\ref{fig:tablew-effect-deltas}). For robustness checks, see cross-family replication (Fig.~\ref{fig:cross-family-survival}) and decoding sensitivity (Appendix~A.1; Fig.~\ref{fig:decoding-sweep}).
 
 We target a practically grounded setting: tasks with **ground-truth answers** where failure is unambiguous, while pressure is delivered through realistic conversational personas (protocol: Fig.~\ref{fig:protocol}).
 
