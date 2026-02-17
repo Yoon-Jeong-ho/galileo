@@ -532,7 +532,7 @@ Format (one per line):
 ## New candidates (2026-02-18, web_search batch)
 
 - [x] 2025 | HopRAG: Multi-Hop Reasoning for Logic-Aware Retrieval-Augmented Generation | arXiv | https://arxiv.org/abs/2502.12442 | tags: rag, multi-hop, retrieval, reasoning | note: papers/20260218_hoprag.md
-- [ ] 2025 | Retrieval-Augmented Generation: A Comprehensive Survey of Architectures, Enhancements, and Robustness Frontiers | arXiv | https://arxiv.org/abs/2506.00054 | tags: rag, survey, robustness
+- [x] 2025 | Retrieval-Augmented Generation: A Comprehensive Survey of Architectures, Enhancements, and Robustness Frontiers | arXiv | https://arxiv.org/abs/2506.00054 | tags: rag, survey, robustness | note: papers/20260218_rag-survey-architectures-robustness.md  # duplicate queue entry
 - [ ] 2024 | MultiHop-RAG: Benchmarking Retrieval-Augmented Generation for Multi-Hop Queries | arXiv | https://arxiv.org/abs/2401.15391 | tags: rag, benchmark, multi-hop, evaluation
 - [ ] 2025 | RAP-RAG: A Retrieval-Augmented Generation Framework with Adaptive Retrieval Task Planning | Electronics (MDPI) | https://www.mdpi.com/2079-9292/14/21/4269 | tags: rag, planning, adaptive-retrieval
 - [ ] 2025 | Tracert-Retrieval-Augmented Generation: Boosting Multi-Hop Retrieval-Augmented Generation with Direction-Aware Graph Traversal | Proceedings (MDPI) | https://www.mdpi.com/2673-4591/120/1/47 | tags: rag, graph-traversal, multi-hop
