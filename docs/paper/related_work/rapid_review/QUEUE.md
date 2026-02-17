@@ -348,3 +348,12 @@ Format (one per line):
 - [x] 2026 | The Echo Chamber Multi-Turn LLM Jailbreak | arXiv | https://arxiv.org/abs/2601.05742 | tags: multi-turn, jailbreak, attacks, echo-chamber | note: papers/20260217_echo-chamber-multi-turn-llm-jailbreak.md
 - [x] 2025 | Automating Deception: Scalable Multi-Turn LLM Jailbreaks | arXiv | https://arxiv.org/abs/2511.19517 | tags: multi-turn, jailbreak, automation, deception | note: papers/20260217_automating-deception-scalable-multi-turn-llm-jailbreaks.md
 - [x] 2025 | A Representation Engineering Perspective on the Effectiveness of Multi-Turn Jailbreaks | arXiv | https://arxiv.org/abs/2507.02956 | tags: multi-turn, jailbreak, representations, analysis | note: papers/20260217_repe-multiturn-jailbreaks.md
+
+
+## New candidates (2026-02-17, web_search batch 33)
+
+- [x] 2026 | User-Assistant Bias in LLMs | arXiv | https://arxiv.org/abs/2508.15815 | tags: sycophancy-adjacent, role-tags, preference-optimization, multi-turn | note: papers/20260217_user-assistant-bias.md
+- [ ] 2025 | Beyond Consensus: Mitigating the Agreeableness Bias in LLM Judge Evaluations | arXiv | https://arxiv.org/abs/2510.11822 | tags: agreeableness-bias, llm-as-judge, evaluation-bias, robustness
+- [ ] 2025 | Benchmarking Adversarial Robustness to Bias Elicitation in Large Language Models: Scalable Automated Assessment with LLM-as-a-Judge | arXiv | https://arxiv.org/abs/2504.07887 | tags: bias-elicitation, robustness, llm-as-judge, evaluation
+- [ ] 2025 | Sycophancy Claims about Language Models: The Missing Human-in-the-Loop | arXiv | https://arxiv.org/abs/2512.00656 | tags: sycophancy, conceptual, evaluation, human-in-the-loop
+- [ ] 2026 | Internal Reasoning vs. External Control: A Thermodynamic Analysis of Sycophancy in Large Language Models | arXiv | https://arxiv.org/abs/2601.03263 | tags: sycophancy, theory, control, thermodynamics
