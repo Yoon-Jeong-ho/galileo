@@ -173,7 +173,7 @@ Format (one per line):
 ## New candidates (2026-02-17, web_search batch 31)
 
 - [x] 2025 | When Truth Is Overridden: Uncovering the Internal Origins of Sycophancy in Large Language Models | arXiv | https://arxiv.org/abs/2508.02087 | tags: sycophancy, interpretability, internal-mechanisms, user-beliefs | note: papers/20260217_when-truth-is-overridden.md
-- [ ] 2023 | When Large Language Models contradict humans? Large Language Models' Sycophantic Behaviour | arXiv | https://arxiv.org/abs/2311.09410 | tags: sycophancy, acquiescence, evaluation
+- [x] 2023 | When Large Language Models contradict humans? Large Language Models' Sycophantic Behaviour | arXiv | https://arxiv.org/abs/2311.09410 | tags: sycophancy, acquiescence, evaluation | note: papers/20260217_llm-sycophantic-behaviour.md
 - [ ] 2025 | TurnBench-MS: A Benchmark for Evaluating Multi-Turn, Multi-Step Reasoning in Large Language Models | arXiv | https://arxiv.org/abs/2506.01341 | tags: multi-turn, multi-step, reasoning, benchmark
 - [ ] 2025 | Assessing Large Language Models in Updating Their Forecasts with New Information | arXiv | https://arxiv.org/abs/2509.23936 | tags: belief-update, forecasting, belief-revision, evaluation
 - [ ] 2025 | Beyond the Strongest LLM: Multi-Turn Multi-Agent Orchestration vs. Single LLMs on Benchmarks | arXiv | https://arxiv.org/abs/2509.23537 | tags: multi-turn, multi-agent, orchestration, evaluation
