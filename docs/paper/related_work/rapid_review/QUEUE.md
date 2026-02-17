@@ -165,7 +165,7 @@ Format (one per line):
 - [x] 2024 | AgentBoard: An Analytical Evaluation Board of Multi-turn LLM Agents | arXiv | https://arxiv.org/abs/2401.13178 | tags: agents, multi-turn, evaluation, benchmark | note: papers/20260217_agentboard.md
 - [x] 2026 | Unsafer in Many Turns: Benchmarking and Defending Multi-Turn Safety Risks in Tool-Using Agents | arXiv | https://arxiv.org/abs/2602.13379 | tags: multi-turn, safety, tool-use, jailbreak, benchmark | note: papers/20260217_mt-agentrisk-toolshield.md
 - [x] 2025 | M2S: Multi-turn to Single-turn jailbreak in Red Teaming for LLMs | arXiv | https://arxiv.org/abs/2503.04856 | tags: multi-turn, jailbreak, attacks, distillation | note: papers/20260217_m2s-multi-turn-to-single-turn-jailbreak.md
-- [ ] 2025 | Siege: Autonomous Multi-Turn Jailbreaking of Large Language Models with Tree Search | arXiv | https://arxiv.org/abs/2503.10619 | tags: multi-turn, jailbreak, tree-search, attacks
+- [x] 2025 | Tempest: Autonomous Multi-Turn Jailbreaking of Large Language Models with Tree Search | arXiv | https://arxiv.org/abs/2503.10619 | tags: multi-turn, jailbreak, tree-search, attacks | note: papers/20260217_tempest-tree-search-jailbreak.md
 
 ## Added candidates (auto)
 - [ ] 2025 | Challenging the Evaluator: LLM Sycophancy Under User Rebuttal | arXiv:2509.16533 | https://arxiv.org/abs/2509.16533 | tags: sycophancy, rebuttal, persuasion, multi-turn
