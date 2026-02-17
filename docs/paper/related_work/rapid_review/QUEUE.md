@@ -601,7 +601,7 @@ Format (one per line):
 
 ## New candidates (2026-02-18, web_search batch 2)
 - [x] 2025 | Flattery in Motion: Benchmarking and Analyzing Sycophancy in Video-LLMs | arXiv | https://arxiv.org/abs/2506.07180 | tags: sycophancy, video-llm, multimodal, robustness | note: papers/20260218_flattery-in-motion_vise.md
-- [ ] 2025 | Benchmarking Gaslighting Negation Attacks Against Multimodal Large Language Models | arXiv | https://arxiv.org/abs/2501.19017 | tags: gaslighting, negation, multimodal, robustness, consistency
+- [x] 2025 | Benchmarking Gaslighting Negation Attacks Against Multimodal Large Language Models | arXiv | https://arxiv.org/abs/2501.19017 | tags: gaslighting, negation, multimodal, robustness, consistency | note: papers/20260218_gaslighting-negation-mllms.md
 - [ ] 2025 | Benchmarking Gaslighting Attacks Against Speech Large Language Models | arXiv | https://arxiv.org/abs/2509.19858 | tags: gaslighting, speech-llm, multimodal, robustness
 - [ ] 2025 | Boosting Large Language Models for Mental Manipulation Detection via Data Augmentation and Distillation | arXiv | https://arxiv.org/abs/2505.15255 | tags: manipulation, detection, safety, evaluation
 - [ ] 2025 | Negation: A Pink Elephant in the Large Language Models' Room? | arXiv | https://arxiv.org/abs/2503.22395 | tags: negation, logical-reasoning, robustness, consistency
