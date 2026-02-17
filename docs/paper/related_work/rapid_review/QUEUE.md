@@ -552,3 +552,11 @@ Format (one per line):
 - [x] 2025 | StructFlowBench: A Structured Flow Benchmark for Multi-turn Instruction Following | arXiv | https://arxiv.org/abs/2502.14494 | tags: multi-turn, instruction-following, benchmark | note: papers/20260217_structflowbench.md  # duplicate queue entry
 - [x] 2024 | LIFBench: Evaluating the Instruction Following Performance and Stability of Large Language Models in Long-Context Scenarios | arXiv | https://arxiv.org/abs/2411.07037 | tags: long-context, instruction-following, stability | note: papers/20260218_lifbench.md  # duplicate queue entry
 - [x] 2026 | Deconstructing Instruction-Following: A New Benchmark for Granular Evaluation of Large Language Model Instruction Compliance Abilities | arXiv | https://arxiv.org/abs/2601.18554 | tags: instruction-following, granular-eval, benchmark | note: papers/20260218_mosaic-instruction-compliance.md
+
+## New candidates (2026-02-18, web_search batch 14)
+
+- [x] 2025 | Modeling and Predicting Multi-Turn Answer Instability in Large Language Models | arXiv | https://arxiv.org/abs/2511.10688 | tags: multi-turn, answer-instability, pressure, sycophancy | note: papers/20260217_modeling-multi-turn-answer-instability.md  # duplicate queue entry
+- [ ] 2025 | Time-To-Inconsistency: A Survival Analysis of Large Language Model Robustness to Adversarial Attacks | arXiv | https://arxiv.org/abs/2510.02712 | tags: multi-turn, inconsistency, adversarial, survival-analysis
+- [ ] 2026 | Consistency of Large Reasoning Models Under Multi-Turn Attack | arXiv | https://arxiv.org/abs/2602.13093 | tags: multi-turn, consistency, attack, reasoning
+- [ ] 2025 | Modeling and Predicting Multi-Turn Answer Instability in Large Language Models (HTML) | arXiv | https://arxiv.org/html/2511.10688v1 | tags: multi-turn, answer-instability, pressure
+- [ ] 2025 | Time-To-Inconsistency (HTML) | arXiv | https://arxiv.org/html/2510.02712 | tags: multi-turn, inconsistency, adversarial
