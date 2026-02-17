@@ -255,7 +255,7 @@ Format (one per line):
 ## New candidates (2026-02-17, web_search batch 29)
 
 - [x] 2025 | How Do LLMs Persuade? Linear Probes Can Uncover Persuasion Dynamics in Multi-Turn Conversations | arXiv | https://arxiv.org/abs/2508.05625 | tags: persuasion, multi-turn, probes, dynamics, detection | note: papers/20260217_how-do-llms-persuade-linear-probes.md
-- [ ] 2025 | M3-SLU: Evaluating Speaker-Attributed Reasoning in Multimodal Large Language Models | arXiv | https://arxiv.org/abs/2510.19358 | tags: multi-turn, multi-speaker, speech, evaluation, multimodal
+- [x] 2025 | M3-SLU: Evaluating Speaker-Attributed Reasoning in Multimodal Large Language Models | arXiv | https://arxiv.org/abs/2510.19358 | tags: multi-turn, multi-speaker, speech, evaluation, multimodal | note: papers/20260217_m3-slu.md
 - [ ] 2025 | GraphIF: Enhancing Multi-Turn Instruction Following for Large Language Models with Relation Graph Prompt | arXiv | https://arxiv.org/abs/2511.10051 | tags: multi-turn, instruction-following, prompting, graphs
 - [ ] 2024 | A Survey on Recent Advances in LLM-Based Multi-turn Dialogue Systems | arXiv | https://arxiv.org/abs/2402.18013 | tags: survey, multi-turn, dialogue-systems
 - [ ] 2025 | StructFlowBench: A Structured Flow Benchmark for Multi-turn Instruction Following | arXiv | https://arxiv.org/abs/2502.14494 | tags: benchmark, multi-turn, instruction-following, structure
