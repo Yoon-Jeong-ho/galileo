@@ -59,6 +59,7 @@ Ground-truth tasks에서 multi-turn persona pressure 하에 **정답 유지(surv
 - ✅ **Table W artifacts tracked** under `docs/paper/artifacts/` and draft AUTO block updated to seed1–4.
 
 ### Paper writing / positioning
+- ✅ KO draft now includes an in-place **“수정/보완해야 할 것만” 리비전 TODO (SSOT 발췌, 8–12개)** for reviewer-risk-only edits: `docs/paper/PAPER_DRAFT_KO.md`.
 - ✅ Generated **submission-ready SVG figures** from tracked CSV artifacts under `docs/paper/figures/` (seed1–4; survival curves + ΔSurvival@5 + ΔFail@1 + ΔRecovery + Table W effect deltas).
 - ✅ Tightened the reviewer-facing **Claims → evidence** table to include explicit **LaTeX figure labels** (reduces proof-pointer drift): `docs/paper/PAPER_DRAFT_EN.md` (§9).
 - ✅ Results section now has artifact-cited prose for survival/TOF/recovery/control-comparison (seed1–4) + a Results preface stating the seed/"auditable green" convention.
@@ -93,11 +94,11 @@ Ground-truth tasks에서 multi-turn persona pressure 하에 **정답 유지(surv
 
 ## 4) NEXT HEARTBEAT (ONE step)
 
-**Paper writing: produce a “수정/보완해야 할 것만” TODO list in KO draft (reviewer-risk only).**
+**Claim→evidence map: Abstract/Intro 문장 단위로 evidence 포인터를 고정(리뷰어-감사 동선 단축).**
 
-- Deliverable: `docs/paper/PAPER_DRAFT_KO.md`에 섹션 0 또는 별도 섹션으로, 각 항목을
-  - “현재 ~~가 부족/문제이고 → ~~해서 → ~~로 수정해야 한다”
-  형태로 8–12개만 정리 (불필요한 일반론/칭찬 없이, 수정 포인트만).
+- Deliverable: `docs/paper/CLAIM_EVIDENCE_MAP.md`에서 (i) Abstract, (ii) Intro의 핵심 문장을 항목화하고,
+  - 각 문장마다 최소 1개 evidence(그림/표/부록 섹션/트래킹 CSV 경로)를 연결,
+  - “현재 문장 → 왜 위험/애매 → 어떻게 고칠지”까지 1줄 메모를 추가.
 
 ---
 
