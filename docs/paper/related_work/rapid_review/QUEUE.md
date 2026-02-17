@@ -307,3 +307,11 @@ Format (one per line):
 - [x] 2026 | Prompt Injection Attacks on Agentic Coding Assistants: A Systematic Analysis of Vulnerabilities in Skills, Tools, and Protocol Ecosystems | arXiv | https://arxiv.org/abs/2601.17548 | tags: prompt-injection, agents, coding, security, survey | note: papers/20260217_prompt-injection-agentic-coding-assistants.md
 - [x] 2026 | JMedEthicBench: A Multi-Turn Conversational Benchmark for Evaluating Medical Safety in Japanese Large Language Models | arXiv | https://arxiv.org/abs/2601.01627 | tags: medical, safety, multi-turn, benchmark | note: papers/20260217_jmedethicbench.md
 - [x] 2025 | HealthBench: Evaluating Large Language Models Towards Improved Human Health | arXiv | https://arxiv.org/abs/2505.08775 | tags: medical, safety, multi-turn, benchmark | note: papers/20260217_healthbench.md
+
+## New candidates (2026-02-17, web_search batch 13)
+
+- [x] 2025 | Evaluating the Sensitivity of LLMs to Prior Context | arXiv | https://arxiv.org/abs/2506.00069 | tags: multi-turn, context-sensitivity, robustness, evaluation | note: papers/20260217_sensitivity-prior-context.md
+- [ ] 2025 | Context-aware Fairness Evaluation and Mitigation in LLMs | arXiv | https://arxiv.org/abs/2510.18914 | tags: multi-turn, context, fairness, robustness
+- [ ] 2025 | Full-Duplex-Bench: A Benchmark to Evaluate Full-duplex Spoken Dialogue Models on Turn-taking Capabilities | arXiv | https://arxiv.org/abs/2503.04721 | tags: multi-turn, dialogue, turn-taking, benchmark
+- [ ] 2025 | StoryBench: A Dynamic Benchmark for Evaluating Long-Term Memory with Multi Turns | arXiv | https://arxiv.org/abs/2506.13356 | tags: multi-turn, memory, long-term, benchmark
+- [ ] 2024 | A Survey on Recent Advances in LLM-Based Multi-turn Dialogue Systems | arXiv | https://arxiv.org/abs/2402.18013 | tags: survey, multi-turn, dialogue-systems
