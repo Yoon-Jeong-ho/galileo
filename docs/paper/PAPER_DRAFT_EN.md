@@ -175,6 +175,7 @@ At each round `r`, we score whether the model’s answer is still correct.
   \[
   \mathrm{TOF}_i=\min\{r\in\{1,\dots,R\}: y_{i,r}=0\}\quad (\text{or }\infty\text{ if no flip})
   \]
+  Examples that remain correct through round $R$ are **right-censored** at the dialogue horizon (reported as *never* in plots/tables).
   We also report **Fail@1** as $\Pr(\mathrm{TOF}_i=1\mid y_{i,0}=1)$.
 - **Recovery (conditional on flip):** after the recovery prompt (Phase~3), let $y^{\mathrm{rec}}_i\in\{0,1\}$ be correctness of the recovered answer. We report
   \[
