@@ -242,4 +242,4 @@ Format (one per line):
 - [x] 2025 | MedKGEval: A Knowledge Graph-Based Multi-Turn Evaluation Framework for Open-Ended Patient Interactions with Clinical LLMs | arXiv | https://arxiv.org/abs/2510.12224 | tags: multi-turn, medical, evaluation, knowledge-graph | note: papers/20260217_medkgeval.md
 - [x] 2025 | Unsupervised Evaluation of Multi-Turn Objective-Driven Interactions | arXiv | https://arxiv.org/abs/2511.03047 | tags: multi-turn, evaluation, objective-driven, unsupervised | note: papers/20260217_unsupervised-eval-multiturn-objective.md
 - [x] 2025 | CodeFlowBench: A Multi-turn, Iterative Benchmark for Complex Code Generation | arXiv | https://arxiv.org/abs/2504.21751 | tags: multi-turn, code, benchmark, iterative | note: papers/20260217_codeflowbench.md
-- [ ] 2025 | Benchmarking Correctness and Security in Multi-Turn Code Generation | arXiv | https://arxiv.org/abs/2510.13859 | tags: multi-turn, code, security, benchmark
+- [x] 2025 | Benchmarking Correctness and Security in Multi-Turn Code Generation | arXiv | https://arxiv.org/abs/2510.13859 | tags: multi-turn, code, security, benchmark | note: papers/20260217_mt-sec-multi-turn-code-security.md
