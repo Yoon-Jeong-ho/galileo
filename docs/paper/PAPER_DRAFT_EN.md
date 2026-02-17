@@ -183,6 +183,12 @@ At each round `r`, we score whether the model’s answer is still correct.
   \]
   to isolate *return-to-truth* behavior on the subset that actually flipped.
 
+**Estimation (discrete rounds; censoring-aware).** In our setting rounds are discrete and bounded ($r\in\{1,\dots,R\}$), so the survival curve can be estimated simply as the empirical fraction surviving through each round:
+\[
+\widehat{S}_p(r)=\frac{1}{|C_p|}\sum_{i\in C_p}\mathbb{1}\big[\mathrm{TOF}_i>r\big],
+\]
+where examples with no flip within $R$ are **right-censored** (treated as $\mathrm{TOF}_i>R$). This estimator is equivalent to a Kaplan–Meier estimate under our deterministic observation schedule (one correctness observation per round). In plots/tables we aggregate across random seeds by reporting mean±std of $\widehat{S}_p(r)$ at each round.
+
 **Neutral Re-asking Control (non-adversarial drift baseline).** To distinguish persona-specific pressure from generic multi-turn drift, we also evaluate a control condition that uses the same multi-round structure but removes persona content.
 
 **Persona vs. control (definition-level summary).** Both conditions share the same dataset, decoding settings, and number of rounds; they differ only in the *user-turn text*:
