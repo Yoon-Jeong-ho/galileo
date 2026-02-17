@@ -142,3 +142,11 @@ Format (one per line):
 - [x] 2026 | MedDialogRubrics: A Comprehensive Benchmark and Evaluation Framework for Multi-turn Medical Consultations in Large Language Models | arXiv | https://arxiv.org/abs/2601.03023 | tags: multi-turn, medical, benchmark, evaluation, rubrics | note: papers/20260217_meddialogrubrics.md
 - [x] 2026 | HalluHard: A Hard Multi-Turn Hallucination Benchmark | arXiv | https://arxiv.org/abs/2602.01031 | tags: hallucination, multi-turn, benchmark, robustness | note: papers/20260217_halluhard.md
 - [x] 2026 | HaluMem: Evaluating Hallucinations in Memory Systems of Agents | arXiv | https://arxiv.org/abs/2511.03506 | tags: agents, memory, hallucination, benchmark, long-horizon | note: papers/20260217_halumem.md
+
+## New candidates (2026-02-17, web_search batch 16)
+
+- [x] 2025 | Multi-Turn Puzzles: Evaluating Interactive Reasoning and Strategic Dialogue in LLMs | arXiv | https://arxiv.org/abs/2508.10142 | tags: multi-turn, interactive, reasoning, benchmark | note: papers/20260217_mt-puzzles.md
+- [ ] 2025 | MULTI-Bench: A Multi-Turn Interactive Benchmark for Assessing Emotional Intelligence ability of Spoken Dialogue Models | arXiv | https://arxiv.org/abs/2511.00850 | tags: multi-turn, spoken-dialogue, emotional-intelligence, benchmark
+- [ ] 2025 | DeepDialogue: A Multi-Turn Emotionally-Rich Spoken Dialogue Dataset | arXiv | https://arxiv.org/abs/2505.19978 | tags: multi-turn, dataset, spoken-dialogue, emotion
+- [ ] 2025 | EduDial: Constructing a Large-scale Multi-turn Teacher–Student Dialogue Corpus | arXiv | https://arxiv.org/abs/2510.12899 | tags: multi-turn, dataset, tutoring, education
+- [ ] 2025 | MathTutorBench: A Benchmark for Measuring Open-ended Pedagogical Capabilities of LLM Tutors | arXiv | https://arxiv.org/abs/2502.18940 | tags: multi-turn, tutoring, pedagogy, benchmark
