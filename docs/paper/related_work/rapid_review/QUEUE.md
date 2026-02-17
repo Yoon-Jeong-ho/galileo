@@ -460,7 +460,7 @@ Format (one per line):
 ## New candidates (2026-02-18, web_search batch)
 
 - [x] 2025 | A Benchmark for Evaluating Outcome-Driven Constraint Violations in Autonomous AI Agents | arXiv | https://arxiv.org/abs/2512.20798 | tags: agents, constraint-violation, benchmark, autonomy | note: papers/20260217_outcome-driven-constraint-violations-benchmark.md (duplicate queue entry)
-- [ ] 2025 | Audio MultiChallenge: A Multi-Turn Evaluation of Spoken Dialogue Systems on Natural Human Interaction | arXiv | https://arxiv.org/abs/2512.14865 | tags: multi-turn, spoken-dialogue, benchmark, audio
+- [x] 2025 | Audio MultiChallenge: A Multi-Turn Evaluation of Spoken Dialogue Systems on Natural Human Interaction | arXiv | https://arxiv.org/abs/2512.14865 | tags: multi-turn, spoken-dialogue, benchmark, audio | note: papers/20260217_audio-multichallenge.md (duplicate queue entry)
 - [ ] 2025 | MULTI-Bench: A Multi-Turn Interactive Benchmark for Assessing Emotional Intelligence ability of Spoken Dialogue Models | arXiv | https://arxiv.org/abs/2511.00850 | tags: multi-turn, spoken-dialogue, emotional-intelligence, benchmark
 - [ ] 2025 | MTalk-Bench: Evaluating Speech-to-Speech Models in Multi-Turn Dialogues via Arena-style and Rubrics Protocols | arXiv | https://arxiv.org/abs/2508.18240 | tags: speech-to-speech, multi-turn, evaluation, benchmark
 - [ ] 2024 | A Survey on Recent Advances in LLM-Based Multi-turn Dialogue Systems | arXiv | https://arxiv.org/abs/2402.18013 | tags: survey, multi-turn, dialogue-systems
