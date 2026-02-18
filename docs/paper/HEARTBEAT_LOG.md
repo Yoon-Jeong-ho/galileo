@@ -1090,3 +1090,14 @@ Rationale: Pythia also showed extremely low initial accuracy (1/80) so even if w
   - OUT: `results_paper/tier1_zephyr7b_seed2_20260218_141231/`
   - tmux: `tier1_zephyr7b_s2_g4_20260218_141231`
   - Command pattern: `GPU=4 SEED=2 OUT=... MODEL=HuggingFaceH4/zephyr-7b-beta bash scripts/remote_run/nlp8_smoke.sh |& tee run.log`
+
+### 2026-02-19 06:16 KST — Tier‑1 Qwen2.5‑14B seed2 still running (nlp8 GPU5)
+
+- Monitored the in-progress Tier‑1 run and confirmed it is actively progressing (log mtime updates; GPU5 at 100% util, ~45.4/49.1GiB).
+- OUT: `results/tier1_qwen2p5_14b_seed2_20260219_053824/`
+- Status snapshot: completed Round1–3; currently in **Round4** (425 active tracks at start of round4).
+- No `paper_exports/` yet (expected until run completion).
+
+Next:
+- When run finishes: run `python3 scripts/paper_export.py --results_root $OUT` + write `paper_exports/runner_metadata.json` (if missing), then `python3 scripts/validate_paper_exports.py --results_root $OUT`.
+- Stage into `results_paper/` and re-run `python3 scripts/validate_paper_exports.py --results_root results_paper --check_runner_parity`.
