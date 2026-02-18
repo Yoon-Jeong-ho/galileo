@@ -910,6 +910,6 @@ Format (one per line):
 ## New candidates (2026-02-19, multi-turn consistency/drift)
 
 - [x] 2025 | Beyond Single-Turn: A Survey on Multi-Turn Interactions with Large Language Models | arXiv | https://arxiv.org/html/2504.04717v1 | tags: survey, multi-turn, dialogue, evaluation | note: docs/paper/related_work/rapid_review/papers/20260219_beyond-single-turn-survey.md
-- [ ] 2025 | Reinforcing Multi-Turn Reasoning in LLM Agents via Turn-Level Reward Design | arXiv | https://arxiv.org/html/2505.11821v2 | tags: RLHF, multi-turn, agents, reward-design, robustness
+- [x] 2025 | Reinforcing Multi-Turn Reasoning in LLM Agents via Turn-Level Reward Design | arXiv | https://arxiv.org/html/2505.11821v2 | tags: RLHF, multi-turn, agents, reward-design, robustness | note: docs/paper/related_work/rapid_review/papers/20260219_turn-level-reward-design-mt-rl.md
 - [ ] 2024 | Grade Score: Quantifying LLM Performance in Option Selection | arXiv | https://arxiv.org/html/2406.12043v2 | tags: evaluation, consistency, order-bias, judge
 - [ ] 2025 | Existing LLMs Are Not Self-Consistent For Simple Tasks | arXiv | https://arxiv.org/html/2506.18781v1 | tags: consistency, self-consistency, evaluation, mitigation
