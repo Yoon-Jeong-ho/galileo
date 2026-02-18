@@ -906,3 +906,10 @@ Format (one per line):
 - [x] 2026 | PTCBench: Benchmarking Contextual Stability of Personality Traits in LLM Systems | arXiv | https://arxiv.org/abs/2602.00016 | tags: personality, stability, context-pressure, multi-turn | note: docs/paper/related_work/rapid_review/papers/20260219_ptcbench_contextual_personality_stability.md
 - [x] 2024 | Persona-centric Metamorphic Relation guided Robustness Evaluation for Multi-turn Dialogue Modelling | arXiv | https://arxiv.org/abs/2401.12483 | tags: persona, robustness, metamorphic-testing, multi-turn | note: docs/paper/related_work/rapid_review/papers/20260219_persona_metamorphic_dialogue.md | fix note path
 - [x] 2025 | PersonaFuse: A Personality Activation-Driven Framework for Enhancing Human-LLM Interactions | arXiv | https://arxiv.org/abs/2509.07370 | tags: persona, activation, interaction, robustness | note: docs/paper/related_work/rapid_review/papers/20260219_personafuse.md
+
+## New candidates (2026-02-19, multi-turn consistency/drift)
+
+- [x] 2025 | Beyond Single-Turn: A Survey on Multi-Turn Interactions with Large Language Models | arXiv | https://arxiv.org/html/2504.04717v1 | tags: survey, multi-turn, dialogue, evaluation | note: docs/paper/related_work/rapid_review/papers/20260219_beyond-single-turn-survey.md
+- [ ] 2025 | Reinforcing Multi-Turn Reasoning in LLM Agents via Turn-Level Reward Design | arXiv | https://arxiv.org/html/2505.11821v2 | tags: RLHF, multi-turn, agents, reward-design, robustness
+- [ ] 2024 | Grade Score: Quantifying LLM Performance in Option Selection | arXiv | https://arxiv.org/html/2406.12043v2 | tags: evaluation, consistency, order-bias, judge
+- [ ] 2025 | Existing LLMs Are Not Self-Consistent For Simple Tasks | arXiv | https://arxiv.org/html/2506.18781v1 | tags: consistency, self-consistency, evaluation, mitigation
