@@ -935,6 +935,6 @@ Format (one per line):
 
 - [x] 2026 | VLA-JEPA: Enhancing Vision-Language-Action Model with Latent World Model | arXiv | https://arxiv.org/abs/2602.10098 | tags: vla, world-model, representation-learning, latent, robotics | note: papers/20260219_vla-jepa.md
 - [x] 2025 | Discrete Diffusion VLA: Bringing Discrete Diffusion to Action Decoding in Vision-Language-Action Policies | arXiv | https://arxiv.org/html/2508.20072v1 | tags: vla, diffusion, action-decoding, policy | note: docs/paper/related_work/rapid_review/papers/20260219_discrete-diffusion-vla.md
-- [ ] 2025 | VLA-RFT: Vision-language-action Reinforcement fine-tuning with verified rewards in world simulators | arXiv | https://arxiv.org/html/2510.00406v1 | tags: vla, reinforcement-finetuning, verified-rewards, world-simulator
+- [x] 2025 | VLA-RFT: Vision-language-action Reinforcement fine-tuning with verified rewards in world simulators | arXiv | https://arxiv.org/html/2510.00406v1 | tags: vla, reinforcement-finetuning, verified-rewards, world-simulator | note: docs/paper/related_work/rapid_review/papers/20260219_vla-rft_world-model_rft.md
 - [ ] 2025 | VLA-R1: Enhancing Reasoning in Vision-Language-Action Models | arXiv | https://arxiv.org/html/2510.01623v1 | tags: vla, reasoning, robotics
 - [ ] 2025 | Unveiling the Potential of Vision-Language-Action Models with Open-Ended Multimodal Instructions | arXiv | https://arxiv.org/html/2505.11214v1 | tags: vla, prompting, multimodal-instructions, robotics
