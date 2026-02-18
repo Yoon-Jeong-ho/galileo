@@ -697,3 +697,11 @@ Format (one per line):
 - [x] 2024 | Large Language Models can Strategically Deceive their Users when Put Under Pressure | arXiv | https://arxiv.org/abs/2311.07590 | tags: deception, pressure, multi-turn, safety | note: papers/20260218_strategic-deception-under-pressure.md
 - [x] 2025 | Can (A)I Change Your Mind? | arXiv | https://arxiv.org/abs/2503.01844 | tags: persuasion, opinion-change, human-llm | note: docs/paper/related_work/rapid_review/papers/20260218_can_ai_change_your_mind.md
 - [x] 2025 | On the conversational persuasiveness of GPT-4 | Nature Human Behaviour | https://www.nature.com/articles/s41562-025-02194-6 | tags: persuasion, personalization, human-study | note: papers/20260218_gpt4_conversational_persuasiveness_nhb.md | reviewed (Nature HB)
+
+## New candidates (2026-02-18, web_search refresh)
+
+- [x] 2025 | How Social is It? A Benchmark for LLMs' Capabilities in Multi-user Multi-turn Social Agent Tasks | arXiv | https://arxiv.org/abs/2505.04628 | tags: multi-user, multi-turn, social-agents, benchmark | note: docs/paper/related_work/rapid_review/papers/20260218_how-social-is-it-hsii.md
+- [ ] 2025 | Step-DeepResearch Technical Report | arXiv | https://arxiv.org/abs/2512.20491 | tags: deep-research, evaluation, long-horizon, multi-turn
+- [ ] 2025 | SoMe: A Realistic Benchmark for LLM-based Social Media Agents | arXiv | https://arxiv.org/abs/2512.14720 | tags: social-media, agents, multi-turn, benchmark
+- [ ] 2025 | Echoes of Human Malice in Agents: Benchmarking LLMs for Multi-Turn Online Harassment Attacks | arXiv | https://arxiv.org/abs/2510.14207 | tags: harassment, multi-turn, agents, safety, benchmark
+- [ ] 2025 | SimBench: Benchmarking the Ability of Large Language Models to Simulate Human Behaviors | arXiv | https://arxiv.org/abs/2510.17516 | tags: simulation, human-behavior, multi-turn, benchmark
