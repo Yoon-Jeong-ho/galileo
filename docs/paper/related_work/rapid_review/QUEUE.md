@@ -798,3 +798,11 @@ Format (one per line):
 - [x] 2025 | When Judgment Becomes Noise: How Design Failures in LLM Judge Benchmarks Silently Undermine Validity | arXiv | https://arxiv.org/abs/2509.20293 | tags: evaluation, LLM-judges, validity, robustness | note: docs/paper/related_work/rapid_review/papers/20260218_judgment_becomes_noise.md
 - [x] 2025 | Benchmarking Reasoning Robustness in Large Language Models | arXiv | https://arxiv.org/abs/2503.04550 | tags: robustness, reasoning, benchmark | note: docs/paper/related_work/rapid_review/papers/20260218_mathrob_reasoning_robustness_llms.md
 - [x] 2025 | AQUA-LLM: Evaluating Accuracy, Quantization, and Adversarial Robustness Trade-offs in LLMs for Cybersecurity QA | arXiv | https://arxiv.org/abs/2509.13514 | tags: robustness, quantization, adversarial, cybersecurity-qa | note: docs/paper/related_work/rapid_review/papers/20260219_aqua-llm-quantization-finetuning-robustness.md
+
+## New candidates (2026-02-19, web_search batch)
+
+- [x] 2026 | From Biased Chatbots to Biased Agents: Examining Role Assignment Effects on LLM Agent Robustness | arXiv | https://arxiv.org/abs/2602.12285 | tags: role-assignment, agents, robustness, bias | note: papers/20260219_role-assignment-effects-agent-robustness.md
+- [ ] 2025 | Eliminating Inductive Bias in Reward Models with Information-Theoretic Guidance | arXiv | https://arxiv.org/abs/2512.23461 | tags: reward-model, inductive-bias, sycophancy-adjacent, rlhf
+- [ ] 2026 | Reward Modeling for Reinforcement Learning-Based LLM Reasoning: Design, Challenges, and Evaluation | arXiv | https://arxiv.org/abs/2602.09305 | tags: reward-model, rlhf, reasoning, survey
+- [ ] 2026 | Automatically Finding Reward Model Biases | arXiv | https://arxiv.org/abs/2602.15222 | tags: reward-model, bias, diagnostics, sycophancy-adjacent
+- [ ] 2025 | Debiasing Reward Models by Representation Learning with Guarantees | arXiv | https://arxiv.org/abs/2510.23751 | tags: reward-model, debiasing, guarantees, sycophancy-adjacent
