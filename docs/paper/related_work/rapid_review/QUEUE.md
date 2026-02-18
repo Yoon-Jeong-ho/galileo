@@ -685,7 +685,7 @@ Format (one per line):
 ## New candidates (2026-02-18, web_search batch)
 
 - [x] 2024 | Dialogue Action Tokens: Steering Language Models in Goal-Directed Dialogue with a Multi-Turn Planner | arXiv | https://arxiv.org/abs/2406.11978 | tags: multi-turn, planning, steering, RL | note: papers/20260218_dialogue-action-tokens.md
-- [ ] 2025 | Enhancing Personalized Multi-Turn Dialogue with Curiosity Reward | arXiv | https://arxiv.org/abs/2504.03206 | tags: multi-turn, personalization, reward, belief-tracking
+- [x] 2025 | Enhancing Personalized Multi-Turn Dialogue with Curiosity Reward | arXiv | https://arxiv.org/abs/2504.03206 | tags: multi-turn, personalization, reward, belief-tracking | note: papers/20260218_curio-curiosity-reward-personalized-dialogue.md
 - [ ] 2024 | A Survey on Recent Advances in LLM-Based Multi-turn Dialogue Systems | arXiv | https://arxiv.org/abs/2402.18013 | tags: survey, multi-turn, dialogue
 - [ ] 2024 | Multimodal Multi-turn Conversation Stance Detection: A Challenge Dataset and Effective Model | arXiv | https://arxiv.org/abs/2409.00597 | tags: stance-stability-adjacent, multi-turn, dataset
 - [ ] 2025 | Large Language Models Meet Stance Detection: A Survey of Tasks, Methods, Applications, Challenges and Future Directions | arXiv | https://arxiv.org/abs/2505.08464 | tags: stance-stability-adjacent, survey
