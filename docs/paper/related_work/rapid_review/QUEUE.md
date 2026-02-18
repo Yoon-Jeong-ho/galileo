@@ -1003,3 +1003,10 @@ Format (one per line):
 - [x] 2025 | Any-Optical-Model: A Universal Foundation Model for Optical Remote Sensing | arXiv | https://arxiv.org/abs/2512.17224 | tags: earth-observation, optical, foundation-model, multi-sensor | note: docs/paper/related_work/rapid_review/papers/20260219_any_optical_model.md
 - [x] 2025 | TiMo: Spatiotemporal Foundation Model for Satellite Image Time Series | arXiv | https://arxiv.org/abs/2505.08723 | tags: sits, spatiotemporal, foundation-model, time-series | note: docs/paper/related_work/rapid_review/papers/20260219_timo_spatiotemporal_fm_sits.md
 - [x] 2025 | Fine-tune Smarter, Not Harder: Parameter-Efficient Fine-Tuning for Geospatial Foundation Models | arXiv | https://arxiv.org/abs/2504.17397 | tags: peft, finetuning, geospatial, foundation-model | note: papers/20260219_fine-tune-smarter-peft-geofms.md
+
+## New candidates (2026-02-19, web_search batch 1)
+- [x] 2026 | WebWorld: A Large-Scale World Model for Web Agent Training | arXiv | https://arxiv.org/abs/2602.14721 | tags: web-agents, world-model, long-horizon, consistency | note: papers/20260219_webworld_world-model-web-agent-training.md
+- [x] 2026 | Multi-Task GRPO: Reliable LLM Reasoning Across Tasks | arXiv | https://arxiv.org/abs/2602.05547 | tags: robustness, post-training, RL, worst-case | note: docs/paper/related_work/rapid_review/papers/20260219_multi-task-grpo.md
+- [ ] 2026 | Improving LLM Reliability Through Hybrid Abstention and Adaptive Detection | arXiv | https://arxiv.org/abs/2602.15391 | tags: reliability, abstention, detection, multi-turn
+- [ ] 2026 | AD-Bench: A Real-World, Trajectory-Aware Advertising Analytics Benchmark for LLM Agents | arXiv | https://arxiv.org/abs/2602.14257 | tags: agents, trajectories, multi-tool, benchmark
+- [ ] 2026 | Pushing Forward Pareto Frontiers of Proactive Agents with Behavioral Agentic Optimization | arXiv | https://arxiv.org/abs/2602.11351 | tags: proactive-agents, optimization, user-alignment, multi-turn
