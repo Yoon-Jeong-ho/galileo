@@ -17,16 +17,41 @@ Semantics:
 
 Non-goals:
 - Full markdown parsing; this is intentionally simple and conservative.
+
+Concurrency
+-----------
+Rapid-review cron can overlap; we use a simple lock (atomic mkdir) to avoid
+interleaved writes to QUEUE/PROGRESS.
 """
 
 from __future__ import annotations
 
 import argparse
+import time
 from pathlib import Path
 
 
 def _normalize_spaces(s: str) -> str:
     return " ".join(s.split())
+
+
+def _acquire_lock(lock_dir: Path, timeout_s: float = 30.0, poll_s: float = 0.1) -> None:
+    start = time.time()
+    while True:
+        try:
+            lock_dir.mkdir(parents=False, exist_ok=False)
+            return
+        except FileExistsError:
+            if (time.time() - start) >= timeout_s:
+                raise TimeoutError(f"Timed out waiting for lock: {lock_dir}")
+            time.sleep(poll_s)
+
+
+def _release_lock(lock_dir: Path) -> None:
+    try:
+        lock_dir.rmdir()
+    except FileNotFoundError:
+        return
 
 
 def main() -> int:
@@ -41,44 +66,47 @@ def main() -> int:
     if not p.exists():
         raise FileNotFoundError(f"QUEUE not found: {p}")
 
-    lines = p.read_text(encoding="utf-8").splitlines(True)
+    lock = Path("docs/paper/related_work/rapid_review/.lock")
+    _acquire_lock(lock)
+    try:
+        lines = p.read_text(encoding="utf-8").splitlines(True)
 
-    hit = None
-    for i, line in enumerate(lines):
-        if args.url in line:
-            hit = i
-            break
+        hit = None
+        for i, line in enumerate(lines):
+            if args.url in line:
+                hit = i
+                break
 
-    if hit is None:
-        raise ValueError(f"URL not found in QUEUE: {args.url}")
+        if hit is None:
+            raise ValueError(f"URL not found in QUEUE: {args.url}")
 
-    line = lines[hit].rstrip("\n")
+        line = lines[hit].rstrip("\n")
 
-    # Mark done.
-    if line.lstrip().startswith("- [ ]"):
-        prefix, rest = line.split("- [ ]", 1)
-        line = prefix + "- [x]" + rest
-    elif "[x]" not in line:
-        # If it is a bullet but missing a checkbox, don't try to inject one.
-        # Just leave it as-is.
-        pass
+        # Mark done.
+        if line.lstrip().startswith("- [ ]"):
+            prefix, rest = line.split("- [ ]", 1)
+            line = prefix + "- [x]" + rest
+        elif "[x]" not in line:
+            # If it is a bullet but missing a checkbox, don't try to inject one.
+            # Just leave it as-is.
+            pass
 
-    # Remove existing note/comment fragments conservatively.
-    # We only rewrite the tail fields we manage.
-    parts = line.split(" | ")
-    parts = [p_ for p_ in parts if not p_.strip().startswith("note:")]
-    parts = [p_ for p_ in parts if p_.strip().startswith("-") or "http" in p_ or True]
+        # Remove existing note fragments conservatively.
+        parts = line.split(" | ")
+        parts = [p_ for p_ in parts if not p_.strip().startswith("note:")]
 
-    # Reassemble with optional fields.
-    line = " | ".join(parts)
-    if args.note:
-        line = line + " | note: " + _normalize_spaces(args.note)
-    if args.comment:
-        line = line + " | " + _normalize_spaces(args.comment)
+        # Reassemble with optional fields.
+        line = " | ".join(parts)
+        if args.note:
+            line = line + " | note: " + _normalize_spaces(args.note)
+        if args.comment:
+            line = line + " | " + _normalize_spaces(args.comment)
 
-    lines[hit] = line + "\n"
-    p.write_text("".join(lines), encoding="utf-8")
-    return 0
+        lines[hit] = line + "\n"
+        p.write_text("".join(lines), encoding="utf-8")
+        return 0
+    finally:
+        _release_lock(lock)
 
 
 if __name__ == "__main__":
