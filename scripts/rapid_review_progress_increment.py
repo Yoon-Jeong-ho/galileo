@@ -49,6 +49,12 @@ def main() -> int:
         default=0,
         help="Alias for --papers-read-delta (back-compat)",
     )
+    ap.add_argument(
+        "--count",
+        type=int,
+        default=0,
+        help="Alias for --papers-read-delta (back-compat)",
+    )
     # Some cron attempts accidentally pass queue-marking args; accept and ignore.
     ap.add_argument("--url", default="", help=argparse.SUPPRESS)
     ap.add_argument("--note", default="", help=argparse.SUPPRESS)
@@ -65,8 +71,8 @@ def main() -> int:
         print(f"ERROR: {path} not found", file=sys.stderr)
         return 2
 
-    # Support --papers-read-delta and legacy aliases (--n/--delta).
-    papers_delta = args.papers_read_delta or args.n or args.delta
+    # Support --papers-read-delta and legacy aliases (--n/--delta/--count).
+    papers_delta = args.papers_read_delta or args.n or args.delta or args.count
 
     text = path.read_text(encoding="utf-8")
     if papers_delta:
