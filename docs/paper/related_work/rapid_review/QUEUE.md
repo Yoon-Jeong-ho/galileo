@@ -1021,6 +1021,6 @@ Format (one per line):
 
 - [x] 2025 | It’s a TRAP! Task-Redirecting Agent Persuasion Benchmark for Web Agents | arXiv | https://arxiv.org/abs/2512.23128 | tags: agents, prompt-injection-adjacent, persuasion, web, benchmark | note: docs/paper/related_work/rapid_review/papers/20260219_trap-task-redirecting-agent-persuasion.md
 - [x] 2025 | Beyond Detection: Exploring Evidence-based Multi-Agent Debate for Misinformation Intervention and Persuasion | arXiv | https://arxiv.org/abs/2511.07267 | tags: misinformation, debate, persuasion, multi-agent, benchmark | note: papers/20260219_beyond-detection-ed2d.md
-- [ ] 2026 | One Model, All Roles: Multi-Turn, Multi-Agent Self-Play Reinforcement Learning for Conversational Social Intelligence | arXiv | https://arxiv.org/abs/2602.03109 | tags: multi-agent, self-play, social-intelligence, multi-turn, RL
+- [x] 2026 | One Model, All Roles: Multi-Turn, Multi-Agent Self-Play Reinforcement Learning for Conversational Social Intelligence | arXiv | https://arxiv.org/abs/2602.03109 | tags: multi-agent, self-play, social-intelligence, multi-turn, RL | note: docs/paper/related_work/rapid_review/papers/20260219_omar_one-model-all-roles.md
 - [ ] 2025 | Prompt Injection Attack to Tool Selection in LLM Agents (ToolHijacker) | arXiv | https://arxiv.org/abs/2504.19793 | tags: agents, prompt-injection, tool-selection, security, attacks
 - [ ] 2026 | Learning to Inject: Automated Prompt Injection via Reinforcement Learning | arXiv | https://arxiv.org/abs/2602.05746 | tags: prompt-injection, attacks, RL, security
