@@ -731,3 +731,9 @@ Format (one per line):
 - [x] 2026 | On Calibration of Large Language Models: From Response To Capability | arXiv | https://arxiv.org/abs/2602.13540 | tags: calibration, confidence, evaluation, pass@k | note: docs/paper/related_work/rapid_review/papers/20260218_calibration-llms-response-to-capability.md
 - [x] 2025 | MCPAgentBench: A Real-world Task Benchmark for Evaluating LLM Agent MCP Tool Use | arXiv | https://arxiv.org/abs/2512.24565 | tags: agents, tool-use, benchmark, mcp | note: docs/paper/related_work/rapid_review/papers/20260218_mcpagentbench.md
 - [x] 2026 | ProAgentBench: Evaluating LLM Agents for Proactive Assistance with Real-World Data | arXiv | https://arxiv.org/html/2602.04482v1 | tags: agents, proactive, benchmark, real-world | note: papers/20260218_proagentbench.md | reviewed (added note)
+
+## New candidates (2026-02-18)
+
+- [x] 2024 | FairMT-Bench: Benchmarking Fairness for Multi-turn Dialogue in Conversational LLMs | arXiv | https://arxiv.org/abs/2410.19317 | tags: fairness, multi-turn, dialogue, benchmark | note: papers/20260218_fairmt-bench.md
+- [ ] 2025 | Exploratory Retrieval-Augmented Planning For Continual Embodied Instruction Following | arXiv | https://arxiv.org/abs/2509.08222 | tags: instruction-following, planning, retrieval-augmented, continual, embodied-agent
+- [ ] 2025 | Planning with Reasoning using Vision Language World Model | arXiv | https://arxiv.org/abs/2509.02722 | tags: planning, reasoning, world-model, vision-language

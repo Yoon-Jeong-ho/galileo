@@ -1,88 +1,54 @@
 #!/usr/bin/env python3
 """Increment counters in docs/paper/related_work/rapid_review/PROGRESS.md.
 
-Cron-robust: avoids inline one-liners and makes minimal, targeted edits.
+Usage:
+  python3 scripts/rapid_review_progress_increment.py --papers 1
 """
 
 from __future__ import annotations
 
 import argparse
-import pathlib
 import re
-import sys
+from pathlib import Path
+
+PROGRESS_PATH = Path("docs/paper/related_work/rapid_review/PROGRESS.md")
 
 
-def bump_counter(text: str, label: str, delta: int) -> str:
-    # Matches: "- <label>: <int>" with flexible whitespace.
-    pattern = re.compile(rf"^(\s*-\s*{re.escape(label)}\s*:\s*)(\d+)(\s*)$", re.MULTILINE)
+def _inc_line(text: str, label: str, delta: int) -> str:
+    # Match e.g. "- Papers read (notes written): 414"
+    pattern = re.compile(rf"^(?P<prefix>\-\s+{re.escape(label)}:\s+)(?P<num>\d+)(?P<suffix>\s*)$", re.M)
+
     m = pattern.search(text)
     if not m:
-        raise ValueError(f"Could not find counter line for: {label!r}")
-    old = int(m.group(2))
-    new = old + delta
-    return pattern.sub(lambda mm: f"{mm.group(1)}{new}{mm.group(3)}", text, count=1)
+        raise SystemExit(f"Could not find counter line for: {label}")
+
+    num = int(m.group("num"))
+    new_num = num + delta
+    if new_num < 0:
+        raise SystemExit(f"Refusing to make counter negative: {label} would become {new_num}")
+
+    start, end = m.span("num")
+    return text[:start] + str(new_num) + text[end:]
 
 
-def main() -> int:
+def main() -> None:
     ap = argparse.ArgumentParser()
-    ap.add_argument(
-        "--progress",
-        default="docs/paper/related_work/rapid_review/PROGRESS.md",
-        help="Path to PROGRESS.md (default: %(default)s)",
-    )
-    ap.add_argument(
-        "--papers-read-delta",
-        type=int,
-        default=0,
-        help="Delta for 'Papers read (notes written)' counter",
-    )
-    # Back-compat aliases used by some cron attempts.
-    ap.add_argument(
-        "--n",
-        type=int,
-        default=0,
-        help="Alias for --papers-read-delta (back-compat)",
-    )
-    ap.add_argument(
-        "--delta",
-        type=int,
-        default=0,
-        help="Alias for --papers-read-delta (back-compat)",
-    )
-    ap.add_argument(
-        "--count",
-        type=int,
-        default=0,
-        help="Alias for --papers-read-delta (back-compat)",
-    )
-    # Some cron attempts accidentally pass queue-marking args; accept and ignore.
-    ap.add_argument("--url", default="", help=argparse.SUPPRESS)
-    ap.add_argument("--note", default="", help=argparse.SUPPRESS)
-    ap.add_argument(
-        "--top10-delta",
-        type=int,
-        default=0,
-        help="Delta for 'Shortlisted into TOP10' counter",
-    )
+    ap.add_argument("--papers", type=int, default=0, help="Increment papers-read counter by this amount")
+    ap.add_argument("--top10", type=int, default=0, help="Increment TOP10-shortlist counter by this amount")
     args = ap.parse_args()
 
-    path = pathlib.Path(args.progress)
-    if not path.exists():
-        print(f"ERROR: {path} not found", file=sys.stderr)
-        return 2
+    if args.papers == 0 and args.top10 == 0:
+        raise SystemExit("Nothing to do (both deltas are 0)")
 
-    # Support --papers-read-delta and legacy aliases (--n/--delta/--count).
-    papers_delta = args.papers_read_delta or args.n or args.delta or args.count
+    text = PROGRESS_PATH.read_text(encoding="utf-8")
 
-    text = path.read_text(encoding="utf-8")
-    if papers_delta:
-        text = bump_counter(text, "Papers read (notes written)", papers_delta)
-    if args.top10_delta:
-        text = bump_counter(text, "Shortlisted into TOP10", args.top10_delta)
+    if args.papers:
+        text = _inc_line(text, "Papers read (notes written)", args.papers)
+    if args.top10:
+        text = _inc_line(text, "Shortlisted into TOP10", args.top10)
 
-    path.write_text(text, encoding="utf-8")
-    return 0
+    PROGRESS_PATH.write_text(text, encoding="utf-8")
 
 
 if __name__ == "__main__":
-    raise SystemExit(main())
+    main()
