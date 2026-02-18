@@ -647,4 +647,4 @@ Format (one per line):
 - [x] 2025 | Towards LLMs Robustness to Changes in Prompt Format Styles | arXiv | https://arxiv.org/abs/2504.06969 | tags: prompt-robustness, format, style, perturbations | note: papers/20260218_mof-prompt-format-style-robustness.md
 - [x] 2025 | Prompt-Reverse Inconsistency: LLM Self-Inconsistency Beyond Generative Randomness and Prompt Paraphrasing | arXiv | https://arxiv.org/abs/2504.01282 | tags: self-inconsistency, prompt-perturbation, evaluation | note: papers/20260218_prompt_reverse_inconsistency.md
 - [x] 2025 | Exploring LLM Reasoning Through Controlled Prompt Variations | arXiv | https://arxiv.org/abs/2504.02111 | tags: prompt-perturbation, reasoning, robustness, gsm8k | note: papers/20260218_exploring-llm-reasoning-prompt-variations.md
-- [ ] 2025 | A Taxonomy of Prompt Defects in LLM Systems | arXiv | https://arxiv.org/abs/2509.14404 | tags: prompt-engineering, taxonomy, defects, robustness | note: TBD
+- [x] 2025 | A Taxonomy of Prompt Defects in LLM Systems | arXiv | https://arxiv.org/abs/2509.14404 | tags: prompt-engineering, taxonomy, defects, robustness | note: papers/20260218_taxonomy-prompt-defects-llm-systems.md
