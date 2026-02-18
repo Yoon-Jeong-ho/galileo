@@ -749,7 +749,7 @@ Format (one per line):
 ## New candidates (2026-02-18, web_search batch 2)
 
 - [x] 2025 | Earth AI: Unlocking Geospatial Insights with Foundation Models and Cross-Modal Reasoning | arXiv | https://arxiv.org/html/2510.18318v1 | tags: geospatial, remote-sensing, foundation-model, multimodal, cross-modal | note: docs/paper/related_work/rapid_review/papers/20260218_earth-ai.md
-- [ ] 2025 | Towards responsible geospatial foundation models | Nature Machine Intelligence | https://www.nature.com/articles/s42256-025-01106-7 | tags: geospatial, foundation-model, governance, responsible-ai, survey
+- [x] 2025 | Towards responsible geospatial foundation models | Nature Machine Intelligence | https://www.nature.com/articles/s42256-025-01106-7 | tags: geospatial, foundation-model, governance, responsible-ai, survey | note: docs/paper/related_work/rapid_review/papers/20260218_responsible_geospatial_fms.md
 - [ ] 2025 | Revolutionizing earth observation with geospatial foundation models on AWS | AWS blog | https://aws.amazon.com/blogs/machine-learning/revolutionizing-earth-observation-with-geospatial-foundation-models-on-aws/ | tags: geospatial, foundation-model, deployment, aws, applied
 - [ ] 2025 | The generative revolution: AI foundation models in geospatial health—applications, challenges and future research | Int J Health Geographics | https://ij-healthgeographics.biomedcentral.com/articles/10.1186/s12942-025-00391-0 | tags: geospatial, foundation-model, health, survey, applications
 - [ ] 2025 | TiMo: Spatiotemporal Foundation Model for Satellite Image Time Series | arXiv | https://arxiv.org/html/2505.08723v1 | tags: remote-sensing, time-series, spatiotemporal, foundation-model, pretraining
