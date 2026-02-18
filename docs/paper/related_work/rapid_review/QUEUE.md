@@ -776,3 +776,12 @@ Format (one per line):
 - [x] 2026 | LUMINA: Long-horizon Understanding for Multi-turn Interactive Agents | arXiv | https://arxiv.org/abs/2601.16649 | tags: agents, long-horizon, multi-turn, diagnosis | note: papers/20260218_lumina.md  # duplicate queue entry; note already exists
 - [x] 2026 | AgencyBench: Benchmarking the Frontiers of Autonomous Agents in 1M-Token Real-World Contexts | arXiv | https://arxiv.org/abs/2601.11044 | tags: agents, long-horizon, tool-use, multi-turn, benchmark | note: papers/20260218_agencybench-1m-token-real-world-contexts.md
 - [x] 2026 | ChipBench: A Next-Step Benchmark for Evaluating LLM Performance in AI-Aided Chip Design | arXiv | https://arxiv.org/abs/2601.21448 | tags: coding, verilog, multi-turn, benchmark | note: papers/20260218_chipbench_llm_chip_design_benchmark.md
+
+
+## New candidates (2026-02-18, web_search batch sycophancy-mechanistic)
+
+- [x] 2026 | A Few Bad Neurons: Isolating and Surgically Correcting Sycophancy | arXiv | https://arxiv.org/abs/2601.18939 | tags: sycophancy, interpretability, neurons, mitigation | note: papers/20260218_few-bad-neurons-sycophancy.md  # duplicate queue entry; note already exists
+- [ ] 2025 | When Truth Is Overridden: Uncovering the Internal Origins of Sycophancy in Large Language Models | arXiv | https://arxiv.org/abs/2508.02087 | tags: sycophancy, mechanistic, representations
+- [ ] 2025 | Sycophancy Is Not One Thing: Causal Separation of Sycophantic Behaviors in LLMs | arXiv | https://arxiv.org/abs/2509.21305 | tags: sycophancy, causal, taxonomy
+- [ ] 2025 | Sycophancy Mitigation Through Reinforcement Learning with Uncertainty-Aware Adaptive Reasoning Trajectories | arXiv | https://arxiv.org/abs/2509.16742 | tags: sycophancy, rl, uncertainty, mitigation
+- [ ] 2024 | Sycophancy in Vision-Language Models: A Systematic Analysis and an Inference-Time Mitigation Framework | arXiv | https://arxiv.org/abs/2408.11261 | tags: sycophancy, vlm, inference-time, mitigation
