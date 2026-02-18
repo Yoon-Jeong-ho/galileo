@@ -615,4 +615,4 @@ Format (one per line):
 - [x] 2026 | PersistBench: When Should Long-Term Memories Be Forgotten by LLMs? | arXiv | https://arxiv.org/abs/2602.01146 | tags: agents, memory, forgetting, benchmark, long-term | note: papers/20260218_persistbench.md
 - [x] 2026 | Memory in the Age of AI Agents | arXiv | https://arxiv.org/abs/2512.13564 | tags: agents, memory, survey | note: papers/20260218_memory_in_age_ai_agents.md
 - [x] 2025 | Forgetful but Faithful: A Cognitive Memory Architecture and Benchmark for Privacy-Aware Generative Agents | arXiv | https://arxiv.org/abs/2512.12856 | tags: agents, memory, forgetting, privacy, benchmark | note: papers/20260218_forgetful-but-faithful-mars-fifa.md
-- [ ] 2025 | Hindsight is 20/20: Building Agent Memory that Retains, Recalls, and Reflects | arXiv | https://arxiv.org/abs/2512.12818 | tags: agents, memory, reflection, long-horizon
+- [x] 2025 | Hindsight is 20/20: Building Agent Memory that Retains, Recalls, and Reflects | arXiv | https://arxiv.org/abs/2512.12818 | tags: agents, memory, reflection, long-horizon | note: papers/20260218_hindsight-agent-memory.md
