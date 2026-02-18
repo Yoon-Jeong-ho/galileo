@@ -125,15 +125,14 @@ Figure~\ref{fig:survival-example} illustrates the resulting survival curves for 
 \small
 \begin{tabular}{p{0.14\linewidth} p{0.30\linewidth} p{0.30\linewidth} p{0.20\linewidth}}
 \toprule
-Claim & Evidence & Tracked artifacts & Reproducer \\
+Claim & Evidence (paper-facing) & Tracked artifacts (repo paths) & Reproducer \\
 \midrule
-C1 & Survival curves + TOF & survival\_curve\_personawise...; tof\_personawise... & validate\_paper\_exports.py (results\_paper) \\
-C2 & Table W deltas (control vs persona) & table\_w\_effect\_delta... & make\_table\_w... + validate \\
-C3 & Recovery after flip (return-to-truth) & recovery\_personawise\_control\_vs\_persona... & make\_paper\_figures\_from\_artifacts.py \\
-C6 & Fig.~\ref{fig:decoding-sweep} & decoding\_sweep\_qwen\_temp\_summary... & results\_paper/qwen\_temp* \\
+C1 (protocol) & Fig.~\ref{fig:protocol} & docs/paper/figures/protocol_overview.svg (PDF copy in this skeleton) & (static diagram; update SVG directly) \\ 
+C4 (cross-family) & Fig.~\ref{fig:survival-example} & docs/paper/figures/cross\_family\_survival\_r5\_control\_vs\_logicaltrap\_seed1-2\_20260218.svg & scripts/make\_cross\_family\_figure\_svg.py \\
+C6 (decoding) & Fig.~\ref{fig:decoding-sweep} & docs/paper/figures/decoding\_sweep\_qwen\_delta\_seed1-2\_20260211.svg & scripts/make\_decoding\_sweep\_figure\_svg.py \\
 \bottomrule
 \end{tabular}
-\caption{Claim-to-evidence map: each paper claim is linked to the concrete exported artifacts and a reproducer script for auditability.}
+\caption{(Skeleton) Claim-to-evidence map: each claim is linked to concrete repo artifacts and a reproducer script. For the full SSOT map (including C2/C3 dynamics, drift baseline, and recovery), see docs/paper/CLAIM\_EVIDENCE\_MAP.md.}
 \end{table}
 
 \clearpage
