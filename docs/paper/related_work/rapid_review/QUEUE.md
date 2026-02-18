@@ -663,5 +663,5 @@ Format (one per line):
 - [x] 2026 | ICON: Intent-Context Coupling for Efficient Multi-Turn Jailbreak Attack | arXiv | https://arxiv.org/abs/2601.20903 | tags: multi-turn, jailbreak, attack, intent-context | note: papers/20260218_icon-intent-context-coupling.md
 - [x] 2025 | Multi-turn Jailbreaking via Global Refinement and Active Fabrication | arXiv | https://arxiv.org/abs/2506.17881 | tags: multi-turn, jailbreak, attack, refinement | note: papers/20260218_graf-multi-turn-jailbreaking.md
 - [x] 2025 | Chain-of-Lure: A Universal Jailbreak Attack Framework using Unconstrained Synthetic Narratives | arXiv | https://arxiv.org/abs/2505.17519 | tags: multi-turn, jailbreak, attack, narratives | note: papers/20260218_chain-of-lure.md
-- [ ] 2025 | Multi-Turn Jailbreaking Large Language Models via Attention Shifting | AAAI | https://ojs.aaai.org/index.php/AAAI/article/view/34553 | tags: multi-turn, jailbreak, attack, attention
+- [x] 2025 | Multi-Turn Jailbreaking Large Language Models via Attention Shifting | AAAI | https://ojs.aaai.org/index.php/AAAI/article/view/34553 | tags: multi-turn, jailbreak, attack, attention | note: papers/20260218_attention-shifting-jailbreak.md
 - [ ] 2025 | Shallow Robustness, Deep Vulnerabilities: Multi-Turn Evaluation of Medical LLMs | arXiv | https://arxiv.org/abs/2510.12255 | tags: multi-turn, robustness, medical, evaluation
