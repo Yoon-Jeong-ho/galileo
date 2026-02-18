@@ -19,7 +19,9 @@ This file is intentionally short and pragmatic (SSOT for “what proves what”)
 
 These definitions should be used consistently in the draft, captions, and artifacts.
 
-- **Important (control comparability):** for each persona arm we filter to the persona’s *initially-correct* subset `C_p` and run both (i) persona pressure and (ii) the Neutral Re-asking Control on that same subset. This makes persona-vs-control comparisons apples-to-apples *within* a persona, but it means **control numbers can differ across personas** because the underlying `C_p` differs.
+- **Important (control comparability / reporting modes):** we use two matched-set reporting modes, and the draft must say which one is being used.
+  - **persona-matched** (within-persona attribution): for each persona arm we filter to the persona’s *initially-correct* subset `C_p` and run both (i) persona pressure and (ii) the Neutral Re-asking Control on that same subset. This makes persona-vs-control comparisons apples-to-apples *within* a persona, but **control numbers can differ across personas** because the underlying `C_p` differs.
+  - **shared-\(C\)** (headline aggregation, used by Table~W): for each seed we define a single initially-correct subset `C` under the neutral prompt and evaluate both persona pressure and the Neutral Re-asking Control on that same `C`. This keeps the control baseline fixed across personas and makes weighted persona aggregation easier to interpret.
 
 - **Important (Table W aggregation; avoid “why doesn’t this match the persona-wise deltas?” confusion):** Table W intentionally reports **two** persona aggregates:
   - **persona\_weighted:** pool counts across personas first (equivalently: weight each persona by its evaluation-set size; implemented by summing `survived/total` at round `R` and summing TOF counts across personas).
