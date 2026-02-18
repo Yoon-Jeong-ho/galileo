@@ -1046,3 +1046,13 @@ Next: wait for completion → ensure `paper_exports/` exists → validate with `
   - GPU: 4
 
 Rationale: Pythia also showed extremely low initial accuracy (1/80) so even if we exported, it would be low-signal; Zephyr is a better cross-family candidate.
+
+### 2026-02-18 10:34 KST — Zephyr Tier‑1 seed2 launch (seed1 paper-ready)
+
+- Confirmed Zephyr‑7B **seed1** is paper-ready (exports + validator OK):
+  - `results_paper/tier1_zephyr7b_seed1_20260218_0945/paper_exports/` contains the full bundle.
+  - `run.log` shows `[OK] .../paper_exports` and `[OK] runner_metadata parity`.
+- Launched Zephyr‑7B **seed2** using canonical exporter runner on nlp8 GPU5:
+  - OUT: `results_paper/tier1_zephyr7b_seed2_20260218_1034/`
+  - tmux: `tier1_zephyr7b_s2_g5_20260218_1034`
+  - Command pattern: `GPU=5 SEED=2 OUT=... MODEL=HuggingFaceH4/zephyr-7b-beta bash scripts/remote_run/nlp8_smoke.sh |& tee run.log`

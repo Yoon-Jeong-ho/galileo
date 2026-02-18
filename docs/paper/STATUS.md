@@ -90,6 +90,8 @@ Ground-truth tasks에서 multi-turn persona pressure 하에 **정답 유지(surv
 
 **Update:** Llama‑3.2‑3B‑Instruct, Phi‑3‑mini, and **Mistral‑Nemo** all have Tier‑1 **seeds 1–2** that are paper-ready and reflected in the tracked cross-family artifact/figure set (see `docs/paper/artifacts/tier1_*_survival_summary_*.csv` and the canonical SVG under `docs/paper/figures/`).
 
+**Update (2026-02-18):** Zephyr‑7B seed1 is now paper-ready; seed2 launched and in progress.
+
 ---
 
 ## 4) NEXT HEARTBEAT (ONE step)
