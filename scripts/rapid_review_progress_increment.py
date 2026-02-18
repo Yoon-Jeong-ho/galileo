@@ -35,6 +35,10 @@ def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--papers", type=int, default=0, help="Increment papers-read counter by this amount")
     ap.add_argument("--top10", type=int, default=0, help="Increment TOP10-shortlist counter by this amount")
+    # Cron/back-compat: accept-and-ignore common mispassed args.
+    ap.add_argument("--url", default="", help=argparse.SUPPRESS)
+    ap.add_argument("--note", default="", help=argparse.SUPPRESS)
+    ap.add_argument("--comment", default="", help=argparse.SUPPRESS)
     args = ap.parse_args()
 
     # Cron robustness: treat missing deltas as a no-op success.
