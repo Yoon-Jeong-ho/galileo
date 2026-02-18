@@ -61,9 +61,10 @@ def main() -> None:
     ap.add_argument("--n", type=int, default=0, help=argparse.SUPPRESS)
     ap.add_argument("--notes", type=int, default=0, help=argparse.SUPPRESS)
     # Cron/back-compat: accept-and-ignore common mispassed args.
-    ap.add_argument("--url", default="", help=argparse.SUPPRESS)
-    ap.add_argument("--note", default="", help=argparse.SUPPRESS)
-    ap.add_argument("--comment", default="", help=argparse.SUPPRESS)
+    # Use nargs='?' so callers that accidentally pass a flag with no value don't hard-fail.
+    ap.add_argument("--url", nargs="?", const="", default="", help=argparse.SUPPRESS)
+    ap.add_argument("--note", nargs="?", const="", default="", help=argparse.SUPPRESS)
+    ap.add_argument("--comment", nargs="?", const="", default="", help=argparse.SUPPRESS)
     args = ap.parse_args()
 
     # Back-compat aliases.
