@@ -945,3 +945,6 @@ Format (one per line):
 - [x] 2026 | Closing the Distribution Gap in Adversarial Training for LLMs | arXiv | https://arxiv.org/abs/2602.15238 | tags: adversarial-training, robustness, distribution-gap | note: docs/paper/related_work/rapid_review/papers/20260219_dat-distribution-gap-at-llms.md
 - [x] 2026 | Inference-Time Backdoors via Hidden Instructions in LLM Chat Templates | arXiv | https://arxiv.org/abs/2602.04653 | tags: backdoor, safety, chat-templates, robustness | note: docs/paper/related_work/rapid_review/papers/20260219_inference_time_backdoors_chat_templates.md
 - [x] 2026 | Workflow-R1: Group Sub-sequence Policy Optimization for Multi-turn Workflow Construction | arXiv | https://arxiv.org/abs/2602.01202 | tags: multi-turn, agents, workflows, RL, robustness | note: docs/paper/related_work/rapid_review/papers/20260219_workflow-r1-gsspo.md
+
+## New candidates (2026-02-19, web_search batch 1)
+- [x] 2025 | Sycophancy Is Not One Thing: Causal Separation of Sycophantic Behaviors in LLMs | arXiv | https://arxiv.org/html/2509.21305v1 | tags: sycophancy, causal, robustness, multi-turn | note: docs/paper/related_work/rapid_review/papers/20260217_sycophancy-not-one-thing-causal-separation.md | duplicate queue entry (already reviewed via abs URL)
