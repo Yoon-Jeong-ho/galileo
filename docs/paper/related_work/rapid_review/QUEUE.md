@@ -183,7 +183,6 @@ Format (one per line):
 - [x] 2024 | Multi-IF: Benchmarking LLMs on Multi-Turn and Multilingual Instruction Following | arXiv | https://arxiv.org/abs/2410.15553 | tags: multi-turn, instruction-following, multilingual, benchmark | note: papers/20260217_multi-if.md
 - [x] 2025 | Can Language Models Follow Multiple Turns of Entangled Instructions? (MultiTurnInstruct) | arXiv | https://arxiv.org/abs/2503.13222 | tags: multi-turn, instruction-following, conflicting-instructions, benchmark | note: papers/20260217_multiturninstruct-entangled-instructions.md
 - [x] 2025 | InfoQuest: Evaluating Multi-Turn Dialogue Agents for Open-Ended Conversations with Hidden Context | arXiv | https://arxiv.org/abs/2502.12257 | tags: multi-turn, dialogue-agents, hidden-context, evaluation | note: papers/20260217_infoquest.md
-- [x] 2026 | One Battle After Another: Probing LLMs’ Limits on Multi-Turn Instruction Following with a Benchmark Evolving Framework | arXiv | https://arxiv.org/abs/2511.03508 | tags: multi-turn, instruction-following, evolving-benchmark, saturation | note: papers/20260217_evolif-multi-turn-instruction-following.md  # duplicate queue entry; note already exists
 - [x] 2025 | A Multi-Dimensional Constraint Framework for Evaluating and Improving Instruction Following in Large Language Models | arXiv | https://arxiv.org/abs/2505.07591 | tags: instruction-following, evaluation, constraints, multi-turn | note: papers/20260217_multidimif.md
 
 ## New candidates (2026-02-17, web_search batch 20)
@@ -265,14 +264,11 @@ Format (one per line):
 - [x] 2025 | How Do LLMs Persuade? Linear Probes Can Uncover Persuasion Dynamics in Multi-Turn Conversations | arXiv | https://arxiv.org/abs/2508.05625 | tags: persuasion, multi-turn, probes, dynamics, detection | note: papers/20260217_how-do-llms-persuade-linear-probes.md
 - [x] 2025 | M3-SLU: Evaluating Speaker-Attributed Reasoning in Multimodal Large Language Models | arXiv | https://arxiv.org/abs/2510.19358 | tags: multi-turn, multi-speaker, speech, evaluation, multimodal | note: papers/20260217_m3-slu.md
 - [x] 2025 | GraphIF: Enhancing Multi-Turn Instruction Following for Large Language Models with Relation Graph Prompt | arXiv | https://arxiv.org/abs/2511.10051 | tags: multi-turn, instruction-following, prompting, graphs | note: papers/20260217_graphif.md
-- [x] 2024 | A Survey on Recent Advances in LLM-Based Multi-turn Dialogue Systems | arXiv | https://arxiv.org/abs/2402.18013 | tags: survey, multi-turn, dialogue-systems | note: papers/20260217_survey-llm-multi-turn-dialogue-systems-duplicate.md  # duplicate queue entry; primary note already exists
-- [x] 2025 | StructFlowBench: A Structured Flow Benchmark for Multi-turn Instruction Following | arXiv | https://arxiv.org/abs/2502.14494 | tags: benchmark, multi-turn, instruction-following, structure | note: papers/20260217_structflowbench.md
 
 ## New candidates (2026-02-17, web_search batch 13)
 
 - [x] 2025 | The Levers of Political Persuasion with Conversational AI | arXiv | https://arxiv.org/abs/2507.13919 | tags: persuasion, political, dialogue, human-subjects, multi-turn | note: papers/20260217_levers-political-persuasion.md
 - [x] 2025 | When AI Gets Persuaded, Humans Follow: Inducing the Conformity Effect in Persuasive Dialogue | arXiv | https://arxiv.org/abs/2510.04229 | tags: persuasion, conformity, dialogue, social-influence | note: papers/20260217_conformity-effect-persuasive-dialogue.md
-- [x] 2025 | How Do LLMs Persuade? Linear Probes Can Uncover Persuasion Dynamics in Multi-Turn Conversations | arXiv | https://arxiv.org/abs/2508.05625 | tags: persuasion, multi-turn, interpretability, dynamics | note: papers/20260217_llms-persuade-linear-probes.md
 - [x] 2024 | Conformity in Large Language Models | arXiv | https://arxiv.org/abs/2410.12428 | tags: conformity, social-influence, bias, robustness | note: papers/20260217_conformity-in-llms.md
 - [x] 2025 | On the Adaptive Psychological Persuasion of Large Language Models | arXiv | https://arxiv.org/abs/2506.06800 | tags: persuasion, psychology, strategies, dialogue | note: papers/20260217_adaptive-psychological-persuasion.md
 
@@ -286,7 +282,6 @@ Format (one per line):
 
 ## New candidates (2026-02-17, web_search batch 23)
 
-- [x] 2026 | WavBench: Benchmarking Reasoning, Colloquialism, and Paralinguistics for End-to-End Spoken Dialogue Models | arXiv | https://arxiv.org/abs/2602.12135 | tags: spoken-dialogue, multi-turn, benchmark, paralinguistics | note: papers/20260217_wavbench.md
 - [x] 2025 | MTBench: A Multimodal Time Series Benchmark for Temporal Reasoning and Question Answering | arXiv | https://arxiv.org/abs/2503.16858 | tags: benchmark, temporal-reasoning, multimodal | note: papers/20260217_mtbench-multimodal-time-series.md
 - [x] 2025 | Learning-Based Automated Adversarial Red-Teaming for Robustness Evaluation of Large Language Models | arXiv | https://arxiv.org/abs/2512.20677 | tags: robustness, adversarial, red-teaming, evaluation | note: papers/20260217_learning-based-auto-red-teaming.md
 - [x] 2026 | SEAD: Self-Evolving Agent for Multi-Turn Service Dialogue | arXiv | https://arxiv.org/abs/2602.03548 | tags: agents, service-dialogue, multi-turn | note: papers/20260217_sead-self-evolving-agent-service-dialogue.md
@@ -303,22 +298,17 @@ Format (one per line):
 ## New candidates (2026-02-17, web_search batch 13)
 
 - [x] 2025 | Quantifying Conversation Drift in MCP via Latent Polytope | arXiv | https://arxiv.org/abs/2508.06418 | tags: drift, mcp, conversation, diagnostics | note: papers/20260217_mcp-latent-polytope-drift.md
-- [x] 2025 | A Benchmark for Evaluating Outcome-Driven Constraint Violations in Autonomous AI Agents | arXiv | https://arxiv.org/abs/2512.20798 | tags: agents, constraint-violations, multi-step, safety | note: papers/20260217_outcome-driven-constraint-violations-benchmark.md
 - [x] 2026 | Prompt Injection Attacks on Agentic Coding Assistants: A Systematic Analysis of Vulnerabilities in Skills, Tools, and Protocol Ecosystems | arXiv | https://arxiv.org/abs/2601.17548 | tags: prompt-injection, agents, coding, security, survey | note: papers/20260217_prompt-injection-agentic-coding-assistants.md
 - [x] 2026 | JMedEthicBench: A Multi-Turn Conversational Benchmark for Evaluating Medical Safety in Japanese Large Language Models | arXiv | https://arxiv.org/abs/2601.01627 | tags: medical, safety, multi-turn, benchmark | note: papers/20260217_jmedethicbench.md
 - [x] 2025 | HealthBench: Evaluating Large Language Models Towards Improved Human Health | arXiv | https://arxiv.org/abs/2505.08775 | tags: medical, safety, multi-turn, benchmark | note: papers/20260217_healthbench.md
 
 ## New candidates (2026-02-17, web_search batch 13)
 
-- [x] 2025 | Evaluating the Sensitivity of LLMs to Prior Context | arXiv | https://arxiv.org/abs/2506.00069 | tags: multi-turn, context-sensitivity, robustness, evaluation | note: papers/20260217_sensitivity-prior-context.md
 - [x] 2025 | Context-aware Fairness Evaluation and Mitigation in LLMs | arXiv | https://arxiv.org/abs/2510.18914 | tags: multi-turn, context, fairness, robustness | note: papers/20260217_context-aware-fairness-neuron-masking.md
-- [x] 2025 | Full-Duplex-Bench: A Benchmark to Evaluate Full-duplex Spoken Dialogue Models on Turn-taking Capabilities | arXiv | https://arxiv.org/abs/2503.04721 | tags: multi-turn, dialogue, turn-taking, benchmark | note: papers/20260217_full-duplex-bench.md
 - [x] 2025 | StoryBench: A Dynamic Benchmark for Evaluating Long-Term Memory with Multi Turns | arXiv | https://arxiv.org/abs/2506.13356 | tags: multi-turn, memory, long-term, benchmark | note: papers/20260217_storybench.md
-- [x] 2024 | A Survey on Recent Advances in LLM-Based Multi-turn Dialogue Systems | arXiv | https://arxiv.org/abs/2402.18013 | tags: survey, multi-turn, dialogue-systems | note: papers/20260217_survey-llm-multi-turn-dialogue-systems.md
 
 ## New candidates (2026-02-17, web_search batch 14)
 
-- [x] 2025 | Steering Dialogue Dynamics for Robustness against Multi-turn Jailbreaking Attacks | arXiv | https://arxiv.org/abs/2503.00187 | tags: multi-turn, jailbreak, safety, steering | note: papers/20260217_steering-dialogue-dynamics-multi-turn-jailbreaking.md
 - [x] 2025 | Stress-Aware Learning under KL Drift via Trust-Decayed Mirror Descent | arXiv | https://arxiv.org/abs/2510.15222 | tags: drift, kl, belief-update, mirror-descent | note: papers/20260217_stress-aware-learning-kl-drift-trust-decayed-mirror-descent.md
 - [x] 2026 | Generative Modeling via Drifting | arXiv | https://arxiv.org/abs/2602.04770 | tags: drifting, representation, robustness | note: papers/20260217_generative-modeling-via-drifting.md
 - [x] 2025 | Auditing cognitive drift in AI-driven recommendation: a responsible AI methods protocol with a health case demonstration | Frontiers | https://www.frontiersin.org/journals/neuroscience/articles/10.3389/fnins.2025.1697053/full | tags: cognitive-drift, auditing, protocol | note: papers/20260217_auditing-cognitive-drift-recommenders.md
@@ -360,11 +350,8 @@ Format (one per line):
 
 ## New candidates (2026-02-18, web_search batch)
 
-- [x] 2026 | LUMINA: Long-horizon Understanding for Multi-turn Interactive Agents | arXiv | https://arxiv.org/abs/2601.16649 | tags: multi-turn, agents, long-horizon, understanding, evaluation | note: papers/20260218_lumina.md
 - [x] 2026 | TravelBench: A Broader Real-World Benchmark for Multi-Turn and Tool-Using Travel Planning | arXiv | https://arxiv.org/abs/2512.22673 | tags: multi-turn, tool-use, planning, benchmark, robustness | note: papers/20260218_travelbench.md
 - [x] 2025 | AgentProg: Empowering Long-Horizon GUI Agents with Program-Guided Context Management | arXiv | https://arxiv.org/abs/2512.10371 | tags: agents, long-horizon, gui, context-management, robustness | note: papers/20260218_agentprog_context_management.md
-- [x] 2025 | OdysseyBench: Evaluating LLM Agents on Long-Horizon Complex Office Application Workflows | arXiv | https://arxiv.org/abs/2508.09124 | tags: agents, long-horizon, office, workflows, benchmark | note: papers/20260218_odysseybench.md
-- [x] 2025 | NL2Repo-Bench: Towards Long-Horizon Repository Generation Evaluation of Coding Agents | arXiv | https://arxiv.org/abs/2512.12730 | tags: agents, coding, long-horizon, benchmark, robustness | note: papers/20260218_nl2repo-bench.md
 
 
 ## New candidates (2026-02-18, web_search)
@@ -386,15 +373,11 @@ Format (one per line):
 ## New candidates (2026-02-18, web_search batch)
 
 - [x] 2025 | ConsistencyAI: A Benchmark to Assess LLMs' Factual Consistency When Responding to Different Demographic Groups | arXiv | https://arxiv.org/abs/2510.13852 | tags: consistency, fairness-adjacent, robustness, evaluation | note: papers/20260218_consistencyai-demographic-factual-consistency.md
-- [x] 2024 | Mitigating sycophancy in decoder-only transformer architectures: Synthetic data intervention | arXiv | https://arxiv.org/abs/2411.10156 | tags: sycophancy, mitigation, synthetic-data, robustness | note: papers/20260218_mitigating-sycophancy-sdi.md
-- [x] 2025 | Multi-Faceted Evaluation of Tool-Augmented Dialogue Systems | arXiv | https://arxiv.org/abs/2510.19186 | tags: multi-turn, tool-use, evaluation, dialogue | note: papers/20260218_trace_scope_tool_aug_dialogue_eval.md (duplicate of TRACE/SCOPE entry above)
 - [x] 2025 | ConvCodeWorld: Benchmarking Conversational Code Generation in Reproducible Feedback Environments | arXiv | https://arxiv.org/abs/2502.19852 | tags: multi-turn, code, feedback, evaluation | note: papers/20260218_convcodeworld.md
 - [x] 2025 | CodeAssistBench (CAB): Dataset & Benchmarking for Multi-turn Chat-Based Code Assistance | arXiv | https://arxiv.org/abs/2507.10646 | tags: multi-turn, code, benchmark, evaluation | note: papers/20260218_codeassistbench_cab.md
 
 ## New candidates (2026-02-18, web_search batch)
 
-- [x] 2026 | Learning an Efficient Multi-Turn Dialogue Evaluator from Multiple LLM Judges (MTDEval) | arXiv | https://arxiv.org/abs/2508.00454 | tags: evaluation, multi-turn, llm-judge, metrics | note: papers/20260217_mtd-eval.md (duplicate queue entry)
-- [x] 2025 | Beyond Single-Turn: A Survey on Multi-Turn Interactions with Large Language Models | arXiv | https://arxiv.org/abs/2504.04717 | tags: survey, multi-turn, agents, evaluation | note: papers/20260217_beyond-single-turn-survey.md (duplicate queue entry)
 - [x] 2026 | Alignment Drift in Multimodal LLMs: A Two-Phase, Longitudinal Evaluation of Harm Across Eight Model Releases | arXiv | https://arxiv.org/abs/2602.04739 | tags: drift, longitudinal, safety, multimodal | note: papers/20260218_alignment-drift-mllms-harm-longitudinal.md
 - [x] 2025 | Multi-turn evaluation of anthropomorphic behaviours in large language models | arXiv | https://arxiv.org/abs/2502.07077 | tags: multi-turn, anthropomorphism, evaluation, behavior | note: papers/20260218_multi-turn-eval-anthropomorphic-llms.md
 - [x] 2024 | RESPACT: Harmonizing Reasoning, Speaking, and Acting towards Building LLM-based Conversational AI Agents | arXiv | https://arxiv.org/abs/2411.00927 | tags: agents, multi-turn, speech-act, planning | note: papers/20260218_respact_reason_speak_act.md
@@ -402,20 +385,11 @@ Format (one per line):
 
 ## New candidates (2026-02-18, web_search batch)
 
-- [x] 2025 | Modeling and Predicting Multi-Turn Answer Instability in Large Language Models | arXiv | https://arxiv.org/abs/2511.10688 | tags: multi-turn, answer-instability, drift, robustness, evaluation | note: papers/20260217_modeling-multi-turn-answer-instability.md (duplicate queue entry)
-- [x] 2025 | Drift No More? Context Equilibria in Multi-Turn LLM Interactions | arXiv | https://arxiv.org/abs/2510.07777 | tags: multi-turn, drift, context, robustness | note: papers/20260217_drift-no-more.md (duplicate queue entry)
-- [x] 2025 | Measuring Sycophancy of Language Models in Multi-turn Dialogues | arXiv | https://arxiv.org/abs/2505.23840 | tags: sycophancy, multi-turn, evaluation, dialogue | note: papers/20260217_sycon-bench.md (duplicate queue entry)
-- [x] 2026 | SycoEval-EM: Sycophancy Evaluation of Large Language Models in Simulated Clinical Encounters for Emergency Care | arXiv | https://arxiv.org/abs/2601.16529 | tags: sycophancy, persuasion, clinical, safety, evaluation | note: papers/20260217_sycoeval-em.md (duplicate queue entry)
-- [x] 2025 | Towards Understanding Sycophancy in Language Models | arXiv | https://arxiv.org/abs/2310.13548 | tags: sycophancy, preference-modeling, RLHF, truthfulness | note: papers/20260217_towards-understanding-sycophancy.md (duplicate queue entry)
 
 
 ## New candidates (2026-02-18, web_search batch)
 
-- [x] 2025 | MARS-Bench: A Multi-turn Athletic Real-world Scenario Benchmark for Dialogue Evaluation | arXiv | https://arxiv.org/abs/2505.23810 | tags: multi-turn, benchmark, dialogue, evaluation | note: papers/20260217_mars-bench.md (duplicate queue entry)
-- [x] 2025 | MultiChallenge: A Realistic Multi-Turn Conversation Evaluation Benchmark Challenging to Frontier LLMs | arXiv | https://arxiv.org/abs/2501.17399 | tags: multi-turn, instruction-following, benchmark, evaluation | note: papers/20260217_multichallenge.md (duplicate queue entry)
-- [x] 2025 | One Battle After Another: Probing LLMs’ Limits on Multi-Turn Instruction Following with a Benchmark Evolving Framework | arXiv | https://arxiv.org/abs/2511.03508 | tags: multi-turn, instruction-following, benchmark, robustness | note: papers/20260217_evolif-multi-turn-instruction-following.md (duplicate queue entry)
 - [x] 2026 | MemoryRewardBench: Benchmarking Reward Models for Long-Term Memory Management in Large Language Models | arXiv | https://arxiv.org/abs/2601.11969 | tags: long-context, memory, reward-model, benchmark | note: papers/20260218_memoryrewardbench_reward_models_memory_mgmt.md
-- [x] 2025 | Full-Duplex-Bench: A Benchmark to Evaluate Full-duplex Spoken Dialogue Models on Turn-taking Capabilities | arXiv | https://arxiv.org/abs/2503.04721 | tags: spoken-dialogue, multi-turn, turn-taking, benchmark | note: papers/20260217_full-duplex-bench.md (duplicate queue entry)
 
 ## New candidates (2026-02-18, web_search)
 
@@ -423,13 +397,12 @@ Format (one per line):
 - [x] 2023 | API-Bank: A Comprehensive Benchmark for Tool-Augmented LLMs | arXiv | https://arxiv.org/abs/2304.08244 | tags: tool-use, benchmark, api-calling, agents | note: papers/20260218_api-bank.md
 - [x] 2023 | On the Tool Manipulation Capability of Open-source Large Language Models (ToolBench) | arXiv | https://arxiv.org/abs/2305.16504 | tags: tool-use, benchmark, open-source, evaluation | note: papers/20260218_toolbench-open-source-tool-manipulation.md
 - [x] 2023 | ToolLLM: Facilitating Large Language Models to Master 16000+ Real-world APIs | arXiv | https://arxiv.org/abs/2307.16789 | tags: tool-use, api, instruction-following, evaluation | note: papers/20260218_toolllm_toolbench.md
-- [x] 2025 | Survey on Evaluation of LLM-based Agents | arXiv | https://arxiv.org/html/2503.16416 | tags: agents, evaluation, survey | note: papers/20260218_survey-eval-llm-agents.md
+- [x] 2025 | Survey on Evaluation of LLM-based Agents | arXiv | https://arxiv.org/abs/2503.16416 | tags: agents, evaluation, survey | note: papers/20260218_survey-eval-llm-agents.md
 
 ## New candidates (2026-02-18, web_search batch)
 
 - [x] 2023 | PromptBench: Towards Evaluating the Robustness of Large Language Models on Adversarial Prompts | arXiv | https://arxiv.org/abs/2306.04528 | tags: robustness, adversarial-prompts, evaluation | note: papers/20260218_promptrobust-adversarial-prompts.md
 - [x] 2025 | Robustness of Prompting: Enhancing Robustness of Large Language Models Against Prompting Attacks (RoP) | arXiv | https://arxiv.org/abs/2506.03627 | tags: robustness, prompt-attacks, perturbations, evaluation | note: papers/20260218_robustness-of-prompting-rop.md
-- [x] 2025 | Benchmarking Adversarial Robustness to Bias Elicitation in Large Language Models (CLEAR-Bias) | arXiv | https://arxiv.org/abs/2504.07887 | tags: robustness, bias, adversarial-prompts, llm-as-judge | note: papers/20260217_bias-elicitation-robustness-llm-judge.md (duplicate queue entry)
 - [x] 2025 | Evaluating the Robustness of Large Language Model Safety Guardrails Against Adversarial Attacks | arXiv | https://arxiv.org/abs/2511.22047 | tags: safety, guardrails, robustness, adversarial | note: papers/20260218_llm-guardrail-robustness-adversarial-attacks.md
 - [x] 2026 | Evaluating Robustness of Large Language Models in Enterprise Applications: Benchmarks for Perturbation Consistency Across Formats and Languages | arXiv | https://arxiv.org/abs/2601.06341 | tags: robustness, perturbations, multilingual, formats | note: papers/20260218_evaluating-robustness-llm-enterprise.md
 
@@ -443,7 +416,6 @@ Format (one per line):
 
 ## New candidates (2026-02-18, web_search batch 13)
 
-- [x] 2025 | Consistency in Language Models: Current Landscape, Challenges, and Future Directions | arXiv | https://arxiv.org/abs/2505.00268 | tags: consistency, survey, robustness | note: papers/20260217_consistency-in-language-models-survey.md  # duplicate queue entry
 - [x] 2025 | Robustness in Large Language Models: A Survey of Mitigation Strategies and Evaluation Metrics | arXiv | https://arxiv.org/abs/2505.18658 | tags: robustness, survey, evaluation | note: papers/20260218_llm-robustness-survey-tmlr.md
 - [x] 2025 | When Punctuation Matters: A Large-Scale Comparison of Prompt Robustness Methods for LLMs | arXiv | https://arxiv.org/abs/2508.11383 | tags: prompt-robustness, sensitivity, evaluation | note: papers/20260218_punctuation_prompt_robustness.md
 - [x] 2025 | Structured Prompting Enables More Robust Evaluation of Language Models | arXiv | https://arxiv.org/abs/2511.20836 | tags: prompting, evaluation, robustness | note: papers/20260218_structured-prompting-robust-eval-lms.md
@@ -459,25 +431,15 @@ Format (one per line):
 
 ## New candidates (2026-02-18, web_search batch)
 
-- [x] 2025 | A Benchmark for Evaluating Outcome-Driven Constraint Violations in Autonomous AI Agents | arXiv | https://arxiv.org/abs/2512.20798 | tags: agents, constraint-violation, benchmark, autonomy | note: papers/20260217_outcome-driven-constraint-violations-benchmark.md (duplicate queue entry)
-- [x] 2025 | Audio MultiChallenge: A Multi-Turn Evaluation of Spoken Dialogue Systems on Natural Human Interaction | arXiv | https://arxiv.org/abs/2512.14865 | tags: multi-turn, spoken-dialogue, benchmark, audio | note: papers/20260217_audio-multichallenge.md (duplicate queue entry)
-- [x] 2025 | MULTI-Bench: A Multi-Turn Interactive Benchmark for Assessing Emotional Intelligence ability of Spoken Dialogue Models | arXiv | https://arxiv.org/abs/2511.00850 | tags: multi-turn, spoken-dialogue, emotional-intelligence, benchmark | note: papers/20260217_multi-bench-ei.md  # duplicate queue entry
 - [x] 2025 | MTalk-Bench: Evaluating Speech-to-Speech Models in Multi-Turn Dialogues via Arena-style and Rubrics Protocols | arXiv | https://arxiv.org/abs/2508.18240 | tags: speech-to-speech, multi-turn, evaluation, benchmark | note: papers/20260218_mtalk-bench-s2s-multiturn-eval.md
-- [x] 2024 | A Survey on Recent Advances in LLM-Based Multi-turn Dialogue Systems | arXiv | https://arxiv.org/abs/2402.18013 | tags: survey, multi-turn, dialogue-systems | note: papers/20260217_survey-llm-multi-turn-dialogue-systems.md (duplicate queue entry)
 
 ## New candidates (2026-02-18, web_search batch 1)
 
-- [x] 2025 | SafeDialBench: A Fine-Grained Safety Evaluation Benchmark for Large Language Models in Multi-Turn Dialogues with Diverse Jailbreak Attacks | arXiv | https://arxiv.org/abs/2502.11090 | tags: multi-turn, safety, jailbreak, benchmark | note: papers/20260217_safedialbench.md (duplicate queue entry)
-- [x] 2025 | X-Boundary: Establishing Exact Safety Boundary to Shield LLMs from Multi-Turn Jailbreaks without Compromising Usability | arXiv | https://arxiv.org/abs/2502.09990 | tags: multi-turn, safety, jailbreak, defense | note: papers/20260217_x-boundary.md (duplicate queue entry)
-- [x] 2026 | Unsafer in Many Turns: Benchmarking and Defending Multi-Turn Safety Risks in Tool-Using Agents | arXiv | https://arxiv.org/abs/2602.13379 | tags: multi-turn, safety, tool-use, agents | note: papers/20260217_mt-agentrisk-toolshield.md (duplicate queue entry)
-- [x] 2026 | JMedEthicBench: A Multi-Turn Conversational Benchmark for Evaluating Medical Safety in Japanese Large Language Models | arXiv | https://arxiv.org/abs/2601.01627 | tags: multi-turn, safety, medical, japanese, benchmark | note: papers/20260217_jmedethicbench.md (duplicate queue entry)
 - [x] 2025 | Path Drift in Large Reasoning Models: How First-Person Commitments Override Safety | arXiv | https://arxiv.org/abs/2510.10013 | tags: multi-turn, safety, drift, reasoning | note: papers/20260218_path-drift-longcot-safety.md
 
 ## New candidates (2026-02-18, web_search batch)
 
 - [x] 2025 | LIFBench: Evaluating the Instruction Following Performance and Stability of Large Language Models in Long-Context Scenarios | arXiv | https://arxiv.org/abs/2411.07037 | tags: instruction-following, stability, long-context, benchmark | note: papers/20260218_lifbench.md
-- [x] 2025 | Technical Report: Evaluating Goal Drift in Language Model Agents | arXiv | https://arxiv.org/abs/2505.02709 | tags: goal-drift, long-context, agents, evaluation | note: papers/20260217_goal-drift-agents.md (duplicate queue entry)
-- [x] 2026 | One Battle After Another: Probing LLMs’ Limits on Multi-Turn Instruction Following with a Benchmark Evolving Framework | arXiv | https://arxiv.org/abs/2511.03508 | tags: multi-turn, instruction-following, benchmark, evolving | note: papers/20260217_evolif-multi-turn-instruction-following.md (duplicate queue entry)
 - [x] 2026 | Communication Enhances LLMs’ Stability in Strategic Thinking | arXiv | https://arxiv.org/abs/2602.06081 | tags: stability, multi-turn, strategic-thinking, communication | note: papers/20260218_cheap_talk_stability_pd.md
 - [x] 2025 | T3: Reducing Belief Deviation in Reinforcement Learning for Active Reasoning | arXiv | https://arxiv.org/abs/2510.12264 | tags: belief-deviation, active-reasoning, rl, robustness | note: papers/20260218_t3-belief-deviation-truncation.md
 
@@ -485,33 +447,17 @@ Format (one per line):
 
 - [x] 2026 | GT-HarmBench: Benchmarking AI Safety Risks Through the Lens of Game Theory | arXiv | https://arxiv.org/abs/2602.12316 | tags: safety, multi-agent, game-theory, benchmark | note: papers/20260218_gt-harmbench.md
 - [x] 2026 | Security Threat Modeling for Emerging AI-Agent Protocols: A Comparative Analysis of MCP, A2A, Agora, and ANP | arXiv | https://arxiv.org/abs/2602.11327 | tags: agents, protocols, security, threat-modeling | note: papers/20260218_security-threat-modeling-ai-agent-protocols.md
-- [x] 2026 | WavBench: Benchmarking Reasoning, Colloquialism, and Paralinguistics for End-to-End Spoken Dialogue Models | arXiv | https://arxiv.org/abs/2602.12135 | tags: spoken-dialogue, multi-turn, benchmark, paralinguistics | note: papers/20260217_wavbench.md (duplicate queue entry)
-- [x] 2026 | Peak + Accumulation: A Proxy-Level Scoring Formula for Multi-Turn LLM Attack Detection | arXiv | https://arxiv.org/abs/2602.11247 | tags: multi-turn, safety, jailbreak, detection, scoring | note: papers/20260218_peak-accumulation-attack-detection.md (duplicate queue entry)
 - [x] 2026 | GISA: A Benchmark for General Information-Seeking Assistant | arXiv | https://arxiv.org/abs/2602.08543 | tags: agents, information-seeking, web, multi-turn, benchmark | note: papers/20260218_gisa-benchmark-general-information-seeking-assistants.md
 
 ## New candidates (2026-02-18, web_search batch 3)
 
-- [x] 2026 | Consistency of Large Reasoning Models Under Multi-Turn Attacks | arXiv | https://arxiv.org/abs/2602.13093 | tags: multi-turn, attack, robustness, reasoning, persuasion | note: papers/20260218_consistency-lrm-multiturn-attack.md
-- [x] 2025 | Persuasion Dynamics in LLMs: Investigating Robustness and Adaptability in Knowledge and Safety with DuET-PD | arXiv | https://arxiv.org/abs/2508.17450 | tags: persuasion, robustness, safety, multi-turn, benchmark | note: papers/20260217_duet-pd.md (duplicate queue entry)
-- [x] 2026 | Vulnerability of LLMs’ Belief Systems? LLMs Belief Resistance Check Through Strategic Persuasive Conversation Interventions | arXiv | https://arxiv.org/abs/2601.13590 | tags: belief-robustness, persuasion, multi-turn, evaluation | note: papers/20260217_llm-belief-resistance-smcr.md (duplicate queue entry)
-- [x] 2025 | Challenging the Evaluator: LLM Sycophancy Under User Rebuttal | arXiv | https://arxiv.org/abs/2509.16533 | tags: sycophancy, persuasion, multi-turn, evaluation | note: papers/20260217_challenging-the-evaluator.md (duplicate queue entry)
-- [x] 2026 | SycoEval-EM: Sycophancy Evaluation of Large Language Models in Simulated Clinical Encounters for Emergency Care | arXiv | https://arxiv.org/abs/2601.16529 | tags: sycophancy, medical, multi-turn, evaluation, safety | note: papers/20260217_sycoeval-em.md (duplicate queue entry)
 
 ## New candidates (2026-02-18, web_search batch 4)
 
-- [x] 2025 | Steering Dialogue Dynamics for Robustness against Multi-turn Jailbreaking Attacks | arXiv | https://arxiv.org/abs/2503.00187 | tags: multi-turn, jailbreak, safety, robustness, steering | note: papers/20260217_steering-dialogue-dynamics-nbf.md (duplicate queue entry)
-- [x] 2025 | MultiChallenge: A Realistic Multi-Turn Conversation Evaluation Benchmark Challenging to Frontier LLMs | arXiv | https://arxiv.org/abs/2501.17399 | tags: multi-turn, benchmark, conversation, evaluation | note: papers/20260217_multichallenge.md (duplicate queue entry)
-- [x] 2025 | Beyond Single-Turn: A Survey on Multi-Turn Interactions with Large Language Models | arXiv | https://arxiv.org/abs/2504.04717 | tags: multi-turn, survey, evaluation, robustness | note: papers/20260217_beyond-single-turn-survey.md (duplicate queue entry)
 - [x] 2025 | Reinforcing Multi-Turn Reasoning in LLM Agents via Turn-Level Reward Design | arXiv | https://arxiv.org/abs/2505.11821 | tags: multi-turn, agents, RL, reward-design, reasoning | note: papers/20260218_reinforcing_multi_turn_reasoning_turn_level_reward.md
-- [x] 2025 | Modeling and Predicting Multi-Turn Answer Instability in Large Language Models | arXiv | https://arxiv.org/abs/2511.10688 | tags: multi-turn, instability, robustness, probing, evaluation | note: papers/20260217_modeling-multi-turn-answer-instability.md (duplicate queue entry)
 
 ## New candidates (2026-02-18, web_search batch)
 
-- [x] 2025 | TurnBench-MS: A Benchmark for Evaluating Multi-Turn, Multi-Step Reasoning in Large Language Models | arXiv | https://arxiv.org/abs/2506.01341 | tags: multi-turn, multi-step, reasoning, benchmark | note: papers/20260217_turnbench-ms.md (duplicate queue entry)
-- [x] 2025 | Beyond Single-Turn: A Survey on Multi-Turn Interactions with Large Language Models | arXiv | https://arxiv.org/abs/2504.04717 | tags: multi-turn, survey, robustness, drift, sycophancy | note: papers/20260217_beyond-single-turn-survey.md (duplicate queue entry)
-- [x] 2025 | Assessing Large Language Models in Updating Their Forecasts with New Information | arXiv | https://arxiv.org/abs/2509.23936 | tags: belief-update, forecasting, belief-revision, evaluation | note: papers/20260217_evolvecast-forecast-updates.md (duplicate queue entry)
-- [x] 2025 | Beyond the Strongest LLM: Multi-Turn Multi-Agent Orchestration vs. Single LLMs on Benchmarks | arXiv | https://arxiv.org/abs/2509.23537 | tags: multi-turn, multi-agent, orchestration, evaluation | note: papers/20260217_beyond-strongest-llm-orchestration.md (duplicate queue entry)
-- [x] 2025 | One Battle After Another: Probing LLMs’ Limits on Multi-Turn Instruction Following with a Benchmark Evolving Framework | arXiv | https://arxiv.org/abs/2511.03508 | tags: instruction-following, multi-turn, benchmark, constraints | note: papers/20260217_evolif-multi-turn-instruction-following.md (duplicate queue entry)
 
 ## New candidates (2026-02-18, web_search batch 5)
 
@@ -523,51 +469,30 @@ Format (one per line):
 
 ## New candidates (2026-02-18, web_search)
 
-- [x] 2025 | Beyond Single-Turn: A Survey on Multi-Turn Interactions with Large Language Models | arXiv | https://arxiv.org/abs/2504.04717 | tags: survey, multi-turn, instruction-following, evaluation | note: papers/20260217_beyond-single-turn-survey.md  # duplicate queue entry
-- [x] 2025 | LIFBench: Evaluating the Instruction Following Performance and Stability of Large Language Models in Long-Context Scenarios | arXiv | https://arxiv.org/abs/2411.07037 | tags: instruction-following, stability, long-context | note: papers/20260218_lifbench.md (duplicate queue entry)
-- [x] 2025 | Modeling and Predicting Multi-Turn Answer Instability in Large Language Models | arXiv | https://arxiv.org/abs/2511.10688 | tags: instability, multi-turn, reliability | note: papers/20260217_modeling-multi-turn-answer-instability.md  # duplicate queue entry
-- [x] 2025 | One Battle After Another: Probing LLMs’ Limits on Multi-Turn Instruction Following with a Benchmark Evolving Framework | arXiv | https://arxiv.org/abs/2511.03508 | tags: multi-turn, instruction-following, benchmark | note: papers/20260217_evolif-multi-turn-instruction-following.md (duplicate queue entry)
 - [x] 2024 | Sycophancy in Large Language Models: Causes and Mitigations | arXiv | https://arxiv.org/abs/2411.15287 | tags: sycophancy, causes, mitigation, survey | note: papers/20260218_sycophancy-llms-survey.md
 
 ## New candidates (2026-02-18, web_search batch)
 
 - [x] 2025 | HopRAG: Multi-Hop Reasoning for Logic-Aware Retrieval-Augmented Generation | arXiv | https://arxiv.org/abs/2502.12442 | tags: rag, multi-hop, retrieval, reasoning | note: papers/20260218_hoprag.md
-- [x] 2025 | Retrieval-Augmented Generation: A Comprehensive Survey of Architectures, Enhancements, and Robustness Frontiers | arXiv | https://arxiv.org/abs/2506.00054 | tags: rag, survey, robustness | note: papers/20260218_rag-survey-architectures-robustness.md  # duplicate queue entry
 - [x] 2024 | MultiHop-RAG: Benchmarking Retrieval-Augmented Generation for Multi-Hop Queries | arXiv | https://arxiv.org/abs/2401.15391 | tags: rag, benchmark, multi-hop, evaluation | note: papers/20260218_multihop-rag.md
 - [x] 2025 | RAP-RAG: A Retrieval-Augmented Generation Framework with Adaptive Retrieval Task Planning | Electronics (MDPI) | https://www.mdpi.com/2079-9292/14/21/4269 | tags: rag, planning, adaptive-retrieval | note: papers/20260218_rap-rag_mdpi_403.md (blocked: HTTP 403)
 - [x] 2025 | Tracert-Retrieval-Augmented Generation: Boosting Multi-Hop Retrieval-Augmented Generation with Direction-Aware Graph Traversal | Proceedings (MDPI) | https://www.mdpi.com/2673-4591/120/1/47 | tags: rag, graph-traversal, multi-hop | note: papers/20260218_tracert-rag_mdpi_403.md (blocked: HTTP 403)
 
 ## New candidates (2026-02-18, web_search batch 13)
 
-- [x] 2026 | SpeakerSleuth: Evaluating Large Audio-Language Models as Judges for Multi-turn Speaker Consistency | arXiv | https://arxiv.org/abs/2601.04029 | tags: multi-turn, consistency, evaluation, audio | note: papers/20260217_speakersleuth.md  # duplicate queue entry
-- [x] 2025 | TurnBench-MS: A Benchmark for Evaluating Multi-Turn, Multi-Step Reasoning in Large Language Models | arXiv | https://arxiv.org/abs/2506.01341 | tags: multi-turn, benchmark, reasoning, sequential-feedback | note: papers/20260217_turnbench-ms.md  # duplicate queue entry
-- [x] 2026 | GraphIF: Enhancing Multi-Turn Instruction Following for Large Language Models with Relation Graph Prompt | arXiv | https://arxiv.org/abs/2511.10051 | tags: multi-turn, instruction-following, constraints, prompting | note: papers/20260217_graphif.md  # duplicate queue entry
 - [x] 2025 | SLR: A Logic Benchmark for LLMs and Meta-Learning | arXiv | https://arxiv.org/abs/2506.15787 | tags: logic, benchmark, reasoning, robustness | note: papers/20260218_slr-scalable-logical-reasoning.md
 - [x] 2025 | MatheMagic: Generating Dynamic Mathematics Benchmarks Robust to Memorization | arXiv | https://arxiv.org/abs/2510.05962 | tags: benchmark, memorization, robustness, math | note: papers/20260218_mathemagic-dynamic-math-benchmarks.md
 
 ## New candidates (2026-02-18, web_search batch 13)
 
-- [x] 2025 | X-Boundary: Establishing Exact Safety Boundary to Shield LLMs from Multi-Turn Jailbreaks without Compromising Usability | arXiv | https://arxiv.org/abs/2502.09990 | tags: multi-turn, jailbreak, defense, safety-boundary | note: papers/20260217_x-boundary.md  # duplicate queue entry
-- [x] 2025 | SafeDialBench: A Fine-Grained Safety Evaluation Benchmark for Large Language Models in Multi-Turn Dialogues with Diverse Jailbreak Attacks | arXiv | https://arxiv.org/abs/2502.11090 | tags: multi-turn, safety, jailbreak, benchmark | note: papers/20260217_safedialbench.md  # duplicate queue entry
-- [x] 2025 | StructFlowBench: A Structured Flow Benchmark for Multi-turn Instruction Following | arXiv | https://arxiv.org/abs/2502.14494 | tags: multi-turn, instruction-following, benchmark | note: papers/20260217_structflowbench.md  # duplicate queue entry
-- [x] 2024 | LIFBench: Evaluating the Instruction Following Performance and Stability of Large Language Models in Long-Context Scenarios | arXiv | https://arxiv.org/abs/2411.07037 | tags: long-context, instruction-following, stability | note: papers/20260218_lifbench.md  # duplicate queue entry
 - [x] 2026 | Deconstructing Instruction-Following: A New Benchmark for Granular Evaluation of Large Language Model Instruction Compliance Abilities | arXiv | https://arxiv.org/abs/2601.18554 | tags: instruction-following, granular-eval, benchmark | note: papers/20260218_mosaic-instruction-compliance.md
 
 ## New candidates (2026-02-18, web_search batch 14)
 
-- [x] 2025 | Modeling and Predicting Multi-Turn Answer Instability in Large Language Models | arXiv | https://arxiv.org/abs/2511.10688 | tags: multi-turn, answer-instability, pressure, sycophancy | note: papers/20260217_modeling-multi-turn-answer-instability.md  # duplicate queue entry
-- [x] 2025 | Time-To-Inconsistency: A Survival Analysis of Large Language Model Robustness to Adversarial Attacks | arXiv | https://arxiv.org/abs/2510.02712 | tags: multi-turn, inconsistency, adversarial, survival-analysis | note: papers/20260217_time-to-inconsistency.md  # duplicate queue entry
-- [x] 2026 | Consistency of Large Reasoning Models Under Multi-Turn Attack | arXiv | https://arxiv.org/abs/2602.13093 | tags: multi-turn, consistency, attack, reasoning | note: papers/20260218_consistency-lrm-multiturn-attack.md  # duplicate queue entry
-- [x] 2025 | Modeling and Predicting Multi-Turn Answer Instability in Large Language Models (HTML) | arXiv | https://arxiv.org/html/2511.10688v1 | tags: multi-turn, answer-instability, pressure | note: papers/20260217_modeling-multi-turn-answer-instability.md  # duplicate URL variant
-- [x] 2025 | Time-To-Inconsistency (HTML) | arXiv | https://arxiv.org/html/2510.02712 | tags: multi-turn, inconsistency, adversarial | note: papers/20260217_time-to-inconsistency.md  # duplicate URL variant
+- [x] 2025 | Modeling and Predicting Multi-Turn Answer Instability in Large Language Models (HTML) | arXiv | https://arxiv.org/abs/2511.10688v1 | tags: multi-turn, answer-instability, pressure | note: papers/20260217_modeling-multi-turn-answer-instability.md  # duplicate URL variant
 
 ## New candidates (2026-02-18, web_search batch 15)
 
-- [x] 2025 | Firm or Fickle? Evaluating Large Language Models Consistency in Sequential Interactions | arXiv | https://arxiv.org/abs/2503.22353 | tags: multi-turn, consistency, pwc-metric, sequential-interaction | note: papers/20260217_firm-or-fickle-mt-consistency.md  # duplicate queue entry
-- [x] 2025 | The Chameleon Nature of LLMs: Quantifying Multi-Turn Stance Instability in Search-Enabled Language Models | arXiv | https://arxiv.org/abs/2510.16712 | tags: multi-turn, stance-instability, search, robustness | note: papers/20260217_chameleon-stances-search-enabled.md  # duplicate queue entry
-- [x] 2025 | Beyond Single-Turn: A Survey on Multi-Turn Interactions with Large Language Models | arXiv | https://arxiv.org/abs/2504.04717 | tags: survey, multi-turn, robustness, evaluation | note: papers/20260217_beyond-single-turn-survey.md  # duplicate queue entry; note already exists
-- [x] 2025 | Consistently Simulating Human Personas with Multi-Turn Reinforcement Learning | arXiv | https://arxiv.org/abs/2511.00222 | tags: persona, consistency, multi-turn, rl | note: papers/20260217_persona-consistency-mt-rl.md  # duplicate queue entry; note already exists
-- [x] 2023 | Are You Sure? Challenging LLMs Leads to Performance Drops in The FlipFlop Experiment | arXiv | https://arxiv.org/abs/2311.08596 | tags: flipflop, challenge-prompt, robustness, answer-revision | note: papers/20260218_are-you-sure_flipflop-experiment.md  # duplicate queue entry
 
 ## New candidates (2026-02-18)
 - [x] 2026 | CM2: Reinforcement Learning with Checklist Rewards for Multi-Turn and Multi-Step Agentic Tool Use | arXiv | https://arxiv.org/abs/2602.12268 | tags: tool-use, multi-turn, RL, agents | note: papers/20260218_cm2-checklist-rewards.md
@@ -578,10 +503,6 @@ Format (one per line):
 - [x] 2025 | MCP-SafetyBench: A Benchmark for Safety Evaluation of Large Language Models with Real-World MCP Servers | arXiv | https://arxiv.org/abs/2512.15163 | tags: tool-use, multi-turn, safety, benchmark | note: docs/paper/related_work/rapid_review/papers/20260218_mcp-safetybench.md
 - [x] 2026 | SEMA: Simple yet Effective Learning for Multi-Turn Jailbreak Attacks | arXiv | https://arxiv.org/abs/2602.06854 | tags: multi-turn, jailbreak, attacks, safety | note: docs/paper/related_work/rapid_review/papers/20260218_sema_multiturn-jailbreak-attacker.md
 
-- [x] 2025 | MultiChallenge: A Realistic Multi-Turn Conversation Evaluation Benchmark Challenging to Frontier LLMs | arXiv | https://arxiv.org/abs/2501.17399 | tags: multi-turn, evaluation, persistence, self-coherence, sycophancy | note: papers/20260217_multichallenge.md  # duplicate queue entry
-- [x] 2025 | Beyond Single-Turn: A Survey on Multi-Turn Interactions with Large Language Models | arXiv | https://arxiv.org/abs/2504.04717 | tags: multi-turn, survey, interaction, evaluation | note: papers/20260217_beyond-single-turn-survey.md  # duplicate queue entry; note already exists
-- [x] 2026 | Confidence Estimation for LLMs in Multi-turn Interactions | arXiv | https://arxiv.org/abs/2601.02179 | tags: multi-turn, uncertainty, calibration, confidence | note: papers/20260217_confidence-estimation-multi-turn.md  # duplicate queue entry
-- [x] 2025 | Assessing Large Language Models in Updating Their Forecasts with New Information | arXiv | https://arxiv.org/abs/2509.23936 | tags: belief-update, forecasting, uncertainty, longitudinal | note: papers/20260217_evolvecast-forecast-updates.md  # duplicate queue entry; URL already reviewed
 - [x] 2025 | Beacon: Single-Turn Diagnosis and Mitigation of Latent Sycophancy in Large Language Models | arXiv | https://arxiv.org/abs/2510.16727 | tags: sycophancy, diagnosis, mitigation, evaluation | note: papers/20260218_beacon_latent_sycophancy.md
 
 ## New candidates (2026-02-18, web_search batch)
@@ -593,18 +514,9 @@ Format (one per line):
 - [x] 2026 | On Robustness and Chain-of-Thought consistency of RL-Finetuned VLMs | arXiv | https://arxiv.org/abs/2602.12506 | tags: robustness, consistency, chain-of-thought, vlm | note: papers/20260218_robustness-cot-consistency-rl-vlms.md
 
 ## New candidates (2026-02-18, web_search batch)
-- [x] 2025 | Modeling and Predicting Multi-Turn Answer Instability in Large Language Models | arXiv | https://arxiv.org/abs/2511.10688 | tags: multi-turn, answer-instability, robustness | note: papers/20260217_modeling-multi-turn-answer-instability.md  # duplicate queue entry
-- [x] 2025 | The Chameleon Nature of LLMs: Quantifying Multi-Turn Stance Instability in Search-Enabled Language Models | arXiv | https://arxiv.org/abs/2510.16712 | tags: multi-turn, stance-instability, search-enabled | note: papers/20260217_chameleon-stances-search-enabled.md  # duplicate queue entry; URL already reviewed
 - [x] 2026 | Disentangling Ambiguity from Instability in Large Language Models: A Clinical Text-to-SQL Case Study | arXiv | https://arxiv.org/abs/2602.12015 | tags: instability, ambiguity, multi-turn, text-to-sql | note: papers/20260218_clues_ambiguity_vs_instability.md
-- [x] 2025 | Beyond Single-Turn: A Survey on Multi-Turn Interactions with Large Language Models | arXiv | https://arxiv.org/abs/2504.04717 | tags: survey, multi-turn, evaluation | note: papers/20260217_beyond-single-turn-survey.md  # duplicate queue entry; note already exists
-- [x] 2025 | Robustness of large language models in moral judgements | Royal Society Open Science | https://royalsocietypublishing.org/rsos/article/12/4/241229/235626/Robustness-of-large-language-models-in-moral | tags: robustness, moral-judgment, prompt-variance | note: papers/20260218_robustness-llms-moral-judgements.md
 
 ## New candidates (2026-02-18, web_search batch)
-- [x] 2026 | Consistency of Large Reasoning Models Under Multi-Turn Attack | arXiv | https://arxiv.org/abs/2602.13093 | tags: multi-turn, adversarial, consistency, attacks | note: papers/20260218_consistency-lrm-multiturn-attack.md  # duplicate queue entry; URL already reviewed
-- [x] 2025 | Persuasion Dynamics in LLMs: Investigating Robustness and Adaptability in Knowledge and Safety with DuET-PD | arXiv | https://arxiv.org/abs/2508.17450 | tags: persuasion, robustness, multi-turn, safety, knowledge | note: papers/20260217_duet-pd.md  # duplicate queue entry; URL already reviewed
-- [x] 2025 | Challenging the Evaluator: LLM Sycophancy Under User Rebuttal | arXiv | https://arxiv.org/abs/2509.16533 | tags: sycophancy, rebuttal, multi-turn, persuasion, evaluation | note: papers/20260217_challenging-the-evaluator.md  # duplicate queue entry; URL already reviewed
-- [x] 2026 | Vulnerability of LLMs' Belief Systems? LLMs Belief Resistance Check Through Strategic Persuasive Conversation Interventions | arXiv | https://arxiv.org/abs/2601.13590 | tags: belief-robustness, persuasion, multi-turn, belief-change | note: papers/20260217_llm-belief-resistance-smcr.md  # duplicate queue entry; URL already reviewed
-- [x] 2025 | Time-To-Inconsistency: A Survival Analysis of Large Language Model Robustness to Adversarial Attacks | arXiv | https://arxiv.org/abs/2510.02712 | tags: survival-analysis, time-to-failure, multi-turn, adversarial | note: papers/20260217_time-to-inconsistency.md  # duplicate queue entry; URL already reviewed
 
 ## New candidates (2026-02-18, web_search batch 2)
 - [x] 2025 | Flattery in Motion: Benchmarking and Analyzing Sycophancy in Video-LLMs | arXiv | https://arxiv.org/abs/2506.07180 | tags: sycophancy, video-llm, multimodal, robustness | note: papers/20260218_flattery-in-motion_vise.md
@@ -615,7 +527,7 @@ Format (one per line):
 
 ## New candidates (2026-02-18, web_search batch 3)
 - [x] 2025 | Galileo: Learning Global & Local Features of Many Remote Sensing Modalities | arXiv | https://arxiv.org/abs/2502.09356 | tags: remote-sensing, multimodal, foundation-model | note: papers/20260218_galileo-remote-sensing-modalities.md
-- [x] 2025 | Survey on Evaluation of LLM-based Agents | arXiv | https://arxiv.org/html/2503.16416v1 | tags: agents, evaluation, benchmarks | note: papers/20260218_survey_eval_llm_agents.md
+- [x] 2025 | Survey on Evaluation of LLM-based Agents | arXiv | https://arxiv.org/abs/2503.16416v1 | tags: agents, evaluation, benchmarks | note: papers/20260218_survey_eval_llm_agents.md
 - [x] 2025 | Galileo Project Observatory Class System Architecture | arXiv | https://arxiv.org/abs/2506.00125 | tags: system-architecture | note: papers/20260218_galileo-ocicp-architecture.md
 - [x] 2025 | Ionosphere of Ganymede: Galileo observations versus test particle simulation | arXiv | https://arxiv.org/abs/2502.13052 | tags: space-physics, simulation | note: papers/20260218_ganymede-ionosphere-galileo-test-particles.md
 - [x] 2026 | Causality in Physics: From Galileo to Einstein, and Beyond | arXiv | https://arxiv.org/abs/2601.00037 | tags: physics, causality | note: papers/20260218_causality-in-physics-galileo-einstein.md
@@ -626,26 +538,15 @@ Format (one per line):
 
 
 ## New candidates (2026-02-18, web_search batch 1)
-- [x] 2026 | WavBench: Benchmarking Reasoning, Colloquialism, and Paralinguistics for End-to-End Spoken Dialogue Models | arXiv | https://arxiv.org/abs/2602.12135 | tags: spoken-dialogue, multi-turn, benchmark, paralinguistics | note: papers/20260217_wavbench.md  # duplicate queue entry; note already exists
 - [x] 2026 | PersoDPO: Scalable Preference Optimization for Instruction-Adherent, Persona-Grounded Dialogue via Multi-LLM Evaluation | arXiv | https://arxiv.org/abs/2602.04493 | tags: persona, dialogue, preference-optimization, multi-turn | note: papers/20260218_persodpo.md
-- [x] 2026 | LingxiDiagBench: A Multi-Agent Framework for Benchmarking LLMs in Chinese Psychiatric Consultation and Diagnosis | arXiv | https://arxiv.org/abs/2602.09379 | tags: multi-agent, medical, psychiatric, benchmark, multi-turn | note: papers/20260217_lingxidiagbench.md  # duplicate queue entry; note already exists
-- [x] 2026 | SEAD: Self-Evolving Agent for Multi-Turn Service Dialogue | arXiv | https://arxiv.org/abs/2602.03548 | tags: agents, service-dialogue, multi-turn, self-improvement | note: papers/20260217_sead-self-evolving-agent-service-dialogue.md | duplicate-of: line-292
 - [x] 2026 | DETOUR: An Interactive Benchmark for Dual-Agent Search and Reasoning | arXiv | https://arxiv.org/abs/2602.00352 | tags: agents, search, reasoning, interactive, multi-turn, benchmark | note: papers/20260218_detour_dual_agent_search_reasoning.md
 
 ## New candidates (2026-02-18, web_search batch)
 
-- [x] 2026 | PersistBench: When Should Long-Term Memories Be Forgotten by LLMs? | arXiv | https://arxiv.org/abs/2602.01146 | tags: long-term-memory, sycophancy, leakage, safety, evaluation | note: papers/20260218_persistbench.md  # duplicate queue entry; note already exists
-- [x] 2025 | AgentChangeBench: A Multi-Dimensional Evaluation Framework for Goal-Shift Robustness in Conversational AI | arXiv | https://arxiv.org/abs/2510.18170 | tags: multi-turn, robustness, goal-shift, recovery, evaluation | note: papers/20260217_agentchangebench.md  # duplicate queue entry; note already exists
-- [x] 2025 | EvolIF: Probing LLMs’ Limits on Multi-Turn Instruction Following with a Benchmark Evolving Framework | arXiv | https://arxiv.org/abs/2511.03508 | tags: multi-turn, instruction-following, error-recovery, evolving-benchmark | note: papers/20260217_evolif-multi-turn-instruction-following.md  # duplicate queue entry; note already exists
-- [x] 2025 | MultiChallenge: A Realistic Multi-Turn Conversation Evaluation Benchmark Challenging to Frontier LLMs | arXiv | https://arxiv.org/abs/2501.17399 | tags: multi-turn, persistence, context-management, sycophancy-adjacent | note: papers/20260217_multichallenge.md (duplicate queue entry)
-- [x] 2025 | Audio MultiChallenge: A Multi-Turn Evaluation of Spoken Dialogue Systems on Natural Human Interaction | arXiv | https://arxiv.org/abs/2512.14865 | tags: multi-turn, spoken-dialogue, evaluation, persistence | note: papers/20260217_audio-multichallenge.md  # duplicate queue entry; note already exists
 
 ## New candidates (2026-02-18, web_search batch 13)
 
 - [x] 2025 | STAC: When Innocent Tools Form Dangerous Chains to Jailbreak LLM Agents | arXiv | https://arxiv.org/abs/2509.25624 | tags: multi-turn, tool-use, jailbreak, agent-safety | note: papers/20260218_stac-tool-attack-chaining.md
-- [x] 2025 | Many-Turn Jailbreaking (MTJ-Bench) | arXiv | https://arxiv.org/abs/2508.06755 | tags: multi-turn, jailbreak, benchmark, safety | note: papers/20260218_many-turn-jailbreaking-mtj-bench.md  # duplicate queue entry; note already exists
-- [x] 2025 | MultiBreak: A Scalable and Diverse Multi-turn Jailbreak Benchmark for Stress-testing LLM Safety | OpenReview | https://openreview.net/forum?id=uJgfj5EJ2W | tags: multi-turn, jailbreak, benchmark, safety | note: papers/20260218_multibreak.md  # duplicate queue entry; note already exists
-- [x] 2025 | StructFlowBench: A Structured Flow Benchmark for Multi-turn Instruction Following | arXiv | https://arxiv.org/abs/2502.14494 | tags: multi-turn, instruction-following, evaluation, structure | note: papers/20260217_structflowbench.md  # duplicate queue entry; note already exists
 - [x] 2025 | Meeseeks: An Iterative Benchmark Evaluating LLMs Multi-Turn Instruction-Following Ability | arXiv | https://arxiv.org/abs/2504.21625 | tags: multi-turn, instruction-following, iterative, evaluation | note: papers/20260218_meeseeks-iterative-self-correction-benchmark.md
 
 
@@ -659,9 +560,7 @@ Format (one per line):
 ## New candidates (2026-02-18, web_search batch)
 
 - [x] 2024 | Linear Probe Penalties Reduce LLM Sycophancy | arXiv | https://arxiv.org/abs/2412.00967 | tags: sycophancy, mitigation, probes | note: papers/20260218_linear-probe-penalties-reduce-sycophancy.md
-- [x] 2026 | Sycophancy Hides Linearly in the Attention Heads | arXiv | https://arxiv.org/abs/2601.16644 | tags: sycophancy, interpretability, attention-heads | note: papers/20260218_sycophancy-attention-heads.md  # duplicate queue entry; note already exists
 - [x] 2026 | A Few Bad Neurons: Isolating and Surgically Correcting Sycophancy | arXiv | https://arxiv.org/abs/2601.18939 | tags: sycophancy, interpretability, neuron-surgery, mitigation | note: papers/20260218_few-bad-neurons-sycophancy.md
-- [x] 2025 | Sycophancy Is Not One Thing: Causal Separation of Sycophantic Behaviors in LLMs | arXiv | https://arxiv.org/abs/2509.21305 | tags: sycophancy, causal, taxonomy | note: papers/20260217_sycophancy-not-one-thing-causal-separation.md  # duplicate queue entry; note already exists
 - [x] 2024 | Sycophancy to Subterfuge: Investigating Reward-Tampering in Large Language Models | arXiv | https://arxiv.org/abs/2406.10162 | tags: sycophancy, reward-hacking, alignment | note: papers/20260218_sycophancy-to-subterfuge-reward-tampering.md
 
 
@@ -671,20 +570,17 @@ Format (one per line):
 - [x] 2025 | Multi-turn Jailbreaking via Global Refinement and Active Fabrication | arXiv | https://arxiv.org/abs/2506.17881 | tags: multi-turn, jailbreak, attack, refinement | note: papers/20260218_graf-multi-turn-jailbreaking.md
 - [x] 2025 | Chain-of-Lure: A Universal Jailbreak Attack Framework using Unconstrained Synthetic Narratives | arXiv | https://arxiv.org/abs/2505.17519 | tags: multi-turn, jailbreak, attack, narratives | note: papers/20260218_chain-of-lure.md
 - [x] 2025 | Multi-Turn Jailbreaking Large Language Models via Attention Shifting | AAAI | https://ojs.aaai.org/index.php/AAAI/article/view/34553 | tags: multi-turn, jailbreak, attack, attention | note: papers/20260218_attention-shifting-jailbreak.md
-- [x] 2025 | Shallow Robustness, Deep Vulnerabilities: Multi-Turn Evaluation of Medical LLMs | arXiv | https://arxiv.org/abs/2510.12255 | tags: multi-turn, robustness, medical, evaluation | note: papers/20260217_shallow-robustness-deep-vulnerabilities.md  # duplicate queue entry; note already exists
 
 ## New candidates (2026-02-18, web_search batch)
 
 - [x] 2025 | Breaking Minds, Breaking Systems: Jailbreaking Large Language Models via Human-like Psychological Manipulation | arXiv | https://arxiv.org/abs/2512.18244 | tags: jailbreak, psychological-manipulation, safety, policy-drift | note: papers/20260218_breaking-minds-psychological-jailbreak.md
 - [x] 2025 | Adversarial Poetry as a Universal Single-Turn Jailbreak Mechanism in Large Language Models | arXiv | https://arxiv.org/abs/2511.15304 | tags: jailbreak, single-turn, transfer, safety | note: papers/20260218_adversarial_poetry_single_turn_jailbreak.md
 - [x] 2026 | AgentDyn: A Dynamic Open-Ended Benchmark for Evaluating Prompt Injection Attacks of Real-World Agent Security System | arXiv | https://arxiv.org/abs/2602.03117 | tags: agents, prompt-injection, dynamic-benchmark, tool-use | note: papers/20260218_agentdyn_prompt_injection_benchmark.md
-- [x] 2025 | A Multi-Agent LLM Defense Pipeline Against Prompt Injection Attacks | arXiv | https://arxiv.org/abs/2509.14285 | tags: agents, prompt-injection, defense, multi-agent | note: papers/20260217_multi-agent-prompt-injection-defense.md (duplicate queue entry)
 - [x] 2025 | TAMAS: Benchmarking Adversarial Risks in Multi-Agent LLM Systems | arXiv | https://arxiv.org/abs/2511.05269 | tags: multi-agent, adversarial-risk, benchmark, prompt-injection | note: papers/20260218_tamas_adversarial_mas_benchmark.md
 
 ## New candidates (2026-02-18, web_search batch)
 
 - [x] 2026 | Can AI-Generated Persuasion Be Detected? Persuaficial Benchmark and AI vs. Human Linguistic Differences | arXiv | https://arxiv.org/abs/2601.04925 | tags: persuasion, detection, benchmark, multilingual | note: papers/20260218_persuaficial.md
-- [x] 2025 | How Do LLMs Persuade? Linear Probes Can Uncover Persuasion Dynamics in Multi-Turn Conversations | arXiv | https://arxiv.org/abs/2508.05625 | tags: persuasion, multi-turn, interpretability, linear-probes | note: papers/20260217_llms-persuade-linear-probes.md (duplicate queue entry)
 - [x] 2024 | Measuring and Benchmarking Large Language Models' Capabilities to Generate Persuasive Language | arXiv | https://arxiv.org/abs/2406.17753 | tags: persuasion, benchmark, dataset, rewriting | note: papers/20260218_persuasive-pairs-benchmark.md
 - [x] 2026 | The Assistant Axis: Situating and Stabilizing the Default Persona of Language Models | arXiv | https://arxiv.org/abs/2601.10387 | tags: persona, drift, stability, representation | note: papers/20260218_assistant-axis_persona-stabilization.md
 - [x] 2025 | Communication is All You Need: Persuasion Dataset Construction via Multi-LLM Communication | arXiv | https://arxiv.org/abs/2502.08896 | tags: persuasion, dataset, multi-agent, communication | note: papers/20260218_communication_persuasion_multi_llm.md
@@ -693,69 +589,47 @@ Format (one per line):
 
 - [x] 2024 | Dialogue Action Tokens: Steering Language Models in Goal-Directed Dialogue with a Multi-Turn Planner | arXiv | https://arxiv.org/abs/2406.11978 | tags: multi-turn, planning, steering, RL | note: papers/20260218_dialogue-action-tokens.md
 - [x] 2025 | Enhancing Personalized Multi-Turn Dialogue with Curiosity Reward | arXiv | https://arxiv.org/abs/2504.03206 | tags: multi-turn, personalization, reward, belief-tracking | note: papers/20260218_curio-curiosity-reward-personalized-dialogue.md
-- [x] 2024 | A Survey on Recent Advances in LLM-Based Multi-turn Dialogue Systems | arXiv | https://arxiv.org/abs/2402.18013 | tags: survey, multi-turn, dialogue | note: papers/20260217_survey-llm-multi-turn-dialogue-systems.md (duplicate queue entry)
 - [x] 2024 | Multimodal Multi-turn Conversation Stance Detection: A Challenge Dataset and Effective Model | arXiv | https://arxiv.org/abs/2409.00597 | tags: stance-stability-adjacent, multi-turn, dataset | note: papers/20260218_mmmtcsd_multimodal_multiturn_stance.md
 - [x] 2025 | Large Language Models Meet Stance Detection: A Survey of Tasks, Methods, Applications, Challenges and Future Directions | arXiv | https://arxiv.org/abs/2505.08464 | tags: stance-stability-adjacent, survey | note: docs/paper/related_work/rapid_review/papers/20260218_llms-stance-detection-survey.md
 
 ## New candidates (2026-02-18, web_search batch A)
 
 - [x] 2025 | DEBATE: A Large-Scale Benchmark for Evaluating Opinion Dynamics in Role-Playing LLM Agents | arXiv | https://arxiv.org/abs/2510.25110 | tags: role-playing, opinion-dynamics, multi-agent, benchmark | note: papers/20260218_debate-opinion-dynamics-benchmark.md
-- [x] 2025 | Beacon: Single-Turn Diagnosis and Mitigation of Latent Sycophancy in Large Language Models | arXiv | https://arxiv.org/abs/2510.16727 | tags: sycophancy, diagnosis, mitigation, benchmark | note: papers/20260218_beacon_latent_sycophancy.md (duplicate queue entry)
-- [x] 2026 | PersistBench: When Should Long-Term Memories Be Forgotten by LLMs? | arXiv | https://arxiv.org/abs/2602.01146 | tags: agents, memory, forgetting, benchmark | note: papers/20260218_persistbench.md  # duplicate queue entry; note already exists
 - [x] 2026 | DimStance: Multilingual Datasets for Dimensional Stance Analysis | arXiv | https://arxiv.org/abs/2601.21483 | tags: stance, stability-adjacent, multilingual, dataset | note: papers/20260218_dimstance_va_stance.md
 - [x] 2024 | PingPong: A Benchmark for Role-Playing Language Models with User Emulation and Multi-Model Evaluation | arXiv | https://arxiv.org/abs/2409.06820 | tags: role-playing, user-emulation, multi-turn, benchmark | note: papers/20260218_pingpong_roleplaying_benchmark.md
 
 ## New candidates (2026-02-18, web_search batch 1)
 
-- [x] 2025 | SafeDialBench: A Fine-Grained Safety Evaluation Benchmark for Large Language Models in Multi-Turn Dialogues with Diverse Jailbreak Attacks | arXiv | https://arxiv.org/abs/2502.11090 | tags: multi-turn, safety, jailbreak, benchmark | note: papers/20260217_safedialbench.md  # duplicate queue entry; note already exists
 - [x] 2026 | Turn-Based Structural Triggers: Prompt-Free Backdoors in Multi-Turn LLMs | arXiv | https://arxiv.org/abs/2601.14340 | tags: multi-turn, backdoor, triggers, security | note: papers/20260218_turn-based-structural-triggers.md
 - [x] 2025 | SafeMT: Multi-turn Safety for Multimodal Language Models | arXiv | https://arxiv.org/abs/2510.12133 | tags: multimodal, multi-turn, safety, jailbreak, benchmark | note: papers/20260218_safemt_multiturn_safety_mllms.md
-- [x] 2026 | The ICASSP 2026 HumDial Challenge: Benchmarking Human-like Spoken Dialogue Systems in the LLM Era | arXiv | https://arxiv.org/abs/2601.05564 | tags: spoken-dialogue, benchmark, multi-turn, evaluation | note: papers/20260217_humdial-icassp2026.md  # duplicate queue entry; note already exists
-- [x] 2026 | Knowledge-Driven Multi-Turn Jailbreaking on Large Language Models | arXiv | https://arxiv.org/abs/2601.05445 | tags: multi-turn, jailbreak, attacks, strategy-distillation | note: papers/20260217_mastermind-jailbreak.md  # duplicate queue entry; note already exists
 
 ## New candidates (2026-02-18, web_search batch)
 
-- [x] 2025 | StructFlowBench: A Structured Flow Benchmark for Multi-turn Instruction Following | arXiv | https://arxiv.org/abs/2502.14494 | tags: instruction-following, multi-turn, benchmark | note: papers/20260217_structflowbench.md  # duplicate queue entry; note already exists
-- [x] 2025 | Meeseeks: An Iterative Benchmark Evaluating LLMs Multi-Turn Instruction-Following Ability | arXiv | https://arxiv.org/abs/2504.21625 | tags: instruction-following, multi-turn, self-correction, benchmark | note: papers/20260218_meeseeks-iterative-self-correction-benchmark.md  # duplicate queue entry; note already exists
-- [x] 2024 | LIFBench: Evaluating the Instruction Following Performance and Stability of Large Language Models in Long-Context Scenarios | arXiv | https://arxiv.org/abs/2411.07037 | tags: instruction-following, long-context, stability, benchmark | note: papers/20260218_lifbench.md (duplicate queue entry; note already exists)
 - [x] 2025 | XIFBench: Evaluating Large Language Models on Multilingual Instruction Following | arXiv | https://arxiv.org/abs/2503.07539 | tags: instruction-following, multilingual, benchmark | note: docs/paper/related_work/rapid_review/papers/20260218_xifbench-multilingual-instruction-following.md | constraint-based multilingual IF benchmark; uses English requirements as evaluation anchors
 - [x] 2025 | EifBench: Extremely Complex Instruction Following Benchmark for Large Language Models | arXiv | https://arxiv.org/abs/2506.08375 | tags: instruction-following, complex-constraints, benchmark | note: papers/20260218_eifbench.md
 
 ## New candidates (2026-02-18, web_search batch)
 
-- [x] 2025 | Multi-Turn Jailbreaks Are Simpler Than They Seem | arXiv | https://arxiv.org/abs/2508.07646 | tags: multi-turn, jailbreak, safety, attacks | note: papers/20260217_multi-turn-jailbreaks-simpler.md  # duplicate queue entry; note already exists
-- [x] 2025 | Multi-turn Jailbreaking via Global Refinement and Active Fabrication | arXiv | https://arxiv.org/abs/2506.17881 | tags: multi-turn, jailbreak, refinement, red-teaming | note: papers/20260218_graf-multi-turn-jailbreaking.md  # duplicate queue entry; note already exists
-- [x] 2025 | SafeDialBench: A Fine-Grained Safety Evaluation Benchmark for Large Language Models in Multi-Turn Dialogues with Diverse Jailbreak Attacks | arXiv | https://arxiv.org/abs/2502.11090 | tags: multi-turn, safety, benchmark, jailbreak | note: papers/20260217_safedialbench.md  # duplicate queue entry; note already exists
-- [x] 2025 | M2S: Multi-turn to Single-turn jailbreak in Red Teaming for LLMs | arXiv | https://arxiv.org/abs/2503.04856 | tags: multi-turn, jailbreak, red-teaming | note: papers/20260217_m2s-multi-turn-to-single-turn-jailbreak.md  # duplicate queue entry; note already exists
-- [x] 2026 | The Echo Chamber Multi-Turn LLM Jailbreak | arXiv | https://arxiv.org/abs/2601.05742 | tags: multi-turn, jailbreak, consistency-bias | note: papers/20260217_echo-chamber-multi-turn-llm-jailbreak.md  # duplicate entry
 
 ## New candidates (2026-02-18, web_search batch 1)
 
 - [x] 2025 | ScamAgents: How AI Agents Can Simulate Human-Level Scam Calls | arXiv | https://arxiv.org/abs/2508.06457 | tags: agents, persuasion, scam, multi-turn, safety | note: papers/20260218_scamagents.md
 - [x] 2025 | SafeTy Reasoning Elicitation Alignment for Multi-Turn Dialogues (STREAM) | arXiv | https://arxiv.org/abs/2506.00668 | tags: multi-turn, safety, jailbreak, defense, reasoning-moderator | note: papers/20260218_stream-multiturn-safety-moderator.md
 - [x] 2025 | AI Debaters are More Persuasive when Arguing in Alignment with Their Own Beliefs | arXiv | https://arxiv.org/abs/2510.13912 | tags: persuasion, debate, beliefs, stance, multi-turn | note: papers/20260218_ai-debaters-beliefs.md
-- [x] 2025 | TAMAS: Benchmarking Adversarial Risks in Multi-Agent LLM Systems | arXiv | https://arxiv.org/abs/2511.05269 | tags: multi-agent, adversarial, safety, benchmark | note: papers/20260218_tamas_adversarial_mas_benchmark.md  # duplicate queue entry; note already exists
 - [x] 2025 | Indirect Prompt Injections: Are Firewalls All You Need, or Stronger Benchmarks? | arXiv | https://arxiv.org/abs/2510.05244 | tags: prompt-injection, agents, benchmarks, security | note: papers/20260218_indirect_prompt_injections_firewalls.md
 
 ## New candidates (2026-02-18, web_search batch 6)
 
-- [x] 2026 | HalluHard: A Hard Multi-Turn Hallucination Benchmark | arXiv | https://arxiv.org/abs/2602.01031 | tags: multi-turn, hallucination, benchmark, high-stakes | note: papers/20260217_halluhard.md # duplicate URL
-- [x] 2026 | Confidence Estimation for LLMs in Multi-turn Interactions | arXiv | https://arxiv.org/abs/2601.02179 | tags: multi-turn, confidence, calibration, dialogue | note: papers/20260217_confidence-estimation-multi-turn.md  # duplicate queue entry; note already exists
-- [x] 2025 | When Two LLMs Debate, Both Think They’ll Win | arXiv | https://arxiv.org/abs/2505.19184 | tags: debate, belief-update, multi-turn, calibration | note: papers/20260217_two-llms-debate-win.md  # duplicate queue entry; note already exists
-- [x] 2025 | Evaluating LLM-based Agents for Multi-Turn Conversations: A Survey | arXiv | https://arxiv.org/abs/2503.22458 | tags: survey, multi-turn, agents, evaluation | note: papers/20260217_evaluating-llm-agents-multi-turn-survey.md  # duplicate queue entry; note already exists
-- [x] 2024 | A Survey on Recent Advances in LLM-Based Multi-turn Dialogue Systems | arXiv | https://arxiv.org/abs/2402.18013 | tags: survey, multi-turn, dialogue-systems | note: papers/20260217_survey-llm-multi-turn-dialogue-systems.md  # duplicate queue entry; note already exists
 
 ## New candidates (2026-02-18, web_search batch)
 
 - [x] 2026 | AWARE-US: Persona-grounded Multi-Turn Database Queries in the Car Domain | arXiv | https://arxiv.org/abs/2601.02643 | tags: persona, multi-turn, dialogue, constraints, benchmark | note: papers/20260218_aware-us_preference-aware-resolution_tool-calling.md
-- [x] 2026 | PersoDPO: Scalable Preference Optimization for Instruction-Adherent, Persona-Grounded Dialogue via Multi-LLM Evaluation | arXiv | https://arxiv.org/abs/2602.04493 | tags: persona, preference-optimization, multi-turn, evaluation | note: papers/20260218_persodpo.md  # duplicate queue entry; note already exists
 - [x] 2025 | PrivacyBench: A Conversational Benchmark for Evaluating Privacy in Personalized AI | arXiv | https://arxiv.org/abs/2512.24848 | tags: privacy, secrets, personalization, multi-turn, benchmark | note: papers/20260218_privacybench.md
 - [x] 2024 | PersoBench: Benchmarking Personalized Response Generation in Large Language Models | arXiv | https://arxiv.org/abs/2410.03198 | tags: personalization, persona, multi-turn, benchmark, evaluation | note: papers/20260218_persobench.md
 - [x] 2025 | A Personalized Conversational Benchmark: Towards Simulating Personalized Conversations | arXiv | https://arxiv.org/abs/2505.14106 | tags: personalization, simulation, multi-turn, benchmark | note: papers/20260218_personaconvbench.md
 
 ## New candidates (2026-02-18, web_search batch 1)
 
-- [x] 2026 | DETOUR: An Interactive Benchmark for Dual-Agent Search and Reasoning | arXiv | https://arxiv.org/abs/2602.00352 | tags: multi-turn, interactive, search, agents, clarification | note: papers/20260218_detour_dual_agent_search_reasoning.md  # duplicate queue entry; note already exists
 - [x] 2026 | DPBench: Large Language Models Struggle with Simultaneous Coordination | arXiv | https://arxiv.org/abs/2602.13255 | tags: multi-agent, coordination, robustness, multi-turn-adjacent | note: papers/20260218_dpbench_simultaneous_coordination.md
 - [x] 2026 | MMR-Bench: A Comprehensive Benchmark for Multimodal LLM Routing | arXiv | https://arxiv.org/abs/2601.17814 | tags: multimodal, routing, robustness, benchmark | note: docs/paper/related_work/rapid_review/papers/20260218_mmr-bench_multimodal-llm-routing.md
 - [x] 2026 | An Open Ended Deep Research Model via Multi-Agent ... | arXiv | https://arxiv.org/abs/2601.03743 | tags: agents, deep-research, multi-turn, training-data | note: papers/20260218_oresearcher_open-ended-deep-research.md
@@ -763,39 +637,23 @@ Format (one per line):
 
 ## New candidates (2026-02-18, web_search batch 1)
 
-- [x] 2025 | Modeling and Predicting Multi-Turn Answer Instability in Large Language Models | arXiv | https://arxiv.org/abs/2511.10688 | tags: multi-turn, instability, answer-changes, robustness | note: docs/paper/related_work/rapid_review/papers/20260218_modeling-multi-turn-answer-instability.md | duplicate queue entry (already reviewed)
-- [x] 2025 | Drift No More? Context Equilibria in Multi-Turn LLM Interactions | arXiv | https://arxiv.org/abs/2510.07777 | tags: drift, controls, interventions, multi-turn | note: papers/20260217_drift-no-more.md  # duplicate queue entry; note already exists
-- [x] 2026 | Consistency of Large Reasoning Models Under Multi-Turn Attack | arXiv | https://arxiv.org/abs/2602.13093 | tags: multi-turn, adversarial, consistency, attacks | note: papers/20260218_consistency-lrm-multiturn-attack.md  # duplicate queue entry; note already exists
-- [x] 2025 | Modeling and Predicting Multi-Turn Answer Instability in Large Language Models (HTML) | arXiv | https://arxiv.org/html/2511.10688v1 | tags: multi-turn, instability, html | note: docs/paper/related_work/rapid_review/papers/20260218_modeling-multi-turn-answer-instability.md | duplicate queue entry (already reviewed)
 - [x] 2025 | Modeling and Predicting Multi-Turn Answer Instability in Large Language Models (ResearchGate) | ResearchGate | https://www.researchgate.net/publication/397663620_Modeling_and_Predicting_Multi-Turn_Answer_Instability_in_Large_Language_Models | tags: multi-turn, instability, mirror | note: papers/20260218_modeling_multiturn_answer_instability_llms.md  # duplicate mirror; see canonical note papers/20260217_modeling-multi-turn-answer-instability.md
 
 ## New candidates (2026-02-18, web_search batch)
-- [x] 2025 | StructFlowBench: A Structured Flow Benchmark for Multi-turn Instruction Following | arXiv | https://arxiv.org/abs/2502.14494 | tags: multi-turn, instruction-following, benchmark, dialogue | note: papers/20260217_structflowbench.md | duplicate queue entry (already reviewed)
-- [x] 2024 | Multi-IF: Benchmarking LLMs on Multi-turn and Multilingual Instruction Following | arXiv | https://arxiv.org/abs/2410.15553 | tags: multi-turn, instruction-following, multilingual, benchmark | note: papers/20260217_multi-if.md | duplicate queue entry (already reviewed)
-- [x] 2025 | GraphIF: Enhancing Multi-Turn Instruction Following for Large Language Models with Relation Graph Prompt | arXiv | https://arxiv.org/abs/2511.10051 | tags: multi-turn, instruction-following, prompting, relations | note: docs/paper/related_work/rapid_review/papers/20260217_graphif.md  # duplicate queue entry; note already exists
 - [x] 2025 | When Instructions Multiply: Measuring and Estimating LLM Capabilities of Multiple Instructions Following | arXiv | https://arxiv.org/abs/2509.21051 | tags: instruction-following, multi-instruction, evaluation | note: papers/20260218_when_instructions_multiply.md
-- [x] 2026 | Unsafer in Many Turns: Benchmarking and Defending Multi-Turn Safety Risks in Tool-Using Agents | arXiv | https://arxiv.org/abs/2602.13379 | tags: multi-turn, tool-using-agents, safety, benchmark, defenses | note: papers/20260217_mt-agentrisk-toolshield.md | duplicate queue entry (note already exists)
 
 ## New candidates (2026-02-18, web_search batch)
 
-- [x] 2026 | GISA: A Benchmark for General Information-Seeking Assistant | arXiv | https://arxiv.org/abs/2602.08543 | tags: agents, web-search, multi-turn, evaluation | note: papers/20260218_gisa-benchmark-general-information-seeking-assistants.md  # duplicate queue entry; note already exists
-- [x] 2026 | TSR: Trajectory-Search Rollouts for Multi-Turn RL of LLM Agents | arXiv | https://arxiv.org/abs/2602.11767 | tags: agents, multi-turn, RL, training | note: papers/20260218_tsr-trajectory-search-rollouts.md  # duplicate queue entry; note already exists
-- [x] 2026 | LUMINA: Long-horizon Understanding for Multi-turn Interactive Agents | arXiv | https://arxiv.org/abs/2601.16649 | tags: agents, long-horizon, multi-turn, diagnosis | note: papers/20260218_lumina.md  # duplicate queue entry; note already exists
 - [x] 2026 | AgencyBench: Benchmarking the Frontiers of Autonomous Agents in 1M-Token Real-World Contexts | arXiv | https://arxiv.org/abs/2601.11044 | tags: agents, long-horizon, tool-use, multi-turn, benchmark | note: papers/20260218_agencybench-1m-token-real-world-contexts.md
 - [x] 2026 | ChipBench: A Next-Step Benchmark for Evaluating LLM Performance in AI-Aided Chip Design | arXiv | https://arxiv.org/abs/2601.21448 | tags: coding, verilog, multi-turn, benchmark | note: papers/20260218_chipbench_llm_chip_design_benchmark.md
 
 
 ## New candidates (2026-02-18, web_search batch sycophancy-mechanistic)
 
-- [x] 2026 | A Few Bad Neurons: Isolating and Surgically Correcting Sycophancy | arXiv | https://arxiv.org/abs/2601.18939 | tags: sycophancy, interpretability, neurons, mitigation | note: papers/20260218_few-bad-neurons-sycophancy.md  # duplicate queue entry; note already exists
-- [x] 2025 | When Truth Is Overridden: Uncovering the Internal Origins of Sycophancy in Large Language Models | arXiv | https://arxiv.org/abs/2508.02087 | tags: sycophancy, mechanistic, representations | note: papers/20260217_when-truth-is-overridden.md  # duplicate queue entry; note already exists
-- [x] 2025 | Sycophancy Is Not One Thing: Causal Separation of Sycophantic Behaviors in LLMs | arXiv | https://arxiv.org/abs/2509.21305 | tags: sycophancy, causal, taxonomy | note: papers/20260217_sycophancy-not-one-thing-causal-separation.md  # duplicate queue entry; note already exists
-- [x] 2025 | Sycophancy Mitigation Through Reinforcement Learning with Uncertainty-Aware Adaptive Reasoning Trajectories | arXiv | https://arxiv.org/abs/2509.16742 | tags: sycophancy, rl, uncertainty, mitigation | note: papers/20260217_smart-sycophancy-mitigation-ua-mcts.md  # duplicate queue entry; note already exists
 - [x] 2024 | Sycophancy in Vision-Language Models: A Systematic Analysis and an Inference-Time Mitigation Framework | arXiv | https://arxiv.org/abs/2408.11261 | tags: sycophancy, vlm, inference-time, mitigation | note: papers/20260218_sycophancy-vlms-inference-mitigation.md
 
 ## New candidates (2026-02-18, web_search batch 1)
 
-- [x] 2026 | PersistBench: When Should Long-Term Memories Be Forgotten by LLMs? | arXiv | https://arxiv.org/abs/2602.01146 | tags: memory, long-term, forgetting, safety, multi-turn | note: docs/paper/related_work/rapid_review/papers/20260218_persistbench.md | duplicate queue entry (already reviewed)
 - [x] 2026 | EverMemBench: Benchmarking Long-Term Interactive Memory in Large Language Models | arXiv | https://arxiv.org/abs/2602.01313 | tags: memory, long-term, interactive, multi-party, benchmark | note: papers/20260218_evermembench.md
 - [x] 2026 | LoCoMo-Plus: Beyond-Factual Cognitive Memory Evaluation Framework for LLM Agents | arXiv | https://arxiv.org/abs/2602.10715 | tags: memory, long-term, cognitive, constraints, agents | note: papers/20260218_locomo-plus.md
 - [x] 2025 | ENGRAM: Effective, Lightweight Memory Orchestration for Conversational Agents | arXiv | https://arxiv.org/abs/2511.12960 | tags: memory, orchestration, agents, retrieval, long-term | note: papers/20260218_engram_lightweight_memory_orchestration.md
@@ -804,10 +662,7 @@ Format (one per line):
 
 ## New candidates (2026-02-18, web_search batch 2)
 
-- [x] 2025 | MultiChallenge: A Realistic Multi-Turn Conversation Evaluation Benchmark Challenging to Frontier LLMs | arXiv | https://arxiv.org/abs/2501.17399 | tags: multi-turn, evaluation, benchmark, conversation | duplicate queue entry | note: docs/paper/related_work/rapid_review/papers/20260217_multichallenge.md
 - [x] 2025 | MMRC: A Large-Scale Benchmark for Understanding Multimodal Large Language Model in Real-World Conversation | arXiv | https://arxiv.org/abs/2502.11903 | tags: multi-turn, multimodal, conversation, memory-degradation | note: docs/paper/related_work/rapid_review/papers/20260218_mmrc_benchmark_mllm_realworld_conversation.md
-- [x] 2025 | When Two LLMs Debate, Both Think They’ll Win | arXiv | https://arxiv.org/abs/2505.19184 | tags: debate, belief-revision, multi-turn, confidence, calibration | duplicate queue entry | note: docs/paper/related_work/rapid_review/papers/20260217_two-llms-debate-win.md
-- [x] 2025 | Evaluating & Reducing Deceptive Dialogue From Language Models with Multi-turn RL | arXiv | https://arxiv.org/abs/2510.14318 | tags: deception, dialogue, multi-turn, rl, safety | note: docs/paper/related_work/rapid_review/papers/20260217_deceptive-dialogue-multi-turn-rl.md | duplicate queue entry
 - [x] 2025 | Revisiting the Reliability of Language Models in Instruction-Following | arXiv | https://arxiv.org/abs/2512.14754 | tags: instruction-following, multi-turn, reliability, multilingual | note: docs/paper/related_work/rapid_review/papers/20260218_reliable-at-k-ifevalpp.md
 
 ## New candidates (2026-02-18, web_search batch)
