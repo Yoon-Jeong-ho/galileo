@@ -1074,3 +1074,11 @@ Rationale: Pythia also showed extremely low initial accuracy (1/80) so even if w
   - GPU5: `jslee-fusion-distill-vllm-v1` (user `omanma1`, ~29GB)
   - GPU6: `jslee-fusion-distill-vllm-v1` (user `omanma1`, ~29GB)
 - Conclusion: cannot start Zephyr seed2 without either (i) waiting for GPUs to free, or (ii) obtaining permission to use a different machine/GPU outside the current Tier‑1 policy.
+
+### 2026-02-18 11:52 KST — GPU contention persists; cleaned stale Zephyr tmux
+
+- nlp8 GPUs remain unavailable for Zephyr seed2:
+  - GPU4: `python` (QwQ-32B search job; ~48GB)
+  - GPU5/6: `jslee-fusion-distill-vllm-v1` (user `omanma1`; ~29–30GB each)
+- Cleaned up an old, idle tmux session to reduce operator confusion (no GPU freed):
+  - killed: `tier1_zephyr7b_s1_g5_20260217_150053`
