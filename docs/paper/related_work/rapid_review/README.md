@@ -24,6 +24,15 @@ This directory is **rolling / SSOT** for the rapid review process.
 
 - Avoid brittle inline edits like `python3 -c "..."` for updating `QUEUE.md` (quoting/newlines frequently break).
 - Prefer dedicated helper scripts under `scripts/`.
-  - For marking a queue entry done + linking a note by URL, use:
-    - `python3 scripts/rapid_review_queue_mark_done.py --url <URL> --note <path> [--comment "..."]`
+
+### Common queue maintenance helpers
+
+- Mark a queue entry done + link a note by URL:
+  - `python3 scripts/rapid_review_queue_mark_done.py --url <URL> --note <path> [--comment "..."]`
+
+- Remove bad/duplicate candidates by URL substring (repeatable):
+  - `python3 scripts/rapid_review_queue_remove_urls.py --url <URL-or-substring> [--url <...>]`
+
+- Remove an entire section by exact header line (useful when a batch was appended incorrectly):
+  - `python3 scripts/rapid_review_queue_remove_section.py --header "## New candidates (2026-02-18, web_search batch 7)"`
 

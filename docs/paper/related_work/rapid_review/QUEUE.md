@@ -347,13 +347,6 @@ Format (one per line):
 - [x] 2025 | Benchmarking Adversarial Robustness to Bias Elicitation in Large Language Models: Scalable Automated Assessment with LLM-as-a-Judge | arXiv | https://arxiv.org/abs/2504.07887 | tags: bias-elicitation, robustness, llm-as-judge, evaluation | note: papers/20260217_bias-elicitation-robustness-llm-judge.md
 - [x] 2025 | Sycophancy Claims about Language Models: The Missing Human-in-the-Loop | arXiv | https://arxiv.org/abs/2512.00656 | tags: sycophancy, conceptual, evaluation, human-in-the-loop | note: papers/20260217_sycophancy-claims-missing-human-in-the-loop.md
 - [x] 2026 | Internal Reasoning vs. External Control: A Thermodynamic Analysis of Sycophancy in Large Language Models | arXiv | https://arxiv.org/abs/2601.03263 | tags: sycophancy, theory, control, thermodynamics | note: papers/20260217_internal-reasoning-external-control-sycophancy.md
-
-## New candidates (2026-02-18, web_search batch)
-
-- [x] 2026 | TravelBench: A Broader Real-World Benchmark for Multi-Turn and Tool-Using Travel Planning | arXiv | https://arxiv.org/abs/2512.22673 | tags: multi-turn, tool-use, planning, benchmark, robustness | note: papers/20260218_travelbench.md
-- [x] 2025 | AgentProg: Empowering Long-Horizon GUI Agents with Program-Guided Context Management | arXiv | https://arxiv.org/abs/2512.10371 | tags: agents, long-horizon, gui, context-management, robustness | note: papers/20260218_agentprog_context_management.md
-
-
 ## New candidates (2026-02-18, web_search)
 
 - [x] 2026 | ToolACE-MT: Non-Autoregressive Generation for Agentic Multi-Turn Interaction | arXiv | https://arxiv.org/abs/2508.12685 | tags: agents, tool-use, multi-turn, data-generation | note: papers/20260218_toolace-mt.md
@@ -383,7 +376,6 @@ Format (one per line):
 - [x] 2024 | RESPACT: Harmonizing Reasoning, Speaking, and Acting towards Building LLM-based Conversational AI Agents | arXiv | https://arxiv.org/abs/2411.00927 | tags: agents, multi-turn, speech-act, planning | note: papers/20260218_respact_reason_speak_act.md
 
 
-## New candidates (2026-02-18, web_search batch)
 
 
 
@@ -449,14 +441,12 @@ Format (one per line):
 - [x] 2026 | Security Threat Modeling for Emerging AI-Agent Protocols: A Comparative Analysis of MCP, A2A, Agora, and ANP | arXiv | https://arxiv.org/abs/2602.11327 | tags: agents, protocols, security, threat-modeling | note: papers/20260218_security-threat-modeling-ai-agent-protocols.md
 - [x] 2026 | GISA: A Benchmark for General Information-Seeking Assistant | arXiv | https://arxiv.org/abs/2602.08543 | tags: agents, information-seeking, web, multi-turn, benchmark | note: papers/20260218_gisa-benchmark-general-information-seeking-assistants.md
 
-## New candidates (2026-02-18, web_search batch 3)
 
 
 ## New candidates (2026-02-18, web_search batch 4)
 
 - [x] 2025 | Reinforcing Multi-Turn Reasoning in LLM Agents via Turn-Level Reward Design | arXiv | https://arxiv.org/abs/2505.11821 | tags: multi-turn, agents, RL, reward-design, reasoning | note: papers/20260218_reinforcing_multi_turn_reasoning_turn_level_reward.md
 
-## New candidates (2026-02-18, web_search batch)
 
 
 ## New candidates (2026-02-18, web_search batch 5)
@@ -491,7 +481,6 @@ Format (one per line):
 
 - [x] 2025 | Modeling and Predicting Multi-Turn Answer Instability in Large Language Models (HTML) | arXiv | https://arxiv.org/abs/2511.10688v1 | tags: multi-turn, answer-instability, pressure | note: papers/20260217_modeling-multi-turn-answer-instability.md  # duplicate URL variant
 
-## New candidates (2026-02-18, web_search batch 15)
 
 
 ## New candidates (2026-02-18)
@@ -516,7 +505,6 @@ Format (one per line):
 ## New candidates (2026-02-18, web_search batch)
 - [x] 2026 | Disentangling Ambiguity from Instability in Large Language Models: A Clinical Text-to-SQL Case Study | arXiv | https://arxiv.org/abs/2602.12015 | tags: instability, ambiguity, multi-turn, text-to-sql | note: papers/20260218_clues_ambiguity_vs_instability.md
 
-## New candidates (2026-02-18, web_search batch)
 
 ## New candidates (2026-02-18, web_search batch 2)
 - [x] 2025 | Flattery in Motion: Benchmarking and Analyzing Sycophancy in Video-LLMs | arXiv | https://arxiv.org/abs/2506.07180 | tags: sycophancy, video-llm, multimodal, robustness | note: papers/20260218_flattery-in-motion_vise.md
@@ -541,7 +529,6 @@ Format (one per line):
 - [x] 2026 | PersoDPO: Scalable Preference Optimization for Instruction-Adherent, Persona-Grounded Dialogue via Multi-LLM Evaluation | arXiv | https://arxiv.org/abs/2602.04493 | tags: persona, dialogue, preference-optimization, multi-turn | note: papers/20260218_persodpo.md
 - [x] 2026 | DETOUR: An Interactive Benchmark for Dual-Agent Search and Reasoning | arXiv | https://arxiv.org/abs/2602.00352 | tags: agents, search, reasoning, interactive, multi-turn, benchmark | note: papers/20260218_detour_dual_agent_search_reasoning.md
 
-## New candidates (2026-02-18, web_search batch)
 
 
 ## New candidates (2026-02-18, web_search batch 13)
@@ -608,7 +595,6 @@ Format (one per line):
 - [x] 2025 | XIFBench: Evaluating Large Language Models on Multilingual Instruction Following | arXiv | https://arxiv.org/abs/2503.07539 | tags: instruction-following, multilingual, benchmark | note: docs/paper/related_work/rapid_review/papers/20260218_xifbench-multilingual-instruction-following.md | constraint-based multilingual IF benchmark; uses English requirements as evaluation anchors
 - [x] 2025 | EifBench: Extremely Complex Instruction Following Benchmark for Large Language Models | arXiv | https://arxiv.org/abs/2506.08375 | tags: instruction-following, complex-constraints, benchmark | note: papers/20260218_eifbench.md
 
-## New candidates (2026-02-18, web_search batch)
 
 
 ## New candidates (2026-02-18, web_search batch 1)
@@ -618,7 +604,6 @@ Format (one per line):
 - [x] 2025 | AI Debaters are More Persuasive when Arguing in Alignment with Their Own Beliefs | arXiv | https://arxiv.org/abs/2510.13912 | tags: persuasion, debate, beliefs, stance, multi-turn | note: papers/20260218_ai-debaters-beliefs.md
 - [x] 2025 | Indirect Prompt Injections: Are Firewalls All You Need, or Stronger Benchmarks? | arXiv | https://arxiv.org/abs/2510.05244 | tags: prompt-injection, agents, benchmarks, security | note: papers/20260218_indirect_prompt_injections_firewalls.md
 
-## New candidates (2026-02-18, web_search batch 6)
 
 
 ## New candidates (2026-02-18, web_search batch)
@@ -701,3 +686,6 @@ Format (one per line):
 - [x] 2025 | Evaluating Bias in Spoken Dialogue LLMs for Real-World Decisions and Recommendations | arXiv | https://arxiv.org/abs/2510.02352 | tags: bias, spoken-dialogue, multi-turn, repeated-feedback | note: docs/paper/related_work/rapid_review/papers/20260218_evaluating_bias_spoken_dialogue_llms.md
 - [x] 2025 | B-score: Detecting biases in large language models using response history | arXiv | https://arxiv.org/abs/2505.18545 | tags: bias, multi-turn, self-debiasing, response-history, evaluation | note: docs/paper/related_work/rapid_review/papers/20260218_b-score_detecting_biases_llms_response_history.md
 - [x] 2026 | Bi-directional Bias Attribution: Debiasing Large Language Models without Modifying Prompts | arXiv | https://arxiv.org/abs/2602.04398 | tags: debiasing, interventions, interpretability, multi-turn-adjacent | note: docs/paper/related_work/rapid_review/papers/20260218_bidirectional_bias_attribution.md
+
+## New candidates (2026-02-18, web_search batch)
+
