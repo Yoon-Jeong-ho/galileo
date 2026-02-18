@@ -871,4 +871,4 @@ Format (one per line):
 ## New candidates (2026-02-19, web_search roleplay/persona agents)
 
 - [x] 2025 | FURINA: A Fully Customizable Role-Playing Benchmark via Scalable Multi-Agent Collaboration Pipeline | arXiv | https://arxiv.org/abs/2510.06800 | tags: role-play, benchmark, multi-agent, evaluation | note: docs/paper/related_work/rapid_review/papers/20260219_furina_role_play_benchmark_builder.md
-- [ ] 2024 | PersonaGym: Evaluating Persona Agents and LLMs | arXiv | https://arxiv.org/abs/2407.18416 | tags: persona, agents, evaluation, metric
+- [x] 2024 | PersonaGym: Evaluating Persona Agents and LLMs | arXiv | https://arxiv.org/abs/2407.18416 | tags: persona, agents, evaluation, metric | note: docs/paper/related_work/rapid_review/papers/20260219_personagym_personascore.md
