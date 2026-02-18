@@ -887,6 +887,6 @@ Format (one per line):
 
 - [x] 2025 | Is Vibe Coding Safe? Benchmarking Vulnerability of Agent-Generated Code in Real-World Tasks | arXiv | https://arxiv.org/abs/2512.03262 | tags: agents, code, security, robustness, benchmark | note: papers/20260219_is-vibe-coding-safe.md
 - [x] 2025 | Benchmark for Planning and Control with Large Language Model Agents: Blocksworld with Model Context Protocol | arXiv | https://arxiv.org/abs/2512.03955 | tags: agents, planning, control, long-horizon, benchmark | note: docs/paper/related_work/rapid_review/papers/20260219_benchmark-blocksworld-mcp.md
-- [ ] 2024 | BenchAgents: Multi-Agent Systems for Structured Benchmark Creation | arXiv | https://arxiv.org/abs/2410.22584 | tags: multi-agent, benchmark-creation, planning, constraints
+- [x] 2024 | BenchAgents: Multi-Agent Systems for Structured Benchmark Creation | arXiv | https://arxiv.org/abs/2410.22584 | tags: multi-agent, benchmark-creation, planning, constraints | note: docs/paper/related_work/rapid_review/papers/20260219_benchagents_structured_benchmark_creation.md
 - [ ] 2025 | MultiAgentBench: Evaluating the Collaboration and Competition of LLM agents | arXiv | https://arxiv.org/abs/2503.01935 | tags: multi-agent, evaluation, collaboration, competition
 - [ ] 2024 | CFBench: A Comprehensive Constraints-Following Benchmark for LLMs | arXiv | https://arxiv.org/abs/2408.01122 | tags: constraints, instruction-following, robustness, benchmark
