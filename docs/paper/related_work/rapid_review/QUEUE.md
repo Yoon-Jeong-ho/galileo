@@ -729,3 +729,11 @@ Format (one per line):
 - [x] 2025 | AI Debaters are More Persuasive when Arguing in Alignment with Their Own Beliefs | arXiv | https://arxiv.org/abs/2510.13912 | tags: persuasion, debate, beliefs, stance, multi-turn | note: papers/20260218_ai-debaters-beliefs.md
 - [x] 2025 | TAMAS: Benchmarking Adversarial Risks in Multi-Agent LLM Systems | arXiv | https://arxiv.org/abs/2511.05269 | tags: multi-agent, adversarial, safety, benchmark | note: papers/20260218_tamas_adversarial_mas_benchmark.md  # duplicate queue entry; note already exists
 - [x] 2025 | Indirect Prompt Injections: Are Firewalls All You Need, or Stronger Benchmarks? | arXiv | https://arxiv.org/abs/2510.05244 | tags: prompt-injection, agents, benchmarks, security | note: papers/20260218_indirect_prompt_injections_firewalls.md
+
+## New candidates (2026-02-18, web_search batch 6)
+
+- [x] 2026 | HalluHard: A Hard Multi-Turn Hallucination Benchmark | arXiv | https://arxiv.org/abs/2602.01031 | tags: multi-turn, hallucination, benchmark, high-stakes | note: papers/20260217_halluhard.md # duplicate URL
+- [ ] 2026 | Confidence Estimation for LLMs in Multi-turn Interactions | arXiv | https://arxiv.org/abs/2601.02179 | tags: multi-turn, confidence, calibration, dialogue
+- [ ] 2025 | When Two LLMs Debate, Both Think They’ll Win | arXiv | https://arxiv.org/abs/2505.19184 | tags: debate, belief-update, multi-turn, calibration
+- [ ] 2025 | Evaluating LLM-based Agents for Multi-Turn Conversations: A Survey | arXiv | https://arxiv.org/abs/2503.22458 | tags: survey, multi-turn, agents, evaluation
+- [ ] 2024 | A Survey on Recent Advances in LLM-Based Multi-turn Dialogue Systems | arXiv | https://arxiv.org/abs/2402.18013 | tags: survey, multi-turn, dialogue-systems
