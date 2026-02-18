@@ -798,7 +798,7 @@ Format (one per line):
 ## New candidates (2026-02-18, web_search batch 2)
 
 - [x] 2025 | MultiChallenge: A Realistic Multi-Turn Conversation Evaluation Benchmark Challenging to Frontier LLMs | arXiv | https://arxiv.org/abs/2501.17399 | tags: multi-turn, evaluation, benchmark, conversation | duplicate queue entry | note: docs/paper/related_work/rapid_review/papers/20260217_multichallenge.md
-- [ ] 2025 | MMRC: A Large-Scale Benchmark for Understanding Multimodal Large Language Model in Real-World Conversation | arXiv | https://arxiv.org/abs/2502.11903 | tags: multi-turn, multimodal, conversation, memory-degradation
+- [x] 2025 | MMRC: A Large-Scale Benchmark for Understanding Multimodal Large Language Model in Real-World Conversation | arXiv | https://arxiv.org/abs/2502.11903 | tags: multi-turn, multimodal, conversation, memory-degradation | note: docs/paper/related_work/rapid_review/papers/20260218_mmrc_benchmark_mllm_realworld_conversation.md
 - [ ] 2025 | When Two LLMs Debate, Both Think They’ll Win | arXiv | https://arxiv.org/abs/2505.19184 | tags: debate, belief-revision, multi-turn, confidence, calibration
 - [ ] 2025 | Evaluating & Reducing Deceptive Dialogue From Language Models with Multi-turn RL | arXiv | https://arxiv.org/abs/2510.14318 | tags: deception, dialogue, multi-turn, rl, safety
 - [ ] 2025 | Revisiting the Reliability of Language Models in Instruction-Following | arXiv | https://arxiv.org/abs/2512.14754 | tags: instruction-following, multi-turn, reliability, multilingual
