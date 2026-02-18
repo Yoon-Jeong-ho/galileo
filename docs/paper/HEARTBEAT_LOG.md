@@ -1108,3 +1108,10 @@ Next:
 - OUT: `results/tier1_qwen2p5_14b_seed2_20260219_053824/`
 - Status: finished Round4 (408 still correct, 17 failed) and started **Round5** (408 active tracks); currently processing Round5 prompts.
 - No `paper_exports/` yet (expected until completion).
+
+### 2026-02-19 06:34 KST — Tier‑1 Qwen2.5‑14B seed2 in recovery-answer generation stage
+
+- nlp8 GPU5 still saturated (~100% util, ~45.4/49.1GiB) and `run.log` continues to update.
+- OUT: `results/tier1_qwen2p5_14b_seed2_20260219_053824/`
+- Status: main adversarial rounds appear complete; now generating **recovery answers** for failed cases (log shows 73 failed cases to recover).
+- No `paper_exports/` yet (expected until finalization / explicit export step).
