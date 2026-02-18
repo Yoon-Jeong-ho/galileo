@@ -996,3 +996,10 @@ Format (one per line):
 - [x] 2025 | Sycophantic AI Decreases Prosocial Intentions and Promotes Dependence | arXiv | https://arxiv.org/abs/2510.01395 | tags: sycophancy, user-study, dependence, prosocial | note: docs/paper/related_work/rapid_review/papers/20260219_sycophantic_ai_prosocial_dependence.md
 - [x] 2025 | Social Sycophancy: A Broader Understanding of LLM Sycophancy | arXiv | https://arxiv.org/abs/2507.21509 | tags: sycophancy, social, open-ended, evaluation | note: docs/paper/related_work/rapid_review/papers/20260219_persona_vectors.md
 - [x] 2024 | Accounting for Sycophancy in Language Model Uncertainty Estimation | arXiv | https://arxiv.org/abs/2410.14746 | tags: sycophancy, uncertainty, calibration | note: docs/paper/related_work/rapid_review/papers/20260219_accounting_for_sycophancy_in_lm_uncertainty.md
+
+## New candidates (2026-02-19, geospatial foundation models)
+
+- [x] 2025 | AnySat: One Earth Observation Model for Many Resolutions, Scales, and Modalities | arXiv | https://arxiv.org/abs/2412.14123 | tags: geospatial, earth-observation, foundation-model, multi-resolution, multi-modal | note: papers/20260219_anysat.md
+- [ ] 2025 | Any-Optical-Model: A Universal Foundation Model for Optical Remote Sensing | arXiv | https://arxiv.org/abs/2512.17224 | tags: earth-observation, optical, foundation-model, multi-sensor
+- [ ] 2025 | TiMo: Spatiotemporal Foundation Model for Satellite Image Time Series | arXiv | https://arxiv.org/abs/2505.08723 | tags: sits, spatiotemporal, foundation-model, time-series
+- [ ] 2025 | Fine-tune Smarter, Not Harder: Parameter-Efficient Fine-Tuning for Geospatial Foundation Models | arXiv | https://arxiv.org/abs/2504.17397 | tags: peft, finetuning, geospatial, foundation-model
