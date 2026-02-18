@@ -790,3 +790,11 @@ Format (one per line):
 
 - [x] 2026 | Intent Mismatch Causes LLMs to Get Lost in Multi-Turn Conversation | arXiv | https://arxiv.org/abs/2602.07338 | tags: multi-turn, intent-inference, drift, recovery | note: docs/paper/related_work/rapid_review/papers/20260218_intent-mismatch-mt-get-lost.md | duplicate queue entry (note already exists)
 - [x] 2025 | A Hybrid Theory and Data-driven Approach to Persuasion Detection with Large Language Models | arXiv | https://arxiv.org/abs/2511.22109 | tags: persuasion, detection, belief-change, evaluation | note: docs/paper/related_work/rapid_review/papers/20260218_hybrid-theory-data-persuasion-detection-llms.md | duplicate queue entry (note already exists)
+
+## New candidates (2026-02-18)
+
+- [x] 2025 | mtRAG: A Multi-Turn Conversational Benchmark for Evaluating Retrieval-Augmented Generation Systems | TACL | https://direct.mit.edu/tacl/article/doi/10.1162/TACL.a.19/132114/mtRAG-A-Multi-Turn-Conversational-Benchmark-for | tags: multi-turn, RAG, benchmark, conversation | note: papers/20260218_mtrag.md
+- [ ] 2025 | ThinkBench: Dynamic out-of-distribution evaluation for robust LLM reasoning | arXiv | https://arxiv.org/abs/2502.16268 | tags: dynamic-eval, OOD, robustness, reasoning
+- [ ] 2025 | When Judgment Becomes Noise: How Design Failures in LLM Judge Benchmarks Silently Undermine Validity | arXiv | https://arxiv.org/abs/2509.20293 | tags: evaluation, LLM-judges, validity, robustness
+- [ ] 2025 | Benchmarking Reasoning Robustness in Large Language Models | arXiv | https://arxiv.org/abs/2503.04550 | tags: robustness, reasoning, benchmark
+- [ ] 2025 | AQUA-LLM: Evaluating Accuracy, Quantization, and Adversarial Robustness Trade-offs in LLMs for Cybersecurity QA | arXiv | https://arxiv.org/abs/2509.13514 | tags: robustness, quantization, adversarial, cybersecurity-qa
