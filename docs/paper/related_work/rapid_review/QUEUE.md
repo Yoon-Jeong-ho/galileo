@@ -941,7 +941,7 @@ Format (one per line):
 ## New candidates (2026-02-19, web_search batch 33)
 
 - [x] 2026 | Steering Safely or Off a Cliff? Rethinking Specificity and Robustness in Inference-Time Interventions | arXiv | https://arxiv.org/abs/2602.06256 | tags: robustness, interventions, steering, distribution-shift | note: docs/paper/related_work/rapid_review/papers/20260219_steering-safely-or-off-a-cliff.md
-- [ ] 2026 | Towards Poisoning Robustness Certification for Natural Language Generation | arXiv | https://arxiv.org/abs/2602.09757 | tags: robustness, certification, poisoning, NLG
+- [x] 2026 | Towards Poisoning Robustness Certification for Natural Language Generation | arXiv | https://arxiv.org/abs/2602.09757 | tags: robustness, certification, poisoning, NLG | note: docs/paper/related_work/rapid_review/papers/20260219_poisoning-robustness-certification-nlg.md
 - [ ] 2026 | Closing the Distribution Gap in Adversarial Training for LLMs | arXiv | https://arxiv.org/abs/2602.15238 | tags: adversarial-training, robustness, distribution-gap
 - [ ] 2026 | Inference-Time Backdoors via Hidden Instructions in LLM Chat Templates | arXiv | https://arxiv.org/abs/2602.04653 | tags: backdoor, safety, chat-templates, robustness
 - [ ] 2026 | Workflow-R1: Group Sub-sequence Policy Optimization for Multi-turn Workflow Construction | arXiv | https://arxiv.org/abs/2602.01202 | tags: multi-turn, agents, workflows, RL, robustness
