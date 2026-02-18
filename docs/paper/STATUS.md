@@ -105,10 +105,16 @@ Ground-truth tasks에서 multi-turn persona pressure 하에 **정답 유지(surv
 
 **Experiments (SSOT nlp8): run a standard status check + pick the next Tier‑1 cross-family run (one new family, seeds 1–2).**
 
-- Deliverable:
-  - `ssh nlp8` status snapshot: `tmux ls`, `nvidia-smi -i 4,5,6 ...`, newest `results/*/run.log` tail.
-  - Decision written to `docs/paper/STATUS.md`: which model family we run next + why (Tier‑1 risk reduction), and which GPU (4/5/6) is free.
-  - If a GPU is clearly free: launch exactly **one** seed1 run in tmux (paper-ready export path), otherwise log the blocker and do a paper-writing step instead.
+- Snapshot (2026-02-19 03:xx KST):
+  - nlp8 GPUs: **GPU4 busy** (external `eval_thinking.py`, ~6.7GiB, ~98% util), **GPU5/6 free**.
+  - `results_paper` global validation: `[OK] runner_metadata parity` (paper SSOT is currently consistent).
+
+- Decision (next Tier‑1 cross-family family): **Qwen2.5‑14B‑Instruct** (new family vs current Tier‑1 set; likely to fit on 48GB RTX8000, strong baseline; seeds 1–2 only).
+  - If vLLM OOM/slow: fallback to **Qwen2.5‑7B‑Instruct** is not acceptable as “new family” (already have Qwen), so instead pick **OLMo‑7B‑Instruct** as fallback family.
+
+- Launch plan (next heartbeat):
+  - Use GPU5 for seed1, GPU6 for seed2; one run per GPU via tmux; `OUT=results/tier1_qwen2p5_14b_seed{1,2}_<timestamp>/`.
+  - Validate exports immediately after completion with `python3 scripts/validate_paper_exports.py --results_root <OUT>` then stage into `results_paper/`.
 
 ---
 
