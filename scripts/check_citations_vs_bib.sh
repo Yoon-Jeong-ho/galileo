@@ -1,46 +1,60 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# Check that all \cite{...} keys referenced in the main paper draft exist in references.bib.
-# This is meant to be a lightweight, dependency-free guardrail (no Python required).
+# Check that all \cite{...} keys referenced in paper markdown drafts exist in references.bib.
+# Usage:
+#   bash scripts/check_citations_vs_bib.sh [path/to/draft.md ...]
+# Default drafts:
+#   docs/paper/PAPER_DRAFT_EN.md docs/paper/PAPER_DRAFT_KO.md
 
-DRAFT_PATH=${1:-docs/paper/PAPER_DRAFT_EN.md}
-BIB_PATH=${2:-references.bib}
+ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+cd "$ROOT_DIR"
 
-if [[ ! -f "$DRAFT_PATH" ]]; then
-  echo "[ERROR] Draft not found: $DRAFT_PATH" >&2
+BIB_FILE="references.bib"
+if [[ ! -f "$BIB_FILE" ]]; then
+  echo "[ERROR] Missing $BIB_FILE (expected at repo root)." >&2
   exit 2
 fi
-if [[ ! -f "$BIB_PATH" ]]; then
-  echo "[ERROR] Bib not found: $BIB_PATH" >&2
-  exit 2
+
+if [[ "$#" -eq 0 ]]; then
+  set -- docs/paper/PAPER_DRAFT_EN.md docs/paper/PAPER_DRAFT_KO.md
 fi
 
-TMP_DIR=$(mktemp -d)
+TMP_DIR="$(mktemp -d)"
 trap 'rm -rf "$TMP_DIR"' EXIT
 
-CITE_KEYS="$TMP_DIR/cite_keys.txt"
-BIB_KEYS="$TMP_DIR/bib_keys.txt"
-MISSING_KEYS="$TMP_DIR/missing_keys.txt"
+CITES_FILE="$TMP_DIR/cites.txt"
+BIBKEYS_FILE="$TMP_DIR/bibkeys.txt"
 
-# Extract citation keys from \cite{...}, \citet{...}, \citep{...}, etc.
-# Split multi-key cites on commas.
-perl -0777 -ne 'while(/\\cite\w*\{([^}]+)\}/g){print "$1\n"}' "$DRAFT_PATH" \
-  | tr ',' '\n' \
-  | sed 's/^ *//;s/ *$//' \
-  | grep -v '^$' \
-  | sort -u > "$CITE_KEYS"
+# Extract bib keys
+perl -ne 'if(/^\s*\@\w+\{([^,]+),/){print "$1\n"}' "$BIB_FILE" | sort -u > "$BIBKEYS_FILE"
 
-# Extract entry keys from BibTeX.
-perl -ne 'if(/^@\w+\{([^,]+),/){print "$1\n"}' "$BIB_PATH" \
-  | sort -u > "$BIB_KEYS"
+# Extract cite keys from drafts
+: > "$CITES_FILE"
+for f in "$@"; do
+  if [[ ! -f "$f" ]]; then
+    echo "[ERROR] Missing draft: $f" >&2
+    exit 2
+  fi
+  perl -0777 -ne '
+    while(/\\cite\{([^}]+)\}/g){
+      $x=$1;
+      for(split(/,\s*/,$x)){
+        next if $_ eq "";
+        print "$_\n";
+      }
+    }
+  ' "$f" >> "$CITES_FILE"
+done
+sort -u "$CITES_FILE" -o "$CITES_FILE"
 
-comm -23 "$CITE_KEYS" "$BIB_KEYS" > "$MISSING_KEYS" || true
+MISSING_FILE="$TMP_DIR/missing.txt"
+comm -23 "$CITES_FILE" "$BIBKEYS_FILE" > "$MISSING_FILE" || true
 
-if [[ -s "$MISSING_KEYS" ]]; then
-  echo "[FAIL] Missing BibTeX entries for the following citation keys (in $DRAFT_PATH but not in $BIB_PATH):" >&2
-  sed 's/^/  - /' "$MISSING_KEYS" >&2
+if [[ -s "$MISSING_FILE" ]]; then
+  echo "[FAIL] Missing BibTeX entries for the following citation keys:" >&2
+  cat "$MISSING_FILE" >&2
   exit 1
 fi
 
-echo "[OK] All citation keys in $DRAFT_PATH exist in $BIB_PATH (n=$(wc -l < "$CITE_KEYS" | tr -d ' '))."
+echo "[OK] All citation keys found in $BIB_FILE."

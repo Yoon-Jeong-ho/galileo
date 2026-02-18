@@ -53,6 +53,8 @@ Recommended artifacts to cite in-paper:
 - [ ] Each reported result bundle has a passing validation log (e.g., `GLOBAL_VALIDATE.log` from `scripts/validate_paper_exports.py --check_runner_parity`).
 - [ ] Fixed seeds documented; randomization sources described.
 - [ ] Evaluation details: answer extraction rules; normalization; alias handling.
+- [ ] Citation hygiene: all `\\cite{...}` keys in the paper drafts exist in `references.bib`.
+  - Quick check: `bash scripts/check_citations_vs_bib.sh`
 - [ ] Provide a lightweight “smoke test” run (small `NUM_SAMPLES`).
 - [ ] Export per-run **metadata** (e.g., `results/<run>/paper_exports/metadata.json`) including decoding params, seed, git commit hash, and condition identifiers (personas + `neutral_reask_control`) so settings are auditable.
 - [ ] Automation hygiene (if using OpenClaw heartbeat updates):
