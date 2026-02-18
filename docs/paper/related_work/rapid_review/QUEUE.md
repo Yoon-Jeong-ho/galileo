@@ -859,6 +859,6 @@ Format (one per line):
 
 - [x] 2025 | Score Before You Speak: Improving Persona Consistency in Dialogue Generation using Response Quality Scores | arXiv | https://arxiv.org/abs/2508.06886 | tags: persona, consistency, multi-turn, dialogue | note: papers/20260219_score-before-you-speak.md
 - [x] 2025 | Enhancing Persona Consistency for LLMs’ Role-Playing using Persona-Aware Contrastive Learning | arXiv | https://arxiv.org/abs/2503.17662 | tags: persona, role-play, contrastive-learning, multi-turn | note: docs/paper/related_work/rapid_review/papers/20260219_pcl_persona_consistency_roleplay.md
-- [ ] 2024 | Dialogue Language Model with Large-Scale Persona Data Engineering | arXiv | https://arxiv.org/abs/2412.09034 | tags: persona, dialogue, data, consistency, multi-turn
+- [x] 2024 | Dialogue Language Model with Large-Scale Persona Data Engineering | arXiv | https://arxiv.org/abs/2412.09034 | tags: persona, dialogue, data, consistency, multi-turn | note: docs/paper/related_work/rapid_review/papers/20260219_ppds_persona_data_engineering.md
 - [ ] 2025 | DeepPersona: A Generative Engine for Scaling Deep Synthetic Personas | arXiv | https://arxiv.org/abs/2511.07338 | tags: personas, synthetic-data, evaluation, alignment
 - [ ] 2025 | Role-Playing Evaluation for Large Language Models (RPEval) | arXiv | https://arxiv.org/abs/2505.13157 | tags: role-play, evaluation, consistency, moral
