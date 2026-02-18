@@ -491,7 +491,7 @@ Format (one per line):
 - [x] 2026 | Talk Less, Verify More: Improving LLM Assistants with Semantic Checks and Execution Feedback | arXiv | https://arxiv.org/abs/2601.00224 | tags: verification, feedback, robustness, agents | note: papers/20260218_talk-less-verify-more.md | reviewed (added note)
 - [x] 2026 | Bilingual Bias in Large Language Models: A Taiwan Sovereignty Benchmark Study | arXiv | https://arxiv.org/abs/2602.06371 | tags: bias, multilingual, consistency, evaluation | note: papers/20260218_bilingual-bias-taiwan-sovereignty-benchmark.md | reviewed (added note)
 
-- [ ] 2026 | Robust Bias Evaluation with FilBBQ: A Filipino Bias Benchmark for Question-Answering Language Models | arXiv | https://arxiv.org/abs/2602.14466 | tags: bias, fairness, robustness, multilingual
+- [x] 2026 | Robust Bias Evaluation with FilBBQ: A Filipino Bias Benchmark for Question-Answering Language Models | arXiv | https://arxiv.org/abs/2602.14466 | tags: bias, fairness, robustness, multilingual | note: docs/paper/related_work/rapid_review/papers/20260218_filbbq_robust_bias_eval.md
 - [x] 2026 | CM2: Reinforcement Learning with Checklist Rewards for Multi-Turn and Multi-Step Agentic Tool Use | arXiv | https://arxiv.org/abs/2602.12268 | tags: tool-use, multi-turn, RL, agents | note: papers/20260218_cm2-checklist-rewards.md
 
 - [x] 2026 | AgentLeak: A Full-Stack Benchmark for Privacy Leakage in Multi-Agent LLM Systems | arXiv | https://arxiv.org/abs/2602.11510 | tags: privacy, leakage, multi-agent, benchmark | note: docs/paper/related_work/rapid_review/papers/20260218_agentleak_privacy_leakage_benchmark.md
