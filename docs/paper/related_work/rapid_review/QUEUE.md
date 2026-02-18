@@ -673,3 +673,11 @@ Format (one per line):
 - [x] 2026 | AgentDyn: A Dynamic Open-Ended Benchmark for Evaluating Prompt Injection Attacks of Real-World Agent Security System | arXiv | https://arxiv.org/abs/2602.03117 | tags: agents, prompt-injection, dynamic-benchmark, tool-use | note: papers/20260218_agentdyn_prompt_injection_benchmark.md
 - [x] 2025 | A Multi-Agent LLM Defense Pipeline Against Prompt Injection Attacks | arXiv | https://arxiv.org/abs/2509.14285 | tags: agents, prompt-injection, defense, multi-agent | note: papers/20260217_multi-agent-prompt-injection-defense.md (duplicate queue entry)
 - [x] 2025 | TAMAS: Benchmarking Adversarial Risks in Multi-Agent LLM Systems | arXiv | https://arxiv.org/abs/2511.05269 | tags: multi-agent, adversarial-risk, benchmark, prompt-injection | note: papers/20260218_tamas_adversarial_mas_benchmark.md
+
+## New candidates (2026-02-18, web_search batch)
+
+- [x] 2026 | Can AI-Generated Persuasion Be Detected? Persuaficial Benchmark and AI vs. Human Linguistic Differences | arXiv | https://arxiv.org/abs/2601.04925 | tags: persuasion, detection, benchmark, multilingual | note: papers/20260218_persuaficial.md
+- [ ] 2025 | How Do LLMs Persuade? Linear Probes Can Uncover Persuasion Dynamics in Multi-Turn Conversations | arXiv | https://arxiv.org/abs/2508.05625 | tags: persuasion, multi-turn, interpretability, linear-probes
+- [ ] 2024 | Measuring and Benchmarking Large Language Models' Capabilities to Generate Persuasive Language | arXiv | https://arxiv.org/abs/2406.17753 | tags: persuasion, benchmark, dataset, rewriting
+- [ ] 2026 | The Assistant Axis: Situating and Stabilizing the Default Persona of Language Models | arXiv | https://arxiv.org/abs/2601.10387 | tags: persona, drift, stability, representation
+- [ ] 2025 | Communication is All You Need: Persuasion Dataset Construction via Multi-LLM Communication | arXiv | https://arxiv.org/abs/2502.08896 | tags: persuasion, dataset, multi-agent, communication
