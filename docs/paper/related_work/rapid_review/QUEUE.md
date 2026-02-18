@@ -665,3 +665,11 @@ Format (one per line):
 - [x] 2025 | Chain-of-Lure: A Universal Jailbreak Attack Framework using Unconstrained Synthetic Narratives | arXiv | https://arxiv.org/abs/2505.17519 | tags: multi-turn, jailbreak, attack, narratives | note: papers/20260218_chain-of-lure.md
 - [x] 2025 | Multi-Turn Jailbreaking Large Language Models via Attention Shifting | AAAI | https://ojs.aaai.org/index.php/AAAI/article/view/34553 | tags: multi-turn, jailbreak, attack, attention | note: papers/20260218_attention-shifting-jailbreak.md
 - [x] 2025 | Shallow Robustness, Deep Vulnerabilities: Multi-Turn Evaluation of Medical LLMs | arXiv | https://arxiv.org/abs/2510.12255 | tags: multi-turn, robustness, medical, evaluation | note: papers/20260217_shallow-robustness-deep-vulnerabilities.md  # duplicate queue entry; note already exists
+
+## New candidates (2026-02-18, web_search batch)
+
+- [x] 2025 | Breaking Minds, Breaking Systems: Jailbreaking Large Language Models via Human-like Psychological Manipulation | arXiv | https://arxiv.org/abs/2512.18244 | tags: jailbreak, psychological-manipulation, safety, policy-drift | note: papers/20260218_breaking-minds-psychological-jailbreak.md
+- [ ] 2025 | Adversarial Poetry as a Universal Single-Turn Jailbreak Mechanism in Large Language Models | arXiv | https://arxiv.org/abs/2511.15304 | tags: jailbreak, single-turn, transfer, safety
+- [ ] 2026 | AgentDyn: A Dynamic Open-Ended Benchmark for Evaluating Prompt Injection Attacks of Real-World Agent Security System | arXiv | https://arxiv.org/abs/2602.03117 | tags: agents, prompt-injection, dynamic-benchmark, tool-use
+- [ ] 2025 | A Multi-Agent LLM Defense Pipeline Against Prompt Injection Attacks | arXiv | https://arxiv.org/abs/2509.14285 | tags: agents, prompt-injection, defense, multi-agent
+- [ ] 2025 | TAMAS: Benchmarking Adversarial Risks in Multi-Agent LLM Systems | arXiv | https://arxiv.org/abs/2511.05269 | tags: multi-agent, adversarial-risk, benchmark, prompt-injection
