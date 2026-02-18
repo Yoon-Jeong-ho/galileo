@@ -172,7 +172,7 @@ Format (one per line):
 
 ## New candidates (2026-02-17, web_search batch 31)
 
-- [x] 2025 | When Truth Is Overridden: Uncovering the Internal Origins of Sycophancy in Large Language Models | arXiv | https://arxiv.org/abs/2508.02087 | tags: sycophancy, interpretability, internal-mechanisms, user-beliefs | note: papers/20260217_when-truth-is-overridden.md
+- [x] 2025 | When Truth Is Overridden: Uncovering the Internal Origins of Sycophancy in Large Language Models | arXiv | https://arxiv.org/abs/2508.02087 | tags: sycophancy, interpretability, internal-mechanisms, user-beliefs | note: docs/paper/related_work/rapid_review/papers/20260217_when-truth-is-overridden.md | duplicate queue entry (already reviewed)
 - [x] 2023 | When Large Language Models contradict humans? Large Language Models' Sycophantic Behaviour | arXiv | https://arxiv.org/abs/2311.09410 | tags: sycophancy, acquiescence, evaluation | note: papers/20260217_llm-sycophantic-behaviour.md
 - [x] 2025 | TurnBench-MS: A Benchmark for Evaluating Multi-Turn, Multi-Step Reasoning in Large Language Models | arXiv | https://arxiv.org/abs/2506.01341 | tags: multi-turn, multi-step, reasoning, benchmark | note: papers/20260217_turnbench-ms.md
 - [x] 2025 | Assessing Large Language Models in Updating Their Forecasts with New Information | arXiv | https://arxiv.org/abs/2509.23936 | tags: belief-update, forecasting, belief-revision, evaluation | note: papers/20260217_evolvecast-forecast-updates.md
