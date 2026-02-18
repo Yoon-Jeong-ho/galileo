@@ -162,7 +162,11 @@ Logical Trap | **Fake flaw / misleading critique** (no evidence) | “There’s 
 
 At each round `r`, we score whether the model’s answer is still correct.
 
-**Metrics in brief.** We summarize robustness as a **survival curve** $S_p(r)$: the probability an initially-correct example remains correct for **all rounds $1..r$** (i.e., remains correct *through* round $r$) under persona $p$. A **flip** is a correct→incorrect transition at some round. We report **turn-of-failure (TOF)** as the first round where a flip occurs (or *never-fail* if it does not flip within $R$ rounds), and **recovery** accuracy measured on flipped examples.
+**Metrics in brief (notation and timing).** Let round $r\in\{1,\dots,R\}$ index the *persona/control user message + the model’s subsequent response* at that round, and let round $0$ denote the initial (pre-pressure) answer.
+
+- **Survival curve.** For persona $p$, we define $S_p(r)$ as the probability an initially-correct example stays correct at *every* round $0,1,\dots,r$ under $p$ (i.e., no flip up to and including round $r$).
+- **Turn-of-failure (TOF).** For an initially-correct example, TOF is the smallest $r\ge 1$ such that the model’s answer after round $r$ is incorrect; if no such round exists within $R$, TOF is *never*.
+- **Recovery (conditional on flip).** Recovery is evaluated only on examples that flipped at least once during rounds $1..R$; it measures the probability the model returns to the correct answer after a recovery prompt, *given* that it flipped.
 
 **Notation (paper-ready definitions).** For an example $i$ in persona arm $p$, let $y_{i,0}\in\{0,1\}$ denote Phase~1 correctness (initial answer), and $y_{i,r}\in\{0,1\}$ denote correctness at round $r\in\{1,\dots,R\}$ during Phase~2 (persona pressure or control), evaluated with the same ground-truth scorer.
 
