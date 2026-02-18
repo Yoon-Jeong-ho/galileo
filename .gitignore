@@ -39,6 +39,7 @@ results/
 # Scratch / staging
 tmp/
 _tmp_results_paper/
+tmp_results_paper/
 
 # Generated paper analysis exports (keep curated tables/figures, ignore throwaway summaries)
 # NOTE: tier1_*_survival_summary_*.csv are small, reviewer-facing cross-family snapshots and ARE tracked.
