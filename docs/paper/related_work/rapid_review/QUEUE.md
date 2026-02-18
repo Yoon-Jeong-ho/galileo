@@ -1007,6 +1007,6 @@ Format (one per line):
 ## New candidates (2026-02-19, web_search batch 1)
 - [x] 2026 | WebWorld: A Large-Scale World Model for Web Agent Training | arXiv | https://arxiv.org/abs/2602.14721 | tags: web-agents, world-model, long-horizon, consistency | note: papers/20260219_webworld_world-model-web-agent-training.md
 - [x] 2026 | Multi-Task GRPO: Reliable LLM Reasoning Across Tasks | arXiv | https://arxiv.org/abs/2602.05547 | tags: robustness, post-training, RL, worst-case | note: docs/paper/related_work/rapid_review/papers/20260219_multi-task-grpo.md
-- [ ] 2026 | Improving LLM Reliability Through Hybrid Abstention and Adaptive Detection | arXiv | https://arxiv.org/abs/2602.15391 | tags: reliability, abstention, detection, multi-turn
+- [x] 2026 | Improving LLM Reliability Through Hybrid Abstention and Adaptive Detection | arXiv | https://arxiv.org/abs/2602.15391 | tags: reliability, abstention, detection, multi-turn | note: docs/paper/related_work/rapid_review/papers/20260219_hybrid_abstention_adaptive_detection.md
 - [ ] 2026 | AD-Bench: A Real-World, Trajectory-Aware Advertising Analytics Benchmark for LLM Agents | arXiv | https://arxiv.org/abs/2602.14257 | tags: agents, trajectories, multi-tool, benchmark
 - [ ] 2026 | Pushing Forward Pareto Frontiers of Proactive Agents with Behavioral Agentic Optimization | arXiv | https://arxiv.org/abs/2602.11351 | tags: proactive-agents, optimization, user-alignment, multi-turn
