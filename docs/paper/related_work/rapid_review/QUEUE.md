@@ -825,3 +825,9 @@ Format (one per line):
 - [x] 2025 | Murphy: Multi-Turn GRPO for Self Correcting Code Generation | arXiv | https://arxiv.org/abs/2511.07833 | tags: multi-turn, self-correction, training, code | note: docs/paper/related_work/rapid_review/papers/20260218_murphy_multi_turn_grpo_code.md
 - [x] 2025 | Reflective Confidence: Correcting Reasoning Flaws via Online Self-Correction | arXiv | https://arxiv.org/abs/2512.18605 | tags: self-correction, confidence, early-stopping, self-consistency | note: docs/paper/related_work/rapid_review/papers/20260218_reflective-confidence.md
 - [x] 2025 | PAG: Multi-Turn Reinforced LLM Self-Correction with Policy as Generative Verifier | arXiv | https://arxiv.org/abs/2506.10406 | tags: self-correction, verifier, rlhf-adjacent, multi-turn | note: docs/paper/related_work/rapid_review/papers/20260218_pag_generative_verifier.md
+
+## New candidates (2026-02-18, web_search batch 13)
+
+- [x] 2026 | BiasScope: Towards Automated Detection of Bias in LLM-as-a-Judge Evaluation | arXiv | https://arxiv.org/abs/2602.09383 | tags: llm-as-a-judge, evaluation, bias, robustness | note: papers/20260218_biasscope.md
+- [ ] 2026 | Contextual StereoSet: Stress-Testing Bias Alignment Robustness in Large Language Models | arXiv | https://arxiv.org/abs/2601.10460 | tags: bias, robustness, context, evaluation
+- [ ] 2025 | On the Failure of Latent State Persistence in Large Language Models | arXiv | https://arxiv.org/abs/2505.10571 | tags: multi-turn, latent-state, persistence, robustness
