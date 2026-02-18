@@ -693,7 +693,7 @@ Format (one per line):
 ## New candidates (2026-02-18)
 
 - [x] 2025 | Beyond One-Way Influence: Bidirectional Opinion Dynamics in Multi-Turn Human-LLM Interactions | arXiv | https://arxiv.org/abs/2510.20039 | tags: persuasion, human-llm, multi-turn, opinion-dynamics | note: papers/20260218_bidirectional-opinion-dynamics-human-llm.md
-- [x] 2024 | On the conversational persuasiveness of large language models: A randomized controlled trial | arXiv | https://arxiv.org/abs/2403.14380 | tags: persuasion, human-study, rct | note: docs/paper/related_work/rapid_review/papers/20260218_conversational-persuasiveness-llms-rct.md
+- [x] 2024 | On the conversational persuasiveness of large language models: A randomized controlled trial | arXiv | https://arxiv.org/abs/2403.14380 | tags: persuasion, human-study, rct | note: papers/20260218_conversational-persuasiveness-llms-rct.md
 - [ ] 2024 | Large Language Models can Strategically Deceive their Users when Put Under Pressure | arXiv | https://arxiv.org/abs/2311.07590 | tags: deception, pressure, multi-turn, safety
 - [ ] 2025 | Can (A)I Change Your Mind? | arXiv | https://arxiv.org/abs/2503.01844 | tags: persuasion, opinion-change, human-llm
 - [ ] 2025 | On the conversational persuasiveness of GPT-4 | Nature Human Behaviour | https://www.nature.com/articles/s41562-025-02194-6 | tags: persuasion, personalization, human-study
