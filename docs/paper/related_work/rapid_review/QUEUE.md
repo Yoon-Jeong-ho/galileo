@@ -829,5 +829,5 @@ Format (one per line):
 ## New candidates (2026-02-18, web_search batch 13)
 
 - [x] 2026 | BiasScope: Towards Automated Detection of Bias in LLM-as-a-Judge Evaluation | arXiv | https://arxiv.org/abs/2602.09383 | tags: llm-as-a-judge, evaluation, bias, robustness | note: papers/20260218_biasscope.md
-- [ ] 2026 | Contextual StereoSet: Stress-Testing Bias Alignment Robustness in Large Language Models | arXiv | https://arxiv.org/abs/2601.10460 | tags: bias, robustness, context, evaluation
+- [x] 2026 | Contextual StereoSet: Stress-Testing Bias Alignment Robustness in Large Language Models | arXiv | https://arxiv.org/abs/2601.10460 | tags: bias, robustness, context, evaluation | note: docs/paper/related_work/rapid_review/papers/20260218_contextual-stereoset.md
 - [ ] 2025 | On the Failure of Latent State Persistence in Large Language Models | arXiv | https://arxiv.org/abs/2505.10571 | tags: multi-turn, latent-state, persistence, robustness
