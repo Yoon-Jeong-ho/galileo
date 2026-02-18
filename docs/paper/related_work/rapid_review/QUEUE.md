@@ -753,3 +753,11 @@ Format (one per line):
 - [x] 2025 | Revolutionizing earth observation with geospatial foundation models on AWS | AWS blog | https://aws.amazon.com/blogs/machine-learning/revolutionizing-earth-observation-with-geospatial-foundation-models-on-aws/ | tags: geospatial, foundation-model, deployment, aws, applied | note: docs/paper/related_work/rapid_review/papers/20260218_revolutionizing_eo_geofms_on_aws.md
 - [x] 2025 | The generative revolution: AI foundation models in geospatial health—applications, challenges and future research | Int J Health Geographics | https://ij-healthgeographics.biomedcentral.com/articles/10.1186/s12942-025-00391-0 | tags: geospatial, foundation-model, health, survey, applications | note: docs/paper/related_work/rapid_review/papers/20260218_generative-revolution-geospatial-health.md
 - [x] 2025 | TiMo: Spatiotemporal Foundation Model for Satellite Image Time Series | arXiv | https://arxiv.org/html/2505.08723v1 | tags: remote-sensing, time-series, spatiotemporal, foundation-model, pretraining | note: docs/paper/related_work/rapid_review/papers/20260218_timo_sits_stga.md
+
+## New candidates (2026-02-18, web_search)
+
+- [x] 2025 | Towards a Science of Scaling Agent Systems | arXiv | https://arxiv.org/abs/2512.08296 | tags: agents, scaling, evaluation, multi-agent | note: papers/20260218_scaling-agent-systems.md
+- [ ] 2026 | Jailbreaking Leaves a Trace: Understanding and Detecting Jailbreak Attacks from Internal Representations of Large Language Models | arXiv | https://arxiv.org/abs/2602.11495 | tags: jailbreak, detection, representations, safety
+- [ ] 2026 | OMNI-LEAK: Orchestrator Multi-Agent Network Induced Data Leakage | arXiv | https://arxiv.org/abs/2602.13477 | tags: multi-agent, data-leakage, safety, orchestration
+- [ ] 2026 | Defensive M2S: Training Guardrail Models on Compressed Multi-turn Conversations | arXiv | https://arxiv.org/abs/2601.00454 | tags: safety, guardrails, compression, multi-turn
+- [ ] 2026 | MindGuard: Guardrail Classifiers for Multi-Turn Mental Health Support | arXiv | https://arxiv.org/abs/2602.00950 | tags: safety, mental-health, guardrails, multi-turn
