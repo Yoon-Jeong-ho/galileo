@@ -878,7 +878,7 @@ Format (one per line):
 ## New candidates (2026-02-19, web_search batch — robotics foundation models)
 
 - [x] 2025 | Foundation Model Driven Robotics: A Comprehensive Review | arXiv | https://arxiv.org/abs/2507.10087 | tags: robotics, foundation-models, survey | note: docs/paper/related_work/rapid_review/papers/20260219_foundation-model-driven-robotics-review.md
-- [ ] 2025 | Towards Forceful Robotic Foundation Models: a Literature Survey | arXiv | https://arxiv.org/abs/2504.11827 | tags: robotics, foundation-models, force, tactile, survey
+- [x] 2025 | Towards Forceful Robotic Foundation Models: a Literature Survey | arXiv | https://arxiv.org/abs/2504.11827 | tags: robotics, foundation-models, force, tactile, survey | note: docs/paper/related_work/rapid_review/papers/20260219_forceful-robotic-foundation-models-survey.md
 - [ ] 2025 | Deploying Foundation Model-Enabled Air and Ground Robots in the Field: Challenges and Opportunities | arXiv | https://arxiv.org/abs/2505.09477 | tags: robotics, deployment, foundation-models, field
 - [ ] 2025 | Embodied AI with Foundation Models for Mobile Service Robots: A Systematic Review | arXiv | https://arxiv.org/abs/2505.20503 | tags: robotics, mobile, foundation-models, systematic-review
 - [ ] 2025 | Embodied Robot Manipulation in the Era of Foundation Models: Planning and Learning Perspectives | arXiv | https://arxiv.org/abs/2512.22983 | tags: robotics, manipulation, planning, learning, survey
