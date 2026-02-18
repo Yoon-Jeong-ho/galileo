@@ -785,3 +785,8 @@ Format (one per line):
 - [x] 2025 | Offline RL by Reward-Weighted Fine-Tuning for Conversation Optimization | arXiv | https://arxiv.org/abs/2506.06964 | tags: multi-turn, RLHF-adjacent, conversation-optimization, offline-RL | note: docs/paper/related_work/rapid_review/papers/20260218_offline-rl-reward-weighted-ft-conversation.md
 - [x] 2024 | FB-Bench: A Fine-Grained Multi-Task Benchmark for Evaluating LLMs' Responsiveness to Human Feedback | arXiv | https://arxiv.org/abs/2410.09412 | tags: multi-turn, human-feedback, evaluation, benchmark | note: docs/paper/related_work/rapid_review/papers/20260218_fb-bench.md
 - [x] 2024 | WebLINX: Real-World Website Navigation with Multi-Turn Dialogue | arXiv | https://arxiv.org/abs/2402.05930 | tags: multi-turn, web-navigation, agents, benchmark | note: docs/paper/related_work/rapid_review/papers/20260218_weblinx_real_world_conversational_web_navigation.md
+
+## New candidates (2026-02-18, web_search batch 13)
+
+- [ ] 2026 | Intent Mismatch Causes LLMs to Get Lost in Multi-Turn Conversation | arXiv | https://arxiv.org/abs/2602.07338 | tags: multi-turn, intent-inference, drift, recovery | note: docs/paper/related_work/rapid_review/papers/20260218_intent-mismatch-mt-get-lost.md
+- [ ] 2025 | A Hybrid Theory and Data-driven Approach to Persuasion Detection with Large Language Models | arXiv | https://arxiv.org/abs/2511.22109 | tags: persuasion, detection, belief-change, evaluation | note: docs/paper/related_work/rapid_review/papers/20260218_hybrid-theory-data-persuasion-detection-llms.md
