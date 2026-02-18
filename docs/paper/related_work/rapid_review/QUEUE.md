@@ -984,5 +984,5 @@ Format (one per line):
 
 ## New candidates (2026-02-19, web_search batch 36)
 - [x] 2025 | Towards Outcome-Oriented, Task-Agnostic Evaluation of AI Agents | arXiv | https://arxiv.org/html/2511.08242v1 | tags: agents, evaluation, outcome-oriented, task-agnostic | note: docs/paper/related_work/rapid_review/papers/20260219_outcome-oriented-task-agnostic-agent-evaluation.md
-- [ ] 2025 | A Survey of Agent Evaluation Frameworks: Benchmarking the Benchmarks | Blog | https://www.getmaxim.ai/blog/llm-agent-evaluation-framework-comparison/ | tags: agents, evaluation, survey, benchmarks | note:
+- [x] 2025 | A Survey of Agent Evaluation Frameworks: Benchmarking the Benchmarks | Blog | https://www.getmaxim.ai/blog/llm-agent-evaluation-framework-comparison/ | tags: agents, evaluation, survey, benchmarks | note: docs/paper/related_work/rapid_review/papers/20260219_agent_eval_frameworks_survey_maxim_blog.md
 - [ ] 2025 | PaperArena: An Evaluation Benchmark for Tool-Augmented Agentic Reasoning on Scientific Literature | arXiv | https://arxiv.org/html/2510.10909v1 | tags: agents, tool-use, scientific-literature, benchmark | note:
