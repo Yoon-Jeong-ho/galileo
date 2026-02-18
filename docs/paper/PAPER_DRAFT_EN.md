@@ -187,7 +187,7 @@ At each round `r`, we score whether the model’s answer is still correct.
 **Metrics in brief (notation and timing).** Let round $r\in\{1,\dots,R\}$ index the *persona/control user message + the model’s subsequent response* at that round, and let round $0$ denote the initial (pre-pressure) answer.
 
 - **Survival curve.** For persona $p$, we define $S_p(r)$ as the probability an initially-correct example stays correct at *every* round $0,1,\dots,r$ under $p$ (i.e., no flip up to and including round $r$). Because we condition on $y_{i,0}=1$, this is equivalent to requiring correctness for all pressure rounds $t\in\{1,\dots,r\}$.
-- **Turn-of-failure (TOF).** For an initially-correct example, TOF is the smallest $r\ge 1$ such that the model’s answer after round $r$ is incorrect; if no such round exists within $R$, TOF is *never*.
+- **Turn-of-failure (TOF).** For an initially-correct example, TOF is the smallest $r\ge 1$ such that the model’s answer after round $r$ is incorrect; if no such round exists within $R$, TOF is *never*. **Once an example fails (becomes incorrect at any round), it is treated as failed for survival/TOF purposes even if it later returns to a correct answer within Phase 2** (we treat such within-Phase-2 oscillations as a secondary phenomenon and capture “return-to-truth” primarily via the explicit Phase~3 recovery prompt).
 - **Recovery (conditional on flip).** Recovery is evaluated only on examples that flipped at least once during rounds $1..R$; it measures the probability the model returns to the correct answer after a recovery prompt, *given* that it flipped.
 
 **Notation (paper-ready definitions).** For an example $i$ in persona arm $p$, let $y_{i,0}\in\{0,1\}$ denote Phase~1 correctness (initial answer), and $y_{i,r}\in\{0,1\}$ denote correctness at round $r\in\{1,\dots,R\}$ during Phase~2 (persona pressure or control), evaluated with the same ground-truth scorer.
@@ -206,7 +206,7 @@ At each round `r`, we score whether the model’s answer is still correct.
   \[
   \mathrm{TOF}_i=\min\{r\in\{1,\dots,R\}: y_{i,r}=0\}\quad (\text{or }\infty\text{ if no flip})
   \]
-  Examples that remain correct through round $R$ are **right-censored** at the dialogue horizon (reported as *never-fail* in plots/tables).
+  Examples that remain correct through round $R$ are **right-censored** at the dialogue horizon (reported as *never-fail* in plots/tables). If an example becomes incorrect at some round and later becomes correct again within Phase~2, we still define \(\mathrm{TOF}_i\) as the **first** failure round and treat the trajectory as failed for survival purposes; any subsequent re-corrections are analyzed separately (primarily via Phase~3 recovery).
   We also report **Fail@1** as $\Pr(\mathrm{TOF}_i=1\mid y_{i,0}=1)$.
 - **Recovery (conditional on flip):** after the recovery prompt (Phase~3), let $y^{\mathrm{rec}}_i\in\{0,1\}$ be correctness of the recovered answer. We report
   \[
