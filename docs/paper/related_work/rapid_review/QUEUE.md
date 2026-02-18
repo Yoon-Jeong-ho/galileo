@@ -954,5 +954,5 @@ Format (one per line):
 - [x] 2025 | Embodied Navigation Foundation Model | arXiv | https://arxiv.org/abs/2509.12129 | tags: navigation, embodied-ai, foundation-model, vlm | note: docs/paper/related_work/rapid_review/papers/20260219_navfom_embodied_navigation_foundation_model.md
 - [x] 2025 | A Comprehensive Survey on World Models for Embodied AI | arXiv | https://arxiv.org/abs/2510.16732 | tags: world-models, embodied-ai, survey | note: docs/paper/related_work/rapid_review/papers/20260219_world_models_survey_embodied_ai.md
 - [x] 2024 | A Survey on Vision-Language-Action Models for Embodied AI | arXiv | https://arxiv.org/abs/2405.14093 | tags: vla, embodied-ai, survey | note: docs/paper/related_work/rapid_review/papers/20260219_survey_vla_embodied_ai.md
-- [ ] 2025 | OctoNav: Towards Generalist Embodied Navigation | arXiv | https://arxiv.org/abs/2506.09839 | tags: navigation, generalist, reasoning
+- [x] 2025 | OctoNav: Towards Generalist Embodied Navigation | arXiv | https://arxiv.org/abs/2506.09839 | tags: navigation, generalist, reasoning | note: docs/paper/related_work/rapid_review/papers/20260219_octonav.md
 - [ ] 2025 | From Seeing to Experiencing: Scaling Navigation Foundation Models with Reinforcement Learning | arXiv | https://arxiv.org/abs/2507.22028 | tags: navigation, foundation-model, reinforcement-learning
