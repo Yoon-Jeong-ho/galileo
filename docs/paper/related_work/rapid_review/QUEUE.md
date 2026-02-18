@@ -802,7 +802,7 @@ Format (one per line):
 ## New candidates (2026-02-19, web_search batch)
 
 - [x] 2026 | From Biased Chatbots to Biased Agents: Examining Role Assignment Effects on LLM Agent Robustness | arXiv | https://arxiv.org/abs/2602.12285 | tags: role-assignment, agents, robustness, bias | note: papers/20260219_role-assignment-effects-agent-robustness.md
-- [ ] 2025 | Eliminating Inductive Bias in Reward Models with Information-Theoretic Guidance | arXiv | https://arxiv.org/abs/2512.23461 | tags: reward-model, inductive-bias, sycophancy-adjacent, rlhf
+- [x] 2025 | Eliminating Inductive Bias in Reward Models with Information-Theoretic Guidance | arXiv | https://arxiv.org/abs/2512.23461 | tags: reward-model, inductive-bias, sycophancy-adjacent, rlhf | note: docs/paper/related_work/rapid_review/papers/20260219_eliminating-inductive-bias-reward-models-dir.md
 - [ ] 2026 | Reward Modeling for Reinforcement Learning-Based LLM Reasoning: Design, Challenges, and Evaluation | arXiv | https://arxiv.org/abs/2602.09305 | tags: reward-model, rlhf, reasoning, survey
 - [ ] 2026 | Automatically Finding Reward Model Biases | arXiv | https://arxiv.org/abs/2602.15222 | tags: reward-model, bias, diagnostics, sycophancy-adjacent
 - [ ] 2025 | Debiasing Reward Models by Representation Learning with Guarantees | arXiv | https://arxiv.org/abs/2510.23751 | tags: reward-model, debiasing, guarantees, sycophancy-adjacent
