@@ -814,3 +814,10 @@ Format (one per line):
 - [x] 2025 | Death by a Thousand Prompts: Open Model Vulnerability Analysis | arXiv | https://arxiv.org/html/2511.03247v1 | tags: security, jailbreak, robustness, red-teaming | note: docs/paper/related_work/rapid_review/papers/20260219_death_by_a_thousand_prompts.md
 - [x] 2025 | Breaking the Prompt Wall (I): A Real-World Case Study of Attacking ChatGPT via Lightweight Prompt Injection | arXiv | https://arxiv.org/html/2504.16125v1 | tags: prompt-injection, persistence, multi-turn, case-study | note: papers/20260219_breaking-prompt-wall-i.md
 - [x] 2025 | A Multi-Agent LLM Defense Pipeline Against Prompt Injection Attacks | arXiv | https://arxiv.org/html/2509.14285v4 | tags: prompt-injection, defense, multi-agent, multi-turn | note: docs/paper/related_work/rapid_review/papers/20260219_multiagent_defense_prompt_injection.md
+
+## New candidates (2026-02-19, web_search batch 1)
+
+- [x] 2025 | Geospatial Foundation Models to Enable Progress on Sustainable Development Goals | arXiv | https://arxiv.org/abs/2505.24528 | tags: geospatial, foundation-model, remote-sensing, survey | note: papers/20260219_geospatial-foundation-models-sdg.md
+- [ ] 2025 | Foundation Models for Geospatial Reasoning: Assessing Capabilities of Large Language Models in Understanding Geometries and Topological Spatial Relations | arXiv | https://arxiv.org/abs/2505.17136 | tags: geospatial, reasoning, llm, spatial-relations, evaluation
+- [ ] 2025 | Deploying Geospatial Foundation Models in the Real World: Lessons from WorldCereal | arXiv | https://arxiv.org/html/2508.00858 | tags: geospatial, foundation-model, deployment, agriculture
+- [ ] 2025 | Geospatial Foundation Models to Enable Progress on Sustainable Development Goals (HTML v1) | arXiv | https://arxiv.org/html/2505.24528v1 | tags: geospatial, foundation-model, remote-sensing, survey
