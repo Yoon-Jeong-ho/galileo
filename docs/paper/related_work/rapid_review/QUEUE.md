@@ -806,3 +806,11 @@ Format (one per line):
 - [x] 2026 | Reward Modeling for Reinforcement Learning-Based LLM Reasoning: Design, Challenges, and Evaluation | arXiv | https://arxiv.org/abs/2602.09305 | tags: reward-model, rlhf, reasoning, survey | note: docs/paper/related_work/rapid_review/papers/20260219_reward-modeling-rl-llm-reasoning-rarl.md
 - [x] 2026 | Automatically Finding Reward Model Biases | arXiv | https://arxiv.org/abs/2602.15222 | tags: reward-model, bias, diagnostics, sycophancy-adjacent | note: docs/paper/related_work/rapid_review/papers/20260219_auto_find_reward_model_biases.md
 - [x] 2025 | Debiasing Reward Models by Representation Learning with Guarantees | arXiv | https://arxiv.org/abs/2510.23751 | tags: reward-model, debiasing, guarantees, sycophancy-adjacent | note: docs/paper/related_work/rapid_review/papers/20260219_debiasing_reward_models_repr_learning_guarantees.md
+
+## New candidates (2026-02-19, web_search prompt-injection batch)
+
+- [x] 2025 | ChatInject: Abusing Chat Templates for Prompt Injection in LLM Agents | arXiv | https://arxiv.org/abs/2509.22830 | tags: prompt-injection, agents, multi-turn, security | note: papers/20260219_chatinject.md
+- [ ] 2025 | Defending Against Prompt Injection with DataFilter | arXiv | https://arxiv.org/html/2510.19207v2 | tags: prompt-injection, defense, agents, robustness
+- [ ] 2025 | Death by a Thousand Prompts: Open Model Vulnerability Analysis | arXiv | https://arxiv.org/html/2511.03247v1 | tags: security, jailbreak, robustness, red-teaming
+- [ ] 2025 | Breaking the Prompt Wall (I): A Real-World Case Study of Attacking ChatGPT via Lightweight Prompt Injection | arXiv | https://arxiv.org/html/2504.16125v1 | tags: prompt-injection, persistence, multi-turn, case-study
+- [ ] 2025 | A Multi-Agent LLM Defense Pipeline Against Prompt Injection Attacks | arXiv | https://arxiv.org/html/2509.14285v4 | tags: prompt-injection, defense, multi-agent, multi-turn
