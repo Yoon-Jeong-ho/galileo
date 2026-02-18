@@ -103,11 +103,12 @@ Ground-truth tasks에서 multi-turn persona pressure 하에 **정답 유지(surv
 
 ## 4) NEXT HEARTBEAT (ONE step)
 
-**Claim→evidence map: Abstract/Intro 문장 단위로 evidence 포인터를 고정(리뷰어-감사 동선 단축).**
+**Experiments (SSOT nlp8): run a standard status check + pick the next Tier‑1 cross-family run (one new family, seeds 1–2).**
 
-- Deliverable: `docs/paper/CLAIM_EVIDENCE_MAP.md`에서 (i) Abstract, (ii) Intro의 핵심 문장을 항목화하고,
-  - 각 문장마다 최소 1개 evidence(그림/표/부록 섹션/트래킹 CSV 경로)를 연결,
-  - “현재 문장 → 왜 위험/애매 → 어떻게 고칠지”까지 1줄 메모를 추가.
+- Deliverable:
+  - `ssh nlp8` status snapshot: `tmux ls`, `nvidia-smi -i 4,5,6 ...`, newest `results/*/run.log` tail.
+  - Decision written to `docs/paper/STATUS.md`: which model family we run next + why (Tier‑1 risk reduction), and which GPU (4/5/6) is free.
+  - If a GPU is clearly free: launch exactly **one** seed1 run in tmux (paper-ready export path), otherwise log the blocker and do a paper-writing step instead.
 
 ---
 
