@@ -9,7 +9,27 @@ from __future__ import annotations
 
 import argparse
 import re
+import time
 from pathlib import Path
+
+
+def _acquire_lock(lock_dir: Path, timeout_s: float = 30.0, poll_s: float = 0.1) -> None:
+    start = time.time()
+    while True:
+        try:
+            lock_dir.mkdir(parents=False, exist_ok=False)
+            return
+        except FileExistsError:
+            if (time.time() - start) >= timeout_s:
+                raise TimeoutError(f"Timed out waiting for lock: {lock_dir}")
+            time.sleep(poll_s)
+
+
+def _release_lock(lock_dir: Path) -> None:
+    try:
+        lock_dir.rmdir()
+    except FileNotFoundError:
+        return
 
 PROGRESS_PATH = Path("docs/paper/related_work/rapid_review/PROGRESS.md")
 
@@ -57,14 +77,19 @@ def main() -> None:
     if args.papers == 0 and args.top10 == 0:
         return
 
-    text = PROGRESS_PATH.read_text(encoding="utf-8")
+    lock = Path("docs/paper/related_work/rapid_review/.lock")
+    _acquire_lock(lock)
+    try:
+        text = PROGRESS_PATH.read_text(encoding="utf-8")
 
-    if args.papers:
-        text = _inc_line(text, "Papers read (notes written)", args.papers)
-    if args.top10:
-        text = _inc_line(text, "Shortlisted into TOP10", args.top10)
+        if args.papers:
+            text = _inc_line(text, "Papers read (notes written)", args.papers)
+        if args.top10:
+            text = _inc_line(text, "Shortlisted into TOP10", args.top10)
 
-    PROGRESS_PATH.write_text(text, encoding="utf-8")
+        PROGRESS_PATH.write_text(text, encoding="utf-8")
+    finally:
+        _release_lock(lock)
 
 
 if __name__ == "__main__":
