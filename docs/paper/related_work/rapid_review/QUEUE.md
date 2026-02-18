@@ -846,7 +846,7 @@ Format (one per line):
 ## New candidates (2026-02-19)
 
 - [x] 2026 | Temporal Graph Network: Hallucination Detection in Multi-Turn Conversation | arXiv | https://arxiv.org/abs/2601.03051 | tags: hallucination,detection,multi-turn | note: docs/paper/related_work/rapid_review/papers/20260219_temporal-graph-network-hallucination-detection.md
-- [ ] 2026 | Halluverse-M^3: A Multitask Multilingual Benchmark for Hallucination in LLMs | arXiv | https://arxiv.org/abs/2602.06920 | tags: hallucination,multilingual,benchmark
+- [x] 2026 | Halluverse-M^3: A Multitask Multilingual Benchmark for Hallucination in LLMs | arXiv | https://arxiv.org/abs/2602.06920 | tags: hallucination,multilingual,benchmark | note: docs/paper/related_work/rapid_review/papers/20260219_halluverse_m3.md
 
 - [x] 2025 | Firm or Fickle? Evaluating Large Language Models Consistency in Sequential Interactions | arXiv | https://arxiv.org/html/2503.22353v1 | tags: multi-turn, consistency, belief-revision, robustness | note: docs/paper/related_work/rapid_review/papers/20260219_firm-or-fickle_mt-consistency.md
 - [x] 2025 | Drift No More? Context Equilibria in Multi-Turn LLM Interactions | arXiv | https://arxiv.org/html/2510.07777v1 | tags: multi-turn, drift, robustness, consistency | note: docs/paper/related_work/rapid_review/papers/20260219_drift-no-more-context-equilibria.md
