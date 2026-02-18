@@ -640,3 +640,11 @@ Format (one per line):
 - [x] 2025 | MultiBreak: A Scalable and Diverse Multi-turn Jailbreak Benchmark for Stress-testing LLM Safety | OpenReview | https://openreview.net/forum?id=uJgfj5EJ2W | tags: multi-turn, jailbreak, benchmark, safety | note: papers/20260218_multibreak.md  # duplicate queue entry; note already exists
 - [x] 2025 | StructFlowBench: A Structured Flow Benchmark for Multi-turn Instruction Following | arXiv | https://arxiv.org/abs/2502.14494 | tags: multi-turn, instruction-following, evaluation, structure | note: papers/20260217_structflowbench.md  # duplicate queue entry; note already exists
 - [x] 2025 | Meeseeks: An Iterative Benchmark Evaluating LLMs Multi-Turn Instruction-Following Ability | arXiv | https://arxiv.org/abs/2504.21625 | tags: multi-turn, instruction-following, iterative, evaluation | note: papers/20260218_meeseeks-iterative-self-correction-benchmark.md
+
+
+## New candidates (2026-02-18, web_search batch 14)
+
+- [x] 2025 | Towards LLMs Robustness to Changes in Prompt Format Styles | arXiv | https://arxiv.org/abs/2504.06969 | tags: prompt-robustness, format, style, perturbations | note: papers/20260218_mof-prompt-format-style-robustness.md
+- [ ] 2025 | Prompt-Reverse Inconsistency: LLM Self-Inconsistency Beyond Generative Randomness and Prompt Paraphrasing | arXiv | https://arxiv.org/abs/2504.01282 | tags: self-inconsistency, prompt-perturbation, evaluation | note: TBD
+- [ ] 2025 | Exploring LLM Reasoning Through Controlled Prompt Variations | arXiv | https://arxiv.org/abs/2504.02111 | tags: prompt-perturbation, reasoning, robustness, gsm8k | note: TBD
+- [ ] 2025 | A Taxonomy of Prompt Defects in LLM Systems | arXiv | https://arxiv.org/abs/2509.14404 | tags: prompt-engineering, taxonomy, defects, robustness | note: TBD
