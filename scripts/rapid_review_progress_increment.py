@@ -77,6 +77,7 @@ def main() -> None:
         args.papers = args.notes
 
     # Cron robustness: treat missing deltas as a no-op success.
+    # IMPORTANT: tolerate callers that only pass metadata like --note/--url.
     if args.papers == 0 and args.top10 == 0:
         return
 
