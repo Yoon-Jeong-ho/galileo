@@ -722,4 +722,4 @@ Format (one per line):
 ## New candidates (2026-02-18, web_search batch 8)
 
 - [x] 2025 | Personalized Attacks of Social Engineering in Multi-turn Conversations: LLM Agents for Simulation and Detection | arXiv | https://arxiv.org/abs/2503.15552 | tags: social-engineering, multi-turn, persuasion, detection, agents | note: papers/20260218_se-vsim-social-engineering.md
-- [ ] 2025 | Pattern Enhanced Multi-Turn Jailbreaking: Exploiting Structural Vulnerabilities in Large Language Models | arXiv | https://arxiv.org/abs/2510.08859 | tags: multi-turn, jailbreak, attacks, structure, robustness
+- [x] 2025 | Pattern Enhanced Multi-Turn Jailbreaking: Exploiting Structural Vulnerabilities in Large Language Models | arXiv | https://arxiv.org/abs/2510.08859 | tags: multi-turn, jailbreak, attacks, structure, robustness | note: papers/20260218_pe-coa-pattern-enhanced-multi-turn-jailbreaking.md
