@@ -648,3 +648,11 @@ Format (one per line):
 - [x] 2025 | Prompt-Reverse Inconsistency: LLM Self-Inconsistency Beyond Generative Randomness and Prompt Paraphrasing | arXiv | https://arxiv.org/abs/2504.01282 | tags: self-inconsistency, prompt-perturbation, evaluation | note: papers/20260218_prompt_reverse_inconsistency.md
 - [x] 2025 | Exploring LLM Reasoning Through Controlled Prompt Variations | arXiv | https://arxiv.org/abs/2504.02111 | tags: prompt-perturbation, reasoning, robustness, gsm8k | note: papers/20260218_exploring-llm-reasoning-prompt-variations.md
 - [x] 2025 | A Taxonomy of Prompt Defects in LLM Systems | arXiv | https://arxiv.org/abs/2509.14404 | tags: prompt-engineering, taxonomy, defects, robustness | note: papers/20260218_taxonomy-prompt-defects-llm-systems.md
+
+## New candidates (2026-02-18, web_search batch)
+
+- [x] 2024 | Linear Probe Penalties Reduce LLM Sycophancy | arXiv | https://arxiv.org/abs/2412.00967 | tags: sycophancy, mitigation, probes | note: papers/20260218_linear-probe-penalties-reduce-sycophancy.md
+- [ ] 2026 | Sycophancy Hides Linearly in the Attention Heads | arXiv | https://arxiv.org/abs/2601.16644 | tags: sycophancy, interpretability, attention-heads
+- [ ] 2026 | A Few Bad Neurons: Isolating and Surgically Correcting Sycophancy | arXiv | https://arxiv.org/abs/2601.18939 | tags: sycophancy, interpretability, neuron-surgery, mitigation
+- [ ] 2025 | Sycophancy Is Not One Thing: Causal Separation of Sycophantic Behaviors in LLMs | arXiv | https://arxiv.org/abs/2509.21305 | tags: sycophancy, causal, taxonomy
+- [ ] 2024 | Sycophancy to Subterfuge: Investigating Reward-Tampering in Large Language Models | arXiv | https://arxiv.org/abs/2406.10162 | tags: sycophancy, reward-hacking, alignment
