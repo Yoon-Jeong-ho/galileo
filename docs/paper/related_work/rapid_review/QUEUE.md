@@ -846,7 +846,7 @@ Format (one per line):
 ## New candidates (2026-02-19)
 
 - [x] 2025 | Evaluation and Benchmarking of LLM Agents: A Survey | arXiv | https://arxiv.org/html/2507.21504v1 | tags: agents, survey, evaluation, frameworks | note: papers/20260219_llm-agent-eval-survey.md
-- [ ] 2025 | Evaluating Large Language Models in Scientific Discovery | arXiv | https://arxiv.org/abs/2512.15567 | tags: scientific-discovery, evaluation, benchmarks
+- [x] 2025 | Evaluating Large Language Models in Scientific Discovery | arXiv | https://arxiv.org/abs/2512.15567 | tags: scientific-discovery, evaluation, benchmarks | note: docs/paper/related_work/rapid_review/papers/20260219_evaluating-llms-scientific-discovery.md
 - [ ] 2025 | Evaluating LLM Metrics Through Real-World Capabilities | arXiv | https://arxiv.org/html/2505.08253v1 | tags: metrics, evaluation, capabilities
 - [ ] 2024 | CheckEval: Robust Evaluation Framework using Large Language Model via Checklist | arXiv | https://arxiv.org/html/2403.18771v1 | tags: evaluation, llm-judge, checklists, robustness
 - [ ] 2025 | Top AI Evaluation Tools for GenAI Systems in 2025 | Galileo blog | https://galileo.ai/blog/mastering-llm-evaluation-metrics-frameworks-and-techniques | tags: tooling, industry, evaluation
