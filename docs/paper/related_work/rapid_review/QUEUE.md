@@ -968,6 +968,6 @@ Format (one per line):
 ## New candidates (2026-02-19, web_search batch 35)
 - [x] 2025 | When Your AI Agent Succumbs to Peer-Pressure: Studying Opinion-Change Dynamics of LLMs | arXiv | https://arxiv.org/abs/2510.19107 | tags: social-pressure, multi-agent, opinion-change, dynamics | note: papers/20260219_peer-pressure-opinion-change-dynamics.md
 - [x] 2026 | OP-Bench: Benchmarking Over-Personalization for Memory-Augmented Personalized Conversational Agents | arXiv | https://arxiv.org/abs/2601.13722 | tags: personalization, memory, over-alignment, sycophancy, benchmark | note: docs/paper/related_work/rapid_review/papers/20260219_op-bench_over-personalization.md
-- [ ] 2026 | Extending Beacon to Hindi: Cultural Adaptation Drives Cross-Lingual Sycophancy | arXiv | https://arxiv.org/abs/2602.00046 | tags: sycophancy, cross-lingual, cultural-adaptation, evaluation
+- [x] 2026 | Extending Beacon to Hindi: Cultural Adaptation Drives Cross-Lingual Sycophancy | arXiv | https://arxiv.org/abs/2602.00046 | tags: sycophancy, cross-lingual, cultural-adaptation, evaluation | note: docs/paper/related_work/rapid_review/papers/20260219_extending-beacon-hindi-sycophancy.md
 - [ ] 2025 | EchoBench: Benchmarking Sycophancy in Medical Large Vision-Language Models | arXiv | https://arxiv.org/abs/2509.20146 | tags: sycophancy, medical, vlm, benchmark
 - [ ] 2025 | Benchmarking and Mitigating Psychological Sycophancy in Medical Vision Language Models | arXiv | https://arxiv.org/abs/2509.21979 | tags: sycophancy, medical, vlm, mitigation, benchmark
