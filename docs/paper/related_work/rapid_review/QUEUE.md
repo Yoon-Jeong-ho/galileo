@@ -713,3 +713,11 @@ Format (one per line):
 - [x] 2024 | LIFBench: Evaluating the Instruction Following Performance and Stability of Large Language Models in Long-Context Scenarios | arXiv | https://arxiv.org/abs/2411.07037 | tags: instruction-following, long-context, stability, benchmark | note: papers/20260218_lifbench.md (duplicate queue entry; note already exists)
 - [x] 2025 | XIFBench: Evaluating Large Language Models on Multilingual Instruction Following | arXiv | https://arxiv.org/abs/2503.07539 | tags: instruction-following, multilingual, benchmark | note: docs/paper/related_work/rapid_review/papers/20260218_xifbench-multilingual-instruction-following.md | constraint-based multilingual IF benchmark; uses English requirements as evaluation anchors
 - [x] 2025 | EifBench: Extremely Complex Instruction Following Benchmark for Large Language Models | arXiv | https://arxiv.org/abs/2506.08375 | tags: instruction-following, complex-constraints, benchmark | note: papers/20260218_eifbench.md
+
+## New candidates (2026-02-18, web_search batch)
+
+- [x] 2025 | Multi-Turn Jailbreaks Are Simpler Than They Seem | arXiv | https://arxiv.org/abs/2508.07646 | tags: multi-turn, jailbreak, safety, attacks | note: papers/20260217_multi-turn-jailbreaks-simpler.md  # duplicate queue entry; note already exists
+- [ ] 2025 | Multi-turn Jailbreaking via Global Refinement and Active Fabrication | arXiv | https://arxiv.org/abs/2506.17881 | tags: multi-turn, jailbreak, refinement, red-teaming
+- [ ] 2025 | SafeDialBench: A Fine-Grained Safety Evaluation Benchmark for Large Language Models in Multi-Turn Dialogues with Diverse Jailbreak Attacks | arXiv | https://arxiv.org/abs/2502.11090 | tags: multi-turn, safety, benchmark, jailbreak
+- [ ] 2025 | M2S: Multi-turn to Single-turn jailbreak in Red Teaming for LLMs | arXiv | https://arxiv.org/abs/2503.04856 | tags: multi-turn, jailbreak, red-teaming
+- [ ] 2026 | The Echo Chamber Multi-Turn LLM Jailbreak | arXiv | https://arxiv.org/abs/2601.05742 | tags: multi-turn, jailbreak, consistency-bias
