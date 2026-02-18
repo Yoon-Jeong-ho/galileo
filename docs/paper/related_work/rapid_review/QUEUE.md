@@ -829,3 +829,11 @@ Format (one per line):
 - [x] 2024 | From Yes-Men to Truth-Tellers: Addressing Sycophancy in Large Language Models with Pinpoint Tuning | arXiv | https://arxiv.org/abs/2409.01658 | tags: sycophancy, mitigation, finetuning, pinpoint | note: docs/paper/related_work/rapid_review/papers/20260219_pinpoint-tuning-sycophancy.md
 - [x] 2025 | SteeringSafety: A Systematic Safety Evaluation Framework of Representation Steering in LLMs | arXiv | https://arxiv.org/abs/2509.13450 | tags: steering, safety-eval, sycophancy-adjacent | note: papers/20260219_steeringsafety_entanglement.md
 - [x] 2025 | Steering Language Models with Weight Arithmetic | arXiv | https://arxiv.org/abs/2511.05408 | tags: steering, weight-arithmetic, sycophancy-adjacent | note: docs/paper/related_work/rapid_review/papers/20260219_steering-language-models-with-weight-arithmetic.md
+
+## New candidates (2026-02-19, web_search batch 2)
+
+- [x] 2025 | When Two LLMs Debate, Both Think They’ll Win | arXiv | https://arxiv.org/abs/2505.19184v2 | tags: belief-revision, debate, confidence, multi-turn | note: papers/20260219_two-llms-debate-both-win.md
+- [ ] 2025 | SycEval: Evaluating LLM Sycophancy | arXiv | https://arxiv.org/abs/2502.08177v4 | tags: sycophancy, evaluation, factor-analysis
+- [ ] 2026 | Not Your Typical Sycophant: The Elusive Nature of Sycophancy in Large Language Models | arXiv | https://arxiv.org/abs/2601.15436v1 | tags: sycophancy, evaluation, confounds
+- [ ] 2025 | GuardVal: Dynamic Large Language Model Jailbreak Evaluation for Comprehensive Safety Testing | arXiv | https://arxiv.org/abs/2507.07735v1 | tags: jailbreak, dynamic-eval, multi-turn
+- [ ] 2026 | Defending Large Language Models Against Jailbreak Attacks via In-Decoding Safety-Awareness Probing | arXiv | https://arxiv.org/abs/2601.10543v1 | tags: jailbreak, defense, decoding
