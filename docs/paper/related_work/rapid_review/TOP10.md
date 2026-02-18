@@ -66,12 +66,14 @@ For each item, we maintain:
    - Borrow: (i) PWC as an early-failure-sensitive metric, (ii) randomized follow-up ordering to reduce position bias, (iii) failure-mode labels (Self-Doubt, Social Conformity, Suggestion Hijacking, Emotional Susceptibility, Reasoning Fatigue).
    - How to change GALILEO: include a “misleading suggestion” pressure operator as a canonical strong adversary; add PWC/trajectory-pattern reporting; and explicitly note that **confidence-based defenses (CARG) can fail on reasoning models** due to reasoning-induced overconfidence—so GALILEO should avoid over-claiming logprob confidence as an uncertainty signal.
 
-10) **Sycophancy Is Not One Thing: Causal Separation of Sycophantic Behaviors in LLMs** (Vennemeyer et al., arXiv 2025)
-   - Contributes: a clean decomposition of “sycophancy” into **sycophantic agreement (SyA)** vs **sycophantic praise (SyPr)** (and contrasts with **genuine agreement (GA)**), showing they are **distinct linear directions/subspaces** in residual activations and **independently steerable** via activation addition.
-   - Misses vs GALILEO: mostly controlled/synthetic + mechanistic; limited multi-turn trajectory metrics (time-to-failure, recovery) and may not transfer directly to black-box settings.
-   - Borrow: (i) the insistence that we should not treat “sycophancy” as one scalar, (ii) the GA vs SyA separation framing (avoid conflating “agreement” with “deference”), (iii) the “behavior-selective intervention” argument.
-   - How to change GALILEO: add/report separate channels for **stance agreement under incorrect user claims** vs **praise/flattery**, and position GALILEO’s decomposed metrics as necessary because these mechanisms are separable.
+10) **The Assistant Axis: Situating and Stabilizing the Default Persona of Language Models** (Lu et al., arXiv 2026)
+   - Contributes: a mechanistic “persona space” map where the leading component is an **Assistant Axis** capturing how strongly the model is in its default assistant persona; shows this projection predicts **persona drift** in multi-turn conversations and proposes **activation capping** along this axis to stabilize behavior and improve robustness to persona-based jailbreaks.
+   - Misses vs GALILEO: measurement/intervention depend on **internal activation access**; focuses on persona/identity/style drift rather than task-grounded correctness under pressure; heavy role-play dataset construction.
+   - Borrow: (i) a crisp scalar “drift coordinate” as a monitoring signal, (ii) the idea that **meta-reflection prompts** and emotionally vulnerable contexts are drift amplifiers worth isolating experimentally, (iii) constrained-steering/capping as an explicit stabilization baseline.
+   - How to change GALILEO: add a persona-drift sidebar (persona drift vs belief drift), and—if we run any white-box experiments—test whether a small subspace/direction predicts our failure trajectories and whether capping/regularizing it improves multi-turn robustness without utility loss.
 ## Changelog
+
+- 2026-02-18: Added *The Assistant Axis: Situating and Stabilizing the Default Persona of Language Models* (arXiv 2026) for its internal “drift coordinate” (Assistant Axis) + activation-capping stabilization and persona-jailbreak robustness. Displaced *Sycophancy Is Not One Thing: Causal Separation of Sycophantic Behaviors in LLMs* (arXiv 2025): important mechanistic decomposition, but less central than a direct persona-drift/stabilization neighbor for GALILEO’s drift narrative.
 
 - 2026-02-18: Added *Sycophancy Hides Linearly in the Attention Heads* (arXiv 2026) for its head-level localization + linear-probe steering story and attention-to-doubt evidence. Displaced *Sycophancy under Pressure* (arXiv 2025): useful mitigation baseline, but less central than a mechanistic “where does the flip live?” neighbor for GALILEO’s core pressure-driven flip claims.
 
