@@ -867,3 +867,8 @@ Format (one per line):
 
 - [x] 2025 | LongMemEval: Benchmarking Chat Assistants on Long-Term Interactive Memory | arXiv | https://arxiv.org/abs/2410.10813 | tags: long-term-memory, chat-assistant, multi-session, benchmark | note: papers/20260219_longmemeval.md
 - [x] 2025 | MemoryBench: A Benchmark for Memory and Continual Learning in LLM Systems | arXiv | https://arxiv.org/abs/2510.17281 | tags: memory, continual-learning, benchmark, llm-systems | note: docs/paper/related_work/rapid_review/papers/20260219_memorybench.md
+
+## New candidates (2026-02-19, web_search roleplay/persona agents)
+
+- [x] 2025 | FURINA: A Fully Customizable Role-Playing Benchmark via Scalable Multi-Agent Collaboration Pipeline | arXiv | https://arxiv.org/abs/2510.06800 | tags: role-play, benchmark, multi-agent, evaluation | note: docs/paper/related_work/rapid_review/papers/20260219_furina_role_play_benchmark_builder.md
+- [ ] 2024 | PersonaGym: Evaluating Persona Agents and LLMs | arXiv | https://arxiv.org/abs/2407.18416 | tags: persona, agents, evaluation, metric
