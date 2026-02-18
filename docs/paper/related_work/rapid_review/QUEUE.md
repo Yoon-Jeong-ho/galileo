@@ -890,3 +890,11 @@ Format (one per line):
 - [x] 2024 | BenchAgents: Multi-Agent Systems for Structured Benchmark Creation | arXiv | https://arxiv.org/abs/2410.22584 | tags: multi-agent, benchmark-creation, planning, constraints | note: docs/paper/related_work/rapid_review/papers/20260219_benchagents_structured_benchmark_creation.md
 - [x] 2025 | MultiAgentBench: Evaluating the Collaboration and Competition of LLM agents | arXiv | https://arxiv.org/abs/2503.01935 | tags: multi-agent, evaluation, collaboration, competition | note: docs/paper/related_work/rapid_review/papers/20260219_multiagentbench_marble.md
 - [x] 2024 | CFBench: A Comprehensive Constraints-Following Benchmark for LLMs | arXiv | https://arxiv.org/abs/2408.01122 | tags: constraints, instruction-following, robustness, benchmark | note: docs/paper/related_work/rapid_review/papers/20260219_cfbench.md
+
+## New candidates (2026-02-19)
+
+- [x] 2025 | SYMPHONY: Synergistic Multi-agent Planning with Heterogeneous Language Model Assembly | NeurIPS 2025 (arXiv) | https://arxiv.org/abs/2601.22623 | tags: agents, multi-agent, planning, MCTS, robustness | note: docs/paper/related_work/rapid_review/papers/20260219_symphony.md
+- [ ] 2026 | Comprehensive Comparison of RAG Methods Across Multi-Domain Conversational QA | EACL SRW 2026 (arXiv) | https://arxiv.org/abs/2602.09552 | tags: conversational-qa, RAG, multi-turn, retrieval, robustness
+- [ ] 2026 | PingPong: A Natural Benchmark for Multi-Turn Code-Switching Dialogues | arXiv | https://arxiv.org/abs/2601.17277 | tags: benchmark, code-switching, multi-party, multi-turn, robustness
+- [ ] 2026 | Fine-Refine: Iterative Fine-grained Refinement for Mitigating Dialogue Hallucination | arXiv | https://arxiv.org/abs/2602.15509 | tags: dialogue, hallucination, refinement, fact-checking
+- [ ] 2026 | Dialogue Model Optimization via Agent Game and Adaptive Tree-based GRPO | arXiv | https://arxiv.org/abs/2602.08533 | tags: dialogue-agents, RL, long-horizon, robustness
