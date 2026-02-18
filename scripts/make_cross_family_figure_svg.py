@@ -10,9 +10,10 @@ Input (tracked artifacts):
 - docs/paper/artifacts/tier1_phi3mini_seed1-2_survival_summary_20260217.csv
 - docs/paper/artifacts/tier1_mistralnemo_seed1-2_survival_summary_20260217.csv
 - docs/paper/artifacts/tier1_zephyr7b_seed1-2_survival_summary_20260218.csv
+- docs/paper/artifacts/tier1_qwen2p5_14b_seed1-2_survival_summary_20260219.csv
 
 Output:
-- docs/paper/figures/cross_family_survival_r5_control_vs_logicaltrap_seed1-2_20260218.svg
+- docs/paper/figures/cross_family_survival_r5_control_vs_logicaltrap_seed1-2_20260219.svg
 
 Plot:
 - For each model family: Survival@5 for Neutral Re-asking Control vs Logical Trap persona.
@@ -30,7 +31,7 @@ from typing import Dict, List, Tuple
 ROOT = Path(__file__).resolve().parents[1]
 ART = ROOT / "docs" / "paper" / "artifacts"
 OUT = ROOT / "docs" / "paper" / "figures"
-DATE_TAG = "20260218"
+DATE_TAG = "20260219"
 
 
 def read_csv(path: Path) -> List[Dict[str, str]]:
@@ -157,6 +158,7 @@ def main() -> None:
     phi3mini = read_csv(ART / "tier1_phi3mini_seed1-2_survival_summary_20260217.csv")
     mistralnemo = read_csv(ART / "tier1_mistralnemo_seed1-2_survival_summary_20260217.csv")
     zephyr7b = read_csv(ART / "tier1_zephyr7b_seed1-2_survival_summary_20260218.csv")
+    qwen14b = read_csv(ART / "tier1_qwen2p5_14b_seed1-2_survival_summary_20260219.csv")
 
     items = []
     for name, rows in [
@@ -166,6 +168,7 @@ def main() -> None:
         ("Llama-3.2-3B-Instruct", llama3b),
         ("Phi-3-mini-Instruct", phi3mini),
         ("Zephyr-7B-beta", zephyr7b),
+        ("Qwen2.5-14B-Instruct", qwen14b),
     ]:
         c_mean, c_std = _pick(rows, "neutral_reask_control")
         t_mean, t_std = _pick(rows, "Logical Trap")
