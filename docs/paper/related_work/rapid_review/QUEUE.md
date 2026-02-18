@@ -758,6 +758,6 @@ Format (one per line):
 
 - [x] 2025 | Modeling and Predicting Multi-Turn Answer Instability in Large Language Models | arXiv | https://arxiv.org/abs/2511.10688 | tags: multi-turn, instability, answer-changes, robustness | note: docs/paper/related_work/rapid_review/papers/20260218_modeling-multi-turn-answer-instability.md | duplicate queue entry (already reviewed)
 - [x] 2025 | Drift No More? Context Equilibria in Multi-Turn LLM Interactions | arXiv | https://arxiv.org/abs/2510.07777 | tags: drift, controls, interventions, multi-turn | note: papers/20260217_drift-no-more.md  # duplicate queue entry; note already exists
-- [ ] 2026 | Consistency of Large Reasoning Models Under Multi-Turn Attack | arXiv | https://arxiv.org/abs/2602.13093 | tags: multi-turn, adversarial, consistency, attacks
+- [x] 2026 | Consistency of Large Reasoning Models Under Multi-Turn Attack | arXiv | https://arxiv.org/abs/2602.13093 | tags: multi-turn, adversarial, consistency, attacks | note: papers/20260218_consistency-lrm-multiturn-attack.md  # duplicate queue entry; note already exists
 - [ ] 2025 | Modeling and Predicting Multi-Turn Answer Instability in Large Language Models (HTML) | arXiv | https://arxiv.org/html/2511.10688v1 | tags: multi-turn, instability, html
 - [ ] 2025 | Modeling and Predicting Multi-Turn Answer Instability in Large Language Models (ResearchGate) | ResearchGate | https://www.researchgate.net/publication/397663620_Modeling_and_Predicting_Multi-Turn_Answer_Instability_in_Large_Language_Models | tags: multi-turn, instability, mirror
