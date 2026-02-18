@@ -1056,3 +1056,12 @@ Rationale: Pythia also showed extremely low initial accuracy (1/80) so even if w
   - OUT: `results_paper/tier1_zephyr7b_seed2_20260218_1034/`
   - tmux: `tier1_zephyr7b_s2_g5_20260218_1034`
   - Command pattern: `GPU=5 SEED=2 OUT=... MODEL=HuggingFaceH4/zephyr-7b-beta bash scripts/remote_run/nlp8_smoke.sh |& tee run.log`
+
+### 2026-02-18 10:43 KST — Zephyr seed2 blocked by GPU5 memory pressure (external job)
+
+- Seed2 run failed immediately on nlp8 GPU5 due to vLLM startup memory check:
+  - `ValueError: Free memory on device ... less than desired GPU memory utilization (0.9, 42.54 GiB)`
+  - Trace in: `results_paper/tier1_zephyr7b_seed2_20260218_1034/run.log`
+- Root cause: GPU5 occupied by external process `jslee-fusion-distill-vllm-v1` (~29GB) under user `omanma1` (PID 1949819).
+- Action: did **not** kill external process; our tmux session already ended.
+- Next: relaunch seed2 on a genuinely free GPU (GPU6 recommended) or reduce vLLM memory utilization if we must share.
