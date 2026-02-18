@@ -616,3 +616,11 @@ Format (one per line):
 - [x] 2026 | Memory in the Age of AI Agents | arXiv | https://arxiv.org/abs/2512.13564 | tags: agents, memory, survey | note: papers/20260218_memory_in_age_ai_agents.md
 - [x] 2025 | Forgetful but Faithful: A Cognitive Memory Architecture and Benchmark for Privacy-Aware Generative Agents | arXiv | https://arxiv.org/abs/2512.12856 | tags: agents, memory, forgetting, privacy, benchmark | note: papers/20260218_forgetful-but-faithful-mars-fifa.md
 - [x] 2025 | Hindsight is 20/20: Building Agent Memory that Retains, Recalls, and Reflects | arXiv | https://arxiv.org/abs/2512.12818 | tags: agents, memory, reflection, long-horizon | note: papers/20260218_hindsight-agent-memory.md
+
+
+## New candidates (2026-02-18, web_search batch 1)
+- [x] 2026 | WavBench: Benchmarking Reasoning, Colloquialism, and Paralinguistics for End-to-End Spoken Dialogue Models | arXiv | https://arxiv.org/abs/2602.12135 | tags: spoken-dialogue, multi-turn, benchmark, paralinguistics | note: papers/20260217_wavbench.md  # duplicate queue entry; note already exists
+- [ ] 2026 | PersoDPO: Scalable Preference Optimization for Instruction-Adherent, Persona-Grounded Dialogue via Multi-LLM Evaluation | arXiv | https://arxiv.org/abs/2602.04493 | tags: persona, dialogue, preference-optimization, multi-turn
+- [ ] 2026 | LingxiDiagBench: A Multi-Agent Framework for Benchmarking LLMs in Chinese Psychiatric Consultation and Diagnosis | arXiv | https://arxiv.org/abs/2602.09379 | tags: multi-agent, medical, psychiatric, benchmark, multi-turn
+- [ ] 2026 | SEAD: Self-Evolving Agent for Multi-Turn Service Dialogue | arXiv | https://arxiv.org/abs/2602.03548 | tags: agents, service-dialogue, multi-turn, self-improvement
+- [ ] 2026 | DETOUR: An Interactive Benchmark for Dual-Agent Search and Reasoning | arXiv | https://arxiv.org/abs/2602.00352 | tags: agents, search, reasoning, interactive, multi-turn, benchmark
