@@ -882,3 +882,11 @@ Format (one per line):
 - [x] 2025 | Deploying Foundation Model-Enabled Air and Ground Robots in the Field: Challenges and Opportunities | arXiv | https://arxiv.org/abs/2505.09477 | tags: robotics, deployment, foundation-models, field | note: docs/paper/related_work/rapid_review/papers/20260219_deploying_fm_enabled_field_robots_spine.md
 - [x] 2025 | Embodied AI with Foundation Models for Mobile Service Robots: A Systematic Review | arXiv | https://arxiv.org/abs/2505.20503 | tags: robotics, mobile, foundation-models, systematic-review | note: docs/paper/related_work/rapid_review/papers/20260219_embodied_ai_foundation_models_msr_systematic_review.md
 - [x] 2025 | Embodied Robot Manipulation in the Era of Foundation Models: Planning and Learning Perspectives | arXiv | https://arxiv.org/abs/2512.22983 | tags: robotics, manipulation, planning, learning, survey | note: docs/paper/related_work/rapid_review/papers/20260219_embodied-manipulation-fms-survey.md
+
+## New candidates (2026-02-19, web_search batch)
+
+- [x] 2025 | Is Vibe Coding Safe? Benchmarking Vulnerability of Agent-Generated Code in Real-World Tasks | arXiv | https://arxiv.org/abs/2512.03262 | tags: agents, code, security, robustness, benchmark | note: papers/20260219_is-vibe-coding-safe.md
+- [ ] 2025 | Benchmark for Planning and Control with Large Language Model Agents: Blocksworld with Model Context Protocol | arXiv | https://arxiv.org/abs/2512.03955 | tags: agents, planning, control, long-horizon, benchmark
+- [ ] 2024 | BenchAgents: Multi-Agent Systems for Structured Benchmark Creation | arXiv | https://arxiv.org/abs/2410.22584 | tags: multi-agent, benchmark-creation, planning, constraints
+- [ ] 2025 | MultiAgentBench: Evaluating the Collaboration and Competition of LLM agents | arXiv | https://arxiv.org/abs/2503.01935 | tags: multi-agent, evaluation, collaboration, competition
+- [ ] 2024 | CFBench: A Comprehensive Constraints-Following Benchmark for LLMs | arXiv | https://arxiv.org/abs/2408.01122 | tags: constraints, instruction-following, robustness, benchmark
