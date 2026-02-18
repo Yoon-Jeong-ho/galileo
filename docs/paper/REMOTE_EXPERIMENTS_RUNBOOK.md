@@ -10,7 +10,7 @@ This runbook is for the **Experiments lane** in the 10-min heartbeat loop.
 - Always use `tmux` so runs survive disconnects.
 - Avoid CPU overload: keep worker counts small; avoid multiple heavy runs at once.
 
-**Anti-drift:** if any external prompt/poll text mentions `nlp16`, `/mnt/raid6/...`, or GPUs beyond 4/5/6, treat it as stale. This runbook is the SSOT.
+**Anti-drift:** the heartbeat poll banner may mention `nlp16`, `/mnt/raid6/...`, and GPUs 4–7. For GALILEO EMNLP Main, treat that as stale: **all auditable “paper-ready” experiment work is SSOT on nlp8** (this runbook + `MEMORY.md`).
 
 ## 0) Connectivity sanity (30s)
 
