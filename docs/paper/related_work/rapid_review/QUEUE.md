@@ -842,3 +842,11 @@ Format (one per line):
 
 - [x] 2025 | A Simple Yet Strong Baseline for Long-Term Conversational Memory of LLM Agents | arXiv | https://arxiv.org/abs/2511.17208 | tags: memory, long-term, multi-session, personalization, robustness | note: docs/paper/related_work/rapid_review/papers/20260219_simple_strong_baseline_long_term_conversational_memory.md
 - [x] 2025 | ConvoMem Benchmark: Why Your First 150 Conversations Don’t Need RAG | arXiv | https://arxiv.org/abs/2511.10523 | tags: memory, long-term, multi-session, retrieval, evaluation | note: docs/paper/related_work/rapid_review/papers/20260219_convomem-benchmark-150-conversations.md
+
+## New candidates (2026-02-19)
+
+- [x] 2025 | Evaluation and Benchmarking of LLM Agents: A Survey | arXiv | https://arxiv.org/html/2507.21504v1 | tags: agents, survey, evaluation, frameworks | note: papers/20260219_llm-agent-eval-survey.md
+- [ ] 2025 | Evaluating Large Language Models in Scientific Discovery | arXiv | https://arxiv.org/abs/2512.15567 | tags: scientific-discovery, evaluation, benchmarks
+- [ ] 2025 | Evaluating LLM Metrics Through Real-World Capabilities | arXiv | https://arxiv.org/html/2505.08253v1 | tags: metrics, evaluation, capabilities
+- [ ] 2024 | CheckEval: Robust Evaluation Framework using Large Language Model via Checklist | arXiv | https://arxiv.org/html/2403.18771v1 | tags: evaluation, llm-judge, checklists, robustness
+- [ ] 2025 | Top AI Evaluation Tools for GenAI Systems in 2025 | Galileo blog | https://galileo.ai/blog/mastering-llm-evaluation-metrics-frameworks-and-techniques | tags: tooling, industry, evaluation
