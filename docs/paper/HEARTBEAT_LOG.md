@@ -1082,3 +1082,11 @@ Rationale: Pythia also showed extremely low initial accuracy (1/80) so even if w
   - GPU5/6: `jslee-fusion-distill-vllm-v1` (user `omanma1`; ~29–30GB each)
 - Cleaned up an old, idle tmux session to reduce operator confusion (no GPU freed):
   - killed: `tier1_zephyr7b_s1_g5_20260217_150053`
+
+### 2026-02-18 14:12 KST — Zephyr Tier‑1 seed2 re-launched on freed GPU4
+
+- nlp8 GPU4 became fully free; GPUs 5/6 still held by external vLLM processes.
+- Launched Zephyr‑7B **seed2** using canonical exporter runner on nlp8 GPU4:
+  - OUT: `results_paper/tier1_zephyr7b_seed2_20260218_141231/`
+  - tmux: `tier1_zephyr7b_s2_g4_20260218_141231`
+  - Command pattern: `GPU=4 SEED=2 OUT=... MODEL=HuggingFaceH4/zephyr-7b-beta bash scripts/remote_run/nlp8_smoke.sh |& tee run.log`
