@@ -902,7 +902,7 @@ Format (one per line):
 ## New candidates (2026-02-19, persona/context pressure)
 
 - [x] 2025 | Moral Susceptibility and Robustness under Persona Role-Play in Large Language Models | arXiv | https://arxiv.org/abs/2511.08565 | tags: persona, role-play, robustness, moral | note: papers/20260219_moral-susceptibility-persona-roleplay.md
-- [ ] 2025 | Persona-Assigned Large Language Models Exhibit Human-Like Motivated Reasoning | arXiv | https://arxiv.org/abs/2506.20020 | tags: persona, motivated-reasoning, veracity, evidence
+- [x] 2025 | Persona-Assigned Large Language Models Exhibit Human-Like Motivated Reasoning | arXiv | https://arxiv.org/abs/2506.20020 | tags: persona, motivated-reasoning, veracity, evidence | note: docs/paper/related_work/rapid_review/papers/20260219_persona_assigned_llms_motivated_reasoning.md
 - [ ] 2026 | PTCBench: Benchmarking Contextual Stability of Personality Traits in LLM Systems | arXiv | https://arxiv.org/abs/2602.00016 | tags: personality, stability, context-pressure, multi-turn
 - [ ] 2024 | Persona-centric Metamorphic Relation guided Robustness Evaluation for Multi-turn Dialogue Modelling | arXiv | https://arxiv.org/abs/2401.12483 | tags: persona, robustness, metamorphic-testing, multi-turn
 - [ ] 2025 | PersonaFuse: A Personality Activation-Driven Framework for Enhancing Human-LLM Interactions | arXiv | https://arxiv.org/abs/2509.07370 | tags: persona, activation, interaction, robustness
