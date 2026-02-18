@@ -87,7 +87,7 @@ Ground-truth tasks에서 multi-turn persona pressure 하에 **정답 유지(surv
 2) **Claim→evidence map completion:** ✅ claim-map skeleton now includes an Abstract/Intro checklist + corrected figure/artifact paths; remaining work is to (i) tie each Abstract/Intro sentence to a specific checklist item and (ii) keep it in sync as the draft changes.
    - SSOT: `docs/paper/CLAIM_EVIDENCE_MAP.md`
 3) **Experiment extension decision (Tier‑1 only):** decide whether the next marginal compute should go to (a) decoding sensitivity sweep vs (b) an additional model family vs (c) more seeds (only if CI looks fragile).
-   - **Immediate sub-decision:** Zephyr‑7B Tier‑1 is currently **seed1 paper-ready**, but **seed2 is blocked** by nlp8 GPU contention (GPUs 4/5/6 occupied). Decide: **wait** for nlp8 to free vs approve a **one-off exception** to run seed2 elsewhere (e.g., nlp16) to unblock cross-family integration.
+   - **Update (2026-02-18):** Zephyr‑7B Tier‑1 **seeds 1–2 are now paper-ready**; cross-family integration can proceed (summary CSV + figure regen).
 
 **Update:** Llama‑3.2‑3B‑Instruct, Phi‑3‑mini, and **Mistral‑Nemo** all have Tier‑1 **seeds 1–2** that are paper-ready and reflected in the tracked cross-family artifact/figure set (see `docs/paper/artifacts/tier1_*_survival_summary_*.csv` and the canonical SVG under `docs/paper/figures/`).
 

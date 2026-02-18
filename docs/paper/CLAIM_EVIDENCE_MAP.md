@@ -77,9 +77,8 @@ These are the claims most likely to be read *without* looking at appendices. Eac
      - `docs/paper/artifacts/tier1_llama3_8b_seed1-2_survival_summary_20260210.csv`
      - `docs/paper/artifacts/tier1_llama3_3b_seed1-2_survival_summary_20260212.csv`
      - `docs/paper/artifacts/tier1_phi3mini_seed1-2_survival_summary_20260217.csv`
-     - *(pending; once seed2 completes)* `docs/paper/artifacts/tier1_zephyr7b_seed1-2_survival_summary_<DATE>.csv`
+     - `docs/paper/artifacts/tier1_zephyr7b_seed1-2_survival_summary_20260218.csv`
    - Regenerate: `python3 scripts/make_cross_family_figure_svg.py`
-   - Status note: Zephyr‑7B seed1 is already paper-ready on the experiment SSOT (`results_paper/tier1_zephyr7b_seed1_20260218_0945/`), but seed2 and the tracked summary CSV are not yet available due to GPU contention.
 6) **Decoding sensitivity check: persona-vs-control gaps are qualitatively stable under sampling.**
    - Evidence: `docs/paper/figures/decoding_sweep_qwen_delta_seed1-2_20260211.svg`
    - Artifact: `docs/paper/artifacts/decoding_sweep_qwen_temp_summary_seed1-2_20260211.csv`
