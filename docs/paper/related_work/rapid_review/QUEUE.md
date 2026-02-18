@@ -993,6 +993,6 @@ Format (one per line):
 ## New candidates (2026-02-19, web_search batch 37)
 - [x] 2025 | Alignment Without Understanding: A Message- and Conversation-Centered Approach to Understanding AI Sycophancy | arXiv | https://arxiv.org/abs/2509.21665 | tags: sycophancy, conceptual, conversation, alignment | note: docs/paper/related_work/rapid_review/papers/20260219_alignment-without-understanding.md
 - [x] 2025 | BASIL: Bayesian Assessment of Sycophancy in LLMs | arXiv | https://arxiv.org/abs/2508.16846 | tags: sycophancy, bayesian, calibration, evaluation | note: docs/paper/related_work/rapid_review/papers/20260219_basil_bayesian_assessment_sycophancy.md
-- [ ] 2025 | Sycophantic AI Decreases Prosocial Intentions and Promotes Dependence | arXiv | https://arxiv.org/abs/2510.01395 | tags: sycophancy, user-study, dependence, prosocial
+- [x] 2025 | Sycophantic AI Decreases Prosocial Intentions and Promotes Dependence | arXiv | https://arxiv.org/abs/2510.01395 | tags: sycophancy, user-study, dependence, prosocial | note: docs/paper/related_work/rapid_review/papers/20260219_sycophantic_ai_prosocial_dependence.md
 - [ ] 2025 | Social Sycophancy: A Broader Understanding of LLM Sycophancy | arXiv | https://arxiv.org/abs/2507.21509 | tags: sycophancy, social, open-ended, evaluation
 - [ ] 2024 | Accounting for Sycophancy in Language Model Uncertainty Estimation | arXiv | https://arxiv.org/abs/2410.14746 | tags: sycophancy, uncertainty, calibration
