@@ -981,3 +981,8 @@ Format (one per line):
 - [x] 2025 | Polypersona: Persona-Grounded LLM for Synthetic Survey Responses | arXiv | https://arxiv.org/abs/2512.14562 | tags: persona, surveys, consistency, synthetic-data | note: docs/paper/related_work/rapid_review/papers/20260219_polypersona.md
 - [x] 2026 | HumanLLM: Benchmarking and Improving LLM Anthropomorphism via Human Cognitive Patterns | arXiv | https://arxiv.org/abs/2601.10198 | tags: anthropomorphism, personality, drift, evaluation | note: docs/paper/related_work/rapid_review/papers/20260219_humanllm_anthropomorphism_patterns.md
 - [x] 2025 | BILLY: Steering Large Language Models via Merging Persona Vectors for Creative Generation | arXiv | https://arxiv.org/abs/2510.10157 | tags: persona, steering, vectors, control | note: docs/paper/related_work/rapid_review/papers/20260219_billy_persona_vector_merging.md
+
+## New candidates (2026-02-19, web_search batch 36)
+- [x] 2025 | Towards Outcome-Oriented, Task-Agnostic Evaluation of AI Agents | arXiv | https://arxiv.org/html/2511.08242v1 | tags: agents, evaluation, outcome-oriented, task-agnostic | note: docs/paper/related_work/rapid_review/papers/20260219_outcome-oriented-task-agnostic-agent-evaluation.md
+- [ ] 2025 | A Survey of Agent Evaluation Frameworks: Benchmarking the Benchmarks | Blog | https://www.getmaxim.ai/blog/llm-agent-evaluation-framework-comparison/ | tags: agents, evaluation, survey, benchmarks | note:
+- [ ] 2025 | PaperArena: An Evaluation Benchmark for Tool-Augmented Agentic Reasoning on Scientific Literature | arXiv | https://arxiv.org/html/2510.10909v1 | tags: agents, tool-use, scientific-literature, benchmark | note:
