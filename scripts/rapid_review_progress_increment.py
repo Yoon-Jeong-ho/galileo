@@ -38,6 +38,7 @@ def main() -> None:
     # Back-compat: some cron attempts use --count instead of --papers.
     ap.add_argument("--count", type=int, default=0, help=argparse.SUPPRESS)
     ap.add_argument("--delta", type=int, default=0, help=argparse.SUPPRESS)
+    ap.add_argument("--n", type=int, default=0, help=argparse.SUPPRESS)
     # Cron/back-compat: accept-and-ignore common mispassed args.
     ap.add_argument("--url", default="", help=argparse.SUPPRESS)
     ap.add_argument("--note", default="", help=argparse.SUPPRESS)
@@ -49,6 +50,8 @@ def main() -> None:
         args.papers = args.count
     if args.papers == 0 and args.delta:
         args.papers = args.delta
+    if args.papers == 0 and args.n:
+        args.papers = args.n
 
     # Cron robustness: treat missing deltas as a no-op success.
     if args.papers == 0 and args.top10 == 0:
