@@ -737,3 +737,11 @@ Format (one per line):
 - [x] 2025 | When Two LLMs Debate, Both Think They’ll Win | arXiv | https://arxiv.org/abs/2505.19184 | tags: debate, belief-update, multi-turn, calibration | note: papers/20260217_two-llms-debate-win.md  # duplicate queue entry; note already exists
 - [x] 2025 | Evaluating LLM-based Agents for Multi-Turn Conversations: A Survey | arXiv | https://arxiv.org/abs/2503.22458 | tags: survey, multi-turn, agents, evaluation | note: papers/20260217_evaluating-llm-agents-multi-turn-survey.md  # duplicate queue entry; note already exists
 - [x] 2024 | A Survey on Recent Advances in LLM-Based Multi-turn Dialogue Systems | arXiv | https://arxiv.org/abs/2402.18013 | tags: survey, multi-turn, dialogue-systems | note: papers/20260217_survey-llm-multi-turn-dialogue-systems.md  # duplicate queue entry; note already exists
+
+## New candidates (2026-02-18, web_search batch)
+
+- [x] 2026 | AWARE-US: Persona-grounded Multi-Turn Database Queries in the Car Domain | arXiv | https://arxiv.org/abs/2601.02643 | tags: persona, multi-turn, dialogue, constraints, benchmark | note: papers/20260218_aware-us_preference-aware-resolution_tool-calling.md
+- [ ] 2026 | PersoDPO: Scalable Preference Optimization for Instruction-Adherent, Persona-Grounded Dialogue via Multi-LLM Evaluation | arXiv | https://arxiv.org/abs/2602.04493 | tags: persona, preference-optimization, multi-turn, evaluation
+- [ ] 2025 | PrivacyBench: A Conversational Benchmark for Evaluating Privacy in Personalized AI | arXiv | https://arxiv.org/abs/2512.24848 | tags: privacy, secrets, personalization, multi-turn, benchmark
+- [ ] 2024 | PersoBench: Benchmarking Personalized Response Generation in Large Language Models | arXiv | https://arxiv.org/abs/2410.03198 | tags: personalization, persona, multi-turn, benchmark, evaluation
+- [ ] 2025 | A Personalized Conversational Benchmark: Towards Simulating Personalized Conversations | arXiv | https://arxiv.org/abs/2505.14106 | tags: personalization, simulation, multi-turn, benchmark
