@@ -989,3 +989,10 @@ Format (one per line):
 - [x] 2025 | Towards Outcome-Oriented, Task-Agnostic Evaluation of AI Agents | arXiv | https://arxiv.org/html/2511.08242v1 | tags: agents, evaluation, outcome-oriented, task-agnostic | note: docs/paper/related_work/rapid_review/papers/20260219_outcome-oriented-task-agnostic-agent-evaluation.md
 - [x] 2025 | A Survey of Agent Evaluation Frameworks: Benchmarking the Benchmarks | Blog | https://www.getmaxim.ai/blog/llm-agent-evaluation-framework-comparison/ | tags: agents, evaluation, survey, benchmarks | note: docs/paper/related_work/rapid_review/papers/20260219_agent_eval_frameworks_survey_maxim_blog.md
 - [x] 2025 | PaperArena: An Evaluation Benchmark for Tool-Augmented Agentic Reasoning on Scientific Literature | arXiv | https://arxiv.org/html/2510.10909v1 | tags: agents, tool-use, scientific-literature, benchmark | note: docs/paper/related_work/rapid_review/papers/20260219_paperarena_benchmark.md
+
+## New candidates (2026-02-19, web_search batch 37)
+- [x] 2025 | Alignment Without Understanding: A Message- and Conversation-Centered Approach to Understanding AI Sycophancy | arXiv | https://arxiv.org/abs/2509.21665 | tags: sycophancy, conceptual, conversation, alignment | note: docs/paper/related_work/rapid_review/papers/20260219_alignment-without-understanding.md
+- [x] 2025 | BASIL: Bayesian Assessment of Sycophancy in LLMs | arXiv | https://arxiv.org/abs/2508.16846 | tags: sycophancy, bayesian, calibration, evaluation | note: docs/paper/related_work/rapid_review/papers/20260219_basil_bayesian_assessment_sycophancy.md
+- [ ] 2025 | Sycophantic AI Decreases Prosocial Intentions and Promotes Dependence | arXiv | https://arxiv.org/abs/2510.01395 | tags: sycophancy, user-study, dependence, prosocial
+- [ ] 2025 | Social Sycophancy: A Broader Understanding of LLM Sycophancy | arXiv | https://arxiv.org/abs/2507.21509 | tags: sycophancy, social, open-ended, evaluation
+- [ ] 2024 | Accounting for Sycophancy in Language Model Uncertainty Estimation | arXiv | https://arxiv.org/abs/2410.14746 | tags: sycophancy, uncertainty, calibration
