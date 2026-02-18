@@ -40,7 +40,7 @@ When converting the draft to LaTeX, keep these **label → file** mappings stabl
 - `fig:recovery-delta` → `docs/paper/figures/recovery_personawise_delta_seed1-4_20260209.svg`
 - `fig:tablew-effect-deltas` → `docs/paper/figures/table_w_effect_delta_seed1-4_20260209.svg`
 - `tab:tablew` → (Table W; artifacts) `docs/paper/artifacts/table_w_control_vs_persona_seed1-4_mean_std_20260209.csv` and `docs/paper/artifacts/table_w_effect_delta_seed1-4_20260209.csv`
-- `fig:cross-family-survival` → `docs/paper/figures/cross_family_survival_r5_control_vs_logicaltrap_seed1-2_20260217.svg`
+- `fig:cross-family-survival` → `docs/paper/figures/cross_family_survival_r5_control_vs_logicaltrap_seed1-2_20260218.svg`
 - `fig:decoding-sweep` → `docs/paper/figures/decoding_sweep_qwen_delta_seed1-2_20260211.svg`
 
 (If the figure filenames change due to regeneration, update **both** this map and the LaTeX labels in the draft in the same commit.)
@@ -70,7 +70,7 @@ These are the claims most likely to be read *without* looking at appendices. Eac
    - Artifact: `docs/paper/artifacts/recovery_personawise_control_vs_persona_seed1-4_mean_std_20260209.csv`
    - Regenerate: `python3 scripts/make_paper_figures_from_artifacts.py`
 5) **Cross-family replication under the same protocol (at least seeds 1–2).**
-   - Evidence: `docs/paper/figures/cross_family_survival_r5_control_vs_logicaltrap_seed1-2_20260217.svg`
+   - Evidence: `docs/paper/figures/cross_family_survival_r5_control_vs_logicaltrap_seed1-2_20260218.svg`
    - Artifact inputs (CSV → figure):
      - `docs/paper/artifacts/tier1_mistral7b_seed1-2_survival_summary_20260210.csv`
      - `docs/paper/artifacts/tier1_mistralnemo_seed1-2_survival_summary_20260217.csv`
@@ -162,7 +162,7 @@ These are the exact “proof pointer” hooks we want a reviewer to notice in th
 
 **Primary evidence (paper-facing)**
 - Cross-family visualization (control vs strong persona):
-  - Figure (SVG): `docs/paper/figures/cross_family_survival_r5_control_vs_logicaltrap_seed1-2_20260217.svg`
+  - Figure (SVG): `docs/paper/figures/cross_family_survival_r5_control_vs_logicaltrap_seed1-2_20260218.svg`
   - Regeneration: `python3 scripts/make_cross_family_figure_svg.py` (reads `docs/paper/artifacts/*`)
 - Family-wise survival summaries (CSV → figure):
   - Artifact (CSV): `docs/paper/artifacts/tier1_mistral7b_seed1-2_survival_summary_20260210.csv`
