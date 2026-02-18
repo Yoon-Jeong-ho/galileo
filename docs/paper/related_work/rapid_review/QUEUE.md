@@ -761,3 +761,11 @@ Format (one per line):
 - [x] 2026 | OMNI-LEAK: Orchestrator Multi-Agent Network Induced Data Leakage | arXiv | https://arxiv.org/abs/2602.13477 | tags: multi-agent, data-leakage, safety, orchestration | note: docs/paper/related_work/rapid_review/papers/20260218_omni_leak_orchestrator_data_leakage.md
 - [x] 2026 | Defensive M2S: Training Guardrail Models on Compressed Multi-turn Conversations | arXiv | https://arxiv.org/abs/2601.00454 | tags: safety, guardrails, compression, multi-turn | note: docs/paper/related_work/rapid_review/papers/20260218_defensive-m2s-guardrail-compression.md
 - [x] 2026 | MindGuard: Guardrail Classifiers for Multi-Turn Mental Health Support | arXiv | https://arxiv.org/abs/2602.00950 | tags: safety, mental-health, guardrails, multi-turn | note: docs/paper/related_work/rapid_review/papers/20260218_mindguard.md | duplicate queue entry
+
+## New candidates (2026-02-18, web_search batch)
+
+- [x] 2025 | Jailbreaking to Jailbreak | arXiv | https://arxiv.org/abs/2502.09638 | tags: multi-turn, jailbreak, attacks, agentic | note: papers/20260218_jailbreaking-to-jailbreak.md
+- [ ] 2024 | LLM defenses are not robust to multi-turn human jailbreaks yet | arXiv | https://arxiv.org/abs/2408.15221 | tags: multi-turn, jailbreak, human-led, attacks
+- [ ] 2025 | EVALOOOP: A Self-Consistency-Centered Framework for Assessing Large Language Model Robustness in Programming | arXiv | https://arxiv.org/abs/2505.12185 | tags: robustness, self-consistency, programming, evaluation
+- [ ] 2026 | LALM-as-a-Judge: Benchmarking Large Audio-Language Models for Safety Evaluation in Multi-Turn Spoken Dialogues | arXiv | https://arxiv.org/abs/2602.04796 | tags: multi-turn, safety, spoken-dialogue, audio, evaluation
+- [ ] 2025 | LLaVAShield: Safeguarding Multimodal Multi-Turn Dialogues in Vision-Language Models | arXiv | https://arxiv.org/abs/2509.25896 | tags: multimodal, multi-turn, safety, defense
