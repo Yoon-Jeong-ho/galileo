@@ -789,7 +789,7 @@ Format (one per line):
 ## New candidates (2026-02-18, web_search batch 1)
 
 - [x] 2026 | PersistBench: When Should Long-Term Memories Be Forgotten by LLMs? | arXiv | https://arxiv.org/abs/2602.01146 | tags: memory, long-term, forgetting, safety, multi-turn | note: docs/paper/related_work/rapid_review/papers/20260218_persistbench.md | duplicate queue entry (already reviewed)
-- [ ] 2026 | EverMemBench: Benchmarking Long-Term Interactive Memory in Large Language Models | arXiv | https://arxiv.org/abs/2602.01313 | tags: memory, long-term, interactive, multi-party, benchmark
+- [x] 2026 | EverMemBench: Benchmarking Long-Term Interactive Memory in Large Language Models | arXiv | https://arxiv.org/abs/2602.01313 | tags: memory, long-term, interactive, multi-party, benchmark | note: papers/20260218_evermembench.md
 - [ ] 2026 | LoCoMo-Plus: Beyond-Factual Cognitive Memory Evaluation Framework for LLM Agents | arXiv | https://arxiv.org/abs/2602.10715 | tags: memory, long-term, cognitive, constraints, agents
 - [ ] 2025 | ENGRAM: Effective, Lightweight Memory Orchestration for Conversational Agents | arXiv | https://arxiv.org/abs/2511.12960 | tags: memory, orchestration, agents, retrieval, long-term
 - [ ] 2025 | Beyond a Million Tokens: Benchmarking and Enhancing Long-Term Memory in LLMs | arXiv | https://arxiv.org/abs/2510.27246 | tags: memory, long-context, benchmark, scalability
