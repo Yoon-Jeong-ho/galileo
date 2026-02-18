@@ -1101,3 +1101,10 @@ Rationale: Pythia also showed extremely low initial accuracy (1/80) so even if w
 Next:
 - When run finishes: run `python3 scripts/paper_export.py --results_root $OUT` + write `paper_exports/runner_metadata.json` (if missing), then `python3 scripts/validate_paper_exports.py --results_root $OUT`.
 - Stage into `results_paper/` and re-run `python3 scripts/validate_paper_exports.py --results_root results_paper --check_runner_parity`.
+
+### 2026-02-19 06:24 KST — Tier‑1 Qwen2.5‑14B seed2 progressed to Round5 (still running)
+
+- Checked nlp8 run health: GPU5 ~98% util, ~45.4/49.1GiB; `run.log` mtime updating → run is active.
+- OUT: `results/tier1_qwen2p5_14b_seed2_20260219_053824/`
+- Status: finished Round4 (408 still correct, 17 failed) and started **Round5** (408 active tracks); currently processing Round5 prompts.
+- No `paper_exports/` yet (expected until completion).

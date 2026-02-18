@@ -33,7 +33,7 @@ Ground-truth tasks에서 multi-turn persona pressure 하에 **정답 유지(surv
 - **Decoding sweep (seed1–2) done:** `results_paper/qwen_temp0_seed{1,2}` + `results_paper/qwen_temp0p7_seed{1,2}` are paper-ready; `results_paper/GLOBAL_VALIDATE.log` remains all `[OK]`.
 - **Tier‑1 Qwen2.5‑14B‑Instruct (cross-family extension):**
   - seed1 is paper-ready and staged into `results_paper/`.
-  - seed2 is **running** on nlp8 GPU5: `results/tier1_qwen2p5_14b_seed2_20260219_053824/` (as of 06:16 KST: Round4 in progress; no exports yet).
+  - seed2 is **running** on nlp8 GPU5: `results/tier1_qwen2p5_14b_seed2_20260219_053824/` (as of 06:24 KST: entered **Round5**; no exports yet).
 - **Current risk:** process drift (conflicting docs about host/GPU policy, lane starvation, missing commits) → we keep SSOT docs aligned (STATUS/CHECKLIST/RUNBOOK).
 - **Cross-family extension note (Gemma2):** attempted adding Gemma2 (google/gemma-2-2b-it) on nlp8 RTX8000 via vLLM; it fails due to (i) max_model_len>8192 guardrail and (ii) Triton unified-attention shared-memory OOR on cc7.5. Avoid Gemma2 on this hardware unless we change vLLM backend/settings.
 - **Cross-family extension note (Falcon-7B):** `tiiuae/falcon-7b-instruct` fails at vLLM init (`FalconConfig` missing `rope_parameters`) → likely transformers/vLLM compatibility issue; run is **incomplete** (no exports).
