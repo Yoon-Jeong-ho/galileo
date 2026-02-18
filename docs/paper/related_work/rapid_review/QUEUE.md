@@ -689,3 +689,11 @@ Format (one per line):
 - [x] 2024 | A Survey on Recent Advances in LLM-Based Multi-turn Dialogue Systems | arXiv | https://arxiv.org/abs/2402.18013 | tags: survey, multi-turn, dialogue | note: papers/20260217_survey-llm-multi-turn-dialogue-systems.md (duplicate queue entry)
 - [x] 2024 | Multimodal Multi-turn Conversation Stance Detection: A Challenge Dataset and Effective Model | arXiv | https://arxiv.org/abs/2409.00597 | tags: stance-stability-adjacent, multi-turn, dataset | note: papers/20260218_mmmtcsd_multimodal_multiturn_stance.md
 - [x] 2025 | Large Language Models Meet Stance Detection: A Survey of Tasks, Methods, Applications, Challenges and Future Directions | arXiv | https://arxiv.org/abs/2505.08464 | tags: stance-stability-adjacent, survey | note: docs/paper/related_work/rapid_review/papers/20260218_llms-stance-detection-survey.md
+
+## New candidates (2026-02-18, web_search batch A)
+
+- [x] 2025 | DEBATE: A Large-Scale Benchmark for Evaluating Opinion Dynamics in Role-Playing LLM Agents | arXiv | https://arxiv.org/abs/2510.25110 | tags: role-playing, opinion-dynamics, multi-agent, benchmark | note: papers/20260218_debate-opinion-dynamics-benchmark.md
+- [ ] 2025 | Beacon: Single-Turn Diagnosis and Mitigation of Latent Sycophancy in Large Language Models | arXiv | https://arxiv.org/abs/2510.16727 | tags: sycophancy, diagnosis, mitigation, benchmark
+- [ ] 2026 | PersistBench: When Should Long-Term Memories Be Forgotten by LLMs? | arXiv | https://arxiv.org/abs/2602.01146 | tags: agents, memory, forgetting, benchmark
+- [ ] 2026 | DimStance: Multilingual Datasets for Dimensional Stance Analysis | arXiv | https://arxiv.org/abs/2601.21483 | tags: stance, stability-adjacent, multilingual, dataset
+- [ ] 2024 | PingPong: A Benchmark for Role-Playing Language Models with User Emulation and Multi-Model Evaluation | arXiv | https://arxiv.org/abs/2409.06820 | tags: role-playing, user-emulation, multi-turn, benchmark
