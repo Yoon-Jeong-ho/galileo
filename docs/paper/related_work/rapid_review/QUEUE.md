@@ -694,3 +694,10 @@ Format (one per line):
 - [x] 2025 | VCB Bench: An Evaluation Benchmark for Audio-Grounded Large Language Model Conversational Agents | arXiv | https://arxiv.org/abs/2510.11098 | tags: audio, conversational-agents, evaluation, multi-turn | note: docs/paper/related_work/rapid_review/papers/20260218_vcb-bench.md
 - [x] 2026 | PodBench: A Comprehensive Benchmark for Instruction-Aware Audio-Oriented Podcast Script Generation | arXiv | https://arxiv.org/abs/2601.14903 | tags: audio, multi-turn, instruction-following, benchmark | note: docs/paper/related_work/rapid_review/papers/20260218_podbench.md
 - [x] 2026 | ChartEditBench: Evaluating Grounded Multi-Turn Chart Editing in Multimodal Language Models | arXiv | https://arxiv.org/abs/2602.15758 | tags: multimodal, chart-editing, multi-turn, tool-use, evaluation | note: docs/paper/related_work/rapid_review/papers/20260218_charteditbench.md
+
+## New candidates (2026-02-18)
+
+- [x] 2025 | Acquiescence Bias in Large Language Models | arXiv | https://arxiv.org/abs/2509.08480 | tags: acquiescence, sycophancy-adjacent, agreement-bias, evaluation | note: docs/paper/related_work/rapid_review/papers/20260218_acquiescence-bias-llms.md
+- [ ] 2025 | Evaluating Bias in Spoken Dialogue LLMs for Real-World Decisions and Recommendations | arXiv | https://arxiv.org/abs/2510.02352 | tags: bias, spoken-dialogue, multi-turn, repeated-feedback
+- [ ] 2025 | B-score: Detecting biases in large language models using response history | arXiv | https://arxiv.org/abs/2505.18545 | tags: bias, multi-turn, self-debiasing, response-history, evaluation
+- [ ] 2026 | Bi-directional Bias Attribution: Debiasing Large Language Models without Modifying Prompts | arXiv | https://arxiv.org/abs/2602.04398 | tags: debiasing, interventions, interpretability, multi-turn-adjacent
