@@ -773,7 +773,7 @@ Format (one per line):
 ## New candidates (2026-02-18, web_search batch)
 
 - [x] 2025 | A Bayesian-Latent Model of Large Language Model Sycophancy | TechRxiv | https://www.techrxiv.org/users/913189/articles/1293606-a-bayesian-latent-model-of-large-language-model-sycophancy | tags: sycophancy, measurement, latent-variable, bayesian | note: docs/paper/related_work/rapid_review/papers/20260218_bayesian_latent_llm_sycophancy.md
-- [ ] 2025 | WOLF: Werewolf-based Observations for LLM Deception and Falsehoods | arXiv | https://arxiv.org/abs/2512.09187 | tags: deception, multi-turn, dialogue, social-deduction
+- [x] 2025 | WOLF: Werewolf-based Observations for LLM Deception and Falsehoods | arXiv | https://arxiv.org/abs/2512.09187 | tags: deception, multi-turn, dialogue, social-deduction | note: docs/paper/related_work/rapid_review/papers/20260218_wolf_llm_deception_werewolf.md
 - [ ] 2025 | Offline RL by Reward-Weighted Fine-Tuning for Conversation Optimization | arXiv | https://arxiv.org/abs/2506.06964 | tags: multi-turn, RLHF-adjacent, conversation-optimization, offline-RL
 - [ ] 2024 | FB-Bench: A Fine-Grained Multi-Task Benchmark for Evaluating LLMs' Responsiveness to Human Feedback | arXiv | https://arxiv.org/abs/2410.09412 | tags: multi-turn, human-feedback, evaluation, benchmark
 - [ ] 2024 | WebLINX: Real-World Website Navigation with Multi-Turn Dialogue | arXiv | https://arxiv.org/abs/2402.05930 | tags: multi-turn, web-navigation, agents, benchmark
