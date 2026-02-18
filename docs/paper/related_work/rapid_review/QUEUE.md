@@ -725,7 +725,7 @@ Format (one per line):
 ## New candidates (2026-02-18, web_search batch 1)
 
 - [x] 2025 | ScamAgents: How AI Agents Can Simulate Human-Level Scam Calls | arXiv | https://arxiv.org/abs/2508.06457 | tags: agents, persuasion, scam, multi-turn, safety | note: papers/20260218_scamagents.md
-- [ ] 2025 | SafeTy Reasoning Elicitation Alignment for Multi-Turn Dialogues (STREAM) | arXiv | https://arxiv.org/abs/2506.00668 | tags: multi-turn, safety, jailbreak, defense, reasoning-moderator
+- [x] 2025 | SafeTy Reasoning Elicitation Alignment for Multi-Turn Dialogues (STREAM) | arXiv | https://arxiv.org/abs/2506.00668 | tags: multi-turn, safety, jailbreak, defense, reasoning-moderator | note: papers/20260218_stream-multiturn-safety-moderator.md
 - [ ] 2025 | AI Debaters are More Persuasive when Arguing in Alignment with Their Own Beliefs | arXiv | https://arxiv.org/abs/2510.13912 | tags: persuasion, debate, beliefs, stance, multi-turn
 - [ ] 2025 | TAMAS: Benchmarking Adversarial Risks in Multi-Agent LLM Systems | arXiv | https://arxiv.org/abs/2511.05269 | tags: multi-agent, adversarial, safety, benchmark
 - [ ] 2025 | Indirect Prompt Injections: Are Firewalls All You Need, or Stronger Benchmarks? | arXiv | https://arxiv.org/abs/2510.05244 | tags: prompt-injection, agents, benchmarks, security
