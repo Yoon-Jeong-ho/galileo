@@ -811,6 +811,6 @@ Format (one per line):
 
 - [x] 2025 | ChatInject: Abusing Chat Templates for Prompt Injection in LLM Agents | arXiv | https://arxiv.org/abs/2509.22830 | tags: prompt-injection, agents, multi-turn, security | note: papers/20260219_chatinject.md
 - [x] 2025 | Defending Against Prompt Injection with DataFilter | arXiv | https://arxiv.org/html/2510.19207v2 | tags: prompt-injection, defense, agents, robustness | note: papers/20260219_datafilter_prompt_injection_defense.md
-- [ ] 2025 | Death by a Thousand Prompts: Open Model Vulnerability Analysis | arXiv | https://arxiv.org/html/2511.03247v1 | tags: security, jailbreak, robustness, red-teaming
+- [x] 2025 | Death by a Thousand Prompts: Open Model Vulnerability Analysis | arXiv | https://arxiv.org/html/2511.03247v1 | tags: security, jailbreak, robustness, red-teaming | note: docs/paper/related_work/rapid_review/papers/20260219_death_by_a_thousand_prompts.md
 - [ ] 2025 | Breaking the Prompt Wall (I): A Real-World Case Study of Attacking ChatGPT via Lightweight Prompt Injection | arXiv | https://arxiv.org/html/2504.16125v1 | tags: prompt-injection, persistence, multi-turn, case-study
 - [ ] 2025 | A Multi-Agent LLM Defense Pipeline Against Prompt Injection Attacks | arXiv | https://arxiv.org/html/2509.14285v4 | tags: prompt-injection, defense, multi-agent, multi-turn
