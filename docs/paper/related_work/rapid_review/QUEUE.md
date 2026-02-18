@@ -960,7 +960,7 @@ Format (one per line):
 ## New candidates (2026-02-19, web_search)
 
 - [x] 2026 | Sycophantic Anchors: Localizing and Quantifying User Agreement in Reasoning Models | arXiv | https://arxiv.org/abs/2601.21183 | tags: sycophancy, agreement, interpretability, localization, reasoning | note: papers/20260219_sycophantic-anchors.md
-- [ ] 2025 | Echoes of Agreement: Argument Driven Opinion Shifts in Large Language Models | arXiv | https://arxiv.org/abs/2508.09759 | tags: opinion-shift, arguments, agreement, persuasion-adjacent
+- [x] 2025 | Echoes of Agreement: Argument Driven Opinion Shifts in Large Language Models | arXiv | https://arxiv.org/abs/2508.09759 | tags: opinion-shift, arguments, agreement, persuasion-adjacent | note: docs/paper/related_work/rapid_review/papers/20260219_echoes_of_agreement.md
 - [ ] 2026 | Feedback Indices to Evaluate LLM Responses to Rebuttals for Multiple Choice Type Questions | arXiv | https://arxiv.org/abs/2601.03285 | tags: rebuttal, multi-turn, evaluation, stability
 - [ ] 2025 | AbstentionBench: Reasoning LLMs Fail on Unanswerable Questions | arXiv | https://arxiv.org/abs/2506.09038 | tags: abstention, robustness, unanswerable, calibration
 - [ ] 2025 | When Facts Change: Probing LLMs on Evolving Knowledge with evolveQA | arXiv | https://arxiv.org/abs/2510.19172 | tags: belief-update, evolving-knowledge, multi-turn, robustness
