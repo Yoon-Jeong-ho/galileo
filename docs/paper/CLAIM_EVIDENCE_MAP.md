@@ -51,6 +51,52 @@ When converting the draft to LaTeX, keep these **label → file** mappings stabl
 
 These are the claims most likely to be read *without* looking at appendices. Each should have an obvious proof pointer.
 
+### Abstract: sentence-level claim map (keep this in sync with `PAPER_DRAFT_EN.md`)
+
+**A0 (setup; why this matters).**
+- Draft text (Abstract sentence 1–2): “LLMs can abandon previously correct answers under social/rhetorical pressure … yet most benchmarks report only single-turn accuracy, obscuring interaction dynamics.”
+- What must be true / measurable in our paper: multi-turn correctness can decay over rounds under pressure.
+- Proof pointers:
+  - Survival dynamics: Fig.~`fig:survival-curves-rounds` → `docs/paper/figures/survival_curves_rounds_seed1-4_20260209.svg`
+  - Early-turn vulnerability: Fig.~`fig:tof-delta-fail1` → `docs/paper/figures/tof_personawise_fail1_delta_seed1-4_20260209.svg`
+
+**A1 (what we introduce).**
+- Draft text (Abstract sentence 3): “We introduce GALILEO … and compare against a matched Neutral Re-asking Control.”
+- Proof pointers:
+  - Protocol diagram: Fig.~`fig:protocol` → `docs/paper/figures/protocol_overview.svg`
+  - Control-vs-persona summary: Table~`tab:tablew` + Fig.~`fig:tablew-effect-deltas`
+    - Artifacts: `docs/paper/artifacts/table_w_control_vs_persona_seed1-4_mean_std_20260209.csv`, `docs/paper/artifacts/table_w_effect_delta_seed1-4_20260209.csv`
+
+**A2 (what we measure; definitions).**
+- Draft text (Abstract sentence 4): “We report survival curves, TOF/Fail@1, and recovery@flip … interpret flips as time-to-event with right-censoring.”
+- Proof pointers (definitions + empirical instantiations):
+  - Survival: Fig.~`fig:survival-curves-rounds`; artifact `docs/paper/artifacts/survival_curve_personawise_control_vs_persona_seed1-4_mean_std_20260209.csv`
+  - TOF / Fail@1: Fig.~`fig:tof-delta-fail1`; artifact `docs/paper/artifacts/tof_personawise_fail1_never_control_vs_persona_seed1-4_mean_std_20260209.csv`
+  - Recovery@flip: Fig.~`fig:recovery-delta`; artifact `docs/paper/artifacts/recovery_personawise_control_vs_persona_seed1-4_mean_std_20260209.csv`
+
+**A3 (headline finding; mechanism vs drift).**
+- Draft text (Abstract sentence 5): “Across multi-seed experiments … persona pressure reduces survival relative to Neutral Re-asking Control and can induce early-turn vulnerability.”
+- Proof pointers:
+  - Persona-vs-control deltas: Table~`tab:tablew` + Fig.~`fig:tablew-effect-deltas`
+  - Dynamics evidence: Fig.~`fig:survival-curves-rounds`; Fig.~`fig:tof-delta-fail1`
+
+**A4 (headline finding; robustness vs recovery are distinct).**
+- Draft text (Abstract sentence 6): “Recovery@flip varies by task and persona … staying correct vs returning to truth are distinct behaviors.”
+- Proof pointers:
+  - Recovery deltas: Fig.~`fig:recovery-delta`
+  - (If we make task-stratified claims) ensure corresponding task-wise artifacts/figures are cited in the Results section; do not rely on the abstract alone.
+
+### Intro: proof-pointer hooks (keep these aligned)
+
+These are the exact “proof pointer” hooks we want a reviewer to notice in the Introduction; if you edit them in the draft, update the mapping here in the same commit.
+
+- **Protocol + drift baseline:** Introduction §1.1 should point to Fig.~`fig:protocol` plus Table~`tab:tablew` and Fig.~`fig:tablew-effect-deltas`. It should also include the *within-persona initially-correct subset* comparability caveat (control values can differ across personas).
+- **Dynamics + recovery:** Introduction §1.1 should explicitly name survival/TOF/recovery and point to Figs.~`fig:survival-curves-rounds`, `fig:tof-delta-fail1`, `fig:recovery-delta` plus Table~`tab:tablew`.
+- **Evaluation gap bullets:** Introduction §1.2 bullets should each have a single obvious proof pointer (TOF → `fig:tof-delta-fail1`, survival → `fig:survival-curves-rounds`, recovery → `fig:recovery-delta`).
+- **Intro skim hook:** Introduction §1.1 should contain an “Evidence at a glance” bullet list pointing to (i) protocol+control, (ii) survival+TOF, and (iii) recovery (Figs.~`fig:protocol`, `fig:survival-curves-rounds`, `fig:tof-delta-fail1`, `fig:recovery-delta`; Table~`tab:tablew`).
+
+### Abstract/Intro: claim-level checklist (high-level, for quick audit)
+
 1) **Multi-turn persona pressure degrades robustness over rounds** (not captured by single-turn accuracy).
    - Evidence: `docs/paper/figures/survival_curves_rounds_seed1-4_20260209.svg`
    - Artifact: `docs/paper/artifacts/survival_curve_personawise_control_vs_persona_seed1-4_mean_std_20260209.csv`
@@ -83,15 +129,6 @@ These are the claims most likely to be read *without* looking at appendices. Eac
    - Evidence: `docs/paper/figures/decoding_sweep_qwen_delta_seed1-2_20260211.svg`
    - Artifact: `docs/paper/artifacts/decoding_sweep_qwen_temp_summary_seed1-2_20260211.csv`
    - Regenerate: `python3 scripts/make_decoding_sweep_figure_svg.py`
-
-### Intro proof-pointer sentences (keep these aligned)
-
-These are the exact “proof pointer” hooks we want a reviewer to notice in the Introduction; if you edit them in the draft, update the mapping here in the same commit.
-
-- **Protocol + drift baseline:** Introduction §1.1 should point to the protocol figure and control-vs-persona summary (Fig.~`fig:protocol`; Table~`tab:tablew`; Fig.~`fig:tablew-effect-deltas`). It should also include the *within-persona initially-correct subset* comparability caveat (control values can differ across personas).
-- **Dynamics + recovery:** Introduction §1.1 should explicitly name survival/TOF/recovery and point to the three core figures (Figs.~`fig:survival-curves-rounds`, `fig:tof-delta-fail1`, `fig:recovery-delta`) plus Table~`tab:tablew`.
-- **Evaluation gap bullets:** Introduction §1.2 bullets should each have a single obvious proof pointer (TOF → `fig:tof-delta-fail1`, survival → `fig:survival-curves-rounds`, recovery → `fig:recovery-delta`).
-- **Intro skim hook:** Introduction §1.1 should contain a short “Evidence at a glance” bullet list pointing to (i) protocol+control, (ii) survival+TOF, and (iii) recovery (Figs.~`fig:protocol`, `fig:survival-curves-rounds`, `fig:tof-delta-fail1`, `fig:recovery-delta`; Table~`tab:tablew`).
 
 ---
 
