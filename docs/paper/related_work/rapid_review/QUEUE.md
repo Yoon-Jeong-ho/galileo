@@ -894,7 +894,7 @@ Format (one per line):
 ## New candidates (2026-02-19)
 
 - [x] 2025 | SYMPHONY: Synergistic Multi-agent Planning with Heterogeneous Language Model Assembly | NeurIPS 2025 (arXiv) | https://arxiv.org/abs/2601.22623 | tags: agents, multi-agent, planning, MCTS, robustness | note: docs/paper/related_work/rapid_review/papers/20260219_symphony.md
-- [ ] 2026 | Comprehensive Comparison of RAG Methods Across Multi-Domain Conversational QA | EACL SRW 2026 (arXiv) | https://arxiv.org/abs/2602.09552 | tags: conversational-qa, RAG, multi-turn, retrieval, robustness
+- [x] 2026 | Comprehensive Comparison of RAG Methods Across Multi-Domain Conversational QA | EACL SRW 2026 (arXiv) | https://arxiv.org/abs/2602.09552 | tags: conversational-qa, RAG, multi-turn, retrieval, robustness | note: docs/paper/related_work/rapid_review/papers/20260219_comprehensive-comparison-rag-convqa.md
 - [ ] 2026 | PingPong: A Natural Benchmark for Multi-Turn Code-Switching Dialogues | arXiv | https://arxiv.org/abs/2601.17277 | tags: benchmark, code-switching, multi-party, multi-turn, robustness
 - [ ] 2026 | Fine-Refine: Iterative Fine-grained Refinement for Mitigating Dialogue Hallucination | arXiv | https://arxiv.org/abs/2602.15509 | tags: dialogue, hallucination, refinement, fact-checking
 - [ ] 2026 | Dialogue Model Optimization via Agent Game and Adaptive Tree-based GRPO | arXiv | https://arxiv.org/abs/2602.08533 | tags: dialogue-agents, RL, long-horizon, robustness
