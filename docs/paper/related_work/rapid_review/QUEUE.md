@@ -956,3 +956,11 @@ Format (one per line):
 - [x] 2024 | A Survey on Vision-Language-Action Models for Embodied AI | arXiv | https://arxiv.org/abs/2405.14093 | tags: vla, embodied-ai, survey | note: docs/paper/related_work/rapid_review/papers/20260219_survey_vla_embodied_ai.md
 - [x] 2025 | OctoNav: Towards Generalist Embodied Navigation | arXiv | https://arxiv.org/abs/2506.09839 | tags: navigation, generalist, reasoning | note: docs/paper/related_work/rapid_review/papers/20260219_octonav.md
 - [x] 2025 | From Seeing to Experiencing: Scaling Navigation Foundation Models with Reinforcement Learning | arXiv | https://arxiv.org/abs/2507.22028 | tags: navigation, foundation-model, reinforcement-learning | note: docs/paper/related_work/rapid_review/papers/20260219_seeing_to_experiencing_nav_rl.md
+
+## New candidates (2026-02-19, web_search)
+
+- [x] 2026 | Sycophantic Anchors: Localizing and Quantifying User Agreement in Reasoning Models | arXiv | https://arxiv.org/abs/2601.21183 | tags: sycophancy, agreement, interpretability, localization, reasoning | note: papers/20260219_sycophantic-anchors.md
+- [ ] 2025 | Echoes of Agreement: Argument Driven Opinion Shifts in Large Language Models | arXiv | https://arxiv.org/abs/2508.09759 | tags: opinion-shift, arguments, agreement, persuasion-adjacent
+- [ ] 2026 | Feedback Indices to Evaluate LLM Responses to Rebuttals for Multiple Choice Type Questions | arXiv | https://arxiv.org/abs/2601.03285 | tags: rebuttal, multi-turn, evaluation, stability
+- [ ] 2025 | AbstentionBench: Reasoning LLMs Fail on Unanswerable Questions | arXiv | https://arxiv.org/abs/2506.09038 | tags: abstention, robustness, unanswerable, calibration
+- [ ] 2025 | When Facts Change: Probing LLMs on Evolving Knowledge with evolveQA | arXiv | https://arxiv.org/abs/2510.19172 | tags: belief-update, evolving-knowledge, multi-turn, robustness
