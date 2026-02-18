@@ -845,6 +845,9 @@ Format (one per line):
 
 ## New candidates (2026-02-19)
 
+- [x] 2025 | Firm or Fickle? Evaluating Large Language Models Consistency in Sequential Interactions | arXiv | https://arxiv.org/html/2503.22353v1 | tags: multi-turn, consistency, belief-revision, robustness | note: docs/paper/related_work/rapid_review/papers/20260219_firm-or-fickle_mt-consistency.md
+- [ ] 2025 | Drift No More? Context Equilibria in Multi-Turn LLM Interactions | arXiv | https://arxiv.org/html/2510.07777v1 | tags: multi-turn, drift, robustness, consistency
+
 - [x] 2025 | MMPersuade: A Dataset and Evaluation Framework for Multimodal Persuasion | arXiv | https://arxiv.org/abs/2510.22768 | tags: persuasion, multimodal, benchmark, dialogue | note: papers/20260219_mmpersuade_multimodal_persuasion.md
 - [x] 2024 | SVIP: Towards Verifiable Inference of Open-source Large Language Models | arXiv | https://arxiv.org/abs/2410.22307 | tags: verification, inference, robustness, trust | note: docs/paper/related_work/rapid_review/papers/20260219_svip_verifiable_inference.md
 
