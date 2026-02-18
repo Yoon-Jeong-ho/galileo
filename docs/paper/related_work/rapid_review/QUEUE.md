@@ -847,7 +847,7 @@ Format (one per line):
 - [x] 2024 | SVIP: Towards Verifiable Inference of Open-source Large Language Models | arXiv | https://arxiv.org/abs/2410.22307 | tags: verification, inference, robustness, trust | note: docs/paper/related_work/rapid_review/papers/20260219_svip_verifiable_inference.md
 
 - [x] 2025 | TRACEALIGN: Tracing the Drift: Attributing Alignment Failures to Training-Time Belief Sources in LLMs | arXiv | https://arxiv.org/abs/2508.02063 | tags: alignment-drift, attribution, belief-sources, jailbreak | note: docs/paper/related_work/rapid_review/papers/20260219_tracealign.md
-- [ ] 2025 | Cognitive Control Architecture (CCA): A Lifecycle Supervision Framework for Robustly Aligned AI Agents | arXiv | https://arxiv.org/abs/2512.06716 | tags: agents, indirect-prompt-injection, supervision, robustness
+- [x] 2025 | Cognitive Control Architecture (CCA): A Lifecycle Supervision Framework for Robustly Aligned AI Agents | arXiv | https://arxiv.org/abs/2512.06716 | tags: agents, indirect-prompt-injection, supervision, robustness | note: docs/paper/related_work/rapid_review/papers/20260219_cca_lifecycle_supervision_ipi.md
 
 - [x] 2025 | Evaluation and Benchmarking of LLM Agents: A Survey | arXiv | https://arxiv.org/html/2507.21504v1 | tags: agents, survey, evaluation, frameworks | note: papers/20260219_llm-agent-eval-survey.md
 - [x] 2025 | Evaluating Large Language Models in Scientific Discovery | arXiv | https://arxiv.org/abs/2512.15567 | tags: scientific-discovery, evaluation, benchmarks | note: docs/paper/related_work/rapid_review/papers/20260219_evaluating-llms-scientific-discovery.md
