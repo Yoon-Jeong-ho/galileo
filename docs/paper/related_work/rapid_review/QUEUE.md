@@ -898,3 +898,11 @@ Format (one per line):
 - [x] 2026 | PingPong: A Natural Benchmark for Multi-Turn Code-Switching Dialogues | arXiv | https://arxiv.org/abs/2601.17277 | tags: benchmark, code-switching, multi-party, multi-turn, robustness | note: docs/paper/related_work/rapid_review/papers/20260219_pingpong_codeswitching_dialogue_benchmark.md
 - [x] 2026 | Fine-Refine: Iterative Fine-grained Refinement for Mitigating Dialogue Hallucination | arXiv | https://arxiv.org/abs/2602.15509 | tags: dialogue, hallucination, refinement, fact-checking | note: docs/paper/related_work/rapid_review/papers/20260219_fine-refine_dialogue_hallucination.md
 - [x] 2026 | Dialogue Model Optimization via Agent Game and Adaptive Tree-based GRPO | arXiv | https://arxiv.org/abs/2602.08533 | tags: dialogue-agents, RL, long-horizon, robustness | note: docs/paper/related_work/rapid_review/papers/20260219_dialogue-model-optimization-at-grpo.md
+
+## New candidates (2026-02-19, persona/context pressure)
+
+- [x] 2025 | Moral Susceptibility and Robustness under Persona Role-Play in Large Language Models | arXiv | https://arxiv.org/abs/2511.08565 | tags: persona, role-play, robustness, moral | note: papers/20260219_moral-susceptibility-persona-roleplay.md
+- [ ] 2025 | Persona-Assigned Large Language Models Exhibit Human-Like Motivated Reasoning | arXiv | https://arxiv.org/abs/2506.20020 | tags: persona, motivated-reasoning, veracity, evidence
+- [ ] 2026 | PTCBench: Benchmarking Contextual Stability of Personality Traits in LLM Systems | arXiv | https://arxiv.org/abs/2602.00016 | tags: personality, stability, context-pressure, multi-turn
+- [ ] 2024 | Persona-centric Metamorphic Relation guided Robustness Evaluation for Multi-turn Dialogue Modelling | arXiv | https://arxiv.org/abs/2401.12483 | tags: persona, robustness, metamorphic-testing, multi-turn
+- [ ] 2025 | PersonaFuse: A Personality Activation-Driven Framework for Enhancing Human-LLM Interactions | arXiv | https://arxiv.org/abs/2509.07370 | tags: persona, activation, interaction, robustness
