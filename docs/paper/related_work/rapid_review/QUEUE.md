@@ -718,3 +718,8 @@ Format (one per line):
 - [x] 2025 | Agent Tools Orchestration Leaks More: Dataset, Benchmark, and Mitigation | arXiv | https://arxiv.org/abs/2512.16310 | tags: agents, tool-use, privacy, leakage, benchmark | note: docs/paper/related_work/rapid_review/papers/20260218_agent-tools-orchestration-topr.md
 - [x] 2026 | SafePro: Evaluating the Safety of Professional-Level AI Agents | arXiv | https://arxiv.org/abs/2601.06663 | tags: agents, safety, professional, evaluation | note: docs/paper/related_work/rapid_review/papers/20260218_safepro-professional-agent-safety.md
 - [x] 2025 | RedTeamCUA: Realistic Adversarial Testing of Computer-Use Agents in Hybrid Web-OS Environments | arXiv | https://arxiv.org/abs/2505.21936 | tags: agents, computer-use, red-teaming, adversarial, safety | note: docs/paper/related_work/rapid_review/papers/20260218_redteamcua_hybrid_prompt_injection.md
+
+## New candidates (2026-02-18, web_search batch 8)
+
+- [x] 2025 | Personalized Attacks of Social Engineering in Multi-turn Conversations: LLM Agents for Simulation and Detection | arXiv | https://arxiv.org/abs/2503.15552 | tags: social-engineering, multi-turn, persuasion, detection, agents | note: papers/20260218_se-vsim-social-engineering.md
+- [ ] 2025 | Pattern Enhanced Multi-Turn Jailbreaking: Exploiting Structural Vulnerabilities in Large Language Models | arXiv | https://arxiv.org/abs/2510.08859 | tags: multi-turn, jailbreak, attacks, structure, robustness
