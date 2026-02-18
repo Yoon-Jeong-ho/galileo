@@ -656,3 +656,12 @@ Format (one per line):
 - [x] 2026 | A Few Bad Neurons: Isolating and Surgically Correcting Sycophancy | arXiv | https://arxiv.org/abs/2601.18939 | tags: sycophancy, interpretability, neuron-surgery, mitigation | note: papers/20260218_few-bad-neurons-sycophancy.md
 - [x] 2025 | Sycophancy Is Not One Thing: Causal Separation of Sycophantic Behaviors in LLMs | arXiv | https://arxiv.org/abs/2509.21305 | tags: sycophancy, causal, taxonomy | note: papers/20260217_sycophancy-not-one-thing-causal-separation.md  # duplicate queue entry; note already exists
 - [x] 2024 | Sycophancy to Subterfuge: Investigating Reward-Tampering in Large Language Models | arXiv | https://arxiv.org/abs/2406.10162 | tags: sycophancy, reward-hacking, alignment | note: papers/20260218_sycophancy-to-subterfuge-reward-tampering.md
+
+
+## New candidates (2026-02-18, web_search batch 15)
+
+- [x] 2026 | ICON: Intent-Context Coupling for Efficient Multi-Turn Jailbreak Attack | arXiv | https://arxiv.org/abs/2601.20903 | tags: multi-turn, jailbreak, attack, intent-context | note: papers/20260218_icon-intent-context-coupling.md
+- [ ] 2025 | Multi-turn Jailbreaking via Global Refinement and Active Fabrication | arXiv | https://arxiv.org/abs/2506.17881 | tags: multi-turn, jailbreak, attack, refinement
+- [ ] 2025 | Chain-of-Lure: A Universal Jailbreak Attack Framework using Unconstrained Synthetic Narratives | arXiv | https://arxiv.org/abs/2505.17519 | tags: multi-turn, jailbreak, attack, narratives
+- [ ] 2025 | Multi-Turn Jailbreaking Large Language Models via Attention Shifting | AAAI | https://ojs.aaai.org/index.php/AAAI/article/view/34553 | tags: multi-turn, jailbreak, attack, attention
+- [ ] 2025 | Shallow Robustness, Deep Vulnerabilities: Multi-Turn Evaluation of Medical LLMs | arXiv | https://arxiv.org/abs/2510.12255 | tags: multi-turn, robustness, medical, evaluation
