@@ -918,6 +918,6 @@ Format (one per line):
 
 - [x] 2026 | Do Chatbot LLMs Talk Too Much? The YapBench Benchmark | arXiv | https://arxiv.org/abs/2601.00624 | tags: verbosity, evaluation, length-bias, chatbot | note: papers/20260219_yapbench.md
 - [x] 2024 | Length-Controlled AlpacaEval: A Simple Way to Debias Automatic Evaluators | arXiv | https://arxiv.org/abs/2404.04475 | tags: evaluation, LLM-judges, length-bias, robustness | note: docs/paper/related_work/rapid_review/papers/20260219_length-controlled-alpacaeval.md
-- [ ] 2025 | The FACTS Leaderboard: A Comprehensive Benchmark for Large Language Model Factuality | arXiv | https://arxiv.org/abs/2512.10791 | tags: factuality, evaluation, leaderboard, LLM-judges
+- [x] 2025 | The FACTS Leaderboard: A Comprehensive Benchmark for Large Language Model Factuality | arXiv | https://arxiv.org/abs/2512.10791 | tags: factuality, evaluation, leaderboard, LLM-judges | note: docs/paper/related_work/rapid_review/papers/20260219_facts_leaderboard.md
 - [ ] 2025 | PACIFIC: a framework for generating benchmarks to check Precise Automatically Checked Instruction Following In Code | arXiv | https://arxiv.org/abs/2512.10713 | tags: instruction-following, code, evaluation, determinism
 - [ ] 2026 | Pro-AI Bias in Large Language Models | arXiv | https://arxiv.org/abs/2601.13749 | tags: bias, evaluation, stance, persuasion-adjacent
