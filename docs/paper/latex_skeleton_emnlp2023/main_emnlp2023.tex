@@ -50,15 +50,17 @@ GALILEO targets this gap by instantiating multi-turn pressure on \emph{ground-tr
 
 \paragraph{Metrics (at a glance).} We report three complementary views of multi-turn belief consistency: \emph{fail@1} (fraction of initially-correct samples that ever flip under a condition), \emph{turn-of-failure} (the first round where the flip occurs, enabling ``when'' analysis), and \emph{survival} (probability of staying correct through each round, summarizing degradation over time). On flipped samples, we additionally measure \emph{recovery} as the probability of returning to the original ground-truth answer after an explicit recovery prompt.
 
-\paragraph{Formalization.} For each evaluation condition, let $i \in \{1,\dots,n\}$ index examples that are \emph{initially correct} at round $0$. Let $Y_{i,r} \in \{0,1\}$ denote whether the model remains correct on example $i$ at pressure round $r \in \{1,\dots,R\}$. Define the \emph{turn-of-failure} as
+\paragraph{Formalization.} For each evaluation condition, let $i \in \{1,\dots,n\}$ index examples that are \emph{initially correct} at round $0$. Let $C_{i,r} \in \{0,1\}$ denote whether the model's answer is correct \emph{at} pressure round $r \in \{1,\dots,R\}$ under automatic checking.
+We define the \emph{turn-of-failure} as the first round where correctness is lost:
 \begin{equation}
-  T_i = \min\{r : Y_{i,r}=0\},\quad \text{with } T_i = R{+}1 \text{ if no failure occurs.}
+  T_i = \min\{r : C_{i,r}=0\},\quad \text{with } T_i = R{+}1 \text{ if no failure occurs.}
 \end{equation}
-We estimate the survival curve by the empirical survival probability
+The (multi-turn) \emph{survival} event at round $r$ is ``no failure has occurred up to $r$,'' i.e., remaining correct through all rounds $1..r$.
+Accordingly, the empirical survival curve is
 \begin{equation}
   \widehat{S}(r) = \frac{1}{n}\sum_{i=1}^n \mathbf{1}[T_i > r],
 \end{equation}
-so that $\text{fail@1} = 1-\widehat{S}(R)$. For recovery, we restrict to flipped examples ($T_i\le R$) and report the fraction that return to the original ground-truth answer after the recovery prompt.
+so that $\text{fail@1} = 1-\widehat{S}(R)$. Note that survival/TOF depend only on the \emph{first} flip; if a model flips and later reverts within the pressure rounds, we still count the initial loss of truth as a failure. We measure such return-to-truth explicitly in a separate \emph{recovery} stage: restricting to flipped examples ($T_i\le R$), we report the fraction that return to the original ground-truth answer after the recovery prompt.
 
 \section{Related Work}
 \label{sec:related}
