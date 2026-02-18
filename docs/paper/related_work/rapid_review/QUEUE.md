@@ -745,3 +745,11 @@ Format (one per line):
 - [x] 2026 | BaziQA-Benchmark: Evaluating Symbolic and Temporally Compositional Reasoning in Large Language Models | arXiv | https://arxiv.org/abs/2602.12889 | tags: symbolic-reasoning, temporal, multi-turn, benchmark | note: docs/paper/related_work/rapid_review/papers/20260218_baziqa_benchmark.md
 - [x] 2026 | Competition for attention predicts good-to-bad tipping in AI | arXiv | https://arxiv.org/abs/2602.14370 | tags: dynamics, multi-step, conversations, tipping | note: papers/20260218_attention-competition-tipping-ai.md | reviewed (added note)
 - [x] 2026 | AgriWorld: A World–Tools–Protocol Framework for Verifiable Agricultural Reasoning with Code-Executing LLM Agents | arXiv | https://arxiv.org/abs/2602.15325 | tags: agents, tool-use, verifiable, multi-turn | note: docs/paper/related_work/rapid_review/papers/20260218_agriworld_world_tools_protocol.md
+
+## New candidates (2026-02-18, web_search batch 2)
+
+- [x] 2025 | Earth AI: Unlocking Geospatial Insights with Foundation Models and Cross-Modal Reasoning | arXiv | https://arxiv.org/html/2510.18318v1 | tags: geospatial, remote-sensing, foundation-model, multimodal, cross-modal | note: docs/paper/related_work/rapid_review/papers/20260218_earth-ai.md
+- [ ] 2025 | Towards responsible geospatial foundation models | Nature Machine Intelligence | https://www.nature.com/articles/s42256-025-01106-7 | tags: geospatial, foundation-model, governance, responsible-ai, survey
+- [ ] 2025 | Revolutionizing earth observation with geospatial foundation models on AWS | AWS blog | https://aws.amazon.com/blogs/machine-learning/revolutionizing-earth-observation-with-geospatial-foundation-models-on-aws/ | tags: geospatial, foundation-model, deployment, aws, applied
+- [ ] 2025 | The generative revolution: AI foundation models in geospatial health—applications, challenges and future research | Int J Health Geographics | https://ij-healthgeographics.biomedcentral.com/articles/10.1186/s12942-025-00391-0 | tags: geospatial, foundation-model, health, survey, applications
+- [ ] 2025 | TiMo: Spatiotemporal Foundation Model for Satellite Image Time Series | arXiv | https://arxiv.org/html/2505.08723v1 | tags: remote-sensing, time-series, spatiotemporal, foundation-model, pretraining
