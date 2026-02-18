@@ -9,7 +9,12 @@ Conventions:
 - Unless otherwise stated, error bars / uncertainty annotations reflect **variation across random seeds** (reported as mean ± std).
 - Unless otherwise stated, all multi-turn robustness metrics (Survival/TOF/Fail@1/Recovery@flip) are computed on the **initially-correct subset** (conditioning on correctness at round 0). As a result:
   - The effective sample size can differ across personas/seeds/tasks; captions should avoid implying a fixed global \(n\).
-  - When comparing persona pressure to the **Neutral Re-asking Control** (drift baseline), we use a **matched conditioning set**: the control arm is evaluated on the same initially-correct subset as the persona arm. This prevents conditioning-set drift from being mistaken as a treatment effect.
+  - When comparing persona pressure to the **Neutral Re-asking Control**, we use a **matched conditioning set**: the control arm is evaluated on the same initially-correct subset as the persona arm. This prevents conditioning-set drift from being mistaken as a treatment effect.
+
+Neutral Re-asking Control (a.k.a. “drift baseline”): re-asks the same task over multiple rounds with *neutral* prompts (no persona pressure) to estimate generic multi-turn drift under the same rounds/decoding/scoring.
+
+Caption boilerplate (optional, to keep wording consistent):
+- “Computed on the initially-correct subset; control is evaluated on the same persona-matched subset. Error bars are mean ± std over seeds.”
 
 Caption style notes (paper-ready):
 - First mention expands abbreviations (TOF, Fail@1, etc.).
@@ -68,7 +73,7 @@ Persona-wise effect size at round 5: \(\Delta\)Survival@5 (persona pressure − 
 - Source artifact: `docs/paper/artifacts/tof_personawise_fail1_never_control_vs_persona_seed1-4_mean_std_20260209.csv`
 
 **Caption (draft):**
-Persona-wise effect size on early-turn vulnerability: \(\Delta\)Fail@1 (persona pressure − control), mean ± std across seeds 1–4. We also report turn-of-failure (TOF), which separates immediate flips at round 1 (Fail@1) from sustained robustness (never-fail), complementing survival curves.
+Persona-wise effect size on early-turn vulnerability: \(\Delta\)Fail@1 (persona pressure − control), mean ± std across seeds 1–4. Fail@1 summarizes the turn-of-failure (TOF) distribution at round 1 (immediate flip); paired with the “never-fail” mass, it distinguishes early-turn brittleness from sustained robustness, complementing survival curves.
 
 ---
 
