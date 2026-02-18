@@ -19,3 +19,11 @@ This directory is **rolling / SSOT** for the rapid review process.
 - One paper per run.
 - Each paper note must include: citation, URL, what it claims, what we can reuse, what is missing, and actionable next steps for GALILEO.
 - Keep notes **paper-facing** (avoid internal hostnames/paths).
+
+## Automation reliability (cron hygiene)
+
+- Avoid brittle inline edits like `python3 -c "..."` for updating `QUEUE.md` (quoting/newlines frequently break).
+- Prefer dedicated helper scripts under `scripts/`.
+  - For marking a queue entry done + linking a note by URL, use:
+    - `python3 scripts/rapid_review_queue_mark_done.py --url <URL> --note <path> [--comment "..."]`
+
