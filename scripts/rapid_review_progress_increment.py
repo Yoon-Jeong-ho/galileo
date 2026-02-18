@@ -37,8 +37,9 @@ def main() -> None:
     ap.add_argument("--top10", type=int, default=0, help="Increment TOP10-shortlist counter by this amount")
     args = ap.parse_args()
 
+    # Cron robustness: treat missing deltas as a no-op success.
     if args.papers == 0 and args.top10 == 0:
-        raise SystemExit("Nothing to do (both deltas are 0)")
+        return
 
     text = PROGRESS_PATH.read_text(encoding="utf-8")
 
