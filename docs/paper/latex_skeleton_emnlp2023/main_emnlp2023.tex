@@ -63,6 +63,8 @@ Accordingly, the empirical survival curve is
 \end{equation}
 so that $\text{fail@1} = 1-\widehat{S}(R)$. Note that survival/TOF depend only on the \emph{first} flip; if a model flips and later reverts within the pressure rounds, we still count the initial loss of truth as a failure.
 
+\paragraph{Estimation details.} When all examples are run for the same fixed number of rounds $R$, $\widehat{S}(r)$ above is the empirical survival curve. If some traces terminate early (e.g., due to transient API failures), we treat these as right-censored at the last completed round and compute a Kaplan--Meier estimate; in the no-censoring case this reduces to the empirical form. For uncertainty, we report bootstrap confidence intervals by resampling examples within each condition.
+
 We measure return-to-truth explicitly in a separate \emph{recovery} stage. Let $C^{\mathrm{rec}}_i\in\{0,1\}$ denote whether the model answers the recovery prompt correctly on example $i$ (with respect to the original ground-truth target). Restricting to flipped examples ($T_i\le R$), we define empirical recovery as
 \begin{equation}
   \widehat{\mathrm{Rec}} = \frac{\sum_{i=1}^n \mathbf{1}[T_i\le R]\, C^{\mathrm{rec}}_i}{\sum_{i=1}^n \mathbf{1}[T_i\le R]}.
