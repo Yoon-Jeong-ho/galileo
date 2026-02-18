@@ -96,6 +96,12 @@ C6 & Fig.~\ref{fig:decoding-sweep} & decoding\_sweep\_qwen\_temp\_summary... & r
 \end{table}
 
 \clearpage
+\section*{Limitations}
+GALILEO is designed for \emph{ground-truth} tasks with automatic checking, which enables per-turn correctness labels but excludes many open-ended assistant behaviors where ``truth'' is ambiguous (e.g., subjective advice or creative writing). Our protocol also depends on obtaining an initially correct answer; while this matches the intended failure mode (flips from truth), it may underrepresent settings where models are incorrect from the start. Finally, we study a finite set of hand-designed personas and up to five pressure rounds; real-world social influence can be more diverse, longer-horizon, and multi-party.
+
+\section*{Ethical Considerations}
+GALILEO applies conversational pressure intended to induce incorrect answers, which can surface undesirable model behaviors. We mitigate misuse risk by focusing on benign, automatically checkable tasks (e.g., math and factual QA) rather than sensitive or harmful domains, and by framing personas as evaluation prompts rather than deployment guidance. When releasing artifacts, practitioners should ensure that prompts, model outputs, and datasets do not contain personal data, and should treat measured robustness/recovery as diagnostic signals rather than a guarantee of safe behavior in the wild.
+
 \bibliographystyle{acl_natbib}
 % Use the repo-wide BibTeX database at the repo root.
 % (This keeps citations in sync with the writing scaffold in docs/paper/.)
