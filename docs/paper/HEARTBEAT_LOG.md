@@ -1124,3 +1124,12 @@ Next:
   - Recovery started (`Failed cases to recover: 73` → `Generating recovery answers...`)
   - Then **another** adversarial-testing block appears to start (new `Round1: 468 active tracks`, progressed to Round3).
 - Interpretation: the runner may be looping over multiple conditions/splits/persona sets in one job, or it restarted a second pass; we should wait for an explicit completion marker before exporting.
+
+### 2026-02-19 07:00 KST — Tier‑1 Qwen2.5‑14B seed2 exported + staged to results_paper (paper-ready)
+
+- nlp8: `results/tier1_qwen2p5_14b_seed2_20260219_053824/` completed (GPU5 freed).
+- Ran `scripts/paper_export.py` with explicit `--model_dir` and wrote missing `paper_exports/runner_metadata.json`.
+- Validator: `[OK] .../paper_exports`.
+- Staged symlink into paper SSOT:
+  - `results_paper/tier1_qwen2p5_14b_seed2_20260219_053824/paper_exports -> ../../results/.../paper_exports`
+- Global parity: `python3 scripts/validate_paper_exports.py --results_root results_paper --check_runner_parity` → `[OK] runner_metadata parity`.
