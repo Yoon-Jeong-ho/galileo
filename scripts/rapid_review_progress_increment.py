@@ -36,6 +36,13 @@ def main() -> int:
         default=0,
         help="Delta for 'Papers read (notes written)' counter",
     )
+    # Back-compat aliases used by some cron attempts.
+    ap.add_argument(
+        "--n",
+        type=int,
+        default=0,
+        help="Alias for --papers-read-delta (back-compat)",
+    )
     ap.add_argument(
         "--top10-delta",
         type=int,
@@ -49,9 +56,12 @@ def main() -> int:
         print(f"ERROR: {path} not found", file=sys.stderr)
         return 2
 
+    # Support both --papers-read-delta and legacy --n.
+    papers_delta = args.papers_read_delta or args.n
+
     text = path.read_text(encoding="utf-8")
-    if args.papers_read_delta:
-        text = bump_counter(text, "Papers read (notes written)", args.papers_read_delta)
+    if papers_delta:
+        text = bump_counter(text, "Papers read (notes written)", papers_delta)
     if args.top10_delta:
         text = bump_counter(text, "Shortlisted into TOP10", args.top10_delta)
 
