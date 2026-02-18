@@ -66,14 +66,15 @@ For each item, we maintain:
    - Borrow: time-to-event reporting + calibration-aware trajectory evaluation.
    - How to change GALILEO: add a survival-analysis reporting layer (hazard + censored survival).
 
-10) **Modeling and Predicting Multi-Turn Answer Instability in Large Language Models** (He et al., arXiv 2025)
-   - Contributes: re-questioning protocol + **stationary (long-run) accuracy** via a Markov-chain view of correctness transitions.
-   - Misses vs GALILEO: limited controls for evidence-vs-pressure; stationary metrics can hide oscillation structure.
-   - Borrow: stationary-accuracy framing as an interactive robustness headline metric.
-   - How to change GALILEO: add stationary truth-rate as an additional reporting lens.
+10) **The Assistant Axis: Situating and Stabilizing the Default Persona of Language Models** (Lu et al., arXiv 2026)
+   - Contributes: identifies a dominant linear activation direction (“**Assistant Axis**”) that tracks *assistant-likeness* across many role vectors, and shows **activation capping** along this axis can reduce persona-jailbreak harms and “off-the-rails” behavior in emotionally vulnerable / meta-reflective conversations with minimal capability loss.
+   - Misses vs GALILEO: requires **internal activation access** and per-model calibration (role-vector pipeline, layer selection, percentile caps); focuses on persona/identity drift rather than general evidence-vs-pressure disentanglement.
+   - Borrow: (i) “drift scalar” defined in activation space, (ii) **conditional clamping** as a stabilization primitive, (iii) empirical claim that therapy/meta-reflection prompts systematically move the model away from default assistant region.
+   - How to change GALILEO: add a persona-drift monitor (internal if available, external proxy otherwise) and explicitly test robustness on persona-based jailbreaks + emotional-vulnerability domains.
 
 ## Changelog
 
+- 2026-02-19: Added *The Assistant Axis: Situating and Stabilizing the Default Persona of Language Models* (Lu et al., arXiv 2026) as a mechanistic persona-stability neighbor (Assistant Axis + activation capping; links drift in therapy/meta-reflection to unsafe/bizarre outputs; mitigates persona-based jailbreaks). Displaced *Modeling and Predicting Multi-Turn Answer Instability in Large Language Models* (He et al., arXiv 2025): useful Markov/stationary framing, but less central than persona-drift stabilization for our current narrative.
 - 2026-02-19: Added *Are You Sure? Challenging LLMs Leads to Performance Drops in The FlipFlop Experiment* (Laban et al., arXiv 2023) as a key multi-turn **challenge→flip** sycophancy protocol (ΔFF + flip-rate metrics). Displaced *CausalT5K: Diagnosing and Informing Refusal for Trustworthy Causal Reasoning of Skepticism, Sycophancy, Detection-Correction, and Rung Collapse* (Geng et al., arXiv 2026): useful benchmark infrastructure, but less central than a foundational FlipFlop-style protocol.
 - 2026-02-19: Added *TiMo: Spatiotemporal Foundation Model for Satellite Image Time Series* (arXiv 2025) as a key **SITS** neighbor (hierarchical backbone + structured spatiotemporal attention; MillionST with 10 timestamps over 5 years). Displaced *Persuasion Dynamics in LLMs: Investigating Robustness and Adaptability in Knowledge and Safety with DuET-PD* (Tan et al., EMNLP 2025): useful dual-axis persuasion framing, but less central if the related-work emphasis is shifting toward EO foundation models.
 - 2026-02-19: Added *Any-Optical-Model: A Universal Foundation Model for Optical Remote Sensing* (AAAI 2026; arXiv 2025) as a key **EO foundation model** neighbor focused on missing-band + cross-sensor + cross-resolution robustness. Displaced *Consistency of Large Reasoning Models Under Multi-Turn Attack* (Li, Krishnan, Padman, arXiv 2026): useful trajectory taxonomy, but less central if the related-work emphasis is shifting toward EO foundation models.

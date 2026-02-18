@@ -1015,4 +1015,4 @@ Format (one per line):
 
 - [x] https://arxiv.org/html/2311.08596v2  # Are You Sure? Challenging LLMs Leads to Performance Drops in The FlipFlop Experiment | note: docs/paper/related_work/rapid_review/papers/20260219_flipflop-experiment.md
 - [x] https://arxiv.org/html/2504.12256  # FLIP Reasoning Challenge | note: docs/paper/related_work/rapid_review/papers/20260219_flip_reasoning_challenge.md
-- [ ] https://arxiv.org/html/2601.10387v1  # The Assistant Axis: Situating and Stabilizing the Default Persona of Language Models
+- [x] https://arxiv.org/html/2601.10387v1  # The Assistant Axis: Situating and Stabilizing the Default Persona of Language Models | note: docs/paper/related_work/rapid_review/papers/20260219_assistant_axis_persona_drift.md
