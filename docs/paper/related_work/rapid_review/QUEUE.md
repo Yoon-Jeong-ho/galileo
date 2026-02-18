@@ -938,3 +938,10 @@ Format (one per line):
 - [x] 2025 | VLA-RFT: Vision-language-action Reinforcement fine-tuning with verified rewards in world simulators | arXiv | https://arxiv.org/html/2510.00406v1 | tags: vla, reinforcement-finetuning, verified-rewards, world-simulator | note: docs/paper/related_work/rapid_review/papers/20260219_vla-rft_world-model_rft.md
 - [x] 2025 | VLA-R1: Enhancing Reasoning in Vision-Language-Action Models | arXiv | https://arxiv.org/html/2510.01623v1 | tags: vla, reasoning, robotics | note: docs/paper/related_work/rapid_review/papers/20260219_vla-r1_reasoning-enhanced-vla.md
 - [x] 2025 | Unveiling the Potential of Vision-Language-Action Models with Open-Ended Multimodal Instructions | arXiv | https://arxiv.org/html/2505.11214v1 | tags: vla, prompting, multimodal-instructions, robotics | note: docs/paper/related_work/rapid_review/papers/20260219_oe-vla-open-ended-multimodal-instructions.md
+## New candidates (2026-02-19, web_search batch 33)
+
+- [x] 2026 | Steering Safely or Off a Cliff? Rethinking Specificity and Robustness in Inference-Time Interventions | arXiv | https://arxiv.org/abs/2602.06256 | tags: robustness, interventions, steering, distribution-shift | note: docs/paper/related_work/rapid_review/papers/20260219_steering-safely-or-off-a-cliff.md
+- [ ] 2026 | Towards Poisoning Robustness Certification for Natural Language Generation | arXiv | https://arxiv.org/abs/2602.09757 | tags: robustness, certification, poisoning, NLG
+- [ ] 2026 | Closing the Distribution Gap in Adversarial Training for LLMs | arXiv | https://arxiv.org/abs/2602.15238 | tags: adversarial-training, robustness, distribution-gap
+- [ ] 2026 | Inference-Time Backdoors via Hidden Instructions in LLM Chat Templates | arXiv | https://arxiv.org/abs/2602.04653 | tags: backdoor, safety, chat-templates, robustness
+- [ ] 2026 | Workflow-R1: Group Sub-sequence Policy Optimization for Multi-turn Workflow Construction | arXiv | https://arxiv.org/abs/2602.01202 | tags: multi-turn, agents, workflows, RL, robustness
