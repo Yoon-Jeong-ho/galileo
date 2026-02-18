@@ -769,3 +769,11 @@ Format (one per line):
 - [x] 2025 | EVALOOOP: A Self-Consistency-Centered Framework for Assessing Large Language Model Robustness in Programming | arXiv | https://arxiv.org/abs/2505.12185 | tags: robustness, self-consistency, programming, evaluation | note: docs/paper/related_work/rapid_review/papers/20260218_evalooop_self_consistency_programming_robustness.md
 - [x] 2026 | LALM-as-a-Judge: Benchmarking Large Audio-Language Models for Safety Evaluation in Multi-Turn Spoken Dialogues | arXiv | https://arxiv.org/abs/2602.04796 | tags: multi-turn, safety, spoken-dialogue, audio, evaluation | note: docs/paper/related_work/rapid_review/papers/20260218_lalm_as_a_judge_audio_safety.md
 - [x] 2025 | LLaVAShield: Safeguarding Multimodal Multi-Turn Dialogues in Vision-Language Models | arXiv | https://arxiv.org/abs/2509.25896 | tags: multimodal, multi-turn, safety, defense | note: docs/paper/related_work/rapid_review/papers/20260218_llavashield_mmt_dialogue_safety.md
+
+## New candidates (2026-02-18, web_search batch)
+
+- [x] 2025 | A Bayesian-Latent Model of Large Language Model Sycophancy | TechRxiv | https://www.techrxiv.org/users/913189/articles/1293606-a-bayesian-latent-model-of-large-language-model-sycophancy | tags: sycophancy, measurement, latent-variable, bayesian | note: docs/paper/related_work/rapid_review/papers/20260218_bayesian_latent_llm_sycophancy.md
+- [ ] 2025 | WOLF: Werewolf-based Observations for LLM Deception and Falsehoods | arXiv | https://arxiv.org/abs/2512.09187 | tags: deception, multi-turn, dialogue, social-deduction
+- [ ] 2025 | Offline RL by Reward-Weighted Fine-Tuning for Conversation Optimization | arXiv | https://arxiv.org/abs/2506.06964 | tags: multi-turn, RLHF-adjacent, conversation-optimization, offline-RL
+- [ ] 2024 | FB-Bench: A Fine-Grained Multi-Task Benchmark for Evaluating LLMs' Responsiveness to Human Feedback | arXiv | https://arxiv.org/abs/2410.09412 | tags: multi-turn, human-feedback, evaluation, benchmark
+- [ ] 2024 | WebLINX: Real-World Website Navigation with Multi-Turn Dialogue | arXiv | https://arxiv.org/abs/2402.05930 | tags: multi-turn, web-navigation, agents, benchmark
