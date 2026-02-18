@@ -47,6 +47,8 @@ GALILEO targets this gap by instantiating multi-turn pressure on \emph{ground-tr
 (2) a drift baseline (neutral re-asking control) that separates generic answer instability from persona-induced effects; and
 (3) a recovery stage that quantifies return-to-truth after a flip.
 
+\paragraph{Metrics (at a glance).} We report three complementary views of multi-turn belief consistency: \emph{fail@1} (fraction of initially-correct samples that ever flip under a condition), \emph{turn-of-failure} (the first round where the flip occurs, enabling ``when'' analysis), and \emph{survival} (probability of staying correct through each round, summarizing degradation over time). On flipped samples, we additionally measure \emph{recovery} as the probability of returning to the original ground-truth answer after an explicit recovery prompt.
+
 \section{Related Work}
 \label{sec:related}
 
