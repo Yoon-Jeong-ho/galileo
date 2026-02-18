@@ -735,5 +735,5 @@ Format (one per line):
 ## New candidates (2026-02-18)
 
 - [x] 2024 | FairMT-Bench: Benchmarking Fairness for Multi-turn Dialogue in Conversational LLMs | arXiv | https://arxiv.org/abs/2410.19317 | tags: fairness, multi-turn, dialogue, benchmark | note: papers/20260218_fairmt-bench.md
-- [ ] 2025 | Exploratory Retrieval-Augmented Planning For Continual Embodied Instruction Following | arXiv | https://arxiv.org/abs/2509.08222 | tags: instruction-following, planning, retrieval-augmented, continual, embodied-agent
+- [x] 2025 | Exploratory Retrieval-Augmented Planning For Continual Embodied Instruction Following | arXiv | https://arxiv.org/abs/2509.08222 | tags: instruction-following, planning, retrieval-augmented, continual, embodied-agent | note: docs/paper/related_work/rapid_review/papers/20260218_exrap-continual-embodied-instruction.md
 - [ ] 2025 | Planning with Reasoning using Vision Language World Model | arXiv | https://arxiv.org/abs/2509.02722 | tags: planning, reasoning, world-model, vision-language
