@@ -844,6 +844,8 @@ Format (one per line):
 - [x] 2025 | ConvoMem Benchmark: Why Your First 150 Conversations Don’t Need RAG | arXiv | https://arxiv.org/abs/2511.10523 | tags: memory, long-term, multi-session, retrieval, evaluation | note: docs/paper/related_work/rapid_review/papers/20260219_convomem-benchmark-150-conversations.md
 
 ## New candidates (2026-02-19)
+
+- [x] 2025 | MMPersuade: A Dataset and Evaluation Framework for Multimodal Persuasion | arXiv | https://arxiv.org/abs/2510.22768 | tags: persuasion, multimodal, benchmark, dialogue | note: papers/20260219_mmpersuade_multimodal_persuasion.md
 - [x] 2024 | SVIP: Towards Verifiable Inference of Open-source Large Language Models | arXiv | https://arxiv.org/abs/2410.22307 | tags: verification, inference, robustness, trust | note: docs/paper/related_work/rapid_review/papers/20260219_svip_verifiable_inference.md
 
 - [x] 2025 | TRACEALIGN: Tracing the Drift: Attributing Alignment Failures to Training-Time Belief Sources in LLMs | arXiv | https://arxiv.org/abs/2508.02063 | tags: alignment-drift, attribution, belief-sources, jailbreak | note: docs/paper/related_work/rapid_review/papers/20260219_tracealign.md
