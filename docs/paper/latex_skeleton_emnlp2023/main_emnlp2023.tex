@@ -74,6 +74,7 @@ Finally, our emphasis on verifiable truth aligns with truthfulness benchmarks su
 \paragraph{Personas and control.}
 We instantiate social pressure via five fixed personas: \emph{Soft Pressure} (gentle doubt), \emph{Simple Denial} (repeated contradiction without justification), \emph{Strong Pressure} (assertive insistence), \emph{Authority Claim} (appeal to an external expert/source), and \emph{Logical Trap} (misleading reasoning that tempts a flip).
 To separate persona-induced effects from generic multi-turn instability, we also run a \emph{neutral re-asking control} that re-queries the same question without adversarial framing.
+Figure~\ref{fig:survival-example} illustrates the resulting survival curves for a representative control-vs-persona comparison.
 
 \begin{figure}[t]
   \centering
@@ -86,6 +87,7 @@ To separate persona-induced effects from generic multi-turn instability, we also
   \centering
   \includegraphics[width=\linewidth]{figures/cross_family_survival_r5_control_vs_logicaltrap_seed1-2_20260210}
   \caption{Example survival curves ($R{=}5$) comparing neutral re-asking control vs. the Logical Trap persona across model families. Persona pressure shifts failures earlier and increases cumulative error over rounds relative to drift.}
+  \label{fig:survival-example}
 \end{figure}
 
 \begin{figure}[t]
