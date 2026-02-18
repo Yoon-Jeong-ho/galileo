@@ -928,5 +928,5 @@ Format (one per line):
 ## New candidates (2026-02-19, web_search batch)
 
 - [x] 2025 | An Illusion of Progress? Assessing the Current State of Web Agents (Online-Mind2Web) | arXiv | https://arxiv.org/abs/2504.01382 | tags: web-agents, benchmark, evaluation, mind2web | note: docs/paper/related_work/rapid_review/papers/20260219_illusion-of-progress-online-mind2web.md
-- [ ] 2024 | ST-WebAgentBench: A Benchmark for Evaluating Safety and Trustworthiness in Web Agents | arXiv | https://arxiv.org/abs/2410.06703 | tags: web-agents, benchmark, safety, trustworthiness
+- [x] 2024 | ST-WebAgentBench: A Benchmark for Evaluating Safety and Trustworthiness in Web Agents | arXiv | https://arxiv.org/abs/2410.06703 | tags: web-agents, benchmark, safety, trustworthiness | note: docs/paper/related_work/rapid_review/papers/20260219_st-webagentbench.md
 - [ ] 2025 | BrowserArena: Evaluating LLM Agents on Real-World Web Navigation Tasks | arXiv | https://arxiv.org/abs/2510.02418 | tags: web-agents, benchmark, web-navigation, evaluation
