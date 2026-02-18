@@ -21,7 +21,9 @@ Ground-truth tasks에서 multi-turn persona pressure 하에 **정답 유지(surv
 ## 1) NOW (what we are doing / what is true *right now*)
 
 - We are in a **10-min heartbeat loop**; each heartbeat must deliver **one primary lane** result and keep continuity via `STATUS.md` + `HEARTBEAT_LOG.md`.
-- **Remote experiments policy:** use **nlp8**; GPUs **4/5/6** only; `tmux` required; paper-ready runs must include `paper_exports/*` + `metadata.json` + `runner_metadata.json` + validator `[OK]` + parity.
+- **Remote experiments policy (needs confirmation; conflicting banners/docs):** paper SSOT + runbook historically used **nlp8 (GPUs 4/5/6)**, but current heartbeat banner points to **nlp16 (/mnt/raid6, GPUs 4/5/6/7)**.
+  - **Observed now (nlp16):** GPUs 4/5 are heavily contended (e.g., `jslee-fusion-distill-vllm-v1` holding ~47GiB on GPU5; `eval-worker-gpu1` ~37GiB on GPU4), causing vLLM EngineCore init failures for new TP=4 starts.
+  - **Action:** do not blindly relaunch vLLM when free-VRAM is low; fingerprint PIDs first.
 - **Canonical remote launcher (anti-drift):** prefer `scripts/run_multiseed_tmux.sh` (streams logs + writes `runner_metadata.json`). Other launch scripts are allowed only when explicitly justified in `results/<run>/run.log`.
 - **Validator health (paper SSOT):** `results_paper/` global validation + runner-metadata parity is **[OK]** (Tier‑1 families incl. Llama‑3.2‑3B, Phi‑3‑mini, **Mistral‑Nemo**). Incomplete runs are quarantined under `results_paper_incomplete/` to keep paper SSOT clean.
 - **Phi-3-mini Tier-1 (cross-family):** seed1–2 are **paper-ready** (validated) under `results_paper/tier1_phi3mini_seed{1,2}_20260217_*`.
@@ -91,9 +93,9 @@ Ground-truth tasks에서 multi-turn persona pressure 하에 **정답 유지(surv
 
 **Update:** Llama‑3.2‑3B‑Instruct, Phi‑3‑mini, and **Mistral‑Nemo** all have Tier‑1 **seeds 1–2** that are paper-ready and reflected in the tracked cross-family artifact/figure set (see `docs/paper/artifacts/tier1_*_survival_summary_*.csv` and the canonical SVG under `docs/paper/figures/`).
 
-**Update (2026-02-18):** Zephyr‑7B seed1 is now paper-ready; seed2 launched and in progress.
+**Update (2026-02-18):** Zephyr‑7B Tier‑1 **seeds 1–2 are paper-ready** and already integrated into the canonical cross-family figure + artifacts (`..._20260218`).
 
-**Update (10:53 KST):** Zephyr seed2 is currently blocked by nlp8 GPU contention (GPUs 4/5/6 occupied by external jobs).
+**Update (2026-02-18 evening):** nlp16 is reachable and contains legacy `results/` runs (e.g., `results/rerun_persona_seed1_20260210_1140/`) that are still progressing, but **new vLLM starts are currently unreliable** due to heavy external GPU occupancy on 4/5.
 
 ---
 
