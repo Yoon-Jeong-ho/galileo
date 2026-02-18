@@ -488,7 +488,7 @@ Format (one per line):
 - [x] 2026 | Behavioral Consistency Validation for LLM Agents: An Analysis of Trading-Style Switching through Stock-Market Simulation | arXiv | https://arxiv.org/abs/2602.07023 | tags: agents, behavioral-consistency, evaluation, simulation | note: papers/20260218_behavioral-consistency-validation-llm-agents.md
 - [x] 2026 | TemporalBench: A Benchmark for Evaluating LLM-Based Agents on Contextual and Event-Informed Time Series Tasks | arXiv | https://arxiv.org/abs/2602.13272 | tags: agents, temporal, robustness, evaluation | note: docs/paper/related_work/rapid_review/papers/20260218_temporalbench.md
 
-- [ ] 2026 | Talk Less, Verify More: Improving LLM Assistants with Semantic Checks and Execution Feedback | arXiv | https://arxiv.org/abs/2601.00224 | tags: verification, feedback, robustness, agents
+- [x] 2026 | Talk Less, Verify More: Improving LLM Assistants with Semantic Checks and Execution Feedback | arXiv | https://arxiv.org/abs/2601.00224 | tags: verification, feedback, robustness, agents | note: papers/20260218_talk-less-verify-more.md | reviewed (added note)
 - [ ] 2026 | Bilingual Bias in Large Language Models: A Taiwan Sovereignty Benchmark Study | arXiv | https://arxiv.org/abs/2602.06371 | tags: bias, multilingual, consistency, evaluation
 
 - [ ] 2026 | Robust Bias Evaluation with FilBBQ: A Filipino Bias Benchmark for Question-Answering Language Models | arXiv | https://arxiv.org/abs/2602.14466 | tags: bias, fairness, robustness, multilingual
