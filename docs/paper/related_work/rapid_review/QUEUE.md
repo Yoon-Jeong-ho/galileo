@@ -817,3 +817,11 @@ Format (one per line):
 - [x] 2025 | SVC 2025: the First Multimodal Deception Detection Challenge | arXiv | https://arxiv.org/abs/2508.04129 | tags: deception-detection, multimodal, challenge, benchmark | note: papers/20260218_svc2025_mm_deception_challenge.md
 - [x] 2025 | Medical Large Language Model Benchmarks Should Prioritize Construct Validity | arXiv | https://arxiv.org/abs/2503.10694 | tags: evaluation, construct-validity, benchmarks, medical | note: papers/20260218_medical-llm-benchmarks-construct-validity.md | normalize note path
 - [x] 2025 | Do Large Language Models Know How Much They Know? | arXiv | https://arxiv.org/abs/2502.19573 | tags: calibration, self-knowledge, uncertainty, evaluation | note: docs/paper/related_work/rapid_review/papers/20260218_do-llms-know-how-much-they-know.md
+
+## New candidates (2026-02-18, web_search self-correction/consistency)
+
+- [x] 2026 | Enhancing Self-Correction in Large Language Models through Multi-Perspective Reflection | arXiv | https://arxiv.org/abs/2601.07780 | tags: self-correction, reflection, consistency, multi-turn-adjacent | note: papers/20260218_pr-cot-multi-perspective-reflection.md
+- [ ] 2025 | Self-Correction Bench: Revealing and Addressing the Self-Correction Blind Spot in LLMs | arXiv | https://arxiv.org/abs/2507.02778 | tags: self-correction, benchmark, error-types, robustness
+- [ ] 2025 | Murphy: Multi-Turn GRPO for Self Correcting Code Generation | arXiv | https://arxiv.org/abs/2511.07833 | tags: multi-turn, self-correction, training, code
+- [ ] 2025 | Reflective Confidence: Correcting Reasoning Flaws via Online Self-Correction | arXiv | https://arxiv.org/abs/2512.18605 | tags: self-correction, confidence, early-stopping, self-consistency
+- [ ] 2025 | PAG: Multi-Turn Reinforced LLM Self-Correction with Policy as Generative Verifier | arXiv | https://arxiv.org/abs/2506.10406 | tags: self-correction, verifier, rlhf-adjacent, multi-turn
