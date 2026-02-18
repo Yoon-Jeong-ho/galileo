@@ -37,15 +37,18 @@ def main() -> None:
     ap.add_argument("--top10", type=int, default=0, help="Increment TOP10-shortlist counter by this amount")
     # Back-compat: some cron attempts use --count instead of --papers.
     ap.add_argument("--count", type=int, default=0, help=argparse.SUPPRESS)
+    ap.add_argument("--delta", type=int, default=0, help=argparse.SUPPRESS)
     # Cron/back-compat: accept-and-ignore common mispassed args.
     ap.add_argument("--url", default="", help=argparse.SUPPRESS)
     ap.add_argument("--note", default="", help=argparse.SUPPRESS)
     ap.add_argument("--comment", default="", help=argparse.SUPPRESS)
     args = ap.parse_args()
 
-    # Back-compat alias.
+    # Back-compat aliases.
     if args.papers == 0 and args.count:
         args.papers = args.count
+    if args.papers == 0 and args.delta:
+        args.papers = args.delta
 
     # Cron robustness: treat missing deltas as a no-op success.
     if args.papers == 0 and args.top10 == 0:
