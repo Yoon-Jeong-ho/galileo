@@ -1001,5 +1001,5 @@ Format (one per line):
 
 - [x] 2025 | AnySat: One Earth Observation Model for Many Resolutions, Scales, and Modalities | arXiv | https://arxiv.org/abs/2412.14123 | tags: geospatial, earth-observation, foundation-model, multi-resolution, multi-modal | note: papers/20260219_anysat.md
 - [x] 2025 | Any-Optical-Model: A Universal Foundation Model for Optical Remote Sensing | arXiv | https://arxiv.org/abs/2512.17224 | tags: earth-observation, optical, foundation-model, multi-sensor | note: docs/paper/related_work/rapid_review/papers/20260219_any_optical_model.md
-- [ ] 2025 | TiMo: Spatiotemporal Foundation Model for Satellite Image Time Series | arXiv | https://arxiv.org/abs/2505.08723 | tags: sits, spatiotemporal, foundation-model, time-series
+- [x] 2025 | TiMo: Spatiotemporal Foundation Model for Satellite Image Time Series | arXiv | https://arxiv.org/abs/2505.08723 | tags: sits, spatiotemporal, foundation-model, time-series | note: docs/paper/related_work/rapid_review/papers/20260219_timo_spatiotemporal_fm_sits.md
 - [ ] 2025 | Fine-tune Smarter, Not Harder: Parameter-Efficient Fine-Tuning for Geospatial Foundation Models | arXiv | https://arxiv.org/abs/2504.17397 | tags: peft, finetuning, geospatial, foundation-model
