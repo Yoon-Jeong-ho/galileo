@@ -677,7 +677,7 @@ Format (one per line):
 ## New candidates (2026-02-18, web_search batch)
 
 - [x] 2026 | Can AI-Generated Persuasion Be Detected? Persuaficial Benchmark and AI vs. Human Linguistic Differences | arXiv | https://arxiv.org/abs/2601.04925 | tags: persuasion, detection, benchmark, multilingual | note: papers/20260218_persuaficial.md
-- [ ] 2025 | How Do LLMs Persuade? Linear Probes Can Uncover Persuasion Dynamics in Multi-Turn Conversations | arXiv | https://arxiv.org/abs/2508.05625 | tags: persuasion, multi-turn, interpretability, linear-probes
+- [x] 2025 | How Do LLMs Persuade? Linear Probes Can Uncover Persuasion Dynamics in Multi-Turn Conversations | arXiv | https://arxiv.org/abs/2508.05625 | tags: persuasion, multi-turn, interpretability, linear-probes | note: papers/20260217_llms-persuade-linear-probes.md (duplicate queue entry)
 - [ ] 2024 | Measuring and Benchmarking Large Language Models' Capabilities to Generate Persuasive Language | arXiv | https://arxiv.org/abs/2406.17753 | tags: persuasion, benchmark, dataset, rewriting
 - [ ] 2026 | The Assistant Axis: Situating and Stabilizing the Default Persona of Language Models | arXiv | https://arxiv.org/abs/2601.10387 | tags: persona, drift, stability, representation
 - [ ] 2025 | Communication is All You Need: Persuasion Dataset Construction via Multi-LLM Communication | arXiv | https://arxiv.org/abs/2502.08896 | tags: persuasion, dataset, multi-agent, communication
