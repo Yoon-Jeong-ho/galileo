@@ -693,7 +693,7 @@ Format (one per line):
 - [x] 2025 | BiasFreeBench: a Benchmark for Mitigating Bias in Large Language Model Responses | arXiv | https://arxiv.org/abs/2510.00232 | tags: bias, multi-turn-dialogue, fairness, benchmark | note: docs/paper/related_work/rapid_review/papers/20260218_biasfreebench.md
 - [x] 2025 | From Belief Entrenchment to Robust Reasoning in LLM Agents | arXiv | https://arxiv.org/abs/2503.16814 | tags: multi-agent, debate, belief-entrenchment, robustness | note: docs/paper/related_work/rapid_review/papers/20260218_belief-entrenchment-robust-reasoning.md
 - [x] 2026 | Benchmarking Large Language Models for Knowledge Graph Validation | arXiv | https://arxiv.org/abs/2602.10748 | tags: factuality, validation, robustness, evaluation | note: docs/paper/related_work/rapid_review/papers/20260218_benchmarking-llms-kg-validation.md
-- [ ] 2025 | What Helps Language Models Predict Human Beliefs: Demographics or Prior Stances? | arXiv | https://arxiv.org/abs/2511.18616 | tags: human-beliefs, social-reasoning, evaluation
+- [x] 2025 | What Helps Language Models Predict Human Beliefs: Demographics or Prior Stances? | arXiv | https://arxiv.org/abs/2511.18616 | tags: human-beliefs, social-reasoning, evaluation | note: docs/paper/related_work/rapid_review/papers/20260218_predict-human-beliefs-demographics-vs-prior-stances.md
 
 ## New candidates (2026-02-18)
 
