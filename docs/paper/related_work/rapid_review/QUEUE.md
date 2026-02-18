@@ -99,7 +99,7 @@ Format (one per line):
 
 - [x] 2025 | MultiChallenge: A Realistic Multi-Turn Conversation Evaluation Benchmark Challenging to Frontier LLMs | arXiv | https://arxiv.org/abs/2501.17399 | tags: multi-turn, persistence, context, evaluation | note: papers/20260217_multichallenge.md
 - [x] 2025 | One Battle After Another: Probing LLMs’ Limits on Multi-Turn Instruction Following with a Benchmark Evolving Framework | arXiv | https://arxiv.org/abs/2511.03508 | tags: multi-turn, instruction-following, survival-curves, recovery | note: papers/20260217_evolif-multi-turn-instruction-following.md
-- [x] 2025 | Modeling and Predicting Multi-Turn Answer Instability in Large Language Models | arXiv | https://arxiv.org/abs/2511.10688 | tags: multi-turn, instability, prediction, markov | note: papers/20260217_modeling-multi-turn-answer-instability.md
+- [x] 2025 | Modeling and Predicting Multi-Turn Answer Instability in Large Language Models | arXiv | https://arxiv.org/abs/2511.10688 | tags: multi-turn, instability, prediction, markov | note: docs/paper/related_work/rapid_review/papers/20260218_modeling-multi-turn-answer-instability.md | duplicate queue entry (already reviewed)
 - [x] 2025 | ERGO: Entropy-guided Resetting for Generation Optimization in Multi-turn Language Models | arXiv | https://arxiv.org/abs/2510.14077 | tags: multi-turn, intervention, recovery, stability | note: papers/20260217_ergo-entropy-guided-resetting.md
 - [x] 2025 | LM-Fix: Lightweight Bit-Flip Detection and Rapid Recovery Framework for Language Models | arXiv | https://arxiv.org/abs/2511.02866 | tags: reliability, recovery, bit-flip, deployment | note: papers/20260217_lm-fix.md
 
@@ -753,3 +753,11 @@ Format (one per line):
 - [x] 2026 | MMR-Bench: A Comprehensive Benchmark for Multimodal LLM Routing | arXiv | https://arxiv.org/abs/2601.17814 | tags: multimodal, routing, robustness, benchmark | note: docs/paper/related_work/rapid_review/papers/20260218_mmr-bench_multimodal-llm-routing.md
 - [x] 2026 | An Open Ended Deep Research Model via Multi-Agent ... | arXiv | https://arxiv.org/abs/2601.03743 | tags: agents, deep-research, multi-turn, training-data | note: papers/20260218_oresearcher_open-ended-deep-research.md
 - [x] 2025 | IntellAgent: A Multi-Agent Framework for Evaluating Conversational AI Agents | arXiv | https://arxiv.org/abs/2501.11067 | tags: agents, evaluation, multi-turn, simulation | note: docs/paper/related_work/rapid_review/papers/20260218_intellagent-eval-conv-ai.md
+
+## New candidates (2026-02-18, web_search batch 1)
+
+- [x] 2025 | Modeling and Predicting Multi-Turn Answer Instability in Large Language Models | arXiv | https://arxiv.org/abs/2511.10688 | tags: multi-turn, instability, answer-changes, robustness | note: docs/paper/related_work/rapid_review/papers/20260218_modeling-multi-turn-answer-instability.md | duplicate queue entry (already reviewed)
+- [ ] 2025 | Drift No More? Context Equilibria in Multi-Turn LLM Interactions | arXiv | https://arxiv.org/abs/2510.07777 | tags: drift, controls, interventions, multi-turn
+- [ ] 2026 | Consistency of Large Reasoning Models Under Multi-Turn Attack | arXiv | https://arxiv.org/abs/2602.13093 | tags: multi-turn, adversarial, consistency, attacks
+- [ ] 2025 | Modeling and Predicting Multi-Turn Answer Instability in Large Language Models (HTML) | arXiv | https://arxiv.org/html/2511.10688v1 | tags: multi-turn, instability, html
+- [ ] 2025 | Modeling and Predicting Multi-Turn Answer Instability in Large Language Models (ResearchGate) | ResearchGate | https://www.researchgate.net/publication/397663620_Modeling_and_Predicting_Multi-Turn_Answer_Instability_in_Large_Language_Models | tags: multi-turn, instability, mirror
