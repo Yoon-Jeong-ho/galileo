@@ -576,7 +576,7 @@ Format (one per line):
 - [x] 2026 | From Assistant to Double Agent: Formalizing and Benchmarking Attacks on OpenClaw for Personalized Local AI Agent | arXiv | https://arxiv.org/abs/2602.08412 | tags: agent-security, prompt-injection, multi-turn, benchmark | note: docs/paper/related_work/rapid_review/papers/20260218_pasb-openclaw-security-bench.md
 
 - [x] 2025 | MCP-SafetyBench: A Benchmark for Safety Evaluation of Large Language Models with Real-World MCP Servers | arXiv | https://arxiv.org/abs/2512.15163 | tags: tool-use, multi-turn, safety, benchmark | note: docs/paper/related_work/rapid_review/papers/20260218_mcp-safetybench.md
-- [ ] 2026 | SEMA: Simple yet Effective Learning for Multi-Turn Jailbreak Attacks | arXiv | https://arxiv.org/abs/2602.06854 | tags: multi-turn, jailbreak, attacks, safety
+- [x] 2026 | SEMA: Simple yet Effective Learning for Multi-Turn Jailbreak Attacks | arXiv | https://arxiv.org/abs/2602.06854 | tags: multi-turn, jailbreak, attacks, safety | note: docs/paper/related_work/rapid_review/papers/20260218_sema_multiturn-jailbreak-attacker.md
 
 - [x] 2025 | MultiChallenge: A Realistic Multi-Turn Conversation Evaluation Benchmark Challenging to Frontier LLMs | arXiv | https://arxiv.org/abs/2501.17399 | tags: multi-turn, evaluation, persistence, self-coherence, sycophancy | note: papers/20260217_multichallenge.md  # duplicate queue entry
 - [x] 2025 | Beyond Single-Turn: A Survey on Multi-Turn Interactions with Large Language Models | arXiv | https://arxiv.org/abs/2504.04717 | tags: multi-turn, survey, interaction, evaluation | note: papers/20260217_beyond-single-turn-survey.md  # duplicate queue entry; note already exists
