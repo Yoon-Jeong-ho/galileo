@@ -95,7 +95,9 @@ Ground-truth tasks에서 multi-turn persona pressure 하에 **정답 유지(surv
 
 **Update (2026-02-18):** Zephyr‑7B Tier‑1 **seeds 1–2 are paper-ready** and already integrated into the canonical cross-family figure + artifacts (`..._20260218`).
 
-**Update (2026-02-18 evening):** nlp16 is reachable and contains legacy `results/` runs (e.g., `results/rerun_persona_seed1_20260210_1140/`) that are still progressing, but **new vLLM starts are currently unreliable** due to heavy external GPU occupancy on 4/5.
+**Update (2026-02-18 evening):** nlp16 is reachable and contains legacy `results/` runs (e.g., `results/rerun_persona_seed1_20260210_1140/`), but we should treat it as **legacy/non-SSOT**: the specific run we tailed is **not progressing** (no live `run_experiment.py`, log mtime stale). New vLLM starts are also unreliable due to heavy external GPU occupancy on 4–7.
+
+**SSOT clarification:** all auditable “paper-ready” experiment work is SSOT on **nlp8** (repo `/data_x/aa007878/galileo`, GPUs 4–6) per `docs/paper/REMOTE_EXPERIMENTS_RUNBOOK.md`.
 
 ---
 
