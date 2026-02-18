@@ -745,3 +745,11 @@ Format (one per line):
 - [x] 2025 | PrivacyBench: A Conversational Benchmark for Evaluating Privacy in Personalized AI | arXiv | https://arxiv.org/abs/2512.24848 | tags: privacy, secrets, personalization, multi-turn, benchmark | note: papers/20260218_privacybench.md
 - [x] 2024 | PersoBench: Benchmarking Personalized Response Generation in Large Language Models | arXiv | https://arxiv.org/abs/2410.03198 | tags: personalization, persona, multi-turn, benchmark, evaluation | note: papers/20260218_persobench.md
 - [x] 2025 | A Personalized Conversational Benchmark: Towards Simulating Personalized Conversations | arXiv | https://arxiv.org/abs/2505.14106 | tags: personalization, simulation, multi-turn, benchmark | note: papers/20260218_personaconvbench.md
+
+## New candidates (2026-02-18, web_search batch 1)
+
+- [x] 2026 | DETOUR: An Interactive Benchmark for Dual-Agent Search and Reasoning | arXiv | https://arxiv.org/abs/2602.00352 | tags: multi-turn, interactive, search, agents, clarification | note: papers/20260218_detour_dual_agent_search_reasoning.md  # duplicate queue entry; note already exists
+- [ ] 2026 | DPBench: Large Language Models Struggle with Simultaneous Coordination | arXiv | https://arxiv.org/abs/2602.13255 | tags: multi-agent, coordination, robustness, multi-turn-adjacent
+- [ ] 2026 | MMR-Bench: A Comprehensive Benchmark for Multimodal LLM Routing | arXiv | https://arxiv.org/abs/2601.17814 | tags: multimodal, routing, robustness, benchmark
+- [ ] 2026 | An Open Ended Deep Research Model via Multi-Agent ... | arXiv | https://arxiv.org/abs/2601.03743 | tags: agents, deep-research, multi-turn, training-data
+- [ ] 2025 | IntellAgent: A Multi-Agent Framework for Evaluating Conversational AI Agents | arXiv | https://arxiv.org/abs/2501.11067 | tags: agents, evaluation, multi-turn, simulation
