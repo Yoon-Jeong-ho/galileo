@@ -781,7 +781,7 @@ Format (one per line):
 ## New candidates (2026-02-18, web_search batch sycophancy-mechanistic)
 
 - [x] 2026 | A Few Bad Neurons: Isolating and Surgically Correcting Sycophancy | arXiv | https://arxiv.org/abs/2601.18939 | tags: sycophancy, interpretability, neurons, mitigation | note: papers/20260218_few-bad-neurons-sycophancy.md  # duplicate queue entry; note already exists
-- [ ] 2025 | When Truth Is Overridden: Uncovering the Internal Origins of Sycophancy in Large Language Models | arXiv | https://arxiv.org/abs/2508.02087 | tags: sycophancy, mechanistic, representations
+- [x] 2025 | When Truth Is Overridden: Uncovering the Internal Origins of Sycophancy in Large Language Models | arXiv | https://arxiv.org/abs/2508.02087 | tags: sycophancy, mechanistic, representations | note: papers/20260217_when-truth-is-overridden.md  # duplicate queue entry; note already exists
 - [ ] 2025 | Sycophancy Is Not One Thing: Causal Separation of Sycophantic Behaviors in LLMs | arXiv | https://arxiv.org/abs/2509.21305 | tags: sycophancy, causal, taxonomy
 - [ ] 2025 | Sycophancy Mitigation Through Reinforcement Learning with Uncertainty-Aware Adaptive Reasoning Trajectories | arXiv | https://arxiv.org/abs/2509.16742 | tags: sycophancy, rl, uncertainty, mitigation
 - [ ] 2024 | Sycophancy in Vision-Language Models: A Systematic Analysis and an Inference-Time Mitigation Framework | arXiv | https://arxiv.org/abs/2408.11261 | tags: sycophancy, vlm, inference-time, mitigation
