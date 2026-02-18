@@ -723,3 +723,11 @@ Format (one per line):
 
 - [x] 2025 | Personalized Attacks of Social Engineering in Multi-turn Conversations: LLM Agents for Simulation and Detection | arXiv | https://arxiv.org/abs/2503.15552 | tags: social-engineering, multi-turn, persuasion, detection, agents | note: papers/20260218_se-vsim-social-engineering.md
 - [x] 2025 | Pattern Enhanced Multi-Turn Jailbreaking: Exploiting Structural Vulnerabilities in Large Language Models | arXiv | https://arxiv.org/abs/2510.08859 | tags: multi-turn, jailbreak, attacks, structure, robustness | note: papers/20260218_pe-coa-pattern-enhanced-multi-turn-jailbreaking.md
+
+## New candidates (2026-02-18, web_search)
+
+- [x] 2025 | Aligning Dialogue Agents with Global Feedback via Large Language Model Multimodal Reward Decomposition | arXiv | https://arxiv.org/html/2505.15922 | tags: dialogue-agents, reward-modeling, preference-learning, evaluation | note: papers/20260218_llm-geli-global-feedback.md
+- [ ] 2026 | Agent Skills for Large Language Models: Architecture, Acquisition, Security, and the Path Forward | arXiv | https://arxiv.org/abs/2602.12430 | tags: agents, skills, architecture, security, survey
+- [ ] 2026 | On Calibration of Large Language Models: From Response To Capability | arXiv | https://arxiv.org/abs/2602.13540 | tags: calibration, confidence, evaluation, pass@k
+- [ ] 2025 | MCPAgentBench: A Real-world Task Benchmark for Evaluating LLM Agent MCP Tool Use | arXiv | https://arxiv.org/abs/2512.24565 | tags: agents, tool-use, benchmark, mcp
+- [ ] 2026 | ProAgentBench: Evaluating LLM Agents for Proactive Assistance with Real-World Data | arXiv | https://arxiv.org/html/2602.04482v1 | tags: agents, proactive, benchmark, real-world
