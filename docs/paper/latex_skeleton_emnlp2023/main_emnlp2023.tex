@@ -33,8 +33,14 @@ Across multiple model families and seeds, we find that persona pressure consiste
 We further observe that \emph{robustness} (staying correct) and \emph{recoverability} (returning to truth after a flip) behave as distinct axes.
 \end{abstract}
 
-\section{Introduction (placeholder)}
+\section{Introduction}
 \label{sec:intro}
+
+Modern LLM assistants are often evaluated on single-turn correctness, but many real interactions are multi-turn: users challenge answers, assert contradictory ``facts,'' or apply rhetorical pressure (e.g., ``Are you sure?'' or ``My professor said otherwise.''). In these settings, a model can exhibit a 
+\emph{belief-consistency failure}: changing a previously correct answer to an incorrect one due to social influence rather than new evidence.
+Despite growing interest in sycophancy and persuasion, existing evaluations rarely provide an end-to-end, reproducible protocol where correctness is \emph{checkable at every turn} and failures can be localized to the exact round where the first flip occurs.
+
+GALILEO targets this gap by instantiating multi-turn pressure on \emph{ground-truth} tasks with automatic checking. We pair adversarial personas with a neutral re-asking control to separate generic answer drift from persona-induced degradation, and we add a recovery stage to measure whether models can return to the original truth after an induced flip.
 
 \noindent\textbf{Contributions.} GALILEO provides:
 (1) a ground-truth, multi-turn protocol with survival and turn-of-failure metrics;
