@@ -32,6 +32,7 @@ ssh nlp8 '
   cd /data_x/aa007878/galileo || exit 1
   echo "== tmux =="; (tmux ls || true)
   echo "== GPU (4-6) ==";
+  # Prefer `-i` over post-filtering with awk/grep (avoids quoting bugs when running via ssh).
   nvidia-smi -i 4,5,6 --query-gpu=index,name,utilization.gpu,memory.used,memory.total --format=csv,noheader
   echo "== newest results ==";
   ls -1t results | head -n 8
@@ -54,7 +55,9 @@ ssh nlp8 '
 
 ### GPU contention triage (prevent wasted launches)
 
-Before launching on a GPU, **fingerprint what is already on it** (and do not assume `nvidia-smi` util/mem snapshots are stable across minutes):
+Before launching on a GPU, **fingerprint what is already on it** (and do not assume `nvidia-smi` util/mem snapshots are stable across minutes).
+
+**Quoting pitfall (ssh + awk):** if you ever run `awk` inside an `ssh '...` one-liner, ensure the awk program is single-quoted or the `$1` gets expanded by the *local* shell (leading to confusing errors like `awk: (>=4 && <=7){print}`). Prefer `nvidia-smi -i <gpu-list>` instead.
 
 ```bash
 ssh nlp8 '
