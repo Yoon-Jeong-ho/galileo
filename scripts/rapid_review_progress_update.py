@@ -5,7 +5,7 @@ Some cron runs attempted:
   python3 scripts/rapid_review_progress_update.py --delta 1
 
 The canonical script is:
-  python3 scripts/rapid_review_progress_increment.py --papers-read-delta 1
+  python3 scripts/rapid_review_progress_increment.py --papers 1
 
 This wrapper forwards common flags to the canonical implementation.
 """
@@ -31,16 +31,16 @@ def main() -> int:
 
     papers_delta = args.papers_read_delta or args.delta or args.n
 
+    # Note: rapid_review_progress_increment.py uses a fixed PROGRESS.md path in-repo.
+    # We accept --progress for back-compat but do not forward it.
     cmd = [
         sys.executable,
         "scripts/rapid_review_progress_increment.py",
-        "--progress",
-        args.progress,
     ]
     if papers_delta:
-        cmd += ["--papers-read-delta", str(papers_delta)]
+        cmd += ["--papers", str(papers_delta)]
     if args.top10_delta:
-        cmd += ["--top10-delta", str(args.top10_delta)]
+        cmd += ["--top10", str(args.top10_delta)]
 
     return subprocess.call(cmd)
 
