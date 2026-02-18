@@ -691,7 +691,7 @@ Format (one per line):
 
 - [x] 2026 | Large Language Model Reasoning Failures | arXiv | https://arxiv.org/abs/2602.06176 | tags: reasoning-failures, robustness, prompt-effects | note: papers/20260218_llm-reasoning-failures.md
 - [x] 2025 | BiasFreeBench: a Benchmark for Mitigating Bias in Large Language Model Responses | arXiv | https://arxiv.org/abs/2510.00232 | tags: bias, multi-turn-dialogue, fairness, benchmark | note: docs/paper/related_work/rapid_review/papers/20260218_biasfreebench.md
-- [ ] 2025 | From Belief Entrenchment to Robust Reasoning in LLM Agents | arXiv | https://arxiv.org/abs/2503.16814 | tags: multi-agent, debate, belief-entrenchment, robustness
+- [x] 2025 | From Belief Entrenchment to Robust Reasoning in LLM Agents | arXiv | https://arxiv.org/abs/2503.16814 | tags: multi-agent, debate, belief-entrenchment, robustness | note: docs/paper/related_work/rapid_review/papers/20260218_belief-entrenchment-robust-reasoning.md
 - [ ] 2026 | Benchmarking Large Language Models for Knowledge Graph Validation | arXiv | https://arxiv.org/abs/2602.10748 | tags: factuality, validation, robustness, evaluation
 - [ ] 2025 | What Helps Language Models Predict Human Beliefs: Demographics or Prior Stances? | arXiv | https://arxiv.org/abs/2511.18616 | tags: human-beliefs, social-reasoning, evaluation
 
