@@ -705,3 +705,11 @@ Format (one per line):
 - [x] 2025 | SafeMT: Multi-turn Safety for Multimodal Language Models | arXiv | https://arxiv.org/abs/2510.12133 | tags: multimodal, multi-turn, safety, jailbreak, benchmark | note: papers/20260218_safemt_multiturn_safety_mllms.md
 - [x] 2026 | The ICASSP 2026 HumDial Challenge: Benchmarking Human-like Spoken Dialogue Systems in the LLM Era | arXiv | https://arxiv.org/abs/2601.05564 | tags: spoken-dialogue, benchmark, multi-turn, evaluation | note: papers/20260217_humdial-icassp2026.md  # duplicate queue entry; note already exists
 - [x] 2026 | Knowledge-Driven Multi-Turn Jailbreaking on Large Language Models | arXiv | https://arxiv.org/abs/2601.05445 | tags: multi-turn, jailbreak, attacks, strategy-distillation | note: papers/20260217_mastermind-jailbreak.md  # duplicate queue entry; note already exists
+
+## New candidates (2026-02-18, web_search batch)
+
+- [x] 2025 | StructFlowBench: A Structured Flow Benchmark for Multi-turn Instruction Following | arXiv | https://arxiv.org/abs/2502.14494 | tags: instruction-following, multi-turn, benchmark | note: papers/20260217_structflowbench.md  # duplicate queue entry; note already exists
+- [ ] 2025 | Meeseeks: An Iterative Benchmark Evaluating LLMs Multi-Turn Instruction-Following Ability | arXiv | https://arxiv.org/abs/2504.21625 | tags: instruction-following, multi-turn, self-correction, benchmark
+- [ ] 2024 | LIFBench: Evaluating the Instruction Following Performance and Stability of Large Language Models in Long-Context Scenarios | arXiv | https://arxiv.org/abs/2411.07037 | tags: instruction-following, long-context, stability, benchmark
+- [ ] 2025 | XIFBench: Evaluating Large Language Models on Multilingual Instruction Following | arXiv | https://arxiv.org/abs/2503.07539 | tags: instruction-following, multilingual, benchmark
+- [ ] 2025 | EifBench: Extremely Complex Instruction Following Benchmark for Large Language Models | arXiv | https://arxiv.org/abs/2506.08375 | tags: instruction-following, complex-constraints, benchmark
