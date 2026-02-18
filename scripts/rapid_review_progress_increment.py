@@ -20,7 +20,7 @@ def bump_counter(text: str, label: str, delta: int) -> str:
         raise ValueError(f"Could not find counter line for: {label!r}")
     old = int(m.group(2))
     new = old + delta
-    return pattern.sub(rf"\\g<1>{new}\\g<3>", text, count=1)
+    return pattern.sub(lambda mm: f"{mm.group(1)}{new}{mm.group(3)}", text, count=1)
 
 
 def main() -> int:

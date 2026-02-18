@@ -4,7 +4,8 @@
 - Target scale: ~100 papers (or until we saturate “closest neighbors”)
 
 ## Counters
-\g<1>364\g<3>
+
+- Papers read (notes written): 364
 - Shortlisted into TOP10: 10
 
 ## Coverage tags (desired)
