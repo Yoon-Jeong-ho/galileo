@@ -734,6 +734,6 @@ Format (one per line):
 
 - [x] 2026 | HalluHard: A Hard Multi-Turn Hallucination Benchmark | arXiv | https://arxiv.org/abs/2602.01031 | tags: multi-turn, hallucination, benchmark, high-stakes | note: papers/20260217_halluhard.md # duplicate URL
 - [x] 2026 | Confidence Estimation for LLMs in Multi-turn Interactions | arXiv | https://arxiv.org/abs/2601.02179 | tags: multi-turn, confidence, calibration, dialogue | note: papers/20260217_confidence-estimation-multi-turn.md  # duplicate queue entry; note already exists
-- [ ] 2025 | When Two LLMs Debate, Both Think They’ll Win | arXiv | https://arxiv.org/abs/2505.19184 | tags: debate, belief-update, multi-turn, calibration
+- [x] 2025 | When Two LLMs Debate, Both Think They’ll Win | arXiv | https://arxiv.org/abs/2505.19184 | tags: debate, belief-update, multi-turn, calibration | note: papers/20260217_two-llms-debate-win.md  # duplicate queue entry; note already exists
 - [ ] 2025 | Evaluating LLM-based Agents for Multi-Turn Conversations: A Survey | arXiv | https://arxiv.org/abs/2503.22458 | tags: survey, multi-turn, agents, evaluation
 - [ ] 2024 | A Survey on Recent Advances in LLM-Based Multi-turn Dialogue Systems | arXiv | https://arxiv.org/abs/2402.18013 | tags: survey, multi-turn, dialogue-systems
