@@ -841,4 +841,4 @@ Format (one per line):
 ## New candidates (2026-02-19, web_search batch 3 — long-term conversational memory)
 
 - [x] 2025 | A Simple Yet Strong Baseline for Long-Term Conversational Memory of LLM Agents | arXiv | https://arxiv.org/abs/2511.17208 | tags: memory, long-term, multi-session, personalization, robustness | note: docs/paper/related_work/rapid_review/papers/20260219_simple_strong_baseline_long_term_conversational_memory.md
-- [ ] 2025 | ConvoMem Benchmark: Why Your First 150 Conversations Don’t Need RAG | arXiv | https://arxiv.org/abs/2511.10523 | tags: memory, long-term, multi-session, retrieval, evaluation
+- [x] 2025 | ConvoMem Benchmark: Why Your First 150 Conversations Don’t Need RAG | arXiv | https://arxiv.org/abs/2511.10523 | tags: memory, long-term, multi-session, retrieval, evaluation | note: docs/paper/related_work/rapid_review/papers/20260219_convomem-benchmark-150-conversations.md
