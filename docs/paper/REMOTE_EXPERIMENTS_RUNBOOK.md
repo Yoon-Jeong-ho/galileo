@@ -52,6 +52,28 @@ ssh nlp8 '
 
 ## 2) Launch discipline
 
+### GPU contention triage (prevent wasted launches)
+
+Before launching on a GPU, **fingerprint what is already on it** (and do not assume `nvidia-smi` util/mem snapshots are stable across minutes):
+
+```bash
+ssh nlp8 '
+  for i in 4 5 6; do
+    echo "-- GPU $i compute apps --"
+    nvidia-smi -i $i --query-compute-apps=pid,process_name,used_memory --format=csv,noheader,nounits
+  done
+'
+```
+
+If a GPU is partially occupied, vLLM can fail at startup with an error like:
+
+- `ValueError: Free memory on device (...) on startup is less than desired GPU memory utilization (0.9, ...)`
+
+**Policy:**
+- Do **not** kill unknown/external PIDs.
+- Prefer re-launching on a genuinely free GPU (4/5/6).
+- If all Tier‑1 GPUs are occupied, switch the heartbeat to Writing/Development and log the blocker (avoid burning time retrying the same failing launch).
+
 ### Known model/hardware pitfalls (nlp8 RTX8000)
 
 Keep this section up-to-date; it prevents wasting Tier‑1 budget on runs that will never become “paper-ready.”
