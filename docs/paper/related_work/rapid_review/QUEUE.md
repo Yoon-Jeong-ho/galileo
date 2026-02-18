@@ -825,7 +825,7 @@ Format (one per line):
 ## New candidates (2026-02-19, web_search batch)
 
 - [x] 2024 | Chaos with Keywords: Exposing Large Language Models' Sycophancy to Misleading Keywords and Evaluating Defense Strategies | arXiv | https://arxiv.org/abs/2402.03463 | tags: sycophancy, keywords, misleading-cues, defenses | note: docs/paper/related_work/rapid_review/papers/20260219_chaos-with-keywords_bad-url.md | URL mismatch (arXiv id points to unrelated paper); needs correct link
-- [ ] 2026 | Auditing Multi-Agent LLM Reasoning Trees Outperforms Majority Vote and LLM-as-Judge | arXiv | https://arxiv.org/abs/2602.09341 | tags: multi-agent, auditing, sycophancy-bias, judge
+- [x] 2026 | Auditing Multi-Agent LLM Reasoning Trees Outperforms Majority Vote and LLM-as-Judge | arXiv | https://arxiv.org/abs/2602.09341 | tags: multi-agent, auditing, sycophancy-bias, judge | note: docs/paper/related_work/rapid_review/papers/20260219_auditing_multi_agent_reasoning_trees.md
 - [ ] 2024 | From Yes-Men to Truth-Tellers: Addressing Sycophancy in Large Language Models with Pinpoint Tuning | arXiv | https://arxiv.org/abs/2409.01658 | tags: sycophancy, mitigation, finetuning, pinpoint
 - [ ] 2025 | SteeringSafety: A Systematic Safety Evaluation Framework of Representation Steering in LLMs | arXiv | https://arxiv.org/abs/2509.13450 | tags: steering, safety-eval, sycophancy-adjacent
 - [ ] 2025 | Steering Language Models with Weight Arithmetic | arXiv | https://arxiv.org/abs/2511.05408 | tags: steering, weight-arithmetic, sycophancy-adjacent
