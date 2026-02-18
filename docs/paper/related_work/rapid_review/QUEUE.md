@@ -628,7 +628,7 @@ Format (one per line):
 ## New candidates (2026-02-18, web_search batch)
 
 - [x] 2026 | PersistBench: When Should Long-Term Memories Be Forgotten by LLMs? | arXiv | https://arxiv.org/abs/2602.01146 | tags: long-term-memory, sycophancy, leakage, safety, evaluation | note: papers/20260218_persistbench.md  # duplicate queue entry; note already exists
-- [ ] 2025 | AgentChangeBench: A Multi-Dimensional Evaluation Framework for Goal-Shift Robustness in Conversational AI | arXiv | https://arxiv.org/abs/2510.18170 | tags: multi-turn, robustness, goal-shift, recovery, evaluation
+- [x] 2025 | AgentChangeBench: A Multi-Dimensional Evaluation Framework for Goal-Shift Robustness in Conversational AI | arXiv | https://arxiv.org/abs/2510.18170 | tags: multi-turn, robustness, goal-shift, recovery, evaluation | note: papers/20260217_agentchangebench.md  # duplicate queue entry; note already exists
 - [ ] 2025 | EvolIF: Probing LLMs’ Limits on Multi-Turn Instruction Following with a Benchmark Evolving Framework | arXiv | https://arxiv.org/abs/2511.03508 | tags: multi-turn, instruction-following, error-recovery, evolving-benchmark
 - [ ] 2025 | MultiChallenge: A Realistic Multi-Turn Conversation Evaluation Benchmark Challenging to Frontier LLMs | arXiv | https://arxiv.org/abs/2501.17399 | tags: multi-turn, persistence, context-management, sycophancy-adjacent
 - [ ] 2025 | Audio MultiChallenge: A Multi-Turn Evaluation of Spoken Dialogue Systems on Natural Human Interaction | arXiv | https://arxiv.org/abs/2512.14865 | tags: multi-turn, spoken-dialogue, evaluation, persistence
