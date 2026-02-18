@@ -974,3 +974,10 @@ Format (one per line):
 - [x] 2025 | Sycophancy under Pressure: Evaluating and Mitigating Sycophantic Bias via Adversarial Dialogues in Scientific QA | arXiv | https://arxiv.org/html/2508.13743v1 | tags: sycophancy, adversarial-dialogue, scientific-qa, mitigation | note: docs/paper/related_work/rapid_review/papers/20260219_sycophancy-under-pressure_scientific-qa.md
 - [x] 2025 | Asking Again and Again: Exploring LLM Robustness to Repeated Questions | arXiv | https://arxiv.org/html/2412.07923v3 | tags: repeated-questions, robustness, drift, evaluation | note: docs/paper/related_work/rapid_review/papers/20260219_asking-again-and-again_repeated-questions.md
 - [x] 2025 | Technical Report: Evaluating Goal Drift in Language Model Agents | arXiv | https://arxiv.org/html/2505.02709v1 | tags: agents, goal-drift, evaluation, robustness | note: docs/paper/related_work/rapid_review/papers/20260219_goal_drift_lm_agents.md
+
+## New candidates (2026-02-19, web_search batch 1)
+- [x] 2025 | Natural Context Drift Undermines the Natural Language Understanding of Large Language Models | arXiv | https://arxiv.org/abs/2509.01093 | tags: context-drift, robustness, NLU, evaluation | note: papers/20260219_natural-context-drift-undermines-nlu.md
+- [x] 2025 | Persona-Aware Alignment Framework for Personalized Dialogue Generation | arXiv | https://arxiv.org/abs/2511.10215 | tags: personalization, alignment, persona, multi-turn | note: papers/20260219_persona-aware-alignment-pal.md
+- [ ] 2025 | Polypersona: Persona-Grounded LLM for Synthetic Survey Responses | arXiv | https://arxiv.org/abs/2512.14562 | tags: persona, surveys, consistency, synthetic-data
+- [ ] 2026 | HumanLLM: Benchmarking and Improving LLM Anthropomorphism via Human Cognitive Patterns | arXiv | https://arxiv.org/abs/2601.10198 | tags: anthropomorphism, personality, drift, evaluation
+- [ ] 2025 | BILLY: Steering Large Language Models via Merging Persona Vectors for Creative Generation | arXiv | https://arxiv.org/abs/2510.10157 | tags: persona, steering, vectors, control
