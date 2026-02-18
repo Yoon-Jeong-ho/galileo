@@ -824,7 +824,7 @@ Format (one per line):
 
 ## New candidates (2026-02-19, web_search batch)
 
-- [x] 2024 | Chaos with Keywords: Exposing Large Language Models' Sycophancy to Misleading Keywords and Evaluating Defense Strategies | arXiv | https://arxiv.org/abs/2402.03463 | tags: sycophancy, keywords, misleading-cues, defenses | note: docs/paper/related_work/rapid_review/papers/20260219_chaos-with-keywords_bad-url.md | URL mismatch (arXiv id points to unrelated paper); needs correct link
+- [x] 2024 | Chaos with Keywords: Exposing Large Language Models Sycophantic Hallucination to Misleading Keywords and Evaluating Defense Strategies | Findings of ACL 2024 (arXiv) | https://arxiv.org/abs/2406.03827 | tags: sycophancy, misleading-keywords, hallucination, defenses | note: docs/paper/related_work/rapid_review/papers/20260219_chaos-with-keywords.md
 - [x] 2026 | Auditing Multi-Agent LLM Reasoning Trees Outperforms Majority Vote and LLM-as-Judge | arXiv | https://arxiv.org/abs/2602.09341 | tags: multi-agent, auditing, sycophancy-bias, judge | note: docs/paper/related_work/rapid_review/papers/20260219_auditing_multi_agent_reasoning_trees.md
 - [x] 2024 | From Yes-Men to Truth-Tellers: Addressing Sycophancy in Large Language Models with Pinpoint Tuning | arXiv | https://arxiv.org/abs/2409.01658 | tags: sycophancy, mitigation, finetuning, pinpoint | note: docs/paper/related_work/rapid_review/papers/20260219_pinpoint-tuning-sycophancy.md
 - [x] 2025 | SteeringSafety: A Systematic Safety Evaluation Framework of Representation Steering in LLMs | arXiv | https://arxiv.org/abs/2509.13450 | tags: steering, safety-eval, sycophancy-adjacent | note: papers/20260219_steeringsafety_entanglement.md
@@ -837,3 +837,8 @@ Format (one per line):
 - [x] 2026 | Not Your Typical Sycophant: The Elusive Nature of Sycophancy in Large Language Models | arXiv | https://arxiv.org/abs/2601.15436v1 | tags: sycophancy, evaluation, confounds | note: docs/paper/related_work/rapid_review/papers/20260219_not-your-typical-sycophant.md
 - [x] 2025 | GuardVal: Dynamic Large Language Model Jailbreak Evaluation for Comprehensive Safety Testing | arXiv | https://arxiv.org/abs/2507.07735v1 | tags: jailbreak, dynamic-eval, multi-turn | note: docs/paper/related_work/rapid_review/papers/20260219_guardval.md
 - [x] 2026 | Defending Large Language Models Against Jailbreak Attacks via In-Decoding Safety-Awareness Probing | arXiv | https://arxiv.org/abs/2601.10543v1 | tags: jailbreak, defense, decoding | note: docs/paper/related_work/rapid_review/papers/20260219_safeprobing_indecoding_safety_awareness.md
+
+## New candidates (2026-02-19, web_search batch 3 — long-term conversational memory)
+
+- [ ] 2025 | A Simple Yet Strong Baseline for Long-Term Conversational Memory of LLM Agents | arXiv | https://arxiv.org/abs/2511.17208 | tags: memory, long-term, multi-session, personalization, robustness
+- [ ] 2025 | ConvoMem Benchmark: Why Your First 150 Conversations Don’t Need RAG | arXiv | https://arxiv.org/abs/2511.10523 | tags: memory, long-term, multi-session, retrieval, evaluation
