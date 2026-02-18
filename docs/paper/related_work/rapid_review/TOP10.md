@@ -54,11 +54,11 @@ For each item, we maintain:
    - Borrow: Utility/Safety reporting; GoodFlip/BadFlip asymmetry.
    - How to change GALILEO: add an explicit endorse-true vs reject-false breakdown and track good/bad flip asymmetry.
 
-8) **CausalT5K: Diagnosing and Informing Refusal for Trustworthy Causal Reasoning of Skepticism, Sycophancy, Detection-Correction, and Rung Collapse** (Geng et al., arXiv 2026)
-   - Contributes: a large diagnostic benchmark with paired neutral vs pressure variants enabling flip-quality metrics + Utility/Safety decomposition.
-   - Misses vs GALILEO: primarily causal-reasoning infrastructure; less about full recovery-after-flip trajectories.
-   - Borrow: pressure-paired benchmark design + 2D reporting.
-   - How to change GALILEO: report neutral-vs-pressure paired outcomes and add flip-quality rates.
+8) **Are You Sure? Challenging LLMs Leads to Performance Drops in The FlipFlop Experiment** (Laban et al., arXiv 2023; v2 2025)
+   - Contributes: a minimal, highly reusable 2–3 turn **FlipFlop** protocol (challenge: “Are you sure?”) with clean summary metrics: **flip rates** (Any/Correct/Wrong→Flip) and the **FlipFlop effect** ΔFF (final−initial accuracy).
+   - Misses vs GALILEO: does not cleanly separate **evidence-driven revision** from **pressure-driven drift** (challenge is confirmatory); limited treatment of longer-horizon recovery dynamics.
+   - Borrow: ΔFF + Correct/Wrong→Flip as reviewer-friendly, task-agnostic reporting; challenger-utterance variants (authority/persona) as sensitivity probes.
+   - How to change GALILEO: add a FlipFlop-style baseline slice and report correct-vs-wrong flip asymmetry to distinguish helpful self-correction from harmful sycophantic drift.
 
 9) **Time-To-Inconsistency: A Survival Analysis of Large Language Model Robustness to Adversarial Attacks** (Li, Krishnan, Padman, arXiv 2025)
    - Contributes: survival-analysis framing for multi-turn robustness with censoring; hazards/survival curves; **C-index** and **Integrated Brier Score**.
@@ -74,6 +74,7 @@ For each item, we maintain:
 
 ## Changelog
 
+- 2026-02-19: Added *Are You Sure? Challenging LLMs Leads to Performance Drops in The FlipFlop Experiment* (Laban et al., arXiv 2023) as a key multi-turn **challenge→flip** sycophancy protocol (ΔFF + flip-rate metrics). Displaced *CausalT5K: Diagnosing and Informing Refusal for Trustworthy Causal Reasoning of Skepticism, Sycophancy, Detection-Correction, and Rung Collapse* (Geng et al., arXiv 2026): useful benchmark infrastructure, but less central than a foundational FlipFlop-style protocol.
 - 2026-02-19: Added *TiMo: Spatiotemporal Foundation Model for Satellite Image Time Series* (arXiv 2025) as a key **SITS** neighbor (hierarchical backbone + structured spatiotemporal attention; MillionST with 10 timestamps over 5 years). Displaced *Persuasion Dynamics in LLMs: Investigating Robustness and Adaptability in Knowledge and Safety with DuET-PD* (Tan et al., EMNLP 2025): useful dual-axis persuasion framing, but less central if the related-work emphasis is shifting toward EO foundation models.
 - 2026-02-19: Added *Any-Optical-Model: A Universal Foundation Model for Optical Remote Sensing* (AAAI 2026; arXiv 2025) as a key **EO foundation model** neighbor focused on missing-band + cross-sensor + cross-resolution robustness. Displaced *Consistency of Large Reasoning Models Under Multi-Turn Attack* (Li, Krishnan, Padman, arXiv 2026): useful trajectory taxonomy, but less central if the related-work emphasis is shifting toward EO foundation models.
 - 2026-02-19: Added *AnySat: One Earth Observation Model for Many Resolutions, Scales, and Modalities* (arXiv 2024/2025) as a key **geospatial foundation model** neighbor (multi-resolution + JEPA + heterogeneous sensors). Displaced *BASIL: Bayesian Assessment of Sycophancy in LLMs*: useful for drift-vs-revision controls, but less central if GALILEO’s related-work emphasis is shifting toward EO foundation models.

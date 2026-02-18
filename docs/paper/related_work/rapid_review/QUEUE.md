@@ -1010,3 +1010,9 @@ Format (one per line):
 - [x] 2026 | Improving LLM Reliability Through Hybrid Abstention and Adaptive Detection | arXiv | https://arxiv.org/abs/2602.15391 | tags: reliability, abstention, detection, multi-turn | note: docs/paper/related_work/rapid_review/papers/20260219_hybrid_abstention_adaptive_detection.md
 - [x] 2026 | AD-Bench: A Real-World, Trajectory-Aware Advertising Analytics Benchmark for LLM Agents | arXiv | https://arxiv.org/abs/2602.14257 | tags: agents, trajectories, multi-tool, benchmark | note: docs/paper/related_work/rapid_review/papers/20260219_ad-bench.md
 - [x] 2026 | Pushing Forward Pareto Frontiers of Proactive Agents with Behavioral Agentic Optimization | arXiv | https://arxiv.org/abs/2602.11351 | tags: proactive-agents, optimization, user-alignment, multi-turn | note: docs/paper/related_work/rapid_review/papers/20260219_bao_proactive_agents.md
+
+## New candidates (2026-02-19, web_search batch persona-drift)
+
+- [x] https://arxiv.org/html/2311.08596v2  # Are You Sure? Challenging LLMs Leads to Performance Drops in The FlipFlop Experiment | note: docs/paper/related_work/rapid_review/papers/20260219_flipflop-experiment.md
+- [ ] https://arxiv.org/html/2504.12256  # FLIP Reasoning Challenge
+- [ ] https://arxiv.org/html/2601.10387v1  # The Assistant Axis: Situating and Stabilizing the Default Persona of Language Models
