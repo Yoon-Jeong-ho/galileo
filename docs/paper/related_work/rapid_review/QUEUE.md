@@ -862,3 +862,8 @@ Format (one per line):
 - [x] 2024 | Dialogue Language Model with Large-Scale Persona Data Engineering | arXiv | https://arxiv.org/abs/2412.09034 | tags: persona, dialogue, data, consistency, multi-turn | note: docs/paper/related_work/rapid_review/papers/20260219_ppds_persona_data_engineering.md
 - [x] 2025 | DeepPersona: A Generative Engine for Scaling Deep Synthetic Personas | arXiv | https://arxiv.org/abs/2511.07338 | tags: personas, synthetic-data, evaluation, alignment | note: docs/paper/related_work/rapid_review/papers/20260219_deeppersona_generative_engine_synthetic_personas.md
 - [x] 2025 | Role-Playing Evaluation for Large Language Models (RPEval) | arXiv | https://arxiv.org/abs/2505.13157 | tags: role-play, evaluation, consistency, moral | note: docs/paper/related_work/rapid_review/papers/20260219_rpeval_role_playing_evaluation_llms.md
+
+## New candidates (2026-02-19, web_search batch)
+
+- [x] 2025 | LongMemEval: Benchmarking Chat Assistants on Long-Term Interactive Memory | arXiv | https://arxiv.org/abs/2410.10813 | tags: long-term-memory, chat-assistant, multi-session, benchmark | note: papers/20260219_longmemeval.md
+- [ ] 2025 | MemoryBench: A Benchmark for Memory and Continual Learning in LLM Systems | arXiv | https://arxiv.org/abs/2510.17281 | tags: memory, continual-learning, benchmark, llm-systems
