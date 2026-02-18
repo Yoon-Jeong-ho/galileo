@@ -61,7 +61,12 @@ Accordingly, the empirical survival curve is
 \begin{equation}
   \widehat{S}(r) = \frac{1}{n}\sum_{i=1}^n \mathbf{1}[T_i > r],
 \end{equation}
-so that $\text{fail@1} = 1-\widehat{S}(R)$. Note that survival/TOF depend only on the \emph{first} flip; if a model flips and later reverts within the pressure rounds, we still count the initial loss of truth as a failure. We measure such return-to-truth explicitly in a separate \emph{recovery} stage: restricting to flipped examples ($T_i\le R$), we report the fraction that return to the original ground-truth answer after the recovery prompt.
+so that $\text{fail@1} = 1-\widehat{S}(R)$. Note that survival/TOF depend only on the \emph{first} flip; if a model flips and later reverts within the pressure rounds, we still count the initial loss of truth as a failure.
+
+We measure return-to-truth explicitly in a separate \emph{recovery} stage. Let $C^{\mathrm{rec}}_i\in\{0,1\}$ denote whether the model answers the recovery prompt correctly on example $i$ (with respect to the original ground-truth target). Restricting to flipped examples ($T_i\le R$), we define empirical recovery as
+\begin{equation}
+  \widehat{\mathrm{Rec}} = \frac{\sum_{i=1}^n \mathbf{1}[T_i\le R]\, C^{\mathrm{rec}}_i}{\sum_{i=1}^n \mathbf{1}[T_i\le R]}.
+\end{equation}
 
 \section{Related Work}
 \label{sec:related}
