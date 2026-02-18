@@ -570,6 +570,13 @@ Format (one per line):
 - [x] 2023 | Are You Sure? Challenging LLMs Leads to Performance Drops in The FlipFlop Experiment | arXiv | https://arxiv.org/abs/2311.08596 | tags: flipflop, challenge-prompt, robustness, answer-revision | note: papers/20260218_are-you-sure_flipflop-experiment.md  # duplicate queue entry
 
 ## New candidates (2026-02-18)
+- [x] 2026 | CM2: Reinforcement Learning with Checklist Rewards for Multi-Turn and Multi-Step Agentic Tool Use | arXiv | https://arxiv.org/abs/2602.12268 | tags: tool-use, multi-turn, RL, agents | note: papers/20260218_cm2-checklist-rewards.md
+
+- [ ] 2026 | AgentLeak: A Full-Stack Benchmark for Privacy Leakage in Multi-Agent LLM Systems | arXiv | https://arxiv.org/abs/2602.11510 | tags: privacy, leakage, multi-agent, benchmark
+- [ ] 2026 | From Assistant to Double Agent: Formalizing and Benchmarking Attacks on OpenClaw for Personalized Local AI Agent | arXiv | https://arxiv.org/abs/2602.08412 | tags: agent-security, prompt-injection, multi-turn, benchmark
+
+- [ ] 2025 | MCP-SafetyBench: A Benchmark for Safety Evaluation of Large Language Models with Real-World MCP Servers | arXiv | https://arxiv.org/abs/2512.15163 | tags: tool-use, multi-turn, safety, benchmark
+- [ ] 2026 | SEMA: Simple yet Effective Learning for Multi-Turn Jailbreak Attacks | arXiv | https://arxiv.org/abs/2602.06854 | tags: multi-turn, jailbreak, attacks, safety
 
 - [x] 2025 | MultiChallenge: A Realistic Multi-Turn Conversation Evaluation Benchmark Challenging to Frontier LLMs | arXiv | https://arxiv.org/abs/2501.17399 | tags: multi-turn, evaluation, persistence, self-coherence, sycophancy | note: papers/20260217_multichallenge.md  # duplicate queue entry
 - [x] 2025 | Beyond Single-Turn: A Survey on Multi-Turn Interactions with Large Language Models | arXiv | https://arxiv.org/abs/2504.04717 | tags: multi-turn, survey, interaction, evaluation | note: papers/20260217_beyond-single-turn-survey.md  # duplicate queue entry; note already exists
