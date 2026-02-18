@@ -164,7 +164,7 @@ At each round `r`, we score whether the model’s answer is still correct.
 
 **Metrics in brief (notation and timing).** Let round $r\in\{1,\dots,R\}$ index the *persona/control user message + the model’s subsequent response* at that round, and let round $0$ denote the initial (pre-pressure) answer.
 
-- **Survival curve.** For persona $p$, we define $S_p(r)$ as the probability an initially-correct example stays correct at *every* round $0,1,\dots,r$ under $p$ (i.e., no flip up to and including round $r$).
+- **Survival curve.** For persona $p$, we define $S_p(r)$ as the probability an initially-correct example stays correct at *every* round $0,1,\dots,r$ under $p$ (i.e., no flip up to and including round $r$). Because we condition on $y_{i,0}=1$, this is equivalent to requiring correctness for all pressure rounds $t\in\{1,\dots,r\}$.
 - **Turn-of-failure (TOF).** For an initially-correct example, TOF is the smallest $r\ge 1$ such that the model’s answer after round $r$ is incorrect; if no such round exists within $R$, TOF is *never*.
 - **Recovery (conditional on flip).** Recovery is evaluated only on examples that flipped at least once during rounds $1..R$; it measures the probability the model returns to the correct answer after a recovery prompt, *given* that it flipped.
 
@@ -174,7 +174,7 @@ At each round `r`, we score whether the model’s answer is still correct.
   \[
   S_p(r)=\Pr\big(\forall t\in\{1,\dots,r\}:\; y_{i,t}=1\mid y_{i,0}=1\big)
   \]
-  i.e., the fraction of initially-correct examples that remain correct through round $r$.
+  i.e., the fraction of initially-correct examples that remain correct through round $r$. (Equivalently, \(\Pr(\forall t\in\{0,\dots,r\}: y_{i,t}=1\mid y_{i,0}=1)\), since round 0 correctness is implied by the conditioning.)
 - **Round-$r$ accuracy (not our headline metric):**
   \[
   A_p(r)=\Pr\big(y_{i,r}=1\mid y_{i,0}=1\big).
