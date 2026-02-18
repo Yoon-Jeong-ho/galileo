@@ -821,3 +821,11 @@ Format (one per line):
 - [x] 2025 | Foundation Models for Geospatial Reasoning: Assessing Capabilities of Large Language Models in Understanding Geometries and Topological Spatial Relations | arXiv | https://arxiv.org/abs/2505.17136 | tags: geospatial, reasoning, llm, spatial-relations, evaluation | note: papers/20260219_geospatial-llm-topology.md
 - [x] 2025 | Deploying Geospatial Foundation Models in the Real World: Lessons from WorldCereal | arXiv | https://arxiv.org/html/2508.00858 | tags: geospatial, foundation-model, deployment, agriculture | note: docs/paper/related_work/rapid_review/papers/20260219_deploying-gfm-worldcereal.md
 - [x] 2025 | Geospatial Foundation Models to Enable Progress on Sustainable Development Goals (HTML v1) | arXiv | https://arxiv.org/html/2505.24528v1 | tags: geospatial, foundation-model, remote-sensing, survey | note: docs/paper/related_work/rapid_review/papers/20260219_geospatial-fms-sustainfm.md
+
+## New candidates (2026-02-19, web_search batch)
+
+- [x] 2024 | Chaos with Keywords: Exposing Large Language Models' Sycophancy to Misleading Keywords and Evaluating Defense Strategies | arXiv | https://arxiv.org/abs/2402.03463 | tags: sycophancy, keywords, misleading-cues, defenses | note: docs/paper/related_work/rapid_review/papers/20260219_chaos-with-keywords_bad-url.md | URL mismatch (arXiv id points to unrelated paper); needs correct link
+- [ ] 2026 | Auditing Multi-Agent LLM Reasoning Trees Outperforms Majority Vote and LLM-as-Judge | arXiv | https://arxiv.org/abs/2602.09341 | tags: multi-agent, auditing, sycophancy-bias, judge
+- [ ] 2024 | From Yes-Men to Truth-Tellers: Addressing Sycophancy in Large Language Models with Pinpoint Tuning | arXiv | https://arxiv.org/abs/2409.01658 | tags: sycophancy, mitigation, finetuning, pinpoint
+- [ ] 2025 | SteeringSafety: A Systematic Safety Evaluation Framework of Representation Steering in LLMs | arXiv | https://arxiv.org/abs/2509.13450 | tags: steering, safety-eval, sycophancy-adjacent
+- [ ] 2025 | Steering Language Models with Weight Arithmetic | arXiv | https://arxiv.org/abs/2511.05408 | tags: steering, weight-arithmetic, sycophancy-adjacent
