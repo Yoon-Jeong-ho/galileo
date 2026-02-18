@@ -1034,3 +1034,15 @@ NOTE: first restart attempt had `OUT` unset under `set -u`; fixed by hardcoding 
 - Noted warnings: no chat_template (expected for GPTNeoX) and `max_tokens` capped due to `max_model_len=2048`.
 
 Next: wait for completion → ensure `paper_exports/` exists → validate with `scripts/validate_paper_exports.py`.
+
+---
+
+### 2026-02-18 09:43 KST — Stop non-exporting Pythia run; switch to canonical exporter runner
+
+- Diagnosis (nlp8): `run_experiment.py` **never creates `paper_exports/`**; exports are produced only when we run `scripts/paper_export.py` (via runner scripts like `scripts/remote_run/nlp8_smoke.sh`). This explains why the long Pythia job kept consuming GPU without becoming paper-ready.
+- Action: stopped the ongoing Pythia tmux run (GPU4 freed) and launched a fresh **Zephyr-7B** Tier‑1 run using `scripts/remote_run/nlp8_smoke.sh`, which guarantees `paper_exports/` + `runner_metadata.json` + validator.
+  - OUT: `results_paper/tier1_zephyr7b_seed1_20260218_0945/`
+  - tmux: `tier1_zephyr7b_s1_g4_20260218_0945`
+  - GPU: 4
+
+Rationale: Pythia also showed extremely low initial accuracy (1/80) so even if we exported, it would be low-signal; Zephyr is a better cross-family candidate.
