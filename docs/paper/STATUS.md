@@ -92,6 +92,8 @@ Ground-truth tasks에서 multi-turn persona pressure 하에 **정답 유지(surv
 
 **Update (2026-02-18):** Zephyr‑7B seed1 is now paper-ready; seed2 launched and in progress.
 
+**Update (10:53 KST):** Zephyr seed2 is currently blocked by nlp8 GPU contention (GPUs 4/5/6 occupied by external jobs).
+
 ---
 
 ## 4) NEXT HEARTBEAT (ONE step)

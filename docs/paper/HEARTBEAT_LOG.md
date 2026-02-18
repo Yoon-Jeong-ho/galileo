@@ -1065,3 +1065,12 @@ Rationale: Pythia also showed extremely low initial accuracy (1/80) so even if w
 - Root cause: GPU5 occupied by external process `jslee-fusion-distill-vllm-v1` (~29GB) under user `omanma1` (PID 1949819).
 - Action: did **not** kill external process; our tmux session already ended.
 - Next: relaunch seed2 on a genuinely free GPU (GPU6 recommended) or reduce vLLM memory utilization if we must share.
+
+### 2026-02-18 10:53 KST — Zephyr seed2 relaunch blocked (no free Tier‑1 GPUs on nlp8)
+
+- Attempted to relaunch Zephyr‑7B seed2 on a free Tier‑1 GPU after GPU5 contention failure.
+- Current nlp8 GPU occupancy (policy GPUs 4/5/6):
+  - GPU4: `python scripts/run_search_o1_wiki.py ... QwQ-32B-Preview` (user `skbaek1`, ~48GB)
+  - GPU5: `jslee-fusion-distill-vllm-v1` (user `omanma1`, ~29GB)
+  - GPU6: `jslee-fusion-distill-vllm-v1` (user `omanma1`, ~29GB)
+- Conclusion: cannot start Zephyr seed2 without either (i) waiting for GPUs to free, or (ii) obtaining permission to use a different machine/GPU outside the current Tier‑1 policy.
