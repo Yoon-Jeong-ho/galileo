@@ -1115,3 +1115,12 @@ Next:
 - OUT: `results/tier1_qwen2p5_14b_seed2_20260219_053824/`
 - Status: main adversarial rounds appear complete; now generating **recovery answers** for failed cases (log shows 73 failed cases to recover).
 - No `paper_exports/` yet (expected until finalization / explicit export step).
+
+### 2026-02-19 06:44 KST — Qwen2.5‑14B seed2 shows recovery phase then a second adversarial-testing block (still running)
+
+- Used a small python parser to extract the latest semantic markers from `run.log` (tail output is noisy due to tqdm carriage returns).
+- Observed sequence:
+  - Round2→Round5 completed (last seen: Round5 results `401 still correct, 7 failed`)
+  - Recovery started (`Failed cases to recover: 73` → `Generating recovery answers...`)
+  - Then **another** adversarial-testing block appears to start (new `Round1: 468 active tracks`, progressed to Round3).
+- Interpretation: the runner may be looping over multiple conditions/splits/persona sets in one job, or it restarted a second pass; we should wait for an explicit completion marker before exporting.
