@@ -1133,3 +1133,10 @@ Next:
 - Staged symlink into paper SSOT:
   - `results_paper/tier1_qwen2p5_14b_seed2_20260219_053824/paper_exports -> ../../results/.../paper_exports`
 - Global parity: `python3 scripts/validate_paper_exports.py --results_root results_paper --check_runner_parity` → `[OK] runner_metadata parity`.
+
+### 2026-02-19 08:33 KST — nlp8 GPU4 occupied by external vLLM process; GPUs5/6 idle
+
+- Snapshot:
+  - GPU4: ~99% util, ~45.9/49.1GB, process `VLLM::EngineCore` by user `omanma1` (pid 2042987)
+  - GPU5/6: 0% util (residual VRAM allocated but idle)
+- Operational implication: do **not** launch new Tier‑1 runs targeting GPU4 until it clears; prefer GPU5/6.

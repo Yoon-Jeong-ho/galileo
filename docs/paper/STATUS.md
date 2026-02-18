@@ -111,8 +111,8 @@ Ground-truth tasks에서 multi-turn persona pressure 하에 **정답 유지(surv
 
 **Experiments (SSOT nlp8): run a standard status check + pick the next Tier‑1 cross-family run (one new family, seeds 1–2).**
 
-- Snapshot (2026-02-19 03:xx KST):
-  - nlp8 GPUs: **GPU4 busy** (external `eval_thinking.py`, ~6.7GiB, ~98% util), **GPU5/6 free**.
+- Snapshot (2026-02-19 08:33 KST):
+  - nlp8 GPUs: **GPU4 busy** (external `VLLM::EngineCore`, user `omanma1`, ~45.9/49.1GB, ~99% util), **GPU5/6 idle** (0% util; residual VRAM still allocated).
   - `results_paper` global validation: `[OK] runner_metadata parity` (paper SSOT is currently consistent).
 
 - Decision (next Tier‑1 cross-family family): **Qwen2.5‑14B‑Instruct** (new family vs current Tier‑1 set; likely to fit on 48GB RTX8000, strong baseline; seeds 1–2 only).
