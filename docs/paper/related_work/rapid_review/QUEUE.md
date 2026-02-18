@@ -819,5 +819,5 @@ Format (one per line):
 
 - [x] 2025 | Geospatial Foundation Models to Enable Progress on Sustainable Development Goals | arXiv | https://arxiv.org/abs/2505.24528 | tags: geospatial, foundation-model, remote-sensing, survey | note: papers/20260219_geospatial-foundation-models-sdg.md
 - [x] 2025 | Foundation Models for Geospatial Reasoning: Assessing Capabilities of Large Language Models in Understanding Geometries and Topological Spatial Relations | arXiv | https://arxiv.org/abs/2505.17136 | tags: geospatial, reasoning, llm, spatial-relations, evaluation | note: papers/20260219_geospatial-llm-topology.md
-- [ ] 2025 | Deploying Geospatial Foundation Models in the Real World: Lessons from WorldCereal | arXiv | https://arxiv.org/html/2508.00858 | tags: geospatial, foundation-model, deployment, agriculture
+- [x] 2025 | Deploying Geospatial Foundation Models in the Real World: Lessons from WorldCereal | arXiv | https://arxiv.org/html/2508.00858 | tags: geospatial, foundation-model, deployment, agriculture | note: docs/paper/related_work/rapid_review/papers/20260219_deploying-gfm-worldcereal.md
 - [ ] 2025 | Geospatial Foundation Models to Enable Progress on Sustainable Development Goals (HTML v1) | arXiv | https://arxiv.org/html/2505.24528v1 | tags: geospatial, foundation-model, remote-sensing, survey
