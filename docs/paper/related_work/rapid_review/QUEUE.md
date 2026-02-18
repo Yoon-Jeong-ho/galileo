@@ -913,3 +913,11 @@ Format (one per line):
 - [x] 2025 | Reinforcing Multi-Turn Reasoning in LLM Agents via Turn-Level Reward Design | arXiv | https://arxiv.org/html/2505.11821v2 | tags: RLHF, multi-turn, agents, reward-design, robustness | note: docs/paper/related_work/rapid_review/papers/20260219_turn-level-reward-design-mt-rl.md
 - [x] 2024 | Grade Score: Quantifying LLM Performance in Option Selection | arXiv | https://arxiv.org/html/2406.12043v2 | tags: evaluation, consistency, order-bias, judge | note: docs/paper/related_work/rapid_review/papers/20260219_grade_score_option_selection.md
 - [x] 2025 | Existing LLMs Are Not Self-Consistent For Simple Tasks | arXiv | https://arxiv.org/html/2506.18781v1 | tags: consistency, self-consistency, evaluation, mitigation | note: docs/paper/related_work/rapid_review/papers/20260219_existing-llms-not-self-consistent-simple-tasks.md
+
+## New candidates (2026-02-19, web_search batch)
+
+- [x] 2026 | Do Chatbot LLMs Talk Too Much? The YapBench Benchmark | arXiv | https://arxiv.org/abs/2601.00624 | tags: verbosity, evaluation, length-bias, chatbot | note: papers/20260219_yapbench.md
+- [ ] 2024 | Length-Controlled AlpacaEval: A Simple Way to Debias Automatic Evaluators | arXiv | https://arxiv.org/abs/2404.04475 | tags: evaluation, LLM-judges, length-bias, robustness
+- [ ] 2025 | The FACTS Leaderboard: A Comprehensive Benchmark for Large Language Model Factuality | arXiv | https://arxiv.org/abs/2512.10791 | tags: factuality, evaluation, leaderboard, LLM-judges
+- [ ] 2025 | PACIFIC: a framework for generating benchmarks to check Precise Automatically Checked Instruction Following In Code | arXiv | https://arxiv.org/abs/2512.10713 | tags: instruction-following, code, evaluation, determinism
+- [ ] 2026 | Pro-AI Bias in Large Language Models | arXiv | https://arxiv.org/abs/2601.13749 | tags: bias, evaluation, stance, persuasion-adjacent
