@@ -109,18 +109,20 @@ Ground-truth tasks에서 multi-turn persona pressure 하에 **정답 유지(surv
 
 ## 4) NEXT HEARTBEAT (ONE step)
 
-**Experiments (SSOT nlp8): run a standard status check + pick the next Tier‑1 cross-family run (one new family, seeds 1–2).**
+**Experiments (SSOT nlp8): run a standard status check + pick/launch the next Tier‑1 cross-family run (one new family, seeds 1–2).**
 
-- Snapshot (2026-02-19 08:33 KST):
-  - nlp8 GPUs: **GPU4 busy** (external `VLLM::EngineCore`, user `omanma1`, ~45.9/49.1GB, ~99% util), **GPU5/6 idle** (0% util; residual VRAM still allocated).
+- Snapshot (2026-02-19 08:56 KST):
+  - nlp8 GPUs: **GPU4 busy** (external `VLLM::EngineCore`, user `omanma1`, ~45.9/49.1GB, ~99% util).
   - `results_paper` global validation: `[OK] runner_metadata parity` (paper SSOT is currently consistent).
 
-- Decision (next Tier‑1 cross-family family): **Qwen2.5‑14B‑Instruct** (new family vs current Tier‑1 set; likely to fit on 48GB RTX8000, strong baseline; seeds 1–2 only).
-  - If vLLM OOM/slow: fallback to **Qwen2.5‑7B‑Instruct** is not acceptable as “new family” (already have Qwen), so instead pick **OLMo‑7B‑Instruct** as fallback family.
+- ✅ Launched next Tier‑1 cross-family family: **OLMo‑7B‑Instruct** (seeds 1–2 only).
+  - seed1 GPU5: `results/tier1_olmo7b_seed1_20260219_085627/` (tmux: `tier1_olmo7b_s1_g5_20260219_085627`)
+  - seed2 GPU6: `results/tier1_olmo7b_seed2_20260219_085627/` (tmux: `tier1_olmo7b_s2_g6_20260219_085627`)
 
-- Launch plan (next heartbeat):
-  - Use GPU5 for seed1, GPU6 for seed2; one run per GPU via tmux; `OUT=results/tier1_qwen2p5_14b_seed{1,2}_<timestamp>/`.
-  - Validate exports immediately after completion with `python3 scripts/validate_paper_exports.py --results_root <OUT>` then stage into `results_paper/`.
+- When complete:
+  - ensure `paper_exports/` + `paper_exports/runner_metadata.json`
+  - run `python3 scripts/validate_paper_exports.py --results_root <OUT>`
+  - stage into `results_paper/` and rerun global parity: `python3 scripts/validate_paper_exports.py --results_root results_paper --check_runner_parity`
 
 ---
 

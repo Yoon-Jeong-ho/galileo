@@ -1140,3 +1140,11 @@ Next:
   - GPU4: ~99% util, ~45.9/49.1GB, process `VLLM::EngineCore` by user `omanma1` (pid 2042987)
   - GPU5/6: 0% util (residual VRAM allocated but idle)
 - Operational implication: do **not** launch new Tier‑1 runs targeting GPU4 until it clears; prefer GPU5/6.
+
+### 2026-02-19 08:57 KST — Launched next Tier‑1 cross-family family: OLMo‑7B‑Instruct (seeds 1–2) on nlp8 GPUs 5/6
+
+- Preflight OK: `allenai/OLMo-7B-Instruct` exists on HF.
+- Launched via tmux (one run per GPU), protocol identical to other Tier‑1 runs (NUM_SAMPLES=80, MAX_MODEL_LEN=8192, no max_tokens override):
+  - seed1 GPU5: `results/tier1_olmo7b_seed1_20260219_085627/` (tmux: `tier1_olmo7b_s1_g5_20260219_085627`)
+  - seed2 GPU6: `results/tier1_olmo7b_seed2_20260219_085627/` (tmux: `tier1_olmo7b_s2_g6_20260219_085627`)
+- Each runner will write `paper_exports/` + `runner_metadata.json` and run `validate_paper_exports.py` at the end.
