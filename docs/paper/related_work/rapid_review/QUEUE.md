@@ -701,7 +701,7 @@ Format (one per line):
 ## New candidates (2026-02-18, web_search refresh)
 
 - [x] 2025 | How Social is It? A Benchmark for LLMs' Capabilities in Multi-user Multi-turn Social Agent Tasks | arXiv | https://arxiv.org/abs/2505.04628 | tags: multi-user, multi-turn, social-agents, benchmark | note: docs/paper/related_work/rapid_review/papers/20260218_how-social-is-it-hsii.md
-- [ ] 2025 | Step-DeepResearch Technical Report | arXiv | https://arxiv.org/abs/2512.20491 | tags: deep-research, evaluation, long-horizon, multi-turn
+- [x] 2025 | Step-DeepResearch Technical Report | arXiv | https://arxiv.org/abs/2512.20491 | tags: deep-research, evaluation, long-horizon, multi-turn | note: docs/paper/related_work/rapid_review/papers/20260218_step-deepresearch-tech-report.md
 - [ ] 2025 | SoMe: A Realistic Benchmark for LLM-based Social Media Agents | arXiv | https://arxiv.org/abs/2512.14720 | tags: social-media, agents, multi-turn, benchmark
 - [ ] 2025 | Echoes of Human Malice in Agents: Benchmarking LLMs for Multi-Turn Online Harassment Attacks | arXiv | https://arxiv.org/abs/2510.14207 | tags: harassment, multi-turn, agents, safety, benchmark
 - [ ] 2025 | SimBench: Benchmarking the Ability of Large Language Models to Simulate Human Behaviors | arXiv | https://arxiv.org/abs/2510.17516 | tags: simulation, human-behavior, multi-turn, benchmark
