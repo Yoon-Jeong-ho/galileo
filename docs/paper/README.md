@@ -13,6 +13,45 @@ This folder contains the **MD-only** paper-writing workflow for the GALILEO EMNL
 - `PAPER_RESULTS_ANALYSIS_KO.md`: quantitative results analysis notes
 - `PAPER_RESULTS_QUAL_EXAMPLES_KO.md`: qualitative examples (kept separate to avoid bloating the main analysis)
 
+## 5-minute reviewer audit (reproduce key paper artifacts)
+
+If you only have a few minutes to sanity-check the **paper-facing exports** without running new experiments, this is the shortest path.
+
+### 1) Validate the exported results bundle
+
+```bash
+# checks runner metadata parity + basic export integrity
+python3 scripts/validate_paper_exports.py --results_root results_paper --check_runner_parity
+```
+
+Expected output: a clean run and a log written under `results_paper/GLOBAL_VALIDATE.log`.
+
+### 2) Regenerate the paper headline table (Table W)
+
+```bash
+# produces control-vs-persona aggregates + effect deltas used in the paper
+python3 scripts/make_table_w_control_vs_persona.py --control_persona_id neutral_reask_control --round 5
+```
+
+Tracked outputs live under `docs/paper/artifacts/` (CSV) and `docs/paper/figures/` (SVG) depending on the script.
+
+### 3) Ensure figures are LaTeX-ready (optional)
+
+```bash
+# check conversion tooling + convert SVG -> PDF for LaTeX
+./scripts/check_figure_tooling.sh
+./scripts/convert_figures_svg_to_pdf.sh
+```
+
+### 4) Build an anonymized submission bundle (optional)
+
+```bash
+./scripts/package_anonymized_bundle.sh
+# bundle staged under tmp/anonymized_bundle/
+```
+
+---
+
 ## Conventions
 
 - Figures/tables are generated from `results/<run>/paper_exports/`.
