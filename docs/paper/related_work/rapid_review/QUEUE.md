@@ -866,4 +866,4 @@ Format (one per line):
 ## New candidates (2026-02-19, web_search batch)
 
 - [x] 2025 | LongMemEval: Benchmarking Chat Assistants on Long-Term Interactive Memory | arXiv | https://arxiv.org/abs/2410.10813 | tags: long-term-memory, chat-assistant, multi-session, benchmark | note: papers/20260219_longmemeval.md
-- [ ] 2025 | MemoryBench: A Benchmark for Memory and Continual Learning in LLM Systems | arXiv | https://arxiv.org/abs/2510.17281 | tags: memory, continual-learning, benchmark, llm-systems
+- [x] 2025 | MemoryBench: A Benchmark for Memory and Continual Learning in LLM Systems | arXiv | https://arxiv.org/abs/2510.17281 | tags: memory, continual-learning, benchmark, llm-systems | note: docs/paper/related_work/rapid_review/papers/20260219_memorybench.md
