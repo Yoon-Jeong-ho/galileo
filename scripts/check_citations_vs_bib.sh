@@ -1,11 +1,18 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# Check that all \cite{...} keys referenced in paper markdown drafts exist in references.bib.
+# Check that all citation keys referenced in paper drafts exist in references.bib.
+#
+# We scan common LaTeX natbib-style commands (e.g., \cite{...}, \citet{...}, \citep{...})
+# across Markdown drafts and any LaTeX skeleton files.
+#
 # Usage:
-#   bash scripts/check_citations_vs_bib.sh [path/to/draft.md ...]
-# Default drafts:
-#   docs/paper/PAPER_DRAFT_EN.md docs/paper/PAPER_DRAFT_KO.md
+#   bash scripts/check_citations_vs_bib.sh [path/to/file.{md,tex} ...]
+#
+# Default inputs (if no args):
+#   - docs/paper/PAPER_DRAFT_EN.md
+#   - docs/paper/PAPER_DRAFT_KO.md
+#   - all *.tex under docs/paper/
 
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 cd "$ROOT_DIR"
@@ -17,7 +24,12 @@ if [[ ! -f "$BIB_FILE" ]]; then
 fi
 
 if [[ "$#" -eq 0 ]]; then
-  set -- docs/paper/PAPER_DRAFT_EN.md docs/paper/PAPER_DRAFT_KO.md
+  # Default: scan the main Markdown drafts + any LaTeX sources under docs/paper/.
+  # Exclude the upstream EMNLP template, which intentionally cites template-only entries.
+  mapfile -t TEX_FILES < <(find docs/paper -type f -name "*.tex" \
+    ! -path "docs/paper/emnlp_template/*" \
+    | sort)
+  set -- docs/paper/PAPER_DRAFT_EN.md docs/paper/PAPER_DRAFT_KO.md "${TEX_FILES[@]}"
 fi
 
 TMP_DIR="$(mktemp -d)"
@@ -37,7 +49,9 @@ for f in "$@"; do
     exit 2
   fi
   perl -0777 -ne '
-    while(/\\cite\{([^}]+)\}/g){
+    # Match common natbib-style cite commands, with optional pre/post notes:
+    #   \\cite{...}, \\citep{...}, \\citet{...}, \\citep[see][]{...}, etc.
+    while(/\\cite[a-zA-Z]*\*?(?:\[[^\]]*\])*\{([^}]+)\}/g){
       $x=$1;
       for(split(/,\s*/,$x)){
         next if $_ eq "";
