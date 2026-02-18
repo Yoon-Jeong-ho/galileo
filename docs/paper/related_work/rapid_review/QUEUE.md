@@ -632,3 +632,11 @@ Format (one per line):
 - [x] 2025 | EvolIF: Probing LLMs’ Limits on Multi-Turn Instruction Following with a Benchmark Evolving Framework | arXiv | https://arxiv.org/abs/2511.03508 | tags: multi-turn, instruction-following, error-recovery, evolving-benchmark | note: papers/20260217_evolif-multi-turn-instruction-following.md  # duplicate queue entry; note already exists
 - [x] 2025 | MultiChallenge: A Realistic Multi-Turn Conversation Evaluation Benchmark Challenging to Frontier LLMs | arXiv | https://arxiv.org/abs/2501.17399 | tags: multi-turn, persistence, context-management, sycophancy-adjacent | note: papers/20260217_multichallenge.md (duplicate queue entry)
 - [x] 2025 | Audio MultiChallenge: A Multi-Turn Evaluation of Spoken Dialogue Systems on Natural Human Interaction | arXiv | https://arxiv.org/abs/2512.14865 | tags: multi-turn, spoken-dialogue, evaluation, persistence | note: papers/20260217_audio-multichallenge.md  # duplicate queue entry; note already exists
+
+## New candidates (2026-02-18, web_search batch 13)
+
+- [x] 2025 | STAC: When Innocent Tools Form Dangerous Chains to Jailbreak LLM Agents | arXiv | https://arxiv.org/abs/2509.25624 | tags: multi-turn, tool-use, jailbreak, agent-safety | note: papers/20260218_stac-tool-attack-chaining.md
+- [ ] 2025 | Many-Turn Jailbreaking (MTJ-Bench) | arXiv | https://arxiv.org/abs/2508.06755 | tags: multi-turn, jailbreak, benchmark, safety
+- [ ] 2025 | MultiBreak: A Scalable and Diverse Multi-turn Jailbreak Benchmark for Stress-testing LLM Safety | OpenReview | https://openreview.net/forum?id=uJgfj5EJ2W | tags: multi-turn, jailbreak, benchmark, safety
+- [ ] 2025 | StructFlowBench: A Structured Flow Benchmark for Multi-turn Instruction Following | arXiv | https://arxiv.org/abs/2502.14494 | tags: multi-turn, instruction-following, evaluation, structure
+- [ ] 2025 | Meeseeks: An Iterative Benchmark Evaluating LLMs Multi-Turn Instruction-Following Ability | arXiv | https://arxiv.org/abs/2504.21625 | tags: multi-turn, instruction-following, iterative, evaluation
