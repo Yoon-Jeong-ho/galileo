@@ -686,3 +686,11 @@ Format (one per line):
 - [x] 2026 | BiasScope: Towards Automated Detection of Bias in LLM-as-a-Judge Evaluation | arXiv | https://arxiv.org/abs/2602.09383 | tags: llm-as-a-judge, evaluation, bias, robustness | note: papers/20260218_biasscope.md
 - [x] 2026 | Contextual StereoSet: Stress-Testing Bias Alignment Robustness in Large Language Models | arXiv | https://arxiv.org/abs/2601.10460 | tags: bias, robustness, context, evaluation | note: docs/paper/related_work/rapid_review/papers/20260218_contextual-stereoset.md
 - [x] 2025 | On the Failure of Latent State Persistence in Large Language Models | arXiv | https://arxiv.org/abs/2505.10571 | tags: multi-turn, latent-state, persistence, robustness | note: docs/paper/related_work/rapid_review/papers/20260218_failure-latent-state-persistence-llms.md
+
+## New candidates (2026-02-18, web_search batch)
+
+- [x] 2026 | RIFT: Reordered Instruction Following Testbed To Evaluate Instruction Following in Singular Multistep Prompt Structures | arXiv | https://arxiv.org/abs/2601.18924 | tags: instruction-following, robustness, structure-sensitivity | note: papers/20260218_rift.md
+- [ ] 2025 | A Hierarchical and Evolvable Benchmark for Fine-Grained Code Instruction Following with Multi-Turn Feedback | arXiv | https://arxiv.org/abs/2507.00699 | tags: code, instruction-following, multi-turn, feedback, benchmark
+- [ ] 2025 | VCB Bench: An Evaluation Benchmark for Audio-Grounded Large Language Model Conversational Agents | arXiv | https://arxiv.org/abs/2510.11098 | tags: audio, conversational-agents, evaluation, multi-turn
+- [ ] 2026 | PodBench: A Comprehensive Benchmark for Instruction-Aware Audio-Oriented Podcast Script Generation | arXiv | https://arxiv.org/abs/2601.14903 | tags: audio, multi-turn, instruction-following, benchmark
+- [ ] 2026 | ChartEditBench: Evaluating Grounded Multi-Turn Chart Editing in Multimodal Language Models | arXiv | https://arxiv.org/abs/2602.15758 | tags: multimodal, chart-editing, multi-turn, tool-use, evaluation
