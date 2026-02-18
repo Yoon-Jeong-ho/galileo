@@ -964,3 +964,10 @@ Format (one per line):
 - [x] 2026 | Feedback Indices to Evaluate LLM Responses to Rebuttals for Multiple Choice Type Questions | arXiv | https://arxiv.org/abs/2601.03285 | tags: rebuttal, multi-turn, evaluation, stability | note: docs/paper/related_work/rapid_review/papers/20260219_feedback-indices-llm-rebuttals-mcq.md
 - [x] 2025 | AbstentionBench: Reasoning LLMs Fail on Unanswerable Questions | arXiv | https://arxiv.org/abs/2506.09038 | tags: abstention, robustness, unanswerable, calibration | note: docs/paper/related_work/rapid_review/papers/20260219_abstentionbench.md
 - [x] 2025 | When Facts Change: Probing LLMs on Evolving Knowledge with evolveQA | arXiv | https://arxiv.org/abs/2510.19172 | tags: belief-update, evolving-knowledge, multi-turn, robustness | note: docs/paper/related_work/rapid_review/papers/20260219_when_facts_change_evolveqa.md
+
+## New candidates (2026-02-19, web_search batch 35)
+- [x] 2025 | When Your AI Agent Succumbs to Peer-Pressure: Studying Opinion-Change Dynamics of LLMs | arXiv | https://arxiv.org/abs/2510.19107 | tags: social-pressure, multi-agent, opinion-change, dynamics | note: papers/20260219_peer-pressure-opinion-change-dynamics.md
+- [ ] 2026 | OP-Bench: Benchmarking Over-Personalization for Memory-Augmented Personalized Conversational Agents | arXiv | https://arxiv.org/abs/2601.13722 | tags: personalization, memory, over-alignment, sycophancy, benchmark
+- [ ] 2026 | Extending Beacon to Hindi: Cultural Adaptation Drives Cross-Lingual Sycophancy | arXiv | https://arxiv.org/abs/2602.00046 | tags: sycophancy, cross-lingual, cultural-adaptation, evaluation
+- [ ] 2025 | EchoBench: Benchmarking Sycophancy in Medical Large Vision-Language Models | arXiv | https://arxiv.org/abs/2509.20146 | tags: sycophancy, medical, vlm, benchmark
+- [ ] 2025 | Benchmarking and Mitigating Psychological Sycophancy in Medical Vision Language Models | arXiv | https://arxiv.org/abs/2509.21979 | tags: sycophancy, medical, vlm, mitigation, benchmark
