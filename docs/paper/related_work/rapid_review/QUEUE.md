@@ -709,7 +709,7 @@ Format (one per line):
 ## New candidates (2026-02-18, web_search batch)
 
 - [x] 2025 | StructFlowBench: A Structured Flow Benchmark for Multi-turn Instruction Following | arXiv | https://arxiv.org/abs/2502.14494 | tags: instruction-following, multi-turn, benchmark | note: papers/20260217_structflowbench.md  # duplicate queue entry; note already exists
-- [ ] 2025 | Meeseeks: An Iterative Benchmark Evaluating LLMs Multi-Turn Instruction-Following Ability | arXiv | https://arxiv.org/abs/2504.21625 | tags: instruction-following, multi-turn, self-correction, benchmark
+- [x] 2025 | Meeseeks: An Iterative Benchmark Evaluating LLMs Multi-Turn Instruction-Following Ability | arXiv | https://arxiv.org/abs/2504.21625 | tags: instruction-following, multi-turn, self-correction, benchmark | note: papers/20260218_meeseeks-iterative-self-correction-benchmark.md  # duplicate queue entry; note already exists
 - [ ] 2024 | LIFBench: Evaluating the Instruction Following Performance and Stability of Large Language Models in Long-Context Scenarios | arXiv | https://arxiv.org/abs/2411.07037 | tags: instruction-following, long-context, stability, benchmark
 - [ ] 2025 | XIFBench: Evaluating Large Language Models on Multilingual Instruction Following | arXiv | https://arxiv.org/abs/2503.07539 | tags: instruction-following, multilingual, benchmark
 - [ ] 2025 | EifBench: Extremely Complex Instruction Following Benchmark for Large Language Models | arXiv | https://arxiv.org/abs/2506.08375 | tags: instruction-following, complex-constraints, benchmark
