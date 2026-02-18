@@ -50,29 +50,29 @@ A separate thread studies multi-turn instability even without explicit adversari
 
 Finally, our emphasis on verifiable truth aligns with truthfulness benchmarks such as TruthfulQA \citep{lin2022truthfulqameasuringmodelsmimic}, but targets a different axis: multi-turn belief-consistency failures and recovery under conversational pressure.
 
-\section{Figure include smoke test}
+\section{Protocol and result figures}
 
 \begin{figure}[t]
   \centering
   \includegraphics[width=\linewidth]{figures/protocol_overview}
-  \caption{Protocol overview (PDF include smoke test).}
+  \caption{GALILEO protocol. Starting from an initially correct answer, we run a neutral re-asking control (drift baseline) and persona pressure rounds (up to five turns). On flipped samples, we additionally evaluate recovery (return-to-truth) and report survival, fail@1, and turn-of-failure metrics.}
 \end{figure}
 
 \begin{figure}[t]
   \centering
   \includegraphics[width=\linewidth]{figures/cross_family_survival_r5_control_vs_logicaltrap_seed1-2_20260217}
-  \caption{Cross-family survival (PDF include smoke test).}
+  \caption{Example survival curves ($R{=}5$) comparing neutral re-asking control vs. the Logical Trap persona across model families. Persona pressure shifts failures earlier and increases cumulative error over rounds relative to drift.}
 \end{figure}
 
 \begin{figure}[t]
   \centering
   \includegraphics[width=\linewidth]{figures/decoding_sweep_qwen_delta_seed1-2_20260211}
-  \caption{Appendix robustness: decoding sensitivity (PDF include smoke test).}
+  \caption{Decoding sensitivity (appendix): persona-induced degradation persists across common temperature settings for Qwen, suggesting the effect is not solely a decoding artifact.}
   \label{fig:decoding-sweep}
 \end{figure}
 
 \clearpage
-\section{Claim\texorpdfstring{$\rightarrow$}{->}evidence table smoke test}
+\section{Claim\texorpdfstring{$\rightarrow$}{->}evidence traceability}
 
 \begin{table}[t]
 \centering
@@ -86,7 +86,7 @@ C2 & Table W deltas (control vs persona) & table\_w\_effect\_delta... & make\_ta
 C6 & Fig.~\ref{fig:decoding-sweep} & decoding\_sweep\_qwen\_temp\_summary... & results\_paper/qwen\_temp* \\
 \bottomrule
 \end{tabular}
-\caption{Minimal claim-to-evidence table (format smoke test).}
+\caption{Claim-to-evidence map: each paper claim is linked to the concrete exported artifacts and a reproducer script for auditability.}
 \end{table}
 
 \clearpage
