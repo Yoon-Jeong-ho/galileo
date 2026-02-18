@@ -699,5 +699,5 @@ Format (one per line):
 
 - [x] 2025 | Acquiescence Bias in Large Language Models | arXiv | https://arxiv.org/abs/2509.08480 | tags: acquiescence, sycophancy-adjacent, agreement-bias, evaluation | note: docs/paper/related_work/rapid_review/papers/20260218_acquiescence-bias-llms.md
 - [x] 2025 | Evaluating Bias in Spoken Dialogue LLMs for Real-World Decisions and Recommendations | arXiv | https://arxiv.org/abs/2510.02352 | tags: bias, spoken-dialogue, multi-turn, repeated-feedback | note: docs/paper/related_work/rapid_review/papers/20260218_evaluating_bias_spoken_dialogue_llms.md
-- [ ] 2025 | B-score: Detecting biases in large language models using response history | arXiv | https://arxiv.org/abs/2505.18545 | tags: bias, multi-turn, self-debiasing, response-history, evaluation
+- [x] 2025 | B-score: Detecting biases in large language models using response history | arXiv | https://arxiv.org/abs/2505.18545 | tags: bias, multi-turn, self-debiasing, response-history, evaluation | note: docs/paper/related_work/rapid_review/papers/20260218_b-score_detecting_biases_llms_response_history.md
 - [ ] 2026 | Bi-directional Bias Attribution: Debiasing Large Language Models without Modifying Prompts | arXiv | https://arxiv.org/abs/2602.04398 | tags: debiasing, interventions, interpretability, multi-turn-adjacent
