@@ -21,7 +21,13 @@ Caption style notes (paper-ready):
 - Captions explicitly state the comparison direction for \(\Delta\) metrics (persona − control).
 
 Metric definitions (to keep captions consistent across drafts):
-- **Table W** (canonical LaTeX label: `tab:tablew`): pooled control vs persona summary + effect deltas (see artifacts `table_w_*`). **Important:** Table W is a *collapsed* view that pools across persona arms; in the current artifacts, pooling uses weights proportional to the size of each arm’s initially-correct subset (\(|C_p|\)). Control metrics in Table W are therefore computed on the same matched subsets as the persona metrics (within each persona arm) before pooling, so “control” values can differ from the control shown in persona-wise figures/tables.
+- **Table W** (canonical LaTeX label: `tab:tablew`): pooled control vs persona summary + effect deltas (see artifacts `table_w_*`). **Important:** Table W is a *collapsed* view that pools across persona arms *after* computing persona-vs-control on the same persona-matched initially-correct subset (\(C_p\)) within each arm, so “control” values can differ from the control shown in persona-wise figures/tables.
+
+  In the tracked artifacts we report two persona aggregates:
+  - **persona_weighted (headline):** pool counts across personas first (equivalently, weight each persona by its evaluation-set size; implemented by summing `survived/total` at round \(R\) and summing TOF counts across personas).
+  - **persona_unweighted (transparency):** simple mean of persona-wise rates.
+
+  Captions/text should state which aggregate is being cited (default: **weighted**).
 - **Survival@r**: fraction of **initially-correct** examples that remain correct for **all rounds 1..r** (cumulative; “still correct through round r”).
 - **Flip**: a correct→incorrect transition at some round.
 - **TOF (turn-of-failure)**: the first round where a flip occurs (or “never”).
@@ -95,7 +101,7 @@ Persona-wise effect size on recovery after flipping: \(\Delta\)Recovery@flip (pe
 - Source artifact: `docs/paper/artifacts/table_w_effect_delta_seed1-4_20260209.csv`
 
 **Caption (draft):**
-Table W effect sizes (pooled across personas with weights \(w_p\propto |C_p|\)): persona pressure minus Neutral Re-asking Control (drift baseline), mean ± std across seeds 1–4. Large negative \(\Delta\)Survival@5 and positive \(\Delta\)Fail@1 indicate persona-induced failure dynamics beyond generic multi-turn drift under identical rounds/decoding/scoring.
+Table W effect sizes using the **persona-weighted** aggregate (pooled across personas with weights \(w_p\propto |C_p|\)): persona pressure minus Neutral Re-asking Control (drift baseline), mean ± std across seeds 1–4. Large negative \(\Delta\)Survival@5 and positive \(\Delta\)Fail@1 indicate persona-induced failure dynamics beyond generic multi-turn drift under identical rounds/decoding/scoring. (Table W also includes a persona-unweighted aggregate for transparency.)
 
 ---
 
