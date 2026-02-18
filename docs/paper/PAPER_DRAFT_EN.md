@@ -207,7 +207,7 @@ At each round `r`, we score whether the model’s answer is still correct.
   \mathrm{TOF}_i=\min\{r\in\{1,\dots,R\}: y_{i,r}=0\}\quad (\text{or }\infty\text{ if no flip})
   \]
   Examples that remain correct through round $R$ are **right-censored** at the dialogue horizon (reported as *never-fail* in plots/tables). If an example becomes incorrect at some round and later becomes correct again within Phase~2, we still define \(\mathrm{TOF}_i\) as the **first** failure round and treat the trajectory as failed for survival purposes; any subsequent re-corrections are analyzed separately (primarily via Phase~3 recovery).
-  We also report **Fail@1** as $\Pr(\mathrm{TOF}_i=1\mid y_{i,0}=1)$.
+  We also report **Fail@1** as $\Pr(\mathrm{TOF}_i=1\mid y_{i,0}=1)$. More generally, we sometimes use **Fail@r** $=\Pr(\mathrm{TOF}_i=r\mid y_{i,0}=1)$, and **Never-fail** $=\Pr(\mathrm{TOF}_i>R\mid y_{i,0}=1)=S_p(R)$ (right-censored at horizon $R$). These quantities are linked by the identities $\text{Fail@r}=S_p(r\! -\! 1)-S_p(r)$ for $r\ge 1$ and $\text{Never-fail}=S_p(R)$.
 - **Recovery (conditional on flip):** after the recovery prompt (Phase~3), let $y^{\mathrm{rec}}_i\in\{0,1\}$ be correctness of the recovered answer. We report
   \[
   \Pr\big(y^{\mathrm{rec}}_i=1\mid y_{i,0}=1,\; \mathrm{TOF}_i\le R\big)
