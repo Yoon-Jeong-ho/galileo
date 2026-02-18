@@ -874,3 +874,11 @@ Format (one per line):
 
 - [x] 2025 | FURINA: A Fully Customizable Role-Playing Benchmark via Scalable Multi-Agent Collaboration Pipeline | arXiv | https://arxiv.org/abs/2510.06800 | tags: role-play, benchmark, multi-agent, evaluation | note: docs/paper/related_work/rapid_review/papers/20260219_furina_role_play_benchmark_builder.md
 - [x] 2024 | PersonaGym: Evaluating Persona Agents and LLMs | arXiv | https://arxiv.org/abs/2407.18416 | tags: persona, agents, evaluation, metric | note: docs/paper/related_work/rapid_review/papers/20260219_personagym_personascore.md
+
+## New candidates (2026-02-19, web_search batch — robotics foundation models)
+
+- [x] 2025 | Foundation Model Driven Robotics: A Comprehensive Review | arXiv | https://arxiv.org/abs/2507.10087 | tags: robotics, foundation-models, survey | note: docs/paper/related_work/rapid_review/papers/20260219_foundation-model-driven-robotics-review.md
+- [ ] 2025 | Towards Forceful Robotic Foundation Models: a Literature Survey | arXiv | https://arxiv.org/abs/2504.11827 | tags: robotics, foundation-models, force, tactile, survey
+- [ ] 2025 | Deploying Foundation Model-Enabled Air and Ground Robots in the Field: Challenges and Opportunities | arXiv | https://arxiv.org/abs/2505.09477 | tags: robotics, deployment, foundation-models, field
+- [ ] 2025 | Embodied AI with Foundation Models for Mobile Service Robots: A Systematic Review | arXiv | https://arxiv.org/abs/2505.20503 | tags: robotics, mobile, foundation-models, systematic-review
+- [ ] 2025 | Embodied Robot Manipulation in the Era of Foundation Models: Planning and Learning Perspectives | arXiv | https://arxiv.org/abs/2512.22983 | tags: robotics, manipulation, planning, learning, survey
