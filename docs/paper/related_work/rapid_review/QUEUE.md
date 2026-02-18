@@ -768,3 +768,11 @@ Format (one per line):
 - [x] 2025 | GraphIF: Enhancing Multi-Turn Instruction Following for Large Language Models with Relation Graph Prompt | arXiv | https://arxiv.org/abs/2511.10051 | tags: multi-turn, instruction-following, prompting, relations | note: docs/paper/related_work/rapid_review/papers/20260217_graphif.md  # duplicate queue entry; note already exists
 - [x] 2025 | When Instructions Multiply: Measuring and Estimating LLM Capabilities of Multiple Instructions Following | arXiv | https://arxiv.org/abs/2509.21051 | tags: instruction-following, multi-instruction, evaluation | note: papers/20260218_when_instructions_multiply.md
 - [x] 2026 | Unsafer in Many Turns: Benchmarking and Defending Multi-Turn Safety Risks in Tool-Using Agents | arXiv | https://arxiv.org/abs/2602.13379 | tags: multi-turn, tool-using-agents, safety, benchmark, defenses | note: papers/20260217_mt-agentrisk-toolshield.md | duplicate queue entry (note already exists)
+
+## New candidates (2026-02-18, web_search batch)
+
+- [x] 2026 | GISA: A Benchmark for General Information-Seeking Assistant | arXiv | https://arxiv.org/abs/2602.08543 | tags: agents, web-search, multi-turn, evaluation | note: papers/20260218_gisa-benchmark-general-information-seeking-assistants.md  # duplicate queue entry; note already exists
+- [ ] 2026 | TSR: Trajectory-Search Rollouts for Multi-Turn RL of LLM Agents | arXiv | https://arxiv.org/abs/2602.11767 | tags: agents, multi-turn, RL, training
+- [ ] 2026 | LUMINA: Long-horizon Understanding for Multi-turn Interactive Agents | arXiv | https://arxiv.org/abs/2601.16649 | tags: agents, long-horizon, multi-turn, diagnosis
+- [ ] 2026 | AgencyBench: Benchmarking the Frontiers of Autonomous Agents in 1M-Token Real-World Contexts | arXiv | https://arxiv.org/abs/2601.11044 | tags: agents, long-horizon, tool-use, multi-turn, benchmark
+- [ ] 2026 | ChipBench: A Next-Step Benchmark for Evaluating LLM Performance in AI-Aided Chip Design | arXiv | https://arxiv.org/abs/2601.21448 | tags: coding, verilog, multi-turn, benchmark
