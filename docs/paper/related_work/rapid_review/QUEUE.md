@@ -97,7 +97,7 @@ Format (one per line):
 
 ## New candidates (2026-02-17, web_search batch 10)
 
-- [x] 2025 | MultiChallenge: A Realistic Multi-Turn Conversation Evaluation Benchmark Challenging to Frontier LLMs | arXiv | https://arxiv.org/abs/2501.17399 | tags: multi-turn, persistence, context, evaluation | duplicate queue entry; URL already reviewed | duplicate queue entry | duplicate queue entry | duplicate queue entry (note already exists) | duplicate queue entry | duplicate queue entry | duplicate queue entry | duplicate queue entry (note already exists) | duplicate queue entry | duplicate queue entry | note: docs/paper/related_work/rapid_review/papers/20260217_multichallenge.md | duplicate queue entry
+- [x] 2025 | MultiChallenge: A Realistic Multi-Turn Conversation Evaluation Benchmark Challenging to Frontier LLMs | arXiv | https://arxiv.org/abs/2501.17399 | tags: multi-turn, persistence, context, evaluation | duplicate queue entry; URL already reviewed | duplicate queue entry | duplicate queue entry | duplicate queue entry (note already exists) | duplicate queue entry | duplicate queue entry | duplicate queue entry | duplicate queue entry (note already exists) | duplicate queue entry | duplicate queue entry | duplicate queue entry | note: docs/paper/related_work/rapid_review/papers/20260217_multichallenge.md | duplicate queue entry
 - [x] 2025 | One Battle After Another: Probing LLMs’ Limits on Multi-Turn Instruction Following with a Benchmark Evolving Framework | arXiv | https://arxiv.org/abs/2511.03508 | tags: multi-turn, instruction-following, survival-curves, recovery | note: papers/20260217_evolif-multi-turn-instruction-following.md
 - [x] 2025 | Modeling and Predicting Multi-Turn Answer Instability in Large Language Models | arXiv | https://arxiv.org/abs/2511.10688 | tags: multi-turn, instability, prediction, markov | note: docs/paper/related_work/rapid_review/papers/20260218_modeling-multi-turn-answer-instability.md | duplicate queue entry (already reviewed)
 - [x] 2025 | ERGO: Entropy-guided Resetting for Generation Optimization in Multi-turn Language Models | arXiv | https://arxiv.org/abs/2510.14077 | tags: multi-turn, intervention, recovery, stability | note: papers/20260217_ergo-entropy-guided-resetting.md
@@ -797,7 +797,7 @@ Format (one per line):
 
 ## New candidates (2026-02-18, web_search batch 2)
 
-- [ ] 2025 | MultiChallenge: A Realistic Multi-Turn Conversation Evaluation Benchmark Challenging to Frontier LLMs | arXiv | https://arxiv.org/abs/2501.17399 | tags: multi-turn, evaluation, benchmark, conversation
+- [x] 2025 | MultiChallenge: A Realistic Multi-Turn Conversation Evaluation Benchmark Challenging to Frontier LLMs | arXiv | https://arxiv.org/abs/2501.17399 | tags: multi-turn, evaluation, benchmark, conversation | duplicate queue entry | note: docs/paper/related_work/rapid_review/papers/20260217_multichallenge.md
 - [ ] 2025 | MMRC: A Large-Scale Benchmark for Understanding Multimodal Large Language Model in Real-World Conversation | arXiv | https://arxiv.org/abs/2502.11903 | tags: multi-turn, multimodal, conversation, memory-degradation
 - [ ] 2025 | When Two LLMs Debate, Both Think They’ll Win | arXiv | https://arxiv.org/abs/2505.19184 | tags: debate, belief-revision, multi-turn, confidence, calibration
 - [ ] 2025 | Evaluating & Reducing Deceptive Dialogue From Language Models with Multi-turn RL | arXiv | https://arxiv.org/abs/2510.14318 | tags: deception, dialogue, multi-turn, rl, safety
