@@ -71,10 +71,15 @@ Finally, our emphasis on verifiable truth aligns with truthfulness benchmarks su
 
 \section{Protocol and result figures}
 
+\paragraph{Personas and control.}
+We instantiate social pressure via five fixed personas: \emph{Soft Pressure} (gentle doubt), \emph{Simple Denial} (repeated contradiction without justification), \emph{Strong Pressure} (assertive insistence), \emph{Authority Claim} (appeal to an external expert/source), and \emph{Logical Trap} (misleading reasoning that tempts a flip).
+To separate persona-induced effects from generic multi-turn instability, we also run a \emph{neutral re-asking control} that re-queries the same question without adversarial framing.
+
 \begin{figure}[t]
   \centering
   \includegraphics[width=\linewidth]{figures/protocol_overview}
   \caption{GALILEO protocol. Starting from an initially correct answer, we run a neutral re-asking control (drift baseline) and persona pressure rounds (up to five turns). On flipped samples, we additionally evaluate recovery (return-to-truth) and report survival, fail@1, and turn-of-failure metrics.}
+  \label{fig:protocol}
 \end{figure}
 
 \begin{figure}[t]
