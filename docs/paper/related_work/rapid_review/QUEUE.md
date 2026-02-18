@@ -697,3 +697,11 @@ Format (one per line):
 - [x] 2026 | PersistBench: When Should Long-Term Memories Be Forgotten by LLMs? | arXiv | https://arxiv.org/abs/2602.01146 | tags: agents, memory, forgetting, benchmark | note: papers/20260218_persistbench.md  # duplicate queue entry; note already exists
 - [x] 2026 | DimStance: Multilingual Datasets for Dimensional Stance Analysis | arXiv | https://arxiv.org/abs/2601.21483 | tags: stance, stability-adjacent, multilingual, dataset | note: papers/20260218_dimstance_va_stance.md
 - [x] 2024 | PingPong: A Benchmark for Role-Playing Language Models with User Emulation and Multi-Model Evaluation | arXiv | https://arxiv.org/abs/2409.06820 | tags: role-playing, user-emulation, multi-turn, benchmark | note: papers/20260218_pingpong_roleplaying_benchmark.md
+
+## New candidates (2026-02-18, web_search batch 1)
+
+- [x] 2025 | SafeDialBench: A Fine-Grained Safety Evaluation Benchmark for Large Language Models in Multi-Turn Dialogues with Diverse Jailbreak Attacks | arXiv | https://arxiv.org/abs/2502.11090 | tags: multi-turn, safety, jailbreak, benchmark | note: papers/20260217_safedialbench.md  # duplicate queue entry; note already exists
+- [ ] 2026 | Turn-Based Structural Triggers: Prompt-Free Backdoors in Multi-Turn LLMs | arXiv | https://arxiv.org/abs/2601.14340 | tags: multi-turn, backdoor, triggers, security
+- [ ] 2025 | SafeMT: Multi-turn Safety for Multimodal Language Models | arXiv | https://arxiv.org/abs/2510.12133 | tags: multimodal, multi-turn, safety, jailbreak, benchmark
+- [ ] 2026 | The ICASSP 2026 HumDial Challenge: Benchmarking Human-like Spoken Dialogue Systems in the LLM Era | arXiv | https://arxiv.org/abs/2601.05564 | tags: spoken-dialogue, benchmark, multi-turn, evaluation
+- [ ] 2026 | Knowledge-Driven Multi-Turn Jailbreaking on Large Language Models | arXiv | https://arxiv.org/abs/2601.05445 | tags: multi-turn, jailbreak, attacks, strategy-distillation
