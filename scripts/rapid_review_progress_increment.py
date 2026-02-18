@@ -35,11 +35,17 @@ def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--papers", type=int, default=0, help="Increment papers-read counter by this amount")
     ap.add_argument("--top10", type=int, default=0, help="Increment TOP10-shortlist counter by this amount")
+    # Back-compat: some cron attempts use --count instead of --papers.
+    ap.add_argument("--count", type=int, default=0, help=argparse.SUPPRESS)
     # Cron/back-compat: accept-and-ignore common mispassed args.
     ap.add_argument("--url", default="", help=argparse.SUPPRESS)
     ap.add_argument("--note", default="", help=argparse.SUPPRESS)
     ap.add_argument("--comment", default="", help=argparse.SUPPRESS)
     args = ap.parse_args()
+
+    # Back-compat alias.
+    if args.papers == 0 and args.count:
+        args.papers = args.count
 
     # Cron robustness: treat missing deltas as a no-op success.
     if args.papers == 0 and args.top10 == 0:
