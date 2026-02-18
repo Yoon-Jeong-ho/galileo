@@ -854,3 +854,11 @@ Format (one per line):
 - [x] 2025 | Evaluating LLM Metrics Through Real-World Capabilities | arXiv | https://arxiv.org/html/2505.08253v1 | tags: metrics, evaluation, capabilities | note: docs/paper/related_work/rapid_review/papers/20260219_evaluating_llm_metrics_real_world_capabilities.md
 - [x] 2024 | CheckEval: Robust Evaluation Framework using Large Language Model via Checklist | arXiv | https://arxiv.org/html/2403.18771v1 | tags: evaluation, llm-judge, checklists, robustness | note: docs/paper/related_work/rapid_review/papers/20260219_checkeval_llm_checklist_eval.md
 - [x] 2025 | Top AI Evaluation Tools for GenAI Systems in 2025 | Galileo blog | https://galileo.ai/blog/mastering-llm-evaluation-metrics-frameworks-and-techniques | tags: tooling, industry, evaluation | note: docs/paper/related_work/rapid_review/papers/20260219_top12-ai-eval-tools-2025_galileo-blog.md
+
+## New candidates (2026-02-19, web_search persona/roleplay)
+
+- [x] 2025 | Score Before You Speak: Improving Persona Consistency in Dialogue Generation using Response Quality Scores | arXiv | https://arxiv.org/abs/2508.06886 | tags: persona, consistency, multi-turn, dialogue | note: papers/20260219_score-before-you-speak.md
+- [ ] 2025 | Enhancing Persona Consistency for LLMs’ Role-Playing using Persona-Aware Contrastive Learning | arXiv | https://arxiv.org/abs/2503.17662 | tags: persona, role-play, contrastive-learning, multi-turn
+- [ ] 2024 | Dialogue Language Model with Large-Scale Persona Data Engineering | arXiv | https://arxiv.org/abs/2412.09034 | tags: persona, dialogue, data, consistency, multi-turn
+- [ ] 2025 | DeepPersona: A Generative Engine for Scaling Deep Synthetic Personas | arXiv | https://arxiv.org/abs/2511.07338 | tags: personas, synthetic-data, evaluation, alignment
+- [ ] 2025 | Role-Playing Evaluation for Large Language Models (RPEval) | arXiv | https://arxiv.org/abs/2505.13157 | tags: role-play, evaluation, consistency, moral
