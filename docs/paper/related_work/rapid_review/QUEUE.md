@@ -710,3 +710,11 @@ Format (one per line):
 - [x] 2025 | SoMe: A Realistic Benchmark for LLM-based Social Media Agents | arXiv | https://arxiv.org/abs/2512.14720 | tags: social-media, agents, multi-turn, benchmark | note: docs/paper/related_work/rapid_review/papers/20260218_some-realistic-benchmark-social-media-agents.md
 - [x] 2025 | Echoes of Human Malice in Agents: Benchmarking LLMs for Multi-Turn Online Harassment Attacks | arXiv | https://arxiv.org/abs/2510.14207 | tags: harassment, multi-turn, agents, safety, benchmark | note: docs/paper/related_work/rapid_review/papers/20260218_echoes-human-malice-harassment-agents.md
 - [x] 2025 | SimBench: Benchmarking the Ability of Large Language Models to Simulate Human Behaviors | arXiv | https://arxiv.org/abs/2510.17516 | tags: simulation, human-behavior, multi-turn, benchmark | note: docs/paper/related_work/rapid_review/papers/20260218_simbench_llm_simulate_human_behaviors.md
+
+## New candidates (2026-02-18)
+
+- [x] 2025 | ConVerse: Benchmarking Contextual Safety in Agent-to-Agent Conversations | arXiv | https://arxiv.org/abs/2511.05359 | tags: multi-turn, safety, agents, contextual, privacy | note: papers/20260218_converse-agent-to-agent-contextual-safety.md
+- [ ] 2025 | OS-Harm: A Benchmark for Measuring Safety of Computer Use Agents | arXiv | https://arxiv.org/abs/2506.14866 | tags: agents, computer-use, safety, benchmark
+- [ ] 2025 | Agent Tools Orchestration Leaks More: Dataset, Benchmark, and Mitigation | arXiv | https://arxiv.org/abs/2512.16310 | tags: agents, tool-use, privacy, leakage, benchmark
+- [ ] 2026 | SafePro: Evaluating the Safety of Professional-Level AI Agents | arXiv | https://arxiv.org/abs/2601.06663 | tags: agents, safety, professional, evaluation
+- [ ] 2025 | RedTeamCUA: Realistic Adversarial Testing of Computer-Use Agents in Hybrid Web-OS Environments | arXiv | https://arxiv.org/abs/2505.21936 | tags: agents, computer-use, red-teaming, adversarial, safety
