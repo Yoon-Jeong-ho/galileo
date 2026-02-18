@@ -701,7 +701,7 @@ Format (one per line):
 ## New candidates (2026-02-18, web_search batch 1)
 
 - [x] 2025 | SafeDialBench: A Fine-Grained Safety Evaluation Benchmark for Large Language Models in Multi-Turn Dialogues with Diverse Jailbreak Attacks | arXiv | https://arxiv.org/abs/2502.11090 | tags: multi-turn, safety, jailbreak, benchmark | note: papers/20260217_safedialbench.md  # duplicate queue entry; note already exists
-- [ ] 2026 | Turn-Based Structural Triggers: Prompt-Free Backdoors in Multi-Turn LLMs | arXiv | https://arxiv.org/abs/2601.14340 | tags: multi-turn, backdoor, triggers, security
+- [x] 2026 | Turn-Based Structural Triggers: Prompt-Free Backdoors in Multi-Turn LLMs | arXiv | https://arxiv.org/abs/2601.14340 | tags: multi-turn, backdoor, triggers, security | note: papers/20260218_turn-based-structural-triggers.md
 - [ ] 2025 | SafeMT: Multi-turn Safety for Multimodal Language Models | arXiv | https://arxiv.org/abs/2510.12133 | tags: multimodal, multi-turn, safety, jailbreak, benchmark
 - [ ] 2026 | The ICASSP 2026 HumDial Challenge: Benchmarking Human-like Spoken Dialogue Systems in the LLM Era | arXiv | https://arxiv.org/abs/2601.05564 | tags: spoken-dialogue, benchmark, multi-turn, evaluation
 - [ ] 2026 | Knowledge-Driven Multi-Turn Jailbreaking on Large Language Models | arXiv | https://arxiv.org/abs/2601.05445 | tags: multi-turn, jailbreak, attacks, strategy-distillation
