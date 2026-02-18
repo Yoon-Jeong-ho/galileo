@@ -764,7 +764,7 @@ Format (one per line):
 
 ## New candidates (2026-02-18, web_search batch)
 - [x] 2025 | StructFlowBench: A Structured Flow Benchmark for Multi-turn Instruction Following | arXiv | https://arxiv.org/abs/2502.14494 | tags: multi-turn, instruction-following, benchmark, dialogue | note: papers/20260217_structflowbench.md | duplicate queue entry (already reviewed)
-- [ ] 2024 | Multi-IF: Benchmarking LLMs on Multi-turn and Multilingual Instruction Following | arXiv | https://arxiv.org/abs/2410.15553 | tags: multi-turn, instruction-following, multilingual, benchmark
+- [x] 2024 | Multi-IF: Benchmarking LLMs on Multi-turn and Multilingual Instruction Following | arXiv | https://arxiv.org/abs/2410.15553 | tags: multi-turn, instruction-following, multilingual, benchmark | note: papers/20260217_multi-if.md | duplicate queue entry (already reviewed)
 - [ ] 2025 | GraphIF: Enhancing Multi-Turn Instruction Following for Large Language Models with Relation Graph Prompt | arXiv | https://arxiv.org/abs/2511.10051 | tags: multi-turn, instruction-following, prompting, relations
 - [ ] 2025 | When Instructions Multiply: Measuring and Estimating LLM Capabilities of Multiple Instructions Following | arXiv | https://arxiv.org/abs/2509.21051 | tags: instruction-following, multi-instruction, evaluation
 - [ ] 2026 | Unsafer in Many Turns: Benchmarking and Defending Multi-Turn Safety Risks in Tool-Using Agents | arXiv | https://arxiv.org/abs/2602.13379 | tags: multi-turn, tool-using-agents, safety, benchmark, defenses
