@@ -924,3 +924,9 @@ Format (one per line):
 - [x] 2025 | The FACTS Leaderboard: A Comprehensive Benchmark for Large Language Model Factuality | arXiv | https://arxiv.org/abs/2512.10791 | tags: factuality, evaluation, leaderboard, LLM-judges | note: docs/paper/related_work/rapid_review/papers/20260219_facts_leaderboard.md
 - [x] 2025 | PACIFIC: a framework for generating benchmarks to check Precise Automatically Checked Instruction Following In Code | arXiv | https://arxiv.org/abs/2512.10713 | tags: instruction-following, code, evaluation, determinism | note: docs/paper/related_work/rapid_review/papers/20260219_pacific_bench_instruction_following_code.md
 - [x] 2026 | Pro-AI Bias in Large Language Models | arXiv | https://arxiv.org/abs/2601.13749 | tags: bias, evaluation, stance, persuasion-adjacent | note: docs/paper/related_work/rapid_review/papers/20260219_pro_ai_bias_llms.md
+
+## New candidates (2026-02-19, web_search batch)
+
+- [x] 2025 | An Illusion of Progress? Assessing the Current State of Web Agents (Online-Mind2Web) | arXiv | https://arxiv.org/abs/2504.01382 | tags: web-agents, benchmark, evaluation, mind2web | note: docs/paper/related_work/rapid_review/papers/20260219_illusion-of-progress-online-mind2web.md
+- [ ] 2024 | ST-WebAgentBench: A Benchmark for Evaluating Safety and Trustworthiness in Web Agents | arXiv | https://arxiv.org/abs/2410.06703 | tags: web-agents, benchmark, safety, trustworthiness
+- [ ] 2025 | BrowserArena: Evaluating LLM Agents on Real-World Web Navigation Tasks | arXiv | https://arxiv.org/abs/2510.02418 | tags: web-agents, benchmark, web-navigation, evaluation
