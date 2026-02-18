@@ -721,3 +721,11 @@ Format (one per line):
 - [x] 2025 | SafeDialBench: A Fine-Grained Safety Evaluation Benchmark for Large Language Models in Multi-Turn Dialogues with Diverse Jailbreak Attacks | arXiv | https://arxiv.org/abs/2502.11090 | tags: multi-turn, safety, benchmark, jailbreak | note: papers/20260217_safedialbench.md  # duplicate queue entry; note already exists
 - [x] 2025 | M2S: Multi-turn to Single-turn jailbreak in Red Teaming for LLMs | arXiv | https://arxiv.org/abs/2503.04856 | tags: multi-turn, jailbreak, red-teaming | note: papers/20260217_m2s-multi-turn-to-single-turn-jailbreak.md  # duplicate queue entry; note already exists
 - [x] 2026 | The Echo Chamber Multi-Turn LLM Jailbreak | arXiv | https://arxiv.org/abs/2601.05742 | tags: multi-turn, jailbreak, consistency-bias | note: papers/20260217_echo-chamber-multi-turn-llm-jailbreak.md  # duplicate entry
+
+## New candidates (2026-02-18, web_search batch 1)
+
+- [x] 2025 | ScamAgents: How AI Agents Can Simulate Human-Level Scam Calls | arXiv | https://arxiv.org/abs/2508.06457 | tags: agents, persuasion, scam, multi-turn, safety | note: papers/20260218_scamagents.md
+- [ ] 2025 | SafeTy Reasoning Elicitation Alignment for Multi-Turn Dialogues (STREAM) | arXiv | https://arxiv.org/abs/2506.00668 | tags: multi-turn, safety, jailbreak, defense, reasoning-moderator
+- [ ] 2025 | AI Debaters are More Persuasive when Arguing in Alignment with Their Own Beliefs | arXiv | https://arxiv.org/abs/2510.13912 | tags: persuasion, debate, beliefs, stance, multi-turn
+- [ ] 2025 | TAMAS: Benchmarking Adversarial Risks in Multi-Agent LLM Systems | arXiv | https://arxiv.org/abs/2511.05269 | tags: multi-agent, adversarial, safety, benchmark
+- [ ] 2025 | Indirect Prompt Injections: Are Firewalls All You Need, or Stronger Benchmarks? | arXiv | https://arxiv.org/abs/2510.05244 | tags: prompt-injection, agents, benchmarks, security
