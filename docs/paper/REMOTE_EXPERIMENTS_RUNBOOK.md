@@ -9,6 +9,8 @@ This runbook is for the **Experiments lane** in the 10-min heartbeat loop.
 - GPUs: **4,5,6 only** (`CUDA_VISIBLE_DEVICES=4,5,6`)
 - Always use `tmux` so runs survive disconnects.
 - Avoid CPU overload: keep worker counts small; avoid multiple heavy runs at once.
+- **Logging reliability:** prefer launching via `bash -lc '... conda activate ...; python ... |& tee -a run.log'` rather than `conda run ... | tee ...`.
+  - We have observed `conda run` + `tee` sometimes yields a *log-silent* run (GPU busy, outputs written, but `run.log` mtime stalls), which complicates monitoring and stall detection.
 
 **Anti-drift:** the heartbeat poll banner may mention `nlp16`, `/mnt/raid6/...`, and GPUs 4–7. For GALILEO EMNLP Main, treat that as stale: **all auditable “paper-ready” experiment work is SSOT on nlp8** (this runbook + `MEMORY.md`).
 
@@ -39,7 +41,11 @@ ssh nlp8 '
 '
 ```
 
-Then tail logs for the newest run root:
+Then tail logs for the newest run root.
+
+If `run.log` is not updating but GPU is busy, monitor progress via **output file mtimes** under `OUT/<ModelName>/*.jsonl` (e.g., `find "$OUT" -type f -printf '%TY-%Tm-%Td %TH:%TM %s %p\n' | sort | tail`).
+
+**Stall cutoff (recommended):** if (i) no new files under `OUT/<ModelName>/` for **≥30 minutes** and (ii) the runner PID is sleeping (0% CPU) while `VLLM::EngineCore` keeps GPU busy, treat it as hung and relaunch (do not start seed2 until seed1 is healthy).
 
 ```bash
 ssh nlp8 '
