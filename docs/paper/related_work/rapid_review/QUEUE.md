@@ -1016,3 +1016,11 @@ Format (one per line):
 - [x] https://arxiv.org/html/2311.08596v2  # Are You Sure? Challenging LLMs Leads to Performance Drops in The FlipFlop Experiment | note: docs/paper/related_work/rapid_review/papers/20260219_flipflop-experiment.md
 - [x] https://arxiv.org/html/2504.12256  # FLIP Reasoning Challenge | note: docs/paper/related_work/rapid_review/papers/20260219_flip_reasoning_challenge.md
 - [x] https://arxiv.org/html/2601.10387v1  # The Assistant Axis: Situating and Stabilizing the Default Persona of Language Models | note: docs/paper/related_work/rapid_review/papers/20260219_assistant_axis_persona_drift.md
+
+## New candidates (2026-02-19, web_search batch)
+
+- [x] 2025 | It’s a TRAP! Task-Redirecting Agent Persuasion Benchmark for Web Agents | arXiv | https://arxiv.org/abs/2512.23128 | tags: agents, prompt-injection-adjacent, persuasion, web, benchmark | note: docs/paper/related_work/rapid_review/papers/20260219_trap-task-redirecting-agent-persuasion.md
+- [x] 2025 | Beyond Detection: Exploring Evidence-based Multi-Agent Debate for Misinformation Intervention and Persuasion | arXiv | https://arxiv.org/abs/2511.07267 | tags: misinformation, debate, persuasion, multi-agent, benchmark | note: papers/20260219_beyond-detection-ed2d.md
+- [ ] 2026 | One Model, All Roles: Multi-Turn, Multi-Agent Self-Play Reinforcement Learning for Conversational Social Intelligence | arXiv | https://arxiv.org/abs/2602.03109 | tags: multi-agent, self-play, social-intelligence, multi-turn, RL
+- [ ] 2025 | Prompt Injection Attack to Tool Selection in LLM Agents (ToolHijacker) | arXiv | https://arxiv.org/abs/2504.19793 | tags: agents, prompt-injection, tool-selection, security, attacks
+- [ ] 2026 | Learning to Inject: Automated Prompt Injection via Reinforcement Learning | arXiv | https://arxiv.org/abs/2602.05746 | tags: prompt-injection, attacks, RL, security
