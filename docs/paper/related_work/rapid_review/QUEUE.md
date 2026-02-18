@@ -788,5 +788,5 @@ Format (one per line):
 
 ## New candidates (2026-02-18, web_search batch 13)
 
-- [ ] 2026 | Intent Mismatch Causes LLMs to Get Lost in Multi-Turn Conversation | arXiv | https://arxiv.org/abs/2602.07338 | tags: multi-turn, intent-inference, drift, recovery | note: docs/paper/related_work/rapid_review/papers/20260218_intent-mismatch-mt-get-lost.md
+- [x] 2026 | Intent Mismatch Causes LLMs to Get Lost in Multi-Turn Conversation | arXiv | https://arxiv.org/abs/2602.07338 | tags: multi-turn, intent-inference, drift, recovery | note: docs/paper/related_work/rapid_review/papers/20260218_intent-mismatch-mt-get-lost.md | duplicate queue entry (note already exists)
 - [ ] 2025 | A Hybrid Theory and Data-driven Approach to Persuasion Detection with Large Language Models | arXiv | https://arxiv.org/abs/2511.22109 | tags: persuasion, detection, belief-change, evaluation | note: docs/paper/related_work/rapid_review/papers/20260218_hybrid-theory-data-persuasion-detection-llms.md
