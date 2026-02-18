@@ -575,7 +575,7 @@ Format (one per line):
 - [x] 2026 | AgentLeak: A Full-Stack Benchmark for Privacy Leakage in Multi-Agent LLM Systems | arXiv | https://arxiv.org/abs/2602.11510 | tags: privacy, leakage, multi-agent, benchmark | note: docs/paper/related_work/rapid_review/papers/20260218_agentleak_privacy_leakage_benchmark.md
 - [x] 2026 | From Assistant to Double Agent: Formalizing and Benchmarking Attacks on OpenClaw for Personalized Local AI Agent | arXiv | https://arxiv.org/abs/2602.08412 | tags: agent-security, prompt-injection, multi-turn, benchmark | note: docs/paper/related_work/rapid_review/papers/20260218_pasb-openclaw-security-bench.md
 
-- [ ] 2025 | MCP-SafetyBench: A Benchmark for Safety Evaluation of Large Language Models with Real-World MCP Servers | arXiv | https://arxiv.org/abs/2512.15163 | tags: tool-use, multi-turn, safety, benchmark
+- [x] 2025 | MCP-SafetyBench: A Benchmark for Safety Evaluation of Large Language Models with Real-World MCP Servers | arXiv | https://arxiv.org/abs/2512.15163 | tags: tool-use, multi-turn, safety, benchmark | note: docs/paper/related_work/rapid_review/papers/20260218_mcp-safetybench.md
 - [ ] 2026 | SEMA: Simple yet Effective Learning for Multi-Turn Jailbreak Attacks | arXiv | https://arxiv.org/abs/2602.06854 | tags: multi-turn, jailbreak, attacks, safety
 
 - [x] 2025 | MultiChallenge: A Realistic Multi-Turn Conversation Evaluation Benchmark Challenging to Frontier LLMs | arXiv | https://arxiv.org/abs/2501.17399 | tags: multi-turn, evaluation, persistence, self-coherence, sycophancy | note: papers/20260217_multichallenge.md  # duplicate queue entry
