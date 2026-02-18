@@ -77,6 +77,10 @@ Finally, our emphasis on verifiable truth aligns with truthfulness benchmarks su
 \paragraph{Personas and control.}
 We instantiate social pressure via five fixed personas: \emph{Soft Pressure} (gentle doubt), \emph{Simple Denial} (repeated contradiction without justification), \emph{Strong Pressure} (assertive insistence), \emph{Authority Claim} (appeal to an external expert/source), and \emph{Logical Trap} (misleading reasoning that tempts a flip).
 To separate persona-induced effects from generic multi-turn instability, we also run a \emph{neutral re-asking control} that re-queries the same question without adversarial framing.
+
+\paragraph{Matched conditioning set.}
+Because our multi-turn metrics are defined on the \emph{initially-correct} subset, the effective evaluation set can differ across personas and seeds. For each persona $p$, we therefore define its initially-correct set $C_p$ (examples correct at round $0$ \emph{under persona prompting}) and evaluate the neutral control on the \emph{same} $C_p$ when computing persona--control deltas. This ``persona-matched control'' prevents conditioning-set drift (differences in which examples qualify as initially correct) from being misinterpreted as a treatment effect.
+
 Figure~\ref{fig:survival-example} illustrates the resulting survival curves for a representative control-vs-persona comparison.
 
 \begin{figure}[t]
