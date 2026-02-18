@@ -737,3 +737,11 @@ Format (one per line):
 - [x] 2024 | FairMT-Bench: Benchmarking Fairness for Multi-turn Dialogue in Conversational LLMs | arXiv | https://arxiv.org/abs/2410.19317 | tags: fairness, multi-turn, dialogue, benchmark | note: papers/20260218_fairmt-bench.md
 - [x] 2025 | Exploratory Retrieval-Augmented Planning For Continual Embodied Instruction Following | arXiv | https://arxiv.org/abs/2509.08222 | tags: instruction-following, planning, retrieval-augmented, continual, embodied-agent | note: docs/paper/related_work/rapid_review/papers/20260218_exrap-continual-embodied-instruction.md
 - [x] 2025 | Planning with Reasoning using Vision Language World Model | arXiv | https://arxiv.org/abs/2509.02722 | tags: planning, reasoning, world-model, vision-language | note: docs/paper/related_work/rapid_review/papers/20260218_planning_reasoning_vlwm.md
+
+## New candidates (2026-02-18, web_search batch)
+
+- [x] 2026 | Arbor: A Framework for Reliable Navigation of Critical Conversation Flows | arXiv | https://arxiv.org/abs/2602.14643 | tags: multi-turn, conversation-flows, reliability, decomposition | note: papers/20260218_arbor-critical-conversation-flows.md
+- [ ] 2026 | Conversational Behavior Modeling Foundation Model With Multi-Level Perception | arXiv | https://arxiv.org/abs/2602.11065 | tags: conversation-modeling, speech-acts, multi-level-perception, multi-turn
+- [ ] 2026 | BaziQA-Benchmark: Evaluating Symbolic and Temporally Compositional Reasoning in Large Language Models | arXiv | https://arxiv.org/abs/2602.12889 | tags: symbolic-reasoning, temporal, multi-turn, benchmark
+- [ ] 2026 | Competition for attention predicts good-to-bad tipping in AI | arXiv | https://arxiv.org/abs/2602.14370 | tags: dynamics, multi-step, conversations, tipping
+- [ ] 2026 | AgriWorld: A World–Tools–Protocol Framework for Verifiable Agricultural Reasoning with Code-Executing LLM Agents | arXiv | https://arxiv.org/abs/2602.15325 | tags: agents, tool-use, verifiable, multi-turn
