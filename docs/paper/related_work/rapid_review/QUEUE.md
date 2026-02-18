@@ -573,7 +573,7 @@ Format (one per line):
 - [x] 2026 | CM2: Reinforcement Learning with Checklist Rewards for Multi-Turn and Multi-Step Agentic Tool Use | arXiv | https://arxiv.org/abs/2602.12268 | tags: tool-use, multi-turn, RL, agents | note: papers/20260218_cm2-checklist-rewards.md
 
 - [x] 2026 | AgentLeak: A Full-Stack Benchmark for Privacy Leakage in Multi-Agent LLM Systems | arXiv | https://arxiv.org/abs/2602.11510 | tags: privacy, leakage, multi-agent, benchmark | note: docs/paper/related_work/rapid_review/papers/20260218_agentleak_privacy_leakage_benchmark.md
-- [ ] 2026 | From Assistant to Double Agent: Formalizing and Benchmarking Attacks on OpenClaw for Personalized Local AI Agent | arXiv | https://arxiv.org/abs/2602.08412 | tags: agent-security, prompt-injection, multi-turn, benchmark
+- [x] 2026 | From Assistant to Double Agent: Formalizing and Benchmarking Attacks on OpenClaw for Personalized Local AI Agent | arXiv | https://arxiv.org/abs/2602.08412 | tags: agent-security, prompt-injection, multi-turn, benchmark | note: docs/paper/related_work/rapid_review/papers/20260218_pasb-openclaw-security-bench.md
 
 - [ ] 2025 | MCP-SafetyBench: A Benchmark for Safety Evaluation of Large Language Models with Real-World MCP Servers | arXiv | https://arxiv.org/abs/2512.15163 | tags: tool-use, multi-turn, safety, benchmark
 - [ ] 2026 | SEMA: Simple yet Effective Learning for Multi-Turn Jailbreak Attacks | arXiv | https://arxiv.org/abs/2602.06854 | tags: multi-turn, jailbreak, attacks, safety
