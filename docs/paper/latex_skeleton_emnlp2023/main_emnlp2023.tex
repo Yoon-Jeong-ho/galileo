@@ -86,6 +86,12 @@ To separate persona-induced effects from generic multi-turn instability, we also
 \paragraph{Matched conditioning set.}
 Because our multi-turn metrics are defined on the \emph{initially-correct} subset, the effective evaluation set can differ across personas and seeds. For each persona $p$, we therefore define its initially-correct set $C_p$ (examples correct at round $0$ \emph{under persona prompting}) and evaluate the neutral control on the \emph{same} $C_p$ when computing persona--control deltas. This ``persona-matched control'' prevents conditioning-set drift (differences in which examples qualify as initially correct) from being misinterpreted as a treatment effect.
 
+Formally, for any metric $M$ computed on initially-correct examples (e.g., $\widehat{S}(r)$, fail@1, or a TOF statistic), we report persona--control deltas on the matched set:
+\begin{equation}
+  \Delta M(p) = M\big(\text{persona}=p\,;\, i\in C_p\big) - M\big(\text{control}\,;\, i\in C_p\big).
+\end{equation}
+In practice, this ensures that persona effects are not conflated with the easier/harder composition of the initially-correct subset induced by different prompting conditions.
+
 Figure~\ref{fig:survival-example} illustrates the resulting survival curves for a representative control-vs-persona comparison.
 
 \begin{figure}[t]
