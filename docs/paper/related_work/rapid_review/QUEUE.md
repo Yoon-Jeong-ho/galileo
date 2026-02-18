@@ -802,3 +802,11 @@ Format (one per line):
 - [x] 2025 | When Two LLMs Debate, Both Think They’ll Win | arXiv | https://arxiv.org/abs/2505.19184 | tags: debate, belief-revision, multi-turn, confidence, calibration | duplicate queue entry | note: docs/paper/related_work/rapid_review/papers/20260217_two-llms-debate-win.md
 - [x] 2025 | Evaluating & Reducing Deceptive Dialogue From Language Models with Multi-turn RL | arXiv | https://arxiv.org/abs/2510.14318 | tags: deception, dialogue, multi-turn, rl, safety | note: docs/paper/related_work/rapid_review/papers/20260217_deceptive-dialogue-multi-turn-rl.md | duplicate queue entry
 - [x] 2025 | Revisiting the Reliability of Language Models in Instruction-Following | arXiv | https://arxiv.org/abs/2512.14754 | tags: instruction-following, multi-turn, reliability, multilingual | note: docs/paper/related_work/rapid_review/papers/20260218_reliable-at-k-ifevalpp.md
+
+## New candidates (2026-02-18, web_search batch)
+
+- [x] 2025 | DeceptionBench: A Comprehensive Benchmark for AI Deception Behaviors in Real-world Scenarios | arXiv | https://arxiv.org/abs/2510.15501 | tags: deception, benchmark, multi-turn, coercion, incentives | note: papers/20260218_deceptionbench.md
+- [x] 2025 | Can MLLMs Read the Room? A Multimodal Benchmark for Assessing Deception in Multi-Party Social Interactions | arXiv | https://arxiv.org/abs/2511.16221 | tags: deception, multimodal, social-interactions, multi-party, benchmark | note: papers/20260218_mllms_read_the_room_mida.md
+- [ ] 2025 | SVC 2025: the First Multimodal Deception Detection Challenge | arXiv | https://arxiv.org/abs/2508.04129 | tags: deception-detection, multimodal, challenge, benchmark
+- [ ] 2025 | Medical Large Language Model Benchmarks Should Prioritize Construct Validity | arXiv | https://arxiv.org/abs/2503.10694 | tags: evaluation, construct-validity, benchmarks, medical
+- [ ] 2025 | Do Large Language Models Know How Much They Know? | arXiv | https://arxiv.org/abs/2502.19573 | tags: calibration, self-knowledge, uncertainty, evaluation
