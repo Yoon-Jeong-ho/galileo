@@ -41,6 +41,10 @@ tmp/
 _tmp_results_paper/
 tmp_results_paper/
 
+# Local build artifacts occasionally created by SVG->PDF conversion; keep repo clean.
+/paper_figures/pdf/cross_family_survival_r5_control_vs_logicaltrap_seed1-2_20260212.pdf
+/paper_figures/pdf/cross_family_survival_r5_control_vs_logicaltrap_seed1-2_20260217.pdf
+
 # Generated paper analysis exports (keep curated tables/figures, ignore throwaway summaries)
 # NOTE: tier1_*_survival_summary_*.csv are small, reviewer-facing cross-family snapshots and ARE tracked.
 docs/paper/artifacts/*_summary_*.csv
