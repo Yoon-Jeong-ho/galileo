@@ -1220,3 +1220,11 @@ Format (one per line):
 - [x] 2025 | Open Vocabulary Monocular 3D Object Detection | arXiv | https://arxiv.org/abs/2411.16833 | tags: open-vocabulary, monocular, 3d-detection, vision-language | note: docs/paper/related_work/rapid_review/papers/20260219_ovmono3d.md
 - [x] 2025 | BoxFusion: Reconstruction-Free Open-Vocabulary 3D Object Detection via Real-Time Multi-View Box Fusion | arXiv | https://arxiv.org/html/2506.15610 | tags: open-vocabulary, 3d-detection, multi-view, fusion | note: docs/paper/related_work/rapid_review/papers/20260219_boxfusion.md
 - [x] 2025 | VLM-3D: End-to-End Vision-Language Models for Open-World 3D Perception | arXiv | https://arxiv.org/html/2508.09061 | tags: vision-language, 3d, open-world, perception | note: docs/paper/related_work/rapid_review/papers/20260219_vlm-3d_end-to-end_vlm_open-world_3d_perception.md
+
+## New candidates (2026-02-19, web_search batch)
+
+- [x] 2025 | Embodied Agents Meet Personalization: Investigating Challenges and Solutions Through the Lens of Memory Utilization | arXiv | https://arxiv.org/abs/2505.16348 | tags: personalization, memory, embodied-agents | note: papers/20260219_embodied-agents-personalization-memento.md
+- [ ] 2026 | Revolutionizing Long-Term Memory in AI: New Horizons with High-Capacity and High-Speed Storage | arXiv | https://arxiv.org/abs/2602.16192 | tags: memory, storage, personalization
+- [ ] 2026 | How Do We Research Human-Robot Interaction in the Age of Large Language Models? A Systematic Review | arXiv | https://arxiv.org/abs/2602.15063 | tags: hri, systematic-review, llm-interaction
+- [ ] 2026 | PERSONA: Dynamic and Compositional Inference-Time Personality Control via Activation Vector Algebra | arXiv | https://arxiv.org/abs/2602.15669 | tags: persona, personality-control, activation-vectors
+- [ ] 2025 | Persistent Instability in LLM’s Personality Measurements: Effects of Scale, Reasoning, and Conversation History | arXiv | https://arxiv.org/abs/2508.04826 | tags: personality, instability, conversation-history
