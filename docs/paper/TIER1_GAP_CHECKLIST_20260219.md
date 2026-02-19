@@ -34,6 +34,9 @@ A run is marked **OK** only if `paper_exports/` has all required files:
 - tier1_pythia2p8b_seed1_20260217_155743
 - tier1_pythia2p8b_seed1_len2048_20260217_162421
 - tier1_pythia2p8b_seed1_len2048_20260218_0424
+- tier1_pythia2p8b_seed1_20260219_211411
+- tier1_pythia2p8b_seed1_20260219_211501
+- tier1_pythia2p8b_seed2_20260219_211411 (terminated after nonterminal loop; no EXPERIMENT COMPLETE/paper_exports)
 - tier1_zephyr7b_seed1_20260217_150053
 - tier1_zephyr7b_seed2_20260218_1034
 
@@ -42,6 +45,7 @@ A run is marked **OK** only if `paper_exports/` has all required files:
 2. If we need extra confidence, prefer:
    - one clean additional family that is known to run on nlp8, or
    - seed extensions for already stable families only when confidence intervals are story-critical.
+3. **Pythia line is quarantined on current stack** (seed1/seed2 nonterminal or init-fail): do not spend additional blind retries unless a concrete stack-level fix is documented first (and smoke-tested).
 3. Keep `results_paper/` parity green after every addition.
 
 ## Immediate next launch policy

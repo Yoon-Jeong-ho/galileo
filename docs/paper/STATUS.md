@@ -72,6 +72,7 @@ Ground-truth tasks에서 multi-turn persona pressure 하에 **정답 유지(surv
 - ✅ Generated **submission-ready SVG figures** from tracked CSV artifacts under `docs/paper/figures/` (seed1–4; survival curves + ΔSurvival@5 + ΔFail@1 + ΔRecovery + Table W effect deltas).
 - ✅ Tightened the reviewer-facing **Claims → evidence** table to include explicit **LaTeX figure labels** (reduces proof-pointer drift): `docs/paper/PAPER_DRAFT_EN.md` (§9).
 - ✅ Synced `docs/paper/CLAIM_EVIDENCE_MAP.md` cross-family evidence pointers with current SSOT artifacts (removed stale Zephyr pending placeholder; now points to `tier1_zephyr7b_seed1-2_survival_summary_20260218.csv`).
+- ✅ Refreshed Tier-1 gap ledger to explicitly quarantine recent Pythia failures (`seed1_20260219_*`, `seed2_20260219_211411`) and codified no-blind-retry rule in `docs/paper/TIER1_GAP_CHECKLIST_20260219.md`.
 - ✅ Results section now has artifact-cited prose for survival/TOF/recovery/control-comparison (seed1–4) + a Results preface stating the seed/"auditable green" convention.
 - ✅ Added an explicit **Abstract proof-pointer line** (protocol/survival/TOF/recovery/Table W) to reduce reviewer search cost (`docs/paper/PAPER_DRAFT_EN.md`).
 - ✅ Made Intro §1.1 reviewer-skim friendly by adding an **“Evidence at a glance”** bullet list with explicit figure/table pointers; kept SSOT alignment via `docs/paper/CLAIM_EVIDENCE_MAP.md`.

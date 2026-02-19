@@ -1253,3 +1253,9 @@ Next:
 - Updated `docs/paper/CLAIM_EVIDENCE_MAP.md` to remove stale “Zephyr pending” text and point to the existing tracked artifact `docs/paper/artifacts/tier1_zephyr7b_seed1-2_survival_summary_20260218.csv`.
 - This keeps C4 (cross-family replication) proof pointers consistent with current SSOT artifacts and reduces reviewer-facing drift risk.
 - Reflected the sync in `docs/paper/STATUS.md` under recent paper-writing/compliance updates.
+
+### 2026-02-20 00:17 KST — Process/experiments lane: Tier-1 gap ledger updated after Pythia cutoff
+
+- Updated `docs/paper/TIER1_GAP_CHECKLIST_20260219.md` to include the latest failed/nonterminal Pythia runs (`seed1_20260219_211411`, `seed1_20260219_211501`, `seed2_20260219_211411`).
+- Added explicit policy text: Pythia line is quarantined on current stack; no further blind retries without a concrete stack-level fix + smoke test.
+- Synced this decision in `docs/paper/STATUS.md` to keep heartbeat planning aligned with reviewer-risk priorities.
