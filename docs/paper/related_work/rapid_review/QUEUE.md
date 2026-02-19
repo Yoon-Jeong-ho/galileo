@@ -846,7 +846,7 @@ Format (one per line):
 ## New candidates (2026-02-19)
 - [x] 2026 | Confidence Estimation for LLMs in Multi-turn Interactions | arXiv | https://arxiv.org/html/2601.02179v1 | tags: calibration,confidence,multi-turn | note: docs/paper/related_work/rapid_review/papers/20260219_confidence_estimation_multi_turn_interactions.md
 
-- [ ] 2026 | CAR-bench: Evaluating the Consistency and Limit-Awareness of LLM Agents under Real-World Uncertainty | arXiv | https://arxiv.org/html/2601.22027v1 | tags: agents,consistency,uncertainty
+- [x] 2026 | CAR-bench: Evaluating the Consistency and Limit-Awareness of LLM Agents under Real-World Uncertainty | arXiv | https://arxiv.org/html/2601.22027v1 | tags: agents,consistency,uncertainty | note: docs/paper/related_work/rapid_review/papers/20260219_car_bench_consistency_limit_awareness.md
 - [ ] 2025 | Multi-turn evaluation of anthropomorphic behaviours in large language models | arXiv | https://arxiv.org/html/2502.07077v3 | tags: multi-turn,anthropomorphism,risk
 
 - [ ] 2026 | A Single Revision Step Improves Token-Efficient LLM Reasoning | arXiv | https://arxiv.org/html/2602.02828 | tags: revision,multi-turn,robustness
