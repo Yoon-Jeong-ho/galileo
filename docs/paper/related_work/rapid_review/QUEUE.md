@@ -1399,7 +1399,7 @@ Format (one per line):
 - [x] 2025 | AgentVigil: Generic Black-Box Red-teaming for Indirect Prompt Injection against LLM Agents | arXiv | https://arxiv.org/abs/2505.05849 | tags: agents,security,prompt-injection,red-teaming,black-box | note: docs/paper/related_work/rapid_review/papers/20260220_agentvigil_indirect_prompt_injection.md
 
 - [x] 2025 | Leveraging LLM Inconsistency to Boost Pass@k | arXiv | https://arxiv.org/abs/2505.12938 | tags: self-consistency,pass@k,inconsistency,ensembling,reasoning | note: docs/paper/related_work/rapid_review/papers/20260220_leveraging-llm-inconsistency-passk.md
-- [ ] 2026 | ReliabilityBench: Evaluating LLM Agent Reliability Under Production-Like Stress Conditions | arXiv | https://arxiv.org/abs/2601.06112 | tags: agents,reliability,benchmark,robustness,fault-injection
+- [x] 2026 | ReliabilityBench: Evaluating LLM Agent Reliability Under Production-Like Stress Conditions | arXiv | https://arxiv.org/abs/2601.06112 | tags: agents,reliability,benchmark,robustness,fault-injection | note: docs/paper/related_work/rapid_review/papers/20260220_reliabilitybench.md
 
 - [x] 2026 | Overalignment in Frontier LLMs: An Empirical Study of Sycophantic Behaviour in Healthcare | arXiv | https://arxiv.org/abs/2601.18334 | tags: sycophancy,healthcare,clinical,safety | note: docs/paper/related_work/rapid_review/papers/20260220_overalignment-frontier-llms-healthcare.md
 - [x] 2025 | When Identity Skews Debate: Anonymization for Bias-Reduced Multi-Agent Reasoning | arXiv | https://arxiv.org/abs/2510.07517 | tags: multi-agent,debate,identity-bias,anonymization | note: docs/paper/related_work/rapid_review/papers/20260220_identity_skews_debate.md
