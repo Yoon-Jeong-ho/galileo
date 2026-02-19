@@ -233,6 +233,15 @@ At each round `r`, we score whether the model’s answer is still correct.
   \]
   Examples that remain correct through round $R$ are **right-censored** at the dialogue horizon (reported as *never-fail* in plots/tables). If an example becomes incorrect at some round and later becomes correct again within Phase~2, we still define \(\mathrm{TOF}_i\) as the **first** failure round and treat the trajectory as failed for survival purposes; any subsequent re-corrections are analyzed separately (primarily via Phase~3 recovery).
   We also report **Fail@1** as $\Pr(\mathrm{TOF}_i=1\mid y_{i,0}=1)$. More generally, we sometimes use **Fail@r** $=\Pr(\mathrm{TOF}_i=r\mid y_{i,0}=1)$, and **Never-fail** $=\Pr(\mathrm{TOF}_i>R\mid y_{i,0}=1)=S_p(R)$ (right-censored at horizon $R$). These quantities are linked by the identities $\text{Fail@r}=S_p(r\! -\! 1)-S_p(r)$ for $r\ge 1$ and $\text{Never-fail}=S_p(R)$.
+- **Per-round hazard (flip risk given survival so far; optional diagnostic).** In some plots we also report the discrete hazard
+  \[
+  h_p(r)=\Pr(\mathrm{TOF}_i=r\mid \mathrm{TOF}_i\ge r,\ y_{i,0}=1),
+  \]
+  i.e., the probability of a first flip at round $r$ conditional on having remained correct through round $r-1$. This quantity makes “early-turn vulnerability” explicit and can be computed directly from the survival curve as
+  \[
+  h_p(r)=1-\frac{S_p(r)}{S_p(r-1)}\quad (r\ge 1,\ S_p(0)=1).
+  \]
+  (We treat $h_p(r)$ as a *diagnostic* rather than a headline metric; survival/TOF/recovery remain primary.)
 - **Recovery (conditional on flip):** after the recovery prompt (Phase~3), let $y^{\mathrm{rec}}_i\in\{0,1\}$ be correctness of the recovered answer. We report
   \[
   \Pr\big(y^{\mathrm{rec}}_i=1\mid y_{i,0}=1,\; \mathrm{TOF}_i\le R\big)
