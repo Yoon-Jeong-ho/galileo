@@ -1092,3 +1092,11 @@ Format (one per line):
 - [x] 2025 | MMPersuade: A Dataset and Evaluation Framework for Multimodal Persuasion | arXiv | https://arxiv.org/abs/2510.22768 | tags: persuasion, multi-turn, multimodal, evaluation | duplicate queue entry (note already exists) | note: docs/paper/related_work/rapid_review/papers/20260219_mmpersuade_multimodal_persuasion.md
 - [x] 2025 | When Persuasion Overrides Truth in Multi-Agent LLM Debates: Introducing a Confidence-Weighted Persuasion Override Rate (CW-POR) | arXiv | https://arxiv.org/abs/2504.00374 | tags: persuasion, multi-agent, truthfulness, debate, metric | note: docs/paper/related_work/rapid_review/papers/20260219_persuasion_overrides_truth_cwpor.md
 - [x] 2025 | PersuasiveToM: A Benchmark for Evaluating Machine Theory of Mind in Persuasive Dialogues | arXiv | https://arxiv.org/abs/2502.21017 | tags: persuasion, theory-of-mind, multi-turn, benchmark | note: docs/paper/related_work/rapid_review/papers/20260219_persuasivetom.md
+
+## New candidates (2026-02-19, web_search)
+
+- [x] 2025 | Large Language Models for Robotics: A Survey | arXiv | https://arxiv.org/html/2311.07226v2 | tags: survey, llm-robotics, embodied | note: papers/20260219_llms-robotics-survey.md
+- [ ] 2025 | Large Model Empowered Embodied AI: A Survey on Decision-Making and Embodied Learning | arXiv | https://arxiv.org/html/2508.10399v1 | tags: survey, embodied-ai, decision-making
+- [ ] 2025 | A Survey of Robotic Navigation and Manipulation with Physics Simulators in the Era of Embodied AI | arXiv | https://arxiv.org/html/2505.01458v1 | tags: survey, embodied-ai, simulators, navigation, manipulation
+- [ ] 2025 | Pure Vision Language Action (VLA) Models: A Comprehensive Survey | arXiv | https://arxiv.org/html/2509.19012v1 | tags: survey, vla, embodied
+- [ ] 2025 | A Survey on Vision-Language-Action Models for Embodied AI | arXiv | https://arxiv.org/html/2405.14093v5 | tags: survey, vla, embodied
