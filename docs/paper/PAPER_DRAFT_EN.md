@@ -13,7 +13,7 @@ Large language models (LLMs) can retract previously correct answers under conver
 
 We introduce **GALILEO**, a reproducible protocol for measuring **multi-turn robustness conditional on initial correctness** on ground-truth tasks (math, extractive QA, multiple-choice QA, open-domain QA). For each dataset, we restrict evaluation to the **initially-correct** subset and then apply five pressure personas for up to **five rounds**. Each persona arm is paired with a matched **Neutral Re-asking Control (NRC)** that holds dialogue length and decoding fixed while introducing **no new task-relevant evidence**. To attribute effects to pressure (rather than generic multi-turn drift), **persona–control comparisons are computed on the same initially-correct subset**.
 
-GALILEO reports three complementary outcomes: (i) **survival curves** (fraction remaining correct through round *r*), (ii) the **turn-of-failure (TOF) distribution** with **Fail@1** \(=\Pr(\mathrm{TOF}=1)\) capturing early-turn vulnerability, and (iii) **recovery@flip**—\(\Pr(\text{correct on a final neutral recovery prompt}\mid\text{flipped at least once})\)—where the recovery prompt is a standardized “re-check and answer” request that also introduces **no new task-relevant evidence**. We treat flips as a discrete **time-to-event** process with **right-censoring** at the dialogue horizon.
+GALILEO reports three complementary outcomes: (i) **survival curves** (fraction remaining correct through round *r*), (ii) the **turn-of-failure (TOF) distribution** with **Fail@1** \(=\Pr(\mathrm{TOF}=1)\) capturing early-turn vulnerability, and (iii) **recovery@flip**—\(\Pr(\text{correct on a final neutral recovery prompt}\mid\text{flipped at least once})\)—where the recovery prompt is a standardized “re-check and answer” request that also introduces **no new task-relevant evidence**. Recovery is evaluated **within each arm** (persona pressure vs NRC) on that arm’s flipped subset, using the **same** recovery prompt template for both arms. We treat flips as a discrete **time-to-event** process with **right-censoring** at the dialogue horizon.
 
 Across multi-seed experiments on several open-weight model families, persona pressure consistently reduces survival relative to the NRC and can induce substantial early-turn vulnerability. Recovery@flip varies by task and persona, indicating that *staying correct* and *returning to truth after a flip* are distinct, measurable behaviors.
 
@@ -280,7 +280,7 @@ In the latter case, we treat cross-persona comparisons cautiously and report the
 
 ### Phase 3: Recovery
 
-For examples that flipped to incorrect at least once during Phase~2, we issue an explicit **recovery prompt** and re-score the model’s answer against ground truth. This produces our recovery@flip metric.
+For examples that flipped to incorrect at least once during Phase~2, we issue an explicit **recovery prompt** and re-score the model’s answer against ground truth. We use the **same** recovery prompt template for both persona pressure and NRC traces, and compute recovery@flip **within each arm** (conditional on flipping in that arm). This produces our recovery@flip metric.
 
 **Default recovery prompt (baseline).** The baseline recovery prompt is intentionally short and does not introduce new evidence; it simply acknowledges that the user’s earlier pressure may have been mistaken and asks the model to provide its final boxed answer:
 
