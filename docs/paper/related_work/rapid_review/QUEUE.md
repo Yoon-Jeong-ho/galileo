@@ -1059,7 +1059,7 @@ Format (one per line):
 ## New candidates (2026-02-19, web_search)
 
 - [x] 2025 | Breaking the Benchmark: Revealing LLM Bias via Minimal Contextual Augmentation | arXiv | https://arxiv.org/abs/2510.23921 | tags: bias, evaluation, robustness | note: docs/paper/related_work/rapid_review/papers/20260219_breaking-benchmark-min-context-augmentation.md
-- [ ] 2025 | A Survey on Large Language Model Benchmarks | arXiv | https://arxiv.org/abs/2508.15361 | tags: survey, benchmarks, evaluation
+- [x] 2025 | A Survey on Large Language Model Benchmarks | arXiv | https://arxiv.org/abs/2508.15361 | tags: survey, benchmarks, evaluation | note: docs/paper/related_work/rapid_review/papers/20260219_survey_llm_benchmarks.md
 - [ ] 2025 | Make an Offer They Can't Refuse: Grounding Bayesian Persuasion in Real-World Dialogues without Pre-Commitment | arXiv | https://arxiv.org/abs/2510.13387 | tags: persuasion, bayesian, dialogue, strategy
 - [ ] 2025 | Must Read: A Systematic Survey of Computational Persuasion | arXiv | https://arxiv.org/abs/2505.07775 | tags: persuasion, survey, computational
 - [ ] 2026 | Predicting Biased Human Decision-Making with Large Language Models in Conversational Settings | arXiv | https://arxiv.org/abs/2601.11049 | tags: conversational, human-biases, evaluation
