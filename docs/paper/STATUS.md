@@ -121,7 +121,12 @@ Ground-truth tasks에서 multi-turn persona pressure 하에 **정답 유지(surv
 
 ---
 
-## 5) Notes / constraints
+## 5) Roadmap to deadline (2026-02-28)
+
+- SSOT roadmap file: `docs/paper/ROADMAP_TO_20260228.md`
+- This is the execution anchor for heartbeat prioritization until submission lock.
+
+## 6) Notes / constraints
 
 - Keep runs light (avoid CPU overload; one heavy run at a time).
 - If any repo file changes: commit+push (no carry-over ambiguity).
