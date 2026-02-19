@@ -857,7 +857,7 @@ Format (one per line):
 - [x] 2025 | Firm or Fickle? Evaluating Large Language Models Consistency in Sequential Interactions | arXiv | https://arxiv.org/html/2503.22353v1 | tags: multi-turn, consistency, belief-revision, robustness | note: docs/paper/related_work/rapid_review/papers/20260219_firm-or-fickle_mt-consistency.md
 - [x] 2025 | Drift No More? Context Equilibria in Multi-Turn LLM Interactions | arXiv | https://arxiv.org/html/2510.07777v1 | tags: multi-turn, drift, robustness, consistency | note: docs/paper/related_work/rapid_review/papers/20260219_drift-no-more-context-equilibria.md
 
-- [x] 2025 | MMPersuade: A Dataset and Evaluation Framework for Multimodal Persuasion | arXiv | https://arxiv.org/abs/2510.22768 | tags: persuasion, multimodal, benchmark, dialogue | duplicate queue entry (note already exists) | duplicate queue entry (auto-fill) | duplicate queue entry | duplicate queue entry | duplicate queue entry | duplicate queue entry | note: docs/paper/related_work/rapid_review/papers/20260219_mmpersuade_multimodal_persuasion.md | duplicate queue entry
+- [x] 2025 | MMPersuade: A Dataset and Evaluation Framework for Multimodal Persuasion | arXiv | https://arxiv.org/abs/2510.22768 | tags: persuasion, multimodal, benchmark, dialogue | duplicate queue entry (note already exists) | duplicate queue entry (auto-fill) | duplicate queue entry | duplicate queue entry | duplicate queue entry | duplicate queue entry | duplicate queue entry | duplicate queue entry | note: docs/paper/related_work/rapid_review/papers/20260219_mmpersuade_multimodal_persuasion.md | duplicate queue entry
 - [x] 2024 | SVIP: Towards Verifiable Inference of Open-source Large Language Models | arXiv | https://arxiv.org/abs/2410.22307 | tags: verification, inference, robustness, trust | note: docs/paper/related_work/rapid_review/papers/20260219_svip_verifiable_inference.md
 
 - [x] 2025 | TRACEALIGN: Tracing the Drift: Attributing Alignment Failures to Training-Time Belief Sources in LLMs | arXiv | https://arxiv.org/abs/2508.02063 | tags: alignment-drift, attribution, belief-sources, jailbreak | note: docs/paper/related_work/rapid_review/papers/20260219_tracealign.md
@@ -1083,6 +1083,6 @@ Format (one per line):
 
 ## New candidates (2026-02-19, auto-fill)
 
-- [ ] 2025 | MMPersuade: A Dataset and Evaluation Framework for Multimodal Persuasion | arXiv | https://arxiv.org/abs/2510.22768 | tags: persuasion, multi-turn, multimodal, evaluation
+- [x] 2025 | MMPersuade: A Dataset and Evaluation Framework for Multimodal Persuasion | arXiv | https://arxiv.org/abs/2510.22768 | tags: persuasion, multi-turn, multimodal, evaluation | duplicate queue entry (note already exists) | note: docs/paper/related_work/rapid_review/papers/20260219_mmpersuade_multimodal_persuasion.md
 - [ ] 2025 | When Persuasion Overrides Truth in Multi-Agent LLM Debates: Introducing a Confidence-Weighted Persuasion Override Rate (CW-POR) | arXiv | https://arxiv.org/abs/2504.00374 | tags: persuasion, multi-agent, truthfulness, debate, metric
 - [ ] 2025 | PersuasiveToM: A Benchmark for Evaluating Machine Theory of Mind in Persuasive Dialogues | arXiv | https://arxiv.org/abs/2502.21017 | tags: persuasion, theory-of-mind, multi-turn, benchmark
