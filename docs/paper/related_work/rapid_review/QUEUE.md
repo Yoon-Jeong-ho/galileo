@@ -1298,5 +1298,5 @@ Format (one per line):
 ## New candidates (2026-02-19, web_search)
 
 - [x] 2025 | FAIRGAMER: Evaluating Social Biases in LLM-Based Video Game NPCs | arXiv | https://arxiv.org/abs/2508.17825 | tags: multi-turn, npc, social-bias, games, evaluation | note: papers/20260219_fairgamer.md
-- [ ] 2025 | Ask-to-Clarify: Resolving Instruction Ambiguity through Multi-turn Dialogue | arXiv | https://arxiv.org/abs/2509.15061 | tags: multi-turn, clarification, ambiguity, dialogue
+- [x] 2025 | Ask-to-Clarify: Resolving Instruction Ambiguity through Multi-turn Dialogue | arXiv | https://arxiv.org/abs/2509.15061 | tags: multi-turn, clarification, ambiguity, dialogue | note: docs/paper/related_work/rapid_review/papers/20260219_ask_to_clarify.md
 - [ ] 2025 | An Empirical Study of the Role of Incompleteness and Ambiguity in Interactions with Large Language Models | arXiv | https://arxiv.org/abs/2503.17936 | tags: multi-turn, ambiguity, incompleteness, question-asking, robustness
