@@ -1394,3 +1394,13 @@ Format (one per line):
 ## New candidates (2026-02-19, web_search batch 1)
 
 - [x] TurnBench-MS: A Benchmark for Evaluating Multi-Turn, Multi-Step Reasoning in Large Language Models — https://arxiv.org/html/2506.01341v1 | note: docs/paper/related_work/rapid_review/papers/20260219_turnbench-ms.md
+
+## New candidates (2026-02-20)
+
+- [x] 2026 | Overalignment in Frontier LLMs: An Empirical Study of Sycophantic Behaviour in Healthcare | arXiv | https://arxiv.org/abs/2601.18334 | tags: sycophancy,healthcare,clinical,safety | note: docs/paper/related_work/rapid_review/papers/20260220_overalignment-frontier-llms-healthcare.md
+- [ ] 2025 | When Identity Skews Debate: Anonymization for Bias-Reduced Multi-Agent Reasoning | arXiv | https://arxiv.org/abs/2510.07517 | tags: multi-agent,debate,identity-bias,anonymization
+
+- [ ] 2025 | Disentangling the Drivers of LLM Social Conformity: An Uncertainty-Moderated Dual-Process Mechanism | arXiv | https://arxiv.org/abs/2508.14918 | tags: conformity,uncertainty,social-influence,analysis
+- [ ] 2025 | Free-MAD: Consensus-Free Multi-Agent Debate | arXiv | https://arxiv.org/abs/2509.11035 | tags: multi-agent,debate,anti-conformity,robustness
+
+- [ ] 2025 | An Empirical Study of Group Conformity in Multi-Agent Systems | arXiv | https://arxiv.org/abs/2506.01332 | tags: conformity,multi-agent,debate,opinion-dynamics
