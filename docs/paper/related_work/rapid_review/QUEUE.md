@@ -1176,3 +1176,10 @@ Format (one per line):
 - [x] 2025 | Understanding the Impact of Confidence in Retrieval Augmented Generation: A Case Study in the Medical Domain | arXiv | https://arxiv.org/abs/2412.20309 | tags: rag, confidence, calibration, medical | note: docs/paper/related_work/rapid_review/papers/20260219_rag-confidence-medical.md
 - [x] 2025 | Uncertainty Quantification in Retrieval Augmented Question Answering | arXiv | https://arxiv.org/abs/2502.18108 | tags: rag, uncertainty, qa | note: docs/paper/related_work/rapid_review/papers/20260219_uq-rag-qa-passage-utility.md
 - [x] 2025 | Faithfulness-Aware Uncertainty Quantification for Fact-Checking the Output of Retrieval-Augmented Generation | arXiv | https://arxiv.org/abs/2505.21072 | tags: rag, uncertainty, fact-checking, faithfulness | note: docs/paper/related_work/rapid_review/papers/20260219_franq-faithfulness-aware-uq-rag.md
+
+## New candidates (2026-02-19, web_search batch 1)
+
+- [x] AMA: Adaptive Memory via Multi-Agent Collaboration — https://arxiv.org/abs/2601.20352 | note: docs/paper/related_work/rapid_review/papers/20260219_ama-adaptive-memory-multi-agent.md
+- [ ] MemR3: Memory Retrieval via Reflective Reasoning for LLM Agents — https://arxiv.org/abs/2512.20237
+- [ ] Frustratingly Simple Retrieval Improves Challenging, Reasoning-Intensive Benchmarks — https://arxiv.org/abs/2507.01297
+- [ ] Cognitive Memory in Large Language Models — https://arxiv.org/abs/2504.02441
