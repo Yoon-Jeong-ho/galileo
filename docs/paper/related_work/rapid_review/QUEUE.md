@@ -1172,7 +1172,7 @@ Format (one per line):
 ## New candidates (2026-02-19, web_search batch)
 
 - [x] 2025 | Why Uncertainty Estimation Methods Fall Short in RAG: An Axiomatic Analysis | arXiv | https://arxiv.org/abs/2505.07459 | tags: rag, uncertainty, axioms, evaluation | note: docs/paper/related_work/rapid_review/papers/20260219_ue-fall-short-in-rag-axiomatic.md
-- [ ] 2025 | Uncertainty Quantification for Retrieval-Augmented Reasoning | arXiv | https://arxiv.org/abs/2510.11483 | tags: rag, uncertainty, reasoning, evaluation
+- [x] 2025 | Uncertainty Quantification for Retrieval-Augmented Reasoning | arXiv | https://arxiv.org/abs/2510.11483 | tags: rag, uncertainty, reasoning, evaluation | note: docs/paper/related_work/rapid_review/papers/20260219_uncertainty-quantification-rar-r2c.md
 - [ ] 2025 | Understanding the Impact of Confidence in Retrieval Augmented Generation: A Case Study in the Medical Domain | arXiv | https://arxiv.org/abs/2412.20309 | tags: rag, confidence, calibration, medical
 - [ ] 2025 | Uncertainty Quantification in Retrieval Augmented Question Answering | arXiv | https://arxiv.org/abs/2502.18108 | tags: rag, uncertainty, qa
 - [ ] 2025 | Faithfulness-Aware Uncertainty Quantification for Fact-Checking the Output of Retrieval-Augmented Generation | arXiv | https://arxiv.org/abs/2505.21072 | tags: rag, uncertainty, fact-checking, faithfulness
