@@ -847,7 +847,7 @@ Format (one per line):
 - [x] 2025 | Survey of Multimodal Geospatial Foundation Models: Techniques, Applications, and Challenges | arXiv | https://arxiv.org/abs/2510.22964 | tags: geospatial;foundation-model;multimodal;survey | note: docs/paper/related_work/rapid_review/papers/20260219_survey-multimodal-geospatial-foundation-models.md
 
 - [x] 2025 | A Genealogy of Foundation Models in Remote Sensing | arXiv | https://arxiv.org/abs/2504.17177 | tags: remote-sensing;foundation-model;survey;taxonomy | note: docs/paper/related_work/rapid_review/papers/20260219_genealogy_fm_remote_sensing.md
-- [ ] 2025 | A Survey on Remote Sensing Foundation Models: From Vision to Multimodality | arXiv | https://arxiv.org/abs/2503.22081 | tags: remote-sensing;foundation-model;survey;multimodal
+- [x] 2025 | A Survey on Remote Sensing Foundation Models: From Vision to Multimodality | arXiv | https://arxiv.org/abs/2503.22081 | tags: remote-sensing;foundation-model;survey;multimodal | note: docs/paper/related_work/rapid_review/papers/20260219_remote-sensing-foundation-models-survey.md
 
 - [ ] 2024 | SeaMo: A Season-Aware Multimodal Foundation Model for Remote Sensing | arXiv | https://arxiv.org/abs/2412.19237 | tags: remote-sensing;multimodal;seasonal;masked-modeling
 - [ ] 2024 | Towards Knowledge Guided Pretraining Approaches for Multimodal Foundation Models: Applications in Remote Sensing | arXiv | https://arxiv.org/abs/2407.19660 | tags: remote-sensing;multimodal;pretraining;forecasting
