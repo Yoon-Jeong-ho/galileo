@@ -95,6 +95,8 @@ Recommended artifacts to cite in-paper:
 ## 7) Presentation quality
 - [ ] One protocol figure (clean, readable at 1-column width).
 - [ ] One main result figure: survival curves (persona-wise).
+- [ ] LaTeX build environment is available (CI / Overleaf / TeX-enabled machine). Note: this local runtime may not have `pdflatex/latexmk` installed.
+  - If you need the official ACL/EMNLP style files locally, fetch (gitignored) via: `bash scripts/get_acl_style_files.sh <ref>` (prefer pinning to a commit SHA/tag).
 - [ ] One table: turn-of-failure distribution or Fail@1 / Never-fail.
 - [ ] One table: recovery conditional on flipping.
 - [ ] **Aggregation clarity (avoid Table~W confusion):**
