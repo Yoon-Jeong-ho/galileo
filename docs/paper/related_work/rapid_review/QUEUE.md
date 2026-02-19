@@ -1340,4 +1340,4 @@ Format (one per line):
 ## New candidates (2026-02-19, web_search batch)
 
 - [x] 2026 | When Do LLMs Admit Their Mistakes? Understanding The Role Of Model Belief In Retraction | arXiv | https://arxiv.org/abs/2505.16170 | tags: retraction, belief, self-correction, multi-turn | note: papers/20260219_llm-belief-retraction.md
-- [ ] 2025 | RefuteBench 2.0: Agentic Benchmark for Dynamic Evaluation of LLM Responses to Refutation Instruction | arXiv | https://arxiv.org/abs/2502.18308 | tags: refutation, multi-turn, robustness, instruction-following, evaluation
+- [x] 2025 | RefuteBench 2.0: Agentic Benchmark for Dynamic Evaluation of LLM Responses to Refutation Instruction | arXiv | https://arxiv.org/abs/2502.18308 | tags: refutation, multi-turn, robustness, instruction-following, evaluation | note: docs/paper/related_work/rapid_review/papers/20260219_refutebench2_agentic_refutation_eval.md
