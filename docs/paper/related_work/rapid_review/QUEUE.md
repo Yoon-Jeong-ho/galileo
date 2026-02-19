@@ -1047,3 +1047,11 @@ Format (one per line):
 ## New candidates (2026-02-19, web_search batch)
 
 - [x] 2026 | Consistency of Large Reasoning Models Under Multi-Turn Attack | arXiv | https://arxiv.org/html/2602.13093v1 | tags: multi-turn, robustness, consistency, attacks, reasoning | note: docs/paper/related_work/rapid_review/papers/20260219_consistency_reasoning_models_multiturn_attack.md
+
+## New candidates (2026-02-19, web_search batch 2)
+
+- [x] 2025 | Advances on Multimodal Remote Sensing Foundation Models for Earth Observation Downstream Tasks: A Survey | Remote Sensing (MDPI) | https://www.mdpi.com/2072-4292/17/21/3532 | tags: remote-sensing, earth-observation, foundation-model, multimodal, survey | note: papers/20260219_advances-multimodal-remote-sensing-fm-survey.md | access denied (HTTP 403 from host)
+- [ ] 2025 | FUSAR-KLIP: Towards Multimodal Foundation Models for Remote Sensing | arXiv | https://arxiv.org/html/2509.23927v3 | tags: remote-sensing, earth-observation, foundation-model, multimodal, sar, optical
+- [ ] 2024 | Foundation Models for Remote Sensing and Earth Observation: A Survey | arXiv | https://arxiv.org/html/2410.16602v3 | tags: remote-sensing, earth-observation, foundation-model, survey
+- [ ] 2025 | PyViT-FUSE: A Foundation Model for Multi-Sensor Earth Observation Data | arXiv | https://arxiv.org/html/2504.18770v1 | tags: earth-observation, foundation-model, multi-sensor, fusion, multi-resolution
+- [ ] 2025 | Earth Observation Foundation Model PhilEO: Pretraining on the MajorTOM and FastTOM Datasets | arXiv | https://arxiv.org/html/2506.14765v2 | tags: earth-observation, foundation-model, pretraining, dataset, MajorTOM
