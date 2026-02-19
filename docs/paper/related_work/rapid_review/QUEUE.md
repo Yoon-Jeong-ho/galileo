@@ -1076,6 +1076,6 @@ Format (one per line):
 
 ## New candidates (2026-02-19, web_search batch 1)
 - [x] 2025 | MTR-Bench: A Comprehensive Benchmark for Multi-Turn Reasoning Evaluation | arXiv | https://arxiv.org/html/2505.17123v1 | tags: multi-turn, reasoning, benchmark | note: docs/paper/related_work/rapid_review/papers/20260219_mtr-bench.md
-- [ ] 2025 | Evaluating LLM-based Agents for Multi-Turn Conversations: A Survey | arXiv | https://arxiv.org/html/2503.22458v1 | tags: multi-turn, survey, evaluation
+- [x] 2025 | Evaluating LLM-based Agents for Multi-Turn Conversations: A Survey | arXiv | https://arxiv.org/html/2503.22458v1 | tags: multi-turn, survey, evaluation | note: docs/paper/related_work/rapid_review/papers/20260219_evaluating-llm-agents-multi-turn-survey.md
 - [ ] 2025 | One Battle After Another: Probing LLMs' Limits on Multi-Turn Instruction Following with a Benchmark Evolving Framework | arXiv | https://arxiv.org/html/2511.03508v1 | tags: multi-turn, instruction-following, evolving-benchmark
 - [ ] 2025 | ClarifyMT-Bench: Benchmarking and Improving Multi-Turn Clarification for Conversational Large Language Models | arXiv | https://arxiv.org/abs/2512.21120 | tags: multi-turn, clarification, ambiguity, benchmark
