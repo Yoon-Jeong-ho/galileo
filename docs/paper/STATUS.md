@@ -109,16 +109,18 @@ Ground-truth tasks에서 multi-turn persona pressure 하에 **정답 유지(surv
 
 ## 4) NEXT HEARTBEAT (ONE step)
 
-**Experiments→Paper artifacts: integrate the new Tier‑1 family (DeepSeek) into our cross‑family SSOT artifacts + figure.**
+**Paper artifacts: cross‑family figure refresh to include DeepSeek (Tier‑1 seeds 1–2).**
 
-- Just completed (2026-02-19 ~12:43 KST, SSOT nlp8):
-  - DeepSeek‑LLM‑7B‑Chat Tier‑1 **seed1/seed2** finished and produced full `paper_exports/`.
-  - Staged into `results_paper/` and revalidated: `[OK] runner_metadata parity`.
+- Just completed (2026-02-19, local writing repo):
+  - Synced DeepSeek `paper_exports/` (seed1–2) into `tmp_results_paper/`.
+  - Generated a tracked Tier‑1 summary CSV:
+    - `docs/paper/artifacts/tier1_deepseek7b_seed1-2_survival_summary_20260219.csv`
+  - Regenerated the cross‑family SVG (same canonical tag `20260219`) and refreshed PDFs via the SVG→PDF converter.
 
 - Next one-step plan:
-  1) Sync the two DeepSeek `paper_exports/` to local (or minimally the derived summary CSV).
-  2) Extend `scripts/make_cross_family_figure_svg.py` inputs to include DeepSeek (seed1–2).
-  3) Regenerate the canonical SVG/PDF and bump pointers/tag if needed (only if we want to cut a new “canonical date”).
+  1) Quick sanity check: ensure DeepSeek row looks reasonable (control vs Logical Trap gap direction).
+  2) If visuals changed materially, update `docs/paper/FIGURE_CAPTIONS.md` / `PAPER_DRAFT_EN.md` to mention DeepSeek.
+  3) Decide whether to keep tag `20260219` or bump a new canonical tag (only if we want strict immutable figure snapshots).
 
 ---
 

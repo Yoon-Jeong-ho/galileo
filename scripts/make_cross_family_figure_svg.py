@@ -11,6 +11,7 @@ Input (tracked artifacts):
 - docs/paper/artifacts/tier1_mistralnemo_seed1-2_survival_summary_20260217.csv
 - docs/paper/artifacts/tier1_zephyr7b_seed1-2_survival_summary_20260218.csv
 - docs/paper/artifacts/tier1_qwen2p5_14b_seed1-2_survival_summary_20260219.csv
+- docs/paper/artifacts/tier1_deepseek7b_seed1-2_survival_summary_20260219.csv
 
 Output:
 - docs/paper/figures/cross_family_survival_r5_control_vs_logicaltrap_seed1-2_20260219.svg
@@ -159,6 +160,7 @@ def main() -> None:
     mistralnemo = read_csv(ART / "tier1_mistralnemo_seed1-2_survival_summary_20260217.csv")
     zephyr7b = read_csv(ART / "tier1_zephyr7b_seed1-2_survival_summary_20260218.csv")
     qwen14b = read_csv(ART / "tier1_qwen2p5_14b_seed1-2_survival_summary_20260219.csv")
+    deepseek7b = read_csv(ART / "tier1_deepseek7b_seed1-2_survival_summary_20260219.csv")
 
     items = []
     for name, rows in [
@@ -168,6 +170,7 @@ def main() -> None:
         ("Llama-3.2-3B-Instruct", llama3b),
         ("Phi-3-mini-Instruct", phi3mini),
         ("Zephyr-7B-beta", zephyr7b),
+        ("DeepSeek-LLM-7B-Chat", deepseek7b),
         ("Qwen2.5-14B-Instruct", qwen14b),
     ]:
         c_mean, c_std = _pick(rows, "neutral_reask_control")
