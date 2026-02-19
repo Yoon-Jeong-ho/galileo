@@ -1258,3 +1258,11 @@ Format (one per line):
 ## New candidates (2026-02-19)
 
 - [x] 2025 | Asking Again and Again: Exploring LLM Robustness to Repeated Questions | arXiv | https://arxiv.org/abs/2412.07923v3 | tags: repeated-questions, robustness, prompt-design, drift-control | note: papers/20260219_asking-again-and-again_repeated-questions.md
+
+## New candidates (2026-02-19, web_search batch 1)
+
+- [x] 2025 | RMTBench: Benchmarking LLMs Through Multi-Turn User-Centric Role-Playing | arXiv | https://arxiv.org/html/2507.20352 | tags: multi-turn, role-playing, benchmark, evaluation | note: docs/paper/related_work/rapid_review/papers/20260219_rmtbench_user-centric_role-playing.md
+- [ ] 2025 | StoryBench: A Dynamic Benchmark for Evaluating Long-Term Memory with Multi Turns | arXiv | https://arxiv.org/html/2506.13356v1 | tags: long-term-memory, multi-turn, benchmark, interactive-fiction
+- [ ] 2026 | RealMem: Benchmarking LLMs in Real-World Memory-Driven Interaction | arXiv | https://arxiv.org/html/2601.06966 | tags: memory, long-horizon, multi-session, benchmark
+- [ ] 2025 | Beyond a Million Tokens: Benchmarking and Enhancing Long-Term Memory in LLMs | arXiv | https://arxiv.org/html/2510.27246v1 | tags: long-context, long-term-memory, benchmark, enhancement
+- [ ] 2025 | Evaluating Long-Term Memory for Long-Context Question Answering | arXiv | https://arxiv.org/html/2510.23730v1 | tags: long-term-memory, long-context, QA, evaluation
