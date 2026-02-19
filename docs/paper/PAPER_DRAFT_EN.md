@@ -50,7 +50,12 @@ We target a practically grounded setting: tasks with **ground-truth answers** wh
 
 Multi-turn results can be reported either **unconditionally** (over all examples) or **conditional on being correct initially**. We focus on the latter because our goal is to measure *robustness given that the model knew the answer at the start*, not to re-measure base accuracy.
 
-Concretely, for each dataset/config we first identify an initially-correct subset $C$ using a persona-free prompt in Phase~1. All persona arms and the NRC are then evaluated on this same $C$, and our primary outcomes are conditional probabilities such as:
+Concretely, for each dataset/config we first identify an initially-correct subset using a neutral (persona-free) prompt in Phase~1. We support two reporting modes:
+
+- **Shared-$C$ (clean cross-persona comparisons):** run Phase~1 once to define a single initially-correct set $C$, then evaluate *every* persona arm and the NRC on exactly this same $C$.
+- **Persona-matched $C_p$ (clean within-persona attribution; used by our main tracked artifacts incl. Table~W):** for each persona arm $p$, define an arm-specific initially-correct set $C_p$ and evaluate both persona pressure and the NRC on that same $C_p$ (so control values can differ across personas because the conditioning sets differ).
+
+In either mode, our primary outcomes are conditional probabilities such as:
 \[
 S_p(r)=\Pr\big(\forall t\in\{1,\dots,r\}:\; y_{i,t}=1\mid y_{i,0}=1\big)
 \]
