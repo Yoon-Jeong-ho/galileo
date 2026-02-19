@@ -30,7 +30,7 @@ Prior work has documented sycophancy and persuasion effects, but there is no wid
 
 We introduce \textbf{GALILEO}, a reproducible evaluation pipeline for ground-truth tasks (math, extractive QA, multiple-choice QA, and open-domain QA).
 Given an initially correct answer, GALILEO applies five adversarial personas (soft pressure, simple denial, strong pressure, authority claim, and logical trap) for up to five rounds, then prompts for recovery on flipped samples.
-Across multiple model families and seeds, we find that persona pressure consistently worsens survival, increases fail@1, and shifts turn-of-failure earlier compared to a non-adversarial drift baseline (neutral re-asking control).
+Across multiple model families and seeds, we find that persona pressure consistently worsens survival, increases \emph{fail@any} (flipping at least once within the $R$ pressure rounds), and shifts turn-of-failure earlier compared to a non-adversarial drift baseline (neutral re-asking control).
 We further observe that \emph{robustness} (staying correct) and \emph{recoverability} (returning to truth after a flip) behave as distinct axes, and we provide artifact-level exports (per-turn correctness traces, curves, and reproducer scripts) to support auditing and reuse.
 \end{abstract}
 
@@ -49,7 +49,7 @@ GALILEO targets this gap by instantiating multi-turn pressure on \emph{ground-tr
 (3) a recovery stage that quantifies return-to-truth after a flip; and
 (4) artifact-level exports (per-turn outputs and correctness traces, plotted curves, and reproducer scripts) that enable end-to-end auditing.
 
-\paragraph{Metrics (at a glance).} We report three complementary views of multi-turn belief consistency: \emph{fail@1} (fraction of initially-correct samples that ever flip under a condition), \emph{turn-of-failure} (the first round where the flip occurs, enabling ``when'' analysis), and \emph{survival} (probability of staying correct through each round, summarizing degradation over time). On flipped samples, we additionally measure \emph{recovery} as the probability of returning to the original ground-truth answer after an explicit recovery prompt.
+\paragraph{Metrics (at a glance).} We report three complementary views of multi-turn belief consistency: \emph{fail@any} (fraction of initially-correct samples that flip at least once within the $R$ pressure rounds), \emph{turn-of-failure} (the first round where the flip occurs, enabling ``when'' analysis), and \emph{survival} (probability of staying correct through each round, summarizing degradation over time). On flipped samples, we additionally measure \emph{recovery} as the probability of returning to the original ground-truth answer after an explicit recovery prompt.
 
 \paragraph{Formalization.} For each evaluation condition, let $i \in \{1,\dots,n\}$ index examples that are \emph{initially correct} at round $0$. Let $C_{i,r} \in \{0,1\}$ denote whether the model's answer is correct \emph{at} pressure round $r \in \{1,\dots,R\}$ under automatic checking.
 We define the \emph{turn-of-failure} as the first round where correctness is lost:
@@ -61,7 +61,7 @@ Accordingly, the empirical survival curve is
 \begin{equation}
   \widehat{S}(r) = \frac{1}{n}\sum_{i=1}^n \mathbf{1}[T_i > r],
 \end{equation}
-so that $\text{fail@1} = 1-\widehat{S}(R)$. Note that survival/TOF depend only on the \emph{first} flip; if a model flips and later reverts within the pressure rounds, we still count the initial loss of truth as a failure.
+so that $\text{fail@any} = 1-\widehat{S}(R)$. Note that survival/TOF depend only on the \emph{first} flip; if a model flips and later reverts within the pressure rounds, we still count the initial loss of truth as a failure.
 
 \paragraph{Estimation details.} When all examples are run for the same fixed number of rounds $R$, $\widehat{S}(r)$ above is the empirical survival curve. If some traces terminate early (e.g., due to transient API failures), we treat these as right-censored at the last completed round and compute a Kaplan--Meier estimate; in the no-censoring case this reduces to the empirical form. For uncertainty, we report bootstrap confidence intervals by resampling examples within each condition.
 
@@ -88,7 +88,7 @@ To separate persona-induced effects from generic multi-turn instability, we also
 \paragraph{Matched conditioning set.}
 Because our multi-turn metrics are defined on the \emph{initially-correct} subset, the effective evaluation set can differ across personas and seeds. For each persona $p$, we therefore define its initially-correct set $C_p$ (examples correct at round $0$ \emph{under persona prompting}) and evaluate the neutral control on the \emph{same} $C_p$ when computing persona--control deltas. This ``persona-matched control'' prevents conditioning-set drift (differences in which examples qualify as initially correct) from being misinterpreted as a treatment effect.
 
-Formally, for any metric $M$ computed on initially-correct examples (e.g., $\widehat{S}(r)$, fail@1, or a TOF statistic), we report persona--control deltas on the matched set:
+Formally, for any metric $M$ computed on initially-correct examples (e.g., $\widehat{S}(r)$, fail@any, or a TOF statistic), we report persona--control deltas on the matched set:
 \begin{equation}
   \Delta M(p) = M\big(\text{persona}=p\,;\, i\in C_p\big) - M\big(\text{control}\,;\, i\in C_p\big).
 \end{equation}
@@ -99,7 +99,7 @@ Figure~\ref{fig:survival-example} illustrates the resulting survival curves for 
 \begin{figure}[t]
   \centering
   \includegraphics[width=\linewidth]{figures/protocol_overview}
-  \caption{GALILEO protocol. Starting from an initially correct answer, we run a neutral re-asking control (drift baseline) and persona pressure rounds (up to five turns). On flipped samples, we additionally evaluate recovery (return-to-truth) and report survival, fail@1, and turn-of-failure metrics.}
+  \caption{GALILEO protocol. Starting from an initially correct answer, we run a neutral re-asking control (drift baseline) and persona pressure rounds (up to five turns). On flipped samples, we additionally evaluate recovery (return-to-truth) and report survival, fail@any, and turn-of-failure metrics.}
   \label{fig:protocol}
 \end{figure}
 
