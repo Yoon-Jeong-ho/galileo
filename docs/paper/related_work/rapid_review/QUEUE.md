@@ -844,6 +844,14 @@ Format (one per line):
 - [x] 2025 | ConvoMem Benchmark: Why Your First 150 Conversations Don’t Need RAG | arXiv | https://arxiv.org/abs/2511.10523 | tags: memory, long-term, multi-session, retrieval, evaluation | note: docs/paper/related_work/rapid_review/papers/20260219_convomem-benchmark-150-conversations.md
 
 ## New candidates (2026-02-19)
+
+- [x] 2025 | M2S: Multi-turn to Single-turn jailbreak in Red Teaming for LLMs | arXiv | https://arxiv.org/html/2503.04856v3 | tags: multi-turn,jailbreak,red-teaming | note: docs/paper/related_work/rapid_review/papers/20260219_m2s_multiturn_to_singleturn_jailbreak.md
+- [ ] 2025 | A Representation Engineering Perspective on the Effectiveness of Multi-Turn Jailbreaks | arXiv | https://arxiv.org/html/2507.02956v1 | tags: multi-turn,jailbreak,representation
+
+- [ ] 2025 | AutoAdv: Automated Adversarial Prompting for Multi-Turn Jailbreaking of Large Language Models | arXiv | https://arxiv.org/html/2511.02376v1 | tags: multi-turn,jailbreak,automated
+- [ ] 2025 | Multi-turn Jailbreaking via Global Refinement and Active Fabrication | arXiv | https://arxiv.org/html/2506.17881v1 | tags: multi-turn,jailbreak,attack
+
+- [ ] 2025 | Multi-Turn Jailbreaks Are Simpler Than They Seem | arXiv | https://arxiv.org/html/2508.07646v1 | tags: multi-turn,jailbreak,robustness
 - [x] 2024 | LLM-A*: Large Language Model Enhanced Incremental Heuristic Search on Path Planning | arXiv | https://arxiv.org/abs/2407.02511 | tags: path-planning;heuristic-search;llm | note: docs/paper/related_work/rapid_review/papers/20260219_llm-a-star.md
 
 - [x] 2026 | VLingNav: Embodied Navigation with Adaptive Reasoning and Visual-Assisted Linguistic Memory | arXiv | https://arxiv.org/html/2601.08665v1 | tags: embodied-navigation;vla;memory | note: docs/paper/related_work/rapid_review/papers/20260219_vlingnav.md
