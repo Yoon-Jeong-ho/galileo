@@ -61,6 +61,7 @@ These are the claims most likely to be read *without* looking at appendices. Eac
 - Proof pointers:
   - Survival dynamics: Fig.~`fig:survival-curves-rounds` → `docs/paper/figures/survival_curves_rounds_seed1-4_20260209.svg`
   - Early-turn vulnerability: Fig.~`fig:tof-delta-fail1` → `docs/paper/figures/tof_personawise_fail1_delta_seed1-4_20260209.svg`
+- Checklist linkage: (1) multi-turn robustness decay; (2) early-turn failure / TOF.
 
 **A1 (what we introduce).**
 - Draft text (Abstract sentence 3): “We introduce GALILEO … and compare against a matched Neutral Re-asking Control.”
@@ -68,6 +69,7 @@ These are the claims most likely to be read *without* looking at appendices. Eac
   - Protocol diagram: Fig.~`fig:protocol` → `docs/paper/figures/protocol_overview.svg`
   - Control-vs-persona summary: Table~`tab:tablew` + Fig.~`fig:tablew-effect-deltas`
     - Artifacts: `docs/paper/artifacts/table_w_control_vs_persona_seed1-4_mean_std_20260209.csv`, `docs/paper/artifacts/table_w_effect_delta_seed1-4_20260209.csv`
+- Checklist linkage: (3) Neutral Re-asking Control separates drift from persona effects.
 
 **A2 (what we measure; definitions).**
 - Draft text (Abstract sentence 4): “We report survival curves, TOF/Fail@1, and recovery@flip … interpret flips as time-to-event with right-censoring.”
@@ -75,18 +77,21 @@ These are the claims most likely to be read *without* looking at appendices. Eac
   - Survival: Fig.~`fig:survival-curves-rounds`; artifact `docs/paper/artifacts/survival_curve_personawise_control_vs_persona_seed1-4_mean_std_20260209.csv`
   - TOF / Fail@1: Fig.~`fig:tof-delta-fail1`; artifact `docs/paper/artifacts/tof_personawise_fail1_never_control_vs_persona_seed1-4_mean_std_20260209.csv`
   - Recovery@flip: Fig.~`fig:recovery-delta`; artifact `docs/paper/artifacts/recovery_personawise_control_vs_persona_seed1-4_mean_std_20260209.csv`
+- Checklist linkage: (1) survival; (2) TOF / Fail@1; (4) recovery.
 
 **A3 (headline finding; mechanism vs drift).**
 - Draft text (Abstract sentence 5): “Across multi-seed experiments … persona pressure reduces survival relative to Neutral Re-asking Control and can induce early-turn vulnerability.”
 - Proof pointers:
   - Persona-vs-control deltas: Table~`tab:tablew` + Fig.~`fig:tablew-effect-deltas`
   - Dynamics evidence: Fig.~`fig:survival-curves-rounds`; Fig.~`fig:tof-delta-fail1`
+- Checklist linkage: (1) survival; (2) TOF / Fail@1; (3) persona vs control attribution.
 
 **A4 (headline finding; robustness vs recovery are distinct).**
 - Draft text (Abstract sentence 6): “Recovery@flip varies by task and persona … staying correct vs returning to truth are distinct behaviors.”
 - Proof pointers:
   - Recovery deltas: Fig.~`fig:recovery-delta`
   - (If we make task-stratified claims) ensure corresponding task-wise artifacts/figures are cited in the Results section; do not rely on the abstract alone.
+- Checklist linkage: (4) recovery distinct from survival/TOF.
 
 ### Intro: proof-pointer hooks (keep these aligned)
 
@@ -96,6 +101,11 @@ These are the exact “proof pointer” hooks we want a reviewer to notice in th
 - **Dynamics + recovery:** Introduction §1.1 should explicitly name survival/TOF/recovery and point to Figs.~`fig:survival-curves-rounds`, `fig:tof-delta-fail1`, `fig:recovery-delta` plus Table~`tab:tablew`.
 - **Evaluation gap bullets:** Introduction §1.2 bullets should each have a single obvious proof pointer (TOF → `fig:tof-delta-fail1`, survival → `fig:survival-curves-rounds`, recovery → `fig:recovery-delta`).
 - **Intro skim hook:** Introduction §1.1 should contain an “Evidence at a glance” bullet list pointing to (i) protocol+control, (ii) survival+TOF, and (iii) recovery (Figs.~`fig:protocol`, `fig:survival-curves-rounds`, `fig:tof-delta-fail1`, `fig:recovery-delta`; Table~`tab:tablew`).
+
+**Intro checklist linkage (so the reader can audit claims without hunting):**
+- Protocol + control-as-drift-baseline framing → checklist (3).
+- Survival/TOF/recovery outcomes framing → checklist (1), (2), (4).
+- If Intro mentions cross-family or decoding-sensitivity robustness checks, it must point to checklist (5) and/or (6).
 
 ### Abstract/Intro: claim-level checklist (high-level, for quick audit)
 
