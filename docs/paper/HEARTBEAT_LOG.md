@@ -160,9 +160,9 @@ Representative commits:
 
 ## Next heartbeat plan (ONE step)
 
-**Add numeric contrast sentences to Related Work (Sec 6.4) by extracting 1–2 effect sizes from TRUTH DECAY and/or Challenging the Evaluator.**
+**Paper: reduce reviewer cognitive load by standardizing the “Neutral Re-asking Control” acronym usage (NRC) and ensuring first-use definition.**
 
-- Deliverable: update one vault note’s results section + add 1–2 citation sentences with concrete numbers in `docs/paper/PAPER_DRAFT_EN.md`.
+- Deliverable: edit `docs/paper/PAPER_DRAFT_EN.md` to introduce “Neutral Re-asking Control (NRC)” once and then use NRC consistently in Abstract/Intro/Protocol/Related Work.
 
 ---
 
