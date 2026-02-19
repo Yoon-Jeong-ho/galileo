@@ -20,6 +20,36 @@ Notes:
 - The file points to the repo-wide BibTeX database (`../../../references.bib`) so you do not need a local copy.
 - If you compile from a different working directory, ensure the relative path in `\\bibliography{...}` still resolves.
 
+## Keeping figure snapshots in sync (SVG SSOT → PDF for LaTeX)
+
+In this repo, paper figures are tracked as **SVG SSOT** under:
+- `docs/paper/figures/*.svg`
+
+This LaTeX skeleton includes **PDF snapshots** under:
+- `docs/paper/latex_skeleton_emnlp2023/figures/*.pdf`
+
+If you update an SVG (or regenerate figures from CSV artifacts), refresh the corresponding PDF snapshot before compiling LaTeX.
+
+### Option A: Inkscape (recommended)
+
+From the repo root:
+
+```bash
+# Example (adjust filenames):
+inkscape docs/paper/figures/protocol_overview.svg \
+  --export-type=pdf \
+  --export-filename=docs/paper/latex_skeleton_emnlp2023/figures/protocol_overview.pdf
+```
+
+### Option B: rsvg-convert (if available)
+
+```bash
+rsvg-convert -f pdf -o docs/paper/latex_skeleton_emnlp2023/figures/protocol_overview.pdf \
+  docs/paper/figures/protocol_overview.svg
+```
+
+(If neither tool is installed, install one locally or convert via your preferred SVG→PDF workflow. Keep the PDF filenames stable so LaTeX `\includegraphics{figures/<name>}` continues to work.)
+
 ## Anti-drift note (labels ↔ filenames)
 
 When migrating the writing scaffold into the EMNLP template, keep LaTeX labels consistent with the repo figure filenames.
