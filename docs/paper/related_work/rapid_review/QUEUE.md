@@ -1160,5 +1160,5 @@ Format (one per line):
 ## New candidates (2026-02-19)
 
 - [x] 2025 | Rethinking Stateful Tool Use in Multi-Turn Dialogues: Benchmarks and Challenges | arXiv | https://arxiv.org/abs/2505.13328 | tags: tool-use, stateful, multi-turn, benchmark, agents | note: papers/20260219_rethinking-stateful-tool-use-dialogtool.md
-- [ ] 2026 | TruthStance: An Annotated Dataset of Conversations on Truth Social | arXiv | https://arxiv.org/abs/2602.14406 | tags: stance, conversation, dataset, social-media
+- [x] 2026 | TruthStance: An Annotated Dataset of Conversations on Truth Social | arXiv | https://arxiv.org/abs/2602.14406 | tags: stance, conversation, dataset, social-media | note: docs/paper/related_work/rapid_review/papers/20260219_truthstance_truth_social_dataset.md
 - [ ] 2026 | Score: Specificity, Context Utilization, Robustness, and Relevance for Reference-Free LLM Evaluation | arXiv | https://arxiv.org/abs/2602.10017 | tags: evaluation, robustness, context-utilization, llm-as-judge
