@@ -122,15 +122,15 @@ Ground-truth tasks에서 multi-turn persona pressure 하에 **정답 유지(surv
 
 ## 4) NEXT HEARTBEAT (ONE step)
 
-**Post-Pythia cutoff mode: stop unstable-family churn; execute one stable fallback experiment only if it reduces reviewer risk.**
+**LaTeX packaging: confirm the correct EMNLP year template + ensure our PDF-figure pipeline integrates cleanly.**
 
 - Immediate one-step plan:
-  1) Keep Pythia quarantined as non-citable (seed1/seed2) unless we have a concrete stack-level fix.
-  2) Require **device-level CUDA preflight pass** (not just idle snapshot) before any fallback launch on nlp8.
-  3) Until preflight is stable, use heartbeats for claim↔evidence consistency/writing lock while keeping `results_paper/` parity green.
+  1) Confirm which EMNLP template year is required for submission (2024/2025) and pin the right skeleton under `docs/paper/latex_skeleton_emnlp20XX/`.
+  2) Ensure figure includes are consistent with the PDF-first policy (SVG is SSOT; PDFs under `paper_figures/pdf/`).
+  3) Run the existing LaTeX smoke-test (or add one if missing) and record PASS in `STATUS.md`.
 
 - Working checklist:
-  - `docs/paper/TIER1_GAP_CHECKLIST_20260219.md`
+  - `docs/paper/EMNLP_MAIN_SUBMISSION_CHECKLIST.md`
   - `docs/paper/ROADMAP_TO_20260228.md`
 
 ---
