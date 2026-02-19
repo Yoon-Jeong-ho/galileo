@@ -30,50 +30,51 @@ For each item, we maintain:
    - Borrow: (i) “temporal cardinality matters” narrative and dataset design, (ii) structured attention that respects SITS alignment, (iii) hierarchical/pyramid backbone as a strong default for multiscale geospatial phenomena.
    - How to change GALILEO: add at least one baseline/ablation contrasting **flat ViT vs hierarchical** backbones for time series, and explicitly report transfer vs number of timestamps.
 
-4) **Measuring Sycophancy of Language Models in Multi-turn Dialogues** (Hong et al., Findings of EMNLP 2025)
+4) **FUSAR-KLIP: Towards Multimodal Foundation Models for Remote Sensing** (Yang et al., arXiv 2025)
+   - Contributes: a SAR-focused VLM foundation model + dataset: **FUSAR-GEOVL-1M** (SAR image-text with **geographic projection attributes**) and a CLIP-like dual-encoder trained with **contrast + matching + reconstruction**; introduces **SCIO** (“screen–filter–reconstruct”) to denoise LLM-generated structured text.
+   - Misses vs GALILEO: strongly SAR-centric; relies on LLM-generated chain-of-thought-style descriptions (potential brittleness / prompt dependence); unclear how well it extends to long spatiotemporal sequences.
+   - Borrow: (i) treating **geolocation/projection metadata** as first-class, (ii) multi-part *structured* text supervision (macro→micro), (iii) simple, model-agnostic idea: **segment screening** using contrastive-score deltas.
+   - How to change GALILEO: add an explicit geolocation-metadata ablation (with/without) and a caption/text denoising baseline inspired by SCIO.
+
+5) **Measuring Sycophancy of Language Models in Multi-turn Dialogues** (Hong et al., Findings of EMNLP 2025)
    - Contributes: concrete multi-turn social-pressure protocol + two extremely usable metrics: **Turn of Flip (ToF)** (time-to-failure proxy) and **Number of Flips (NoF)** (instability/oscillation).
    - Misses vs GALILEO: does not explicitly separate *evidence-driven belief revision* from *pressure-driven drift*; limited focus on *recovery after flip*.
    - Borrow: ToF/NoF framing and third-person prompting baseline (reported up to 63.8% reduction in debate).
    - How to change GALILEO: map our metrics onto a ToF/NoF-style vocabulary (or add direct analogues) and highlight our additional controls + recovery measurements.
 
-5) **ELEPHANT: Measuring and understanding social sycophancy in LLMs** (Cheng et al., arXiv 2025)
+6) **ELEPHANT: Measuring and understanding social sycophancy in LLMs** (Cheng et al., arXiv 2025)
    - Contributes: a theory-grounded expansion from “explicit agreement” → **social sycophancy as face-preservation** (validation, indirectness, framing, moral inconsistency), plus an evaluation showing LLMs preserve user face far more than humans in advice/wrongdoing contexts.
    - Misses vs GALILEO: does not center multi-turn *time-to-failure* / recovery dynamics; relies on human baselines and social-dimension classifiers rather than drift-vs-revision controls.
    - Borrow: the face-preservation taxonomy; the *stance-swap* moral-consistency probe (user adopts either side) as a clean way to reveal side-dependent affirmation.
    - How to change GALILEO: add “face channels” of pressure as first-class metrics/labels (validation/framing adoption), not only explicit belief agreement; include a moral-consistency or stance-swap subtest.
 
-6) **Sycophancy Hides Linearly in the Attention Heads** (Genadi et al., arXiv 2026)
+7) **Sycophancy Hides Linearly in the Attention Heads** (Genadi et al., arXiv 2026)
    - Contributes: a mechanistic localization claim that **correct→incorrect sycophancy** is most *steerable* via a **sparse subset of middle-layer attention heads**, plus evidence those heads attend disproportionately to **user doubt** cues.
    - Misses vs GALILEO: intervention relies on **internal activation access** + per-model head selection; less emphasis on long-horizon survival/recovery metrics.
    - Borrow: (i) the “**separable vs steerable**” distinction, (ii) head-level sparsity as a hypothesis about where social-pressure cues route.
    - How to change GALILEO: add an interpretability appendix: test whether pressure-driven flips are linearly decodable and whether a small set of attention heads dominates.
 
-7) **T3: Benchmarking Sycophancy and Skepticism in Causal Judgment** (Chang, arXiv 2026)
+8) **T3: Benchmarking Sycophancy and Skepticism in Causal Judgment** (Chang, arXiv 2026)
    - Contributes: a clean **sensitivity vs specificity** decomposition (Utility vs Safety; Sheep vs Wolves), plus explicit measurement of **calibrated abstention** and **multi-turn flip dynamics** (Good Flip vs Bad Flip) under social + epistemic pressure.
    - Misses vs GALILEO: centered on causal-judgment vignettes rather than generic belief drift/revision; limited focus on recovery trajectories.
    - Borrow: Utility/Safety reporting; GoodFlip/BadFlip asymmetry.
    - How to change GALILEO: add an explicit endorse-true vs reject-false breakdown and track good/bad flip asymmetry.
 
-8) **Are You Sure? Challenging LLMs Leads to Performance Drops in The FlipFlop Experiment** (Laban et al., arXiv 2023; v2 2025)
+9) **Are You Sure? Challenging LLMs Leads to Performance Drops in The FlipFlop Experiment** (Laban et al., arXiv 2023; v2 2025)
    - Contributes: a minimal, highly reusable 2–3 turn **FlipFlop** protocol (challenge: “Are you sure?”) with clean summary metrics: **flip rates** (Any/Correct/Wrong→Flip) and the **FlipFlop effect** ΔFF (final−initial accuracy).
    - Misses vs GALILEO: does not cleanly separate **evidence-driven revision** from **pressure-driven drift** (challenge is confirmatory); limited treatment of longer-horizon recovery dynamics.
    - Borrow: ΔFF + Correct/Wrong→Flip as reviewer-friendly, task-agnostic reporting; challenger-utterance variants (authority/persona) as sensitivity probes.
    - How to change GALILEO: add a FlipFlop-style baseline slice and report correct-vs-wrong flip asymmetry to distinguish helpful self-correction from harmful sycophantic drift.
 
-9) **Time-To-Inconsistency: A Survival Analysis of Large Language Model Robustness to Adversarial Attacks** (Li, Krishnan, Padman, arXiv 2025)
+10) **Time-To-Inconsistency: A Survival Analysis of Large Language Model Robustness to Adversarial Attacks** (Li, Krishnan, Padman, arXiv 2025)
    - Contributes: survival-analysis framing for multi-turn robustness with censoring; hazards/survival curves; **C-index** and **Integrated Brier Score**.
    - Misses vs GALILEO: evaluates adversarial inconsistency rather than persuasion; no explicit recovery-after-flip objective.
    - Borrow: time-to-event reporting + calibration-aware trajectory evaluation.
    - How to change GALILEO: add a survival-analysis reporting layer (hazard + censored survival).
 
-10) **The Assistant Axis: Situating and Stabilizing the Default Persona of Language Models** (Lu et al., arXiv 2026)
-   - Contributes: identifies a dominant linear activation direction (“**Assistant Axis**”) that tracks *assistant-likeness* across many role vectors, and shows **activation capping** along this axis can reduce persona-jailbreak harms and “off-the-rails” behavior in emotionally vulnerable / meta-reflective conversations with minimal capability loss.
-   - Misses vs GALILEO: requires **internal activation access** and per-model calibration (role-vector pipeline, layer selection, percentile caps); focuses on persona/identity drift rather than general evidence-vs-pressure disentanglement.
-   - Borrow: (i) “drift scalar” defined in activation space, (ii) **conditional clamping** as a stabilization primitive, (iii) empirical claim that therapy/meta-reflection prompts systematically move the model away from default assistant region.
-   - How to change GALILEO: add a persona-drift monitor (internal if available, external proxy otherwise) and explicitly test robustness on persona-based jailbreaks + emotional-vulnerability domains.
-
 ## Changelog
 
+- 2026-02-19: Added *FUSAR-KLIP: Towards Multimodal Foundation Models for Remote Sensing* (Yang et al., arXiv 2025) as a key SAR multimodal foundation-model neighbor (geo-metadata + structured text + SCIO denoising). Displaced *The Assistant Axis: Situating and Stabilizing the Default Persona of Language Models* (Lu et al., arXiv 2026): interesting mechanistic persona-stability work, but less central than EO/SAR multimodal foundations for the current shortlist.
 - 2026-02-19: Added *The Assistant Axis: Situating and Stabilizing the Default Persona of Language Models* (Lu et al., arXiv 2026) as a mechanistic persona-stability neighbor (Assistant Axis + activation capping; links drift in therapy/meta-reflection to unsafe/bizarre outputs; mitigates persona-based jailbreaks). Displaced *Modeling and Predicting Multi-Turn Answer Instability in Large Language Models* (He et al., arXiv 2025): useful Markov/stationary framing, but less central than persona-drift stabilization for our current narrative.
 - 2026-02-19: Added *Are You Sure? Challenging LLMs Leads to Performance Drops in The FlipFlop Experiment* (Laban et al., arXiv 2023) as a key multi-turn **challenge→flip** sycophancy protocol (ΔFF + flip-rate metrics). Displaced *CausalT5K: Diagnosing and Informing Refusal for Trustworthy Causal Reasoning of Skepticism, Sycophancy, Detection-Correction, and Rung Collapse* (Geng et al., arXiv 2026): useful benchmark infrastructure, but less central than a foundational FlipFlop-style protocol.
 - 2026-02-19: Added *TiMo: Spatiotemporal Foundation Model for Satellite Image Time Series* (arXiv 2025) as a key **SITS** neighbor (hierarchical backbone + structured spatiotemporal attention; MillionST with 10 timestamps over 5 years). Displaced *Persuasion Dynamics in LLMs: Investigating Robustness and Adaptability in Knowledge and Safety with DuET-PD* (Tan et al., EMNLP 2025): useful dual-axis persuasion framing, but less central if the related-work emphasis is shifting toward EO foundation models.
