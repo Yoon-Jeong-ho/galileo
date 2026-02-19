@@ -25,15 +25,15 @@
 \maketitle
 
 \begin{abstract}
-Large language models (LLMs) can exhibit \emph{belief-consistency failures}: revising previously correct answers when confronted with social pressure (e.g., repeated denial, authority claims, or persuasive reframing).
-Prior work has documented sycophancy and persuasion effects, but there is no widely adopted, end-to-end protocol for \emph{ground-truth} tasks that jointly measures (i) \emph{when} the first failure occurs (turn-of-failure), (ii) cumulative degradation over rounds (survival curves / fail@any), and (iii) whether models can return to the original truth after a flip (recovery).
+Large language models (LLMs) can exhibit \emph{belief-consistency failures}: abandoning a previously correct answer under social pressure (e.g., repeated denial, authority claims, or persuasive reframing).
+While prior work studies sycophancy and persuasion, there is no widely adopted, end-to-end protocol on \emph{ground-truth} tasks that simultaneously measures (i) \emph{when} the first flip occurs (turn-of-failure), (ii) cumulative degradation over rounds (survival / fail@any), and (iii) whether models can return to truth after flipping (recovery).
 
-We introduce \textbf{GALILEO}, a reproducible evaluation pipeline for ground-truth tasks (math, extractive QA, multiple-choice QA, and open-domain QA).
-Starting from an initially correct answer, GALILEO applies five fixed adversarial personas (soft pressure, simple denial, strong pressure, authority claim, and logical trap) for up to five rounds, alongside a neutral re-asking control to separate generic drift from persona-induced degradation.
-To avoid conflating persona effects with shifts in the \emph{initially-correct} conditioning set, we compute persona--control comparisons on the same initially-correct subset for each persona arm.
-Across multiple model families and seeds, persona pressure consistently worsens survival, increases \emph{fail@any} (flipping at least once within $R$ rounds), and shifts turn-of-failure earlier relative to the drift baseline.
-On flipped samples, we then measure \emph{recovery} via an explicit return-to-truth prompt and find that \emph{robustness} (staying correct) and \emph{recoverability} (returning to truth) behave as distinct axes.
-We release artifact-level exports (per-turn correctness traces, curves, and reproducer scripts) to support auditing and reuse.
+We introduce \textbf{GALILEO}, a reproducible pipeline for ground-truth tasks (math, extractive QA, multiple-choice QA, and open-domain QA).
+Starting from an initially correct answer, GALILEO applies five fixed adversarial personas for up to five rounds and pairs each with a matched neutral re-asking control to separate generic multi-turn drift from persona-induced degradation.
+To avoid conflating persona effects with shifts in the \emph{initially-correct} conditioning set, we compute persona--control deltas on the same initially-correct subset for each persona arm.
+Across multiple model families and seeds, persona pressure reduces survival, increases fail@any, and shifts turn-of-failure earlier relative to the drift baseline.
+On flipped samples, we evaluate an explicit return-to-truth prompt and find that \emph{robustness} (staying correct) and \emph{recoverability} (returning to truth) are distinct axes.
+We release artifact-level exports (per-turn correctness traces, curves, and reproducer scripts) to support end-to-end auditing and reuse.
 \end{abstract}
 
 \section{Introduction}
