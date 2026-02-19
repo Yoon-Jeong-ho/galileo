@@ -1156,7 +1156,7 @@ Format (one per line):
 ## New candidates (2026-02-19, web_search batch 3)
 
 - [x] 2026 | Position: Explaining Behavioral Shifts in Large Language Models Requires a Comparative Approach | arXiv | https://arxiv.org/abs/2602.02304 | tags: behavioral-shifts,interpretability,comparative-analysis | note: docs/paper/related_work/rapid_review/papers/20260219_delta-xai_behavioral-shifts_position.md
-- [ ] 2025 | Teaching Language Models to Faithfully Express their Uncertainty | arXiv | https://arxiv.org/abs/2510.12587 | tags: uncertainty,calibration,consistency,robustness
+- [x] 2025 | Teaching Language Models to Faithfully Express their Uncertainty | arXiv | https://arxiv.org/abs/2510.12587 | tags: uncertainty,calibration,consistency,robustness | note: docs/paper/related_work/rapid_review/papers/20260219_faithful_uncertainty_tuning_fut.md
 
 - [ ] 2025 | Consistently Simulating Human Personas with Multi-Turn Reinforcement Learning | arXiv | https://arxiv.org/abs/2511.00222v1 | tags: persona,drift,multi-turn,rl
 - [ ] 2025 | Consistency Training Helps Stop Sycophancy and Jailbreaks | arXiv | https://arxiv.org/abs/2510.27062v1 | tags: sycophancy,consistency-training,jailbreaks,robustness
