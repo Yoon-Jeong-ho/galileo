@@ -61,6 +61,18 @@ Tracked outputs live under `docs/paper/artifacts/` (CSV) and `docs/paper/figures
 - Prefer linking to artifact paths (CSV/SVG) from the draft so reviewers can verify claims.
 - Section numbering in drafts may be renumbered/removed during LaTeX conversion.
 
+### Metrics cheat sheet (avoid reviewer confusion)
+
+We use **discrete-time time-to-event** language over dialogue rounds (default horizon: `R=5`) and we condition on **initial correctness**.
+
+- **Survival@r / Survival curve**: fraction of initially-correct examples that remain correct **through** round `r` (i.e., correct at every round `1..r`).
+  - This is **cumulative**; it answers “has the model ever yielded so far?”
+- **Round-r accuracy**: fraction correct **at** round `r` (can be higher than Survival@r if some examples flip and later re-correct).
+- **TOF (turn-of-failure)**: the **first** round `r≥1` where the *post-round model response* is incorrect; if no failure occurs within `R`, TOF is **right-censored** (*never-fail*).
+- **Fail@1**: `P(TOF = 1 | initially correct)` (early-turn vulnerability).
+- **Recovery@flip**: `P(correct after the Phase-3 recovery prompt | flipped at least once)`; this is evaluated **within each arm** (persona vs NRC) on that arm’s flipped subset.
+- **First-passage convention** (important): once an example flips during Phase 2, it is counted as a failure for survival/TOF even if it later becomes correct again; “return-to-truth” is captured separately by Recovery@flip.
+
 ## Qualitative taxonomy labeling sheet (flip samples → manual labels)
 
 We maintain a **reviewer-auditable** qualitative labeling workflow based on the tracked `flip_samples.csv` exports.
