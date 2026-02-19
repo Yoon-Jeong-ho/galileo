@@ -78,6 +78,18 @@ If a GPU is partially occupied, vLLM can fail at startup with an error like:
 
 - `ValueError: Free memory on device (...) on startup is less than desired GPU memory utilization (0.9, ...)`
 
+Also note a separate, environment-level failure mode we observed on nlp8:
+
+- `FileNotFoundError: [Errno 2] No such file or directory: 'ninja'` (during FlashInfer JIT / warmup)
+
+Mitigation (no sudo): force a non-FlashInfer backend for vLLM launches:
+
+```bash
+export VLLM_ATTENTION_BACKEND=TRITON_ATTN
+```
+
+(Alternatively, ensure `ninja` is available in the environment, but this is an env change.)
+
 **Policy:**
 - Do **not** kill unknown/external PIDs.
 - Prefer re-launching on a genuinely free GPU (4/5/6).
