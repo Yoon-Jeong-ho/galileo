@@ -1357,3 +1357,7 @@ Format (one per line):
 - [x] 2026 | Trajectory Guard: A Lightweight, Sequence-Aware Model for Real-Time Anomaly Detection in Agentic AI | arXiv | https://arxiv.org/abs/2601.00516 | tags: agents, anomaly-detection, trajectories, monitoring | note: papers/20260219_trajectory-guard.md
 - [x] 2025 | Which Agent Causes Task Failures and When? On Automated Failure Attribution of LLM Multi-Agent Systems | arXiv | https://arxiv.org/abs/2505.00212 | tags: agents, debugging, failure-attribution, multi-agent | note: docs/paper/related_work/rapid_review/papers/20260219_failure_attribution_multiagent_llms.md
 - [x] 2025 | Where LLM Agents Fail and How They can Learn From Failures | arXiv | https://arxiv.org/abs/2509.25370 | tags: agents, failures, taxonomy, dataset | note: docs/paper/related_work/rapid_review/papers/20260219_where_llm_agents_fail_and_learn_from_failures.md
+
+## New candidates (2026-02-19, auto-added)
+
+- [x] 2025 | On the use of Graphs for Satellite Image Time Series | arXiv | https://arxiv.org/html/2505.16685v1 | tags: remote-sensing, time-series, graphs, OBIA | note: papers/20260219_graphs-for-satellite-image-time-series.md
