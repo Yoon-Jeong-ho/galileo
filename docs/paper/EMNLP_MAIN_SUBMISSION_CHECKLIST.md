@@ -123,6 +123,8 @@ Recommended artifacts to cite in-paper:
   - [ ] Ensure figures/tables do not embed run directory names containing identifying info.
   - [ ] Double-check `results/**/run.log` before packaging any artifact bundle.
 - [ ] Camera-ready checklist (after acceptance): acknowledgements, ethics, artifacts.
+- [ ] Paper-facing preflight bundle (citations + acronyms + assets):
+  - Quick check: `bash scripts/run_paper_preflights.sh`
 - [ ] Paper-facing acronym consistency check (e.g., expand once then use acronym):
   - Quick check (paper-facing): `python3 scripts/audit_acronyms.py --paper-facing --acronym NRC --long-form "Neutral Re-asking Control" --require-first-use "Neutral Re-asking Control (NRC)"`
 - [ ] Paper-facing asset-reference check (figures + tracked artifacts):
