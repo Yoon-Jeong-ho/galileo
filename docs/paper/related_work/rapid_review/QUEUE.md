@@ -1328,3 +1328,11 @@ Format (one per line):
 - [x] 2025 | UserBench: An Interactive Gym Environment for User-Centric Agents | arXiv | https://arxiv.org/abs/2507.22034 | tags: multi-turn, agents, user-centric, interactive, benchmark | note: docs/paper/related_work/rapid_review/papers/20260219_userbench_user-centric_benchmark.md
 - [x] 2025 | VitaBench: Benchmarking LLM Agents with Versatile Interactive Tasks in Real-world Applications | arXiv | https://arxiv.org/abs/2509.26490 | tags: multi-turn, agents, interactive, benchmark | note: docs/paper/related_work/rapid_review/papers/20260219_vitabench.md
 - [x] 2026 | CaveAgent: Transforming LLMs into Stateful Runtime Operators | arXiv | https://arxiv.org/abs/2601.01569 | tags: multi-turn, agents, tool-use, stateful, runtime | note: docs/paper/related_work/rapid_review/papers/20260219_caveagent_stateful_runtime_operator.md
+
+## New candidates (2026-02-19, web_search batch)
+
+- [x] 2025 | SecReEvalBench: A Multi-turned Security Resilience Evaluation Benchmark for Large Language Models | arXiv | https://arxiv.org/abs/2505.07584 | tags: multi-turn, security, resilience, evaluation, prompt-attacks | note: papers/20260219_secreevalbench_multi-turned_security_resilience.md
+- [ ] 2026 | Multi-turn Jailbreaking Attack in Multi-Modal Large Language Models | arXiv | https://arxiv.org/abs/2601.05339 | tags: multi-turn, jailbreak, multimodal, attacks
+- [ ] 2025 | Evaluating Robustness of Large Language Models Against Multilingual Attacks | arXiv | https://arxiv.org/abs/2510.09536 | tags: robustness, multilingual, attacks
+- [ ] 2025 | Uncovering Competency Gaps in Large Language Models and Their Benchmarks | arXiv | https://arxiv.org/abs/2512.20638 | tags: evaluation, benchmarks, robustness, competency-gaps
+- [ ] 2025 | MTSA: Multi-turn Safety Alignment for LLMs through Multi-round Red-teaming | arXiv | https://arxiv.org/abs/2505.17147 | tags: multi-turn, safety, alignment, red-teaming, RL
