@@ -104,7 +104,7 @@ Ground-truth tasks에서 multi-turn persona pressure 하에 **정답 유지(surv
 
 ## 3) TOP GAPS (what still blocks paper quality)
 
-1) **LaTeX build readiness (PDF figures):** ✅ PDFs can now be generated **without sudo** via Inkscape AppImage (`scripts/get_inkscape_appimage.sh` → `scripts/convert_figures_svg_to_pdf.sh`; output `paper_figures/pdf/*.pdf`). ✅ LaTeX smoke-tests compile in CI: (i) generic skeleton `docs/paper/latex_skeleton/main.tex`, and (ii) EMNLP2023 template skeleton `docs/paper/latex_skeleton_emnlp2023/main_emnlp2023.tex` (both built by `latex-smoketest` and uploaded as artifacts). Remaining step: switch/confirm the **current EMNLP year** template (2024/2025) if required by submission instructions, and pin the official ACL style files snapshot (helper: `bash scripts/get_acl_style_files.sh <ref>`).
+1) **LaTeX build readiness (PDF figures):** ✅ PDFs can now be generated **without sudo** via Inkscape AppImage (`scripts/get_inkscape_appimage.sh` → `scripts/convert_figures_svg_to_pdf.sh`; output `paper_figures/pdf/*.pdf`). ✅ LaTeX smoke-tests compile in CI: (i) generic skeleton `docs/paper/latex_skeleton/main.tex`, and (ii) EMNLP2023 template skeleton `docs/paper/latex_skeleton_emnlp2023/main_emnlp2023.tex` (both built by `latex-smoketest` and uploaded as artifacts). **Local note:** this environment currently lacks TeX (`latexmk/pdflatex` not installed), so run LaTeX smoke-tests in CI or a TeX-enabled machine. Remaining step: switch/confirm the **current EMNLP year** template (2024/2025) if required by submission instructions, and pin the official ACL style files snapshot (helper: `bash scripts/get_acl_style_files.sh <ref>`).
 2) **Claim→evidence map completion:** ✅ claim-map skeleton now includes an Abstract/Intro checklist + corrected figure/artifact paths; remaining work is to (i) tie each Abstract/Intro sentence to a specific checklist item and (ii) keep it in sync as the draft changes.
    - SSOT: `docs/paper/CLAIM_EVIDENCE_MAP.md`
 3) **Experiment extension decision (Tier‑1 only):** decide whether the next marginal compute should go to (a) decoding sensitivity sweep vs (b) an additional model family vs (c) more seeds (only if CI looks fragile).
@@ -125,9 +125,9 @@ Ground-truth tasks에서 multi-turn persona pressure 하에 **정답 유지(surv
 **LaTeX packaging: confirm the correct EMNLP year template + ensure our PDF-figure pipeline integrates cleanly.**
 
 - Immediate one-step plan:
-  1) Confirm which EMNLP template year is required for submission (2024/2025) and pin the right skeleton under `docs/paper/latex_skeleton_emnlp20XX/`.
+  1) Fetch/pin the current official ACL style snapshot (helper: `bash scripts/get_acl_style_files.sh <ref>`). Then either (a) add a `latex_skeleton_emnlp20XX/` dir matching the current year, or (b) confirm that `docs/paper/latex_skeleton_emnlp2023/` is acceptable for this cycle.
   2) Ensure figure includes are consistent with the PDF-first policy (SVG is SSOT; PDFs under `paper_figures/pdf/`).
-  3) Run the existing LaTeX smoke-test (or add one if missing) and record PASS in `STATUS.md`.
+  3) Run the existing LaTeX smoke-test (`docs/paper/latex_skeleton_emnlp2023/main_emnlp2023.tex`) and record PASS in `STATUS.md`.
 
 - Working checklist:
   - `docs/paper/EMNLP_MAIN_SUBMISSION_CHECKLIST.md`
