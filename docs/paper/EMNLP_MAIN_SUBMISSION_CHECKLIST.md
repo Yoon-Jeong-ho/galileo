@@ -54,7 +54,7 @@ Recommended artifacts to cite in-paper:
 - [ ] Fixed seeds documented; randomization sources described.
 - [ ] Evaluation details: answer extraction rules; normalization; alias handling.
 - [ ] Citation hygiene: all `\\cite{...}` keys in the paper drafts exist in `references.bib`.
-  - Quick check: `bash scripts/check_citations_vs_bib.sh`
+  - Quick check (stdlib): `python3 scripts/audit_citations.py`
 - [ ] Provide a lightweight “smoke test” run (small `NUM_SAMPLES`).
 - [ ] Export per-run **metadata** (e.g., `results/<run>/paper_exports/metadata.json`) including decoding params, seed, git commit hash, and condition identifiers (personas + `neutral_reask_control`) so settings are auditable.
 - [ ] Automation hygiene (if using OpenClaw heartbeat updates):
@@ -123,4 +123,8 @@ Recommended artifacts to cite in-paper:
   - [ ] Ensure figures/tables do not embed run directory names containing identifying info.
   - [ ] Double-check `results/**/run.log` before packaging any artifact bundle.
 - [ ] Camera-ready checklist (after acceptance): acknowledgements, ethics, artifacts.
+- [ ] Paper-facing acronym consistency check (e.g., expand once then use acronym):
+  - Quick check (paper-facing): `python3 scripts/audit_acronyms.py --paper-facing --acronym NRC --long-form "Neutral Re-asking Control" --require-first-use "Neutral Re-asking Control (NRC)"`
+- [ ] Paper-facing asset-reference check (figures + tracked artifacts):
+  - Quick check: `python3 scripts/audit_paper_assets.py`
 - [ ] Run spellcheck + consistency checks (persona names, metric names, dataset names).
