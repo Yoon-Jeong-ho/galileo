@@ -1365,5 +1365,5 @@ Format (one per line):
 ## New candidates (2026-02-19, web_search batch)
 
 - [x] 2025 | Belief Dynamics Reveal the Dual Nature of In-Context Learning and Activation Steering | arXiv | https://arxiv.org/abs/2511.00617 | tags: belief-updating, icl, activation-steering, theory | note: papers/20260219_belief-dynamics-icl-activation-steering.md
-- [ ] 2025 | ABBEL: LLM Agents Acting through Belief Bottlenecks Expressed in Language | arXiv | https://arxiv.org/abs/2512.20111 | tags: agents, belief-bottleneck, memory, long-horizon
+- [x] 2025 | ABBEL: LLM Agents Acting through Belief Bottlenecks Expressed in Language | arXiv | https://arxiv.org/abs/2512.20111 | tags: agents, belief-bottleneck, memory, long-horizon | note: docs/paper/related_work/rapid_review/papers/20260219_abbel_belief_bottleneck.md
 - [ ] 2026 | Agentic Reasoning for Large Language Models | arXiv | https://arxiv.org/abs/2601.12538 | tags: agents, survey, reasoning, interaction
