@@ -1263,6 +1263,6 @@ Format (one per line):
 
 - [x] 2025 | RMTBench: Benchmarking LLMs Through Multi-Turn User-Centric Role-Playing | arXiv | https://arxiv.org/html/2507.20352 | tags: multi-turn, role-playing, benchmark, evaluation | note: docs/paper/related_work/rapid_review/papers/20260219_rmtbench_user-centric_role-playing.md
 - [x] 2025 | StoryBench: A Dynamic Benchmark for Evaluating Long-Term Memory with Multi Turns | arXiv | https://arxiv.org/html/2506.13356v1 | tags: long-term-memory, multi-turn, benchmark, interactive-fiction | note: docs/paper/related_work/rapid_review/papers/20260219_storybench_ltm_benchmark.md
-- [ ] 2026 | RealMem: Benchmarking LLMs in Real-World Memory-Driven Interaction | arXiv | https://arxiv.org/html/2601.06966 | tags: memory, long-horizon, multi-session, benchmark
+- [x] 2026 | RealMem: Benchmarking LLMs in Real-World Memory-Driven Interaction | arXiv | https://arxiv.org/html/2601.06966 | tags: memory, long-horizon, multi-session, benchmark | note: docs/paper/related_work/rapid_review/papers/20260219_realmem-benchmark.md
 - [ ] 2025 | Beyond a Million Tokens: Benchmarking and Enhancing Long-Term Memory in LLMs | arXiv | https://arxiv.org/html/2510.27246v1 | tags: long-context, long-term-memory, benchmark, enhancement
 - [ ] 2025 | Evaluating Long-Term Memory for Long-Context Question Answering | arXiv | https://arxiv.org/html/2510.23730v1 | tags: long-term-memory, long-context, QA, evaluation
