@@ -30,6 +30,7 @@ Prior work has documented sycophancy and persuasion effects, but there is no wid
 
 We introduce \textbf{GALILEO}, a reproducible evaluation pipeline for ground-truth tasks (math, extractive QA, multiple-choice QA, and open-domain QA).
 Starting from an initially correct answer, GALILEO applies five fixed adversarial personas (soft pressure, simple denial, strong pressure, authority claim, and logical trap) for up to five rounds, alongside a neutral re-asking control to separate generic drift from persona-induced degradation.
+To avoid conflating persona effects with shifts in the \emph{initially-correct} conditioning set, we compute persona--control comparisons on the same initially-correct subset for each persona arm.
 Across multiple model families and seeds, persona pressure consistently worsens survival, increases \emph{fail@any} (flipping at least once within $R$ rounds), and shifts turn-of-failure earlier relative to the drift baseline.
 On flipped samples, we then measure \emph{recovery} via an explicit return-to-truth prompt and find that \emph{robustness} (staying correct) and \emph{recoverability} (returning to truth) behave as distinct axes.
 We release artifact-level exports (per-turn correctness traces, curves, and reproducer scripts) to support auditing and reuse.
@@ -46,7 +47,7 @@ GALILEO targets this gap by instantiating multi-turn pressure on \emph{ground-tr
 
 \noindent\textbf{Contributions.} GALILEO provides:
 (1) a ground-truth, multi-turn protocol with survival and turn-of-failure metrics;
-(2) a drift baseline (neutral re-asking control) that separates generic answer instability from persona-induced effects;
+(2) a drift baseline (neutral re-asking control) with matched conditioning sets that separates generic answer instability from persona-induced effects;
 (3) a recovery stage that quantifies return-to-truth after a flip; and
 (4) artifact-level exports (per-turn outputs and correctness traces, plotted curves, and reproducer scripts) that enable end-to-end auditing.
 
