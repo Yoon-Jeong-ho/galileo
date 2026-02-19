@@ -26,10 +26,15 @@ fi
 if [[ "$#" -eq 0 ]]; then
   # Default: scan everything paper-facing under docs/paper/.
   # (The repo does not always keep a single PAPER_DRAFT_*.md file around.)
-  # Exclude the upstream EMNLP template, which may cite template-only entries.
+  # Exclude upstream LaTeX templates/skeletons and scratch dirs, which may cite
+  # template-only entries or contain example citations not meant for the paper.
   mapfile -t PAPER_FILES < <(
     find docs/paper -type f \( -name "*.tex" -o -name "*.md" \) \
       ! -path "docs/paper/emnlp_template/*" \
+      ! -path "docs/paper/latex_skeleton/*" \
+      ! -path "docs/paper/latex_skeleton_emnlp2023/*" \
+      ! -path "docs/paper/tmp/*" \
+      ! -path "docs/paper/*/tmp/*" \
       | sort
   )
   set -- "${PAPER_FILES[@]}"
