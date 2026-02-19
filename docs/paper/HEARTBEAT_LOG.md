@@ -1271,3 +1271,9 @@ Next:
 - On nlp8, GPU0 appeared idle in `nvidia-smi` (0%, 1MiB), but device-level preflight failed: `CUDA_VISIBLE_DEVICES=0` + torch CUDA tensor allocation returned `cudaErrorDevicesUnavailable`.
 - This reproduces the same failure class seen in the aborted fallback launch (`tier1_phi35mini_seed3_20260220_024525`) and indicates launch-time device availability races.
 - Decision: do not relaunch heavy experiments on snapshot-idle GPUs unless a direct CUDA preflight passes immediately before launch; meanwhile prioritize writing/process lock while maintaining `results_paper` parity.
+
+### 2026-02-20 03:54 KST — Development lane: added mandatory CUDA preflight helper
+
+- Added `scripts/check_cuda_preflight.py` (single-visible-GPU torch CUDA allocation smoke test; exits non-zero on failure).
+- Updated `docs/paper/REMOTE_EXPERIMENTS_RUNBOOK.md` to require this preflight before launching on an apparently idle GPU.
+- Rationale: we observed repeated `cudaErrorDevicesUnavailable` despite idle `nvidia-smi` snapshots; preflight is now the launch gate.

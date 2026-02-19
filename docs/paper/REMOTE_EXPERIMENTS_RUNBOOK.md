@@ -45,6 +45,16 @@ Then tail logs for the newest run root.
 
 If `run.log` is not updating but GPU is busy, monitor progress via **output file mtimes** under `OUT/<ModelName>/*.jsonl` (e.g., `find "$OUT" -type f -printf '%TY-%Tm-%Td %TH:%TM %s %p\n' | sort | tail`).
 
+**CUDA preflight (required before launch on an apparently idle GPU):**
+```bash
+ssh nlp8 '
+  cd /data_x/aa007878/galileo || exit 1
+  CUDA_VISIBLE_DEVICES=<gpu_id> /data_x/aa007878/miniconda3/envs/galileo/bin/python \
+    scripts/check_cuda_preflight.py
+'
+```
+Only launch heavy runs if this returns `[OK]` and exit code 0. Idle `nvidia-smi` snapshots alone are not sufficient.
+
 **Stall cutoff (recommended):** if (i) no new files under `OUT/<ModelName>/` for **≥30 minutes** and (ii) the runner PID is sleeping (0% CPU) while `VLLM::EngineCore` keeps GPU busy, treat it as hung and relaunch (do not start seed2 until seed1 is healthy).
 
 ```bash
