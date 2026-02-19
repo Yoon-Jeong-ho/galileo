@@ -17,7 +17,7 @@ pdflatex -interaction=nonstopmode main_emnlp2023.tex
 ```
 
 Notes:
-- The file points to the repo-wide BibTeX database (`../../../references.bib`) so you do not need a local copy.
+- The file points to the repo-wide BibTeX database (`\\bibliography{../../../references}` → file `references.bib` at repo root), so you do not need a local copy.
 - If you compile from a different working directory, ensure the relative path in `\\bibliography{...}` still resolves.
 
 ## Keeping figure snapshots in sync (SVG SSOT → PDF for LaTeX)
