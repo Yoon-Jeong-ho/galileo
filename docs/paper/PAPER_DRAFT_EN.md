@@ -395,6 +395,11 @@ We use two complementary aggregation choices that answer different questions:
   \Delta_{\mathrm{pool}} = \sum_p w_p\,\text{metric}_{\text{persona},p} - \sum_p w_p\,\text{metric}_{\text{control},p},\quad w_p \propto |C_p|.
   \]
 
+**Interpretation guide (signs matter).** We define \(\Delta\) as (persona pressure − NRC). Under this convention:
+- \(\Delta\)Survival@\(r\) < 0 means **persona pressure reduces robustness** beyond drift (more flips).
+- \(\Delta\)Fail@1 > 0 means **persona pressure increases early-turn vulnerability** beyond drift (more immediate flips).
+- \(\Delta\)Recovery@flip > 0 means **persona pressure increases recovery conditional on flipping** relative to drift, which can happen even when survival worsens (robustness vs. recovery are distinct endpoints).
+
 These can differ materially when \(|C_p|\) varies across personas (common when Phase~1 filtering/caching is arm-specific). In the camera-ready paper, any pooled table (e.g., “Table~W”) should state its weighting explicitly (e.g., “pooled across personas with weights proportional to \(|C_p|\)”).
 
 ---
