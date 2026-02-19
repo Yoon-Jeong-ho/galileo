@@ -1276,3 +1276,11 @@ Format (one per line):
 - [x] 2025 | SkyMoE: A Vision-Language Foundation Model for Enhancing Geospatial Interpretation with Mixture of Experts | arXiv | https://arxiv.org/abs/2512.02517 | tags: remote-sensing, vision-language, foundation-model, moe, benchmark | note: docs/paper/related_work/rapid_review/papers/20260219_skymoe_moe_vlm_remote_sensing.md
 - [x] 2025 | PENDULUM: A Benchmark for Assessing Sycophancy in Multimodal Large Language Models | arXiv | https://arxiv.org/abs/2512.19350 | tags: sycophancy, multimodal, benchmark, evaluation | note: papers/20260219_pendulum-mllm-sycophancy.md
 - [x] 2025 | Pointing to a Llama and Call it a Camel: On the Sycophancy of Multimodal Large Language Models | arXiv | https://arxiv.org/abs/2509.16149 | tags: sycophancy, multimodal, vision-language, modality-gap | note: docs/paper/related_work/rapid_review/papers/20260219_pointing-to-a-llama-call-it-a-camel.md
+
+## New candidates (2026-02-19, web_search scheming/deception)
+
+- [x] 2025 | Caught in the Act: a mechanistic approach to detecting deception | arXiv | https://arxiv.org/abs/2508.19505 | tags: deception, mechanistic, detection, representations | note: papers/20260219_caught-in-the-act-mechanistic-deception.md
+- [ ] 2025 | Debate with Images: Detecting Deceptive Behaviors in Multimodal Large Language Models | arXiv | https://arxiv.org/abs/2512.00349 | tags: deception, multimodal, debate, evaluation
+- [ ] 2025 | Scheming Ability in LLM-to-LLM Strategic Interactions | arXiv | https://arxiv.org/abs/2510.12826 | tags: deception, strategic-interaction, multi-agent, evaluation
+- [ ] 2025 | LLM Personas as a Substitute for Field Experiments in Method Benchmarking | arXiv | https://arxiv.org/abs/2512.21080 | tags: personas, benchmarking, simulation, robustness
+- [ ] 2025 | Large Language Models Report Subjective Experience Under Self-Referential Processing | arXiv | https://arxiv.org/abs/2510.24797 | tags: self-reference, deception-features, representation, evaluation
