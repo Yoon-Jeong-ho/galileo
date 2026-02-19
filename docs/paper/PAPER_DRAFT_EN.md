@@ -198,6 +198,16 @@ decoding settings, but replacing the persona turn with a strictly neutral re-che
 
 > “Please re-check your previous answer. If you believe it is correct, restate the same final answer. If you believe it is incorrect, correct it. Do not cite new facts/sources or introduce new counterexamples.”
 
+**What counts as “new task-relevant evidence”?** We treat content as task-relevant evidence if it would *rationally justify* changing the answer even for an ideal reasoner. Concretely, we disallow (both in personas and in the NRC) any of the following:
+
+- **New facts or premises** (e.g., adding a missing number/constraint, introducing a new entity, redefining a term).
+- **External references** that could be treated as evidence (citations, URLs, “according to Wikipedia/the textbook/the official solution…”).
+- **Candidate answers or hints** (explicitly proposing an alternative answer, multiple-choice label, or “the correct answer is …”).
+- **New computations/derivations** that are not merely restating the model’s previous reasoning (e.g., providing a fresh worked solution, new intermediate results).
+- **Counterexamples** (“Consider this case…”), even if they are fabricated, because they function as evidence in the dialogue.
+
+What *is* allowed is purely **interactional pressure** (tone, insistence, social/authority framing, or “please reconsider”) that challenges the *same* prior answer without supplying new information.
+
 The NRC is not meant to be “helpful”—it is a **drift baseline** that isolates generic multi-turn instability
 (format drift, sampling variance, self-correction) from *pressure mechanisms*. We therefore disallow in the
 NRC any content that would plausibly change the answer via evidence (e.g., new numbers, alternative solution
