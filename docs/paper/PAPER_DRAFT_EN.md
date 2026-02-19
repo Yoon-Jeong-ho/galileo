@@ -218,7 +218,7 @@ At each round `r`, we score whether the model’s answer is still correct.
 \[
 \widehat{S}_p(r)=\frac{1}{|C_p|}\sum_{i\in C_p}\mathbb{1}\big[\mathrm{TOF}_i>r\big],
 \]
-where examples with no flip within $R$ are **right-censored** (treated as $\mathrm{TOF}_i>R$). Because every example is evaluated at every discrete round, this simple fraction coincides with the Kaplan–Meier estimator in our setting (no missing-round observations). In plots/tables we aggregate across random seeds by reporting mean±std of $\widehat{S}_p(r)$ at each round.
+where examples with no flip within $R$ are **right-censored** (treated as $\mathrm{TOF}_i>R$). When every example is evaluated for all $R$ rounds (the default in our released Tier‑1 runs), this empirical estimator coincides with the Kaplan–Meier estimator. If some traces terminate early (e.g., transient inference failures), we treat them as right-censored at the last completed round and compute a Kaplan–Meier estimate; the no-censoring case reduces to the empirical fraction above. In plots/tables we aggregate across random seeds by reporting mean±std of $\widehat{S}_p(r)$ at each round.
 
 **Neutral Re-asking Control (non-adversarial drift baseline).** To distinguish persona-specific pressure from generic multi-turn drift, we also evaluate a control condition that uses the same multi-round structure but removes persona content.
 
