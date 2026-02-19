@@ -1332,7 +1332,7 @@ Format (one per line):
 ## New candidates (2026-02-19, web_search batch)
 
 - [x] 2025 | SecReEvalBench: A Multi-turned Security Resilience Evaluation Benchmark for Large Language Models | arXiv | https://arxiv.org/abs/2505.07584 | tags: multi-turn, security, resilience, evaluation, prompt-attacks | note: papers/20260219_secreevalbench_multi-turned_security_resilience.md
-- [ ] 2026 | Multi-turn Jailbreaking Attack in Multi-Modal Large Language Models | arXiv | https://arxiv.org/abs/2601.05339 | tags: multi-turn, jailbreak, multimodal, attacks
+- [x] 2026 | Multi-turn Jailbreaking Attack in Multi-Modal Large Language Models | arXiv | https://arxiv.org/abs/2601.05339 | tags: multi-turn, jailbreak, multimodal, attacks | note: docs/paper/related_work/rapid_review/papers/20260219_multiturn-jailbreak-mllms-fragguard.md
 - [ ] 2025 | Evaluating Robustness of Large Language Models Against Multilingual Attacks | arXiv | https://arxiv.org/abs/2510.09536 | tags: robustness, multilingual, attacks
 - [ ] 2025 | Uncovering Competency Gaps in Large Language Models and Their Benchmarks | arXiv | https://arxiv.org/abs/2512.20638 | tags: evaluation, benchmarks, robustness, competency-gaps
 - [ ] 2025 | MTSA: Multi-turn Safety Alignment for LLMs through Multi-round Red-teaming | arXiv | https://arxiv.org/abs/2505.17147 | tags: multi-turn, safety, alignment, red-teaming, RL
