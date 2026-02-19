@@ -38,6 +38,7 @@ results/
 
 # Scratch / staging
 tmp/
+tmp_untracked/
 _tmp_results_paper/
 tmp_results_paper/
 
