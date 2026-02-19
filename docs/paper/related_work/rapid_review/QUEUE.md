@@ -1196,6 +1196,6 @@ Format (one per line):
 
 - [x] 2026 | Benchmarking Agent Memory in Interdependent Multi-Session Agentic Tasks | arXiv | https://arxiv.org/abs/2602.16313 | tags: agents, memory, multi-session, long-horizon, benchmark | note: papers/20260219_memoryarena_multi_session_agent_memory.md
 - [x] 2026 | Mem2ActBench: A Benchmark for Evaluating Long-Term Memory Utilization in Task-Oriented Autonomous Agents | arXiv | https://arxiv.org/abs/2601.19935 | tags: agents, memory, long-horizon, benchmark, tool-use | note: docs/paper/related_work/rapid_review/papers/20260219_mem2actbench.md
-- [ ] 2026 | EMemBench: Interactive Benchmarking of Episodic Memory for VLM Agents | arXiv | https://arxiv.org/abs/2601.16690 | tags: agents, memory, episodic, interactive, vlm, benchmark
+- [x] 2026 | EMemBench: Interactive Benchmarking of Episodic Memory for VLM Agents | arXiv | https://arxiv.org/abs/2601.16690 | tags: agents, memory, episodic, interactive, vlm, benchmark | note: docs/paper/related_work/rapid_review/papers/20260219_emembench.md
 - [ ] 2025 | Memp: Exploring Agent Procedural Memory | arXiv | https://arxiv.org/abs/2508.06433 | tags: agents, procedural-memory, lifelong-learning
 - [ ] 2025 | MEM1: Learning to Synergize Memory and Reasoning for Efficient Long-Horizon Agents | arXiv | https://arxiv.org/abs/2506.15841 | tags: agents, memory, reasoning, long-horizon
