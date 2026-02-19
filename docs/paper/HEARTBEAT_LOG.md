@@ -1259,3 +1259,9 @@ Next:
 - Updated `docs/paper/TIER1_GAP_CHECKLIST_20260219.md` to include the latest failed/nonterminal Pythia runs (`seed1_20260219_211411`, `seed1_20260219_211501`, `seed2_20260219_211411`).
 - Added explicit policy text: Pythia line is quarantined on current stack; no further blind retries without a concrete stack-level fix + smoke test.
 - Synced this decision in `docs/paper/STATUS.md` to keep heartbeat planning aligned with reviewer-risk priorities.
+
+### 2026-02-20 02:33 KST — Process lane: idle GPU policy clarified (0/1 are valid targets)
+
+- Synced operating interpretation with SSOT policy: on nlp8, GPUs **0–6** are valid if idle/not used by others; this explicitly includes GPU0/1.
+- Added a note in `docs/paper/STATUS.md` to prevent stale 4–7 banner text from blocking safe launches on idle GPU0/1.
+- Monitoring this heartbeat confirmed GPU0/1 idle while 2–6 were occupied; launch gating should use real-time idleness, not stale banner constraints.
