@@ -1265,3 +1265,9 @@ Next:
 - Synced operating interpretation with SSOT policy: on nlp8, GPUs **0–6** are valid if idle/not used by others; this explicitly includes GPU0/1.
 - Added a note in `docs/paper/STATUS.md` to prevent stale 4–7 banner text from blocking safe launches on idle GPU0/1.
 - Monitoring this heartbeat confirmed GPU0/1 idle while 2–6 were occupied; launch gating should use real-time idleness, not stale banner constraints.
+
+### 2026-02-20 03:34 KST — Experiments lane: CUDA preflight blocker confirmed on idle GPU0
+
+- On nlp8, GPU0 appeared idle in `nvidia-smi` (0%, 1MiB), but device-level preflight failed: `CUDA_VISIBLE_DEVICES=0` + torch CUDA tensor allocation returned `cudaErrorDevicesUnavailable`.
+- This reproduces the same failure class seen in the aborted fallback launch (`tier1_phi35mini_seed3_20260220_024525`) and indicates launch-time device availability races.
+- Decision: do not relaunch heavy experiments on snapshot-idle GPUs unless a direct CUDA preflight passes immediately before launch; meanwhile prioritize writing/process lock while maintaining `results_paper` parity.

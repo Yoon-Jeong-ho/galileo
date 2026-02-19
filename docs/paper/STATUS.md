@@ -43,6 +43,7 @@ Ground-truth tasks에서 multi-turn persona pressure 하에 **정답 유지(surv
 - **Cross-family extension note (Falcon-7B):** `tiiuae/falcon-7b-instruct` fails at vLLM init (`FalconConfig` missing `rope_parameters`) → likely transformers/vLLM compatibility issue; run is **incomplete** (no exports).
 - **Cross-family extension note (Pythia-2.8B):** fails because we requested `--max_model_len 4096` but model-derived max is 2048; fix by using `--max_model_len 2048` (preferred) instead of `VLLM_ALLOW_LONG_MAX_MODEL_LEN=1`.
 - **Pythia Tier-1 decision (2026-02-19 late):** `tier1_pythia2p8b_seed2_20260219_211411` was terminated after repeated nonterminal loops (800/800 then restart phases, no `EXPERIMENT COMPLETE`, no `paper_exports/`). Treat Pythia seed1/seed2 as **non-citable on current stack**; no further blind retries.
+- **Current infra blocker (2026-02-20 early):** even when GPU0 looked idle by `nvidia-smi`, direct CUDA preflight (`CUDA_VISIBLE_DEVICES=0` + torch tensor alloc) failed with `cudaErrorDevicesUnavailable`; this indicates launch-time device availability races beyond simple idle snapshots.
 - **Cross-family extension note (Zephyr-7B):** `tier1_zephyr7b_seed1_20260217_150053` has an empty `run.log` (likely interrupted before any output); treat as **incomplete** until rerun.
 - **EXAONE Tier-1 attempt status:** currently **failed/incomplete** due to `ImportError: RopeParameters` from `transformers.modeling_rope_utils` when loading EXAONE remote code; kept under `results_paper_incomplete/` (do not cite as evidence).
 
@@ -117,8 +118,8 @@ Ground-truth tasks에서 multi-turn persona pressure 하에 **정답 유지(surv
 
 - Immediate one-step plan:
   1) Keep Pythia quarantined as non-citable (seed1/seed2) unless we have a concrete stack-level fix.
-  2) If a truly idle GPU appears on nlp8, launch one stable Tier-1 fallback from `docs/paper/TIER1_GAP_CHECKLIST_20260219.md` with success-gated export/validation.
-  3) If no safe launch slot exists, use the heartbeat for claim↔evidence consistency/writing lock and keep `results_paper/` parity green.
+  2) Require **device-level CUDA preflight pass** (not just idle snapshot) before any fallback launch on nlp8.
+  3) Until preflight is stable, use heartbeats for claim↔evidence consistency/writing lock while keeping `results_paper/` parity green.
 
 - Working checklist:
   - `docs/paper/TIER1_GAP_CHECKLIST_20260219.md`
