@@ -849,7 +849,7 @@ Format (one per line):
 - [x] 2026 | CAR-bench: Evaluating the Consistency and Limit-Awareness of LLM Agents under Real-World Uncertainty | arXiv | https://arxiv.org/html/2601.22027v1 | tags: agents,consistency,uncertainty | note: docs/paper/related_work/rapid_review/papers/20260219_car_bench_consistency_limit_awareness.md
 - [x] 2025 | Multi-turn evaluation of anthropomorphic behaviours in large language models | arXiv | https://arxiv.org/html/2502.07077v3 | tags: multi-turn,anthropomorphism,risk | note: docs/paper/related_work/rapid_review/papers/20260219_anthrobench-multi-turn-anthropomorphic-behaviors.md
 
-- [ ] 2026 | A Single Revision Step Improves Token-Efficient LLM Reasoning | arXiv | https://arxiv.org/html/2602.02828 | tags: revision,multi-turn,robustness
+- [x] 2026 | A Single Revision Step Improves Token-Efficient LLM Reasoning | arXiv | https://arxiv.org/html/2602.02828 | tags: revision,multi-turn,robustness | note: docs/paper/related_work/rapid_review/papers/20260219_pacer-single-revision.md
 - [ ] 2025 | When Meaning Stays the Same, but Models Drift: Evaluating Quality of Service under Token-Level Behavioral Instability in LLMs | arXiv | https://arxiv.org/html/2506.10095 | tags: drift,stability,robustness
 
 - [x] 2025 | Navigating Rifts in Human-LLM Grounding: Study and Benchmark | arXiv | https://arxiv.org/abs/2503.13975 | tags: grounding, multi-turn, benchmark, instruction-following | note: docs/paper/related_work/rapid_review/papers/20260219_navigating-rifts-human-llm-grounding.md | duplicate queue entry
