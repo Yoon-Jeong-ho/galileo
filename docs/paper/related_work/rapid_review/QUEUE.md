@@ -1427,3 +1427,8 @@ Format (one per line):
 - [x] 2025 | EconEvals: Benchmarks and Litmus Tests for Economic Decision-Making by LLM Agents | arXiv | https://arxiv.org/abs/2503.18825 | tags: agents, evaluation, robustness, self-consistency | note: papers/20260220_econevals-economic-decision-making.md
 - [x] 2026 | A unified framework for evaluating robustness of Machine Learning Interpretability for Prospect Risking | arXiv | https://arxiv.org/abs/2602.14430 | tags: robustness, interpretability, evaluation | note: docs/paper/related_work/rapid_review/papers/20260220_unified-framework-robustness-interpretability-prospect-risking.md
 - [x] 2025 | Perspective Dial: Measuring Perspective of Text and Guiding LLM Outputs | arXiv | https://arxiv.org/abs/2506.23377 | tags: perspective, measurement, controllability, prompting | note: docs/paper/related_work/rapid_review/papers/20260220_perspective_dial.md
+
+## New candidates (2026-02-20, multi-turn jailbreak follow-up)
+
+- [x] 2025 | A Framework for Adaptive Multi-Turn Jailbreak Attacks on Large Language Models | arXiv | https://arxiv.org/html/2510.18728v1 | tags: multi-turn, jailbreak, adaptive-attacks, red-teaming | note: docs/paper/related_work/rapid_review/papers/20260220_harmnet_adaptive_multiturn_jailbreaks.md
+- [ ] 2026 | The Echo Chamber Multi-Turn LLM Jailbreak | arXiv | https://arxiv.org/html/2601.05742v1 | tags: multi-turn, jailbreak, echo-chamber, persuasion
