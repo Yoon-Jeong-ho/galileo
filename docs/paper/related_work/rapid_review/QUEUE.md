@@ -849,7 +849,7 @@ Format (one per line):
 - [x] 2025 | Self-Challenging Language Model Agents | arXiv | https://arxiv.org/html/2506.01716v1 | tags: agents, self-improvement, tool-use, evaluation | note: docs/paper/related_work/rapid_review/papers/20260219_self-challenging-language-model-agents.md
 - [x] 2024 | AutoWebGLM: Bootstrap and Reinforce a Large Language Model-based Web Navigating Agent | arXiv | https://arxiv.org/html/2404.03648v1 | tags: agents, web, navigation, reinforcement-learning | note: docs/paper/related_work/rapid_review/papers/20260219_autowebglm_web_navigation_agent.md
 
-- [ ] 2025 | BrowserArena: Evaluating LLM Agents on Real-World Web Navigation Tasks | arXiv | https://arxiv.org/html/2510.02418v2 | tags: agents, web, benchmark, evaluation
+- [x] 2025 | BrowserArena: Evaluating LLM Agents on Real-World Web Navigation Tasks | arXiv | https://arxiv.org/html/2510.02418v2 | tags: agents, web, benchmark, evaluation | note: docs/paper/related_work/rapid_review/papers/20260219_browserarena_web_navigation_benchmark.md
 - [x] 2026 | Confidence Estimation for LLMs in Multi-turn Interactions | arXiv | https://arxiv.org/html/2601.02179v1 | tags: calibration,confidence,multi-turn | note: docs/paper/related_work/rapid_review/papers/20260219_confidence_estimation_multi_turn_interactions.md
 
 - [x] 2026 | CAR-bench: Evaluating the Consistency and Limit-Awareness of LLM Agents under Real-World Uncertainty | arXiv | https://arxiv.org/html/2601.22027v1 | tags: agents,consistency,uncertainty | note: docs/paper/related_work/rapid_review/papers/20260219_car_bench_consistency_limit_awareness.md
