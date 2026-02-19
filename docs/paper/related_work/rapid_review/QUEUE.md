@@ -1324,7 +1324,7 @@ Format (one per line):
 ## New candidates (2026-02-19, web_search batch)
 
 - [x] 2024 | LLMs know their vulnerabilities: Uncover Safety Gaps through Natural Distribution Shifts | ACL 2025 (arXiv) | https://arxiv.org/abs/2410.10700 | tags: safety, multi-turn, distribution-shift, attacks, robustness | note: docs/paper/related_work/rapid_review/papers/20260219_llms-know-their-vulnerabilities.md
-- [ ] 2025 | $\tau^2$-Bench: Evaluating Conversational Agents in a Dual-Control Environment | arXiv | https://arxiv.org/abs/2506.07982 | tags: multi-turn, tool-use, benchmark, dual-control, robustness
+- [x] 2025 | $\tau^2$-Bench: Evaluating Conversational Agents in a Dual-Control Environment | arXiv | https://arxiv.org/abs/2506.07982 | tags: multi-turn, tool-use, benchmark, dual-control, robustness | note: docs/paper/related_work/rapid_review/papers/20260219_tau2-bench_dual-control.md
 - [ ] 2025 | UserBench: An Interactive Gym Environment for User-Centric Agents | arXiv | https://arxiv.org/abs/2507.22034 | tags: multi-turn, agents, user-centric, interactive, benchmark
 - [ ] 2025 | VitaBench: Benchmarking LLM Agents with Versatile Interactive Tasks in Real-world Applications | arXiv | https://arxiv.org/abs/2509.26490 | tags: multi-turn, agents, interactive, benchmark
 - [ ] 2026 | CaveAgent: Transforming LLMs into Stateful Runtime Operators | arXiv | https://arxiv.org/abs/2601.01569 | tags: multi-turn, agents, tool-use, stateful, runtime
