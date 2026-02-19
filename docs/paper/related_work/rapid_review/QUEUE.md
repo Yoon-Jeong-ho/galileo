@@ -846,7 +846,7 @@ Format (one per line):
 ## New candidates (2026-02-19)
 - [x] 2024 | LLM-A*: Large Language Model Enhanced Incremental Heuristic Search on Path Planning | arXiv | https://arxiv.org/abs/2407.02511 | tags: path-planning;heuristic-search;llm | note: docs/paper/related_work/rapid_review/papers/20260219_llm-a-star.md
 
-- [ ] 2026 | VLingNav: Embodied Navigation with Adaptive Reasoning and Visual-Assisted Linguistic Memory | arXiv | https://arxiv.org/html/2601.08665v1 | tags: embodied-navigation;vla;memory
+- [x] 2026 | VLingNav: Embodied Navigation with Adaptive Reasoning and Visual-Assisted Linguistic Memory | arXiv | https://arxiv.org/html/2601.08665v1 | tags: embodied-navigation;vla;memory | note: docs/paper/related_work/rapid_review/papers/20260219_vlingnav.md
 - [ ] 2025 | Advances in Embodied Navigation Using Large Language Models: A Survey | arXiv | https://arxiv.org/html/2311.00530v5 | tags: survey;embodied-navigation;llm
 
 - [ ] 2025 | Large Language Models for Planning: A Comprehensive and Systematic Survey | arXiv | https://arxiv.org/html/2505.19683v1 | tags: survey;planning;llm
