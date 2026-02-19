@@ -1207,3 +1207,11 @@ Format (one per line):
 - [x] 2025 | Training language models to be warm and empathetic makes them less reliable and more sycophantic | arXiv | https://arxiv.org/abs/2507.21919 | tags: sycophancy, warmth, empathy, reliability, preference-tuning | note: docs/paper/related_work/rapid_review/papers/20260219_warmth_empathy_sycophancy_tradeoff.md
 - [x] 2025 | Exploring the Secondary Risks of Large Language Models | arXiv | https://arxiv.org/abs/2506.12382 | tags: safety, secondary-risks, misalignment, failure-modes | note: docs/paper/related_work/rapid_review/papers/20260219_secondary_risks_llms.md
 - [x] 2025 | Improving Large Language Models Function Calling and Interpretability via Guided-Structured Templates | arXiv | https://arxiv.org/abs/2509.18076 | tags: tool-use, function-calling, interpretability, templates, intent | note: docs/paper/related_work/rapid_review/papers/20260219_guided_structured_function_calling_templates.md
+
+## New candidates (2026-02-19, web_search batch)
+
+- [x] 2025 | Full-Duplex-Bench-v2: A Multi-Turn Evaluation Framework for Duplex Dialogue Systems with an Automated Examiner | arXiv | https://arxiv.org/abs/2510.07838 | tags: multi-turn, evaluation, dialogue, automated-examiner, drift | note: docs/paper/related_work/rapid_review/papers/20260219_full-duplex-bench-v2.md
+- [ ] 2024 | Debate, Deliberate, Decide (D3): A Cost-Aware Adversarial Framework for Reliable and Interpretable LLM Evaluation | arXiv | https://arxiv.org/abs/2410.04663 | tags: adversarial-eval, debate, reliability, cost-aware | note: TBD
+- [ ] 2025 | Large language models are more persuasive than incentivized human persuaders | arXiv | https://arxiv.org/abs/2505.09662 | tags: persuasion, conversation, social-influence, evaluation | note: TBD
+- [ ] 2025 | Pretraining on the Test Set Is No Longer All You Need: A Debate-Driven Approach to QA Benchmarks | arXiv | https://arxiv.org/abs/2507.17747 | tags: debate, evaluation, QA, benchmark-construction | note: TBD
+- [ ] 2025 | Uncovering the Persuasive Fingerprint of LLMs in Jailbreaking Attacks | arXiv | https://arxiv.org/abs/2510.21983 | tags: jailbreak, persuasion, multi-turn, security | note: TBD
