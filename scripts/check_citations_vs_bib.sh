@@ -24,12 +24,15 @@ if [[ ! -f "$BIB_FILE" ]]; then
 fi
 
 if [[ "$#" -eq 0 ]]; then
-  # Default: scan the main Markdown drafts + any LaTeX sources under docs/paper/.
-  # Exclude the upstream EMNLP template, which intentionally cites template-only entries.
-  mapfile -t TEX_FILES < <(find docs/paper -type f -name "*.tex" \
-    ! -path "docs/paper/emnlp_template/*" \
-    | sort)
-  set -- docs/paper/PAPER_DRAFT_EN.md docs/paper/PAPER_DRAFT_KO.md "${TEX_FILES[@]}"
+  # Default: scan everything paper-facing under docs/paper/.
+  # (The repo does not always keep a single PAPER_DRAFT_*.md file around.)
+  # Exclude the upstream EMNLP template, which may cite template-only entries.
+  mapfile -t PAPER_FILES < <(
+    find docs/paper -type f \( -name "*.tex" -o -name "*.md" \) \
+      ! -path "docs/paper/emnlp_template/*" \
+      | sort
+  )
+  set -- "${PAPER_FILES[@]}"
 fi
 
 TMP_DIR="$(mktemp -d)"
@@ -54,7 +57,12 @@ for f in "$@"; do
     while(/\\cite[a-zA-Z]*\*?(?:\[[^\]]*\])*\{([^}]+)\}/g){
       $x=$1;
       for(split(/,\s*/,$x)){
+        s/^\s+|\s+$//g;
         next if $_ eq "";
+        # Common placeholder in drafts like \cite{...}
+        next if $_ eq "...";
+        # Be conservative: only keep plausible BibTeX keys.
+        next unless /^[A-Za-z0-9:._-]+$/;
         print "$_\n";
       }
     }
