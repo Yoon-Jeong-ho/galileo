@@ -851,7 +851,7 @@ Format (one per line):
 - [x] 2025 | AutoAdv: Automated Adversarial Prompting for Multi-Turn Jailbreaking of Large Language Models | arXiv | https://arxiv.org/html/2511.02376v1 | tags: multi-turn,jailbreak,automated | note: docs/paper/related_work/rapid_review/papers/20260219_autoadv-multi-turn-jailbreaking.md
 - [x] 2025 | Multi-turn Jailbreaking via Global Refinement and Active Fabrication | arXiv | https://arxiv.org/html/2506.17881v1 | tags: multi-turn,jailbreak,attack | note: docs/paper/related_work/rapid_review/papers/20260219_multi_turn_jailbreaking_global_refinement.md
 
-- [ ] 2025 | Multi-Turn Jailbreaks Are Simpler Than They Seem | arXiv | https://arxiv.org/html/2508.07646v1 | tags: multi-turn,jailbreak,robustness
+- [x] 2025 | Multi-Turn Jailbreaks Are Simpler Than They Seem | arXiv | https://arxiv.org/html/2508.07646v1 | tags: multi-turn,jailbreak,robustness | note: docs/paper/related_work/rapid_review/papers/20260219_multi_turn_jailbreaks_simpler.md
 - [x] 2024 | LLM-A*: Large Language Model Enhanced Incremental Heuristic Search on Path Planning | arXiv | https://arxiv.org/abs/2407.02511 | tags: path-planning;heuristic-search;llm | note: docs/paper/related_work/rapid_review/papers/20260219_llm-a-star.md
 
 - [x] 2026 | VLingNav: Embodied Navigation with Adaptive Reasoning and Visual-Assisted Linguistic Memory | arXiv | https://arxiv.org/html/2601.08665v1 | tags: embodied-navigation;vla;memory | note: docs/paper/related_work/rapid_review/papers/20260219_vlingnav.md
