@@ -848,7 +848,7 @@ Format (one per line):
 - [x] 2025 | Navigating Rifts in Human-LLM Grounding: Study and Benchmark | arXiv | https://arxiv.org/abs/2503.13975 | tags: grounding, multi-turn, benchmark, instruction-following | note: docs/paper/related_work/rapid_review/papers/20260219_navigating-rifts-human-llm-grounding.md | duplicate queue entry
 - [x] 2025 | Emergent Persuasion: Will LLMs Persuade Without Being Prompted? | arXiv | https://arxiv.org/abs/2512.22201 | tags: persuasion, emergent, safety, multi-turn | note: docs/paper/related_work/rapid_review/papers/20260219_emergent_persuasion_unprompted.md
 
-- [ ] 2025 | Can LLMs Generate High-Quality Task-Specific Conversations? | arXiv | https://arxiv.org/abs/2508.02931 | tags: multi-turn, conversation-generation, evaluation, instruction-following
+- [x] 2025 | Can LLMs Generate High-Quality Task-Specific Conversations? | arXiv | https://arxiv.org/abs/2508.02931 | tags: multi-turn, conversation-generation, evaluation, instruction-following | note: docs/paper/related_work/rapid_review/papers/20260219_task-specific-conversations-parameterization.md
 - [ ] 2025 | Optimizing for Persuasion Improves LLM Generalization: Evidence from Quality-Diversity Evolution of Debate Strategies | arXiv | https://arxiv.org/abs/2510.05909 | tags: persuasion, debate, multi-turn, generalization
 
 - [x] 2026 | LycheeDecode: Accelerating Long-Context LLM Inference via Hybrid-Head Sparse Decoding | arXiv | https://arxiv.org/abs/2602.04541 | tags: long-context, sparse-decoding, efficiency, inference | note: papers/20260219_lycheedecode.md
