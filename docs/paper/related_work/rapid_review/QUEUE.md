@@ -1136,4 +1136,4 @@ Format (one per line):
 
 ## New candidates (2026-02-19, web_search batch 3)
 - [x] 2025 | WAREX: Web Agent Reliability Evaluation on Existing Benchmarks | arXiv | https://arxiv.org/abs/2510.03285 | tags: web-agents, reliability, evaluation, benchmark | note: docs/paper/related_work/rapid_review/papers/20260219_warex-web-agent-reliability.md
-- [ ] 2025 | DataGovBench: Benchmarking LLM Agents for Real-World Data Governance Workflows | arXiv | https://arxiv.org/abs/2512.04416 | tags: agents, benchmarking, data-governance, workflows
+- [x] 2025 | DataGovBench: Benchmarking LLM Agents for Real-World Data Governance Workflows | arXiv | https://arxiv.org/abs/2512.04416 | tags: agents, benchmarking, data-governance, workflows | note: docs/paper/related_work/rapid_review/papers/20260219_datagovbench.md
