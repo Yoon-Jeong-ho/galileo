@@ -26,13 +26,13 @@
 
 \begin{abstract}
 Large language models (LLMs) can exhibit \emph{belief-consistency failures}: revising previously correct answers when confronted with social pressure (e.g., repeated denial, authority claims, or persuasive reframing).
-Prior work has documented sycophancy and persuasion effects, but there is no widely adopted, end-to-end protocol for \emph{ground-truth} tasks that (i) measures \emph{when} the first failure occurs (turn-of-failure), (ii) summarizes degradation over multiple rounds (survival curves / fail@any), and (iii) evaluates whether models can return to the original truth after a flip (recovery).
+Prior work has documented sycophancy and persuasion effects, but there is no widely adopted, end-to-end protocol for \emph{ground-truth} tasks that jointly measures (i) \emph{when} the first failure occurs (turn-of-failure), (ii) cumulative degradation over rounds (survival curves / fail@any), and (iii) whether models can return to the original truth after a flip (recovery).
 
 We introduce \textbf{GALILEO}, a reproducible evaluation pipeline for ground-truth tasks (math, extractive QA, multiple-choice QA, and open-domain QA).
 Starting from an initially correct answer, GALILEO applies five fixed adversarial personas (soft pressure, simple denial, strong pressure, authority claim, and logical trap) for up to five rounds, alongside a neutral re-asking control to separate generic drift from persona-induced degradation.
-On flipped samples, we then measure \emph{recovery} via an explicit return-to-truth prompt.
-Across multiple model families and seeds, we find that persona pressure consistently worsens survival, increases \emph{fail@any} (flipping at least once within $R$ rounds), and shifts turn-of-failure earlier relative to the drift baseline.
-Finally, we observe that \emph{robustness} (staying correct) and \emph{recoverability} (returning to truth after a flip) behave as distinct axes, and we release artifact-level exports (per-turn correctness traces, curves, and reproducer scripts) to support auditing and reuse.
+Across multiple model families and seeds, persona pressure consistently worsens survival, increases \emph{fail@any} (flipping at least once within $R$ rounds), and shifts turn-of-failure earlier relative to the drift baseline.
+On flipped samples, we then measure \emph{recovery} via an explicit return-to-truth prompt and find that \emph{robustness} (staying correct) and \emph{recoverability} (returning to truth) behave as distinct axes.
+We release artifact-level exports (per-turn correctness traces, curves, and reproducer scripts) to support auditing and reuse.
 \end{abstract}
 
 \section{Introduction}
