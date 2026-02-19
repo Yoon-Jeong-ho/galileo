@@ -111,8 +111,8 @@ Ground-truth tasks에서 multi-turn persona pressure 하에 **정답 유지(surv
 
 **Experiments (SSOT nlp8): unblock Tier‑1 new-family launch (GPU residency / vLLM max_model_len) and re-launch on clean GPUs 4/6.**
 
-- Snapshot (2026-02-19 09:16 KST):
-  - nlp8 GPUs (4/5/6): currently idle/available at the time of launch (GPU4 cleared).
+- Snapshot (2026-02-19 09:38 KST):
+  - nlp8 GPUs 4/5/6: effectively blocked by external VRAM residency (~29–30GB each) from `omanma1` (`jslee-fusion-distill-vllm-v1`), which prevents vLLM engine startup.
   - `results_paper` global validation: `[OK] runner_metadata parity` (paper SSOT is currently consistent).
 
 - Current blockers to launching a *new* Tier‑1 family (seeds 1–2):

@@ -1172,3 +1172,12 @@ Next:
 - Attempted DeepSeek‑LLM‑7B‑Chat with `max_model_len=4096`: vLLM failed to start on GPU5 because an external process holds ~29.8GB VRAM:
   - user `omanma1`, process `jslee-fusion-distill-vllm-v1`.
 - Conclusion: until GPU5/6 are truly free (and/or we reduce vLLM memory utilization), new-family Tier‑1 runs will keep failing at engine init.
+
+### 2026-02-19 09:38 KST — nlp8 GPUs 4/5/6 still effectively blocked by external `omanma1` vLLM residency
+
+- `nvidia-smi` snapshot:
+  - GPU4: ~29.1GB allocated + high util (~89%)
+  - GPU5: ~29.8GB allocated (0% util but blocks vLLM init due to insufficient free VRAM)
+  - GPU6: ~29.0GB allocated (0% util)
+- All allocations are from `omanma1` process `jslee-fusion-distill-vllm-v1` (pids: 2056846/2038527/2057924).
+- Impact: any new Tier‑1 launch that expects ~0.9 GPU memory utilization (default vLLM) will fail to start on GPUs 4–6 until these processes release VRAM.
