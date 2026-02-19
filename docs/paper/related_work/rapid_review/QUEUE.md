@@ -1105,3 +1105,11 @@ Format (one per line):
 - [x] 2025 | AgentHarm: A Benchmark for Measuring Harmfulness of LLM Agents | arXiv | https://arxiv.org/abs/2410.09024 | tags: agent-safety, harmfulness, tool-use, benchmark | note: docs/paper/related_work/rapid_review/papers/20260219_agentharm.md
 - [x] 2025 | Agent-SafetyBench: Evaluating the Safety of LLM Agents | arXiv | https://arxiv.org/abs/2412.14470 | tags: agent-safety, benchmark, tool-use, red-teaming | note: docs/paper/related_work/rapid_review/papers/20260219_agent-safetybench.md
 - [x] 2025 | Benchmarking the Robustness of Agentic Systems to Adversarially-Induced Harms | arXiv | https://arxiv.org/abs/2508.16481 | tags: agent-safety, robustness, adversarial, benchmark | note: docs/paper/related_work/rapid_review/papers/20260219_bad-acts.md
+
+## New candidates (2026-02-19, web_search batch)
+
+- [x] 2026 | Evaluating Memory Structure in LLM Agents | arXiv | https://arxiv.org/abs/2602.11243 | tags: agents, memory, evaluation, structure | note: docs/paper/related_work/rapid_review/papers/20260219_structmemeval-memory-structure.md
+- [ ] 2026 | ES-MemEval: Benchmarking Conversational Agents on Personalized Long-Term Emotional Support | arXiv | https://arxiv.org/abs/2602.01885 | tags: memory, emotional-support, personalization, benchmark, multi-session
+- [ ] 2026 | TraceMem: Weaving Narrative Memory Schemata from User Conversational Traces | arXiv | https://arxiv.org/abs/2602.09712 | tags: memory, narrative, retrieval, attribution, multi-session
+- [ ] 2026 | TeleMem: Building Long-Term and Multimodal Memory for Agentic AI | arXiv | https://arxiv.org/abs/2601.06037 | tags: memory, multimodal, agents, long-term
+- [ ] 2026 | SimpleMem: Efficient Lifelong Memory for LLM Agents | arXiv | https://arxiv.org/abs/2601.02553 | tags: memory, lifelong, agents, efficiency
