@@ -71,6 +71,7 @@ Ground-truth tasks에서 multi-turn persona pressure 하에 **정답 유지(surv
 - ✅ KO draft now includes an in-place **“수정/보완해야 할 것만” 리비전 TODO (SSOT 발췌, 8–12개)** for reviewer-risk-only edits: `docs/paper/PAPER_DRAFT_KO.md`.
 - ✅ Generated **submission-ready SVG figures** from tracked CSV artifacts under `docs/paper/figures/` (seed1–4; survival curves + ΔSurvival@5 + ΔFail@1 + ΔRecovery + Table W effect deltas).
 - ✅ Tightened the reviewer-facing **Claims → evidence** table to include explicit **LaTeX figure labels** (reduces proof-pointer drift): `docs/paper/PAPER_DRAFT_EN.md` (§9).
+- ✅ Synced `docs/paper/CLAIM_EVIDENCE_MAP.md` cross-family evidence pointers with current SSOT artifacts (removed stale Zephyr pending placeholder; now points to `tier1_zephyr7b_seed1-2_survival_summary_20260218.csv`).
 - ✅ Results section now has artifact-cited prose for survival/TOF/recovery/control-comparison (seed1–4) + a Results preface stating the seed/"auditable green" convention.
 - ✅ Added an explicit **Abstract proof-pointer line** (protocol/survival/TOF/recovery/Table W) to reduce reviewer search cost (`docs/paper/PAPER_DRAFT_EN.md`).
 - ✅ Made Intro §1.1 reviewer-skim friendly by adding an **“Evidence at a glance”** bullet list with explicit figure/table pointers; kept SSOT alignment via `docs/paper/CLAIM_EVIDENCE_MAP.md`.

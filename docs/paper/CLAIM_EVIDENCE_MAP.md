@@ -209,7 +209,7 @@ These are the exact “proof pointer” hooks we want a reviewer to notice in th
   - Artifact (CSV): `docs/paper/artifacts/tier1_llama3_8b_seed1-2_survival_summary_20260210.csv`
   - Artifact (CSV): `docs/paper/artifacts/tier1_llama3_3b_seed1-2_survival_summary_20260212.csv`
   - Artifact (CSV): `docs/paper/artifacts/tier1_phi3mini_seed1-2_survival_summary_20260217.csv`
-  - *(pending; once seed2 completes)* `docs/paper/artifacts/tier1_zephyr7b_seed1-2_survival_summary_<DATE>.csv`
+  - Artifact (CSV): `docs/paper/artifacts/tier1_zephyr7b_seed1-2_survival_summary_20260218.csv`
   - Regeneration (when `results_paper/` is synced locally; not tracked in git):
     - `python3 scripts/make_tier1_survival_summary.py --run_roots <run1>,<run2> --out_csv <artifact.csv>`
     - For Llama-3.2-3B seeds 1–2 specifically:

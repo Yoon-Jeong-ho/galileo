@@ -1247,3 +1247,9 @@ Next:
 - Executed hard cutoff by terminating tmux session `tier1_pythia2p8b_s2_g1_20260219_211411`; post-check showed GPU1 freed to idle.
 - Decision: quarantine Pythia seed1/seed2 as non-citable on current stack; no additional blind retries.
 - Next: launch one stable fallback target only when an idle GPU slot exists; otherwise continue writing/claim-evidence lock while keeping `results_paper/` parity green.
+
+### 2026-02-20 00:07 KST — Writing lane: claim-evidence map de-drifted for cross-family evidence
+
+- Updated `docs/paper/CLAIM_EVIDENCE_MAP.md` to remove stale “Zephyr pending” text and point to the existing tracked artifact `docs/paper/artifacts/tier1_zephyr7b_seed1-2_survival_summary_20260218.csv`.
+- This keeps C4 (cross-family replication) proof pointers consistent with current SSOT artifacts and reduces reviewer-facing drift risk.
+- Reflected the sync in `docs/paper/STATUS.md` under recent paper-writing/compliance updates.
