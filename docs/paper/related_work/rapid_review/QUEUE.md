@@ -1292,5 +1292,5 @@ Format (one per line):
 ## New candidates (2026-02-19, web_search prompt-injection batch)
 
 - [x] 2026 | Visual Memory Injection Attacks for Multi-Turn Conversations | arXiv | https://arxiv.org/abs/2602.15927 | tags: multi-turn, prompt-injection, multimodal, memory, attacks | note: docs/paper/related_work/rapid_review/papers/20260219_visual-memory-injection-attacks-multiturn.md
-- [ ] 2025 | LLMail-Inject: A Dataset from a Realistic Adaptive Prompt Injection Challenge | arXiv | https://arxiv.org/abs/2506.09956 | tags: prompt-injection, dataset, email, realistic, benchmark
+- [x] 2025 | LLMail-Inject: A Dataset from a Realistic Adaptive Prompt Injection Challenge | arXiv | https://arxiv.org/abs/2506.09956 | tags: prompt-injection, dataset, email, realistic, benchmark | note: docs/paper/related_work/rapid_review/papers/20260219_llmail_inject.md
 - [ ] 2025 | When AI Meets the Web: Prompt Injection Risks in Third-Party AI Chatbot Plugins | arXiv | https://arxiv.org/abs/2511.05797 | tags: prompt-injection, plugins, web, agents, security
