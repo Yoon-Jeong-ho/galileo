@@ -1245,4 +1245,4 @@ Format (one per line):
 - [x] https://arxiv.org/html/2506.00054v1 | note: docs/paper/related_work/rapid_review/papers/20260219_rag-survey-robustness-frontiers.md
 - [x] https://arxiv.org/abs/2309.15217 | note: docs/paper/related_work/rapid_review/papers/20260219_ragas-eval-rag.md
 - [x] https://arxiv.org/html/2507.18910v1 | note: docs/paper/related_work/rapid_review/papers/20260219_systematic-review-rag-systems.md
-- [ ] https://arxiv.org/html/2510.26205v2
+- [x] https://arxiv.org/html/2510.26205v2 | note: docs/paper/related_work/rapid_review/papers/20260219_globalqa-globalrag.md
