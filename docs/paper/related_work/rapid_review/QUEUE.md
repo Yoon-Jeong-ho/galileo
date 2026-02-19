@@ -1300,3 +1300,8 @@ Format (one per line):
 - [x] 2025 | FAIRGAMER: Evaluating Social Biases in LLM-Based Video Game NPCs | arXiv | https://arxiv.org/abs/2508.17825 | tags: multi-turn, npc, social-bias, games, evaluation | note: papers/20260219_fairgamer.md
 - [x] 2025 | Ask-to-Clarify: Resolving Instruction Ambiguity through Multi-turn Dialogue | arXiv | https://arxiv.org/abs/2509.15061 | tags: multi-turn, clarification, ambiguity, dialogue | note: docs/paper/related_work/rapid_review/papers/20260219_ask_to_clarify.md
 - [x] 2025 | An Empirical Study of the Role of Incompleteness and Ambiguity in Interactions with Large Language Models | arXiv | https://arxiv.org/abs/2503.17936 | tags: multi-turn, ambiguity, incompleteness, question-asking, robustness | note: docs/paper/related_work/rapid_review/papers/20260219_incompleteness_ambiguity_llm_interactions.md
+
+## New candidates (2026-02-19)
+
+- [x] 2026 | BiasLab: A Multilingual, Dual-Framing Framework for Robust Measurement of Output-Level Bias in Large Language Models | arXiv | https://arxiv.org/abs/2601.06861 | tags: bias, robustness, multilingual, framing, measurement | note: docs/paper/related_work/rapid_review/papers/20260219_biaslab.md
+- [ ] 2026 | DeFrame: Debiasing Large Language Models Against Framing Effects | arXiv | https://arxiv.org/abs/2602.04306 | tags: bias, framing-effects, debiasing, robustness
