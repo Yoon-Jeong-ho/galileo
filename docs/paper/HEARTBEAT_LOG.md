@@ -1155,3 +1155,12 @@ Next:
   - `ImportError: ... requires ... hf_olmo ... Run pip install hf_olmo`
 - GPUs 5/6 remained idle (no work executed).
 - Action: treat OLMo as blocked under current “no pip install / fixed env” constraint; pick a different model family that loads with stock transformers.
+
+### 2026-02-19 09:17 KST — Replaced OLMo (blocked) with StableLM‑2 1.6B Chat Tier‑1 seeds 1–2 (nlp8 GPUs 5/6)
+
+- OLMo blocked due to missing `hf_olmo` dependency (no pip-install policy), so switched to a stock-transformers family.
+- Preflight OK (AutoConfig load): `stabilityai/stablelm-2-1_6b-chat`.
+- Launched via tmux (one run per GPU):
+  - seed1 GPU5: `results/tier1_stablelm2_1p6b_seed1_20260219_091650/` (tmux: `tier1_stablelm2_1p6b_s1_g5_20260219_091650`)
+  - seed2 GPU6: `results/tier1_stablelm2_1p6b_seed2_20260219_091650/` (tmux: `tier1_stablelm2_1p6b_s2_g6_20260219_091650`)
+- Runner writes `paper_exports/` + `runner_metadata.json` and runs `validate_paper_exports.py`.

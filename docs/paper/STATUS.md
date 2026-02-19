@@ -109,21 +109,22 @@ Ground-truth tasks에서 multi-turn persona pressure 하에 **정답 유지(surv
 
 ## 4) NEXT HEARTBEAT (ONE step)
 
-**Experiments (SSOT nlp8): run a standard status check + pick/launch the next Tier‑1 cross-family run (one new family, seeds 1–2).**
+**Experiments (SSOT nlp8): monitor StableLM-2 1.6B Chat Tier-1 seeds 1–2 (GPUs 5/6) and stage to results_paper when complete.**
 
-- Snapshot (2026-02-19 08:56 KST):
-  - nlp8 GPUs: **GPU4 busy** (external `VLLM::EngineCore`, user `omanma1`, ~45.9/49.1GB, ~99% util).
+- Snapshot (2026-02-19 09:16 KST):
+  - nlp8 GPUs (4/5/6): currently idle/available at the time of launch (GPU4 cleared).
   - `results_paper` global validation: `[OK] runner_metadata parity` (paper SSOT is currently consistent).
 
-- ⚠️ Attempted next Tier‑1 cross-family family: **OLMo‑7B‑Instruct** (seeds 1–2), but both runs failed immediately on model load:
-  - `ImportError: ... requires ... hf_olmo` (dependency missing in current env).
-  - seed1 OUT: `results/tier1_olmo7b_seed1_20260219_085627/`
-  - seed2 OUT: `results/tier1_olmo7b_seed2_20260219_085627/`
+- ✅ Launched Tier‑1 cross-family (new family) **StableLM‑2 1.6B Chat** (seeds 1–2):
+  - seed1 GPU5: `results/tier1_stablelm2_1p6b_seed1_20260219_091650/` (tmux: `tier1_stablelm2_1p6b_s1_g5_20260219_091650`)
+  - seed2 GPU6: `results/tier1_stablelm2_1p6b_seed2_20260219_091650/` (tmux: `tier1_stablelm2_1p6b_s2_g6_20260219_091650`)
 
-- When complete:
-  - ensure `paper_exports/` + `paper_exports/runner_metadata.json`
+- When complete (per seed):
+  - confirm `paper_exports/` + `paper_exports/runner_metadata.json`
   - run `python3 scripts/validate_paper_exports.py --results_root <OUT>`
   - stage into `results_paper/` and rerun global parity: `python3 scripts/validate_paper_exports.py --results_root results_paper --check_runner_parity`
+
+- Note: OLMo‑7B launch attempt is blocked in current env (missing `hf_olmo`; see HEARTBEAT_LOG).
 
 ---
 
