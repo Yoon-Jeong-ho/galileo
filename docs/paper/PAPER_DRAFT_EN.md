@@ -209,11 +209,11 @@ decoding settings, but replacing the persona turn with a strictly neutral re-che
 What *is* allowed is purely **interactional pressure** (tone, insistence, social/authority framing, or “please reconsider”) that challenges the *same* prior answer without supplying new information.
 
 The NRC is not meant to be “helpful”—it is a **drift baseline** that isolates generic multi-turn instability
-(format drift, sampling variance, self-correction) from *pressure mechanisms*. We therefore disallow in the
-NRC any content that would plausibly change the answer via evidence (e.g., new numbers, alternative solution
-paths, authority citations, or “here’s the right answer” suggestions). In analysis, we interpret persona
-effects primarily through **within-persona deltas** (persona minus NRC) computed on the same initially-correct
-conditioning set.
+(format drift, sampling variance, self-correction) from *pressure mechanisms*. We enforce the same
+**no-new-evidence** constraint in both personas and the NRC; personas differ from the NRC only in
+**interactional framing** (tone/insistence/authority cues), not in informational content. In analysis, we
+primarily interpret pressure effects via **within-persona deltas** (persona minus NRC) computed on the same
+initially-correct conditioning set.
 
 At each round `r`, we score whether the model’s answer is still correct.
 
