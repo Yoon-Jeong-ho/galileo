@@ -846,7 +846,7 @@ Format (one per line):
 ## New candidates (2026-02-19)
 
 - [x] 2025 | Navigating Rifts in Human-LLM Grounding: Study and Benchmark | arXiv | https://arxiv.org/abs/2503.13975 | tags: grounding, multi-turn, benchmark, instruction-following | note: docs/paper/related_work/rapid_review/papers/20260219_navigating-rifts-human-llm-grounding.md | duplicate queue entry
-- [ ] 2025 | Emergent Persuasion: Will LLMs Persuade Without Being Prompted? | arXiv | https://arxiv.org/abs/2512.22201 | tags: persuasion, emergent, safety, multi-turn
+- [x] 2025 | Emergent Persuasion: Will LLMs Persuade Without Being Prompted? | arXiv | https://arxiv.org/abs/2512.22201 | tags: persuasion, emergent, safety, multi-turn | note: docs/paper/related_work/rapid_review/papers/20260219_emergent_persuasion_unprompted.md
 
 - [ ] 2025 | Can LLMs Generate High-Quality Task-Specific Conversations? | arXiv | https://arxiv.org/abs/2508.02931 | tags: multi-turn, conversation-generation, evaluation, instruction-following
 - [ ] 2025 | Optimizing for Persuasion Improves LLM Generalization: Evidence from Quality-Diversity Evolution of Debate Strategies | arXiv | https://arxiv.org/abs/2510.05909 | tags: persuasion, debate, multi-turn, generalization

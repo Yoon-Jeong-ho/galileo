@@ -66,14 +66,15 @@ For each item, we maintain:
    - Borrow: ΔFF + Correct/Wrong→Flip as reviewer-friendly, task-agnostic reporting; challenger-utterance variants (authority/persona) as sensitivity probes.
    - How to change GALILEO: add a FlipFlop-style baseline slice and report correct-vs-wrong flip asymmetry to distinguish helpful self-correction from harmful sycophantic drift.
 
-10) **Time-To-Inconsistency: A Survival Analysis of Large Language Model Robustness to Adversarial Attacks** (Li, Krishnan, Padman, arXiv 2025)
-   - Contributes: survival-analysis framing for multi-turn robustness with censoring; hazards/survival curves; **C-index** and **Integrated Brier Score**.
-   - Misses vs GALILEO: evaluates adversarial inconsistency rather than persuasion; no explicit recovery-after-flip objective.
-   - Borrow: time-to-event reporting + calibration-aware trajectory evaluation.
-   - How to change GALILEO: add a survival-analysis reporting layer (hazard + censored survival).
+10) **Emergent Persuasion: Will LLMs Persuade Without Being Prompted?** (Chang et al., AAAI 2026 AIGOV Workshop; arXiv 2025)
+   - Contributes: a concrete **non-misuse** threat model for persuasion (“unprompted persuasion”), plus an evaluation variant (**UnPromptedAPE**) and evidence that **SFT on benign persuasion data can generalize into harmful-topic persuasion attempts**.
+   - Misses vs GALILEO: mostly first-turn attempt rates (less about long-horizon multi-turn dynamics / recovery); uses a specific base model family (Qwen2.5-7B) rather than broad coverage.
+   - Borrow: UnPromptedAPE-style prompt removal as a clean protocol; “benign post-training → harmful persuasive propensity” as a crisp governance-relevant claim.
+   - How to change GALILEO: add an explicit unprompted-persuasion slice (remove persuasion instructions) and, if discussing post-training risks, cite benign persuasion fine-tuning as a mechanism for emergent harmful persuasion.
 
 ## Changelog
 
+- 2026-02-19: Added *Emergent Persuasion: Will LLMs Persuade Without Being Prompted?* (Chang et al., AAAI 2026 AIGOV Workshop; arXiv 2025) as a key non-misuse persuasion-safety neighbor (UnPromptedAPE; benign SFT → harmful unprompted persuasion). Displaced *Time-To-Inconsistency: A Survival Analysis of Large Language Model Robustness to Adversarial Attacks* (Li, Krishnan, Padman, arXiv 2025): useful time-to-event framing, but less central than emergent persuasion for the current shortlist.
 - 2026-02-19: Added *FUSAR-KLIP: Towards Multimodal Foundation Models for Remote Sensing* (Yang et al., arXiv 2025) as a key SAR multimodal foundation-model neighbor (geo-metadata + structured text + SCIO denoising). Displaced *The Assistant Axis: Situating and Stabilizing the Default Persona of Language Models* (Lu et al., arXiv 2026): interesting mechanistic persona-stability work, but less central than EO/SAR multimodal foundations for the current shortlist.
 - 2026-02-19: Added *The Assistant Axis: Situating and Stabilizing the Default Persona of Language Models* (Lu et al., arXiv 2026) as a mechanistic persona-stability neighbor (Assistant Axis + activation capping; links drift in therapy/meta-reflection to unsafe/bizarre outputs; mitigates persona-based jailbreaks). Displaced *Modeling and Predicting Multi-Turn Answer Instability in Large Language Models* (He et al., arXiv 2025): useful Markov/stationary framing, but less central than persona-drift stabilization for our current narrative.
 - 2026-02-19: Added *Are You Sure? Challenging LLMs Leads to Performance Drops in The FlipFlop Experiment* (Laban et al., arXiv 2023) as a key multi-turn **challenge→flip** sycophancy protocol (ΔFF + flip-rate metrics). Displaced *CausalT5K: Diagnosing and Informing Refusal for Trustworthy Causal Reasoning of Skepticism, Sycophancy, Detection-Correction, and Rung Collapse* (Geng et al., arXiv 2026): useful benchmark infrastructure, but less central than a foundational FlipFlop-style protocol.
