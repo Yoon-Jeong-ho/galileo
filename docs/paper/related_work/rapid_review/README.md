@@ -24,6 +24,11 @@ This directory is **rolling / SSOT** for the rapid review process.
 
 - Avoid brittle inline edits like `python3 -c "..."` for updating `QUEUE.md` (quoting/newlines frequently break).
 - Prefer dedicated helper scripts under `scripts/`.
+- **Always verify the progress bump actually changed the file** when a new substantive note was written:
+  - Run: `git diff -- docs/paper/related_work/rapid_review/PROGRESS.md`
+  - If it’s empty but you *did* write a new note, rerun:
+    - `python3 scripts/rapid_review_progress_increment.py --papers 1`
+  (This can happen if a concurrent cron run already incremented PROGRESS between your local view and the commit you’re preparing.)
 
 ### Common queue maintenance helpers
 
