@@ -56,3 +56,6 @@ tools/inkscape/
 
 # OS
 .DS_Store
+
+# downloaded LaTeX style files (generated)
+docs/paper/acl_style_files/
