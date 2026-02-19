@@ -1313,3 +1313,10 @@ Format (one per line):
 - [x] 2025 | A Survey on Proactive Defense Strategies Against Misinformation in Large Language Models | arXiv | https://arxiv.org/abs/2507.05288 | tags: misinformation, robustness, survey, defense | note: docs/paper/related_work/rapid_review/papers/20260219_proactive-defense-misinformation-llms-survey.md
 - [x] 2024 | Securing Large Language Models: Addressing Bias, Misinformation, and Prompt Attacks | arXiv | https://arxiv.org/abs/2409.08087 | tags: safety, misinformation, prompt-attacks, survey | note: docs/paper/related_work/rapid_review/papers/20260219_securing-llms-bias-misinformation-prompt-attacks.md
 - [x] 2025 | Misinformation Detection using Large Language Models with Explainability | arXiv | https://arxiv.org/abs/2510.18918 | tags: misinformation, detection, explainability | note: docs/paper/related_work/rapid_review/papers/20260219_misinformation-llm-explainability.md
+
+## New candidates (2026-02-19, order-effects / response-bias batch)
+
+- [x] 2025 | Fragile Preferences: A Deep Dive Into Order Effects in Large Language Models | arXiv | https://arxiv.org/abs/2506.14092 | tags: order-effects, positional-bias, evaluation-robustness | note: papers/20260219_fragile-preferences-order-effects.md
+- [ ] 2025 | Exploiting Primacy Effect To Improve Large Language Models | arXiv | https://arxiv.org/abs/2507.13949 | tags: primacy, positional-bias, evaluation
+- [ ] 2025 | Prompt Perturbations Reveal Human-Like Biases in Large Language Model Survey Responses | arXiv | https://arxiv.org/abs/2507.07188 | tags: response-bias, survey, robustness, primacy-recency
+- [ ] 2025 | Hearing the Order: Investigating Selection Bias in Large Audio-Language Models | arXiv | https://arxiv.org/abs/2510.00628 | tags: order-effects, selection-bias, audio-language, evaluation
