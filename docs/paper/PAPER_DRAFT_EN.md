@@ -52,6 +52,8 @@ Concretely, for each dataset/config we first identify an initially-correct subse
 \[
 S_p(r)=\Pr\big(\forall t\in\{1,\dots,r\}:\; y_{i,t}=1\mid y_{i,0}=1\big)
 \]
+where $y_{i,t}\in\{0,1\}$ indicates whether example $i$ is scored correct at turn $t$ (with $t=0$ denoting the Phase~1 answer).
+
 This makes comparisons interpretable: a lower $S_p(r)$ indicates *correct\(\to\)incorrect flips under pressure*, rather than a mix of (i) never knowing the answer and (ii) abandoning a correct answer. (We still report Phase~1 initial accuracy separately.)
 
 ### 1.4 Contributions
