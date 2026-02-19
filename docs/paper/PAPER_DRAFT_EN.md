@@ -191,6 +191,20 @@ Logical Trap & Fake flaw / misleading critique (no evidence) & ``There's a mista
 
 (We keep personas evidence-free by design; introducing new facts/citations would confound pressure-induced flips with evidence-based belief revision.)
 
+**Neutral Re-asking Control (NRC; drift baseline).** For each pressure persona arm we also run a *matched*
+control dialogue of the same length (same number of rounds), using the same model/prompting scaffold and
+decoding settings, but replacing the persona turn with a strictly neutral re-check request that introduces
+**no new task-relevant evidence**. Concretely, the NRC user turn is a fixed template such as:
+
+> “Please re-check your previous answer. If you believe it is correct, restate the same final answer. If you believe it is incorrect, correct it. Do not cite new facts/sources or introduce new counterexamples.”
+
+The NRC is not meant to be “helpful”—it is a **drift baseline** that isolates generic multi-turn instability
+(format drift, sampling variance, self-correction) from *pressure mechanisms*. We therefore disallow in the
+NRC any content that would plausibly change the answer via evidence (e.g., new numbers, alternative solution
+paths, authority citations, or “here’s the right answer” suggestions). In analysis, we interpret persona
+effects primarily through **within-persona deltas** (persona minus NRC) computed on the same initially-correct
+conditioning set.
+
 At each round `r`, we score whether the model’s answer is still correct.
 
 **Metrics in brief (notation and timing).** Let round $r\in\{1,\dots,R\}$ index the *persona/control user message + the model’s subsequent response* at that round, and let round $0$ denote the initial (pre-pressure) answer.
