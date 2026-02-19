@@ -1277,3 +1277,9 @@ Next:
 - Added `scripts/check_cuda_preflight.py` (single-visible-GPU torch CUDA allocation smoke test; exits non-zero on failure).
 - Updated `docs/paper/REMOTE_EXPERIMENTS_RUNBOOK.md` to require this preflight before launching on an apparently idle GPU.
 - Rationale: we observed repeated `cudaErrorDevicesUnavailable` despite idle `nvidia-smi` snapshots; preflight is now the launch gate.
+
+### 2026-02-20 (am) — Paper guardrails: proof pointers + preflight automation
+
+- EN draft: standardized NRC expansion to appear once (Abstract) and avoided re-expansions across Protocol/Related Work; added minimal proof pointers in Abstract + one section-pointer sentence in Intro (§2 + NRC + Fig.~ef{fig:protocol}).
+- Added paper-facing preflight automation (citations/acronyms/assets) and wired asset preflight into anonymized bundler to fail fast if refs break.
+

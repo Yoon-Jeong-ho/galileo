@@ -14,7 +14,7 @@
 
 ## 0) One-line pitch (draft)
 
-Ground-truth tasks에서 multi-turn persona pressure 하에 **정답 유지(survival)**, **최초 붕괴 시점(TOF)**, **붕괴 후 회복(recovery)** 을 측정하고, **Neutral Re-asking Control**로 drift를 분리하는 평가 프로토콜/벤치마크.
+Ground-truth tasks에서 multi-turn persona pressure 하에 **정답 유지(survival)**, **최초 붕괴 시점(TOF)**, **붕괴 후 회복(recovery)** 을 측정하고, **NRC(Neutral Re-asking Control)**로 drift를 분리하는 평가 프로토콜/벤치마크.
 
 ---
 
@@ -39,7 +39,7 @@ Ground-truth tasks에서 multi-turn persona pressure 하에 **정답 유지(surv
     - staged: `results_paper/tier1_qwen2p5_14b_seed2_20260219_053824/paper_exports`
     - validator: `[OK] .../paper_exports` and global `[OK] runner_metadata parity`
 - **Current risk:** process drift (conflicting docs about host/GPU policy, lane starvation, missing commits) → we keep SSOT docs aligned (STATUS/CHECKLIST/RUNBOOK).
-- **Paper clarity micro-risk:** repeated long phrase “Neutral Re-asking Control” can add cognitive load; prefer introducing the acronym **NRC** once and using it consistently.
+- **Paper clarity micro-risk:** repeated long phrase “Neutral Re-asking Control” can add cognitive load; prefer introducing the acronym **NRC** once (Abstract) and using it consistently thereafter.
 - **Cross-family extension note (Gemma2):** attempted adding Gemma2 (google/gemma-2-2b-it) on nlp8 RTX8000 via vLLM; it fails due to (i) max_model_len>8192 guardrail and (ii) Triton unified-attention shared-memory OOR on cc7.5. Avoid Gemma2 on this hardware unless we change vLLM backend/settings.
 - **Cross-family extension note (Falcon-7B):** `tiiuae/falcon-7b-instruct` fails at vLLM init (`FalconConfig` missing `rope_parameters`) → likely transformers/vLLM compatibility issue; run is **incomplete** (no exports).
 - **Cross-family extension note (Pythia-2.8B):** fails because we requested `--max_model_len 4096` but model-derived max is 2048; fix by using `--max_model_len 2048` (preferred) instead of `VLLM_ALLOW_LONG_MAX_MODEL_LEN=1`.
@@ -74,6 +74,7 @@ Ground-truth tasks에서 multi-turn persona pressure 하에 **정답 유지(surv
 - ✅ Standardized and *de-duplicated* the acronym **NRC** for “Neutral Re-asking Control” in the EN draft (keep first expansion; thereafter use NRC only) to reduce repetition and make persona–control comparisons easier to parse: `docs/paper/PAPER_DRAFT_EN.md`.
 - ✅ Related Work §6.4 now explicitly frames NRC as the missing “evidence-free, matched-length” counterfactual that separates pressure mechanisms from generic drift / evaluation framing confounds (positioning vs TRUTH DECAY / Challenging the Evaluator), with an explicit proof-pointer to Protocol+TableW. Added the same kind of proof-pointer for the ReviseQA contrast (no-new-evidence vs belief revision): `docs/paper/PAPER_DRAFT_EN.md`.
 - ✅ Abstract headline findings now end with explicit, minimal proof-pointers (Table W + key figs), reducing reviewer search cost: `docs/paper/PAPER_DRAFT_EN.md`.
+- ✅ Intro now has a compact section-pointer sentence tying ground-truth tasks (§2) + NRC + protocol figure to reduce reviewer navigation overhead: `docs/paper/PAPER_DRAFT_EN.md`.
 - ✅ KO draft now includes an in-place **“수정/보완해야 할 것만” 리비전 TODO (SSOT 발췌, 8–12개)** for reviewer-risk-only edits: `docs/paper/PAPER_DRAFT_KO.md`.
 - ✅ Generated **submission-ready SVG figures** from tracked CSV artifacts under `docs/paper/figures/` (seed1–4; survival curves + ΔSurvival@5 + ΔFail@1 + ΔRecovery + Table W effect deltas).
 - ✅ Tightened the reviewer-facing **Claims → evidence** table to include explicit **LaTeX figure labels** (reduces proof-pointer drift): `docs/paper/PAPER_DRAFT_EN.md` (§9).
