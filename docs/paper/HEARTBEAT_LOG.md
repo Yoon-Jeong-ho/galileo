@@ -1181,3 +1181,12 @@ Next:
   - GPU6: ~29.0GB allocated (0% util)
 - All allocations are from `omanma1` process `jslee-fusion-distill-vllm-v1` (pids: 2056846/2038527/2057924).
 - Impact: any new Tier‑1 launch that expects ~0.9 GPU memory utilization (default vLLM) will fail to start on GPUs 4–6 until these processes release VRAM.
+
+### 2026-02-19 11:28 KST — Tier‑1 new-family run (DeepSeek‑LLM‑7B‑Chat) relaunched successfully after GPUs cleared; forced TRITON attention backend
+
+- GPUs 4/5/6 were fully free (no external VRAM residency).
+- Relaunched Tier‑1 new family: `deepseek-ai/deepseek-llm-7b-chat` with `max_model_len=4096` and `VLLM_ATTENTION_BACKEND=TRITON_ATTN` to avoid FlashInfer JIT (`ninja` missing) failure.
+- tmux sessions:
+  - seed1 GPU5: `tier1_deepseek7b_s1_g5_20260219_112728` (OUT: `results/tier1_deepseek7b_seed1_20260219_112728/`)
+  - seed2 GPU6: `tier1_deepseek7b_s2_g6_20260219_112728` (OUT: `results/tier1_deepseek7b_seed2_20260219_112728/`)
+- Both runs reached vLLM engine init and began model loading; `VLLM::EngineCore` is visible on GPUs 5/6.

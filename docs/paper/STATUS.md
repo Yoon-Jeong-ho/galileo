@@ -111,8 +111,8 @@ Ground-truth tasks에서 multi-turn persona pressure 하에 **정답 유지(surv
 
 **Experiments (SSOT nlp8): unblock Tier‑1 new-family launch (GPU residency / vLLM max_model_len) and re-launch on clean GPUs 4/6.**
 
-- Snapshot (2026-02-19 09:38 KST):
-  - nlp8 GPUs 4/5/6: effectively blocked by external VRAM residency (~29–30GB each) from `omanma1` (`jslee-fusion-distill-vllm-v1`), which prevents vLLM engine startup.
+- Snapshot (2026-02-19 11:28 KST):
+  - nlp8 GPUs 4/5/6 cleared (no external VRAM residency).
   - `results_paper` global validation: `[OK] runner_metadata parity` (paper SSOT is currently consistent).
 
 - Current blockers to launching a *new* Tier‑1 family (seeds 1–2):
@@ -121,9 +121,9 @@ Ground-truth tasks에서 multi-turn persona pressure 하에 **정답 유지(surv
   3) **External GPU residency:** GPU5 currently has ~29.8GB VRAM held by `omanma1` (`jslee-fusion-distill-vllm-v1`), which prevents vLLM engine init.
 
 - Operational plan:
-  - Prefer **GPU4 + GPU6** if truly clean; avoid GPU5 until `omanma1` releases VRAM.
-  - Choose a model that (a) does not require extra pip deps, and (b) supports `max_model_len>=8192` OR explicitly set `--max_model_len 4096` with a model that supports it.
-  - After launch: ensure `paper_exports/` + `runner_metadata.json`, validate per-run, then stage into `results_paper/` and re-run parity.
+  - ✅ Relaunched a new-family Tier‑1 run now that GPUs cleared: **DeepSeek‑LLM‑7B‑Chat** with `max_model_len=4096`.
+  - Important env workaround (no sudo): set `VLLM_ATTENTION_BACKEND=TRITON_ATTN` to avoid FlashInfer JIT requiring `ninja`.
+  - After completion: ensure `paper_exports/` + `runner_metadata.json`, validate per-run, stage into `results_paper/`, then re-run global parity.
 
 ---
 
