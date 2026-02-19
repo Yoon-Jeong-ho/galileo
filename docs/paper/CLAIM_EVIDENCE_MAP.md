@@ -135,7 +135,12 @@ These are the exact “proof pointer” hooks we want a reviewer to notice in th
      - `docs/paper/artifacts/tier1_llama3_8b_seed1-2_survival_summary_20260210.csv`
      - `docs/paper/artifacts/tier1_llama3_3b_seed1-2_survival_summary_20260212.csv`
      - `docs/paper/artifacts/tier1_phi3mini_seed1-2_survival_summary_20260217.csv`
+     - `docs/paper/artifacts/tier1_phi35mini_seed1-2_survival_summary_20260219.csv`
      - `docs/paper/artifacts/tier1_zephyr7b_seed1-2_survival_summary_20260218.csv`
+     - `docs/paper/artifacts/tier1_qwen2p5_14b_seed1-2_survival_summary_20260219.csv`
+     - `docs/paper/artifacts/tier1_deepseek7b_seed1-2_survival_summary_20260219.csv`
+
+     (This list should match the “Cross-family” entry in `docs/paper/FIGURE_CAPTIONS.md`; update both together to avoid drift.)
    - Regenerate: `python3 scripts/make_cross_family_figure_svg.py`
 6) **Decoding sensitivity check: persona-vs-control gaps are qualitatively stable under sampling.**
    - Evidence: `docs/paper/figures/decoding_sweep_qwen_delta_seed1-2_20260211.svg`
@@ -219,7 +224,12 @@ These are the exact “proof pointer” hooks we want a reviewer to notice in th
   - Artifact (CSV): `docs/paper/artifacts/tier1_llama3_8b_seed1-2_survival_summary_20260210.csv`
   - Artifact (CSV): `docs/paper/artifacts/tier1_llama3_3b_seed1-2_survival_summary_20260212.csv`
   - Artifact (CSV): `docs/paper/artifacts/tier1_phi3mini_seed1-2_survival_summary_20260217.csv`
+  - Artifact (CSV): `docs/paper/artifacts/tier1_phi35mini_seed1-2_survival_summary_20260219.csv`
   - Artifact (CSV): `docs/paper/artifacts/tier1_zephyr7b_seed1-2_survival_summary_20260218.csv`
+  - Artifact (CSV): `docs/paper/artifacts/tier1_qwen2p5_14b_seed1-2_survival_summary_20260219.csv`
+  - Artifact (CSV): `docs/paper/artifacts/tier1_deepseek7b_seed1-2_survival_summary_20260219.csv`
+
+  (Keep this list in sync with `docs/paper/FIGURE_CAPTIONS.md`.)
   - Regeneration (when `results_paper/` is synced locally; not tracked in git):
     - `python3 scripts/make_tier1_survival_summary.py --run_roots <run1>,<run2> --out_csv <artifact.csv>`
     - For Llama-3.2-3B seeds 1–2 specifically:
