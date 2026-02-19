@@ -1353,7 +1353,7 @@ Format (one per line):
 ## New candidates (2026-02-19, agentic-eval batch)
 
 - [x] 2025 | Stochasticity in Agentic Evaluations: Quantifying Inconsistency with Intraclass Correlation | arXiv | https://arxiv.org/abs/2512.06710 | tags: agents, evaluation, stochasticity, measurement, ICC | note: papers/20260219_stochasticity-agentic-evals-icc.md
-- [ ] 2025 | Holistic Agent Leaderboard: The Missing Infrastructure for AI Agent Evaluation | arXiv | https://arxiv.org/abs/2510.11977 | tags: agents, evaluation, leaderboard, infrastructure
+- [x] 2025 | Holistic Agent Leaderboard: The Missing Infrastructure for AI Agent Evaluation | arXiv | https://arxiv.org/abs/2510.11977 | tags: agents, evaluation, leaderboard, infrastructure | note: docs/paper/related_work/rapid_review/papers/20260219_holistic-agent-leaderboard-hal.md
 - [ ] 2026 | Trajectory Guard: A Lightweight, Sequence-Aware Model for Real-Time Anomaly Detection in Agentic AI | arXiv | https://arxiv.org/abs/2601.00516 | tags: agents, anomaly-detection, trajectories, monitoring
 - [ ] 2025 | Which Agent Causes Task Failures and When? On Automated Failure Attribution of LLM Multi-Agent Systems | arXiv | https://arxiv.org/abs/2505.00212 | tags: agents, debugging, failure-attribution, multi-agent
 - [ ] 2025 | Where LLM Agents Fail and How They can Learn From Failures | arXiv | https://arxiv.org/abs/2509.25370 | tags: agents, failures, taxonomy, dataset
