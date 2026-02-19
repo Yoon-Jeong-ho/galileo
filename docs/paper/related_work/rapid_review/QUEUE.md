@@ -1096,7 +1096,7 @@ Format (one per line):
 ## New candidates (2026-02-19, web_search)
 
 - [x] 2025 | Large Language Models for Robotics: A Survey | arXiv | https://arxiv.org/html/2311.07226v2 | tags: survey, llm-robotics, embodied | note: papers/20260219_llms-robotics-survey.md
-- [ ] 2025 | Large Model Empowered Embodied AI: A Survey on Decision-Making and Embodied Learning | arXiv | https://arxiv.org/html/2508.10399v1 | tags: survey, embodied-ai, decision-making
+- [x] 2025 | Large Model Empowered Embodied AI: A Survey on Decision-Making and Embodied Learning | arXiv | https://arxiv.org/html/2508.10399v1 | tags: survey, embodied-ai, decision-making | note: docs/paper/related_work/rapid_review/papers/20260219_large-model-empowered-embodied-ai-survey.md
 - [ ] 2025 | A Survey of Robotic Navigation and Manipulation with Physics Simulators in the Era of Embodied AI | arXiv | https://arxiv.org/html/2505.01458v1 | tags: survey, embodied-ai, simulators, navigation, manipulation
 - [ ] 2025 | Pure Vision Language Action (VLA) Models: A Comprehensive Survey | arXiv | https://arxiv.org/html/2509.19012v1 | tags: survey, vla, embodied
 - [ ] 2025 | A Survey on Vision-Language-Action Models for Embodied AI | arXiv | https://arxiv.org/html/2405.14093v5 | tags: survey, vla, embodied
