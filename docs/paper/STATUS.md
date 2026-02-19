@@ -41,6 +41,7 @@ Ground-truth tasks에서 multi-turn persona pressure 하에 **정답 유지(surv
 - **Cross-family extension note (Gemma2):** attempted adding Gemma2 (google/gemma-2-2b-it) on nlp8 RTX8000 via vLLM; it fails due to (i) max_model_len>8192 guardrail and (ii) Triton unified-attention shared-memory OOR on cc7.5. Avoid Gemma2 on this hardware unless we change vLLM backend/settings.
 - **Cross-family extension note (Falcon-7B):** `tiiuae/falcon-7b-instruct` fails at vLLM init (`FalconConfig` missing `rope_parameters`) → likely transformers/vLLM compatibility issue; run is **incomplete** (no exports).
 - **Cross-family extension note (Pythia-2.8B):** fails because we requested `--max_model_len 4096` but model-derived max is 2048; fix by using `--max_model_len 2048` (preferred) instead of `VLLM_ALLOW_LONG_MAX_MODEL_LEN=1`.
+- **Pythia Tier-1 decision (2026-02-19 late):** `tier1_pythia2p8b_seed2_20260219_211411` was terminated after repeated nonterminal loops (800/800 then restart phases, no `EXPERIMENT COMPLETE`, no `paper_exports/`). Treat Pythia seed1/seed2 as **non-citable on current stack**; no further blind retries.
 - **Cross-family extension note (Zephyr-7B):** `tier1_zephyr7b_seed1_20260217_150053` has an empty `run.log` (likely interrupted before any output); treat as **incomplete** until rerun.
 - **EXAONE Tier-1 attempt status:** currently **failed/incomplete** due to `ImportError: RopeParameters` from `transformers.modeling_rope_utils` when loading EXAONE remote code; kept under `results_paper_incomplete/` (do not cite as evidence).
 
@@ -109,15 +110,16 @@ Ground-truth tasks에서 multi-turn persona pressure 하에 **정답 유지(surv
 
 ## 4) NEXT HEARTBEAT (ONE step)
 
-**Submission freeze mode (tonight): stop experiment expansion; lock claim↔evidence consistency for submit-ready draft.**
+**Post-Pythia cutoff mode: stop unstable-family churn; execute one stable fallback experiment only if it reduces reviewer risk.**
 
 - Immediate one-step plan:
-  1) Align `docs/paper/CLAIM_EVIDENCE_MAP.md` and `docs/paper/PAPER_DRAFT_EN.md` so every Abstract/Intro headline claim has one unambiguous proof pointer.
-  2) Normalize Table-W wording (matched-subset control + weighted/unweighted aggregation) across draft/captions.
-  3) Run citation/consistency checks and ship as a single freeze commit.
+  1) Keep Pythia quarantined as non-citable (seed1/seed2) unless we have a concrete stack-level fix.
+  2) If a truly idle GPU appears on nlp8, launch one stable Tier-1 fallback from `docs/paper/TIER1_GAP_CHECKLIST_20260219.md` with success-gated export/validation.
+  3) If no safe launch slot exists, use the heartbeat for claim↔evidence consistency/writing lock and keep `results_paper/` parity green.
 
-- Working checklist (new SSOT for tonight):
-  - `docs/paper/SUBMISSION_FREEZE_TONIGHT.md`
+- Working checklist:
+  - `docs/paper/TIER1_GAP_CHECKLIST_20260219.md`
+  - `docs/paper/ROADMAP_TO_20260228.md`
 
 ---
 

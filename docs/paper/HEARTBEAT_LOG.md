@@ -1240,3 +1240,10 @@ Next:
 - Added freeze SSOT checklist: `docs/paper/SUBMISSION_FREEZE_TONIGHT.md`.
 - Updated `docs/paper/STATUS.md` Next Heartbeat to claim↔evidence lock workflow.
 - Intent: prioritize submit-ready narrative consistency (Abstract/Intro claims, proof pointers, Table-W wording, citation/consistency checks).
+
+### 2026-02-19 23:57 KST — Experiments lane: enforce Pythia hard cutoff (nonterminal run terminated)
+
+- Remote (nlp8): confirmed `results/tier1_pythia2p8b_seed2_20260219_211411` remained nonterminal (no `EXPERIMENT COMPLETE`, no `paper_exports/`) after repeated loop-like phases.
+- Executed hard cutoff by terminating tmux session `tier1_pythia2p8b_s2_g1_20260219_211411`; post-check showed GPU1 freed to idle.
+- Decision: quarantine Pythia seed1/seed2 as non-citable on current stack; no additional blind retries.
+- Next: launch one stable fallback target only when an idle GPU slot exists; otherwise continue writing/claim-evidence lock while keeping `results_paper/` parity green.
