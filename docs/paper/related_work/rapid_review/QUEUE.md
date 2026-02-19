@@ -1103,5 +1103,5 @@ Format (one per line):
 
 ## New candidates (2026-02-19, web_search long-horizon safety)
 - [x] 2025 | AgentHarm: A Benchmark for Measuring Harmfulness of LLM Agents | arXiv | https://arxiv.org/abs/2410.09024 | tags: agent-safety, harmfulness, tool-use, benchmark | note: docs/paper/related_work/rapid_review/papers/20260219_agentharm.md
-- [ ] 2025 | Agent-SafetyBench: Evaluating the Safety of LLM Agents | arXiv | https://arxiv.org/abs/2412.14470 | tags: agent-safety, benchmark, tool-use, red-teaming
+- [x] 2025 | Agent-SafetyBench: Evaluating the Safety of LLM Agents | arXiv | https://arxiv.org/abs/2412.14470 | tags: agent-safety, benchmark, tool-use, red-teaming | note: docs/paper/related_work/rapid_review/papers/20260219_agent-safetybench.md
 - [ ] 2025 | Benchmarking the Robustness of Agentic Systems to Adversarially-Induced Harms | arXiv | https://arxiv.org/abs/2508.16481 | tags: agent-safety, robustness, adversarial, benchmark
