@@ -1401,6 +1401,6 @@ Format (one per line):
 - [x] 2025 | When Identity Skews Debate: Anonymization for Bias-Reduced Multi-Agent Reasoning | arXiv | https://arxiv.org/abs/2510.07517 | tags: multi-agent,debate,identity-bias,anonymization | note: docs/paper/related_work/rapid_review/papers/20260220_identity_skews_debate.md
 
 - [x] 2025 | Disentangling the Drivers of LLM Social Conformity: An Uncertainty-Moderated Dual-Process Mechanism | arXiv | https://arxiv.org/abs/2508.14918 | tags: conformity,uncertainty,social-influence,analysis | note: docs/paper/related_work/rapid_review/papers/20260220_llm-social-conformity-uncertainty-dual-process.md
-- [ ] 2025 | Free-MAD: Consensus-Free Multi-Agent Debate | arXiv | https://arxiv.org/abs/2509.11035 | tags: multi-agent,debate,anti-conformity,robustness
+- [x] 2025 | Free-MAD: Consensus-Free Multi-Agent Debate | arXiv | https://arxiv.org/abs/2509.11035 | tags: multi-agent,debate,anti-conformity,robustness | note: docs/paper/related_work/rapid_review/papers/20260220_free-mad.md
 
 - [ ] 2025 | An Empirical Study of Group Conformity in Multi-Agent Systems | arXiv | https://arxiv.org/abs/2506.01332 | tags: conformity,multi-agent,debate,opinion-dynamics
