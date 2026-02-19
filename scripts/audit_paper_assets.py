@@ -6,11 +6,15 @@ Why:
 - stdlib only.
 
 Currently checks:
-- In docs/paper/PAPER_DRAFT_EN.md, find occurrences of
+- Figures: In docs/paper/PAPER_DRAFT_EN.md, find occurrences of
     \\includegraphics{figures/<name>}
   and verify that at least one of these exists locally:
     - paper_figures/pdf/<name>.pdf
     - docs/paper/figures/<name>.svg
+- Artifacts: In docs/paper/PAPER_DRAFT_EN.md and docs/paper/FIGURE_CAPTIONS.md,
+  find occurrences of
+    docs/paper/artifacts/<name>.csv
+  and verify those files exist.
 
 Notes:
 - We intentionally do not parse full LaTeX; we use a simple regex that matches
@@ -31,11 +35,17 @@ from pathlib import Path
 
 
 DRAFT = Path("docs/paper/PAPER_DRAFT_EN.md")
+CAPTIONS = Path("docs/paper/FIGURE_CAPTIONS.md")
 SVG_DIR = Path("docs/paper/figures")
 PDF_DIR = Path("paper_figures/pdf")
 
 
 INCLUDE_RE = re.compile(r"\\includegraphics\[[^\]]*\]\{figures/([^}]+)\}")
+ARTIFACT_RE = re.compile(r"docs/paper/artifacts/([^\s`]+?\.csv)")
+
+
+def _read(path: Path) -> str:
+    return path.read_text(encoding="utf-8")
 
 
 def main() -> int:
@@ -43,27 +53,41 @@ def main() -> int:
         print(f"[FAIL] missing draft: {DRAFT}")
         return 1
 
-    text = DRAFT.read_text(encoding="utf-8")
-    names = INCLUDE_RE.findall(text)
+    draft_text = _read(DRAFT)
+    caption_text = _read(CAPTIONS) if CAPTIONS.exists() else ""
 
-    if not names:
+    # ---- Figure assets ----
+    fig_names = INCLUDE_RE.findall(draft_text)
+    if not fig_names:
         print("[WARN] no \\includegraphics{figures/...} references found")
-        return 0
+    else:
+        missing_figs = []
+        for name in sorted(set(fig_names)):
+            svg = SVG_DIR / f"{name}.svg"
+            pdf = PDF_DIR / f"{name}.pdf"
+            if not svg.exists() and not pdf.exists():
+                missing_figs.append((name, svg, pdf))
 
-    missing = []
-    for name in sorted(set(names)):
-        svg = SVG_DIR / f"{name}.svg"
-        pdf = PDF_DIR / f"{name}.pdf"
-        if not svg.exists() and not pdf.exists():
-            missing.append((name, svg, pdf))
+        if missing_figs:
+            print(f"[FAIL] {len(missing_figs)} missing figure asset(s)")
+            for name, svg, pdf in missing_figs:
+                print(f"- figures/{name}: missing both {svg} and {pdf}")
+            return 1
 
-    if missing:
-        print(f"[FAIL] {len(missing)} missing figure asset(s)")
-        for name, svg, pdf in missing:
-            print(f"- figures/{name}: missing both {svg} and {pdf}")
+        print(f"[OK] figures referenced in draft: {len(set(fig_names))}; all assets present")
+
+    # ---- Artifact CSV assets ----
+    artifact_names = ARTIFACT_RE.findall(draft_text + "\n" + caption_text)
+    artifact_paths = [Path("docs/paper/artifacts") / n for n in sorted(set(artifact_names))]
+
+    missing_artifacts = [p for p in artifact_paths if not p.exists()]
+    if missing_artifacts:
+        print(f"[FAIL] {len(missing_artifacts)} missing artifact CSV(s)")
+        for p in missing_artifacts:
+            print(f"- missing: {p}")
         return 1
 
-    print(f"[OK] figures referenced in draft: {len(set(names))}; all assets present")
+    print(f"[OK] artifact CSV references: {len(artifact_paths)}; all present")
     return 0
 
 
