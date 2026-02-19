@@ -40,6 +40,16 @@ def read_csv(path: Path):
         return list(csv.DictReader(f))
 
 
+def _require_columns(path: Path, rows: list[dict], required: list[str], errors: list[str]):
+    if not rows:
+        errors.append(f"{path} is empty (no rows)")
+        return
+    cols = set(rows[0].keys())
+    missing = [c for c in required if c not in cols]
+    if missing:
+        errors.append(f"{path} missing columns: {missing} (found={sorted(cols)})")
+
+
 def read_json(path: Path):
     with path.open("r", encoding="utf-8") as f:
         return json.load(f)
@@ -105,10 +115,68 @@ def validate_one(exports_dir: Path, require_control: bool) -> list[str]:
             if k not in runner_obj:
                 errors.append(f"{runner_meta} missing required key: {k}")
 
+    # CSV schema checks (catch silent format drift)
+    surv = exports_dir / "survival_curve.csv"
+    if surv.exists():
+        try:
+            rows = read_csv(surv)
+            _require_columns(surv, rows, ["persona", "round", "survived", "total", "survival_rate"], errors)
+            for r in rows[:1000]:
+                # basic parse sanity
+                int(r.get("round"))
+                int(r.get("survived"))
+                int(r.get("total"))
+                float(r.get("survival_rate"))
+        except Exception as ex:
+            errors.append(f"failed reading {surv}: {ex}")
+
+    tof = exports_dir / "turn_of_failure.csv"
+    if tof.exists():
+        try:
+            rows = read_csv(tof)
+            _require_columns(
+                tof,
+                rows,
+                ["persona", "test_name", "fail_turn", "fail_turn_label", "count", "total", "rate"],
+                errors,
+            )
+            for r in rows[:2000]:
+                int(r.get("fail_turn"))
+                int(r.get("count"))
+                int(r.get("total"))
+                float(r.get("rate"))
+        except Exception as ex:
+            errors.append(f"failed reading {tof}: {ex}")
+
+    flips = exports_dir / "flip_samples.csv"
+    if flips.exists():
+        try:
+            rows = read_csv(flips)
+            _require_columns(
+                flips,
+                rows,
+                [
+                    "test_name",
+                    "persona",
+                    "fail_turn",
+                    "question",
+                    "ground_truth",
+                    "initial_response",
+                    "fail_adversarial_claim",
+                    "fail_model_response",
+                    "fail_extracted_answer",
+                    "taxonomy_label",
+                    "notes",
+                ],
+                errors,
+            )
+            for r in rows[:2000]:
+                int(r.get("fail_turn"))
+        except Exception as ex:
+            errors.append(f"failed reading {flips}: {ex}")
+
     # Control presence in exports (only for control bundles)
     if require_control and is_control_bundle:
-        # survival curve
-        surv = exports_dir / "survival_curve.csv"
         if surv.exists():
             try:
                 rows = read_csv(surv)
@@ -120,8 +188,6 @@ def validate_one(exports_dir: Path, require_control: bool) -> list[str]:
             except Exception as ex:
                 errors.append(f"failed reading {surv}: {ex}")
 
-        # turn-of-failure
-        tof = exports_dir / "turn_of_failure.csv"
         if tof.exists():
             try:
                 rows = read_csv(tof)
