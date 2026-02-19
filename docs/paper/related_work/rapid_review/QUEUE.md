@@ -1305,3 +1305,11 @@ Format (one per line):
 
 - [x] 2026 | BiasLab: A Multilingual, Dual-Framing Framework for Robust Measurement of Output-Level Bias in Large Language Models | arXiv | https://arxiv.org/abs/2601.06861 | tags: bias, robustness, multilingual, framing, measurement | note: docs/paper/related_work/rapid_review/papers/20260219_biaslab.md
 - [x] 2026 | DeFrame: Debiasing Large Language Models Against Framing Effects | arXiv | https://arxiv.org/abs/2602.04306 | tags: bias, framing-effects, debiasing, robustness | note: docs/paper/related_work/rapid_review/papers/20260219_deframe_framing_debias.md
+
+## New candidates (2026-02-19, web_search batch)
+
+- [x] 2026 | Probing Multimodal Large Language Models on Cognitive Biases in Chinese Short-Video Misinformation | arXiv | https://arxiv.org/abs/2601.06600 | tags: misinformation, cognitive-bias, multimodal, social-cues | note: papers/20260219_mllm-cognitive-biases-shortvideo-misinfo.md
+- [ ] 2024 | Correcting misinformation on social media with a large language model | arXiv | https://arxiv.org/abs/2403.11169 | tags: misinformation, correction, social-media
+- [ ] 2025 | A Survey on Proactive Defense Strategies Against Misinformation in Large Language Models | arXiv | https://arxiv.org/abs/2507.05288 | tags: misinformation, robustness, survey, defense
+- [ ] 2024 | Securing Large Language Models: Addressing Bias, Misinformation, and Prompt Attacks | arXiv | https://arxiv.org/abs/2409.08087 | tags: safety, misinformation, prompt-attacks, survey
+- [ ] 2025 | Misinformation Detection using Large Language Models with Explainability | arXiv | https://arxiv.org/abs/2510.18918 | tags: misinformation, detection, explainability
