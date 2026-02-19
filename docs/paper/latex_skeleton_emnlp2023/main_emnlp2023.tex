@@ -19,6 +19,12 @@
 \usepackage{url}
 \usepackage{hyperref}
 
+% Compile-friendly helper: include a figure if the PDF snapshot exists; otherwise render a box.
+% (Keeps this LaTeX skeleton robust even when only the SVG SSOTs are present.)
+\newcommand{\maybeincludegraphics}[2][]{%
+  \IfFileExists{#2}{\includegraphics[#1]{#2}}{\fbox{\texttt{Missing file: #2}}}%
+}
+
 % Better fixed-width columns for long artifact paths.
 \newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
 
@@ -121,6 +127,39 @@ Figure~\ref{fig:cross-family-survival} illustrates the resulting survival curves
   \label{fig:protocol}
 \end{figure}
 
+% --- Core main results (compile-safe placeholders) ---
+% The SSOT for these figures lives under docs/paper/figures/*.svg. This LaTeX skeleton
+% optionally includes local PDF snapshots from ./figures if they exist.
+
+\begin{figure}[t]
+  \centering
+  \maybeincludegraphics[width=\linewidth]{figures/table_w_effect_delta_seed1-4_20260209}
+  \caption{Table W effect deltas (snapshot): control vs. persona pressure on matched initially-correct sets. SSOT SVG: \path{docs/paper/figures/table_w_effect_delta_seed1-4_20260209.svg}.}
+  \label{fig:tablew-effect-deltas}
+\end{figure}
+
+\begin{figure}[t]
+  \centering
+  \maybeincludegraphics[width=\linewidth]{figures/survival_curves_rounds_seed1-4_20260209}
+  \caption{Survival curves across rounds (snapshot): persona pressure reduces survival relative to the Neutral Re-asking Control drift baseline. SSOT SVG: \path{docs/paper/figures/survival_curves_rounds_seed1-4_20260209.svg}.}
+  \label{fig:survival-curves-rounds}
+\end{figure}
+
+\begin{figure}[t]
+  \centering
+  \maybeincludegraphics[width=\linewidth]{figures/tof_personawise_fail1_delta_seed1-4_20260209}
+  \caption{Early-turn vulnerability (snapshot): persona-wise Fail@1 deltas vs. control. SSOT SVG: \path{docs/paper/figures/tof_personawise_fail1_delta_seed1-4_20260209.svg}.}
+  \label{fig:tof-delta-fail1}
+\end{figure}
+
+\begin{figure}[t]
+  \centering
+  \maybeincludegraphics[width=\linewidth]{figures/recovery_personawise_delta_seed1-4_20260209}
+  \caption{Recovery after flipping (snapshot): persona-wise recovery deltas vs. control on flipped samples. SSOT SVG: \path{docs/paper/figures/recovery_personawise_delta_seed1-4_20260209.svg}.}
+  \label{fig:recovery-delta}
+\end{figure}
+
+% --- Robustness checks / generalization ---
 \begin{figure}[t]
   \centering
   % NOTE: SSOT (tracked artifact) lives in docs/paper/figures/ as an SVG.
