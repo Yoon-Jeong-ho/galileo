@@ -1266,3 +1266,11 @@ Format (one per line):
 - [x] 2026 | RealMem: Benchmarking LLMs in Real-World Memory-Driven Interaction | arXiv | https://arxiv.org/html/2601.06966 | tags: memory, long-horizon, multi-session, benchmark | note: docs/paper/related_work/rapid_review/papers/20260219_realmem-benchmark.md
 - [x] 2025 | Beyond a Million Tokens: Benchmarking and Enhancing Long-Term Memory in LLMs | arXiv | https://arxiv.org/html/2510.27246v1 | tags: long-context, long-term-memory, benchmark, enhancement | note: docs/paper/related_work/rapid_review/papers/20260219_beyond_million_tokens_beam_light.md
 - [x] 2025 | Evaluating Long-Term Memory for Long-Context Question Answering | arXiv | https://arxiv.org/html/2510.23730v1 | tags: long-term-memory, long-context, QA, evaluation | note: docs/paper/related_work/rapid_review/papers/20260219_evaluating-long-term-memory-for-long-context-qa.md
+
+## New candidates (2026-02-19, web_search refresh)
+
+- [x] 2025 | Hierarchical Pedagogical Oversight: A Multi-Agent Adversarial Framework for Reliable AI Tutoring | arXiv | https://arxiv.org/abs/2512.22496 | tags: tutoring, reliability, multi-agent, oversight, sycophancy-adjacent | note: docs/paper/related_work/rapid_review/papers/20260219_hierarchical_pedagogical_oversight_hpo.md
+- [ ] 2025 | Unspoken Hints: Accuracy Without Acknowledgement in LLM Reasoning | arXiv | https://arxiv.org/abs/2509.26041 | tags: hints, robustness, incorrect-hints, reasoning, sycophancy-adjacent
+- [ ] 2025 | Verifying Chain-of-Thought Reasoning via Its Computational Graph | arXiv | https://arxiv.org/abs/2510.09312 | tags: reasoning, verification, cot, reliability
+- [ ] 2025 | REMSA: An LLM Agent for Foundation Model Selection in Remote Sensing | arXiv | https://arxiv.org/abs/2511.17442 | tags: remote-sensing, foundation-models, agent, selection, evaluation
+- [ ] 2025 | SkyMoE: A Vision-Language Foundation Model for Enhancing Geospatial Interpretation with Mixture of Experts | arXiv | https://arxiv.org/abs/2512.02517 | tags: remote-sensing, vision-language, foundation-model, moe, benchmark
