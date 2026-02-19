@@ -21,7 +21,7 @@ Ground-truth tasks에서 multi-turn persona pressure 하에 **정답 유지(surv
 ## 1) NOW (what we are doing / what is true *right now*)
 
 - We are in a **10-min heartbeat loop**; each heartbeat must deliver **one primary lane** result and keep continuity via `STATUS.md` + `HEARTBEAT_LOG.md`.
-- **Remote experiments policy (needs confirmation; conflicting banners/docs):** paper SSOT + runbook historically used **nlp8 (GPUs 4/5/6)**, but current heartbeat banner points to **nlp16 (/mnt/raid6, GPUs 4/5/6/7)**.
+- **Remote experiments SSOT (confirmed):** paper-ready SSOT is **nlp8** (repo `/data_x/aa007878/galileo`, GPUs **0–6**, but **ONLY** those not used by other users). Heartbeat banner references to `nlp16` are stale.
   - **Observed now (nlp16):** GPUs 4/5 are heavily contended (e.g., `jslee-fusion-distill-vllm-v1` holding ~47GiB on GPU5; `eval-worker-gpu1` ~37GiB on GPU4), causing vLLM EngineCore init failures for new TP=4 starts.
   - **Action:** do not blindly relaunch vLLM when free-VRAM is low; fingerprint PIDs first.
 - **Canonical remote launcher (anti-drift):** prefer `scripts/run_multiseed_tmux.sh` (streams logs + writes `runner_metadata.json`). Other launch scripts are allowed only when explicitly justified in `results/<run>/run.log`.
@@ -103,7 +103,7 @@ Ground-truth tasks에서 multi-turn persona pressure 하에 **정답 유지(surv
 
 **Update (2026-02-18 evening):** nlp16 is reachable and contains legacy `results/` runs (e.g., `results/rerun_persona_seed1_20260210_1140/`), but we should treat it as **legacy/non-SSOT**: the specific run we tailed is **not progressing** (no live `run_experiment.py`, log mtime stale). New vLLM starts are also unreliable due to heavy external GPU occupancy on 4–7.
 
-**SSOT clarification:** all auditable “paper-ready” experiment work is SSOT on **nlp8** (repo `/data_x/aa007878/galileo`, GPUs 4–6) per `docs/paper/REMOTE_EXPERIMENTS_RUNBOOK.md`.
+**SSOT clarification:** all auditable “paper-ready” experiment work is SSOT on **nlp8** (repo `/data_x/aa007878/galileo`, GPUs **0–6 idle-only**) per `docs/paper/REMOTE_EXPERIMENTS_RUNBOOK.md`.
 
 ---
 

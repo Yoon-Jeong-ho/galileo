@@ -6,7 +6,7 @@ This runbook is for the **Experiments lane** in the 10-min heartbeat loop.
 
 - Remote host: `ssh nlp8`
 - Repo: `/data_x/aa007878/galileo`
-- GPUs: **4,5,6 only** (`CUDA_VISIBLE_DEVICES=4,5,6`)
+- GPUs: **0–6 (dynamic idle only)** (`CUDA_VISIBLE_DEVICES=<picked>`; pick only GPUs not used by other users)
 - Always use `tmux` so runs survive disconnects.
 - Avoid CPU overload: keep worker counts small; avoid multiple heavy runs at once.
 - **Logging reliability:** prefer launching via `bash -lc '... conda activate ...; python ... |& tee -a run.log'` rather than `conda run ... | tee ...`.
@@ -35,7 +35,7 @@ ssh nlp8 '
   echo "== tmux =="; (tmux ls || true)
   echo "== GPU (4-6) ==";
   # Prefer `-i` over post-filtering with awk/grep (avoids quoting bugs when running via ssh).
-  nvidia-smi -i 4,5,6 --query-gpu=index,name,utilization.gpu,memory.used,memory.total --format=csv,noheader
+  nvidia-smi -i 0,1,2,3,4,5,6 --query-gpu=index,name,utilization.gpu,memory.used,memory.total --format=csv,noheader
   echo "== newest results ==";
   ls -1t results | head -n 8
 '
@@ -67,9 +67,9 @@ Before launching on a GPU, **fingerprint what is already on it** (and do not ass
 
 ```bash
 ssh nlp8 '
-  for i in 4 5 6; do
+  for i in 0 1 2 3 4 5 6; do
     echo "-- GPU $i compute apps --"
-    nvidia-smi -i $i --query-compute-apps=pid,process_name,used_memory --format=csv,noheader,nounits
+    nvidia-smi -i $i --query-compute-apps=pid,process_name,used_memory,username --format=csv,noheader,nounits
   done
 '
 ```
