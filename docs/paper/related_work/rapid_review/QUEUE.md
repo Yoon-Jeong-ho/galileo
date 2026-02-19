@@ -1284,3 +1284,7 @@ Format (one per line):
 - [x] 2025 | Scheming Ability in LLM-to-LLM Strategic Interactions | arXiv | https://arxiv.org/abs/2510.12826 | tags: deception, strategic-interaction, multi-agent, evaluation | note: docs/paper/related_work/rapid_review/papers/20260219_scheming_llm_strategic_interactions.md
 - [x] 2025 | LLM Personas as a Substitute for Field Experiments in Method Benchmarking | arXiv | https://arxiv.org/abs/2512.21080 | tags: personas, benchmarking, simulation, robustness | note: docs/paper/related_work/rapid_review/papers/20260219_llm_personas_field_experiments_benchmarking.md
 - [x] 2025 | Large Language Models Report Subjective Experience Under Self-Referential Processing | arXiv | https://arxiv.org/abs/2510.24797 | tags: self-reference, deception-features, representation, evaluation | note: docs/paper/related_work/rapid_review/papers/20260219_llms_subjective_experience_self_referential_processing.md
+
+## New candidates (2026-02-19, web_search repetition)
+
+- [x] 2025 | Prompt Repetition Improves Non-Reasoning LLMs | arXiv | https://arxiv.org/abs/2512.14982 | tags: prompt-repetition, repeated-asking, robustness-adjacent, inference | note: docs/paper/related_work/rapid_review/papers/20260219_prompt-repetition-improves-non-reasoning-llms.md
