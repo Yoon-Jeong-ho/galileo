@@ -1230,3 +1230,9 @@ Format (one per line):
 - [x] 2025 | Persistent Instability in LLM’s Personality Measurements: Effects of Scale, Reasoning, and Conversation History | arXiv | https://arxiv.org/abs/2508.04826 | tags: personality, instability, conversation-history | note: docs/paper/related_work/rapid_review/papers/20260219_persist_personality_instability.md
 - [x] 2025 | Towards Strategic Persuasion with Language Models | arXiv | https://arxiv.org/abs/2509.22989 | tags: persuasion, strategy, dialogue | note: docs/paper/related_work/rapid_review/papers/20260219_strategic-persuasion-llms.md
 - [x] 2026 | Detecting Winning Arguments with Large Language Models and Persuasion Strategies | arXiv | https://arxiv.org/abs/2601.10660 | tags: persuasion, argument-quality, classification | note: docs/paper/related_work/rapid_review/papers/20260219_detecting_winning_arguments_msps.md
+
+## New candidates (2026-02-19, web_search batch)
+
+- [x] 2026 | Surgical Activation Steering via Generative Causal Mediation | arXiv | https://arxiv.org/abs/2602.16080 | tags: sycophancy, steering, interpretability, activation-steering, causal-mediation | note: papers/20260219_gcm-causal-mediation-steering.md
+- [ ] 2026 | Improving Interactive In-Context Learning from Natural Language Feedback | arXiv | https://arxiv.org/abs/2602.16066 | tags: multi-turn, feedback, in-context-learning, didactic-interaction, robustness
+- [ ] 2026 | From Diagnosis to Inoculation: Building Cognitive Resistance to AI Disempowerment | arXiv | https://arxiv.org/abs/2602.15265 | tags: sycophancy, disempowerment, ai-literacy, inoculation-theory, hci
