@@ -1317,6 +1317,6 @@ Format (one per line):
 ## New candidates (2026-02-19, order-effects / response-bias batch)
 
 - [x] 2025 | Fragile Preferences: A Deep Dive Into Order Effects in Large Language Models | arXiv | https://arxiv.org/abs/2506.14092 | tags: order-effects, positional-bias, evaluation-robustness | note: papers/20260219_fragile-preferences-order-effects.md
-- [ ] 2025 | Exploiting Primacy Effect To Improve Large Language Models | arXiv | https://arxiv.org/abs/2507.13949 | tags: primacy, positional-bias, evaluation
+- [x] 2025 | Exploiting Primacy Effect To Improve Large Language Models | arXiv | https://arxiv.org/abs/2507.13949 | tags: primacy, positional-bias, evaluation | note: docs/paper/related_work/rapid_review/papers/20260219_primacy-effect-mcqa-reorder.md
 - [ ] 2025 | Prompt Perturbations Reveal Human-Like Biases in Large Language Model Survey Responses | arXiv | https://arxiv.org/abs/2507.07188 | tags: response-bias, survey, robustness, primacy-recency
 - [ ] 2025 | Hearing the Order: Investigating Selection Bias in Large Audio-Language Models | arXiv | https://arxiv.org/abs/2510.00628 | tags: order-effects, selection-bias, audio-language, evaluation
