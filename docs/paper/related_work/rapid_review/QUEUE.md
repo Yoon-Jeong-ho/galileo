@@ -1024,3 +1024,11 @@ Format (one per line):
 - [x] 2026 | One Model, All Roles: Multi-Turn, Multi-Agent Self-Play Reinforcement Learning for Conversational Social Intelligence | arXiv | https://arxiv.org/abs/2602.03109 | tags: multi-agent, self-play, social-intelligence, multi-turn, RL | note: docs/paper/related_work/rapid_review/papers/20260219_omar_one-model-all-roles.md
 - [x] 2025 | Prompt Injection Attack to Tool Selection in LLM Agents (ToolHijacker) | arXiv | https://arxiv.org/abs/2504.19793 | tags: agents, prompt-injection, tool-selection, security, attacks | note: docs/paper/related_work/rapid_review/papers/20260219_toolhijacker.md
 - [x] 2026 | Learning to Inject: Automated Prompt Injection via Reinforcement Learning | arXiv | https://arxiv.org/abs/2602.05746 | tags: prompt-injection, attacks, RL, security | note: docs/paper/related_work/rapid_review/papers/20260219_learning_to_inject_autoinject.md
+
+## New candidates (2026-02-19, web_search batch)
+
+- [x] 2025 | Continuous Benchmark Generation for Evaluating Enterprise-scale LLM Agents | arXiv | https://arxiv.org/abs/2511.10049 | tags: agents, evaluation, enterprise, benchmark-generation | note: papers/20260219_continuous-benchmark-generation-enterprise-agents.md
+- [ ] 2025 | MCPVerse: An Expansive, Real-World Benchmark for Agentic Tool Use | arXiv | https://arxiv.org/abs/2508.16260 | tags: agents, tool-use, benchmark, mcp
+- [ ] 2025 | MCP-Radar: A Multi-Dimensional Benchmark for Evaluating Tool Use Capabilities in Large Language Models | arXiv | https://arxiv.org/abs/2505.16700 | tags: tool-use, evaluation, benchmark
+- [ ] 2025 | PaperBench: Evaluating AI's Ability to Replicate AI Research | arXiv | https://arxiv.org/abs/2504.01848 | tags: agents, reproducibility, benchmark, research
+- [ ] 2024 | CORE-bench: Fostering the Credibility of Published Research through a Computational Reproducibility Agent Benchmark | arXiv | https://arxiv.org/abs/2409.11363 | tags: agents, reproducibility, benchmark
