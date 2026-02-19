@@ -1055,3 +1055,11 @@ Format (one per line):
 - [x] 2024 | Foundation Models for Remote Sensing and Earth Observation: A Survey | arXiv | https://arxiv.org/html/2410.16602v3 | tags: remote-sensing, earth-observation, foundation-model, survey | note: docs/paper/related_work/rapid_review/papers/20260219_foundation-models-rs-eo-survey.md
 - [x] 2025 | PyViT-FUSE: A Foundation Model for Multi-Sensor Earth Observation Data | arXiv | https://arxiv.org/html/2504.18770v1 | tags: earth-observation, foundation-model, multi-sensor, fusion, multi-resolution | note: docs/paper/related_work/rapid_review/papers/20260219_pyvit-fuse.md
 - [x] 2025 | Earth Observation Foundation Model PhilEO: Pretraining on the MajorTOM and FastTOM Datasets | arXiv | https://arxiv.org/html/2506.14765v2 | tags: earth-observation, foundation-model, pretraining, dataset, MajorTOM | note: docs/paper/related_work/rapid_review/papers/20260219_phileo-majortom-fasttom.md
+
+## New candidates (2026-02-19, web_search)
+
+- [x] 2025 | Breaking the Benchmark: Revealing LLM Bias via Minimal Contextual Augmentation | arXiv | https://arxiv.org/abs/2510.23921 | tags: bias, evaluation, robustness | note: docs/paper/related_work/rapid_review/papers/20260219_breaking-benchmark-min-context-augmentation.md
+- [ ] 2025 | A Survey on Large Language Model Benchmarks | arXiv | https://arxiv.org/abs/2508.15361 | tags: survey, benchmarks, evaluation
+- [ ] 2025 | Make an Offer They Can't Refuse: Grounding Bayesian Persuasion in Real-World Dialogues without Pre-Commitment | arXiv | https://arxiv.org/abs/2510.13387 | tags: persuasion, bayesian, dialogue, strategy
+- [ ] 2025 | Must Read: A Systematic Survey of Computational Persuasion | arXiv | https://arxiv.org/abs/2505.07775 | tags: persuasion, survey, computational
+- [ ] 2026 | Predicting Biased Human Decision-Making with Large Language Models in Conversational Settings | arXiv | https://arxiv.org/abs/2601.11049 | tags: conversational, human-biases, evaluation
