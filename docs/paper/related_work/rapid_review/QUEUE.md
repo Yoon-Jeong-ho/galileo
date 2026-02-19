@@ -1412,3 +1412,11 @@ Format (one per line):
 - [x] 2024 | Machine Generated Product Advertisements: Benchmarking LLMs Against Human Performance | arXiv | https://arxiv.org/abs/2412.19610 | tags: persuasion, marketing, evaluation, generation | note: docs/paper/related_work/rapid_review/papers/20260220_machine_generated_product_advertisements.md
 - [x] 2024 | TheAgentCompany: Benchmarking LLM Agents on Consequential Real World Tasks | arXiv | https://arxiv.org/abs/2412.14161 | tags: agents, real-world, evaluation, consequential | note: docs/paper/related_work/rapid_review/papers/20260220_theagentcompany.md
 - [x] 2025 | Benchmark for Planning and Control with Large Language Model Agents: Blocksworld with Model Context Protocol | arXiv | https://arxiv.org/abs/2512.03955 | tags: agents, planning, tool-use, benchmark | note: docs/paper/related_work/rapid_review/papers/20260219_benchmark-blocksworld-mcp.md | duplicate queue entry
+
+## New candidates (2026-02-20, web_search late-night refresh)
+
+- [x] 2025 | How Overconfidence in Initial Choices and Underconfidence Under Criticism Modulate Change of Mind in Large Language Models | arXiv | https://arxiv.org/abs/2507.03120 | tags: change-of-mind, advice, criticism, calibration, multi-turn | note: docs/paper/related_work/rapid_review/papers/20260220_overconfidence-underconfidence-change-of-mind-llms.md
+- [ ] 2025 | Value Drifts: Tracing Value Alignment During LLM Post-Training | arXiv | https://arxiv.org/abs/2510.26707 | tags: value-alignment, post-training, drift, rlhf, dpo
+- [ ] 2025 | Moral Anchor System: A Predictive Framework for AI Value Alignment and Drift Prevention | arXiv | https://arxiv.org/html/2510.04073 | tags: value-alignment, drift, framework
+- [ ] 2025 | Too Open for Opinion? Embracing Open-Endedness in Large Language Models for Social Simulation | arXiv | https://arxiv.org/abs/2510.13884 | tags: social-simulation, opinion, evaluation, open-ended
+- [ ] 2025 | Towards Trustworthy Multi-Turn LLM Agents via Behavioral Guidance | arXiv | https://arxiv.org/html/2512.11421v1 | tags: agents, multi-turn, guidance, reliability
