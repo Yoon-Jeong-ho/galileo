@@ -1225,6 +1225,6 @@ Format (one per line):
 
 - [x] 2025 | Embodied Agents Meet Personalization: Investigating Challenges and Solutions Through the Lens of Memory Utilization | arXiv | https://arxiv.org/abs/2505.16348 | tags: personalization, memory, embodied-agents | note: papers/20260219_embodied-agents-personalization-memento.md
 - [x] 2026 | Revolutionizing Long-Term Memory in AI: New Horizons with High-Capacity and High-Speed Storage | arXiv | https://arxiv.org/abs/2602.16192 | tags: memory, storage, personalization | note: docs/paper/related_work/rapid_review/papers/20260219_revolutionizing_long_term_memory_stone.md
-- [ ] 2026 | How Do We Research Human-Robot Interaction in the Age of Large Language Models? A Systematic Review | arXiv | https://arxiv.org/abs/2602.15063 | tags: hri, systematic-review, llm-interaction
+- [x] 2026 | How Do We Research Human-Robot Interaction in the Age of Large Language Models? A Systematic Review | arXiv | https://arxiv.org/abs/2602.15063 | tags: hri, systematic-review, llm-interaction | note: docs/paper/related_work/rapid_review/papers/20260219_hri_llm_systematic_review.md
 - [ ] 2026 | PERSONA: Dynamic and Compositional Inference-Time Personality Control via Activation Vector Algebra | arXiv | https://arxiv.org/abs/2602.15669 | tags: persona, personality-control, activation-vectors
 - [ ] 2025 | Persistent Instability in LLM’s Personality Measurements: Effects of Scale, Reasoning, and Conversation History | arXiv | https://arxiv.org/abs/2508.04826 | tags: personality, instability, conversation-history
