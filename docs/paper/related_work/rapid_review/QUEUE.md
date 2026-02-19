@@ -1244,5 +1244,5 @@ Format (one per line):
 - [x] 2026 | From Diagnosis to Inoculation: Building Cognitive Resistance to AI Disempowerment | arXiv | https://arxiv.org/abs/2602.15265 | tags: sycophancy, disempowerment, ai-literacy, inoculation-theory, hci | note: docs/paper/related_work/rapid_review/papers/20260219_ai-disempowerment-inoculation.md
 - [x] https://arxiv.org/html/2506.00054v1 | note: docs/paper/related_work/rapid_review/papers/20260219_rag-survey-robustness-frontiers.md
 - [x] https://arxiv.org/abs/2309.15217 | note: docs/paper/related_work/rapid_review/papers/20260219_ragas-eval-rag.md
-- [ ] https://arxiv.org/html/2507.18910v1
+- [x] https://arxiv.org/html/2507.18910v1 | note: docs/paper/related_work/rapid_review/papers/20260219_systematic-review-rag-systems.md
 - [ ] https://arxiv.org/html/2510.26205v2
