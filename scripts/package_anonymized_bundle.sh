@@ -18,6 +18,12 @@ set -euo pipefail
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 OUT_DIR="${1:-$ROOT/tmp/anonymized_bundle}"
 
+# Optional preflight: fail fast if paper-facing figure/artifact references are broken.
+PREFLIGHT_ASSETS="${PREFLIGHT_ASSETS:-1}"
+if [[ "$PREFLIGHT_ASSETS" == "1" ]]; then
+  python3 "$ROOT/scripts/audit_paper_assets.py"
+fi
+
 rm -rf "$OUT_DIR"
 mkdir -p "$OUT_DIR"
 
