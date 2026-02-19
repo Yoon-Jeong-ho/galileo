@@ -1084,5 +1084,5 @@ Format (one per line):
 ## New candidates (2026-02-19, auto-fill)
 
 - [x] 2025 | MMPersuade: A Dataset and Evaluation Framework for Multimodal Persuasion | arXiv | https://arxiv.org/abs/2510.22768 | tags: persuasion, multi-turn, multimodal, evaluation | duplicate queue entry (note already exists) | note: docs/paper/related_work/rapid_review/papers/20260219_mmpersuade_multimodal_persuasion.md
-- [ ] 2025 | When Persuasion Overrides Truth in Multi-Agent LLM Debates: Introducing a Confidence-Weighted Persuasion Override Rate (CW-POR) | arXiv | https://arxiv.org/abs/2504.00374 | tags: persuasion, multi-agent, truthfulness, debate, metric
+- [x] 2025 | When Persuasion Overrides Truth in Multi-Agent LLM Debates: Introducing a Confidence-Weighted Persuasion Override Rate (CW-POR) | arXiv | https://arxiv.org/abs/2504.00374 | tags: persuasion, multi-agent, truthfulness, debate, metric | note: docs/paper/related_work/rapid_review/papers/20260219_persuasion_overrides_truth_cwpor.md
 - [ ] 2025 | PersuasiveToM: A Benchmark for Evaluating Machine Theory of Mind in Persuasive Dialogues | arXiv | https://arxiv.org/abs/2502.21017 | tags: persuasion, theory-of-mind, multi-turn, benchmark
