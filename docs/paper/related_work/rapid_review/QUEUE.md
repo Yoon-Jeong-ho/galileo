@@ -1168,3 +1168,11 @@ Format (one per line):
 - [x] 2025 | Rethinking Stateful Tool Use in Multi-Turn Dialogues: Benchmarks and Challenges | arXiv | https://arxiv.org/abs/2505.13328 | tags: tool-use, stateful, multi-turn, benchmark, agents | note: papers/20260219_rethinking-stateful-tool-use-dialogtool.md
 - [x] 2026 | TruthStance: An Annotated Dataset of Conversations on Truth Social | arXiv | https://arxiv.org/abs/2602.14406 | tags: stance, conversation, dataset, social-media | note: docs/paper/related_work/rapid_review/papers/20260219_truthstance_truth_social_dataset.md
 - [x] 2026 | Score: Specificity, Context Utilization, Robustness, and Relevance for Reference-Free LLM Evaluation | arXiv | https://arxiv.org/abs/2602.10017 | tags: evaluation, robustness, context-utilization, llm-as-judge | note: docs/paper/related_work/rapid_review/papers/20260219_score_reference_free_llm_eval.md
+
+## New candidates (2026-02-19, web_search batch)
+
+- [x] 2025 | Why Uncertainty Estimation Methods Fall Short in RAG: An Axiomatic Analysis | arXiv | https://arxiv.org/abs/2505.07459 | tags: rag, uncertainty, axioms, evaluation | note: docs/paper/related_work/rapid_review/papers/20260219_ue-fall-short-in-rag-axiomatic.md
+- [ ] 2025 | Uncertainty Quantification for Retrieval-Augmented Reasoning | arXiv | https://arxiv.org/abs/2510.11483 | tags: rag, uncertainty, reasoning, evaluation
+- [ ] 2025 | Understanding the Impact of Confidence in Retrieval Augmented Generation: A Case Study in the Medical Domain | arXiv | https://arxiv.org/abs/2412.20309 | tags: rag, confidence, calibration, medical
+- [ ] 2025 | Uncertainty Quantification in Retrieval Augmented Question Answering | arXiv | https://arxiv.org/abs/2502.18108 | tags: rag, uncertainty, qa
+- [ ] 2025 | Faithfulness-Aware Uncertainty Quantification for Fact-Checking the Output of Retrieval-Augmented Generation | arXiv | https://arxiv.org/abs/2505.21072 | tags: rag, uncertainty, fact-checking, faithfulness
