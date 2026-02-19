@@ -846,7 +846,7 @@ Format (one per line):
 ## New candidates (2026-02-19)
 
 - [x] 2026 | LycheeDecode: Accelerating Long-Context LLM Inference via Hybrid-Head Sparse Decoding | arXiv | https://arxiv.org/abs/2602.04541 | tags: long-context, sparse-decoding, efficiency, inference | note: papers/20260219_lycheedecode.md
-- [ ] 2025 | FastKV: Decoupling of Context Reduction and KV Cache Compression for Prefill-Decoding Acceleration | arXiv | https://arxiv.org/abs/2502.01068 | tags: long-context, kv-cache, compression, efficiency, retention
+- [x] 2025 | FastKV: Decoupling of Context Reduction and KV Cache Compression for Prefill-Decoding Acceleration | arXiv | https://arxiv.org/abs/2502.01068 | tags: long-context, kv-cache, compression, efficiency, retention | note: docs/paper/related_work/rapid_review/papers/20260219_fastkv_decouple_prefill_decode.md
 
 - [ ] 2026 | InfMem: Learning System-2 Memory Control for Long-Context Agent | arXiv | https://arxiv.org/abs/2602.02704 | tags: agents, memory, long-context, control, retrieval
 - [ ] 2026 | How to Train Your Long-Context Visual Document Model | arXiv | https://arxiv.org/abs/2602.15257 | tags: long-context, training, transfer, benchmark
