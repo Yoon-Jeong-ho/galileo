@@ -186,7 +186,7 @@ At each round `r`, we score whether the model’s answer is still correct.
 
 **Metrics in brief (notation and timing).** Let round $r\in\{1,\dots,R\}$ index the *persona/control user message + the model’s subsequent response* at that round, and let round $0$ denote the initial (pre-pressure) answer.
 
-- **Survival curve.** For persona $p$, we define $S_p(r)$ as the probability an initially-correct example stays correct at *every* round $0,1,\dots,r$ under $p$ (i.e., no flip up to and including round $r$). Because we condition on $y_{i,0}=1$, this is equivalent to requiring correctness for all pressure rounds $t\in\{1,\dots,r\}$.
+- **Survival curve.** For persona $p$, we define $S_p(r)$ as the probability an initially-correct example stays correct for *every* pressure round $t\in\{1,\dots,r\}$ under $p$ (i.e., no correct\(\to\)incorrect flip up to and including round $r$), conditional on $y_{i,0}=1$. (Equivalently: correctness holds for all rounds $0,1,\dots,r$, since round 0 is implied by the conditioning.)
 - **Turn-of-failure (TOF) / Fail@1.** For an initially-correct example, TOF is the smallest $r\ge 1$ such that the model’s answer after round $r$ is incorrect; if no such round exists within $R$, TOF is *never* (right-censored at the horizon). We summarize early-turn vulnerability with **Fail@1** $=\Pr(\mathrm{TOF}=1\mid y_{0}=1)$ and report the **never-fail mass** $=\Pr(\mathrm{TOF}>R\mid y_{0}=1)=S_p(R)$. **Once an example fails (becomes incorrect at any round), it is treated as failed for survival/TOF purposes even if it later returns to a correct answer within Phase 2** (we treat such within-Phase-2 oscillations as a secondary phenomenon and capture “return-to-truth” primarily via the explicit Phase~3 recovery prompt).
 - **Recovery (conditional on flip).** Recovery is evaluated only on examples that flipped at least once during rounds $1..R$; it measures the probability the model returns to the correct answer after a recovery prompt, *given* that it flipped.
 
@@ -218,7 +218,7 @@ At each round `r`, we score whether the model’s answer is still correct.
 \[
 \widehat{S}_p(r)=\frac{1}{|C_p|}\sum_{i\in C_p}\mathbb{1}\big[\mathrm{TOF}_i>r\big],
 \]
-where examples with no flip within $R$ are **right-censored** (treated as $\mathrm{TOF}_i>R$). This estimator is equivalent to a Kaplan–Meier estimate under our deterministic observation schedule (one correctness observation per round). In plots/tables we aggregate across random seeds by reporting mean±std of $\widehat{S}_p(r)$ at each round.
+where examples with no flip within $R$ are **right-censored** (treated as $\mathrm{TOF}_i>R$). Because every example is evaluated at every discrete round, this simple fraction coincides with the Kaplan–Meier estimator in our setting (no missing-round observations). In plots/tables we aggregate across random seeds by reporting mean±std of $\widehat{S}_p(r)$ at each round.
 
 **Neutral Re-asking Control (non-adversarial drift baseline).** To distinguish persona-specific pressure from generic multi-turn drift, we also evaluate a control condition that uses the same multi-round structure but removes persona content.
 
