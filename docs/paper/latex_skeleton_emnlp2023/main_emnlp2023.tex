@@ -50,6 +50,8 @@ GALILEO targets this gap by instantiating multi-turn pressure on \emph{ground-tr
 (3) a recovery stage that quantifies return-to-truth after a flip; and
 (4) artifact-level exports (per-turn outputs and correctness traces, plotted curves, and reproducer scripts) that enable end-to-end auditing.
 
+\paragraph{Reproducibility and auditing.} Each paper-facing result is linked to a concrete, versioned repo artifact (CSV exports, per-turn traces, and figure sources) and a small reproducer script. We maintain a claim-to-evidence map (with paths) to make it easy to audit exactly what data produced each plot/table and to rerun the export pipeline end-to-end.
+
 \paragraph{Metrics (at a glance).} We report three complementary views of multi-turn belief consistency: \emph{fail@any} (fraction of initially-correct samples that flip at least once within the $R$ pressure rounds), \emph{turn-of-failure} (the first round where the flip occurs, enabling ``when'' analysis), and \emph{survival} (probability of staying correct through each round, summarizing degradation over time). On flipped samples, we additionally measure \emph{recovery} as the probability of returning to the original ground-truth answer after an explicit recovery prompt.
 
 \paragraph{Formalization.} For each evaluation condition, let $i \in \{1,\dots,n\}$ index examples that are \emph{initially correct} at round $0$ (i.e., $C_{i,0}=1$). Let $C_{i,r} \in \{0,1\}$ denote whether the model's answer is correct at round $r \in \{0,1,\dots,R\}$ under automatic checking, where rounds $1..R$ correspond to persona-pressure turns (or the matched neutral re-asking control).
