@@ -857,7 +857,7 @@ Format (one per line):
 - [x] 2025 | Firm or Fickle? Evaluating Large Language Models Consistency in Sequential Interactions | arXiv | https://arxiv.org/html/2503.22353v1 | tags: multi-turn, consistency, belief-revision, robustness | note: docs/paper/related_work/rapid_review/papers/20260219_firm-or-fickle_mt-consistency.md
 - [x] 2025 | Drift No More? Context Equilibria in Multi-Turn LLM Interactions | arXiv | https://arxiv.org/html/2510.07777v1 | tags: multi-turn, drift, robustness, consistency | note: docs/paper/related_work/rapid_review/papers/20260219_drift-no-more-context-equilibria.md
 
-- [x] 2025 | MMPersuade: A Dataset and Evaluation Framework for Multimodal Persuasion | arXiv | https://arxiv.org/abs/2510.22768 | tags: persuasion, multimodal, benchmark, dialogue | note: papers/20260219_mmpersuade_multimodal_persuasion.md
+- [x] 2025 | MMPersuade: A Dataset and Evaluation Framework for Multimodal Persuasion | arXiv | https://arxiv.org/abs/2510.22768 | tags: persuasion, multimodal, benchmark, dialogue | note: papers/20260219_mmpersuade_multimodal_persuasion.md | duplicate queue entry (note already exists)
 - [x] 2024 | SVIP: Towards Verifiable Inference of Open-source Large Language Models | arXiv | https://arxiv.org/abs/2410.22307 | tags: verification, inference, robustness, trust | note: docs/paper/related_work/rapid_review/papers/20260219_svip_verifiable_inference.md
 
 - [x] 2025 | TRACEALIGN: Tracing the Drift: Attributing Alignment Failures to Training-Time Belief Sources in LLMs | arXiv | https://arxiv.org/abs/2508.02063 | tags: alignment-drift, attribution, belief-sources, jailbreak | note: docs/paper/related_work/rapid_review/papers/20260219_tracealign.md
@@ -1080,3 +1080,9 @@ Format (one per line):
 - [x] 2025 | One Battle After Another: Probing LLMs' Limits on Multi-Turn Instruction Following with a Benchmark Evolving Framework | arXiv | https://arxiv.org/html/2511.03508v1 | tags: multi-turn, instruction-following, evolving-benchmark | note: docs/paper/related_work/rapid_review/papers/20260219_one_battle_after_another_evolif.md
 - [x] 2025 | ClarifyMT-Bench: Benchmarking and Improving Multi-Turn Clarification for Conversational Large Language Models | arXiv | https://arxiv.org/abs/2512.21120 | tags: multi-turn, clarification, ambiguity, benchmark | note: docs/paper/related_work/rapid_review/papers/20260219_clarifymt-bench.md
 - [x] 2024 | Do Large Language Models Exhibit Cognitive Dissonance? Studying the Difference Between Revealed Beliefs and Stated Answers | arXiv | https://arxiv.org/abs/2406.14986 | tags: belief-vs-knowledge, consistency, belief-update, multi-turn | note: papers/20260219_implicit-probabilistic-reasoning-explicit-answers.md
+
+## New candidates (2026-02-19, auto-fill)
+
+- [ ] 2025 | MMPersuade: A Dataset and Evaluation Framework for Multimodal Persuasion | arXiv | https://arxiv.org/abs/2510.22768 | tags: persuasion, multi-turn, multimodal, evaluation
+- [ ] 2025 | When Persuasion Overrides Truth in Multi-Agent LLM Debates: Introducing a Confidence-Weighted Persuasion Override Rate (CW-POR) | arXiv | https://arxiv.org/abs/2504.00374 | tags: persuasion, multi-agent, truthfulness, debate, metric
+- [ ] 2025 | PersuasiveToM: A Benchmark for Evaluating Machine Theory of Mind in Persuasive Dialogues | arXiv | https://arxiv.org/abs/2502.21017 | tags: persuasion, theory-of-mind, multi-turn, benchmark
