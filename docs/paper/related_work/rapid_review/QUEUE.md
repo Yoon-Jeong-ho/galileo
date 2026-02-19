@@ -1120,3 +1120,8 @@ Format (one per line):
 - [x] 2025 | PsychiatryBench: A Multi-Task Benchmark for LLMs in Psychiatry | arXiv:2509.09711 | https://arxiv.org/abs/2509.09711 | tags: multi-turn, consistency, safety, domain-benchmark | note: docs/paper/related_work/rapid_review/papers/20260219_psychiatrybench.md
 - [x] 2026 | JudgeAgent: Beyond Static Benchmarks for Knowledge-Driven and Dynamic LLM Evaluation | arXiv:2509.02097 | https://arxiv.org/abs/2509.02097 | tags: dynamic-eval, multi-turn, adaptive-judge | note: docs/paper/related_work/rapid_review/papers/20260219_judgeagent_dynamic-llm-evaluation.md
 - [x] 2026 | Lost in Simulation: LLM-Simulated Users are Unreliable Proxies for Human Users in Agentic Evaluations | arXiv:2601.17087 | https://arxiv.org/abs/2601.17087 | tags: user-simulators, agent-eval, reliability, multi-turn | note: docs/paper/related_work/rapid_review/papers/20260219_lost_in_simulation_user_sim_unreliable.md
+
+## New candidates (2026-02-19, web_search batch 2)
+- [x] 2025 | Enhancing Personalized Multi-Turn Dialogue with Curiosity Reward | arXiv | https://arxiv.org/html/2504.03206v2 | tags: multi-turn, personalization, belief-state, rl | note: docs/paper/related_work/rapid_review/papers/20260219_curio_curiosity_reward_personalized_multiturn_dialogue.md
+- [ ] 2025 | Counterfactual Reward Model Training for Bias Mitigation in Multimodal Reinforcement Learning | arXiv | https://arxiv.org/html/2508.19567v1 | tags: robustness, drift, reward-model, bias-mitigation
+- [ ] 2025 | Machine Learning Robustness: A Primer (Chapter 0) | arXiv | https://arxiv.org/html/2404.00897v2 | tags: robustness, survey, adversarial, testing
