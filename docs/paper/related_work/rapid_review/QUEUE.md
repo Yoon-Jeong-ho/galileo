@@ -1152,3 +1152,13 @@ Format (one per line):
 - [x] 2026 | LLMs for Game Theory: Entropy-Guided In-Context Learning and Adaptive CoT Reasoning | arXiv | https://arxiv.org/abs/2601.10775 | tags: game-theory, entropy, reasoning, robustness-adjacent | note: docs/paper/related_work/rapid_review/papers/20260219_llms-game-theory-entropy-adaptive-cot.md
 - [x] 2026 | Game of Thought: Robust Information Seeking with Large Language Models Using Game Theory | arXiv | https://arxiv.org/abs/2602.01708 | tags: information-seeking, game-theory, robustness-adjacent | note: docs/paper/related_work/rapid_review/papers/20260219_game-of-thought-robust-info-seeking.md
 - [x] 2026 | When Numbers Start Talking: Implicit Numerical Coordination Among LLM-Based Agents | arXiv | https://arxiv.org/abs/2601.03846 | tags: multi-agent, coordination, entropy, robustness-adjacent | note: docs/paper/related_work/rapid_review/papers/20260219_when-numbers-start-talking.md
+
+## New candidates (2026-02-19, web_search batch 4)
+
+- [x] 2026 | Position: Introspective Experience from Conversational Environments as a Path to Better Learning | arXiv | https://arxiv.org/abs/2602.14910 | tags: introspection, conversational-envs, sycophancy-mention, safety | note: docs/paper/related_work/rapid_review/papers/20260219_position-introspective-experience-conversational-envs.md
+
+## New candidates (2026-02-19)
+
+- [x] 2025 | Rethinking Stateful Tool Use in Multi-Turn Dialogues: Benchmarks and Challenges | arXiv | https://arxiv.org/abs/2505.13328 | tags: tool-use, stateful, multi-turn, benchmark, agents | note: papers/20260219_rethinking-stateful-tool-use-dialogtool.md
+- [ ] 2026 | TruthStance: An Annotated Dataset of Conversations on Truth Social | arXiv | https://arxiv.org/abs/2602.14406 | tags: stance, conversation, dataset, social-media
+- [ ] 2026 | Score: Specificity, Context Utilization, Robustness, and Relevance for Reference-Free LLM Evaluation | arXiv | https://arxiv.org/abs/2602.10017 | tags: evaluation, robustness, context-utilization, llm-as-judge
