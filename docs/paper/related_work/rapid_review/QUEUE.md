@@ -849,7 +849,7 @@ Format (one per line):
 - [x] 2025 | FastKV: Decoupling of Context Reduction and KV Cache Compression for Prefill-Decoding Acceleration | arXiv | https://arxiv.org/abs/2502.01068 | tags: long-context, kv-cache, compression, efficiency, retention | note: docs/paper/related_work/rapid_review/papers/20260219_fastkv_decouple_prefill_decode.md
 
 - [x] 2026 | InfMem: Learning System-2 Memory Control for Long-Context Agent | arXiv | https://arxiv.org/abs/2602.02704 | tags: agents, memory, long-context, control, retrieval | note: docs/paper/related_work/rapid_review/papers/20260219_infmem_system2_memory_control.md
-- [ ] 2026 | How to Train Your Long-Context Visual Document Model | arXiv | https://arxiv.org/abs/2602.15257 | tags: long-context, training, transfer, benchmark
+- [x] 2026 | How to Train Your Long-Context Visual Document Model | arXiv | https://arxiv.org/abs/2602.15257 | tags: long-context, training, transfer, benchmark | note: docs/paper/related_work/rapid_review/papers/20260219_long-context-visual-document-model.md
 
 - [x] 2026 | Temporal Graph Network: Hallucination Detection in Multi-Turn Conversation | arXiv | https://arxiv.org/abs/2601.03051 | tags: hallucination,detection,multi-turn | note: docs/paper/related_work/rapid_review/papers/20260219_temporal-graph-network-hallucination-detection.md
 - [x] 2026 | Halluverse-M^3: A Multitask Multilingual Benchmark for Hallucination in LLMs | arXiv | https://arxiv.org/abs/2602.06920 | tags: hallucination,multilingual,benchmark | note: docs/paper/related_work/rapid_review/papers/20260219_halluverse_m3.md
