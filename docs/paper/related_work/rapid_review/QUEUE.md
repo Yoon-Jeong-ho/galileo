@@ -1040,6 +1040,6 @@ Format (one per line):
 
 - [x] 2025 | Assertion-Conditioned Compliance: A Provenance-Aware Vulnerability in Multi-Turn Tool-Calling Agents | arXiv | https://arxiv.org/abs/2512.00332 | tags: agents, tool-use, multi-turn, compliance, provenance, vulnerability | note: papers/20260219_assertion-conditioned-compliance_acc.md
 - [x] 2026 | Beyond Max Tokens: Stealthy Resource Amplification via Tool Calling Chains in LLM Agents | arXiv | https://arxiv.org/abs/2601.10955 | tags: agents, tool-use, multi-turn, resource-amplification, security | note: docs/paper/related_work/rapid_review/papers/20260219_beyond-max-tokens-tool-calling-dos.md
-- [ ] 2026 | Authenticated Workflows: A Systems Approach to Protecting Agentic AI | arXiv | https://arxiv.org/abs/2602.10465 | tags: agents, tool-use, multi-turn, provenance, authorization, security
+- [x] 2026 | Authenticated Workflows: A Systems Approach to Protecting Agentic AI | arXiv | https://arxiv.org/abs/2602.10465 | tags: agents, tool-use, multi-turn, provenance, authorization, security | note: docs/paper/related_work/rapid_review/papers/20260219_authenticated-workflows.md | duplicate queue entry
 - [ ] 2025 | C-MTCSD: A Chinese Multi-Turn Conversational Stance Detection Dataset | arXiv | https://arxiv.org/abs/2504.09958 | tags: multi-turn, stance-detection, dataset, evaluation
 - [ ] 2025 | Policy-Conditioned Policies for Multi-Agent Task Solving | arXiv | https://arxiv.org/abs/2512.21024 | tags: multi-agent, policies, compliance, control
