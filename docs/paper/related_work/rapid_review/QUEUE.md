@@ -1188,6 +1188,6 @@ Format (one per line):
 
 - [x] 2026 | Discovering Implicit Large Language Model Alignment Objectives | arXiv | https://arxiv.org/abs/2602.15338 | tags: alignment, reward-models, objectives, diagnostics | note: papers/20260219_obj-disco_alignment-objectives.md
 - [x] 2026 | Language Model Memory and Memory Models for Language | arXiv | https://arxiv.org/abs/2602.13466 | tags: memory, representation, theory, analysis | note: docs/paper/related_work/rapid_review/papers/20260219_language-model-memory-memory-models.md
-- [ ] 2026 | LLMStructBench: Benchmarking Large Language Model Structured Data Extraction | arXiv | https://arxiv.org/abs/2602.14743 | tags: benchmark, structured-output, extraction, robustness-adjacent
+- [x] 2026 | LLMStructBench: Benchmarking Large Language Model Structured Data Extraction | arXiv | https://arxiv.org/abs/2602.14743 | tags: benchmark, structured-output, extraction, robustness-adjacent | note: docs/paper/related_work/rapid_review/papers/20260219_llmstructbench_structured_extraction.md
 - [ ] 2026 | Social Contagion and Bank Runs: An Agent-Based Model with LLM Depositors | arXiv | https://arxiv.org/abs/2602.15066 | tags: agents, social-influence, simulation, persuasion-adjacent
 - [ ] 2026 | Prescriptive Scaling Reveals the Evolution of Language Model Capabilities | arXiv | https://arxiv.org/abs/2602.15327 | tags: scaling, capability-eval, benchmarks
