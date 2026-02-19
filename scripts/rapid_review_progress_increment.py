@@ -54,6 +54,8 @@ def _inc_line(text: str, label: str, delta: int) -> str:
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--papers", type=int, default=0, help="Increment papers-read counter by this amount")
+    # Back-compat: some callers use --papers-read.
+    ap.add_argument("--papers-read", dest="papers_read", type=int, default=0, help=argparse.SUPPRESS)
     ap.add_argument("--top10", type=int, default=0, help="Increment TOP10-shortlist counter by this amount")
     # Back-compat: some cron attempts use --count instead of --papers.
     ap.add_argument("--count", type=int, default=0, help=argparse.SUPPRESS)
@@ -68,6 +70,8 @@ def main() -> None:
     args = ap.parse_args()
 
     # Back-compat aliases.
+    if args.papers == 0 and getattr(args, "papers_read", 0):
+        args.papers = args.papers_read
     if args.papers == 0 and args.count:
         args.papers = args.count
     if args.papers == 0 and args.delta:
