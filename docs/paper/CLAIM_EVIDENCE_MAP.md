@@ -20,15 +20,15 @@ This file is intentionally short and pragmatic (SSOT for “what proves what”)
 These definitions should be used consistently in the draft, captions, and artifacts.
 
 - **Important (control comparability / reporting modes):** we use two matched-set reporting modes, and the draft must say which one is being used.
-  - **persona-matched** (within-persona attribution; *used by our main tracked artifacts, including Table~W*): for each persona arm we filter to that persona’s *initially-correct* subset `C_p` and run both (i) persona pressure and (ii) the Neutral Re-asking Control on that same subset. This makes persona-vs-control comparisons apples-to-apples *within* a persona, but **control numbers can differ across personas** because the underlying `C_p` differs. Table~W then reports persona aggregates by pooling (weighted or unweighted) across these persona-wise matched comparisons.
-  - **shared-\(C\)** (clean cross-persona comparisons): for each seed we define a single initially-correct subset `C` under a persona-free neutral prompt and evaluate *every* persona arm and the Neutral Re-asking Control on exactly the same `C`. This keeps the control baseline fixed across personas and avoids mixing different conditioning sets when directly ranking personas.
+  - **persona-matched** (within-persona attribution; *used by our main tracked artifacts, including Table~W*): for each persona arm we filter to that persona’s *initially-correct* subset `C_p` and run both (i) persona pressure and (ii) the **Neutral Re-asking Control (NRC)** on that same subset. This makes persona-vs-control comparisons apples-to-apples *within* a persona, but **control numbers can differ across personas** because the underlying `C_p` differs. Table~W then reports persona aggregates by pooling (weighted or unweighted) across these persona-wise matched comparisons.
+  - **shared-\(C\)** (clean cross-persona comparisons): for each seed we define a single initially-correct subset `C` under a persona-free neutral prompt and evaluate *every* persona arm and the **NRC** on exactly the same `C`. This keeps the control baseline fixed across personas and avoids mixing different conditioning sets when directly ranking personas.
 
 - **Important (Table W aggregation; avoid “why doesn’t this match the persona-wise deltas?” confusion):** Table W intentionally reports **two** persona aggregates:
   - **persona\_weighted:** pool counts across personas first (equivalently: weight each persona by its evaluation-set size; implemented by summing `survived/total` at round `R` and summing TOF counts across personas).
   - **persona\_unweighted:** simple mean of persona-wise rates.
 
   **Caption template (recommended):**
-  > *Table W: Control vs persona pressure on initially-correct examples.* We compare the Neutral Re-asking Control (drift baseline) to persona pressure using (i) Survival@R, (ii) Fail@1, and (iii) Never-fail, averaged over seeds (mean±std). For persona pressure we report both a **weighted** aggregate (pooling across personas with weights proportional to each persona’s evaluation-set size) and an **unweighted** aggregate (simple mean across personas). Weighted is the headline measure; unweighted is included for transparency.
+  > *Table W: Control vs persona pressure on initially-correct examples.* We compare the **NRC** (drift baseline) to persona pressure using (i) Survival@R, (ii) Fail@1, and (iii) Never-fail, averaged over seeds (mean±std). For persona pressure we report both a **weighted** aggregate (pooling across personas with weights proportional to each persona’s evaluation-set size) and an **unweighted** aggregate (simple mean across personas). Weighted is the headline measure; unweighted is included for transparency.
 
 ---
 
@@ -64,12 +64,12 @@ These are the claims most likely to be read *without* looking at appendices. Eac
 - Checklist linkage: (1) multi-turn robustness decay; (2) early-turn failure / TOF.
 
 **A1 (what we introduce).**
-- Draft text (Abstract sentence 3): “We introduce GALILEO … and compare against a matched Neutral Re-asking Control.”
+- Draft text (Abstract sentence 3): “We introduce GALILEO … and compare against a matched NRC (Neutral Re-asking Control).”
 - Proof pointers:
   - Protocol diagram: Fig.~`fig:protocol` → `docs/paper/figures/protocol_overview.svg`
   - Control-vs-persona summary: Table~`tab:tablew` + Fig.~`fig:tablew-effect-deltas`
     - Artifacts: `docs/paper/artifacts/table_w_control_vs_persona_seed1-4_mean_std_20260209.csv`, `docs/paper/artifacts/table_w_effect_delta_seed1-4_20260209.csv`
-- Checklist linkage: (3) Neutral Re-asking Control separates drift from persona effects.
+- Checklist linkage: (3) NRC separates drift from persona effects.
 
 **A2 (what we measure; definitions).**
 - Draft text (Abstract sentence 4): “We report survival curves, TOF/Fail@1, and recovery@flip … interpret flips as time-to-event with right-censoring.”
@@ -80,7 +80,7 @@ These are the claims most likely to be read *without* looking at appendices. Eac
 - Checklist linkage: (1) survival; (2) TOF / Fail@1; (4) recovery.
 
 **A3 (headline finding; mechanism vs drift).**
-- Draft text (Abstract sentence 5): “Across multi-seed experiments … persona pressure reduces survival relative to Neutral Re-asking Control and can induce early-turn vulnerability.”
+- Draft text (Abstract sentence 5): “Across multi-seed experiments … persona pressure reduces survival relative to the NRC and can induce early-turn vulnerability.”
 - Proof pointers:
   - Persona-vs-control deltas: Table~`tab:tablew` + Fig.~`fig:tablew-effect-deltas`
   - Dynamics evidence: Fig.~`fig:survival-curves-rounds`; Fig.~`fig:tof-delta-fail1`
@@ -117,7 +117,7 @@ These are the exact “proof pointer” hooks we want a reviewer to notice in th
    - Evidence: `docs/paper/figures/tof_personawise_fail1_delta_seed1-4_20260209.svg`
    - Artifact: `docs/paper/artifacts/tof_personawise_fail1_never_control_vs_persona_seed1-4_mean_std_20260209.csv`
    - Regenerate: `python3 scripts/make_paper_figures_from_artifacts.py`
-3) **Neutral Re-asking Control separates generic drift from persona-induced failures.**
+3) **NRC separates generic drift from persona-induced failures.**
    - Evidence: Table W + deltas figure `docs/paper/figures/table_w_effect_delta_seed1-4_20260209.svg`
    - Artifact: `docs/paper/artifacts/table_w_control_vs_persona_seed1-4_mean_std_20260209.csv` and `docs/paper/artifacts/table_w_effect_delta_seed1-4_20260209.csv`
    - Regenerate:
