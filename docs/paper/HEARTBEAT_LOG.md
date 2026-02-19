@@ -1220,3 +1220,16 @@ Next:
 ### 2026-02-19 14:05 KST — Added an explicit §7.4 narrative sentence naming DeepSeek + Qwen14B as included in cross-family set
 
 - Updated `docs/paper/PAPER_DRAFT_EN.md` (§7.4) to explicitly state that the `20260219` cross-family figure includes Qwen2.5‑14B‑Instruct and DeepSeek‑LLM‑7B‑Chat (seeds 1–2).
+
+### 2026-02-19 19:33–19:53 KST — Phi‑3.5‑mini Tier‑1 seeds 1–2: post-hoc paper_exports + SSOT staging + local artifact
+
+- SSOT (nlp8): `microsoft/Phi-3.5-mini-instruct` Tier‑1 seeds 1–2 finished under `results/tier1_phi35mini_seed{1,2}_20260219_143555/`.
+- Ran post-hoc paper exports (stdlib) and validated per-run:
+  - `python3 scripts/paper_export.py --results_root <OUT> --model_dir <OUT>/Phi-3.5-mini-instruct --out_dir <OUT>/paper_exports ...`
+  - Added `paper_exports/runner_metadata.json` (required schema) and validated with `scripts/validate_paper_exports.py` → `[OK]`.
+- Staged into SSOT `results_paper/` via `paper_exports` symlinks:
+  - `results_paper/tier1_phi35mini_seed1_20260219_143555/paper_exports`
+  - `results_paper/tier1_phi35mini_seed2_20260219_143555/paper_exports`
+- Global SSOT validator: `python3 scripts/validate_paper_exports.py --results_root results_paper --check_runner_parity` → `[OK] runner_metadata parity`.
+- Local writing repo: synced minimal bundles into `tmp_results_paper/` and generated + committed the tracked summary artifact:
+  - `docs/paper/artifacts/tier1_phi35mini_seed1-2_survival_summary_20260219.csv` (commit `d997788`).

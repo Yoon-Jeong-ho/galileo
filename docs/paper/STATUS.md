@@ -111,20 +111,16 @@ Ground-truth tasks에서 multi-turn persona pressure 하에 **정답 유지(surv
 
 **Paper artifacts: cross‑family figure refresh to include DeepSeek (Tier‑1 seeds 1–2).**
 
-- Just completed (2026-02-19, local writing repo):
-  - Synced DeepSeek `paper_exports/` (seed1–2) into `tmp_results_paper/`.
-  - Generated a tracked Tier‑1 summary CSV:
-    - `docs/paper/artifacts/tier1_deepseek7b_seed1-2_survival_summary_20260219.csv`
-  - Regenerated the cross‑family SVG (same canonical tag `20260219`) and refreshed PDFs via the SVG→PDF converter.
-
-- Completed follow-ups:
-  - Sanity-checked the DeepSeek row in the regenerated SVG (gap direction is as expected).
-  - Updated `FIGURE_CAPTIONS.md` + `PAPER_DRAFT_EN.md` evidence lists to include DeepSeek/Qwen14B artifacts.
+- Just completed (2026-02-19, SSOT + local writing repo):
+  - SSOT exports: `results_paper/tier1_phi35mini_seed{1,2}_20260219_143555/paper_exports/` are now **[OK]** and parity-validated.
+  - Local sync (minimal bundles): `tmp_results_paper/tier1_phi35mini_seed{1,2}_20260219_143555/paper_exports/`.
+  - New tracked artifact:
+    - `docs/paper/artifacts/tier1_phi35mini_seed1-2_survival_summary_20260219.csv`
 
 - Next one-step plan:
-  1) Add one explicit narrative sentence in §7.4 naming the new families included (DeepSeek + Qwen14B) (so it’s not only in evidence tables).
-  2) Decide whether to keep tag `20260219` or bump a new canonical tag (only if we want strict immutable figure snapshots).
-  3) Start the next Tier‑1 family (seeds 1–2) on SSOT nlp8 GPUs 4–6.
+  1) Decide whether to include Phi‑3.5‑mini in the canonical `20260219` cross-family figure or bump a new tag.
+  2) If included, update `FIGURE_CAPTIONS.md`, `PAPER_DRAFT_EN.md`, and `CLAIM_EVIDENCE_MAP.md` to name Phi‑3.5‑mini explicitly in the cross-family set.
+  3) Re-run `scripts/make_cross_family_figure_svg.py` and refresh `paper_figures/pdf/cross_family_*_20260219.pdf` if we change the set.
 
 ---
 
