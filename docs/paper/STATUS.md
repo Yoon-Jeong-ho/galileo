@@ -109,18 +109,15 @@ Ground-truth tasks에서 multi-turn persona pressure 하에 **정답 유지(surv
 
 ## 4) NEXT HEARTBEAT (ONE step)
 
-**Paper artifacts: cross‑family figure refresh to include DeepSeek (Tier‑1 seeds 1–2).**
+**Submission freeze mode (tonight): stop experiment expansion; lock claim↔evidence consistency for submit-ready draft.**
 
-- Just completed (2026-02-19, SSOT + local writing repo):
-  - SSOT exports: `results_paper/tier1_phi35mini_seed{1,2}_20260219_143555/paper_exports/` are now **[OK]** and parity-validated.
-  - Local sync (minimal bundles): `tmp_results_paper/tier1_phi35mini_seed{1,2}_20260219_143555/paper_exports/`.
-  - New tracked artifact:
-    - `docs/paper/artifacts/tier1_phi35mini_seed1-2_survival_summary_20260219.csv`
+- Immediate one-step plan:
+  1) Align `docs/paper/CLAIM_EVIDENCE_MAP.md` and `docs/paper/PAPER_DRAFT_EN.md` so every Abstract/Intro headline claim has one unambiguous proof pointer.
+  2) Normalize Table-W wording (matched-subset control + weighted/unweighted aggregation) across draft/captions.
+  3) Run citation/consistency checks and ship as a single freeze commit.
 
-- Next one-step plan:
-  1) Decide whether to include Phi‑3.5‑mini in the canonical `20260219` cross-family figure or bump a new tag.
-  2) If included, update `FIGURE_CAPTIONS.md`, `PAPER_DRAFT_EN.md`, and `CLAIM_EVIDENCE_MAP.md` to name Phi‑3.5‑mini explicitly in the cross-family set.
-  3) Re-run `scripts/make_cross_family_figure_svg.py` and refresh `paper_figures/pdf/cross_family_*_20260219.pdf` if we change the set.
+- Working checklist (new SSOT for tonight):
+  - `docs/paper/SUBMISSION_FREEZE_TONIGHT.md`
 
 ---
 

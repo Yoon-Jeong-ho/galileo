@@ -1233,3 +1233,10 @@ Next:
 - Global SSOT validator: `python3 scripts/validate_paper_exports.py --results_root results_paper --check_runner_parity` → `[OK] runner_metadata parity`.
 - Local writing repo: synced minimal bundles into `tmp_results_paper/` and generated + committed the tracked summary artifact:
   - `docs/paper/artifacts/tier1_phi35mini_seed1-2_survival_summary_20260219.csv` (commit `d997788`).
+
+### 2026-02-19 (night) — Submission freeze mode activated
+
+- Decision: stop scope expansion tonight (no new experiments unless claim-blocking).
+- Added freeze SSOT checklist: `docs/paper/SUBMISSION_FREEZE_TONIGHT.md`.
+- Updated `docs/paper/STATUS.md` Next Heartbeat to claim↔evidence lock workflow.
+- Intent: prioritize submit-ready narrative consistency (Abstract/Intro claims, proof pointers, Table-W wording, citation/consistency checks).
