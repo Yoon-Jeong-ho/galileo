@@ -1431,4 +1431,4 @@ Format (one per line):
 ## New candidates (2026-02-20, multi-turn jailbreak follow-up)
 
 - [x] 2025 | A Framework for Adaptive Multi-Turn Jailbreak Attacks on Large Language Models | arXiv | https://arxiv.org/html/2510.18728v1 | tags: multi-turn, jailbreak, adaptive-attacks, red-teaming | note: docs/paper/related_work/rapid_review/papers/20260220_harmnet_adaptive_multiturn_jailbreaks.md
-- [ ] 2026 | The Echo Chamber Multi-Turn LLM Jailbreak | arXiv | https://arxiv.org/html/2601.05742v1 | tags: multi-turn, jailbreak, echo-chamber, persuasion
+- [x] 2026 | The Echo Chamber Multi-Turn LLM Jailbreak | arXiv | https://arxiv.org/html/2601.05742v1 | tags: multi-turn, jailbreak, echo-chamber, persuasion | note: docs/paper/related_work/rapid_review/papers/20260220_echo_chamber_multiturn_jailbreak.md
