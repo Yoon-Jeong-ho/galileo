@@ -15,7 +15,12 @@
 \usepackage{amsmath}
 \usepackage{graphicx}
 \usepackage{booktabs}
+\usepackage{array}
+\usepackage{url}
 \usepackage{hyperref}
+
+% Better fixed-width columns for long artifact paths.
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
 
 \title{GALILEO: Measuring Multi-turn Belief-Consistency Failures and Recovery Under Social Pressure}
 \author{Anonymous Authors}
@@ -138,13 +143,13 @@ Figure~\ref{fig:cross-family-survival} illustrates the resulting survival curves
 \begin{table}[t]
 \centering
 \small
-\begin{tabular}{p{0.14\linewidth} p{0.30\linewidth} p{0.30\linewidth} p{0.20\linewidth}}
+\begin{tabular}{L{0.14\linewidth} L{0.30\linewidth} L{0.30\linewidth} L{0.20\linewidth}}
 \toprule
 Claim & Evidence (paper-facing) & Tracked artifacts (repo paths) & Reproducer \\
 \midrule
-C1 (protocol) & Fig.~\ref{fig:protocol} & docs/paper/figures/protocol_overview.svg (PDF copy in this skeleton) & (static diagram; update SVG directly) \\ 
-C4 (cross-family) & Fig.~\ref{fig:cross-family-survival} & docs/paper/figures/cross\_family\_survival\_r5\_control\_vs\_logicaltrap\_seed1-2\_20260219.svg (SSOT); docs/paper/latex\_skeleton\_emnlp2023/figures/cross\_family\_survival\_r5\_control\_vs\_logicaltrap\_seed1-2\_20260210.pdf (snapshot) & scripts/make\_cross\_family\_figure\_svg.py \\
-C6 (decoding) & Fig.~\ref{fig:decoding-sweep} & docs/paper/figures/decoding\_sweep\_qwen\_delta\_seed1-2\_20260211.svg & scripts/make\_decoding\_sweep\_figure\_svg.py \\
+C1 (protocol) & Fig.~\ref{fig:protocol} & \path{docs/paper/figures/protocol_overview.svg} (PDF copy in this skeleton) & (static diagram; update SVG directly) \\ 
+C4 (cross-family) & Fig.~\ref{fig:cross-family-survival} & \path{docs/paper/figures/cross_family_survival_r5_control_vs_logicaltrap_seed1-2_20260219.svg} (SSOT); \path{docs/paper/latex_skeleton_emnlp2023/figures/cross_family_survival_r5_control_vs_logicaltrap_seed1-2_20260210.pdf} (snapshot) & \path{scripts/make_cross_family_figure_svg.py} \\
+C6 (decoding) & Fig.~\ref{fig:decoding-sweep} & \path{docs/paper/figures/decoding_sweep_qwen_delta_seed1-2_20260211.svg} & \path{scripts/make_decoding_sweep_figure_svg.py} \\
 \bottomrule
 \end{tabular}
 \caption{Claim-to-evidence map: each claim is linked to concrete repo artifacts and a reproducer script. For the full SSOT map (including dynamics, drift baseline, and recovery), see docs/paper/CLAIM\_EVIDENCE\_MAP.md.}
