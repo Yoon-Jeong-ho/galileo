@@ -1345,7 +1345,7 @@ Format (one per line):
 ## New candidates (2026-02-19, web_search batch)
 
 - [x] 2026 | When Models Examine Themselves: Vocabulary-Activation Correspondence in Self-Referential Processing | arXiv | https://arxiv.org/abs/2602.11358 | tags: self-reference, introspection, interpretability | note: docs/paper/related_work/rapid_review/papers/20260219_when-models-examine-themselves_vocabulary-activation-correspondence.md
-- [ ] 2026 | AI Agents Need Memory Control Over More Context | arXiv | https://arxiv.org/abs/2601.11653 | tags: agent, memory, long-context, drift
+- [x] 2026 | AI Agents Need Memory Control Over More Context | arXiv | https://arxiv.org/abs/2601.11653 | tags: agent, memory, long-context, drift | note: docs/paper/related_work/rapid_review/papers/20260219_ai-agents-need-memory-control-over-more-context.md
 - [ ] 2026 | TiMem: Temporal-Hierarchical Memory Consolidation for Long-Horizon Conversational Agents | arXiv | https://arxiv.org/abs/2601.02845 | tags: agent, memory, long-horizon, consolidation
 - [ ] 2025 | Rethinking Memory in AI: Taxonomy, Operations, Topics, and Future Directions | arXiv | https://arxiv.org/abs/2505.00675 | tags: survey, memory, agents
 - [ ] 2025 | Memory Power Asymmetry in Human-AI Relationships: Preserving Mutual Forgetting in the Digital Age | arXiv | https://arxiv.org/abs/2512.06616 | tags: human-ai, memory, ethics, mutual-forgetting
