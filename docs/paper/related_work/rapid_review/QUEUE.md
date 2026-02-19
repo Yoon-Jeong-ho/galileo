@@ -1235,4 +1235,4 @@ Format (one per line):
 
 - [x] 2026 | Surgical Activation Steering via Generative Causal Mediation | arXiv | https://arxiv.org/abs/2602.16080 | tags: sycophancy, steering, interpretability, activation-steering, causal-mediation | note: papers/20260219_gcm-causal-mediation-steering.md
 - [x] 2026 | Improving Interactive In-Context Learning from Natural Language Feedback | arXiv | https://arxiv.org/abs/2602.16066 | tags: multi-turn, feedback, in-context-learning, didactic-interaction, robustness | note: docs/paper/related_work/rapid_review/papers/20260219_interactive-icl-language-feedback.md
-- [ ] 2026 | From Diagnosis to Inoculation: Building Cognitive Resistance to AI Disempowerment | arXiv | https://arxiv.org/abs/2602.15265 | tags: sycophancy, disempowerment, ai-literacy, inoculation-theory, hci
+- [x] 2026 | From Diagnosis to Inoculation: Building Cognitive Resistance to AI Disempowerment | arXiv | https://arxiv.org/abs/2602.15265 | tags: sycophancy, disempowerment, ai-literacy, inoculation-theory, hci | note: docs/paper/related_work/rapid_review/papers/20260219_ai-disempowerment-inoculation.md

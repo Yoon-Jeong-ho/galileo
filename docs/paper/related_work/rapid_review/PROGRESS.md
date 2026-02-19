@@ -5,7 +5,7 @@
 
 ## Counters
 
-- Papers read (notes written): 691
+- Papers read (notes written): 692
 - Shortlisted into TOP10: 13
 
 ## Coverage tags (desired)
