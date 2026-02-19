@@ -850,7 +850,7 @@ Format (one per line):
 - [x] 2025 | Multi-turn evaluation of anthropomorphic behaviours in large language models | arXiv | https://arxiv.org/html/2502.07077v3 | tags: multi-turn,anthropomorphism,risk | note: docs/paper/related_work/rapid_review/papers/20260219_anthrobench-multi-turn-anthropomorphic-behaviors.md
 
 - [x] 2026 | A Single Revision Step Improves Token-Efficient LLM Reasoning | arXiv | https://arxiv.org/html/2602.02828 | tags: revision,multi-turn,robustness | note: docs/paper/related_work/rapid_review/papers/20260219_pacer-single-revision.md
-- [ ] 2025 | When Meaning Stays the Same, but Models Drift: Evaluating Quality of Service under Token-Level Behavioral Instability in LLMs | arXiv | https://arxiv.org/html/2506.10095 | tags: drift,stability,robustness
+- [x] 2025 | When Meaning Stays the Same, but Models Drift: Evaluating Quality of Service under Token-Level Behavioral Instability in LLMs | arXiv | https://arxiv.org/html/2506.10095 | tags: drift,stability,robustness | note: docs/paper/related_work/rapid_review/papers/20260219_prompt-variance-pbss.md
 
 - [x] 2025 | Navigating Rifts in Human-LLM Grounding: Study and Benchmark | arXiv | https://arxiv.org/abs/2503.13975 | tags: grounding, multi-turn, benchmark, instruction-following | note: docs/paper/related_work/rapid_review/papers/20260219_navigating-rifts-human-llm-grounding.md | duplicate queue entry
 - [x] 2025 | Emergent Persuasion: Will LLMs Persuade Without Being Prompted? | arXiv | https://arxiv.org/abs/2512.22201 | tags: persuasion, emergent, safety, multi-turn | note: docs/paper/related_work/rapid_review/papers/20260219_emergent_persuasion_unprompted.md
