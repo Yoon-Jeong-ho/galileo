@@ -1304,4 +1304,4 @@ Format (one per line):
 ## New candidates (2026-02-19)
 
 - [x] 2026 | BiasLab: A Multilingual, Dual-Framing Framework for Robust Measurement of Output-Level Bias in Large Language Models | arXiv | https://arxiv.org/abs/2601.06861 | tags: bias, robustness, multilingual, framing, measurement | note: docs/paper/related_work/rapid_review/papers/20260219_biaslab.md
-- [ ] 2026 | DeFrame: Debiasing Large Language Models Against Framing Effects | arXiv | https://arxiv.org/abs/2602.04306 | tags: bias, framing-effects, debiasing, robustness
+- [x] 2026 | DeFrame: Debiasing Large Language Models Against Framing Effects | arXiv | https://arxiv.org/abs/2602.04306 | tags: bias, framing-effects, debiasing, robustness | note: docs/paper/related_work/rapid_review/papers/20260219_deframe_framing_debias.md
