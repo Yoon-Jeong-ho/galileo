@@ -115,9 +115,10 @@ Ground-truth tasks에서 multi-turn persona pressure 하에 **정답 유지(surv
   - nlp8 GPUs: **GPU4 busy** (external `VLLM::EngineCore`, user `omanma1`, ~45.9/49.1GB, ~99% util).
   - `results_paper` global validation: `[OK] runner_metadata parity` (paper SSOT is currently consistent).
 
-- ✅ Launched next Tier‑1 cross-family family: **OLMo‑7B‑Instruct** (seeds 1–2 only).
-  - seed1 GPU5: `results/tier1_olmo7b_seed1_20260219_085627/` (tmux: `tier1_olmo7b_s1_g5_20260219_085627`)
-  - seed2 GPU6: `results/tier1_olmo7b_seed2_20260219_085627/` (tmux: `tier1_olmo7b_s2_g6_20260219_085627`)
+- ⚠️ Attempted next Tier‑1 cross-family family: **OLMo‑7B‑Instruct** (seeds 1–2), but both runs failed immediately on model load:
+  - `ImportError: ... requires ... hf_olmo` (dependency missing in current env).
+  - seed1 OUT: `results/tier1_olmo7b_seed1_20260219_085627/`
+  - seed2 OUT: `results/tier1_olmo7b_seed2_20260219_085627/`
 
 - When complete:
   - ensure `paper_exports/` + `paper_exports/runner_metadata.json`
