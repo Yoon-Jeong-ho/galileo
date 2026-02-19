@@ -1181,5 +1181,5 @@ Format (one per line):
 
 - [x] AMA: Adaptive Memory via Multi-Agent Collaboration — https://arxiv.org/abs/2601.20352 | note: docs/paper/related_work/rapid_review/papers/20260219_ama-adaptive-memory-multi-agent.md
 - [x] MemR3: Memory Retrieval via Reflective Reasoning for LLM Agents — https://arxiv.org/abs/2512.20237 | note: docs/paper/related_work/rapid_review/papers/20260219_memr3-memory-retrieval-reflective-reasoning.md
-- [ ] Frustratingly Simple Retrieval Improves Challenging, Reasoning-Intensive Benchmarks — https://arxiv.org/abs/2507.01297
+- [x] Frustratingly Simple Retrieval Improves Challenging, Reasoning-Intensive Benchmarks — https://arxiv.org/abs/2507.01297 | note: docs/paper/related_work/rapid_review/papers/20260219_frustratingly_simple_retrieval_compactds.md
 - [ ] Cognitive Memory in Large Language Models — https://arxiv.org/abs/2504.02441
