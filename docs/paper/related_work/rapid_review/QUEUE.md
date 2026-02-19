@@ -850,7 +850,7 @@ Format (one per line):
 - [x] 2025 | A Survey on Remote Sensing Foundation Models: From Vision to Multimodality | arXiv | https://arxiv.org/abs/2503.22081 | tags: remote-sensing;foundation-model;survey;multimodal | note: docs/paper/related_work/rapid_review/papers/20260219_remote-sensing-foundation-models-survey.md
 
 - [x] 2024 | SeaMo: A Season-Aware Multimodal Foundation Model for Remote Sensing | arXiv | https://arxiv.org/abs/2412.19237 | tags: remote-sensing;multimodal;seasonal;masked-modeling | note: docs/paper/related_work/rapid_review/papers/20260219_seamo_season_aware_multimodal_rs_vfm.md
-- [ ] 2024 | Towards Knowledge Guided Pretraining Approaches for Multimodal Foundation Models: Applications in Remote Sensing | arXiv | https://arxiv.org/abs/2407.19660 | tags: remote-sensing;multimodal;pretraining;forecasting
+- [x] 2024 | Towards Knowledge Guided Pretraining Approaches for Multimodal Foundation Models: Applications in Remote Sensing | arXiv | https://arxiv.org/abs/2407.19660 | tags: remote-sensing;multimodal;pretraining;forecasting | note: docs/paper/related_work/rapid_review/papers/20260219_kg_vsf_knowledge_guided_variable_step_forecasting.md
 
 - [x] 2025 | M2S: Multi-turn to Single-turn jailbreak in Red Teaming for LLMs | arXiv | https://arxiv.org/html/2503.04856v3 | tags: multi-turn,jailbreak,red-teaming | note: docs/paper/related_work/rapid_review/papers/20260219_m2s_multiturn_to_singleturn_jailbreak.md
 - [x] 2025 | A Representation Engineering Perspective on the Effectiveness of Multi-Turn Jailbreaks | arXiv | https://arxiv.org/html/2507.02956v1 | tags: multi-turn,jailbreak,representation | note: docs/paper/related_work/rapid_review/papers/20260219_representation-engineering-multi-turn-jailbreaks.md
