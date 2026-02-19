@@ -109,22 +109,21 @@ Ground-truth tasks에서 multi-turn persona pressure 하에 **정답 유지(surv
 
 ## 4) NEXT HEARTBEAT (ONE step)
 
-**Experiments (SSOT nlp8): monitor StableLM-2 1.6B Chat Tier-1 seeds 1–2 (GPUs 5/6) and stage to results_paper when complete.**
+**Experiments (SSOT nlp8): unblock Tier‑1 new-family launch (GPU residency / vLLM max_model_len) and re-launch on clean GPUs 4/6.**
 
 - Snapshot (2026-02-19 09:16 KST):
   - nlp8 GPUs (4/5/6): currently idle/available at the time of launch (GPU4 cleared).
   - `results_paper` global validation: `[OK] runner_metadata parity` (paper SSOT is currently consistent).
 
-- ✅ Launched Tier‑1 cross-family (new family) **StableLM‑2 1.6B Chat** (seeds 1–2):
-  - seed1 GPU5: `results/tier1_stablelm2_1p6b_seed1_20260219_091650/` (tmux: `tier1_stablelm2_1p6b_s1_g5_20260219_091650`)
-  - seed2 GPU6: `results/tier1_stablelm2_1p6b_seed2_20260219_091650/` (tmux: `tier1_stablelm2_1p6b_s2_g6_20260219_091650`)
+- Current blockers to launching a *new* Tier‑1 family (seeds 1–2):
+  1) **Env dependency:** OLMo requires `hf_olmo` (missing).
+  2) **Context length mismatch:** StableLM‑2 derives `max_model_len=4096`; our default 8192 hard-fails unless we set `VLLM_ALLOW_LONG_MAX_MODEL_LEN=1` (not recommended for Tier‑1).
+  3) **External GPU residency:** GPU5 currently has ~29.8GB VRAM held by `omanma1` (`jslee-fusion-distill-vllm-v1`), which prevents vLLM engine init.
 
-- When complete (per seed):
-  - confirm `paper_exports/` + `paper_exports/runner_metadata.json`
-  - run `python3 scripts/validate_paper_exports.py --results_root <OUT>`
-  - stage into `results_paper/` and rerun global parity: `python3 scripts/validate_paper_exports.py --results_root results_paper --check_runner_parity`
-
-- Note: OLMo‑7B launch attempt is blocked in current env (missing `hf_olmo`; see HEARTBEAT_LOG).
+- Operational plan:
+  - Prefer **GPU4 + GPU6** if truly clean; avoid GPU5 until `omanma1` releases VRAM.
+  - Choose a model that (a) does not require extra pip deps, and (b) supports `max_model_len>=8192` OR explicitly set `--max_model_len 4096` with a model that supports it.
+  - After launch: ensure `paper_exports/` + `runner_metadata.json`, validate per-run, then stage into `results_paper/` and re-run parity.
 
 ---
 

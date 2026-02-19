@@ -1164,3 +1164,11 @@ Next:
   - seed1 GPU5: `results/tier1_stablelm2_1p6b_seed1_20260219_091650/` (tmux: `tier1_stablelm2_1p6b_s1_g5_20260219_091650`)
   - seed2 GPU6: `results/tier1_stablelm2_1p6b_seed2_20260219_091650/` (tmux: `tier1_stablelm2_1p6b_s2_g6_20260219_091650`)
 - Runner writes `paper_exports/` + `runner_metadata.json` and runs `validate_paper_exports.py`.
+
+### 2026-02-19 09:20 KST — Tier‑1 new-family launch attempts blocked (environment + external GPU residency)
+
+- Attempted OLMo‑7B‑Instruct: failed on missing `hf_olmo` dependency (would require `pip install hf_olmo`).
+- Attempted StableLM‑2 1.6B Chat: vLLM refused `--max_model_len 8192` because derived max is 4096; we should not set `VLLM_ALLOW_LONG_MAX_MODEL_LEN=1` for Tier‑1.
+- Attempted DeepSeek‑LLM‑7B‑Chat with `max_model_len=4096`: vLLM failed to start on GPU5 because an external process holds ~29.8GB VRAM:
+  - user `omanma1`, process `jslee-fusion-distill-vllm-v1`.
+- Conclusion: until GPU5/6 are truly free (and/or we reduce vLLM memory utilization), new-family Tier‑1 runs will keep failing at engine init.
