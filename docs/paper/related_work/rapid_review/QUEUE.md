@@ -1375,3 +1375,7 @@ Format (one per line):
 - [x] 2026 | SPILLage: Agentic Oversharing on the Web | arXiv | https://arxiv.org/abs/2602.13516 | tags: agents, privacy, oversharing, web, multi-step | note: docs/paper/related_work/rapid_review/papers/20260219_spillage_agentic_oversharing_web.md
 - [x] 2026 | Team of Thoughts: Efficient Test-time Scaling of Agentic Systems through Orchestrated Tool Calling | arXiv | https://arxiv.org/abs/2602.16485 | tags: agents, orchestration, tool-calling, test-time-scaling | note: docs/paper/related_work/rapid_review/papers/20260219_team-of-thoughts.md
 - [x] 2026 | Evaluating AGENTS.md: Are Repository-Level Context Files Helpful for Coding Agents? | arXiv | https://arxiv.org/abs/2602.11988 | tags: agents, coding, context, evaluation | note: docs/paper/related_work/rapid_review/papers/20260219_context-files-coding-agents.md
+
+## New candidates (2026-02-19, web_search batch 1)
+
+- [x] TurnBench-MS: A Benchmark for Evaluating Multi-Turn, Multi-Step Reasoning in Large Language Models — https://arxiv.org/html/2506.01341v1 | note: docs/paper/related_work/rapid_review/papers/20260219_turnbench-ms.md
