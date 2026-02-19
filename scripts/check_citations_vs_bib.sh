@@ -57,6 +57,11 @@ for f in "$@"; do
     exit 2
   fi
   perl -0777 -ne '
+    # Remove fenced code blocks and inline code spans to avoid false positives
+    # from documentation snippets (e.g., checklist items containing `\\cite{...}`).
+    s/```.*?```//sg;
+    s/`[^`]*`//g;
+
     # Match common natbib-style cite commands, with optional pre/post notes:
     #   \\cite{...}, \\citep{...}, \\citet{...}, \\citep[see][]{...}, etc.
     while(/\\cite[a-zA-Z]*\*?(?:\[[^\]]*\])*\{([^}]+)\}/g){
