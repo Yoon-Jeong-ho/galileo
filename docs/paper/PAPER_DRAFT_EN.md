@@ -326,7 +326,13 @@ We interpret recovery as an intervention-style metric that is intentionally dist
 
 ### 4.5 Multi-seed aggregation
 
-For each seed, we compute the above metrics per persona/dataset/round on that seed’s initially-correct subset (recommended: the shared `C`; otherwise `C_p`). We then aggregate across seeds by reporting **mean ± std** of the *per-seed* metrics (optionally with confidence intervals in the final version).
+For each seed, we compute the above metrics per persona/dataset/round on that seed’s initially-correct subset (recommended: the shared `C`; otherwise `C_p`). We then aggregate across seeds by reporting **mean ± std** of the *per-seed* metrics.
+
+**Uncertainty / confidence intervals (paper default).** Our primary uncertainty summary is the **across-seed** variability (reported as std). If the camera-ready requires 95% CIs, a simple and reviewer-friendly option is:
+- compute the metric per seed;
+- form a 95% CI by **bootstrap resampling seeds** (or a t-interval if seeds ≥ 5).
+
+For per-dataset analyses with large `|C|`, we can additionally report a **hierarchical bootstrap** (sample seeds, then sample examples within each seed) to reflect both decoding randomness and finite-evaluation-set uncertainty, without over-counting duplicated examples across seeds.
 
 **Why per-seed averaging (vs. pooling).** We prefer “compute metric per seed, then average” over pooling all examples across seeds because the effective evaluation set size (e.g., `|C|`) can differ slightly by seed. Per-seed aggregation keeps each run equally weighted and makes variance across seeds explicit.
 
