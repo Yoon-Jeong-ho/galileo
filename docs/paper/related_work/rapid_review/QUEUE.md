@@ -1113,3 +1113,10 @@ Format (one per line):
 - [x] 2026 | TraceMem: Weaving Narrative Memory Schemata from User Conversational Traces | arXiv | https://arxiv.org/abs/2602.09712 | tags: memory, narrative, retrieval, attribution, multi-session | note: docs/paper/related_work/rapid_review/papers/20260219_tracemem_narrative_memory.md
 - [x] 2026 | TeleMem: Building Long-Term and Multimodal Memory for Agentic AI | arXiv | https://arxiv.org/abs/2601.06037 | tags: memory, multimodal, agents, long-term | note: docs/paper/related_work/rapid_review/papers/20260219_telemem.md
 - [x] 2026 | SimpleMem: Efficient Lifelong Memory for LLM Agents | arXiv | https://arxiv.org/abs/2601.02553 | tags: memory, lifelong, agents, efficiency | note: docs/paper/related_work/rapid_review/papers/20260219_simplemem.md
+
+## New candidates (2026-02-19, web_search batch)
+- [x] 2026 | Large language models can effectively convince people to believe conspiracies | arXiv:2601.05050 | https://arxiv.org/abs/2601.05050 | tags: persuasion, belief-change, conversation, robustness | note: docs/paper/related_work/rapid_review/papers/20260219_llms-convince-conspiracies.md
+- [x] 2025 | Self-Correcting Large Language Models: Generation vs. Multiple Choice | arXiv:2511.09381 | https://arxiv.org/abs/2511.09381 | tags: self-correction, semantic-drift, evaluation | note: docs/paper/related_work/rapid_review/papers/20260219_self-correcting-llms-gen-vs-mc.md
+- [ ] 2025 | PsychiatryBench: A Multi-Task Benchmark for LLMs in Psychiatry | arXiv:2509.09711 | https://arxiv.org/abs/2509.09711 | tags: multi-turn, consistency, safety, domain-benchmark
+- [ ] 2026 | JudgeAgent: Beyond Static Benchmarks for Knowledge-Driven and Dynamic LLM Evaluation | arXiv:2509.02097 | https://arxiv.org/abs/2509.02097 | tags: dynamic-eval, multi-turn, adaptive-judge
+- [ ] 2026 | Lost in Simulation: LLM-Simulated Users are Unreliable Proxies for Human Users in Agentic Evaluations | arXiv:2601.17087 | https://arxiv.org/abs/2601.17087 | tags: user-simulators, agent-eval, reliability, multi-turn
