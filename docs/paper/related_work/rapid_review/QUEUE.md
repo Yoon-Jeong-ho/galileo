@@ -1129,7 +1129,7 @@ Format (one per line):
 ## New candidates (2026-02-19, web_search)
 
 - [x] 2026 | From Sycophancy to Sensemaking: Premise Governance for Human-AI Decision Making | arXiv | https://arxiv.org/abs/2602.02378 | tags: sycophancy, decision-making, premise-governance, human-ai | note: papers/20260219_premise-governance-sensemaking.md
-- [ ] 2026 | Simulated Adoption: Decoupling Magnitude and Direction in LLM In-Context Conflict Resolution | arXiv | https://arxiv.org/abs/2602.04918 | tags: sycophancy-adjacent, in-context, conflict-resolution, compliance
+- [x] 2026 | Simulated Adoption: Decoupling Magnitude and Direction in LLM In-Context Conflict Resolution | arXiv | https://arxiv.org/abs/2602.04918 | tags: sycophancy-adjacent, in-context, conflict-resolution, compliance | note: papers/20260219_simulated-adoption-conflict-resolution.md
 - [ ] 2026 | CircuChain: Disentangling Competence and Compliance in LLM Circuit Analysis | arXiv | https://arxiv.org/abs/2602.15037 | tags: interpretability, circuits, competence-vs-compliance, sycophancy-adjacent
 - [ ] 2026 | Visual Persuasion: What Influences Decisions of Vision-Language Models? | arXiv | https://arxiv.org/abs/2602.15278 | tags: vlm, persuasion, robustness, decision
 - [ ] 2026 | Do Images Speak Louder than Words? Investigating the Effect of Textual Misinformation in VLMs | arXiv | https://arxiv.org/abs/2601.19202 | tags: vlm, misinformation, robustness, multi-round
