@@ -160,9 +160,9 @@ Representative commits:
 
 ## Next heartbeat plan (ONE step)
 
-**Paper: reduce reviewer cognitive load by standardizing the “Neutral Re-asking Control” acronym usage (NRC) and ensuring first-use definition.**
+**Paper: reduce reviewer cognitive load by standardizing NRC usage without repeated re-expansion.**
 
-- Deliverable: edit `docs/paper/PAPER_DRAFT_EN.md` to introduce “Neutral Re-asking Control (NRC)” once and then use NRC consistently in Abstract/Intro/Protocol/Related Work.
+- Deliverable: keep only the first “Neutral Re-asking Control (NRC)” expansion in `docs/paper/PAPER_DRAFT_EN.md`; thereafter use “NRC” consistently (including bullets/captions).
 
 ---
 

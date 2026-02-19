@@ -71,7 +71,7 @@ Ground-truth tasks에서 multi-turn persona pressure 하에 **정답 유지(surv
 - ✅ **Table W artifacts tracked** under `docs/paper/artifacts/` and draft AUTO block updated to seed1–4.
 
 ### Paper writing / positioning
-- ✅ Standardized the acronym **NRC** for “Neutral Re-asking Control” throughout the EN draft to reduce repetition and make persona–control comparisons easier to parse: `docs/paper/PAPER_DRAFT_EN.md`.
+- ✅ Standardized and *de-duplicated* the acronym **NRC** for “Neutral Re-asking Control” in the EN draft (keep first expansion; thereafter use NRC only) to reduce repetition and make persona–control comparisons easier to parse: `docs/paper/PAPER_DRAFT_EN.md`.
 - ✅ KO draft now includes an in-place **“수정/보완해야 할 것만” 리비전 TODO (SSOT 발췌, 8–12개)** for reviewer-risk-only edits: `docs/paper/PAPER_DRAFT_KO.md`.
 - ✅ Generated **submission-ready SVG figures** from tracked CSV artifacts under `docs/paper/figures/` (seed1–4; survival curves + ΔSurvival@5 + ΔFail@1 + ΔRecovery + Table W effect deltas).
 - ✅ Tightened the reviewer-facing **Claims → evidence** table to include explicit **LaTeX figure labels** (reduces proof-pointer drift): `docs/paper/PAPER_DRAFT_EN.md` (§9).
