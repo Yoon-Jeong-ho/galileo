@@ -1154,6 +1154,14 @@ Format (one per line):
 - [x] 2026 | Do Images Speak Louder than Words? Investigating the Effect of Textual Misinformation in VLMs | arXiv | https://arxiv.org/abs/2601.19202 | tags: vlm, misinformation, robustness, multi-round | note: papers/20260219_do-images-speak-louder-than-words-textual-misinformation-vlms.md
 
 ## New candidates (2026-02-19, web_search batch 3)
+
+- [x] 2026 | Position: Explaining Behavioral Shifts in Large Language Models Requires a Comparative Approach | arXiv | https://arxiv.org/abs/2602.02304 | tags: behavioral-shifts,interpretability,comparative-analysis | note: docs/paper/related_work/rapid_review/papers/20260219_delta-xai_behavioral-shifts_position.md
+- [ ] 2025 | Teaching Language Models to Faithfully Express their Uncertainty | arXiv | https://arxiv.org/abs/2510.12587 | tags: uncertainty,calibration,consistency,robustness
+
+- [ ] 2025 | Consistently Simulating Human Personas with Multi-Turn Reinforcement Learning | arXiv | https://arxiv.org/abs/2511.00222v1 | tags: persona,drift,multi-turn,rl
+- [ ] 2025 | Consistency Training Helps Stop Sycophancy and Jailbreaks | arXiv | https://arxiv.org/abs/2510.27062v1 | tags: sycophancy,consistency-training,jailbreaks,robustness
+
+- [ ] 2026 | AREG: Adversarial Resource Extraction Game for Evaluating Persuasion and Resistance in Large Language Models | arXiv | https://arxiv.org/abs/2602.16639 | tags: persuasion,resistance,multi-turn,benchmark,negotiation
 - [x] 2025 | WAREX: Web Agent Reliability Evaluation on Existing Benchmarks | arXiv | https://arxiv.org/abs/2510.03285 | tags: web-agents, reliability, evaluation, benchmark | note: docs/paper/related_work/rapid_review/papers/20260219_warex-web-agent-reliability.md
 - [x] 2025 | DataGovBench: Benchmarking LLM Agents for Real-World Data Governance Workflows | arXiv | https://arxiv.org/abs/2512.04416 | tags: agents, benchmarking, data-governance, workflows | note: docs/paper/related_work/rapid_review/papers/20260219_datagovbench.md
 
