@@ -849,7 +849,7 @@ Format (one per line):
 - [x] 2026 | VLingNav: Embodied Navigation with Adaptive Reasoning and Visual-Assisted Linguistic Memory | arXiv | https://arxiv.org/html/2601.08665v1 | tags: embodied-navigation;vla;memory | note: docs/paper/related_work/rapid_review/papers/20260219_vlingnav.md
 - [x] 2025 | Advances in Embodied Navigation Using Large Language Models: A Survey | arXiv | https://arxiv.org/html/2311.00530v5 | tags: survey;embodied-navigation;llm | note: docs/paper/related_work/rapid_review/papers/20260219_embodied-nav-llm-survey.md
 
-- [ ] 2025 | Large Language Models for Planning: A Comprehensive and Systematic Survey | arXiv | https://arxiv.org/html/2505.19683v1 | tags: survey;planning;llm
+- [x] 2025 | Large Language Models for Planning: A Comprehensive and Systematic Survey | arXiv | https://arxiv.org/html/2505.19683v1 | tags: survey;planning;llm | note: docs/paper/related_work/rapid_review/papers/20260219_llm-planning-survey.md
 - [x] 2025 | Look It Up: Analysing Internal Web Search Capabilities of Modern LLMs | arXiv | https://arxiv.org/html/2511.18931 | tags: web-search, evaluation, tool-use, retrieval | note: docs/paper/related_work/rapid_review/papers/20260219_look-it-up-internal-web-search.md
 
 - [x] 2025 | Self-Challenging Language Model Agents | arXiv | https://arxiv.org/html/2506.01716v1 | tags: agents, self-improvement, tool-use, evaluation | note: docs/paper/related_work/rapid_review/papers/20260219_self-challenging-language-model-agents.md
