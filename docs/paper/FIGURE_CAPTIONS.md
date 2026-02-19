@@ -11,7 +11,7 @@ Conventions:
   - The effective sample size can differ across personas/seeds/tasks; captions should avoid implying a fixed global \(n\).
   - When comparing persona pressure to the **Neutral Re-asking Control (NRC)**, we use a **matched conditioning set**: the control arm is evaluated on the same initially-correct subset as the persona arm. This prevents conditioning-set drift from being mistaken as a treatment effect.
 
-Neutral Re-asking Control (**NRC**; a.k.a. “drift baseline”): re-asks the same task over multiple rounds with *neutral* prompts (no persona pressure) to estimate generic multi-turn drift under the same rounds/decoding/scoring.
+Neutral Re-asking Control (NRC; a.k.a. “drift baseline”): re-asks the same task over multiple rounds with *neutral* prompts (no persona pressure) to estimate generic multi-turn drift under the same rounds/decoding/scoring.
 
 Caption boilerplate (optional, to keep wording consistent):
 - “Computed on the initially-correct subset; control is evaluated on the same persona-matched subset. Error bars are mean ± std over seeds.”
