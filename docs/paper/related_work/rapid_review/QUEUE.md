@@ -847,7 +847,7 @@ Format (one per line):
 - [x] 2025 | Look It Up: Analysing Internal Web Search Capabilities of Modern LLMs | arXiv | https://arxiv.org/html/2511.18931 | tags: web-search, evaluation, tool-use, retrieval | note: docs/paper/related_work/rapid_review/papers/20260219_look-it-up-internal-web-search.md
 
 - [x] 2025 | Self-Challenging Language Model Agents | arXiv | https://arxiv.org/html/2506.01716v1 | tags: agents, self-improvement, tool-use, evaluation | note: docs/paper/related_work/rapid_review/papers/20260219_self-challenging-language-model-agents.md
-- [ ] 2024 | AutoWebGLM: Bootstrap and Reinforce a Large Language Model-based Web Navigating Agent | arXiv | https://arxiv.org/html/2404.03648v1 | tags: agents, web, navigation, reinforcement-learning
+- [x] 2024 | AutoWebGLM: Bootstrap and Reinforce a Large Language Model-based Web Navigating Agent | arXiv | https://arxiv.org/html/2404.03648v1 | tags: agents, web, navigation, reinforcement-learning | note: docs/paper/related_work/rapid_review/papers/20260219_autowebglm_web_navigation_agent.md
 
 - [ ] 2025 | BrowserArena: Evaluating LLM Agents on Real-World Web Navigation Tasks | arXiv | https://arxiv.org/html/2510.02418v2 | tags: agents, web, benchmark, evaluation
 - [x] 2026 | Confidence Estimation for LLMs in Multi-turn Interactions | arXiv | https://arxiv.org/html/2601.02179v1 | tags: calibration,confidence,multi-turn | note: docs/paper/related_work/rapid_review/papers/20260219_confidence_estimation_multi_turn_interactions.md
