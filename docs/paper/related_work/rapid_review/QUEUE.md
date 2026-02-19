@@ -1191,3 +1191,11 @@ Format (one per line):
 - [x] 2026 | LLMStructBench: Benchmarking Large Language Model Structured Data Extraction | arXiv | https://arxiv.org/abs/2602.14743 | tags: benchmark, structured-output, extraction, robustness-adjacent | note: docs/paper/related_work/rapid_review/papers/20260219_llmstructbench_structured_extraction.md
 - [x] 2026 | Social Contagion and Bank Runs: An Agent-Based Model with LLM Depositors | arXiv | https://arxiv.org/abs/2602.15066 | tags: agents, social-influence, simulation, persuasion-adjacent | note: docs/paper/related_work/rapid_review/papers/20260219_social_contagion_bank_runs_llm_depositors.md
 - [x] 2026 | Prescriptive Scaling Reveals the Evolution of Language Model Capabilities | arXiv | https://arxiv.org/abs/2602.15327 | tags: scaling, capability-eval, benchmarks | note: docs/paper/related_work/rapid_review/papers/20260219_prescriptive-scaling-capabilities.md
+
+## New candidates (2026-02-19, web_search batch)
+
+- [x] 2026 | Benchmarking Agent Memory in Interdependent Multi-Session Agentic Tasks | arXiv | https://arxiv.org/abs/2602.16313 | tags: agents, memory, multi-session, long-horizon, benchmark | note: papers/20260219_memoryarena_multi_session_agent_memory.md
+- [ ] 2026 | Mem2ActBench: A Benchmark for Evaluating Long-Term Memory Utilization in Task-Oriented Autonomous Agents | arXiv | https://arxiv.org/abs/2601.19935 | tags: agents, memory, long-horizon, benchmark, tool-use
+- [ ] 2026 | EMemBench: Interactive Benchmarking of Episodic Memory for VLM Agents | arXiv | https://arxiv.org/abs/2601.16690 | tags: agents, memory, episodic, interactive, vlm, benchmark
+- [ ] 2025 | Memp: Exploring Agent Procedural Memory | arXiv | https://arxiv.org/abs/2508.06433 | tags: agents, procedural-memory, lifelong-learning
+- [ ] 2025 | MEM1: Learning to Synergize Memory and Reasoning for Efficient Long-Horizon Agents | arXiv | https://arxiv.org/abs/2506.15841 | tags: agents, memory, reasoning, long-horizon
