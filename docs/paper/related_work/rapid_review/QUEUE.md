@@ -1133,3 +1133,7 @@ Format (one per line):
 - [x] 2026 | CircuChain: Disentangling Competence and Compliance in LLM Circuit Analysis | arXiv | https://arxiv.org/abs/2602.15037 | tags: interpretability, circuits, competence-vs-compliance, sycophancy-adjacent | note: papers/20260219_circuchain-competence-compliance-circuit-analysis.md
 - [x] 2026 | Visual Persuasion: What Influences Decisions of Vision-Language Models? | arXiv | https://arxiv.org/abs/2602.15278 | tags: vlm, persuasion, robustness, decision | note: papers/20260219_visual-persuasion-vlm-decisions.md
 - [x] 2026 | Do Images Speak Louder than Words? Investigating the Effect of Textual Misinformation in VLMs | arXiv | https://arxiv.org/abs/2601.19202 | tags: vlm, misinformation, robustness, multi-round | note: papers/20260219_do-images-speak-louder-than-words-textual-misinformation-vlms.md
+
+## New candidates (2026-02-19, web_search batch 3)
+- [x] 2025 | WAREX: Web Agent Reliability Evaluation on Existing Benchmarks | arXiv | https://arxiv.org/abs/2510.03285 | tags: web-agents, reliability, evaluation, benchmark | note: docs/paper/related_work/rapid_review/papers/20260219_warex-web-agent-reliability.md
+- [ ] 2025 | DataGovBench: Benchmarking LLM Agents for Real-World Data Governance Workflows | arXiv | https://arxiv.org/abs/2512.04416 | tags: agents, benchmarking, data-governance, workflows
