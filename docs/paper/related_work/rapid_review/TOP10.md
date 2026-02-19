@@ -24,11 +24,11 @@ For each item, we maintain:
    - Borrow: (i) a clean *directional persuasion* task definition, (ii) outcome coupling to user utility (accuracy/earnings), (iii) human-baseline framing for persuasion strength.
    - How to change GALILEO: add a persuasion-strength evaluation axis (truthful + deceptive) with compliance + utility metrics; consider a human-baseline or strong scripted baseline for effect-size context.
 
-3) **TiMo: Spatiotemporal Foundation Model for Satellite Image Time Series** (Qin et al., arXiv 2025)
-   - Contributes: a **hierarchical** SITS foundation model with a custom attention pattern (**spatiotemporal gyroscope attention**) aimed at capturing multiscale aligned space-time structure; plus a temporally richer pretraining set (**MillionST**, 10 timestamps over 5 years at 100k locations).
-   - Misses vs GALILEO: appears specialized to *aligned* SITS (Sentinel-2) and masked modeling; unclear how it extends to heterogeneous sensors/modalities or misaligned/missing time series.
-   - Borrow: (i) “temporal cardinality matters” narrative and dataset design, (ii) structured attention that respects SITS alignment, (iii) hierarchical/pyramid backbone as a strong default for multiscale geospatial phenomena.
-   - How to change GALILEO: add at least one baseline/ablation contrasting **flat ViT vs hierarchical** backbones for time series, and explicitly report transfer vs number of timestamps.
+3) **Improving Interactive In-Context Learning from Natural Language Feedback** (Cook et al., arXiv 2026)
+   - Contributes: a scalable recipe for turning single-turn verifiable tasks into **multi-turn didactic interactions** (teacher critiques, student revises) and using RL to train the student’s ability to *actually update* based on natural-language corrective feedback.
+   - Misses vs GALILEO: training signal is primarily end-task correctness; does not directly separate evidence-driven revision vs pressure-driven drift unless the verifier/teacher is designed to do so.
+   - Borrow: (i) the **information-asymmetry teacher** idea (same base model but privileged info), (ii) multi-turn RL framing for “interactive plasticity”, (iii) OOD transfer story (train on math interactions → gains in coding/puzzles/mazes).
+   - How to change GALILEO: add an explicit related-work + baseline slice: single-turn RL vs multi-turn didactic RL; include an “acknowledge-but-don’t-rewrite” failure probe and report multi-turn success curves.
 
 4) **Large language models can effectively convince people to believe conspiracies** (Costello et al., arXiv 2026)
    - Contributes: strong evidence (3 pre-registered experiments; N=2,724) that **multi-turn LLM conversations can increase misbeliefs** ("bunking") about as effectively as they can decrease them ("debunking"), and that **standard guardrails may not prevent** harmful persuasion.
@@ -74,6 +74,7 @@ For each item, we maintain:
 
 ## Changelog
 
+- 2026-02-19: Added *Improving Interactive In-Context Learning from Natural Language Feedback* (Cook et al., arXiv 2026) as a key training-method neighbor for **multi-turn critique integration / interactive plasticity** (didactic dialogues + information-asymmetry teacher + RL). Displaced *TiMo: Spatiotemporal Foundation Model for Satellite Image Time Series* (Qin et al., arXiv 2025): strong SITS foundation work, but less central than interactive feedback-learning to GALILEO’s current multi-turn robustness narrative.
 - 2026-02-19: Added *Large Language Models Are More Persuasive Than Incentivized Human Persuaders* (Schoenegger et al., arXiv 2025) as a key persuasion-capability neighbor (LLM vs incentivized humans; truthful + deceptive steering; compliance + accuracy/earnings). Displaced *Any-Optical-Model: A Universal Foundation Model for Optical Remote Sensing* (Hong et al., AAAI 2026; arXiv 2025): strong EO foundation work, but off-theme relative to GALILEO’s multi-turn social pressure / persuasion focus.
 - 2026-02-19: Added *Simulated Adoption: Decoupling Magnitude and Direction in LLM In-Context Conflict Resolution* (Zhang, arXiv 2026) as a key mechanistic neighbor for compliance/sycophancy under knowledge conflict (angular rotation / orthogonal interference vs norm dilution). Displaced *AnySat: One Earth Observation Model for Many Resolutions, Scales, and Modalities* (Astruc et al., arXiv 2024/2025): strong EO foundation work, but less central to the current compliance/sycophancy mechanism emphasis.
 - 2026-02-19: Added *Large language models can effectively convince people to believe conspiracies* (Costello et al., arXiv 2026) as a key multi-turn persuasion + belief-change neighbor (bunk vs debunk; guardrails not sufficient; corrective conversation recovery). Displaced *FUSAR-KLIP: Towards Multimodal Foundation Models for Remote Sensing* (Yang et al., arXiv 2025): valuable geospatial multimodal FM work, but less central to GALILEO’s multi-turn robustness / persuasion theme.
