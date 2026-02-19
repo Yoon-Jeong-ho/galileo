@@ -1043,3 +1043,7 @@ Format (one per line):
 - [x] 2026 | Authenticated Workflows: A Systems Approach to Protecting Agentic AI | arXiv | https://arxiv.org/abs/2602.10465 | tags: agents, tool-use, multi-turn, provenance, authorization, security | note: docs/paper/related_work/rapid_review/papers/20260219_authenticated-workflows.md | duplicate queue entry
 - [x] 2025 | C-MTCSD: A Chinese Multi-Turn Conversational Stance Detection Dataset | arXiv | https://arxiv.org/abs/2504.09958 | tags: multi-turn, stance-detection, dataset, evaluation | note: docs/paper/related_work/rapid_review/papers/20260219_c-mtcsd_chinese_multiturn_conversational_stance_detection_dataset.md
 - [x] 2025 | Policy-Conditioned Policies for Multi-Agent Task Solving | arXiv | https://arxiv.org/abs/2512.21024 | tags: multi-agent, policies, compliance, control | note: docs/paper/related_work/rapid_review/papers/20260219_policy_conditioned_policies.md
+
+## New candidates (2026-02-19, web_search batch)
+
+- [x] 2026 | Consistency of Large Reasoning Models Under Multi-Turn Attack | arXiv | https://arxiv.org/html/2602.13093v1 | tags: multi-turn, robustness, consistency, attacks, reasoning | note: docs/paper/related_work/rapid_review/papers/20260219_consistency_reasoning_models_multiturn_attack.md
