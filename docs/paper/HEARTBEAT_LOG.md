@@ -1216,3 +1216,7 @@ Next:
   - `docs/paper/figures/cross_family_survival_r5_control_vs_logicaltrap_seed1-2_20260219.svg`
 - Refreshed PDFs from SVG sources:
   - `bash scripts/convert_figures_svg_to_pdf.sh docs/paper/figures paper_figures/pdf`
+
+### 2026-02-19 14:05 KST — Added an explicit §7.4 narrative sentence naming DeepSeek + Qwen14B as included in cross-family set
+
+- Updated `docs/paper/PAPER_DRAFT_EN.md` (§7.4) to explicitly state that the `20260219` cross-family figure includes Qwen2.5‑14B‑Instruct and DeepSeek‑LLM‑7B‑Chat (seeds 1–2).

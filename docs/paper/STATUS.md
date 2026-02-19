@@ -117,10 +117,14 @@ Ground-truth tasks에서 multi-turn persona pressure 하에 **정답 유지(surv
     - `docs/paper/artifacts/tier1_deepseek7b_seed1-2_survival_summary_20260219.csv`
   - Regenerated the cross‑family SVG (same canonical tag `20260219`) and refreshed PDFs via the SVG→PDF converter.
 
+- Completed follow-ups:
+  - Sanity-checked the DeepSeek row in the regenerated SVG (gap direction is as expected).
+  - Updated `FIGURE_CAPTIONS.md` + `PAPER_DRAFT_EN.md` evidence lists to include DeepSeek/Qwen14B artifacts.
+
 - Next one-step plan:
-  1) Quick sanity check: ensure DeepSeek row looks reasonable (control vs Logical Trap gap direction).
-  2) If visuals changed materially, update `docs/paper/FIGURE_CAPTIONS.md` / `PAPER_DRAFT_EN.md` to mention DeepSeek.
-  3) Decide whether to keep tag `20260219` or bump a new canonical tag (only if we want strict immutable figure snapshots).
+  1) Add one explicit narrative sentence in §7.4 naming the new families included (DeepSeek + Qwen14B) (so it’s not only in evidence tables).
+  2) Decide whether to keep tag `20260219` or bump a new canonical tag (only if we want strict immutable figure snapshots).
+  3) Start the next Tier‑1 family (seeds 1–2) on SSOT nlp8 GPUs 4–6.
 
 ---
 
