@@ -1361,3 +1361,9 @@ Format (one per line):
 ## New candidates (2026-02-19, auto-added)
 
 - [x] 2025 | On the use of Graphs for Satellite Image Time Series | arXiv | https://arxiv.org/html/2505.16685v1 | tags: remote-sensing, time-series, graphs, OBIA | note: papers/20260219_graphs-for-satellite-image-time-series.md
+
+## New candidates (2026-02-19, web_search batch)
+
+- [x] 2025 | Belief Dynamics Reveal the Dual Nature of In-Context Learning and Activation Steering | arXiv | https://arxiv.org/abs/2511.00617 | tags: belief-updating, icl, activation-steering, theory | note: papers/20260219_belief-dynamics-icl-activation-steering.md
+- [ ] 2025 | ABBEL: LLM Agents Acting through Belief Bottlenecks Expressed in Language | arXiv | https://arxiv.org/abs/2512.20111 | tags: agents, belief-bottleneck, memory, long-horizon
+- [ ] 2026 | Agentic Reasoning for Large Language Models | arXiv | https://arxiv.org/abs/2601.12538 | tags: agents, survey, reasoning, interaction
