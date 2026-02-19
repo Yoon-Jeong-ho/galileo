@@ -61,7 +61,7 @@ We define the \emph{turn-of-failure} as the first pressure round where correctne
 \begin{equation}
   T_i = \min\{r \in \{1,\dots,R\} : C_{i,r}=0\},\quad \text{with } T_i = R{+}1 \text{ if no failure occurs within $R$ rounds.}
 \end{equation}
-The (multi-turn) \emph{survival} event at round $r$ is ``no failure has occurred up to $r$,'' i.e., remaining correct through all rounds $1..r$ (cumulative correctness).
+The (multi-turn) \emph{survival} event at round $r$ is ``no failure has occurred up to $r$,'' i.e., remaining correct through all rounds $1..r$ (cumulative correctness). Importantly, $\widehat{S}(r)$ is \emph{not} the marginal accuracy at round $r$; it is the probability of staying correct \emph{through} round $r$.
 Accordingly, the empirical survival curve is
 \begin{equation}
   \widehat{S}(r) = \frac{1}{n}\sum_{i=1}^n \mathbf{1}[T_i > r],
