@@ -157,6 +157,7 @@ def main() -> None:
     llama8b = read_csv(ART / "tier1_llama3_8b_seed1-2_survival_summary_20260210.csv")
     llama3b = read_csv(ART / "tier1_llama3_3b_seed1-2_survival_summary_20260212.csv")
     phi3mini = read_csv(ART / "tier1_phi3mini_seed1-2_survival_summary_20260217.csv")
+    phi35mini = read_csv(ART / "tier1_phi35mini_seed1-2_survival_summary_20260219.csv")
     mistralnemo = read_csv(ART / "tier1_mistralnemo_seed1-2_survival_summary_20260217.csv")
     zephyr7b = read_csv(ART / "tier1_zephyr7b_seed1-2_survival_summary_20260218.csv")
     qwen14b = read_csv(ART / "tier1_qwen2p5_14b_seed1-2_survival_summary_20260219.csv")
@@ -169,6 +170,7 @@ def main() -> None:
         ("Llama-3.1-8B-Instruct", llama8b),
         ("Llama-3.2-3B-Instruct", llama3b),
         ("Phi-3-mini-Instruct", phi3mini),
+        ("Phi-3.5-mini-Instruct", phi35mini),
         ("Zephyr-7B-beta", zephyr7b),
         ("DeepSeek-LLM-7B-Chat", deepseek7b),
         ("Qwen2.5-14B-Instruct", qwen14b),
