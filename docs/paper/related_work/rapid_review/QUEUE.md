@@ -1349,3 +1349,11 @@ Format (one per line):
 - [x] 2026 | TiMem: Temporal-Hierarchical Memory Consolidation for Long-Horizon Conversational Agents | arXiv | https://arxiv.org/abs/2601.02845 | tags: agent, memory, long-horizon, consolidation | note: docs/paper/related_work/rapid_review/papers/20260219_timem_temporal_hierarchical_memory.md
 - [x] 2025 | Rethinking Memory in AI: Taxonomy, Operations, Topics, and Future Directions | arXiv | https://arxiv.org/abs/2505.00675 | tags: survey, memory, agents | note: docs/paper/related_work/rapid_review/papers/20260219_rethinking-memory-in-llm-based-agents.md
 - [x] 2025 | Memory Power Asymmetry in Human-AI Relationships: Preserving Mutual Forgetting in the Digital Age | arXiv | https://arxiv.org/abs/2512.06616 | tags: human-ai, memory, ethics, mutual-forgetting | note: docs/paper/related_work/rapid_review/papers/20260219_memory-power-asymmetry-mutual-forgetting.md
+
+## New candidates (2026-02-19, agentic-eval batch)
+
+- [x] 2025 | Stochasticity in Agentic Evaluations: Quantifying Inconsistency with Intraclass Correlation | arXiv | https://arxiv.org/abs/2512.06710 | tags: agents, evaluation, stochasticity, measurement, ICC | note: papers/20260219_stochasticity-agentic-evals-icc.md
+- [ ] 2025 | Holistic Agent Leaderboard: The Missing Infrastructure for AI Agent Evaluation | arXiv | https://arxiv.org/abs/2510.11977 | tags: agents, evaluation, leaderboard, infrastructure
+- [ ] 2026 | Trajectory Guard: A Lightweight, Sequence-Aware Model for Real-Time Anomaly Detection in Agentic AI | arXiv | https://arxiv.org/abs/2601.00516 | tags: agents, anomaly-detection, trajectories, monitoring
+- [ ] 2025 | Which Agent Causes Task Failures and When? On Automated Failure Attribution of LLM Multi-Agent Systems | arXiv | https://arxiv.org/abs/2505.00212 | tags: agents, debugging, failure-attribution, multi-agent
+- [ ] 2025 | Where LLM Agents Fail and How They can Learn From Failures | arXiv | https://arxiv.org/abs/2509.25370 | tags: agents, failures, taxonomy, dataset
