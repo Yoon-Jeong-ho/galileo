@@ -1320,3 +1320,11 @@ Format (one per line):
 - [x] 2025 | Exploiting Primacy Effect To Improve Large Language Models | arXiv | https://arxiv.org/abs/2507.13949 | tags: primacy, positional-bias, evaluation | note: docs/paper/related_work/rapid_review/papers/20260219_primacy-effect-mcqa-reorder.md
 - [x] 2025 | Prompt Perturbations Reveal Human-Like Biases in Large Language Model Survey Responses | arXiv | https://arxiv.org/abs/2507.07188 | tags: response-bias, survey, robustness, primacy-recency | note: docs/paper/related_work/rapid_review/papers/20260219_prompt-perturbations-survey-biases.md
 - [x] 2025 | Hearing the Order: Investigating Selection Bias in Large Audio-Language Models | arXiv | https://arxiv.org/abs/2510.00628 | tags: order-effects, selection-bias, audio-language, evaluation | note: docs/paper/related_work/rapid_review/papers/20260219_hearing-the-order-lalm-selection-bias.md
+
+## New candidates (2026-02-19, web_search batch)
+
+- [x] 2024 | LLMs know their vulnerabilities: Uncover Safety Gaps through Natural Distribution Shifts | ACL 2025 (arXiv) | https://arxiv.org/abs/2410.10700 | tags: safety, multi-turn, distribution-shift, attacks, robustness | note: docs/paper/related_work/rapid_review/papers/20260219_llms-know-their-vulnerabilities.md
+- [ ] 2025 | $\tau^2$-Bench: Evaluating Conversational Agents in a Dual-Control Environment | arXiv | https://arxiv.org/abs/2506.07982 | tags: multi-turn, tool-use, benchmark, dual-control, robustness
+- [ ] 2025 | UserBench: An Interactive Gym Environment for User-Centric Agents | arXiv | https://arxiv.org/abs/2507.22034 | tags: multi-turn, agents, user-centric, interactive, benchmark
+- [ ] 2025 | VitaBench: Benchmarking LLM Agents with Versatile Interactive Tasks in Real-world Applications | arXiv | https://arxiv.org/abs/2509.26490 | tags: multi-turn, agents, interactive, benchmark
+- [ ] 2026 | CaveAgent: Transforming LLMs into Stateful Runtime Operators | arXiv | https://arxiv.org/abs/2601.01569 | tags: multi-turn, agents, tool-use, stateful, runtime
