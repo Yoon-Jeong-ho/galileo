@@ -1403,4 +1403,4 @@ Format (one per line):
 - [x] 2025 | Disentangling the Drivers of LLM Social Conformity: An Uncertainty-Moderated Dual-Process Mechanism | arXiv | https://arxiv.org/abs/2508.14918 | tags: conformity,uncertainty,social-influence,analysis | note: docs/paper/related_work/rapid_review/papers/20260220_llm-social-conformity-uncertainty-dual-process.md
 - [x] 2025 | Free-MAD: Consensus-Free Multi-Agent Debate | arXiv | https://arxiv.org/abs/2509.11035 | tags: multi-agent,debate,anti-conformity,robustness | note: docs/paper/related_work/rapid_review/papers/20260220_free-mad.md
 
-- [ ] 2025 | An Empirical Study of Group Conformity in Multi-Agent Systems | arXiv | https://arxiv.org/abs/2506.01332 | tags: conformity,multi-agent,debate,opinion-dynamics
+- [x] 2025 | An Empirical Study of Group Conformity in Multi-Agent Systems | arXiv | https://arxiv.org/abs/2506.01332 | tags: conformity,multi-agent,debate,opinion-dynamics | note: docs/paper/related_work/rapid_review/papers/20260220_group-conformity-multi-agent-systems.md
