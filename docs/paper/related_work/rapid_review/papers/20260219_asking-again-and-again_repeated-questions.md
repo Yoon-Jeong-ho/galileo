@@ -1,70 +1,73 @@
 # Asking Again and Again: Exploring LLM Robustness to Repeated Questions
 
-- Year: 2025
-- Venue: arXiv (preprint)
-- Authors: Sagi Shaier; Mario Sanz-Guerrero; Katharina von der Wense
-- URL: https://arxiv.org/html/2412.07923v3
-- BibTeX key (if we add it): Shaier2025AskingAgain
-- Tags: repeated-questions, robustness, drift, evaluation
+- Year: 2025 (arXiv v3; initially 2024)
+- Venue: arXiv
+- Authors: Sagi Shaier, Mario Sanz-Guerrero, Katharina von der Wense
+- URL: https://arxiv.org/abs/2412.07923v3
+- BibTeX key (if we add it): shaier2025asking
+- Tags: repeated-questions, prompt-structure, robustness, drift-control, reading-comprehension
 
 ## One-sentence takeaway
 
-Repeating the same question 3–5x inside a prompt yields small, inconsistent accuracy changes (up to ~+6% in some cases) that are not statistically significant overall, suggesting modern LLM QA accuracy is fairly robust to naive question repetition.
+Repeating the same question 3–5 times inside a *single prompt* produces at most small, statistically non-significant accuracy changes, suggesting modern LLM QA accuracy is fairly robust to redundant/repeated question phrasing.
 
 ## What problem does it solve?
 
-- Tests a common prompt “folk remedy” (repeat the question to make the model focus) and quantifies whether it reliably improves QA accuracy.
-- Helps characterize sensitivity/robustness of LLMs to redundant input structure in reading-comprehension style prompting.
+- Tests a simple prompt heuristic (“repeat the question to make the model focus”) under controlled settings.
+- Clarifies whether repetition-induced “attention” effects exist for extractive-style reading comprehension (RC) QA.
 
 ## What is the core method / protocol?
 
-- Evaluate 5 LLMs (GPT-4o-mini, DeepSeek-V3, Llama-3.1 8B, Mistral 7B, Phi-4 14B) on 3 RC datasets: SQuAD, HotPotQA, Natural Questions.
-- Prompt variants:
-  - Open-book: context then question repeated k times.
-  - Closed-book: question repeated k times (no context).
-  - QCQ: question (k times), context, question (k times).
-  - Paraphrasing: add model-generated paraphrases appended to context.
-- Repetition levels k ∈ {1, 3, 5}.
-- Use substring-match accuracy; run non-parametric Friedman test for significance across repetition levels.
+- Task setup: reading comprehension triples (q, c, a); input is (context + question) depending on setting.
+- Datasets: SQuAD, HotPotQA, Natural Questions (NQ); sample 500 questions per dataset (cost constraint).
+- Models (5): GPT-4o-mini (API), DeepSeek-V3 (API), and open-weight Llama-3.1-8B, Mistral-7B, Phi-4-14B.
+- Repetition factor: repeat the question Qx1 vs Qx3 vs Qx5.
+- Prompt configurations (4):
+  - Open-book: context then repeated question.
+  - Closed-book: repeated question only.
+  - QCQ: repeated question, then context, then repeated question again.
+  - Paraphrasing: append model-generated paraphrases of the question after the original question.
+- Total settings: 3 (repetition) × 4 (configs) × 3 (datasets) × 5 (models) = 180; total ~90k prompts.
 
 ## What are the key metrics?
 
-- Accuracy via substring matching against gold answers.
-- Statistical significance across repetition conditions (Friedman test).
+- Accuracy via substring match: any gold answer string appears in the model output.
+- Statistical test over repetition levels: non-parametric Friedman test (Shapiro-Wilk indicates non-normality).
 
 ## What are the main results?
 
-- Across models/datasets/configurations, question repetition does not significantly change accuracy.
-- Some individual model/dataset slices show gains up to ~6% (notably for smaller models in closed-book), but the global effect is not significant.
-- Friedman test across aggregated settings reports p ≈ 0.70 (no significant differences among k=1,3,5).
-- Paraphrasing sometimes hurts larger models slightly, suggesting added “question variants” can introduce noise.
+- Across models/datasets/configs, question repetition has **no statistically significant** effect on accuracy.
+- Reported max gains are modest (up to ~+6% in some small-model closed-book cases), but not significant overall.
+- Friedman test: statistic ≈ 0.7118, p ≈ 0.70 → no meaningful difference among Qx1/Qx3/Qx5.
+- Paraphrasing can slightly hurt larger models in some settings (interpreted as noise).
 
 ## How is this similar to GALILEO?
 
-- Relevant as a robustness/sensitivity check: evaluates whether superficial prompt structure changes (redundancy) meaningfully alter QA performance.
-- Provides a clean template for reporting “prompt perturbation” results with both slice-level deltas and an overall significance test.
+- Supports GALILEO’s need to separate *mere repetition / re-asking* effects from true “pressure” effects.
+- Provides evidence that redundant question presentation alone is not a strong driver of behavior change (at least for RC accuracy).
 
 ## How is this different from GALILEO?
 
-- Narrow intervention (literal repetition / paraphrase) and narrow task family (RC-style QA); does not study richer interaction protocols, long-horizon behavior, or safety/behavioral failure modes.
-- Uses substring-match accuracy only; no calibration, uncertainty, or citation/faithfulness metrics.
+- Single-turn (within-prompt) repetition, not multi-turn dialogue pressure.
+- Measures QA accuracy, not truthfulness under adversarial social pressure, nor survival/TOF/recovery dynamics.
+- No ground-truth “resistance to persuasion” framing; it’s prompt-structure robustness.
 
 ## Where GALILEO is stronger / cleaner (if true)
 
-- If GALILEO targets more realistic interaction settings or multi-turn protocols, it can better reflect real user behavior than single-prompt repetition.
-- If GALILEO uses stronger evaluation (e.g., faithfulness/citation correctness, abstention quality, cost/latency), it will give a more complete picture than accuracy-only substring match.
+- GALILEO explicitly measures *multi-turn* dynamics (survival curve, turn-of-failure, recovery@flip) under persona pressure vs neutral re-asking control.
+- GALILEO focuses on settings where social pressure can cause incorrect flips even with a well-defined ground truth.
 
 ## Where GALILEO is weaker / needs to improve
 
-- If GALILEO claims prompt-level robustness, it may need similarly simple perturbation baselines (like repetition) to demonstrate stability on “easy” prompt transformations.
+- Could be helpful to cite/replicate a simple “within-prompt repetition” ablation to rule out trivial repetition artifacts in GALILEO prompts (if any repetition exists).
 
 ## Action items for GALILEO (experiments / method / writing)
 
-- [ ] Add a “redundant question repetition” perturbation baseline (k=1/3/5) in any prompt-robustness section; report both per-slice deltas and an overall paired significance test.
-- [ ] Consider separating effects by model scale and by context availability (open vs closed book), since small gains appear more often for smaller models in closed-book.
-- [ ] If using paraphrasing/rewriting in GALILEO, include an ablation noting that paraphrase variants can add noise and degrade performance.
+- [ ] Related work paragraph: cite this as evidence that “repetition alone” (within a prompt) is typically not enough to substantially move accuracy, motivating why GALILEO’s *persona pressure* + multi-turn framing matters.
+- [ ] (Optional) Add a small ablation: for a subset of tasks, repeat the current question within a turn (Qx3) and confirm survival/TOF results are unchanged.
 
 ## Quotes / details to potentially cite
 
-- Abstract-level claim: repetition can increase accuracy “by up to 6%” in some slices, but “we do not find the result statistically significant.”
-- Statistical test: Friedman test statistic 0.7118 with p-value 0.70 (no significant differences across repetition levels).
+- “Repeating questions within a single prompt … does not improve model performance significantly.”
+- Setup detail: sample size 500 per dataset; 180 settings, ~90,000 questions.
+- Statistical test detail: Friedman test p ≈ 0.70 (no significant differences across repetition levels).

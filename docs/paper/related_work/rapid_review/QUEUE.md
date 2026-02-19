@@ -1246,3 +1246,7 @@ Format (one per line):
 - [x] https://arxiv.org/abs/2309.15217 | note: docs/paper/related_work/rapid_review/papers/20260219_ragas-eval-rag.md
 - [x] https://arxiv.org/html/2507.18910v1 | note: docs/paper/related_work/rapid_review/papers/20260219_systematic-review-rag-systems.md
 - [x] https://arxiv.org/html/2510.26205v2 | note: docs/paper/related_work/rapid_review/papers/20260219_globalqa-globalrag.md
+
+## New candidates (2026-02-19)
+
+- [x] 2025 | Asking Again and Again: Exploring LLM Robustness to Repeated Questions | arXiv | https://arxiv.org/abs/2412.07923v3 | tags: repeated-questions, robustness, prompt-design, drift-control | note: papers/20260219_asking-again-and-again_repeated-questions.md
