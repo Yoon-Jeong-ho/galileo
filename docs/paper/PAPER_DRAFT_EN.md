@@ -435,7 +435,7 @@ Separately, work on **self-verification / verify-then-answer** (e.g., Chain-of-V
 - **Recovery as a separate axis:** we evaluate **recovery conditional on flipping** (and prompt-variant ablations) to separate “staying correct” from “returning to correct after being misled.”
 - **Reproducible exports:** we provide standardized per-run exports (survival/TOF/recovery) so claims can be verified directly from artifacts.
 
-**Limitations (brief).** Personas approximate social pressure but cannot cover all real conversational tactics; recovery prompts are interventions whose effects may depend on prompt design (mitigated via ablations); and open-domain QA introduces inherent ambiguity, which we treat as realism but report stratified analyses. Finally, “flip” detection depends on task-specific evaluators: for extractive QA, strict EM can mark *overanswers*, small span-boundary differences, or near-paraphrases as failures. To avoid overstating semantic belief change, we separate boundary/overanswer, partial-overlap, and semantic-change cases, and also track rare format/extraction artifacts (Appendix~A.2). These buckets are used only for post-hoc diagnosis and do **not** alter the primary evaluator-based survival/TOF/recovery metrics. For MCQA, the label itself changes, making flips unambiguous.
+**Limitations (pointer).** For a full discussion, see §10 (Limitations and ethical considerations). For the specific evaluator caveat in extractive QA—and our diagnostic flip taxonomy used only for post-hoc interpretation—see Appendix~A.2.
 
 ---
 
