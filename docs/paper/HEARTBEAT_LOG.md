@@ -1190,3 +1190,16 @@ Next:
   - seed1 GPU5: `tier1_deepseek7b_s1_g5_20260219_112728` (OUT: `results/tier1_deepseek7b_seed1_20260219_112728/`)
   - seed2 GPU6: `tier1_deepseek7b_s2_g6_20260219_112728` (OUT: `results/tier1_deepseek7b_seed2_20260219_112728/`)
 - Both runs reached vLLM engine init and began model loading; `VLLM::EngineCore` is visible on GPUs 5/6.
+
+### 2026-02-19 12:43 KST — DeepSeek Tier‑1 seeds 1–2 completed; `paper_exports/` validated and staged into `results_paper/`
+
+- Observed completion markers in both run logs:
+  - `results/tier1_deepseek7b_seed1_20260219_112728/run.log`: `=== EXPERIMENT COMPLETE ===`
+  - `results/tier1_deepseek7b_seed2_20260219_112728/run.log`: `=== EXPERIMENT COMPLETE ===`
+- Verified `paper_exports/` contains the required files for each seed:
+  - `survival_curve.csv`, `turn_of_failure.csv`, `flip_samples.csv`, `metadata.json`, `runner_metadata.json`
+- Staged both runs into SSOT `results_paper/` (symlinks):
+  - `results_paper/tier1_deepseek7b_seed1_20260219_112728 -> ../results/tier1_deepseek7b_seed1_20260219_112728`
+  - `results_paper/tier1_deepseek7b_seed2_20260219_112728 -> ../results/tier1_deepseek7b_seed2_20260219_112728`
+- Global validator:
+  - `python3 scripts/validate_paper_exports.py --results_root results_paper --check_runner_parity` → `[OK] runner_metadata parity`
