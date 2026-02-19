@@ -1404,3 +1404,11 @@ Format (one per line):
 - [x] 2025 | Free-MAD: Consensus-Free Multi-Agent Debate | arXiv | https://arxiv.org/abs/2509.11035 | tags: multi-agent,debate,anti-conformity,robustness | note: docs/paper/related_work/rapid_review/papers/20260220_free-mad.md
 
 - [x] 2025 | An Empirical Study of Group Conformity in Multi-Agent Systems | arXiv | https://arxiv.org/abs/2506.01332 | tags: conformity,multi-agent,debate,opinion-dynamics | note: docs/paper/related_work/rapid_review/papers/20260220_group-conformity-multi-agent-systems.md
+
+## New candidates (2026-02-20, web_search refresh)
+
+- [x] 2025 | Dialogues with AI Reduce Beliefs in Misinformation but Build No Lasting Discernment Skills | arXiv | https://arxiv.org/abs/2510.01537 | tags: persuasion, misinformation, dialogue, human-study | note: papers/20260220_ai-dialogues-misinformation-no-lasting-discernment.md
+- [ ] 2026 | ProAgentBench: Evaluating LLM Agents for Proactive Assistance with Real-World Data | arXiv | https://arxiv.org/abs/2602.04482 | tags: agents, proactive, evaluation, workflows
+- [ ] 2024 | Machine Generated Product Advertisements: Benchmarking LLMs Against Human Performance | arXiv | https://arxiv.org/abs/2412.19610 | tags: persuasion, marketing, evaluation, generation
+- [ ] 2024 | TheAgentCompany: Benchmarking LLM Agents on Consequential Real World Tasks | arXiv | https://arxiv.org/abs/2412.14161 | tags: agents, real-world, evaluation, consequential
+- [ ] 2025 | Benchmark for Planning and Control with Large Language Model Agents: Blocksworld with Model Context Protocol | arXiv | https://arxiv.org/abs/2512.03955 | tags: agents, planning, tool-use, benchmark
