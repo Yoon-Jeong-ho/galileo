@@ -1271,6 +1271,6 @@ Format (one per line):
 
 - [x] 2025 | Hierarchical Pedagogical Oversight: A Multi-Agent Adversarial Framework for Reliable AI Tutoring | arXiv | https://arxiv.org/abs/2512.22496 | tags: tutoring, reliability, multi-agent, oversight, sycophancy-adjacent | note: docs/paper/related_work/rapid_review/papers/20260219_hierarchical_pedagogical_oversight_hpo.md
 - [x] 2025 | Unspoken Hints: Accuracy Without Acknowledgement in LLM Reasoning | arXiv | https://arxiv.org/abs/2509.26041 | tags: hints, robustness, incorrect-hints, reasoning, sycophancy-adjacent | note: docs/paper/related_work/rapid_review/papers/20260219_unspoken_hints_cot_faithfulness.md
-- [ ] 2025 | Verifying Chain-of-Thought Reasoning via Its Computational Graph | arXiv | https://arxiv.org/abs/2510.09312 | tags: reasoning, verification, cot, reliability
+- [x] 2025 | Verifying Chain-of-Thought Reasoning via Its Computational Graph | arXiv | https://arxiv.org/abs/2510.09312 | tags: reasoning, verification, cot, reliability | note: docs/paper/related_work/rapid_review/papers/20260219_verifying_cot_reasoning_via_computational_graph.md
 - [ ] 2025 | REMSA: An LLM Agent for Foundation Model Selection in Remote Sensing | arXiv | https://arxiv.org/abs/2511.17442 | tags: remote-sensing, foundation-models, agent, selection, evaluation
 - [ ] 2025 | SkyMoE: A Vision-Language Foundation Model for Enhancing Geospatial Interpretation with Mixture of Experts | arXiv | https://arxiv.org/abs/2512.02517 | tags: remote-sensing, vision-language, foundation-model, moe, benchmark
