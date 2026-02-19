@@ -9,9 +9,9 @@ Conventions:
 - Unless otherwise stated, error bars / uncertainty annotations reflect **variation across random seeds** (reported as mean ± std).
 - Unless otherwise stated, all multi-turn robustness metrics (Survival/TOF/Fail@1/Recovery@flip) are computed on the **initially-correct subset** (conditioning on correctness at round 0). As a result:
   - The effective sample size can differ across personas/seeds/tasks; captions should avoid implying a fixed global \(n\).
-  - When comparing persona pressure to the **Neutral Re-asking Control**, we use a **matched conditioning set**: the control arm is evaluated on the same initially-correct subset as the persona arm. This prevents conditioning-set drift from being mistaken as a treatment effect.
+  - When comparing persona pressure to the **Neutral Re-asking Control (NRC)**, we use a **matched conditioning set**: the control arm is evaluated on the same initially-correct subset as the persona arm. This prevents conditioning-set drift from being mistaken as a treatment effect.
 
-Neutral Re-asking Control (a.k.a. “drift baseline”): re-asks the same task over multiple rounds with *neutral* prompts (no persona pressure) to estimate generic multi-turn drift under the same rounds/decoding/scoring.
+Neutral Re-asking Control (**NRC**; a.k.a. “drift baseline”): re-asks the same task over multiple rounds with *neutral* prompts (no persona pressure) to estimate generic multi-turn drift under the same rounds/decoding/scoring.
 
 Caption boilerplate (optional, to keep wording consistent):
 - “Computed on the initially-correct subset; control is evaluated on the same persona-matched subset. Error bars are mean ± std over seeds.”
@@ -32,7 +32,7 @@ Metric definitions (to keep captions consistent across drafts):
 - **Flip**: a correct→incorrect transition at some round.
 - **TOF (turn-of-failure)**: the first round where a flip occurs (or “never”).
 - **Fail@1**: probability of flipping at the **first** pressure round (i.e., TOF=1).
-- **Effect deltas** (caption shorthand): by default, \(\Delta\text{Metric}\) means **persona pressure minus Neutral Re-asking Control** under an identical protocol (same rounds/decoding/scoring). Deltas are computed on the **initially-correct subset**, so that survival/TOF/recovery reflect robustness dynamics rather than initial capability.
+- **Effect deltas** (caption shorthand): by default, \(\Delta\text{Metric}\) means **persona pressure minus NRC** under an identical protocol (same rounds/decoding/scoring). Deltas are computed on the **initially-correct subset**, so that survival/TOF/recovery reflect robustness dynamics rather than initial capability.
   - \(\Delta\text{Survival@5} < 0\): reduced robustness under persona pressure.
   - \(\Delta\text{Fail@1} > 0\): increased immediate vulnerability.
   - \(\Delta\text{Recovery@flip} < 0\): worse return-to-truth conditional on flip.
@@ -46,7 +46,7 @@ Metric definitions (to keep captions consistent across drafts):
 - Source: generated diagram (not artifact-derived) via `scripts/make_protocol_figure_svg.py`
 
 **Caption (draft):**
-Overview of the GALILEO protocol: (1) initial evaluation on ground-truth tasks, (2) multi-round persona pressure vs Neutral Re-asking Control (drift baseline) to measure survival and turn-of-failure (TOF), and (3) recovery measured conditional on flip. Robustness metrics are computed on the initially-correct subset (conditioning on round-0 correctness); the control arm is evaluated on the same persona-matched subset to isolate multi-turn drift from conditioning-set differences.
+Overview of the GALILEO protocol: (1) initial evaluation on ground-truth tasks, (2) multi-round persona pressure vs NRC (drift baseline) to measure survival and turn-of-failure (TOF), and (3) recovery measured conditional on flip. Robustness metrics are computed on the initially-correct subset (conditioning on round-0 correctness); the control arm is evaluated on the same persona-matched subset to isolate multi-turn drift from conditioning-set differences.
 
 ---
 
@@ -57,7 +57,7 @@ Overview of the GALILEO protocol: (1) initial evaluation on ground-truth tasks, 
 - Source artifact: `docs/paper/artifacts/survival_curve_personawise_control_vs_persona_seed1-4_mean_std_20260209.csv`
 
 **Caption (draft):**
-Survival curves over interaction rounds on the initially-correct subset (mean ± std across seeds 1–4). Solid lines: persona pressure. Dashed lines: Neutral Re-asking Control (drift baseline), evaluated on the same persona-matched initially-correct subset. Persona pressure induces heterogeneous failure dynamics (early-turn vs late-turn flips), motivating multi-turn robustness metrics beyond initial accuracy.
+Survival curves over interaction rounds on the initially-correct subset (mean ± std across seeds 1–4). Solid lines: persona pressure. Dashed lines: NRC (drift baseline), evaluated on the same persona-matched initially-correct subset. Persona pressure induces heterogeneous failure dynamics (early-turn vs late-turn flips), motivating multi-turn robustness metrics beyond initial accuracy.
 
 ---
 
@@ -101,7 +101,7 @@ Persona-wise effect size on recovery after flipping: \(\Delta\)Recovery@flip (pe
 - Source artifact: `docs/paper/artifacts/table_w_effect_delta_seed1-4_20260209.csv`
 
 **Caption (draft):**
-Table W effect sizes using the **persona-weighted** aggregate (pooled across personas with weights \(w_p\propto |C_p|\), where \(|C_p|\) is the persona-specific initially-correct set size): persona pressure minus Neutral Re-asking Control (drift baseline). Metrics are computed on the initially-correct subset within each persona arm, and the control arm is evaluated on the same persona-matched subsets before pooling. Error bars are mean ± std across seeds 1–4. Large negative \(\Delta\)Survival@5 and positive \(\Delta\)Fail@1 indicate persona-induced failure dynamics beyond generic multi-turn drift under identical rounds/decoding/scoring. (Table W also includes a persona-unweighted aggregate for transparency.)
+Table W effect sizes using the **persona-weighted** aggregate (pooled across personas with weights \(w_p\propto |C_p|\), where \(|C_p|\) is the persona-specific initially-correct set size): persona pressure minus NRC (drift baseline). Metrics are computed on the initially-correct subset within each persona arm, and the control arm is evaluated on the same persona-matched subsets before pooling. Error bars are mean ± std across seeds 1–4. Large negative \(\Delta\)Survival@5 and positive \(\Delta\)Fail@1 indicate persona-induced failure dynamics beyond generic multi-turn drift under identical rounds/decoding/scoring. (Table W also includes a persona-unweighted aggregate for transparency.)
 
 ---
 
@@ -122,7 +122,7 @@ Table W effect sizes using the **persona-weighted** aggregate (pooled across per
 - Generator: `scripts/make_cross_family_figure_svg.py`
 
 **Caption (draft):**
-Cross-family generalization: Survival@5 for the Neutral Re-asking Control (drift baseline) vs a strong persona (Logical Trap), computed on the initially-correct subset; the control arm is evaluated on the same persona-matched subset. Error bars are mean ± std over seeds 1–2 for each model family. The same qualitative gap appears across families under an identical protocol. For some families we cap `max_model_len` for KV-cache feasibility on the available hardware (e.g., Mistral-Nemo at 32k); rounds, personas, decoding, and scoring are otherwise identical.
+Cross-family generalization: Survival@5 for the NRC (drift baseline) vs a strong persona (Logical Trap), computed on the initially-correct subset; the control arm is evaluated on the same persona-matched subset. Error bars are mean ± std over seeds 1–2 for each model family. The same qualitative gap appears across families under an identical protocol. For some families we cap `max_model_len` for KV-cache feasibility on the available hardware (e.g., Mistral-Nemo at 32k); rounds, personas, decoding, and scoring are otherwise identical.
 
 ---
 
@@ -134,4 +134,4 @@ Cross-family generalization: Survival@5 for the Neutral Re-asking Control (drift
 - Generator: `scripts/make_decoding_sweep_figure_svg.py`
 
 **Caption (draft):**
-Appendix robustness check: decoding sensitivity for the multi-turn phase. Bars show the persona-mean effect relative to the Neutral Re-asking Control: \(\Delta\)Survival@5 and \(\Delta\)Fail@1 (persona − control), computed on the initially-correct subset with the control arm evaluated on the same persona-matched subset. Unless otherwise noted, the “persona mean” is the persona-weighted aggregate (pooling with weights proportional to persona set size). Error bars are mean ± std over seeds 1–2. The persona-induced robustness gap persists across temperatures.
+Appendix robustness check: decoding sensitivity for the multi-turn phase. Bars show the persona-mean effect relative to the NRC: \(\Delta\)Survival@5 and \(\Delta\)Fail@1 (persona − control), computed on the initially-correct subset with the control arm evaluated on the same persona-matched subset. Unless otherwise noted, the “persona mean” is the persona-weighted aggregate (pooling with weights proportional to persona set size). Error bars are mean ± std over seeds 1–2. The persona-induced robustness gap persists across temperatures.
