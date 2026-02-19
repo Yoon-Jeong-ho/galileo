@@ -148,13 +148,22 @@ To avoid accidentally leaking hostnames/absolute paths in an anonymized submissi
 
 ## Sanity checks (fast)
 
-- **BibTeX key check (avoid LaTeX build failures):**
+- **Citation key check (avoid LaTeX build failures):**
+
+```bash
+# robust: catches \cite{...}, \citet{...}, \citep{...}, and optional pre/post notes
+bash scripts/check_citations_vs_bib.sh
+```
+
+This scans the main Markdown drafts plus all `*.tex` under `docs/paper/` (excluding the upstream EMNLP template) and checks that every citation key exists in `references.bib`.
+
+- **Legacy/quick check (limited):**
 
 ```bash
 python3 tools/check_bibkeys.py
 ```
 
-By default this scans `docs/paper/` and `tmp/emnlp2023_smoketest/` for `\cite{...}` keys and checks they exist in `references.bib`.
+Note: this only matches plain `\cite{...}` (it will miss `\citet`/`\citep`), so prefer `scripts/check_citations_vs_bib.sh` for paper readiness.
 
 ## Make targets (optional)
 
