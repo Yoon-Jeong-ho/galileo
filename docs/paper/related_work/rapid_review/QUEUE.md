@@ -1161,7 +1161,7 @@ Format (one per line):
 - [x] 2025 | Consistently Simulating Human Personas with Multi-Turn Reinforcement Learning | arXiv | https://arxiv.org/abs/2511.00222v1 | tags: persona,drift,multi-turn,rl | note: docs/paper/related_work/rapid_review/papers/20260219_consistently-simulating-personas-multiturn-rl.md
 - [x] 2025 | Consistency Training Helps Stop Sycophancy and Jailbreaks | arXiv | https://arxiv.org/abs/2510.27062v1 | tags: sycophancy,consistency-training,jailbreaks,robustness | note: docs/paper/related_work/rapid_review/papers/20260219_consistency-training-helps-stop-sycophancy-and-jailbreaks.md
 
-- [ ] 2026 | AREG: Adversarial Resource Extraction Game for Evaluating Persuasion and Resistance in Large Language Models | arXiv | https://arxiv.org/abs/2602.16639 | tags: persuasion,resistance,multi-turn,benchmark,negotiation
+- [x] 2026 | AREG: Adversarial Resource Extraction Game for Evaluating Persuasion and Resistance in Large Language Models | arXiv | https://arxiv.org/abs/2602.16639 | tags: persuasion,resistance,multi-turn,benchmark,negotiation | note: docs/paper/related_work/rapid_review/papers/20260219_areg_adversarial_resource_extraction_game.md
 - [x] 2025 | WAREX: Web Agent Reliability Evaluation on Existing Benchmarks | arXiv | https://arxiv.org/abs/2510.03285 | tags: web-agents, reliability, evaluation, benchmark | note: docs/paper/related_work/rapid_review/papers/20260219_warex-web-agent-reliability.md
 - [x] 2025 | DataGovBench: Benchmarking LLM Agents for Real-World Data Governance Workflows | arXiv | https://arxiv.org/abs/2512.04416 | tags: agents, benchmarking, data-governance, workflows | note: docs/paper/related_work/rapid_review/papers/20260219_datagovbench.md
 
