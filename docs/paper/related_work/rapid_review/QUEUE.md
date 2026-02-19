@@ -1183,3 +1183,11 @@ Format (one per line):
 - [x] MemR3: Memory Retrieval via Reflective Reasoning for LLM Agents — https://arxiv.org/abs/2512.20237 | note: docs/paper/related_work/rapid_review/papers/20260219_memr3-memory-retrieval-reflective-reasoning.md
 - [x] Frustratingly Simple Retrieval Improves Challenging, Reasoning-Intensive Benchmarks — https://arxiv.org/abs/2507.01297 | note: docs/paper/related_work/rapid_review/papers/20260219_frustratingly_simple_retrieval_compactds.md
 - [x] Cognitive Memory in Large Language Models — https://arxiv.org/abs/2504.02441 | note: docs/paper/related_work/rapid_review/papers/20260219_cognitive-memory-llms.md
+
+## New candidates (2026-02-19, web_search batch)
+
+- [x] 2026 | Discovering Implicit Large Language Model Alignment Objectives | arXiv | https://arxiv.org/abs/2602.15338 | tags: alignment, reward-models, objectives, diagnostics | note: papers/20260219_obj-disco_alignment-objectives.md
+- [ ] 2026 | Language Model Memory and Memory Models for Language | arXiv | https://arxiv.org/abs/2602.13466 | tags: memory, representation, theory, analysis
+- [ ] 2026 | LLMStructBench: Benchmarking Large Language Model Structured Data Extraction | arXiv | https://arxiv.org/abs/2602.14743 | tags: benchmark, structured-output, extraction, robustness-adjacent
+- [ ] 2026 | Social Contagion and Bank Runs: An Agent-Based Model with LLM Depositors | arXiv | https://arxiv.org/abs/2602.15066 | tags: agents, social-influence, simulation, persuasion-adjacent
+- [ ] 2026 | Prescriptive Scaling Reveals the Evolution of Language Model Capabilities | arXiv | https://arxiv.org/abs/2602.15327 | tags: scaling, capability-eval, benchmarks
