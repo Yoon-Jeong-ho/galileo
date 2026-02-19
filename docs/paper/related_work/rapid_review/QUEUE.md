@@ -1124,4 +1124,4 @@ Format (one per line):
 ## New candidates (2026-02-19, web_search batch 2)
 - [x] 2025 | Enhancing Personalized Multi-Turn Dialogue with Curiosity Reward | arXiv | https://arxiv.org/html/2504.03206v2 | tags: multi-turn, personalization, belief-state, rl | note: docs/paper/related_work/rapid_review/papers/20260219_curio_curiosity_reward_personalized_multiturn_dialogue.md
 - [x] 2025 | Counterfactual Reward Model Training for Bias Mitigation in Multimodal Reinforcement Learning | arXiv | https://arxiv.org/html/2508.19567v1 | tags: robustness, drift, reward-model, bias-mitigation | note: docs/paper/related_work/rapid_review/papers/20260219_counterfactual-reward-model-bias-mitigation-multimodal-rl.md
-- [ ] 2025 | Machine Learning Robustness: A Primer (Chapter 0) | arXiv | https://arxiv.org/html/2404.00897v2 | tags: robustness, survey, adversarial, testing
+- [x] 2025 | Machine Learning Robustness: A Primer (Chapter 0) | arXiv | https://arxiv.org/html/2404.00897v2 | tags: robustness, survey, adversarial, testing | note: docs/paper/related_work/rapid_review/papers/20260219_ml-robustness-a-primer-ch0.md
