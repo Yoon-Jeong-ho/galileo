@@ -87,7 +87,7 @@ We instantiate social pressure via five fixed personas: \emph{Soft Pressure} (ge
 To separate persona-induced effects from generic multi-turn instability, we also run a \emph{neutral re-asking control} that re-queries the same question without adversarial framing.
 
 \paragraph{Matched conditioning set.}
-Because our multi-turn metrics are defined on the \emph{initially-correct} subset, the effective evaluation set can differ across personas and seeds. For each persona $p$, we therefore define its initially-correct set $C_p$ (examples correct at round $0$ \emph{under persona prompting}) and evaluate the neutral control on the \emph{same} $C_p$ when computing persona--control deltas. This ``persona-matched control'' prevents conditioning-set drift (differences in which examples qualify as initially correct) from being misinterpreted as a treatment effect.
+Our multi-turn metrics are defined on the \emph{initially-correct} subset, so the effective evaluation set can vary across personas and seeds. For instance, a persona prompt may reduce round-0 accuracy, leaving a smaller (and potentially easier) subset of examples that qualify as ``initially correct.'' To avoid conflating this \emph{conditioning-set drift} with a true persona effect, for each persona $p$ we define its initially-correct set $C_p$ (examples correct at round $0$ \emph{under persona prompting}) and evaluate the neutral re-asking control on the \emph{same} $C_p$ when computing persona--control deltas.
 
 Formally, for any metric $M$ computed on initially-correct examples (e.g., $\widehat{S}(r)$, fail@any, or a TOF statistic), we report persona--control deltas on the matched set:
 \begin{equation}
