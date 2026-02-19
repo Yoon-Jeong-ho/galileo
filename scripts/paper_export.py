@@ -64,7 +64,12 @@ def normalize_persona_id(persona: str) -> str:
     low = p.lower()
 
     # Common historical labels for the neutral re-asking baseline.
+    #
+    # Note: some runs store the control as a *persona key* (e.g., from CLI flags)
+    # rather than a human-readable name. We normalize those too so downstream
+    # plotting/aggregation scripts can rely on a single stable identifier.
     if low in {
+        "control_reask",
         "control re-asking",
         "control re-ask",
         "neutral re-asking control",
