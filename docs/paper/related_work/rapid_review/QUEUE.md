@@ -1141,7 +1141,7 @@ Format (one per line):
 ## New candidates (2026-02-19)
 
 - [x] 2026 | IDRBench: Interactive Deep Research Benchmark | arXiv | https://arxiv.org/abs/2601.06676 | tags: agents, deep-research, interactive, evaluation | note: papers/20260219_idrbench-interactive-deep-research.md
-- [ ] 2026 | Do Reasoning Models Ask Better Questions? A Formal Information-Theoretic Analysis on Multi-Turn LLM Games | arXiv | https://arxiv.org/abs/2601.17716 | tags: multi-turn, information-seeking, question-asking, evaluation
+- [x] 2026 | Do Reasoning Models Ask Better Questions? A Formal Information-Theoretic Analysis on Multi-Turn LLM Games | arXiv | https://arxiv.org/abs/2601.17716 | tags: multi-turn, information-seeking, question-asking, evaluation | note: docs/paper/related_work/rapid_review/papers/20260219_reasoning-models-ask-better-questions-ig.md
 - [ ] 2026 | LLMs for Game Theory: Entropy-Guided In-Context Learning and Adaptive CoT Reasoning | arXiv | https://arxiv.org/abs/2601.10775 | tags: game-theory, entropy, reasoning, robustness-adjacent
 - [ ] 2026 | Game of Thought: Robust Information Seeking with Large Language Models Using Game Theory | arXiv | https://arxiv.org/abs/2602.01708 | tags: information-seeking, game-theory, robustness-adjacent
 - [ ] 2026 | When Numbers Start Talking: Implicit Numerical Coordination Among LLM-Based Agents | arXiv | https://arxiv.org/abs/2601.03846 | tags: multi-agent, coordination, entropy, robustness-adjacent
