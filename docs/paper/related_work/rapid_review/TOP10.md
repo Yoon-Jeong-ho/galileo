@@ -18,11 +18,11 @@ For each item, we maintain:
    - Borrow: the **radial vs angular** decomposition as an explanation tool; a reviewer-friendly counterpoint to “confidence/norm drops” as a universal mechanism.
    - How to change GALILEO: add a subsection/ablations showing when drift happens with **stable norms but changing direction**; avoid over-relying on scalar confidence proxies.
 
-2) **Any-Optical-Model: A Universal Foundation Model for Optical Remote Sensing** (Hong et al., AAAI 2026; arXiv 2025)
-   - Contributes: an optical RSFM explicitly designed to handle **arbitrary band compositions** and **wide resolution ranges** via (i) **per-band tokenization + band identity embeddings** and (ii) **resolution-adaptive patch embedding** (multi-kernel bank + pseudo-inverse resize).
-   - Misses vs GALILEO: focused on optical multispectral (not a general multi-modal geospatial model); unclear from rapid read whether it supports temporal modeling beyond standard pretraining augmentations.
-   - Borrow: (i) missing-band and cross-sensor evaluation slices as first-class claims, (ii) explicit band-identity encoding baseline, (iii) multi-scale semantic alignment framing.
-   - How to change GALILEO: add explicit **missing-band / cross-sensor / cross-resolution** stress tests and (if needed) a tokenizer/pathway that preserves band identity while still allowing cross-band interaction.
+2) **Large Language Models Are More Persuasive Than Incentivized Human Persuaders** (Schoenegger et al., arXiv 2025)
+   - Contributes: a direct head-to-head comparison of **directional persuasion compliance** in an interactive quiz chat, showing a frontier LLM persuader can outperform **incentivized human persuaders** in both truthful (toward correct answers) and deceptive (toward incorrect answers) steering.
+   - Misses vs GALILEO: the outcome is (largely) single-episode compliance/accuracy rather than long-horizon drift + recovery; limited diagnostic separation of evidence-driven revision vs pressure-driven drift.
+   - Borrow: (i) a clean *directional persuasion* task definition, (ii) outcome coupling to user utility (accuracy/earnings), (iii) human-baseline framing for persuasion strength.
+   - How to change GALILEO: add a persuasion-strength evaluation axis (truthful + deceptive) with compliance + utility metrics; consider a human-baseline or strong scripted baseline for effect-size context.
 
 3) **TiMo: Spatiotemporal Foundation Model for Satellite Image Time Series** (Qin et al., arXiv 2025)
    - Contributes: a **hierarchical** SITS foundation model with a custom attention pattern (**spatiotemporal gyroscope attention**) aimed at capturing multiscale aligned space-time structure; plus a temporally richer pretraining set (**MillionST**, 10 timestamps over 5 years at 100k locations).
@@ -74,6 +74,7 @@ For each item, we maintain:
 
 ## Changelog
 
+- 2026-02-19: Added *Large Language Models Are More Persuasive Than Incentivized Human Persuaders* (Schoenegger et al., arXiv 2025) as a key persuasion-capability neighbor (LLM vs incentivized humans; truthful + deceptive steering; compliance + accuracy/earnings). Displaced *Any-Optical-Model: A Universal Foundation Model for Optical Remote Sensing* (Hong et al., AAAI 2026; arXiv 2025): strong EO foundation work, but off-theme relative to GALILEO’s multi-turn social pressure / persuasion focus.
 - 2026-02-19: Added *Simulated Adoption: Decoupling Magnitude and Direction in LLM In-Context Conflict Resolution* (Zhang, arXiv 2026) as a key mechanistic neighbor for compliance/sycophancy under knowledge conflict (angular rotation / orthogonal interference vs norm dilution). Displaced *AnySat: One Earth Observation Model for Many Resolutions, Scales, and Modalities* (Astruc et al., arXiv 2024/2025): strong EO foundation work, but less central to the current compliance/sycophancy mechanism emphasis.
 - 2026-02-19: Added *Large language models can effectively convince people to believe conspiracies* (Costello et al., arXiv 2026) as a key multi-turn persuasion + belief-change neighbor (bunk vs debunk; guardrails not sufficient; corrective conversation recovery). Displaced *FUSAR-KLIP: Towards Multimodal Foundation Models for Remote Sensing* (Yang et al., arXiv 2025): valuable geospatial multimodal FM work, but less central to GALILEO’s multi-turn robustness / persuasion theme.
 - 2026-02-19: Added *Emergent Persuasion: Will LLMs Persuade Without Being Prompted?* (Chang et al., AAAI 2026 AIGOV Workshop; arXiv 2025) as a key non-misuse persuasion-safety neighbor (UnPromptedAPE; benign SFT → harmful unprompted persuasion). Displaced *Time-To-Inconsistency: A Survival Analysis of Large Language Model Robustness to Adversarial Attacks* (Li, Krishnan, Padman, arXiv 2025): useful time-to-event framing, but less central than emergent persuasion for the current shortlist.
