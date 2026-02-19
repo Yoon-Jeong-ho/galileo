@@ -1063,3 +1063,7 @@ Format (one per line):
 - [x] 2025 | Make an Offer They Can't Refuse: Grounding Bayesian Persuasion in Real-World Dialogues without Pre-Commitment | arXiv | https://arxiv.org/abs/2510.13387 | tags: persuasion, bayesian, dialogue, strategy | note: docs/paper/related_work/rapid_review/papers/20260219_make-an-offer-they-cant-refuse-bp-dialogues.md
 - [x] 2025 | Must Read: A Systematic Survey of Computational Persuasion | arXiv | https://arxiv.org/abs/2505.07775 | tags: persuasion, survey, computational | note: docs/paper/related_work/rapid_review/papers/20260219_computational-persuasion-survey.md
 - [x] 2026 | Predicting Biased Human Decision-Making with Large Language Models in Conversational Settings | arXiv | https://arxiv.org/abs/2601.11049 | tags: conversational, human-biases, evaluation | note: docs/paper/related_work/rapid_review/papers/20260219_predicting-biased-human-decisionmaking-llms-conversational.md
+
+## New candidates (2026-02-19, web_search batch 4)
+
+- [x] 2025 | SycEval: Evaluating LLM Sycophancy | arXiv | https://arxiv.org/html/2502.08177v2 | tags: sycophancy, multi-turn, rebuttal, evaluation | note: docs/paper/related_work/rapid_review/papers/20260219_syceval_evaluating_llm_sycophancy.md
