@@ -1367,3 +1367,11 @@ Format (one per line):
 - [x] 2025 | Belief Dynamics Reveal the Dual Nature of In-Context Learning and Activation Steering | arXiv | https://arxiv.org/abs/2511.00617 | tags: belief-updating, icl, activation-steering, theory | note: papers/20260219_belief-dynamics-icl-activation-steering.md
 - [x] 2025 | ABBEL: LLM Agents Acting through Belief Bottlenecks Expressed in Language | arXiv | https://arxiv.org/abs/2512.20111 | tags: agents, belief-bottleneck, memory, long-horizon | note: docs/paper/related_work/rapid_review/papers/20260219_abbel_belief_bottleneck.md
 - [x] 2026 | Agentic Reasoning for Large Language Models | arXiv | https://arxiv.org/abs/2601.12538 | tags: agents, survey, reasoning, interaction | note: docs/paper/related_work/rapid_review/papers/20260219_agentic_reasoning_llms_survey.md
+
+## New candidates (2026-02-19, web_search batch 2)
+
+- [x] 2026 | SkillsBench: Benchmarking How Well Agent Skills Work Across Diverse Tasks | arXiv | https://arxiv.org/abs/2602.12670 | tags: agents, skills, tool-use, benchmark, trajectories | note: papers/20260219_skillsbench.md
+- [ ] 2026 | OpaqueToolsBench: Learning Nuances of Tool Behavior Through Interaction | arXiv | https://arxiv.org/abs/2602.15197 | tags: agents, tool-use, opaque-tools, benchmark, interaction
+- [ ] 2026 | SPILLage: Agentic Oversharing on the Web | arXiv | https://arxiv.org/abs/2602.13516 | tags: agents, privacy, oversharing, web, multi-step
+- [ ] 2026 | Team of Thoughts: Efficient Test-time Scaling of Agentic Systems through Orchestrated Tool Calling | arXiv | https://arxiv.org/abs/2602.16485 | tags: agents, orchestration, tool-calling, test-time-scaling
+- [ ] 2026 | Evaluating AGENTS.md: Are Repository-Level Context Files Helpful for Coding Agents? | arXiv | https://arxiv.org/abs/2602.11988 | tags: agents, coding, context, evaluation
