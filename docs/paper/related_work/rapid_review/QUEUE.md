@@ -844,6 +844,12 @@ Format (one per line):
 - [x] 2025 | ConvoMem Benchmark: Why Your First 150 Conversations Don’t Need RAG | arXiv | https://arxiv.org/abs/2511.10523 | tags: memory, long-term, multi-session, retrieval, evaluation | note: docs/paper/related_work/rapid_review/papers/20260219_convomem-benchmark-150-conversations.md
 
 ## New candidates (2026-02-19)
+- [x] 2025 | Look It Up: Analysing Internal Web Search Capabilities of Modern LLMs | arXiv | https://arxiv.org/html/2511.18931 | tags: web-search, evaluation, tool-use, retrieval | note: docs/paper/related_work/rapid_review/papers/20260219_look-it-up-internal-web-search.md
+
+- [ ] 2025 | Self-Challenging Language Model Agents | arXiv | https://arxiv.org/html/2506.01716v1 | tags: agents, self-improvement, tool-use, evaluation
+- [ ] 2024 | AutoWebGLM: Bootstrap and Reinforce a Large Language Model-based Web Navigating Agent | arXiv | https://arxiv.org/html/2404.03648v1 | tags: agents, web, navigation, reinforcement-learning
+
+- [ ] 2025 | BrowserArena: Evaluating LLM Agents on Real-World Web Navigation Tasks | arXiv | https://arxiv.org/html/2510.02418v2 | tags: agents, web, benchmark, evaluation
 - [x] 2026 | Confidence Estimation for LLMs in Multi-turn Interactions | arXiv | https://arxiv.org/html/2601.02179v1 | tags: calibration,confidence,multi-turn | note: docs/paper/related_work/rapid_review/papers/20260219_confidence_estimation_multi_turn_interactions.md
 
 - [x] 2026 | CAR-bench: Evaluating the Consistency and Limit-Awareness of LLM Agents under Real-World Uncertainty | arXiv | https://arxiv.org/html/2601.22027v1 | tags: agents,consistency,uncertainty | note: docs/paper/related_work/rapid_review/papers/20260219_car_bench_consistency_limit_awareness.md
