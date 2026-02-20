@@ -267,11 +267,7 @@ This convention preserves drift correction (each persona is paired with its own 
 \cmidrule(lr){2-4} \cmidrule(lr){5-7} \cmidrule(lr){8-10}
 & NRC & Persona & $\Delta$ & NRC & Persona & $\Delta$ & NRC & Persona & $\Delta$ \\
 \midrule
-Qwen2.5-7B-Instruct & -- & -- & -- & -- & -- & -- & -- & -- & -- \\
-Llama-3.1-8B-Instruct & -- & -- & -- & -- & -- & -- & -- & -- & -- \\
-Mistral-7B-Instruct & -- & -- & -- & -- & -- & -- & -- & -- & -- \\
-Phi-3-mini-4k-instruct & -- & -- & -- & -- & -- & -- & -- & -- & -- \\
-Qwen2.5-14B-Instruct & -- & -- & -- & -- & -- & -- & -- & -- & -- \\
+\input{generated/table1_rows}
 \bottomrule
 \end{tabularx}
 \caption{\textbf{Main results (persona-weighted aggregate).} For each model family, we report three paired views under matched decoding on an initially-correct set: Survival@5, Fail@1 (early hazard), and Recovery@flip (conditional on at least one flip). ``Persona'' denotes the persona-weighted aggregate across pressure mechanisms; NRC is the matched evidence-free control. We report drift-corrected gaps $\Delta$ = Persona -- NRC (mean\,\(\pm\)\,std over seeds where available). Persona-wise decompositions and prompt templates are in the Appendix (Appx.~\ref{sec:appendix-extra-results}, Appx.~\ref{sec:appendix-prompts}).}
