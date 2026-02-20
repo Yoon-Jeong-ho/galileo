@@ -148,6 +148,14 @@ Survival@$r$ is the probability of remaining correct through all rounds up to $r
 This is the discrete-time analogue of a survival function: it captures the ``stability'' of correctness under repeated questioning rather than a single-turn accuracy snapshot.
 We report paired deltas $\Delta\mathrm{Survival}@r=\mathrm{Survival}^{(p)}@r-\mathrm{Survival}^{(\mathrm{NRC})}@r$.
 
+\paragraph{Discrete hazard (per-round failure risk).}
+Survival curves can be re-expressed as a per-round failure ``hazard'' (conditional risk): for $r\ge 2$,
+\begin{align}
+\mathrm{Hazard}^{(t)}@r \;=\; \Pr\big[c^{(t)}_{r}(x)=0\,\big|\,c^{(t)}_{1}(x)=\cdots=c^{(t)}_{r-1}(x)=1\big]
+\;=\; 1-\frac{\mathrm{Survival}^{(t)}@r}{\mathrm{Survival}^{(t)}@{(r-1)}}.
+\end{align}
+This view makes clear whether a persona concentrates failures early (high Hazard@2 / Fail@1) or gradually increases failure risk over rounds (rising hazards).
+
 \paragraph{Turn-of-failure (TOF) and Fail@1.}
 Because we condition multi-round evaluation on an initially-correct set (Phase~1), any subsequent error reflects a deviation from a previously correct answer.
 Define the (possibly censored) first-failure time

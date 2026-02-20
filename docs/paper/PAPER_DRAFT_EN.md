@@ -550,7 +550,7 @@ Unless stated otherwise, results are reported as mean±std over **seeds 1–4** 
     & Recovery@flip (C) & Recovery@flip (P) & $\Delta$Rec & \multicolumn{3}{r}{\emph{(Recovery columns can be split into a second panel if space is tight.)}} \\
     \bottomrule
   \end{tabular}
-  \caption{\textbf{Main results (one-stop summary).} Survival@5, Fail@1, and recovery@flip for persona pressure (P) versus the Neutral Re-asking Control (C), aggregated over tasks and personas (persona-weighted unless stated). $\Delta$ is persona minus control on the matched initially-correct set. Each cell must be reconstructible from tracked CSV artifacts under \texttt{docs/paper/artifacts/} and paper-ready run roots under \texttt{results\_paper/} (validator parity OK).}
+  \caption{\textbf{Main results (one-stop summary).} Survival@5, Fail@1, and Recovery@flip for persona pressure (P) versus the Neutral Re-asking Control (NRC), aggregated over tasks and personas (persona-weighted unless stated). $\Delta$ is persona minus control on the matched initially-correct set. Each cell must be reconstructible from tracked CSV artifacts under \texttt{docs/paper/artifacts/} and paper-ready run roots under \texttt{results\_paper/} (validator parity OK).}
   \label{tab:main-results}
 \end{table*}
 ```
