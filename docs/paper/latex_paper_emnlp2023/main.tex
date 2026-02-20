@@ -251,6 +251,12 @@ and the paired difference $\Delta\mathrm{Recovery}@\mathrm{flip}=\mathrm{Recover
 We summarize multi-turn robustness as complementary views: (i) \textbf{Survival@r} captures cumulative correctness under repeated questioning, (ii) \textbf{TOF/Fail@1} captures early-turn brittleness and the onset of failure, and (iii) \textbf{Recovery@flip} captures whether a model can return to the gold answer after it has deviated.
 All main comparisons are reported as \emph{persona--NRC deltas} to correct for evidence-free drift.
 
+\paragraph{Persona-weighted aggregate (for compact reporting).}
+Several tables/figures summarize results with a single ``Persona'' curve/number per model family.
+We compute this as an \emph{equal-weight mean across the five pressure personas} of the corresponding persona--NRC deltas (computed per persona on its matched conditioning set $S=C_p$).
+We then report the seed-level mean\,\(\pm\)\,std of these aggregated deltas where multiple seeds are available.
+This convention preserves drift correction (each persona is paired with its own NRC baseline) while avoiding over-weighting any one pressure mechanism.
+
 \begin{table*}[t]
 \centering
 \small
