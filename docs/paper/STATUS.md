@@ -126,7 +126,9 @@ Ground-truth tasks에서 multi-turn persona pressure 하에 **정답 유지(surv
 **LaTeX packaging: confirm the correct EMNLP year template + ensure our PDF-figure pipeline integrates cleanly.**
 
 - Immediate one-step plan:
-  1) Fetch/pin the current official ACL style snapshot (helper: `bash scripts/get_acl_style_files.sh <ref>`). Then either (a) add a `latex_skeleton_emnlp20XX/` dir matching the current year, or (b) confirm that `docs/paper/latex_skeleton_emnlp2023/` is acceptable for this cycle.
+  1) Fetch/pin the current official ACL style snapshot (helper: `bash scripts/get_acl_style_files.sh <ref>`). **Pinned ref (current):** `2353f3ea58abf3fc4d2ee08e8d0cd2fe749f25a9`.
+     - Note: downloaded files live under `docs/paper/acl_style_files/<ref>/` and are gitignored (vendor snapshot for local builds).
+     - Then either (a) add a `latex_skeleton_emnlp20XX/` dir matching the current year, or (b) confirm that `docs/paper/latex_skeleton_emnlp2023/` is acceptable for this cycle.
   2) Ensure figure includes are consistent with the PDF-first policy (SVG is SSOT; PDFs under `paper_figures/pdf/`).
   3) Run the existing LaTeX smoke-test (`docs/paper/latex_skeleton_emnlp2023/main_emnlp2023.tex`) and record PASS in `STATUS.md`.
 
