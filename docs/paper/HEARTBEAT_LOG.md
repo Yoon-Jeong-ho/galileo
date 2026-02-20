@@ -1328,6 +1328,14 @@ Next:
 - Kept `\pagemark{LIMITATIONS_SECTION_START}` at the start of the Limitations section so `scripts/report_latex_page_budget.sh` remains correct.
 - This makes the "main pages excluding Limitations" target (8 pages) operationally unambiguous.
 
+### 2026-02-20 20:11 KST — Paper writing lane: expanded Introduction (design goals + why conditioning + why NRC)
+
+- Added three short Intro paragraphs to increase main-text thickness without adding new experimental claims:
+  - explicit evaluation questions (dynamics / early vulnerability / recoverability)
+  - motivation for conditioning on initially-correct examples (deviation vs ignorance)
+  - motivation for matched neutral control NRC (drift-corrected persona gaps)
+- Camera-ready page-budget moved from main(excl Limitations)=3 → 4 (now Limitations starts on p5).
+
 ### 2026-02-20 03:34 KST — Experiments lane: CUDA preflight blocker confirmed on idle GPU0
 
 - On nlp8, GPU0 appeared idle in `nvidia-smi` (0%, 1MiB), but device-level preflight failed: `CUDA_VISIBLE_DEVICES=0` + torch CUDA tensor allocation returned `cudaErrorDevicesUnavailable`.

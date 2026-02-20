@@ -75,6 +75,21 @@ In such settings, we care about \emph{when} a previously correct model first fai
 
 GALILEO targets ground-truth tasks where failure is unambiguous, and introduces a matched drift baseline (Neutral Re-asking Control; NRC) so that measured persona effects reflect pressure mechanisms rather than generic instability under re-asking.
 
+\paragraph{Design goals and questions.}
+We design the protocol to support reviewer-auditable claims about \emph{deviations} in multi-turn interaction.
+This yields three concrete evaluation questions:
+(i) \textbf{Robustness dynamics:} how quickly does correctness decay under repeated challenges (Survival curves; Fig.~\ref{fig:survival})?
+(ii) \textbf{Early vulnerability:} do failures concentrate on the first challenged turn (Fail@1; Fig.~\ref{fig:fail1})?
+(iii) \textbf{Recoverability:} after the model has deviated, can it return to the gold answer under a neutral reset (Recovery@flip; Appx.~\ref{sec:appendix-extra-results})?
+
+\paragraph{Why conditioning on initially-correct examples?}
+Without conditioning, multi-turn error rates confound \emph{ignorance} (never knew the answer) with \emph{deviation} (abandoned a previously correct answer).
+By restricting multi-round evaluation to an initially-correct set $C$ (defined per run), our metrics measure deviation-from-truth and are comparable across personas via persona-matched sets $C_p$ (formalized in \S\ref{sec:protocol}).
+
+\paragraph{Why a matched neutral control (NRC)?}
+Even evidence-free re-asking can induce drift across turns.
+NRC provides the counterfactual where the conversation length and decoding match the persona track but the pressure mechanism is removed, so we report drift-corrected persona effects as \emph{persona -- NRC} gaps throughout (Table~\ref{tab:main}, Fig.~\ref{fig:survival}, Fig.~\ref{fig:fail1}).
+
 \paragraph{Contributions.}
 \begin{itemize}[leftmargin=*]
   \item We propose a ground-truth multi-turn protocol with survival curves, TOF/Fail@1, and Recovery@flip.
