@@ -32,7 +32,7 @@ Ground-truth tasks에서 multi-turn persona pressure 하에 **정답 유지(surv
 - **Phi-3.5-mini Tier-1 (cross-family):** seed1–2 are **paper-ready** (validated) and staged under:
   - `results_paper/tier1_phi35mini_seed1_20260219_143555/`
   - `results_paper/tier1_phi35mini_seed2_20260219_143555/`
-  - Note: these runs show near-total collapse (Survival@5=0) and `max_tokens` was capped to 1 due to `max_model_len=4096`; treat as “stress-test evidence” rather than a headline claim.
+  - Note: these runs show near-total collapse (Survival@5=0) and `max_tokens` was capped to 1 due to the batch-wise cap logic (`prompt_tokens + max_tokens + reserve_tokens <= max_model_len`, with `reserve_tokens=256` in `inference.py`); treat as “stress-test/settings issue” rather than a headline claim.
 - **Mistral-Nemo Tier-1 (cross-family):** seed1–2 are **paper-ready** under:
   - `results_paper/tier1_mistralnemo_seed1_20260217_173907/`
   - `results_paper/tier1_mistralnemo_seed2_20260217_180951/`

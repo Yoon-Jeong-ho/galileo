@@ -78,6 +78,11 @@ ssh nlp8 '
 Only launch heavy runs if (1) passes; run (2) whenever trying a new model family.
 Idle `nvidia-smi` snapshots alone are not sufficient.
 
+**Note (max_tokens capping to 1):** our vLLM wrapper caps `max_tokens` batch-wise to satisfy
+`prompt_tokens + max_tokens + reserve_tokens <= max_model_len`.
+On small-context models (e.g., `max_model_len=4096`), long prompts can force `max_tokens` down to **1**.
+If you see `[warn] requested max_tokens=... capped to 1`, treat the run as a **settings/feasibility issue** (not a meaningful robustness result) until we (i) shorten prompts, (ii) reduce `reserve_tokens`, or (iii) reduce the requested generation length.
+
 **Stall cutoff (recommended):** if (i) no new files under `OUT/<ModelName>/` for **≥30 minutes** and (ii) the runner PID is sleeping (0% CPU) while `VLLM::EngineCore` keeps GPU busy, treat it as hung and relaunch (do not start seed2 until seed1 is healthy).
 
 ```bash
