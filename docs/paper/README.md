@@ -133,6 +133,12 @@ If your build environment cannot install system packages (no sudo), you have thr
 
 We prefer option (1) for EMNLP submission packaging because it avoids relying on shell-escape.
 
+After generating PDFs, if your LaTeX project expects `figures/*.pdf` under a TeX directory (e.g., Overleaf), sync our generated PDFs into the repo’s LaTeX skeletons via:
+
+```bash
+bash scripts/sync_pdf_figures_to_latex_skeleton.sh
+```
+
 - Script: `scripts/convert_figures_svg_to_pdf.sh`
 - Preflight check: `scripts/check_figure_tooling.sh`
 - Requires **one** of:
