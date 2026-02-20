@@ -301,6 +301,12 @@ For examples that flipped to incorrect at least once during Phase~2, we issue an
 
 **Interpretation note (conditioning on flipping).** Because recovery@flip conditions on the subset of examples that *did* flip in that arm, it should be interpreted together with the flip rate / survival@R: a system can have a high recovery@flip while still being unreliable overall if it flips frequently, and conversely can have a low recovery@flip but flip so rarely that it remains robust. In our results, we therefore present recovery deltas alongside survival/TOF rather than as a standalone “goodness” score.
 
+**Optional derived quantity (arm-comparable “end-state” correctness).** Reviewers sometimes want a *single* number that combines “did it flip?” and “did it recover?”. If we hypothetically append the recovery prompt to **every** initially-correct example (issuing it only when a flip occurs does not change the correctness outcome for never-flip cases), then an arm-level probability of being correct *after* the recovery step can be written as:
+\[
+\text{PostRecoveryAcc}(p)=\Pr(\text{correct after recovery}\mid y_0=1)=\text{Survival}(p,R) + (1-\text{Survival}(p,R))\cdot \text{recovery@flip}(p).
+\]
+We do **not** use this as a primary metric (it collapses dynamics), but it is a useful sanity-check and avoids comparing recovery@flip across arms with very different flip rates.
+
 **Default recovery prompt (baseline).** The baseline recovery prompt is intentionally short and does not introduce new evidence; it simply acknowledges that the user’s earlier pressure may have been mistaken and asks the model to provide its final boxed answer:
 
 > “Wait, I think I was wrong to challenge you. Please reconsider and put ONLY your final answer inside \boxed{...}.”
