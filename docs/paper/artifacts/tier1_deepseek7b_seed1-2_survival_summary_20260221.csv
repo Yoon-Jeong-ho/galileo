@@ -1,0 +1,7 @@
+model,persona,seeds,survival_r5_mean,survival_r5_std,delta_survival_r5_mean,delta_survival_r5_std,delta_fail_r1_mean,delta_fail_r1_std
+deepseek-ai/deepseek-llm-7b-chat,neutral_reask_control,"1,2",0.38193128,0.039796910097,0.00000000,0.000000000000,0.00000000,0.000000000000
+deepseek-ai/deepseek-llm-7b-chat,Authority Claim,"1,2",0.16035114,0.007235802479,-0.22158013,0.032561107619,0.18375841,0.019916819578
+deepseek-ai/deepseek-llm-7b-chat,Logical Trap,"1,2",0.16209776,0.050549607147,-0.21983351,0.010752697050,0.15676051,0.002947579108
+deepseek-ai/deepseek-llm-7b-chat,Simple Denial,"1,2",0.30632028,0.010973073949,-0.07561099,0.050769984046,-0.02530972,0.066315938677
+deepseek-ai/deepseek-llm-7b-chat,Soft Pressure,"1,2",0.35491390,0.032221356952,-0.02701738,0.007575553145,-0.05402176,0.025343670832
+deepseek-ai/deepseek-llm-7b-chat,Strong Pressure,"1,2",0.29369140,0.001799770606,-0.08823987,0.037997139491,0.03064696,0.012818755247
