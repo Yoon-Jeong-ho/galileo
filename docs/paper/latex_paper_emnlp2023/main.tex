@@ -284,13 +284,14 @@ For space, we report the full persona-wise \(\Delta\)Recovery@flip plots and the
 \subsection{Decoding sensitivity}
 We include a decoding sweep to test whether persona--NRC gaps persist across temperatures; see Appx.~\ref{sec:appendix-extra-results}.
 
-\section{Discussion and limitations}
-\label{sec:limitations}
-\pagemark{LIMITATIONS_SECTION_START}
+\section{Discussion}
+\label{sec:discussion}
 
 Our results suggest that multi-turn robustness under conversational pressure is not fully captured by single-turn accuracy: models can be initially correct yet brittle in the first challenged turn (Fail@1), degrade over subsequent rounds (Survival@r), and sometimes recover after a flip (Recovery@flip). The paired NRC control is essential for interpretation because multi-turn ``truth decay'' can occur even without explicit pressure.
 
-\paragraph{Limitations.}
+\section{Limitations}
+\label{sec:limitations}
+\pagemark{LIMITATIONS_SECTION_START}
 \begin{itemize}[leftmargin=*]
   \item \textbf{Protocol scope.} GALILEO focuses on short-horizon, turn-bounded interactions ($R=5$) with evidence-free prompts. Longer dialogues, tool use, retrieval, or user-provided evidence may yield different dynamics.
   \item \textbf{Task coverage.} We emphasize ground-truth tasks with unambiguous scoring. This excludes many open-ended domains (e.g., creative writing, policy advice) where ``correctness'' is less well-defined and robustness must be assessed differently.
