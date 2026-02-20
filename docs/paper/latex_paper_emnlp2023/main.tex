@@ -134,12 +134,16 @@ Survival@$r$ is the probability of remaining correct through all rounds up to $r
 We report paired deltas $\Delta\mathrm{Survival}@r=\mathrm{Survival}^{(p)}@r-\mathrm{Survival}^{(\mathrm{NRC})}@r$.
 
 \paragraph{Turn-of-failure (TOF) and Fail@1.}
+Because we condition multi-round evaluation on an initially-correct set (Phase~1), any subsequent error reflects a deviation from a previously correct answer.
 Define the (possibly censored) first-failure time
 \begin{align}
-\mathrm{TOF}^{(t)}(x)\;=\;\min\{r\in\{1,\dots,R\}: c^{(t)}_{r}(x)=0\},
+\mathrm{TOF}^{(t)}(x)\;=\;
+\begin{cases}
+\min\{r\in\{1,\dots,R\}: c^{(t)}_{r}(x)=0\} & \text{if a failure occurs in rounds $1..R$}\\
+R{+}1 & \text{otherwise (right-censored)}
+\end{cases}
 \end{align}
-with right-censoring at $R{+}1$ if no failure occurs within $R$ rounds.
-Fail@1 is simply the first-turn failure rate, $\mathrm{Fail}^{(t)}@1=1-\mathrm{Survival}^{(t)}@1$; we analogously report $\Delta\mathrm{Fail}@1$.
+Fail@1 is the first-turn failure rate, $\mathrm{Fail}^{(t)}@1=1-\mathrm{Survival}^{(t)}@1$; we analogously report $\Delta\mathrm{Fail}@1$.
 
 \paragraph{Recovery@flip.}
 Let $F^{(p)}=\{x\in S: \exists r\le R\;\text{s.t. }c^{(p)}_{r}(x)=0\}$ denote examples that flip at least once under the persona track.
