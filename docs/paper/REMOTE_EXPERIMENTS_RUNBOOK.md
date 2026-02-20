@@ -175,6 +175,7 @@ If you need an additional cross-family model, prefer a family already known to r
   - `paper_exports/{survival_curve.csv,turn_of_failure.csv,flip_samples.csv}`
   - `paper_exports/metadata.json`
   - `paper_exports/runner_metadata.json`
+    - helper: `python3 scripts/write_runner_metadata.py --paper_exports <OUT>/paper_exports --model <hf_id> --seed <k> --gpu_list <ids> --tp <tp> --num_samples <n> --max_model_len <L> --max_tokens <T>`
   - validator prints `[OK] .../paper_exports` and `[OK] runner_metadata parity`
 
 ### Paper-only validation root (`results_paper/`)
