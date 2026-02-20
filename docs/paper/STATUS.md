@@ -140,6 +140,8 @@ Ground-truth tasks에서 multi-turn persona pressure 하에 **정답 유지(surv
 
 **Paper presentation lock: add a reviewer-first Main Table + Figures plan (no more “no main table / vague figures”).**
 
+(Recent progress: Results section now explicitly leads with Table~\ref{tab:main} as a one-stop summary; figures are framed as decompositions.)
+
 - Immediate one-step plan:
   1) **Wire Table 1 skeleton into the EN draft** (LaTeX snippet + caption + sign conventions).
   2) Next: replace “--” with numbers by linking each row/cell to a specific tracked artifact + `results_paper/` run root.

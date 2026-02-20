@@ -1378,6 +1378,14 @@ Next:
   - Qwen2.5-7B Recovery@flip (collapsed): pulls control/persona/delta (percent) from `recovery_collapsed_control_vs_persona_seed1-4_mean_std_*.csv` and converts to fractions.
 - Generated fragments remain gitignored; `scripts/report_latex_page_budget.sh` already runs the generator before compiling.
 
+### 2026-02-20 23:06 KST — Paper writing lane: made Results lead with Table 1 (one-stop summary)
+
+- In `docs/paper/latex_paper_emnlp2023/main.tex`, added a short "One-stop summary" paragraph right after the Results intro to:
+  - state the cross-family pattern (negative ΔSurvival@5, positive ΔFail@1)
+  - note that Recovery@flip can decouple from brittleness
+  - point readers to the three core figures that decompose the table (Survival/Fail@1/Cross-family)
+- Page budget (camera-ready) remains main(excl Limitations)=5.
+
 ### 2026-02-20 03:34 KST — Experiments lane: CUDA preflight blocker confirmed on idle GPU0
 
 - On nlp8, GPU0 appeared idle in `nvidia-smi` (0%, 1MiB), but device-level preflight failed: `CUDA_VISIBLE_DEVICES=0` + torch CUDA tensor allocation returned `cudaErrorDevicesUnavailable`.
