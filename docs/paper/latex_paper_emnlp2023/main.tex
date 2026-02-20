@@ -278,7 +278,8 @@ We summarize TOF at the population level using the expectation $\mathbb{E}_{x\si
 \begin{align}
 \mathbb{E}_{x\sim S}[\mathrm{TOF}^{(t)}(x)] \;=\; \sum_{r=0}^{R} \mathrm{Survival}^{(t)}@r.
 \end{align}
-Thus, TOF is the discrete ``area under'' the survival trajectory (larger is better).
+Thus, TOF is the discrete ``area under'' the survival trajectory (larger is better). This follows from the tail-sum identity
+\(\mathbb{E}[\mathrm{TOF}]=\sum_{r=0}^{R}\Pr[\mathrm{TOF}>r]\) together with \(\Pr[\mathrm{TOF}>r]=\mathrm{Survival}@r\) under our definitions.
 Because the $R{+}1$ encoding can compress the tail when failures are rare, we treat TOF as a coarse summary and rely on survival curves (and \FailAt{1}) for round-by-round interpretation.
 We report the drift-corrected gap
 \begin{align}
