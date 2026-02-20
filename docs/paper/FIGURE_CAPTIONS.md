@@ -118,7 +118,7 @@ Table W effect sizes using the **persona-weighted** aggregate (pooled across per
   - `docs/paper/artifacts/tier1_phi35mini_seed1-2_survival_summary_20260219.csv`
   - `docs/paper/artifacts/tier1_zephyr7b_seed1-2_survival_summary_20260218.csv`
   - `docs/paper/artifacts/tier1_qwen2p5_14b_seed1-2_survival_summary_20260219.csv`
-  - `docs/paper/artifacts/tier1_deepseek7b_seed1-2_survival_summary_20260219.csv`
+  - `docs/paper/artifacts/tier1_deepseek7b_seed1-2_survival_summary_20260221.csv`
 - Generator: `scripts/make_cross_family_figure_svg.py`
 
 **Caption (draft):**
