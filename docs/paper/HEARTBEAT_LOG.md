@@ -1386,6 +1386,11 @@ Next:
   - point readers to the three core figures that decompose the table (Survival/Fail@1/Cross-family)
 - Page budget (camera-ready) remains main(excl Limitations)=5.
 
+### 2026-02-20 23:50 KST — Paper writing lane: expanded Discussion into reviewer-friendly findings bullets
+
+- In `docs/paper/latex_paper_emnlp2023/main.tex`, rewrote the Discussion section into a compact bullet list of findings/implications (pressure vs drift attribution; trajectories; decoupling; cross-family; conditioning; reporting guidance).
+- Camera-ready budget remains main(excl Limitations)=6 (target: 8).
+
 ### 2026-02-20 03:34 KST — Experiments lane: CUDA preflight blocker confirmed on idle GPU0
 
 - On nlp8, GPU0 appeared idle in `nvidia-smi` (0%, 1MiB), but device-level preflight failed: `CUDA_VISIBLE_DEVICES=0` + torch CUDA tensor allocation returned `cudaErrorDevicesUnavailable`.

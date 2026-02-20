@@ -355,12 +355,15 @@ We include a decoding sweep to test whether persona--NRC gaps persist across tem
 \section{Discussion}
 \label{sec:discussion}
 
-Our results suggest that multi-turn robustness under conversational pressure is not fully captured by single-turn accuracy: models can be initially correct yet brittle in the first challenged turn (Fail@1), degrade over subsequent rounds (Survival@r), and sometimes recover after a flip (Recovery@flip). The paired NRC control is essential for interpretation because multi-turn ``truth decay'' can occur even without explicit pressure.
-
-
-\paragraph{Practical reporting guidance.}
-Based on these findings, we recommend that multi-turn evaluations (i) report full trajectories (at least Survival@1..R, not only Survival@R), (ii) include an evidence-free drift baseline like NRC when attributing effects to a pressure mechanism, and (iii) separate ``staying correct'' from ``recovering after deviation'' by reporting both Survival@r and Recovery@flip.
-In particular, a large negative $\Delta$Survival@5 with a small $\Delta$Recovery@flip suggests that post-hoc ``neutral reset'' interventions may still be effective even when first-turn brittleness is high.
+\paragraph{Findings and implications.}
+\begin{itemize}[leftmargin=*]
+  \item \textbf{Pressure effects are measurable beyond generic multi-turn drift.} Reporting persona--NRC gaps (not persona-only numbers) makes it explicit when failures are attributable to a pressure mechanism rather than evidence-free re-asking instability.
+  \item \textbf{Robustness is a trajectory, not a scalar.} Survival curves reveal whether pressure accumulates gradually or concentrates immediately; Fail@1 isolates the first challenged turn as a sensitive brittleness indicator.
+  \item \textbf{Brittleness and recoverability can decouple.} Large negative $\Delta$Survival@5 with a small $\Delta$Recovery@flip suggests that post-hoc "neutral reset" interventions may still help even when first-turn brittleness is high.
+  \item \textbf{Cross-family replication matters for claims.} Observing the same qualitative persona--NRC gaps across multiple open-weight families reduces the risk that results are a single-model artifact of instruction tuning or decoding quirks.
+  \item \textbf{Conditioning clarifies what is being measured.} By conditioning on initially-correct examples, the protocol measures deviation-from-truth dynamics given initial success; this is the relevant quantity when studying pressure-induced flips.
+  \item \textbf{Practical evaluation guidance.} For deployed assistants, we recommend reporting (i) Survival@1..R, (ii) Fail@1, (iii) Recovery@flip, and always pairing pressure prompts with an evidence-free matched control like NRC.
+\end{itemize}
 
 \section{Limitations}
 \label{sec:limitations}
