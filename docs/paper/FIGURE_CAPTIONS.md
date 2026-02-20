@@ -30,7 +30,7 @@ Metric definitions (to keep captions consistent across drafts):
   Captions/text should state which aggregate is being cited (default: **weighted**).
 - **Survival@r**: fraction of **initially-correct** examples that remain correct for **all rounds 1..r** (cumulative; “still correct through round r”).
 - **Flip**: a correct→incorrect transition at some round.
-- **TOF (turn-of-failure)**: the first round where a flip occurs (or “never”).
+- **TOF (turn-of-failure)**: the first round where a flip occurs. If an example remains correct through the horizon (e.g., rounds 1..R), we record **TOF = “never”** and treat it as **right-censored** at R (time-to-event framing).
 - **Fail@1**: probability of flipping at the **first** pressure round (i.e., TOF=1).
 - **Effect deltas** (caption shorthand): by default, \(\Delta\text{Metric}\) means **persona pressure minus NRC** under an identical protocol (same rounds/decoding/scoring). Deltas are computed on the **initially-correct subset**, so that survival/TOF/recovery reflect robustness dynamics rather than initial capability.
   - \(\Delta\text{Survival@5} < 0\): reduced robustness under persona pressure.
