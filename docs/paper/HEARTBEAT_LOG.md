@@ -1234,10 +1234,10 @@ Next:
   - `tmp_results_paper/tier1_deepseek7b_seed1_20260219_112728/paper_exports/`
   - `tmp_results_paper/tier1_deepseek7b_seed2_20260219_112728/paper_exports/`
 - Generated tracked summary CSV:
-  - `docs/paper/artifacts/tier1_deepseek7b_seed1-2_survival_summary_20260219.csv`
+  - `docs/paper/artifacts/tier1_deepseek7b_seed1-2_survival_summary_20260219.csv` *(historical; superseded by 20260221)*
   - via `python3 scripts/make_tier1_survival_summary.py --run_roots <seed1>,<seed2> --out_csv ...`
 - Updated `scripts/make_cross_family_figure_svg.py` to include DeepSeek, then regenerated:
-  - `docs/paper/figures/cross_family_survival_r5_control_vs_logicaltrap_seed1-2_20260219.svg`
+  - `docs/paper/figures/cross_family_survival_r5_control_vs_logicaltrap_seed1-2_20260219.svg` *(historical; current SSOT is `..._20260221.svg`)*
 - Refreshed PDFs from SVG sources:
   - `bash scripts/convert_figures_svg_to_pdf.sh docs/paper/figures paper_figures/pdf`
 
