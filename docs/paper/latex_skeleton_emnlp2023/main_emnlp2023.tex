@@ -76,7 +76,13 @@ GALILEO targets this gap by instantiating multi-turn pressure on \emph{ground-tr
 
 \paragraph{Reproducibility and auditing.} Each paper-facing result is linked to a concrete, versioned repo artifact (CSV exports, per-turn traces, and figure sources) and a small reproducer script. We maintain a claim-to-evidence map (with paths) to make it easy to audit exactly what data produced each plot/table and to rerun the export pipeline end-to-end (see \texttt{docs/paper/CLAIM\_EVIDENCE\_MAP.md}).
 
-\paragraph{Evidence at a glance.} Table~\ref{tab:claim-evidence} enumerates the primary paper-facing artifacts and their reproducers.
+\paragraph{Evidence at a glance.} A reviewer can verify the main claims with a small set of pointers:
+\begin{itemize}
+  \item \textbf{Protocol + drift baseline:} Fig.~\ref{fig:protocol} and Table~\ref{tab:tablew}.
+  \item \textbf{Dynamics (when failures occur):} survival curves in Fig.~\ref{fig:survival-curves-rounds} and early-turn vulnerability in Fig.~\ref{fig:tof-delta-fail1}.
+  \item \textbf{Recovery after flipping:} Fig.~\ref{fig:recovery-delta}.
+\end{itemize}
+Table~\ref{tab:claim-evidence} enumerates the primary paper-facing artifacts and their reproducers.
 \begin{table}[t]
 \centering
 \small
