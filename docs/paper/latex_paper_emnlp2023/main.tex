@@ -241,6 +241,7 @@ We report the conditional recovery rate
 \mathrm{Recovery}^{(t)}@\mathrm{flip}=\mathbb{E}_{x\sim F^{(t)}}\big[c^{(\mathrm{rec},t)}(x)\big],
 \end{align}
 and the paired difference $\Delta\mathrm{Recovery}@\mathrm{flip}=\mathrm{Recovery}^{(p)}@\mathrm{flip}-\mathrm{Recovery}^{(\mathrm{NRC})}@\mathrm{flip}$.
+\textbf{Edge case:} if $|F^{(t)}|=0$ (no flips), then Recovery@flip is undefined for that track; we report it as ``--'' (N/A) and exclude it from any task-pooled averages.
 
 \section{Results}
 \label{sec:results}
