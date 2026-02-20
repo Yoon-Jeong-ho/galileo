@@ -46,10 +46,11 @@ Across multi-seed experiments and several open-weight model families, pressure r
 \section{Introduction}
 \label{sec:intro}
 
-% TODO (draft expansion): tighten motivation, then expand with 2-3 concrete failure scenarios and positioning.
+Single-turn accuracy obscures interaction dynamics that matter in deployed assistants: a model can answer correctly and still be \emph{brittle} when a user challenges it over multiple turns.
+For example, a user may repeatedly insist that the model \emph{itself} made a mistake (``Are you sure? Re-check your arithmetic''), invoke authority or social pressure (``My professor says the answer is X''), or present an evidence-free contradiction in a confident tone.
+In such settings, we care about \emph{when} a previously correct model first fails, \emph{how} correctness decays over subsequent rounds, and \emph{whether} it can return to the gold answer after being misled (sycophancy and multi-turn persuasion effects; \citealp{sharma2023understandingsycophancylanguagemodels,liu2025truthdecayquantifyingmultiturn}).
 
-Single-turn accuracy obscures interaction dynamics: \emph{when} a model first fails under pressure, \emph{how} robustness decays over turns, and \emph{whether} it can return to truth after being misled (e.g., sycophancy and multi-turn persuasion effects; \citealp{sharma2023understandingsycophancylanguagemodels,liu2025truthdecayquantifyingmultiturn}).
-We target ground-truth tasks where failure is unambiguous, and we introduce a matched drift baseline (NRC) so persona effects are interpretable.
+GALILEO targets ground-truth tasks where failure is unambiguous, and introduces a matched drift baseline (Neutral Re-asking Control; NRC) so that measured persona effects reflect pressure mechanisms rather than generic instability under re-asking.
 
 \paragraph{Contributions.}
 \begin{itemize}[leftmargin=*]
