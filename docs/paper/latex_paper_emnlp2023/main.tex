@@ -96,7 +96,7 @@ Crucially, Phase~1 identifies an initially-correct conditioning set $C$ \emph{pe
 \ \ \ (a) query with persona: $y^{(p)}_{r} \leftarrow \mathsf{persona}(p, x, \text{history})$; score correctness\\
 \ \ \ (b) query with control: $y^{(\mathrm{NRC})}_{r} \leftarrow \mathsf{nrc}(p, x, \text{history})$; score correctness\\
 \ \ \ update history separately for persona and NRC tracks.\\
-\textbf{3. Recovery:} For any $x$ that flips at least once in the persona track, issue a final neutral recovery prompt; score Recovery@flip.\\
+\textbf{3. Recovery:} For any $x$ that flips at least once in a given track ($p$ or NRC), issue a final neutral recovery prompt for that track; score Recovery@flip.\\
 \textbf{Output:} per-example trajectories; Survival@r, TOF/Fail@1, Recovery@flip; exports for figures/tables.
 }}
 \vspace{-2mm}
@@ -107,7 +107,7 @@ Crucially, Phase~1 identifies an initially-correct conditioning set $C$ \emph{pe
 \subsection{Three phases}
 \textbf{Phase 1 (initial evaluation).} Identify the initially-correct subset.
 \textbf{Phase 2 (multi-round pressure vs NRC).} Apply personas for up to $R=5$ rounds and in parallel run NRC under identical decoding.
-\textbf{Phase 3 (recovery).} For flipped examples, issue a final neutral recovery prompt and measure Recovery@flip.
+\textbf{Phase 3 (recovery).} For examples that flip, issue a final neutral recovery prompt (per track) and measure Recovery@flip.
 
 \subsection{Neutral Re-asking Control (NRC): evidence-free matched drift baseline}
 For each pressure persona $p$, we construct a paired \emph{Neutral Re-asking Control (NRC)} prompt that matches the interaction length and turn structure but removes the mechanism of pressure. Concretely, the NRC prompt:
@@ -149,12 +149,13 @@ R{+}1 & \text{otherwise (right-censored)}
 Fail@1 is the first-turn failure rate, $\mathrm{Fail}^{(t)}@1=1-\mathrm{Survival}^{(t)}@1$; we analogously report $\Delta\mathrm{Fail}@1$.
 
 \paragraph{Recovery@flip.}
-Let $F^{(p)}=\{x\in S: \exists r\le R\;\text{s.t. }c^{(p)}_{r}(x)=0\}$ denote examples that flip at least once under the persona track.
-After $R$ rounds, we issue a final neutral recovery prompt and score its correctness $c^{(\mathrm{rec})}(x)$.
-We report
+For each track $t\in\{p,\mathrm{NRC}\}$, let $F^{(t)}=\{x\in S: \exists r\le R\;\text{s.t. }c^{(t)}_{r}(x)=0\}$ denote examples that \emph{flip at least once} in rounds $1..R$.
+After $R$ rounds, we issue a final neutral recovery prompt (identical across tracks) and score its correctness $c^{(\mathrm{rec},t)}(x)$.
+We report the conditional recovery rate
 \begin{align}
-\mathrm{Recovery@flip}=\mathbb{E}_{x\sim F^{(p)}}\big[c^{(\mathrm{rec})}(x)\big].
+\mathrm{Recovery}^{(t)}@\mathrm{flip}=\mathbb{E}_{x\sim F^{(t)}}\big[c^{(\mathrm{rec},t)}(x)\big],
 \end{align}
+and the paired difference $\Delta\mathrm{Recovery}@\mathrm{flip}=\mathrm{Recovery}^{(p)}@\mathrm{flip}-\mathrm{Recovery}^{(\mathrm{NRC})}@\mathrm{flip}$.
 
 \section{Results}
 \label{sec:results}
