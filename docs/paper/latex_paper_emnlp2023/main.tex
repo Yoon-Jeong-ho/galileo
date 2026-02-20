@@ -58,6 +58,23 @@ We target ground-truth tasks where failure is unambiguous, and we introduce a ma
   \item We provide paper-ready exports and a claim\,$\rightarrow$\,artifact pipeline for auditing and figure regeneration.
 \end{itemize}
 
+\section{Related work}
+\label{sec:related}
+
+\paragraph{Sycophancy, social pressure, and multi-turn truth decay.}
+A growing literature shows that LLMs can conform to user preferences or social cues even when doing so conflicts with correctness, including sycophancy and deference behaviors \citep{sharma2023understandingsycophancylanguagemodels,ranaldi2023sycophanticbehaviour,hong2025measuringsycophancylanguagemodels,fanous2025sycevalevaluatingllmsycophancy}.
+Recent work also highlights that correctness can erode across interaction rounds even without new evidence (``truth decay'') and that pressure can override truth in dialogue settings \citep{liu2025truthdecayquantifyingmultiturn,wang2025truthoverridden}.
+Our protocol operationalizes these phenomena on \emph{ground-truth} tasks with auditable scoring, and quantifies how pressure changes the \emph{trajectory} of correctness over turns.
+
+\paragraph{Robustness evaluation beyond single-turn accuracy.}
+Many benchmarks focus on single-turn robustness (e.g., adversarial prompts, distribution shift), but interactive systems are deployed in multi-turn settings where stability under repeated questioning matters.
+Multi-turn agent evaluation surveys and analyses emphasize interaction dynamics, yet often lack a drift-corrected baseline that isolates social pressure from generic re-asking effects \citep{guan2025evaluatingllmbasedagentsmultiturnsurvey,kim2025challengingevaluatorllmsycophancy}.
+GALILEO contributes (i) trajectory metrics (Survival@r, TOF/Fail@1) and (ii) an evidence-free matched control (NRC) that enables paired persona--control attribution.
+
+\paragraph{Recovery after a deviation.}
+Beyond measuring failure, recent work studies whether models can be guided back to correct behavior after making mistakes, via verification or self-correction strategies.
+We complement robustness metrics with \emph{Recovery@flip}, explicitly separating ``staying correct'' from ``returning to truth'' after a conversational flip.
+
 \section{Task setting}
 We cover math (GSM8K, SVAMP), extractive QA (SQuAD), MCQA (ARC-Easy), and open-domain QA (TriviaQA).
 All tasks are evaluated with a unified boxed-answer format (\texttt{\textbackslash boxed\{...\}}) and a task-specific scorer.
