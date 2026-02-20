@@ -134,6 +134,11 @@ When reporting persona\,–\,NRC gaps for a given $p$, we compute both tracks on
 \textbf{Default in this paper.}
 Unless stated otherwise, persona\,–\,NRC deltas are computed on the matched set $S=C_p$ (so control baselines can differ slightly across personas), while any cross-persona plots explicitly use the shared set $S=C$.
 
+\textbf{Concrete example (why this matters).}
+Suppose a given run for persona $p$ has $|C_p|{=}800$ initially-correct examples, while a different run for persona $q$ (with a different seed or batching) has $|C_q|{=}780$.
+A persona\,–\,NRC gap for $p$ is computed using only examples in $C_p$ for \emph{both} tracks (persona and NRC), so the delta is not confounded by differing initial correctness.
+However, directly comparing \emph{absolute} Survival@5 across personas is only clean when we hold the denominator fixed (use a shared $C$), which we do explicitly for cross-persona plots.
+
 \subsection{Metrics}
 We formalize the trajectory metrics used throughout. Let $x$ be an example with gold answer $a(x)$.
 For each track $t\in\{p,\mathrm{NRC}\}$ (persona vs control) and round $r\in\{1,\dots,R\}$, define the correctness indicator
