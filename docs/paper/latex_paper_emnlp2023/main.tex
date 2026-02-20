@@ -231,7 +231,7 @@ With this convention, $\mathrm{Hazard}^{(t)}@1 = 1-\mathrm{Survival}^{(t)}@1$ is
 \paragraph{Turn-of-failure (TOF) and Fail@1.}
 Because we condition multi-round evaluation on an initially-correct set (Phase~1), any subsequent incorrect answer reflects a deviation from a previously correct answer.
 Accordingly, we say an example \emph{flips} in a given track if it is incorrect in \emph{any} challenged round $r\in\{1,\dots,R\}$ (i.e., if $c^{(t)}_{r}(x)=0$ for some $r$).
-Define the (possibly censored) first-failure time
+Define the (possibly censored) first-failure time over the \emph{challenged} rounds $r\in\{1,\dots,R\}$ (the final recovery turn is \emph{not} included):
 \begin{align}
 \mathrm{TOF}^{(t)}(x)\;=\;
 \begin{cases}
@@ -255,7 +255,7 @@ Fail@1 is the first-turn failure rate, $\mathrm{Fail}^{(t)}@1=1-\mathrm{Survival
 
 \paragraph{Recovery@flip.}
 For each track $t\in\{p,\mathrm{NRC}\}$, let $F^{(t)}=\{x\in S: \exists r\le R\;\text{s.t. }c^{(t)}_{r}(x)=0\}$ denote examples that \emph{fail at least once} (i.e., exhibit at least one flip) in rounds $1..R$.
-After $R$ rounds, we issue a final neutral recovery prompt (identical across tracks) and score its correctness $c^{(\mathrm{rec},t)}(x)$.
+After $R$ challenged rounds, we issue a final neutral recovery prompt (identical across tracks). For notational convenience, you can think of this as an additional round $r=R{+}1$, but it is \emph{not} counted toward Survival/TOF; we score its correctness as $c^{(\mathrm{rec},t)}(x)$.
 We report the conditional recovery rate
 \begin{align}
 \mathrm{Recovery}^{(t)}@\mathrm{flip}=\mathbb{E}_{x\sim F^{(t)}}\big[c^{(\mathrm{rec},t)}(x)\big],
