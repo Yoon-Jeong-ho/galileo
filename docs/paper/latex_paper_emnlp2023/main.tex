@@ -152,7 +152,7 @@ Crucially, Phase~1 identifies an initially-correct conditioning set $C$ \emph{pe
 \textbf{Algorithm 1: GALILEO evaluation for a persona $p$ and matched NRC.}\\
 \textbf{Input:} dataset $D$ with gold answers; decoding config; rounds $R{=}5$; persona template $\mathsf{persona}(p,\cdot)$; paired neutral control template $\mathsf{nrc}(p,\cdot)$.\\
 \textbf{1. Initial evaluation (define the conditioning set).} Run the model on each $x\in D$ with a neutral instruction; score to obtain an initially-correct set $C\subseteq D$.\\
-\ \ \ \emph{Notation:} when we intentionally share the same denominator across personas, we use the same $C$ for all personas; when results are produced by separate jobs per persona, write $C_p$ for persona $p$'s Phase~1 initially-correct set (\S\ref{sec:protocol}).\\
+\ \ \ \emph{Notation:} when we intentionally share the same denominator across personas, we use the same $C$ for all personas. When results are produced by separate jobs per persona, write $C_p$ for persona $p$'s Phase~1 initially-correct set (\S\ref{sec:protocol}). \emph{Default in this paper:} persona--NRC deltas are computed on matched $C_p$ unless stated, while cross-persona plots explicitly use the shared $C$.\\
 \textbf{2. Multi-round pressure vs control on the same $C$.} For each $x\in C$, iterate challenged rounds $r{=}1..R$ under matched decoding:\\
 \ \ \ (a) persona track: $y^{(p)}_{r} \leftarrow \mathsf{persona}(p, x, \text{history})$; score correctness\\
 \ \ \ (b) NRC track: $y^{(\mathrm{NRC})}_{r} \leftarrow \mathsf{nrc}(p, x, \text{history})$; score correctness\\
