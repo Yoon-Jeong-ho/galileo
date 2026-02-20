@@ -182,13 +182,33 @@ Our results suggest that multi-turn robustness under conversational pressure is 
 \section{Conclusion}
 \label{sec:conclusion}
 
-% TODO: add 1-paragraph conclusion summarizing the protocol + key findings.
+We introduced \textbf{GALILEO}, a reproducible evaluation protocol for \emph{multi-turn} robustness on ground-truth tasks that reports survival trajectories, turn-of-failure (TOF/Fail@1), and recovery after deviation (Recovery@flip).
+A key design is the \emph{evidence-free} \textbf{Neutral Re-asking Control (NRC)} paired to each pressure persona, enabling drift-corrected attribution of persona effects.
+Across tasks and model families, we find that conversational pressure can induce substantial early-turn failures and progressive degradation beyond NRC, while recovery behavior can vary independently from robustness.
+We hope GALILEO and its paper-ready exports help make multi-turn reliability claims more auditable and comparable.
 
 \bibliography{../../../references}
 \bibliographystyle{acl_natbib}
 
 \appendix
 \section{Appendix: experimental settings and prompts}
-% TODO: detailed configs (models, seeds, decoding, max tokens/len, hardware), prompt templates.
+
+\subsection{Experimental settings (high-level)}
+Unless otherwise noted, we run $R{=}5$ pressure rounds and use the same decoding configuration for persona and NRC tracks.
+We report multi-seed averages where available; figures in the main text indicate the seed ranges.
+
+\paragraph{Models.}
+We evaluate multiple open-weight model families (e.g., LLaMA-style and Qwen-style models) to test cross-family generalization (Fig.~\ref{fig:crossfam}).
+
+\paragraph{Decoding.}
+We primarily use greedy or low-temperature decoding for stability, and we include a temperature sweep to assess sensitivity (Fig.~\ref{fig:decoding}).
+
+\subsection{Prompt templates (summary)}
+Each persona is instantiated as an instruction wrapper that applies a pressure mechanism (e.g., social deference, logical contradiction) while keeping the user question fixed.
+The matched NRC template mirrors the same turn structure but is neutral and evidence-free (Sec.~\ref{sec:protocol}).
+
+\subsection{Reproducibility hooks}
+Our pipeline produces paper-ready exports (CSV + metadata JSON) and includes validators for export completeness/parity.
+In the repo, see: \texttt{scripts/validate\_paper\_exports.py} and the paper preflight checks in \texttt{scripts/run\_paper\_preflights.sh}.
 
 \end{document}
