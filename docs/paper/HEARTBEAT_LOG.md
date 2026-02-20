@@ -1366,6 +1366,11 @@ Next:
 - Table now reports NRC / Persona / $\Delta$ for all three metrics (Survival@5, Fail@1, Recovery@flip) and explicitly states mean\,\(\pm\)\,std over seeds where available.
 - Persona-wise decompositions are pushed to Appendix references (Appx.~\ref{sec:appendix-extra-results}).
 
+### 2026-02-20 21:27 KST — Paper development lane: made page-budget script generation-aware
+
+- Updated `scripts/report_latex_page_budget.sh` to run `scripts/gen_latex_table1_from_artifacts.py` before compiling, so the camera-ready budget check no longer depends on manually pre-generating `generated/table1_rows.tex`.
+- This keeps the PDF-first "작성↔확인" loop tight even though generated fragments are gitignored.
+
 ### 2026-02-20 03:34 KST — Experiments lane: CUDA preflight blocker confirmed on idle GPU0
 
 - On nlp8, GPU0 appeared idle in `nvidia-smi` (0%, 1MiB), but device-level preflight failed: `CUDA_VISIBLE_DEVICES=0` + torch CUDA tensor allocation returned `cudaErrorDevicesUnavailable`.

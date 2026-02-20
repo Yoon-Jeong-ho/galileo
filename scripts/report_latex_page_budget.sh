@@ -15,6 +15,12 @@ TEX_FILE="main.tex"
 cd "$(git rev-parse --show-toplevel)"
 cd "$TEX_DIR"
 
+# Ensure generated LaTeX fragments (e.g., Table 1 rows) exist before compiling.
+# (These are gitignored by design.)
+REPO_ROOT="$(git rev-parse --show-toplevel)"
+python3 "$REPO_ROOT/scripts/gen_latex_table1_from_artifacts.py" \
+  --out "$REPO_ROOT/$TEX_DIR/generated/table1_rows.tex" >/dev/null
+
 # Build camera-ready-ish (no [review] line numbers) to approximate submission page count.
 latexmk -C >/dev/null 2>&1 || true
 latexmk -pdf -interaction=nonstopmode -halt-on-error \
