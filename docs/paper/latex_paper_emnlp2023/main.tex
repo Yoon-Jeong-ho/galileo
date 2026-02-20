@@ -227,7 +227,13 @@ Define the (possibly censored) first-failure time
 R{+}1 & \text{otherwise (right-censored)}
 \end{cases}
 \end{align}
-We summarize TOF at the population level using the expectation $\mathbb{E}_{x\sim S}[\mathrm{TOF}^{(t)}(x)]$ (with right-censoring represented as $R{+}1$). Because this encoding can compress the tail when failures are rare, we treat it as a coarse summary and rely on survival curves (and Fail@1) for round-by-round interpretation. We report the drift-corrected gap
+We summarize TOF at the population level using the expectation $\mathbb{E}_{x\sim S}[\mathrm{TOF}^{(t)}(x)]$ (with right-censoring represented as $R{+}1$). This expectation has a simple identity in terms of the survival curve:
+\begin{align}
+\mathbb{E}_{x\sim S}[\mathrm{TOF}^{(t)}(x)] \;=\; \sum_{r=0}^{R} \mathrm{Survival}^{(t)}@r,
+\end{align}
+so TOF is essentially the discrete ``area under'' the survival trajectory (larger is better).
+Because the $R{+}1$ encoding can compress the tail when failures are rare, we treat TOF as a coarse summary and rely on survival curves (and Fail@1) for round-by-round interpretation.
+We report the drift-corrected gap
 \begin{align}
 \Delta\mathrm{TOF}
 &\;=\;\mathbb{E}_{x\sim S}[\mathrm{TOF}^{(p)}(x)]
