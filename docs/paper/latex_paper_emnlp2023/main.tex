@@ -297,6 +297,8 @@ This convention preserves drift correction (each persona is paired with its own 
 
 \subsection{Survival degrades under pressure beyond generic drift}
 Figure~\ref{fig:survival} shows survival curves over rounds for representative personas alongside NRC.
+Table~\ref{tab:main} summarizes this effect at the horizon: for every model family we test, the persona-weighted aggregate shows \emph{negative} $\Delta$Survival@5 (e.g., Qwen2.5-7B: $\Delta$Survival@5\,$\approx\,$-0.23; Qwen2.5-14B: $\approx$\,-0.25; Mistral-7B: $\approx$\,-0.31), indicating substantial pressure-induced deviations beyond evidence-free drift.
+
 Two patterns recur across tasks and seeds.
 First, the persona--NRC gap often \emph{widens with rounds}: even when Survival@1 is similar, repeated pressure can accumulate into a substantial Survival@5 deficit.
 Second, different personas exhibit distinct hazard shapes: some concentrate failures immediately (high Fail@1 / Hazard@1), while others gradually increase failure risk over turns.
@@ -309,6 +311,7 @@ Comparing persona vs NRC at the same round yields a drift-corrected estimate of 
 \subsection{Turn-of-failure highlights early vulnerability}
 Figure~\ref{fig:fail1} reports persona-wise \(\Delta\)Fail@1.
 Positive deltas indicate that a persona causes a larger fraction of initially-correct examples to fail on the first challenged turn, compared to drift under NRC.
+At the aggregate level, Table~\ref{tab:main} shows that the persona-weighted $\Delta$Fail@1 is typically positive (e.g., Mistral-7B and Phi-3-mini show $\Delta$Fail@1\,$\approx$\,0.24--0.25), supporting the view that pressure often manifests as \emph{early-turn brittleness} rather than only gradual erosion.
 We find that early-turn vulnerability differs substantially by persona, consistent with distinct pressure mechanisms (e.g., deference to authority vs logical contradiction).
 
 \paragraph{Why Fail@1 is complementary to Survival@5.}
