@@ -46,6 +46,7 @@ Ground-truth tasks에서 multi-turn persona pressure 하에 **정답 유지(surv
 - **Current risk:** process drift (conflicting docs about host/GPU policy, lane starvation, missing commits) → we keep SSOT docs aligned (STATUS/CHECKLIST/RUNBOOK).
 - **Paper clarity micro-risk:** repeated long phrase “Neutral Re-asking Control” can add cognitive load; prefer introducing the acronym **NRC** once (Abstract) and using it consistently thereafter.
 - **LaTeX SSOT hygiene (2026-02-20):** Appendix prompt/command blocks now use `fvextra` line-breaking `Verbatim`, eliminating noisy `Overfull \\hbox` warnings from long lines (better PDF-first iteration).
+- **LaTeX Metrics section hygiene (2026-02-20):** rewrote long hazard/TOF expressions to avoid overfull math boxes; current `main.log` has no `Overfull \\hbox` entries.
 - **Cross-family extension note (Gemma2):** attempted adding Gemma2 (google/gemma-2-2b-it) on nlp8 RTX8000 via vLLM; it fails due to (i) max_model_len>8192 guardrail and (ii) Triton unified-attention shared-memory OOR on cc7.5. Avoid Gemma2 on this hardware unless we change vLLM backend/settings.
 - **Cross-family extension note (Falcon-7B):** `tiiuae/falcon-7b-instruct` fails at vLLM init (`FalconConfig` missing `rope_parameters`) → likely transformers/vLLM compatibility issue; run is **incomplete** (no exports).
 - **Cross-family extension note (Pythia-2.8B):** fails because we requested `--max_model_len 4096` but model-derived max is 2048; fix by using `--max_model_len 2048` (preferred) instead of `VLLM_ALLOW_LONG_MAX_MODEL_LEN=1`.

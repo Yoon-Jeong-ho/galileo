@@ -1296,6 +1296,11 @@ Next:
 - This removes the large `Overfull \hbox` warnings caused by long prompt/command lines, improving PDF-first workflow stability.
 - Note: total PDF page count increased (Appendix line wrapping adds vertical space); this is expected and acceptable since Appendix is excluded from main-page budgeting.
 
+### 2026-02-20 19:08 KST — Paper writing lane: eliminated remaining overfull math in metric definitions
+
+- Tightened the hazard and TOF math in `docs/paper/latex_paper_emnlp2023/main.tex` (shorter conditioning notation + line breaks in align environments).
+- Verified via `latexmk` + `grep "Overfull \\hbox" main.log` that the previous large overfull boxes in the Metrics section are now gone.
+
 ### 2026-02-20 03:34 KST — Experiments lane: CUDA preflight blocker confirmed on idle GPU0
 
 - On nlp8, GPU0 appeared idle in `nvidia-smi` (0%, 1MiB), but device-level preflight failed: `CUDA_VISIBLE_DEVICES=0` + torch CUDA tensor allocation returned `cudaErrorDevicesUnavailable`.
