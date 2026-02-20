@@ -1502,3 +1502,8 @@ ef{fig:protocol}).
 - On nlp8, confirmed CUDA alloc preflight OK for GPUs1–6; launched deepseek-ai/deepseek-llm-7b-chat seed2 on GPU2 using bash -lc + conda activate (avoids the earlier 0-byte run.log).
 - OUT=results/tier1_deepseek7b_seed2_20260221_061004, tmux=tier1_deepseek7b_s2_20260221_061004; run.log is now non-empty and model shards are loading.
 
+### 2026-02-21 07:01 KST — Dev/Artifacts lane: build DeepSeek seed1–2 survival summary CSV from paper_exports
+
+- Added scripts/make_tier1_survival_summary_from_paper_exports.py to compute Survival@5 and ΔSurvival@5/ΔFail@1 vs NRC across seeds from paper_exports/{survival_curve,turn_of_failure}.csv.
+- Generated docs/paper/artifacts/tier1_deepseek7b_seed1-2_survival_summary_20260221.csv from the paper-ready DeepSeek seed1/seed2 exports.
+
