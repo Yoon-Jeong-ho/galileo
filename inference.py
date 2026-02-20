@@ -99,9 +99,20 @@ class InferenceEngine:
     def _cap_max_tokens_for_batch(self, formatted_prompts, requested_max_tokens: int, reserve_tokens: int = 256) -> int:
         """Cap max_tokens so (prompt_tokens + max_tokens) <= max_model_len.
 
+        Note: reserve_tokens can be overridden at runtime via env var
+        `GALILEO_RESERVE_TOKENS` (int). This is useful for small-context models
+        where long prompts (e.g., recovery prompts) can otherwise force
+        `max_tokens` down to 1.
+
         vLLM SamplingParams uses a single max_tokens for the whole batch, so we
         choose the minimum safe value across the batch.
         """
+        # Allow runtime override without changing runner code.
+        try:
+            reserve_tokens = int(os.environ.get("GALILEO_RESERVE_TOKENS", str(reserve_tokens)))
+        except Exception:
+            reserve_tokens = int(reserve_tokens)
+
         safe = int(requested_max_tokens)
         for p in formatted_prompts:
             try:
