@@ -292,6 +292,8 @@ In the latter case, we treat cross-persona comparisons cautiously and report the
 
 For examples that flipped to incorrect at least once during Phase~2, we issue an explicit **recovery prompt** and re-score the model’s answer against ground truth. We use the **same** recovery prompt template for both persona pressure and NRC traces, and compute recovery@flip **within each arm** (conditional on flipping in that arm). This produces our recovery@flip metric.
 
+**Interpretation note (conditioning on flipping).** Because recovery@flip conditions on the subset of examples that *did* flip in that arm, it should be interpreted together with the flip rate / survival@R: a system can have a high recovery@flip while still being unreliable overall if it flips frequently, and conversely can have a low recovery@flip but flip so rarely that it remains robust. In our results, we therefore present recovery deltas alongside survival/TOF rather than as a standalone “goodness” score.
+
 **Default recovery prompt (baseline).** The baseline recovery prompt is intentionally short and does not introduce new evidence; it simply acknowledges that the user’s earlier pressure may have been mistaken and asks the model to provide its final boxed answer:
 
 > “Wait, I think I was wrong to challenge you. Please reconsider and put ONLY your final answer inside \boxed{...}.”
