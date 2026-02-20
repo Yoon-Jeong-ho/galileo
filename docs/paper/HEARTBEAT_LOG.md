@@ -1431,6 +1431,11 @@ Next:
   - a short scope note clarifying what cross-family replication does/doesn't claim (directional replication vs universal ranking)
 - Page budget remains main(excl Limitations)=7 (still +1 page short of target 8).
 
+### 2026-02-21 00:58 KST — Paper writing lane: strengthened auditability story in Protocol (exports + denominators)
+
+- In `docs/paper/latex_paper_emnlp2023/main.tex`, added an "Auditability and exported metadata" paragraph to the Protocol notation subsection, explicitly listing exported JSON metadata and noting that it records decoding + |C|/|C_p| denominators.
+- Camera-ready page budget remains main(excl Limitations)=7 (target 8; +1 page still needed).
+
 ### 2026-02-20 03:34 KST — Experiments lane: CUDA preflight blocker confirmed on idle GPU0
 
 - On nlp8, GPU0 appeared idle in `nvidia-smi` (0%, 1MiB), but device-level preflight failed: `CUDA_VISIBLE_DEVICES=0` + torch CUDA tensor allocation returned `cudaErrorDevicesUnavailable`.

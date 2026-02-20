@@ -161,6 +161,10 @@ Throughout the paper, we report persona effects as paired differences
 computed on the same conditioning set (typically $S=C_p$; \S\ref{sec:protocol}).
 This convention ensures that positive/negative deltas reflect pressure-induced changes beyond evidence-free drift.
 
+\paragraph{Auditability and exported metadata.}
+To make every table/figure traceable, each run exports machine-readable metadata (e.g., \texttt{paper\_exports/metadata.json} and \texttt{paper\_exports/runner\_metadata.json}) including: model identifier, seeds, decoding parameters, persona/NRC prompt variants, and conditioning-set sizes (\(|C|\) or \(|C_p|\)).
+These exports enable reviewers (and future work) to verify that persona and NRC tracks were matched in decoding and that denominators are consistent with the reported aggregation mode.
+
 \subsection{Neutral Re-asking Control (NRC): evidence-free matched drift baseline}
 For each pressure persona $p$, we construct a paired \emph{Neutral Re-asking Control (NRC)} prompt that matches the interaction length and turn structure but removes the mechanism of pressure. Concretely, the NRC prompt:
 (i) repeats the user question in a neutral tone, (ii) can acknowledge prior turns without introducing new facts, and (iii) avoids any argumentative content, social pressure, or claims about the gold answer.
