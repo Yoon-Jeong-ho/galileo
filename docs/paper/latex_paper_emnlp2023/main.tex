@@ -64,7 +64,7 @@
 \begin{abstract}
 Large language models can abandon previously correct answers when repeatedly challenged \emph{without new evidence}, a failure mode not captured by single-turn accuracy.
 We introduce \textbf{GALILEO}, an auditable multi-turn protocol on ground-truth tasks that (i) evaluates only initially-correct examples to isolate \emph{deviations from truth} and (ii) pairs each pressure persona with a \emph{Neutral Re-asking Control} (NRC) that matches interaction length and decoding to subtract generic re-asking drift.
-Over $R{=}5$ challenged rounds, we track survival trajectories (Survival@$r$), time-to-first-failure (TOF/Fail@1), and post-flip recoverability under a final neutral reset (Recovery@flip), exporting per-example transcripts for verification.
+Over $R{=}5$ challenged rounds, we track survival trajectories (Survival@$r$), time-to-first-failure (TOF) and first-turn failure (Fail@1), and post-flip recoverability under a final neutral reset (Recovery@flip), exporting per-example transcripts for verification.
 Across seeds and open-weight model families, pressure consistently reduces Survival@5 and increases Fail@1 beyond NRC drift, while Recovery@flip varies by task and persona.
 Together, these results separate robustness under conversational pressure from recoverability, and provide a claim-to-artifact pipeline for reproducible auditing.
 \end{abstract}
@@ -95,7 +95,7 @@ NRC provides the counterfactual where the conversation length and decoding match
 
 \paragraph{Contributions.}
 \begin{itemize}[leftmargin=*]
-  \item We propose a ground-truth multi-turn protocol with survival curves, TOF/Fail@1, and Recovery@flip.
+  \item We propose a ground-truth multi-turn protocol with survival curves, TOF and Fail@1, and Recovery@flip.
   \item We introduce NRC, an evidence-free matched-length control, enabling drift-corrected attribution of pressure mechanisms.
   \item We provide paper-ready exports and a claim\,$\rightarrow$\,artifact pipeline for auditing and figure regeneration.
 \end{itemize}
@@ -111,7 +111,7 @@ Our protocol operationalizes these phenomena on \emph{ground-truth} tasks with a
 \paragraph{Robustness evaluation beyond single-turn accuracy.}
 Many benchmarks focus on single-turn robustness (e.g., adversarial prompts, distribution shift), but interactive systems are deployed in multi-turn settings where stability under repeated questioning matters.
 Multi-turn agent evaluation surveys and analyses emphasize interaction dynamics, yet often lack a drift-corrected baseline that isolates social pressure from generic re-asking effects \citep{guan2025evaluatingllmbasedagentsmultiturnsurvey,kim2025challengingevaluatorllmsycophancy}.
-GALILEO contributes (i) trajectory metrics (Survival@r, TOF/Fail@1) and (ii) an evidence-free matched control (NRC) that enables paired persona--control attribution.
+GALILEO contributes (i) trajectory metrics (Survival@r, TOF, Fail@1) and (ii) an evidence-free matched control (NRC) that enables paired persona--control attribution.
 
 \paragraph{Recovery after a deviation.}
 Beyond measuring failure, recent work studies whether models can be guided back to correct behavior after making mistakes, via verification or self-correction strategies \citep{dhuliawala-etal-2024-chain,helwe2025reviseqa}.
@@ -151,7 +151,7 @@ Crucially, Phase~1 identifies an initially-correct conditioning set $C$ \emph{pe
 \ \ \ (b) NRC track: $y^{(\mathrm{NRC})}_{r} \leftarrow \mathsf{nrc}(p, x, \text{history})$; score correctness\\
 \ \ \ update history separately for persona and NRC tracks.\\
 \textbf{3. Recovery (track-conditional).} For any $x$ that flips at least once in a given track ($p$ or NRC), issue a final neutral recovery prompt for that track; score Recovery@flip.\\
-\textbf{Output:} per-example trajectories; Survival@r, TOF/Fail@1, Recovery@flip; paper-ready exports.
+\textbf{Output:} per-example trajectories; Survival@r, TOF and Fail@1, Recovery@flip; paper-ready exports.
 }}
 \vspace{-2mm}
 \caption{Protocol summary. Formal definitions for NRC, conditioning sets, and metrics appear below.}
@@ -292,7 +292,7 @@ and the paired difference $\Delta\mathrm{Recovery}@\mathrm{flip}=\mathrm{Recover
 \section{Results}
 \label{sec:results}
 
-We summarize multi-turn robustness as complementary views: (i) \textbf{Survival@r} captures cumulative correctness under repeated questioning, (ii) \textbf{TOF/Fail@1} captures early-turn brittleness and the onset of failure, and (iii) \textbf{Recovery@flip} captures whether a model can return to the gold answer after it has deviated.
+We summarize multi-turn robustness as complementary views: (i) \textbf{Survival@r} captures cumulative correctness under repeated questioning, (ii) \textbf{TOF and Fail@1} capture early-turn brittleness and the onset of failure, and (iii) \textbf{Recovery@flip} captures whether a model can return to the gold answer after it has deviated.
 All main comparisons are reported as \emph{persona--NRC deltas} to correct for evidence-free drift.
 
 \paragraph{One-stop summary.}
@@ -463,7 +463,7 @@ We encourage future work to evaluate how such pressure dynamics interact with sa
 \section{Conclusion}
 \label{sec:conclusion}
 
-We introduced \textbf{GALILEO}, a reproducible evaluation protocol for \emph{multi-turn} robustness on ground-truth tasks that reports survival trajectories, turn-of-failure (TOF/Fail@1), and recovery after deviation (Recovery@flip).
+We introduced \textbf{GALILEO}, a reproducible evaluation protocol for \emph{multi-turn} robustness on ground-truth tasks that reports survival trajectories, turn-of-failure (TOF) and first-turn failure (Fail@1), and recovery after deviation (Recovery@flip).
 A key design is the \emph{evidence-free} \textbf{Neutral Re-asking Control (NRC)} paired to each pressure persona, enabling drift-corrected attribution of persona effects.
 Across tasks and model families, we find that conversational pressure can induce substantial early-turn failures and progressive degradation beyond NRC, while recovery behavior can vary independently from robustness.
 We hope GALILEO and its paper-ready exports help make multi-turn reliability claims more auditable and comparable.
