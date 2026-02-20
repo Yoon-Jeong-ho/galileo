@@ -366,6 +366,12 @@ Let `F_p` be the set of examples in `C_p` that flipped at least once under perso
 
 **Denominator note (important).** Recovery is evaluated **conditional on flipping**. When `|F_p|=0` (no flips), recovery is undefined; in tables we should report it as `NA` (or omit) and always interpret it alongside flip rates / survival.
 
+**Comparison note (avoid a common reviewer trap).** Because the denominator `F_p` changes with the flip rate, **raw Recovery@flip values are not directly comparable across personas/models** unless you also account for how often flips occur. A simple companion quantity is the *unconditional recovered fraction*:
+\[
+\Pr(\text{recover}) = \Pr(\text{flip})\cdot \Pr(\text{recover}\mid\text{flip}) = \big(1-\text{Survival}(p,R)\big)\cdot \text{Recovery}(p),
+\]
+which answers: “Among initially-correct examples, what fraction both flipped *and* were brought back by the recovery prompt?” (We do **not** use this as a headline metric, but it helps interpret recovery values in context.)
+
 We interpret recovery as an intervention-style metric that is intentionally distinct from survival: a model can (i) resist flipping (high survival) yet (ii) fail to return to truth once it does flip (low recovery), and vice versa.
 
 ### 4.5 Multi-seed aggregation
