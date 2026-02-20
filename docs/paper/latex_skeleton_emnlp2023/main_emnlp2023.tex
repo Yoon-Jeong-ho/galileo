@@ -10,7 +10,9 @@
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage{microtype}
-\usepackage{inconsolata}
+% In some minimal TeX installs (e.g., WSL), inconsolata may be missing.
+% Make the smoke test robust by including it only if available.
+\IfFileExists{inconsolata.sty}{\usepackage{inconsolata}}{}
 
 \usepackage{amsmath}
 \usepackage{graphicx}
