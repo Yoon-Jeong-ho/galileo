@@ -64,10 +64,39 @@ All tasks are evaluated with a unified boxed-answer format (\texttt{\textbacksla
 \section{Protocol}
 \label{sec:protocol}
 
+\subsection{Overview (paper-auditable loop)}
+\begin{figure}[t]
+\centering
+\fbox{\parbox{0.97\linewidth}{
+\textbf{Algorithm 1: GALILEO evaluation for a persona $p$ and matched NRC.}\\
+\textbf{Input:} dataset $D$ with gold answers; decoding config; rounds $R{=}5$; persona prompt template $\mathsf{persona}(p,\cdot)$; NRC template $\mathsf{nrc}(p,\cdot)$.\\
+\textbf{1. Initial evaluation:} Run the model on each $x\in D$ with a neutral instruction; score to obtain initially-correct set $C\subseteq D$.\\
+\textbf{2. Multi-round pressure vs control:} For each $x\in C$, iterate rounds $r{=}1..R$:\\
+\ \ \ (a) query with persona: $y^{(p)}_{r} \leftarrow \mathsf{persona}(p, x, \text{history})$; score correctness\\
+\ \ \ (b) query with control: $y^{(\mathrm{NRC})}_{r} \leftarrow \mathsf{nrc}(p, x, \text{history})$; score correctness\\
+\ \ \ update history separately for persona and NRC tracks.\\
+\textbf{3. Recovery:} For any $x$ that flips at least once in the persona track, issue a final neutral recovery prompt; score Recovery@flip.\\
+\textbf{Output:} per-example trajectories; Survival@r, TOF/Fail@1, Recovery@flip; exports for figures/tables.
+}}
+\vspace{-2mm}
+\caption{Protocol summary. Formal definitions for NRC, conditioning sets, and metrics appear below.}
+\label{fig:algo}
+\end{figure}
+
 \subsection{Three phases}
 \textbf{Phase 1 (initial evaluation).} Identify the initially-correct subset.
 \textbf{Phase 2 (multi-round pressure vs NRC).} Apply personas for up to $R=5$ rounds and in parallel run NRC under identical decoding.
 \textbf{Phase 3 (recovery).} For flipped examples, issue a final neutral recovery prompt and measure recovery@flip.
+
+\subsection{Neutral Re-asking Control (NRC): evidence-free matched drift baseline}
+For each pressure persona $p$, we construct a paired \emph{Neutral Re-asking Control (NRC)} prompt that matches the interaction length and turn structure but removes the mechanism of pressure. Concretely, the NRC prompt:
+(i) repeats the user question in a neutral tone, (ii) can acknowledge prior turns without introducing new facts, and (iii) avoids any argumentative content, social pressure, or claims about the gold answer.
+This makes NRC an \emph{evidence-free} baseline: any failures under NRC reflect multi-turn drift (e.g., instability under re-asking) rather than persona pressure.
+
+\textbf{Allowed examples (NRC).} ``Can you restate your final answer?''; ``Please answer again, briefly.''; ``Just to confirm, what is your answer?''
+\textbf{Forbidden examples (not NRC).} Introducing counter-evidence (``Actually, the correct answer is ...''), social manipulation (``I will be disappointed if you don't change''), or logical traps (``If your answer were true, then ...'').
+
+\textbf{Attribution.} We report persona effects as paired differences (persona -- NRC) under identical decoding and matched conditioning sets, so that measured deltas correspond to pressure mechanisms rather than generic re-asking.
 
 \subsection{Conditioning-set reporting modes (to avoid confusion)}
 We distinguish (i) a shared initially-correct set $C$ (for cross-persona comparisons) and (ii) persona-matched sets $C_p$ (for within-persona attribution).
@@ -80,7 +109,23 @@ Recovery@flip is correctness on the recovery prompt conditional on having flippe
 \section{Results}
 \label{sec:results}
 
-% TODO: expand: 3 subsubsections (survival, TOF, recovery) with interpretation + artifact pointers.
+We summarize multi-turn robustness as complementary views: (i) \textbf{Survival@r} captures cumulative correctness under repeated questioning, (ii) \textbf{TOF/Fail@1} captures early-turn brittleness and the onset of failure, and (iii) \textbf{Recovery@flip} captures whether a model can return to the gold answer after it has deviated.
+All main comparisons are reported as \emph{persona--NRC deltas} to correct for evidence-free drift.
+
+\subsection{Survival degrades under pressure beyond generic drift}
+Figure~\ref{fig:survival} shows survival curves over rounds for representative personas alongside NRC.
+A consistent pattern is that the survival gap widens with rounds: some personas induce immediate early failure (captured by Fail@1), while others erode correctness gradually across turns.
+This supports treating robustness as a trajectory-level property rather than a single scalar accuracy.
+
+\subsection{Turn-of-failure highlights early vulnerability}
+Figure~\ref{fig:fail1} reports persona-wise \(\Delta\)Fail@1.
+Positive deltas indicate that a persona causes a larger fraction of initially-correct examples to fail on the first challenged turn, compared to drift under NRC.
+Empirically, we observe that early-turn vulnerability differs substantially by persona, suggesting distinct pressure mechanisms (e.g., social deference vs logical contradiction).
+
+\subsection{Recovery is a distinct axis from robustness}
+Figure~\ref{fig:recovery} reports \(\Delta\)Recovery@flip.
+In several settings, personas that substantially reduce Survival@5 do not necessarily reduce Recovery@flip, indicating that ``staying correct'' and ``returning to truth after a deviation'' are separable model behaviors.
+This matters for deployment: systems that monitor for flips may still benefit from recovery-oriented guardrails even when robustness is imperfect.
 
 \begin{figure*}[t]
   \centering
