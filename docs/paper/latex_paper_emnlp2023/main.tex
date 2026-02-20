@@ -126,6 +126,12 @@ For each example, the runner records the full multi-turn trajectory and extracts
 We then score exact match (with task-specific normalization where required) against the gold answer.
 All per-example trajectories and derived metrics are exported as CSV alongside metadata, enabling post-hoc verification and figure regeneration.
 
+\paragraph{Answer format and edge cases.}
+To reduce evaluator degrees of freedom, we enforce a single final-answer channel (boxed answers) and treat the extracted box content as the model's committed response.
+When tasks admit multiple surface forms (e.g., whitespace, punctuation, equivalent numeric forms), we apply a task-specific normalization so that scoring errors reflect substantive deviations rather than formatting.
+If extraction fails (e.g., missing box or malformed output), we mark the turn as incorrect and export the raw text so failures are auditable.
+This design ensures that reported flips correspond to observable changes in the model's stated final answer, and that rare parsing artifacts can be separated from genuine pressure-induced deviations.
+
 Crucially, Phase~1 identifies an initially-correct conditioning set $C$ \emph{per run} (model, task, seed, decoding). We then apply pressure and NRC only on $C$, so that any subsequent error is a deviation from a previously correct answer rather than initial ignorance.
 
 \section{Protocol}
@@ -399,6 +405,27 @@ We include a decoding sweep to test whether persona--NRC gaps persist across tem
   \item \textbf{Deployment guardrails suggested by the metrics.} High Fail@1 motivates front-end mitigations (e.g., consistency prompts, calibrated refusal under repeated re-asking), while nontrivial Recovery@flip suggests value in back-end reset/verification steps (e.g., verify-then-answer, neutral re-solve). Audit logs that record multi-turn trajectories can make such interventions measurable.
   \item \textbf{Reporting should include denominators.} Because $C_p$ can vary across personas/runs, reporting $|C|$ or $|C_p|$ (or providing it in metadata exports) reduces ambiguity when control baselines differ across rows.
 \end{itemize}
+
+\paragraph{Recommended reporting bundle.}
+For papers and internal evaluations, we suggest treating the following as a minimal reporting bundle: (i) a protocol figure (Phase~1--3), (ii) a main table with cross-family aggregates (Table~\ref{tab:main}), (iii) at least one dynamics figure (survival curves), and (iv) an Appendix with prompt templates and per-persona decompositions.
+Crucially, each reported number should be backed by an auditable export bundle (metadata JSON + per-example CSV), so that readers can re-derive the table/figure without relying on undocumented evaluator heuristics.
+
+\paragraph{Open questions.}
+We view GALILEO as a starting point for auditing multi-turn reliability. Several extensions are important:
+(i) longer-horizon dialogues and long-context effects,
+(ii) evidence-grounded counterarguments and belief revision,
+(iii) tool-augmented settings where actions can compound mistakes,
+and (iv) intervention design (e.g., verification, consistency checks) that improves both robustness and recoverability.
+
+\paragraph{Implications for benchmark design.}
+Our findings suggest that benchmark design choices can materially affect conclusions about multi-turn robustness.
+First, without an evidence-free matched control, it is easy to over-attribute generic re-asking instability to a specific pressure mechanism.
+Second, reporting only end-point scalars (e.g., Survival@5 alone) can hide whether a failure mode is dominated by immediate compliance (Fail@1) or by cumulative degradation across rounds.
+Third, recovery should be treated as a conditional capability: a model may be brittle under pressure but still recover when given a neutral reset, which motivates evaluating both axes explicitly.
+
+Finally, we recommend that evaluation suites publish machine-readable exports (per-example trajectories + metadata) as first-class artifacts.
+This reduces ambiguity in answer extraction and normalization, and it allows independent re-aggregation (e.g., different persona weightings) without rerunning expensive inference.
+In our setup, the same export bundle supports both paper-facing figures and additional appendix decompositions.
 
 \FloatBarrier
 \section{Limitations}

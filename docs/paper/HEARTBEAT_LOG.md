@@ -1441,6 +1441,14 @@ Next:
 - In `docs/paper/latex_paper_emnlp2023/main.tex`, added an "Auditability of scoring and extraction" paragraph under Task setting explaining deterministic boxed extraction + exact-match/normalized scoring + per-example trajectory exports.
 - Camera-ready page budget remains main(excl Limitations)=7 (target: 8; +1 page still needed).
 
+### 2026-02-21 01:20 KST — Paper writing lane: reached 8 pages of main content excluding Limitations
+
+- Expanded the Discussion section in `docs/paper/latex_paper_emnlp2023/main.tex` with additional paragraphs (reporting bundle, open questions, and benchmark-design implications).
+- Verified with `bash scripts/report_latex_page_budget.sh` (camera-ready build) that:
+  - main_pages_excluding_limitations: 8
+  - Limitations starts on page 9
+  - Appendix starts on page 10
+
 ### 2026-02-20 03:34 KST — Experiments lane: CUDA preflight blocker confirmed on idle GPU0
 
 - On nlp8, GPU0 appeared idle in `nvidia-smi` (0%, 1MiB), but device-level preflight failed: `CUDA_VISIBLE_DEVICES=0` + torch CUDA tensor allocation returned `cudaErrorDevicesUnavailable`.
