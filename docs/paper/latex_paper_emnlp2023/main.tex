@@ -475,7 +475,7 @@ We encourage future work to evaluate how such pressure dynamics interact with sa
 \section{Conclusion}
 \label{sec:conclusion}
 
-We introduced \textbf{GALILEO}, a reproducible evaluation protocol for \emph{multi-turn} robustness on ground-truth tasks that reports survival trajectories, turn-of-failure (TOF) and first-turn failure (\FailAt{1}), and recovery after deviation (\RecoveryAtFlip).
+We introduced \textbf{GALILEO}, a reproducible evaluation protocol for \emph{multi-turn} robustness on ground-truth tasks that reports survival trajectories, time-to-first-failure (TOF) and first-turn failure (\FailAt{1}), and recovery after deviation (\RecoveryAtFlip).
 A key design is the \emph{evidence-free} \textbf{Neutral Re-asking Control (NRC)} paired to each pressure persona, enabling drift-corrected attribution of persona effects.
 Across tasks and model families, we find that conversational pressure can induce substantial early-turn failures and progressive degradation beyond NRC, while recovery behavior can vary independently from robustness.
 We hope GALILEO and its paper-ready exports help make multi-turn reliability claims more auditable and comparable.
