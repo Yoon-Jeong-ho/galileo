@@ -351,6 +351,11 @@ We include a decoding sweep to test whether persona--NRC gaps persist across tem
 
 Our results suggest that multi-turn robustness under conversational pressure is not fully captured by single-turn accuracy: models can be initially correct yet brittle in the first challenged turn (Fail@1), degrade over subsequent rounds (Survival@r), and sometimes recover after a flip (Recovery@flip). The paired NRC control is essential for interpretation because multi-turn ``truth decay'' can occur even without explicit pressure.
 
+
+\paragraph{Practical reporting guidance.}
+Based on these findings, we recommend that multi-turn evaluations (i) report full trajectories (at least Survival@1..R, not only Survival@R), (ii) include an evidence-free drift baseline like NRC when attributing effects to a pressure mechanism, and (iii) separate ``staying correct'' from ``recovering after deviation'' by reporting both Survival@r and Recovery@flip.
+In particular, a large negative $\Delta$Survival@5 with a small $\Delta$Recovery@flip suggests that post-hoc ``neutral reset'' interventions may still be effective even when first-turn brittleness is high.
+
 \section{Limitations}
 \label{sec:limitations}
 \pagemark{LIMITATIONS_SECTION_START}
