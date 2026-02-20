@@ -1309,8 +1309,9 @@ Next:
 
 ### 2026-02-20 19:26 KST — Paper writing lane: added explicit LaTeX review/camera-ready toggle for page counting
 
-- In `docs/paper/latex_paper_emnlp2023/main.tex`, introduced a `\ifreview` toggle that switches between `\usepackage[review]{EMNLP2023}` and `\usepackage{EMNLP2023}`.
-- Default remains `\reviewtrue` for drafting (line numbers), but we can flip to `\reviewfalse` to get a closer-to-submission page count from the PDF-first SSOT.
+- In `docs/paper/latex_paper_emnlp2023/main.tex`, introduced a review/camera-ready toggle that switches between `\usepackage[review]{EMNLP2023}` and `\usepackage{EMNLP2023}`.
+- The toggle can now be controlled without editing the file by defining `\CAMERAREADY` at build time (see the commented `latexmk -pdflatex=...` command in the preamble).
+- Verified locally that both builds succeed; current PDF is 7 pages in both modes (this will diverge once we start tight page-budgeting).
 
 ### 2026-02-20 03:34 KST — Experiments lane: CUDA preflight blocker confirmed on idle GPU0
 

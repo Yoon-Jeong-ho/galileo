@@ -4,10 +4,18 @@
 \documentclass[11pt]{article}
 
 % REVIEW TOGGLE
-% - For drafting with line numbers:  \reviewtrue
-% - For page-counting / camera-ready: \reviewfalse
+% - Default: review mode ON (line numbers) for drafting.
+% - For closer-to-submission page counting, build with camera-ready mode.
+%
+% Camera-ready build (no line numbers):
+%   latexmk -pdf -interaction=nonstopmode -halt-on-error \
+%     -pdflatex='pdflatex %O "\\def\\CAMERAREADY{1}\\input{%S}"' main.tex
 \newif\ifreview
-\reviewtrue
+\ifdefined\CAMERAREADY
+  \reviewfalse
+\else
+  \reviewtrue
+\fi
 \ifreview
   \usepackage[review]{EMNLP2023}
 \else
