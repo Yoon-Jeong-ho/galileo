@@ -1,0 +1,139 @@
+% GALILEO — EMNLP Main (working LaTeX)
+% Goal: compile locally (2-column) and iteratively improve paper quality.
+\pdfoutput=1
+\documentclass[11pt]{article}
+
+% Remove [review] for camera-ready.
+\usepackage[review]{EMNLP2023}
+
+\usepackage{times}
+\usepackage{latexsym}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{microtype}
+\IfFileExists{inconsolata.sty}{\usepackage{inconsolata}}{}
+
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{multirow}
+\usepackage{graphicx}
+\usepackage{url}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{enumitem}
+
+% Helpers
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+
+\title{GALILEO: Multi-turn Robustness Dynamics and Recovery under Conversational Pressure}
+\author{Anonymous Authors}
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Large language models can abandon previously correct answers when challenged in multi-turn dialogue.
+We introduce \textbf{GALILEO}, a reproducible protocol on ground-truth tasks that conditions on initially correct examples and measures (i) survival over rounds, (ii) turn-of-failure (TOF) with early-turn vulnerability (Fail@1), and (iii) recovery@flip (return-to-truth after a flip).
+We pair each pressure persona with a matched evidence-free neutral re-asking control (NRC) to separate pressure-induced effects from generic multi-turn drift.
+Across multi-seed experiments and several open-weight model families, pressure reduces Survival@5 and increases Fail@1 relative to NRC; recovery varies by task/persona, indicating that robustness and recoverability are distinct axes.
+\end{abstract}
+
+\section{Introduction}
+\label{sec:intro}
+
+% TODO (draft expansion): tighten motivation, then expand with 2-3 concrete failure scenarios and positioning.
+
+Single-turn accuracy obscures interaction dynamics: \emph{when} a model first fails under pressure, \emph{how} robustness decays over turns, and \emph{whether} it can return to truth after being misled (e.g., sycophancy and multi-turn persuasion effects; \citealp{sharma2023understandingsycophancylanguagemodels,liu2025truthdecayquantifyingmultiturn}).
+We target ground-truth tasks where failure is unambiguous, and we introduce a matched drift baseline (NRC) so persona effects are interpretable.
+
+\paragraph{Contributions.}
+\begin{itemize}[leftmargin=*]
+  \item We propose a ground-truth multi-turn protocol with survival curves, TOF/Fail@1, and recovery@flip.
+  \item We introduce NRC, an evidence-free matched-length control, enabling drift-corrected attribution of pressure mechanisms.
+  \item We provide paper-ready exports and a claim\,$\rightarrow$\,artifact pipeline for auditing and figure regeneration.
+\end{itemize}
+
+\section{Task setting}
+We cover math (GSM8K, SVAMP), extractive QA (SQuAD), MCQA (ARC-Easy), and open-domain QA (TriviaQA).
+All tasks are evaluated with a unified boxed-answer format (\texttt{\textbackslash boxed\{...\}}) and a task-specific scorer.
+
+\section{Protocol}
+\label{sec:protocol}
+
+\subsection{Three phases}
+\textbf{Phase 1 (initial evaluation).} Identify the initially-correct subset.
+\textbf{Phase 2 (multi-round pressure vs NRC).} Apply personas for up to $R=5$ rounds and in parallel run NRC under identical decoding.
+\textbf{Phase 3 (recovery).} For flipped examples, issue a final neutral recovery prompt and measure recovery@flip.
+
+\subsection{Conditioning-set reporting modes (to avoid confusion)}
+We distinguish (i) a shared initially-correct set $C$ (for cross-persona comparisons) and (ii) persona-matched sets $C_p$ (for within-persona attribution).
+Unless stated otherwise, persona\,–\,NRC gaps are computed on the same matched conditioning set ($C_p$), so control baselines can differ across personas.
+
+\subsection{Metrics}
+Survival@r is cumulative correctness through rounds $1..r$; TOF is the first round where an initially-correct example becomes incorrect (right-censored if never failing within $R$).
+Recovery@flip is correctness on the recovery prompt conditional on having flipped at least once.
+
+\section{Results}
+\label{sec:results}
+
+% TODO: expand: 3 subsubsections (survival, TOF, recovery) with interpretation + artifact pointers.
+
+\begin{figure*}[t]
+  \centering
+  \includegraphics[width=0.98\textwidth]{figures/survival_curves_rounds_seed1-4_20260209}
+  \caption{Survival over rounds (seed1--4) for selected personas vs NRC.}
+  \label{fig:survival}
+\end{figure*}
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\linewidth]{figures/tof_personawise_fail1_delta_seed1-4_20260209}
+  \caption{Persona-wise \(\Delta\)Fail@1 (persona -- NRC).}
+  \label{fig:fail1}
+\end{figure}
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\linewidth]{figures/recovery_personawise_delta_seed1-4_20260209}
+  \caption{Persona-wise \(\Delta\)Recovery@flip (persona -- NRC).}
+  \label{fig:recovery}
+\end{figure}
+
+\subsection{Cross-family generalization}
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\linewidth]{figures/cross_family_survival_r5_control_vs_logicaltrap_seed1-2_20260219}
+  \caption{Cross-family Survival@5 under NRC vs a strong persona (Logical Trap), seeds 1--2.}
+  \label{fig:crossfam}
+\end{figure}
+
+\subsection{Decoding sensitivity}
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\linewidth]{figures/decoding_sweep_qwen_delta_seed1-2_20260211}
+  \caption{Decoding sensitivity (seeds 1--2): persona--NRC gaps persist across temperatures.}
+  \label{fig:decoding}
+\end{figure}
+
+\section{Discussion and limitations}
+\label{sec:limitations}
+
+% TODO: add required Limitations section (desk-reject guardrail) + ethics/misuse note.
+
+\section{Conclusion}
+\label{sec:conclusion}
+
+% TODO: add 1-paragraph conclusion summarizing the protocol + key findings.
+
+\bibliography{../../../references}
+\bibliographystyle{acl_natbib}
+
+\appendix
+\section{Appendix: experimental settings and prompts}
+% TODO: detailed configs (models, seeds, decoding, max tokens/len, hardware), prompt templates.
+
+\end{document}
