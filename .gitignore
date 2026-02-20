@@ -30,11 +30,26 @@ datasets/
 results/
 
 # Paper artifacts (tracked)
-# We generally ignore large csv outputs, but we DO want to version small, paper-ready
-# snapshots used in the draft (e.g., Table W seed1).
+# We generally ignore large/ephemeral artifact *directories* (per-run dumps), but we DO want to
+# version small, paper-ready snapshots used in the draft (e.g., Table W CSVs).
+#
+# Policy:
+# - Track top-level CSV/MD in docs/paper/artifacts/
+# - Ignore nested per-run directories under docs/paper/artifacts/
+# - Keep an explicit archive/ folder trackable for curated historical snapshots
+
+# Allow the directory itself and curated top-level files
 !docs/paper/artifacts/
-!docs/paper/artifacts/**
-!docs/paper/artifacts/**/*.csv
+!docs/paper/artifacts/*.csv
+!docs/paper/artifacts/*.md
+
+# Ignore per-run dumps (nested directories/files)
+docs/paper/artifacts/*/
+docs/paper/artifacts/*/**
+
+# But keep the curated archive subdir trackable
+!docs/paper/artifacts/archive/
+!docs/paper/artifacts/archive/**
 
 # Scratch / staging
 tmp/
