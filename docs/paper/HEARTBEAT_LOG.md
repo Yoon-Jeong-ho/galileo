@@ -1478,3 +1478,7 @@ ef{fig:protocol}).
 - Added scripts/check_cuda_preflight_all.sh to print a per-GPU OK/FAIL table (wraps scripts/check_cuda_preflight.py).
 - Documented the ssh one-liner to run it in docs/paper/REMOTE_EXPERIMENTS_RUNBOOK.md.
 
+### 2026-02-21 05:00 KST — Dev lane: de-stale scripts/run_multiseed_tmux.sh for nlp8 SSOT
+
+- Updated scripts/run_multiseed_tmux.sh to stop using /mnt/raid6 paths; now defaults to /data_x/aa007878/galileo and requires explicit GPU_LIST (default single GPU) + TP_SIZE=1 by default.
+
