@@ -531,26 +531,27 @@ Unless stated otherwise, results are reported as mean±std over **seeds 1–4** 
 % Table 1 (skeleton): one-stop summary across model families.
 % Populate with tracked artifacts under docs/paper/artifacts/ and paper-ready runs under results_paper/.
 % Prefer persona-weighted aggregates; report mean±std across seeds.
+% Notation: C = Neutral Re-asking Control (NRC); P = persona pressure.
 \begin{table*}[t]
   \centering
-  \small
-  \setlength{\tabcolsep}{5pt}
-  \begin{tabular}{lcccccc}
+  \scriptsize
+  \setlength{\tabcolsep}{4pt}
+  \begin{tabular}{lccc ccc ccc}
     \toprule
-    Model (seeds) & Survival@5 (C) & Survival@5 (P) & $\Delta$S@5 & Fail@1 (C) & Fail@1 (P) & $\Delta$F@1 \\
+    & \multicolumn{3}{c}{Survival@5 $\uparrow$} & \multicolumn{3}{c}{Fail@1 $\downarrow$} & \multicolumn{3}{c}{Recovery@flip $\uparrow$} \\
+    \cmidrule(lr){2-4} \cmidrule(lr){5-7} \cmidrule(lr){8-10}
+    Model (seeds) & C & P & $\Delta$ & C & P & $\Delta$ & C & P & $\Delta$ \\
     \midrule
-    Qwen2.5-7B (1--4) & -- & -- & -- & -- & -- & -- \\
-    Llama-3.1-8B (1--2) & -- & -- & -- & -- & -- & -- \\
-    Mistral-7B (1--2) & -- & -- & -- & -- & -- & -- \\
-    Phi-3-mini (1--2) & -- & -- & -- & -- & -- & -- \\
-    Llama-3.2-3B (1--2) & -- & -- & -- & -- & -- & -- \\
-    Mistral-Nemo (1--2) & -- & -- & -- & -- & -- & -- \\
-    Qwen2.5-14B (1--2) & -- & -- & -- & -- & -- & -- \\
-    \midrule
-    & Recovery@flip (C) & Recovery@flip (P) & $\Delta$Rec & \multicolumn{3}{r}{\emph{(Recovery columns can be split into a second panel if space is tight.)}} \\
+    Qwen2.5-7B (1--4) & -- & -- & -- & -- & -- & -- & -- & -- & -- \\
+    Llama-3.1-8B (1--2) & -- & -- & -- & -- & -- & -- & -- & -- & -- \\
+    Mistral-7B (1--2) & -- & -- & -- & -- & -- & -- & -- & -- & -- \\
+    Llama-3.2-3B (1--2) & -- & -- & -- & -- & -- & -- & -- & -- & -- \\
+    Phi-3-mini (1--2) & -- & -- & -- & -- & -- & -- & -- & -- & -- \\
+    Mistral-Nemo (1--2) & -- & -- & -- & -- & -- & -- & -- & -- & -- \\
+    Qwen2.5-14B (1--2) & -- & -- & -- & -- & -- & -- & -- & -- & -- \\
     \bottomrule
   \end{tabular}
-  \caption{\textbf{Main results (one-stop summary).} Survival@5, Fail@1, and Recovery@flip for persona pressure (P) versus the Neutral Re-asking Control (NRC), aggregated over tasks and personas (persona-weighted unless stated). $\Delta$ is persona minus control on the matched initially-correct set. Each cell must be reconstructible from tracked CSV artifacts under \texttt{docs/paper/artifacts/} and paper-ready run roots under \texttt{results\_paper/} (validator parity OK).}
+  \caption{\textbf{Main results (one-stop summary).} Survival@5, Fail@1, and Recovery@flip for persona pressure (P) versus the Neutral Re-asking Control (C; NRC), aggregated over tasks and personas (persona-weighted unless stated). $\Delta$ is persona minus control on the matched initially-correct set. Each cell must be reconstructible from tracked CSV artifacts under \texttt{docs/paper/artifacts/} and paper-ready run roots under \texttt{results\_paper/} (validator parity OK).}
   \label{tab:main-results}
 \end{table*}
 ```
