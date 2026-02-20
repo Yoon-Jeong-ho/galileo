@@ -1497,3 +1497,8 @@ ef{fig:protocol}).
 - Staged into results_paper/ as symlink + global validation: [OK] runner_metadata parity.
 - Next: run seed2 with logging-safe launcher (avoid empty run.log).
 
+### 2026-02-21 06:10 KST — Experiments lane: launch deepseek seed2 with logging-safe tmux (GPU2)
+
+- On nlp8, confirmed CUDA alloc preflight OK for GPUs1–6; launched deepseek-ai/deepseek-llm-7b-chat seed2 on GPU2 using bash -lc + conda activate (avoids the earlier 0-byte run.log).
+- OUT=results/tier1_deepseek7b_seed2_20260221_061004, tmux=tier1_deepseek7b_s2_20260221_061004; run.log is now non-empty and model shards are loading.
+
