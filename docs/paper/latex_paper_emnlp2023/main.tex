@@ -119,6 +119,7 @@ We complement robustness metrics with \emph{Recovery@flip}, explicitly separatin
 
 \section{Task setting}
 We cover math (GSM8K \citep{cobbe2021trainingverifiers}, SVAMP \citep{patel2021svamp}), extractive QA (SQuAD \citep{rajpurkar2016squad}), multiple-choice QA (ARC-Easy \citep{clark2018thinkyouhave}), and open-domain QA (TriviaQA \citep{joshi2017triviaqa}), using standard evaluation splits.
+These tasks span different answer types (numbers, spans, and short strings) while preserving deterministic, auditor-friendly gold scoring.
 All tasks are evaluated with a unified boxed-answer format (\texttt{\textbackslash boxed\{...\}}) and a task-specific scorer.
 
 \paragraph{Auditability of scoring and extraction.}
