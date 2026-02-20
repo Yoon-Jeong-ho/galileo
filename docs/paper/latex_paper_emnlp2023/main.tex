@@ -306,14 +306,14 @@ For space, we report the full persona-wise \(\Delta\)Recovery@flip plots and the
 \begin{figure*}[t]
   \centering
   \includegraphics[width=0.98\textwidth]{figures/survival_curves_rounds_seed1-4_20260209}
-  \caption{Survival over rounds (seed1--4) for selected personas vs NRC.}
+  \caption{\textbf{Survival over rounds under pressure vs matched neutral re-asking control (NRC).} Curves show Survival@$r$ on an initially-correct conditioning set (Phase~1), so a drop at round $r$ corresponds to the fraction of previously-correct examples that have flipped by that round. Persona effects are read as the vertical gap between a persona and its NRC curve at the same round (drift-corrected).}
   \label{fig:survival}
 \end{figure*}
 
 \begin{figure}[t]
   \centering
   \includegraphics[width=\linewidth]{figures/tof_personawise_fail1_delta_seed1-4_20260209}
-  \caption{Persona-wise \(\Delta\)Fail@1 (persona -- NRC).}
+  \caption{\textbf{Early-turn vulnerability by pressure mechanism.} Persona-wise \(\Delta\)Fail@1 $=$ Fail@1( persona ) -- Fail@1( NRC ), computed on the persona-matched initially-correct set $S{=}C_p$. Positive values indicate that a persona increases first-turn flips beyond evidence-free drift.}
   \label{fig:fail1}
 \end{figure}
 
