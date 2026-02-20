@@ -66,6 +66,18 @@ docs/paper/acl_style_files/
 # NOTE: typo/accidental directory seen in past runs; ignore to prevent accidental adds.
 docs/paper/latex_paper_emnlp202p2023/
 
+# LaTeX build artifacts for the working EMNLP main paper (generated)
+docs/paper/latex_paper_emnlp2023/*.aux
+docs/paper/latex_paper_emnlp2023/*.bbl
+docs/paper/latex_paper_emnlp2023/*.blg
+docs/paper/latex_paper_emnlp2023/*.fdb_latexmk
+docs/paper/latex_paper_emnlp2023/*.fls
+docs/paper/latex_paper_emnlp2023/*.log
+docs/paper/latex_paper_emnlp2023/*.out
+docs/paper/latex_paper_emnlp2023/*.pdf
+docs/paper/latex_paper_emnlp2023/*.synctex.gz
+docs/paper/latex_paper_emnlp2023/*.toc
+
 docs/paper/latex_skeleton/*.aux
 docs/paper/latex_skeleton/*.bbl
 docs/paper/latex_skeleton/*.blg
