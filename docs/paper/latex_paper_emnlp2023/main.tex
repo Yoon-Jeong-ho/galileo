@@ -442,7 +442,20 @@ In our setup, the same export bundle supports both paper-facing figures and addi
   \item \textbf{Model/decode dependence.} Robustness and recovery can vary with decoding settings and model families. While we include a decoding sweep, our conclusions should be read as comparative within the reported settings rather than universal guarantees.
 \end{itemize}
 
-\paragraph{Ethics and misuse.} Persona prompts could be repurposed to intentionally destabilize a model in deployment. To reduce misuse risk, we (i) report aggregate vulnerability trends rather than releasing curated ``best attacks'' for a specific target system, and (ii) recommend that evaluations include a drift baseline like NRC and that deployments add safeguards (e.g., calibrated refusal on repeated re-asking, consistency checks, and audit logs) when models are used in high-stakes settings.
+\FloatBarrier
+\section{Ethics Statement}
+\label{sec:ethics}
+\pagemark{ETHICS_SECTION_START}
+We study evidence-free conversational pressure that can cause a model to abandon a previously correct answer.
+While this improves our understanding of multi-turn reliability, it also carries misuse risk: similar prompts could be used to intentionally destabilize deployed systems.
+To mitigate this risk, we:
+\begin{itemize}[leftmargin=*]
+  \item report aggregate trends and drift-corrected gaps (persona -- NRC) rather than releasing curated ``best attacks'' targeting any specific deployed model;
+  \item recommend pairing pressure evaluations with an evidence-free matched control (NRC) and adding deployment guardrails (e.g., calibrated refusal under repeated re-asking, consistency checks/verification, and audit logs) in high-stakes settings.
+\end{itemize}
+
+Our experiments use standard, widely used NLP benchmark datasets with publicly documented provenance and licenses; we do not collect new human-subject data.
+We encourage future work to evaluate how such pressure dynamics interact with safety policies, user demographics, and domain-specific harms.
 
 \section{Conclusion}
 \label{sec:conclusion}
