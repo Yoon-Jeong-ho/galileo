@@ -13,7 +13,7 @@ set -euo pipefail
 # Output:
 #   docs/paper/acl_style_files/<REF>/... (unzipped)
 
-REF="${1:-master}"
+REF="${1:-main}"
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 OUT_DIR="$ROOT/docs/paper/acl_style_files/${REF}"
 
@@ -27,8 +27,9 @@ else
   URL="https://github.com/acl-org/acl-style-files/archive/${REF}.zip"
 fi
 TMP_ZIP="$(mktemp -t acl-style-files.XXXXXX.zip)"
+TMP_DIR="$(mktemp -d -t acl-style-files.XXXXXX)"
 
-cleanup() { rm -f "$TMP_ZIP"; }
+cleanup() { rm -f "$TMP_ZIP"; rm -rf "$TMP_DIR"; }
 trap cleanup EXIT
 
 if ! command -v curl >/dev/null 2>&1; then
@@ -39,14 +40,37 @@ fi
 echo "[INFO] downloading: $URL" >&2
 curl -fsSL "$URL" -o "$TMP_ZIP"
 
-python3 - <<PY
+TMP_ZIP="$TMP_ZIP" TMP_DIR="$TMP_DIR" OUT_DIR="$OUT_DIR" python3 - <<'PY'
+import os
 import zipfile
 from pathlib import Path
-zip_path = Path("$TMP_ZIP")
-out_dir = Path("$OUT_DIR")
+
+zip_path = Path(os.environ["TMP_ZIP"])
+tmp_dir = Path(os.environ["TMP_DIR"])
+out_dir = Path(os.environ["OUT_DIR"])
+
 with zipfile.ZipFile(zip_path, 'r') as z:
-    z.extractall(out_dir)
-print(f"[OK] extracted to: {out_dir}")
+    z.extractall(tmp_dir)
+
+# GitHub archives typically contain a single top-level directory like acl-style-files-<ref>/...
+children = [p for p in tmp_dir.iterdir() if p.name not in ("__MACOSX",)]
+if len(children) == 1 and children[0].is_dir():
+    root = children[0]
+else:
+    root = tmp_dir
+
+# Copy (not move) to keep tmp_dir cleanup simple.
+# We want OUT_DIR to directly contain the style files (no nested archive root).
+for src in root.iterdir():
+    dst = out_dir / src.name
+    if src.is_dir():
+        # Python 3.8+ shutil.copytree has dirs_exist_ok
+        import shutil
+        shutil.copytree(src, dst, dirs_exist_ok=True)
+    else:
+        dst.write_bytes(src.read_bytes())
+
+print(f"[OK] extracted to: {out_dir} (flattened)")
 PY
 
 echo "[NOTE] For reproducibility, prefer pinning REF to a commit SHA or tag rather than 'main'." >&2
