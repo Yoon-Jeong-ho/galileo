@@ -317,7 +317,7 @@ This convention preserves drift correction (each persona is paired with its own 
 \cmidrule(lr){2-4} \cmidrule(lr){6-8}
 & NRC & Persona & $\Delta$ &  & NRC & Persona & $\Delta$ \\
 \midrule
-\input{generated/table1_rows}
+\IfFileExists{generated/table1_rows.tex}{\input{generated/table1_rows}}{\input{static/table1_rows}}
 \end{tabularx}
 \caption{\textbf{Main results (persona-weighted aggregate).} For each model family, we report paired views under matched decoding on an initially-correct set: Survival@5, $\Delta$Fail@1 (early-turn hazard increase under pressure, drift-corrected), and Recovery@flip (conditional on at least one flip). Higher Fail@1 is worse; thus positive $\Delta$Fail@1 indicates increased early-turn brittleness under pressure beyond NRC drift. ``Persona'' denotes the persona-weighted aggregate across pressure mechanisms (equal-weight over the five personas; \S\ref{sec:results}); NRC is the matched evidence-free control. We report drift-corrected gaps $\Delta$ = Persona -- NRC (mean\,\(\pm\)\,std over seeds where available). Where a cell is ``--'', the metric is undefined (e.g., no flips for Recovery@flip) or not available for that model family in the current artifact set. Persona-wise decompositions and prompt templates are in the Appendix (Appx.~\ref{sec:appendix-extra-results}, Appx.~\ref{sec:appendix-prompts}).}
 \label{tab:main}
