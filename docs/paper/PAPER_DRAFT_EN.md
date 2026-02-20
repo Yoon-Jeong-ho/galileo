@@ -536,22 +536,22 @@ Unless stated otherwise, results are reported as mean±std over **seeds 1–4** 
   \centering
   \scriptsize
   \setlength{\tabcolsep}{4pt}
-  \begin{tabular}{lccc ccc ccc}
+  \begin{tabular}{lccc ccc ccc r}
     \toprule
-    & \multicolumn{3}{c}{Survival@5 $\uparrow$} & \multicolumn{3}{c}{Fail@1 $\downarrow$} & \multicolumn{3}{c}{Recovery@flip $\uparrow$} \\
+    & \multicolumn{3}{c}{Survival@5 $\uparrow$} & \multicolumn{3}{c}{Fail@1 $\downarrow$} & \multicolumn{3}{c}{Recovery@flip $\uparrow$} & \\
     \cmidrule(lr){2-4} \cmidrule(lr){5-7} \cmidrule(lr){8-10}
-    Model (seeds) & C & P & $\Delta$ & C & P & $\Delta$ & C & P & $\Delta$ \\
+    Model (seeds) & C & P & $\Delta$ & C & P & $\Delta$ & C & P & $\Delta$ & $\#ex$ \\
     \midrule
-    Qwen2.5-7B (1--4) & -- & -- & -- & -- & -- & -- & -- & -- & -- \\
-    Llama-3.1-8B (1--2) & -- & -- & -- & -- & -- & -- & -- & -- & -- \\
-    Mistral-7B (1--2) & -- & -- & -- & -- & -- & -- & -- & -- & -- \\
-    Llama-3.2-3B (1--2) & -- & -- & -- & -- & -- & -- & -- & -- & -- \\
-    Phi-3-mini (1--2) & -- & -- & -- & -- & -- & -- & -- & -- & -- \\
-    Mistral-Nemo (1--2) & -- & -- & -- & -- & -- & -- & -- & -- & -- \\
-    Qwen2.5-14B (1--2) & -- & -- & -- & -- & -- & -- & -- & -- & -- \\
+    Qwen2.5-7B (1--4) & -- & -- & -- & -- & -- & -- & -- & -- & -- & -- \\
+    Llama-3.1-8B (1--2) & -- & -- & -- & -- & -- & -- & -- & -- & -- & -- \\
+    Mistral-7B (1--2) & -- & -- & -- & -- & -- & -- & -- & -- & -- & -- \\
+    Llama-3.2-3B (1--2) & -- & -- & -- & -- & -- & -- & -- & -- & -- & -- \\
+    Phi-3-mini-4k (1--2) & -- & -- & -- & -- & -- & -- & -- & -- & -- & -- \\
+    Mistral-Nemo (1--2) & -- & -- & -- & -- & -- & -- & -- & -- & -- & -- \\
+    Qwen2.5-14B (1--2) & -- & -- & -- & -- & -- & -- & -- & -- & -- & -- \\
     \bottomrule
   \end{tabular}
-  \caption{\textbf{Main results (one-stop summary).} Survival@5, Fail@1, and Recovery@flip for persona pressure (P) versus the Neutral Re-asking Control (C; NRC), aggregated over tasks and personas (persona-weighted unless stated). $\Delta$ is persona minus control on the matched initially-correct set. Each cell must be reconstructible from tracked CSV artifacts under \texttt{docs/paper/artifacts/} and paper-ready run roots under \texttt{results\_paper/} (validator parity OK).}
+  \caption{\textbf{Main results (one-stop summary).} Survival@5, Fail@1, and Recovery@flip for persona pressure (P) versus the Neutral Re-asking Control (C; NRC), aggregated over tasks and personas (persona-weighted unless stated). $\Delta$ is persona minus control on the matched initially-correct set. $\#ex$ reports the total number of initially-correct evaluation examples pooled across tasks/personas (summing over all included seeds) for that row; it makes weighting and cross-row comparability explicit. Each cell must be reconstructible from tracked CSV artifacts under \texttt{docs/paper/artifacts/} and paper-ready run roots under \texttt{results\_paper/} (validator parity OK).}
   \label{tab:main-results}
 \end{table*}
 ```
