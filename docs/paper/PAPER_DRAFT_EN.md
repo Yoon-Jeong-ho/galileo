@@ -533,9 +533,9 @@ Unless stated otherwise, results are reported as mean±std over **seeds 1–4** 
 
 ```latex
 % Table 1 (skeleton): one-stop summary across model families.
-% Populate with tracked artifacts under docs/paper/artifacts/ and paper-ready runs under results_paper/.
-% Prefer persona-weighted aggregates; report mean±std across seeds.
-% Notation: C = Neutral Re-asking Control (NRC); P = persona pressure.
+% Populate from tracked artifacts under docs/paper/artifacts/ + paper-ready runs under results_paper/.
+% Prefer persona-weighted aggregates; each numeric cell should be reported as mean±std across seeds.
+% Notation: C = Neutral Re-asking Control (NRC); P = persona pressure; Δ = P − C on the matched initially-correct set.
 \begin{table*}[t]
   \centering
   \scriptsize
@@ -544,7 +544,7 @@ Unless stated otherwise, results are reported as mean±std over **seeds 1–4** 
     \toprule
     & \multicolumn{3}{c}{Survival@5 $\uparrow$} & \multicolumn{3}{c}{Fail@1 $\downarrow$} & \multicolumn{3}{c}{Recovery@flip $\uparrow$} & \\
     \cmidrule(lr){2-4} \cmidrule(lr){5-7} \cmidrule(lr){8-10}
-    Model (seeds) & C & P & $\Delta$ & C & P & $\Delta$ & C & P & $\Delta$ & $\#ex$ \\
+    Model (seeds) & C & P & $\Delta$ & C & P & $\Delta$ & C & P & $\Delta$ & $n_0$/seed \\
     \midrule
     Qwen2.5-7B (1--4) & -- & -- & -- & -- & -- & -- & -- & -- & -- & -- \\
     Llama-3.1-8B (1--2) & -- & -- & -- & -- & -- & -- & -- & -- & -- & -- \\
@@ -555,7 +555,7 @@ Unless stated otherwise, results are reported as mean±std over **seeds 1–4** 
     Qwen2.5-14B (1--2) & -- & -- & -- & -- & -- & -- & -- & -- & -- & -- \\
     \bottomrule
   \end{tabular}
-  \caption{\textbf{Main results (one-stop summary).} Survival@5, Fail@1, and Recovery@flip for persona pressure (P) versus the matched evidence-free \textbf{Neutral Re-asking Control (NRC)} (C), aggregated over tasks and personas (persona-weighted unless stated). $\Delta$ is persona minus control on the matched initially-correct set. $\#ex$ reports the total number of initially-correct evaluation examples pooled across tasks/personas (summing over all included seeds) for that row; it makes weighting and cross-row comparability explicit. Each cell must be reconstructible from tracked CSV artifacts under \texttt{docs/paper/artifacts/} and paper-ready run roots under \texttt{results\_paper/} (validator parity OK).}
+  \caption{\textbf{Main results (one-stop summary).} Survival@5, Fail@1, and Recovery@flip for persona pressure (P) versus the matched evidence-free \textbf{Neutral Re-asking Control (NRC)} (C), aggregated over tasks and personas (persona-weighted unless stated). All numeric cells should be reported as mean±std across seeds. $\Delta$ is persona minus control on the matched initially-correct set. $n_0$/seed is the average number of initially-correct evaluation examples per seed (pooled across tasks/personas) for that row; reporting it avoids ambiguity about weighting and cross-row comparability. Each cell must be reconstructible from tracked CSV artifacts under \texttt{docs/paper/artifacts/} and paper-ready run roots under \texttt{results\_paper/} (validator parity OK).}
   \label{tab:main-results}
 \end{table*}
 ```
