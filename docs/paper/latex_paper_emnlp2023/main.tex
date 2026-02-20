@@ -403,7 +403,7 @@ For each run, we export \texttt{paper\_exports/metadata.json} and \texttt{paper\
 \toprule
 \textbf{Component} & \textbf{Symbol} & \textbf{Default} & \textbf{Compared variants} & \textbf{Notes}\\
 \midrule
-Pressure rounds & $R$ & 5 & --- & Survival@r reported for $r\le R$; TOF right-censored at $R$.\\
+Pressure rounds & $R$ & 5 & --- & Survival@r reported for $r\le R$; TOF right-censored at $R{+}1$ (i.e., no failure within $R$ rounds).\\
 Conditioning set & $C,\,C_p$ & $C_p$ for deltas & $C$ (pooled) & Persona--NRC gaps computed on matched $C_p$ unless stated.\\
 Decoding & --- & shared per run & temperature sweep & Persona/NRC share decoding; sweep tests stability of deltas (Fig.~\ref{fig:decoding}).\\
 Model families & --- & open-weight & cross-family check & Cross-family generalization shown in Fig.~\ref{fig:crossfam}.\\
