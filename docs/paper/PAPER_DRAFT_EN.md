@@ -557,7 +557,7 @@ Unless stated otherwise, results are reported as mean±std over **seeds 1–4** 
     Qwen2.5-14B (1--2) & -- & -- & -- & -- & -- & -- & -- & -- & -- & -- \\
     \bottomrule
   \end{tabular}
-  \caption{\textbf{Main results (one-stop summary).} Survival@5, Fail@1, and Recovery@flip for persona pressure (P) versus the Neutral Re-asking Control (C; NRC), aggregated over tasks and personas (persona-weighted unless stated). $\Delta$ is persona minus control on the matched initially-correct set. $\#ex$ reports the total number of initially-correct evaluation examples pooled across tasks/personas (summing over all included seeds) for that row; it makes weighting and cross-row comparability explicit. Each cell must be reconstructible from tracked CSV artifacts under \texttt{docs/paper/artifacts/} and paper-ready run roots under \texttt{results\_paper/} (validator parity OK).}
+  \caption{\textbf{Main results (one-stop summary).} Survival@5, Fail@1, and Recovery@flip for persona pressure (P) versus the matched evidence-free \textbf{Neutral Re-asking Control (NRC)} (C), aggregated over tasks and personas (persona-weighted unless stated). $\Delta$ is persona minus control on the matched initially-correct set. $\#ex$ reports the total number of initially-correct evaluation examples pooled across tasks/personas (summing over all included seeds) for that row; it makes weighting and cross-row comparability explicit. Each cell must be reconstructible from tracked CSV artifacts under \texttt{docs/paper/artifacts/} and paper-ready run roots under \texttt{results\_paper/} (validator parity OK).}
   \label{tab:main-results}
 \end{table*}
 ```
