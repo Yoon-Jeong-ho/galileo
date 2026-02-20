@@ -46,7 +46,7 @@ Single-turn accuracy does not answer:
 
 **At-a-glance definitions (paper-wide):**
 - **Round 0**: the initial (persona-free) answer used to filter to the initially-correct subset.
-- **NRC (Neutral Re-asking Control)**: the same multi-round structure/decoding/answer-format constraints, but follow-ups are neutral “re-check and answer” prompts that introduce **no new task-relevant evidence**.
+- **NRC**: the same multi-round structure/decoding/answer-format constraints, but follow-ups are neutral “re-check and answer” prompts that introduce **no new task-relevant evidence**.
 - **Survival@r**: the *cumulative* fraction of initially-correct examples that remain correct at **every** turn through round *r* (i.e., correct for all turns 1..*r*, not “accuracy at round *r* only”).
 - **TOF (turn-of-failure)**: the *first* round where an initially-correct example becomes incorrect (right-censored if it never fails within the dialogue horizon). **Fail@1** is \(\Pr(\mathrm{TOF}=1)\).
 - **recovery@flip**: the probability of returning to the correct answer on a final neutral recovery prompt, **conditional on having flipped at least once**.
