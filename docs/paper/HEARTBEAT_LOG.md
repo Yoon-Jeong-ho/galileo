@@ -1482,3 +1482,10 @@ ef{fig:protocol}).
 
 - Updated scripts/run_multiseed_tmux.sh to stop using /mnt/raid6 paths; now defaults to /data_x/aa007878/galileo and requires explicit GPU_LIST (default single GPU) + TP_SIZE=1 by default.
 
+### 2026-02-21 05:19 KST — Experiments lane: nlp8 preflight-all + deepseek vLLM init smoke (GPU1)
+
+- On nlp8 pulled latest origin/main (brought in scripts/check_cuda_preflight_all.sh + updated launcher).
+- Ran per-GPU CUDA alloc preflight: GPU0 FAIL; GPUs1–6 OK.
+- Ran vLLM init preflight for deepseek-ai/deepseek-llm-7b-chat on GPU1 (CUDA_VISIBLE_DEVICES=1 + conda env galileo): OK (engine init + warmup succeeded).
+- Note: conda-run preflight must be wrapped with explicit CUDA_VISIBLE_DEVICES, otherwise it can hit cudaErrorDevicesUnavailable even when alloc preflight passes.
+
