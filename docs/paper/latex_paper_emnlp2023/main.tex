@@ -115,7 +115,7 @@ Beyond measuring failure, recent work studies whether models can be guided back 
 We complement robustness metrics with \emph{Recovery@flip}, explicitly separating ``staying correct'' from ``returning to truth'' after a conversational flip.
 
 \section{Task setting}
-We cover math (GSM8K, SVAMP), extractive QA (SQuAD), multiple-choice QA (ARC-Easy), and open-domain QA (TriviaQA), using standard evaluation splits.
+We cover math (GSM8K \citep{cobbe2021trainingverifiers}, SVAMP \citep{patel2021svamp}), extractive QA (SQuAD \citep{rajpurkar2016squad}), multiple-choice QA (ARC-Easy \citep{clark2018thinkyouhave}), and open-domain QA (TriviaQA \citep{joshi2017triviaqa}), using standard evaluation splits.
 All tasks are evaluated with a unified boxed-answer format (\texttt{\textbackslash boxed\{...\}}) and a task-specific scorer.
 
 Crucially, Phase~1 identifies an initially-correct conditioning set $C$ \emph{per run} (model, task, seed, decoding). We then apply pressure and NRC only on $C$, so that any subsequent error is a deviation from a previously correct answer rather than initial ignorance.
