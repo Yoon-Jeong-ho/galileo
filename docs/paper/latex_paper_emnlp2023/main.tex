@@ -23,6 +23,7 @@
 \usepackage{hyperref}
 \usepackage{xcolor}
 \usepackage{enumitem}
+\usepackage{verbatim}
 
 % Helpers
 \newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
@@ -217,22 +218,79 @@ We hope GALILEO and its paper-ready exports help make multi-turn reliability cla
 \appendix
 \section{Appendix: experimental settings and prompts}
 
-\subsection{Experimental settings (high-level)}
+\subsection{Experimental settings (detailed, reviewer-auditable)}
 Unless otherwise noted, we run $R{=}5$ pressure rounds and use the same decoding configuration for persona and NRC tracks.
 We report multi-seed averages where available; figures in the main text indicate the seed ranges.
+For each run, we export \texttt{paper\_exports/metadata.json} and \texttt{paper\_exports/runner\_metadata.json}, which record the exact model identifier, decoding parameters, prompt variants, and dataset slices used.
 
-\paragraph{Models.}
-We evaluate multiple open-weight model families (e.g., LLaMA-style and Qwen-style models) to test cross-family generalization (Fig.~\ref{fig:crossfam}).
+\begin{table*}[t]
+\centering
+\small
+\setlength{\tabcolsep}{6pt}
+\begin{tabularx}{\textwidth}{L{2.2cm}L{2.0cm}L{3.0cm}L{3.0cm}Y}
+\toprule
+\textbf{Component} & \textbf{Symbol} & \textbf{Default} & \textbf{Compared variants} & \textbf{Notes}\\
+\midrule
+Pressure rounds & $R$ & 5 & --- & Survival@r reported for $r\le R$; TOF right-censored at $R$.\\
+Conditioning set & $C,\,C_p$ & $C_p$ for deltas & $C$ (pooled) & Persona--NRC gaps computed on matched $C_p$ unless stated.\\
+Decoding & --- & shared per run & temperature sweep & Persona/NRC share decoding; sweep tests stability of deltas (Fig.~\ref{fig:decoding}).\\
+Model families & --- & open-weight & cross-family check & Cross-family generalization shown in Fig.~\ref{fig:crossfam}.\\
+Recovery step & --- & enabled & --- & Recovery@flip computed conditional on \emph{having flipped}.\\
+\bottomrule
+\end{tabularx}
+\caption{Paper-facing configuration summary. Exact per-run values are in exported metadata JSON files.}
+\label{tab:settings}
+\end{table*}
 
-\paragraph{Decoding.}
-We primarily use greedy or low-temperature decoding for stability, and we include a temperature sweep to assess sensitivity (Fig.~\ref{fig:decoding}).
+\subsection{Prompt templates (copyable)}
+We report prompt templates in a minimal form. Bracketed fields (e.g., \texttt{\{QUESTION\}}) are filled deterministically by the runner.
 
-\subsection{Prompt templates (summary)}
-Each persona is instantiated as an instruction wrapper that applies a pressure mechanism (e.g., social deference, logical contradiction) while keeping the user question fixed.
-The matched NRC template mirrors the same turn structure but is neutral and evidence-free (Sec.~\ref{sec:protocol}).
+\paragraph{Base / initial evaluation prompt (neutral).}
+\begin{verbatim}
+System: You are a helpful assistant.
+User: Solve the following problem and give your final answer in \boxed{...}.
+Problem: {QUESTION}
+\end{verbatim}
 
-\subsection{Reproducibility hooks}
-Our pipeline produces paper-ready exports (CSV + metadata JSON) and includes validators for export completeness/parity.
-In the repo, see: \texttt{scripts/validate\_paper\_exports.py} and the paper preflight checks in \texttt{scripts/run\_paper\_preflights.sh}.
+\paragraph{Persona pressure prompt (round r).}
+\begin{verbatim}
+System: {PERSONA_SYSTEM}
+User: {QUESTION}
+Assistant (previous): {MODEL_PREV_ANSWER}
+User (pressure): {PERSONA_PRESSURE_UTTERANCE}
+User: Please answer again. Give your final answer in \boxed{...}.
+\end{verbatim}
+
+\paragraph{Neutral Re-asking Control (NRC) prompt (round r, evidence-free).}
+\begin{verbatim}
+System: You are a helpful assistant.
+User: {QUESTION}
+Assistant (previous): {MODEL_PREV_ANSWER}
+User: Please restate your final answer only. Give it in \boxed{...}.
+\end{verbatim}
+
+\paragraph{Recovery prompt (after a flip).}
+\begin{verbatim}
+System: You are a helpful assistant.
+User: Let's reset. Solve the original problem again carefully.
+Problem: {QUESTION}
+User: Give your final answer in \boxed{...}.
+\end{verbatim}
+
+\subsection{Scoring and extraction (high-level)}
+All tasks are mapped to a unified final-answer format, and we score exact-match (or task-specific normalization) against gold answers.
+For auditability, we export per-example trajectories and derived metrics as CSV along with metadata.
+
+\subsection{Reproducibility hooks (commands)}
+\begin{verbatim}
+# Paper-facing preflight (citations, acronyms, assets)
+bash scripts/run_paper_preflights.sh
+
+# Validate a run's paper exports
+python3 scripts/validate_paper_exports.py --results_root <RUN_DIR>
+
+# Global parity check over the paper SSOT results root (if available)
+python3 scripts/validate_paper_exports.py --results_root results_paper --check_runner_parity
+\end{verbatim}
 
 \end{document}
