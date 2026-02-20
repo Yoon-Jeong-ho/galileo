@@ -47,6 +47,12 @@ If `run.log` is not updating but GPU is busy, monitor progress via **output file
 
 **CUDA preflight (required before launch on an apparently idle GPU):**
 
+Convenience helper (prints an OK/FAIL table; run on **nlp8**):
+
+```bash
+ssh nlp8 'cd /data_x/aa007878/galileo || exit 1; bash scripts/check_cuda_preflight_all.sh'
+```
+
 We have two complementary preflights:
 
 1) **CUDA device alloc sanity** (catches `cudaErrorDevicesUnavailable` / driver hiccups):
