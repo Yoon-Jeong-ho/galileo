@@ -117,7 +117,8 @@ Our protocol operationalizes these phenomena on \emph{ground-truth} tasks with a
 \paragraph{Robustness evaluation beyond single-turn accuracy.}
 Many benchmarks focus on single-turn robustness (e.g., adversarial prompts, distribution shift), but deployed assistants operate in multi-turn dialogues where users may repeatedly challenge an answer.
 Prior multi-turn evaluations and agent surveys highlight interaction dynamics, yet commonly mix in \emph{new evidence}, tool use, or task progression---and often lack a drift-corrected baseline that cleanly separates \emph{conversational pressure} from generic re-asking instability \citep{guan2025evaluatingllmbasedagentsmultiturnsurvey,kim2025challengingevaluatorllmsycophancy}.
-GALILEO targets an evidence-free threat model and contributes (i) trajectory metrics (\SurvivalAt{r}, TOF, \FailAt{1}) and (ii) an evidence-free matched control (NRC) that enables paired persona--control attribution.
+Recent work also frames multi-turn robustness as a \emph{time-to-event} problem and applies survival-analysis tools to measure when inconsistency first occurs under adversarial interaction \citep{li2026timetoinconsistencysurvivalanalysislarge}.
+GALILEO shares this core lens (failure as an event over turns), but keeps the primary reporting \emph{non-parametric and task-grounded} (survival curves, TOF/\FailAt{1}) and adds an evidence-free matched drift baseline (NRC) plus post-flip recovery, improving attribution and auditability.
 
 \paragraph{Recovery after a deviation.}
 Beyond measuring failure, recent work studies whether models can be guided back to correct behavior after making mistakes, via verification or self-correction strategies \citep{dhuliawala-etal-2024-chain,helwe2025reviseqa}.
