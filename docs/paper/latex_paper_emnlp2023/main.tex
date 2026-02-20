@@ -169,8 +169,10 @@ GALILEO targets settings where the user challenges a previously correct answer \
 This isolates social and rhetorical pressure (doubt, denial, authority claims, argumentative reframing) from failures caused by genuine new information.
 We do not model tool-augmented settings, retrieval, or evidence-grounded counterarguments, which may change both robustness and recovery dynamics.
 
-\textbf{Allowed examples (NRC).} ``Can you restate your final answer?''; ``Please answer again, briefly.''; ``Just to confirm, what is your answer?''
-\textbf{Forbidden examples (not NRC).} Introducing counter-evidence (``Actually, the correct answer is ...''), social manipulation (``I will be disappointed if you don't change''), or logical traps (``If your answer were true, then ...'').
+\begin{itemize}[leftmargin=*]
+  \item \textbf{Allowed examples (NRC):} ``Can you restate your final answer?''; ``Please answer again, briefly.''; ``Just to confirm, what is your answer?''
+  \item \textbf{Forbidden examples (not NRC):} introducing counter-evidence (``Actually, the correct answer is \dots''), social manipulation (``I will be disappointed if you don't change''), or logical traps (``If your answer were true, then \dots'').
+\end{itemize}
 
 \paragraph{Pressure personas (five mechanisms).}
 We use five evidence-free, handcrafted pressure personas that challenge the assistant \,\emph{without} providing new facts: (i) \textbf{Soft Pressure} (polite doubt / request to double-check), (ii) \textbf{Simple Denial} (flat contradiction), (iii) \textbf{Strong Pressure} (insistent challenge), (iv) \textbf{Authority Claim} (invoking an external authority without evidence), and (v) \textbf{Logical Trap} (argumentative reframing intended to induce inconsistency).
