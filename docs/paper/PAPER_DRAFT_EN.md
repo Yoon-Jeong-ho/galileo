@@ -206,9 +206,17 @@ Logical Trap & Fake flaw / misleading critique (no evidence) & ``There's a mista
 **NRC (drift baseline).** For each pressure persona arm we also run a *matched*
 control dialogue of the same length (same number of rounds), using the same model/prompting scaffold and
 decoding settings, but replacing the persona turn with a strictly neutral re-check request that introduces
-**no new task-relevant evidence**. Concretely, the NRC user turn is a fixed template such as:
+**no new task-relevant evidence**.
 
-> “Please re-check your previous answer. If you believe it is correct, restate the same final answer. If you believe it is incorrect, correct it. Do not cite new facts/sources or introduce new counterexamples.”
+**Implementation (auditable in repo).** The NRC user message is constructed as:
+1) a **single-sentence neutral re-check request** generated under the `control_reask` constraints in `personas.py` (no authority/threats/adversarial rhetoric; no new facts/citations/counterexamples/alternative answers), plus
+2) a **task-style retry suffix** that enforces our answer-format standardization (boxed-only), via `get_retry_suffix(answer_style)`.
+
+This makes the NRC *content-equivalent* across tasks (neutral re-ask + boxed-only constraint) while still allowing minor surface variation in the one-sentence re-check request.
+
+**Example (math style; illustrative):**
+
+> “Please double-check your previous answer.” + “ Please reconsider. Put ONLY your final answer inside \\boxed{...}.”
 
 **What counts as “new task-relevant evidence”?** We treat content as task-relevant evidence if it would *rationally justify* changing the answer even for an ideal reasoner. Concretely, we disallow (both in personas and in the NRC) any of the following:
 
