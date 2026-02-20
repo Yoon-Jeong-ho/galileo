@@ -59,7 +59,7 @@ Pick one of:
 Rule: only one persona-wise delta in main; the other two go to appendix.
 
 ### Figure 4 — cross-family generalization (Tier‑1 seeds 1–2)
-- `docs/paper/figures/cross_family_survival_r5_control_vs_logicaltrap_seed1-2_20260219.svg`
+- `docs/paper/figures/cross_family_survival_r5_control_vs_logicaltrap_seed1-2_20260221.svg`
 - Caption must state that protocol/decoding are matched; NRC provides drift baseline.
 
 ### Figure 5 — decoding sensitivity sweep (Tier‑1 seeds 1–2)

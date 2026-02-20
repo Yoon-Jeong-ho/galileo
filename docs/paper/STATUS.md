@@ -109,7 +109,7 @@ Ground-truth tasks에서 multi-turn persona pressure 하에 **정답 유지(surv
 - ✅ Added SSOT heartbeat prompt: `docs/paper/HEARTBEAT_PROMPT.md`
 - ✅ Added heartbeat checklist guardrails: `docs/paper/HEARTBEAT_CHECKLIST.md`
 - ✅ De-confused deprecated `nlp16` SSH note to reduce copy/paste drift: `docs/paper/SSH_TROUBLESHOOT_NLP16.md`
-- ✅ Canonical cross-family figure filename (anti-drift): `docs/paper/figures/cross_family_survival_r5_control_vs_logicaltrap_seed1-2_20260219.svg`
+- ✅ Canonical cross-family figure filename (anti-drift): `docs/paper/figures/cross_family_survival_r5_control_vs_logicaltrap_seed1-2_20260221.svg`
 - ✅ Metric definitions SSOT: `docs/paper/FIGURE_CAPTIONS.md` (Survival@r / Flip / TOF)
 - ✅ Added CUDA preflight helper + runbook gate to prevent false-idle launch failures:
   - `scripts/check_cuda_preflight.py`
