@@ -164,12 +164,12 @@ Survival curves can be re-expressed as a per-round failure ``hazard'' (condition
 With this convention, $\mathrm{Hazard}^{(t)}@1 = 1-\mathrm{Survival}^{(t)}@1$ is exactly Fail@1. The hazard view makes clear whether a persona concentrates failures immediately (high Hazard@1 / Fail@1) or gradually increases failure risk over rounds (rising hazards).
 
 \paragraph{Turn-of-failure (TOF) and Fail@1.}
-Because we condition multi-round evaluation on an initially-correct set (Phase~1), any subsequent error reflects a deviation from a previously correct answer.
+Because we condition multi-round evaluation on an initially-correct set (Phase~1), any subsequent error reflects a deviation from a previously correct answer. We refer to such a deviation (correct $\rightarrow$ incorrect at a later round) as a \emph{flip}.
 Define the (possibly censored) first-failure time
 \begin{align}
 \mathrm{TOF}^{(t)}(x)\;=\;
 \begin{cases}
-\min\{r\in\{1,\dots,R\}: c^{(t)}_{r}(x)=0\} & \text{if a flip occurs}\\
+\min\{r\in\{1,\dots,R\}: c^{(t)}_{r}(x)=0\} & \text{if a failure occurs (at least one flip)}\\
 R{+}1 & \text{otherwise (right-censored)}
 \end{cases}
 \end{align}
@@ -182,7 +182,7 @@ We summarize TOF at the population level using the expectation $\mathbb{E}_{x\si
 Fail@1 is the first-turn failure rate, $\mathrm{Fail}^{(t)}@1=1-\mathrm{Survival}^{(t)}@1$; we analogously report $\Delta\mathrm{Fail}@1$.
 
 \paragraph{Recovery@flip.}
-For each track $t\in\{p,\mathrm{NRC}\}$, let $F^{(t)}=\{x\in S: \exists r\le R\;\text{s.t. }c^{(t)}_{r}(x)=0\}$ denote examples that \emph{flip at least once} in rounds $1..R$.
+For each track $t\in\{p,\mathrm{NRC}\}$, let $F^{(t)}=\{x\in S: \exists r\le R\;\text{s.t. }c^{(t)}_{r}(x)=0\}$ denote examples that \emph{fail at least once} (i.e., exhibit at least one flip) in rounds $1..R$.
 After $R$ rounds, we issue a final neutral recovery prompt (identical across tracks) and score its correctness $c^{(\mathrm{rec},t)}(x)$.
 We report the conditional recovery rate
 \begin{align}
@@ -228,9 +228,8 @@ Positive deltas indicate that a persona causes a larger fraction of initially-co
 Empirically, we observe that early-turn vulnerability differs substantially by persona, suggesting distinct pressure mechanisms (e.g., social deference vs logical contradiction).
 
 \subsection{Recovery is a distinct axis from robustness}
-Figure~\ref{fig:recovery} reports \(\Delta\)Recovery@flip.
-In several settings, personas that substantially reduce Survival@5 do not necessarily reduce Recovery@flip, indicating that ``staying correct'' and ``returning to truth after a deviation'' are separable model behaviors.
-This matters for deployment: systems that monitor for flips may still benefit from recovery-oriented guardrails even when robustness is imperfect.
+We find that ``staying correct'' and ``returning to truth after a deviation'' are separable model behaviors: personas that substantially reduce Survival@5 do not necessarily reduce Recovery@flip.
+For space, we report the full persona-wise \(\Delta\)Recovery@flip plots and the decoding sweep in the Appendix (Appx.~\ref{sec:appendix-extra-results}).
 
 \begin{figure*}[t]
   \centering
@@ -246,13 +245,6 @@ This matters for deployment: systems that monitor for flips may still benefit fr
   \label{fig:fail1}
 \end{figure}
 
-\begin{figure}[t]
-  \centering
-  \includegraphics[width=\linewidth]{figures/recovery_personawise_delta_seed1-4_20260209}
-  \caption{Persona-wise \(\Delta\)Recovery@flip (persona -- NRC).}
-  \label{fig:recovery}
-\end{figure}
-
 \subsection{Cross-family generalization}
 \begin{figure}[t]
   \centering
@@ -262,12 +254,7 @@ This matters for deployment: systems that monitor for flips may still benefit fr
 \end{figure}
 
 \subsection{Decoding sensitivity}
-\begin{figure}[t]
-  \centering
-  \includegraphics[width=\linewidth]{figures/decoding_sweep_qwen_delta_seed1-2_20260211}
-  \caption{Decoding sensitivity (seeds 1--2): persona--NRC gaps persist across temperatures.}
-  \label{fig:decoding}
-\end{figure}
+We include a decoding sweep to test whether persona--NRC gaps persist across temperatures; see Appx.~\ref{sec:appendix-extra-results}.
 
 \section{Discussion and limitations}
 \label{sec:limitations}
@@ -322,7 +309,25 @@ Recovery step & --- & enabled & --- & Recovery@flip computed conditional on \emp
 \label{tab:settings}
 \end{table*}
 
+\subsection{Additional results}
+\label{sec:appendix-extra-results}
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\linewidth]{figures/recovery_personawise_delta_seed1-4_20260209}
+  \caption{Persona-wise \(\Delta\)Recovery@flip (persona -- NRC).}
+  \label{fig:recovery}
+\end{figure}
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\linewidth]{figures/decoding_sweep_qwen_delta_seed1-2_20260211}
+  \caption{Decoding sensitivity (seeds 1--2): persona--NRC gaps persist across temperatures.}
+  \label{fig:decoding}
+\end{figure}
+
 \subsection{Prompt templates (copyable)}
+\label{sec:appendix-prompts}
 We report prompt templates in a minimal form. Bracketed fields (e.g., \texttt{\{QUESTION\}}) are filled deterministically by the runner.
 
 \paragraph{Base / initial evaluation prompt (neutral).}

@@ -1301,6 +1301,12 @@ Next:
 - Tightened the hazard and TOF math in `docs/paper/latex_paper_emnlp2023/main.tex` (shorter conditioning notation + line breaks in align environments).
 - Verified via `latexmk` + `grep "Overfull \\hbox" main.log` that the previous large overfull boxes in the Metrics section are now gone.
 
+### 2026-02-20 19:18 KST — Paper writing lane: reduced main-text figure load (moved Recovery/Decoding to Appendix)
+
+- In `docs/paper/latex_paper_emnlp2023/main.tex`, moved the persona-wise Recovery@flip plot and the decoding-sweep plot out of the main Results section.
+- Added a new Appendix subsection `Additional results` (Appx.~\ref{sec:appendix-extra-results}) containing those two figures.
+- Main text now keeps the core narrative/figures (Survival, Fail@1, Cross-family) and points to the Appendix for the extra decompositions.
+
 ### 2026-02-20 03:34 KST — Experiments lane: CUDA preflight blocker confirmed on idle GPU0
 
 - On nlp8, GPU0 appeared idle in `nvidia-smi` (0%, 1MiB), but device-level preflight failed: `CUDA_VISIBLE_DEVICES=0` + torch CUDA tensor allocation returned `cudaErrorDevicesUnavailable`.
