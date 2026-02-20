@@ -1489,3 +1489,11 @@ ef{fig:protocol}).
 - Ran vLLM init preflight for deepseek-ai/deepseek-llm-7b-chat on GPU1 (CUDA_VISIBLE_DEVICES=1 + conda env galileo): OK (engine init + warmup succeeded).
 - Note: conda-run preflight must be wrapped with explicit CUDA_VISIBLE_DEVICES, otherwise it can hit cudaErrorDevicesUnavailable even when alloc preflight passes.
 
+### 2026-02-21 06:00 KST — Experiments lane: deepseek seed1 paper-ready + staged into results_paper
+
+- On nlp8, deepseek-ai/deepseek-llm-7b-chat seed1 finished (num_samples=80, max_model_len=4096, max_tokens=2048, GPU=1).
+- Ran scripts/paper_export.py -> wrote survival_curve.csv / turn_of_failure.csv / flip_samples.csv / metadata.json.
+- Added runner_metadata.json and validated: [OK] OUT/paper_exports.
+- Staged into results_paper/ as symlink + global validation: [OK] runner_metadata parity.
+- Next: run seed2 with logging-safe launcher (avoid empty run.log).
+
