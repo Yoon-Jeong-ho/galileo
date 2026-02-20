@@ -1,5 +1,8 @@
 # Generated content (checked in via sources elsewhere)
+# We keep most generated files out of git, but we *do* version the small, paper-ready
+# LaTeX snippet(s) that the draft \input{}s directly.
 generated/
+!generated/table1_rows.tex
 
 # LaTeX build artifacts
 *.aux
