@@ -46,14 +46,37 @@ Then tail logs for the newest run root.
 If `run.log` is not updating but GPU is busy, monitor progress via **output file mtimes** under `OUT/<ModelName>/*.jsonl` (e.g., `find "$OUT" -type f -printf '%TY-%Tm-%Td %TH:%TM %s %p\n' | sort | tail`).
 
 **CUDA preflight (required before launch on an apparently idle GPU):**
+
+We have two complementary preflights:
+
+1) **CUDA device alloc sanity** (catches `cudaErrorDevicesUnavailable` / driver hiccups):
+
 ```bash
 ssh nlp8 '
   cd /data_x/aa007878/galileo || exit 1
-  CUDA_VISIBLE_DEVICES=<gpu_id> /data_x/aa007878/miniconda3/envs/galileo/bin/python \
-    scripts/check_cuda_preflight.py
+  CUDA_VISIBLE_DEVICES=<gpu_id> /data_x/aa007878/miniconda3/envs/galileo/bin/python - <<"PY"
+import torch
+assert torch.cuda.is_available(), "cuda not available"
+# small alloc + sync (fail-fast if device is unusable)
+x = torch.empty((1024, 1024), device="cuda")
+torch.cuda.synchronize()
+print("OK cuda alloc")
+PY
 '
 ```
-Only launch heavy runs if this returns `[OK]` and exit code 0. Idle `nvidia-smi` snapshots alone are not sufficient.
+
+2) **vLLM model init sanity** (catches model/backend incompat before a long run):
+
+```bash
+ssh nlp8 '
+  cd /data_x/aa007878/galileo || exit 1
+  CUDA_VISIBLE_DEVICES=<gpu_id> conda run -n galileo \
+    python scripts/preflight_vllm_model.py --model <hf_model_id>
+'
+```
+
+Only launch heavy runs if (1) passes; run (2) whenever trying a new model family.
+Idle `nvidia-smi` snapshots alone are not sufficient.
 
 **Stall cutoff (recommended):** if (i) no new files under `OUT/<ModelName>/` for **≥30 minutes** and (ii) the runner PID is sleeping (0% CPU) while `VLLM::EngineCore` keeps GPU busy, treat it as hung and relaunch (do not start seed2 until seed1 is healthy).
 
