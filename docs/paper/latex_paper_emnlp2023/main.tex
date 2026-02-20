@@ -406,6 +406,7 @@ We include a decoding sweep to test whether persona--NRC gaps persist across tem
 \pagemark{LIMITATIONS_SECTION_START}
 \begin{itemize}[leftmargin=*]
   \item \textbf{Protocol scope.} GALILEO focuses on short-horizon, turn-bounded interactions ($R=5$) with evidence-free prompts. Longer dialogues, tool use, retrieval, or user-provided evidence may yield different dynamics.
+  \item \textbf{What NRC does (and does not) represent.} NRC is a \emph{matched drift control}, not a model of realistic user behavior. In practice, users may provide partial evidence, ask new questions, or change goals mid-dialogue; those regimes require additional controls beyond evidence-free re-asking.
   \item \textbf{Conditioning-set bias.} Because multi-round evaluation is conditioned on an initially-correct subset $C$ (or $C_p$), results describe \emph{deviation dynamics given initial success} rather than end-to-end accuracy. Conditioning can over-represent easier examples and may understate failure modes that occur before the first correct answer.
   \item \textbf{Task coverage.} We emphasize ground-truth tasks with unambiguous scoring. This excludes many open-ended domains (e.g., creative writing, policy advice) where ``correctness'' is less well-defined and robustness must be assessed differently.
   \item \textbf{Persona design.} Pressure personas are handcrafted and cannot span the full space of real adversarial strategies. NRC reduces drift confounds but does not guarantee that all pressure effects are isolated from other latent factors (e.g., wording sensitivity).
