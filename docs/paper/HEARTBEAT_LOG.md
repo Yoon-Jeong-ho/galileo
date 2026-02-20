@@ -1402,6 +1402,14 @@ Next:
 - This flushes outstanding floats at section boundaries, preventing pagination from swinging when small text changes are made.
 - Camera-ready page budget now: total=10, main(pre-appendix)=8, main(excl Limitations)=7 (target: 8).
 
+### 2026-02-21 00:16 KST — Paper writing lane: added protocol justifications (matched decoding + R=5)
+
+- In `docs/paper/latex_paper_emnlp2023/main.tex`, expanded the Protocol section with short justifications for:
+  - evidence-free threat model (pressure vs belief revision)
+  - matched decoding/interaction length (gap attribution)
+  - choosing a fixed horizon $R=5$ (expose dynamics while staying auditable)
+- Camera-ready budget remains main(excl Limitations)=7 (target: 8).
+
 ### 2026-02-20 03:34 KST — Experiments lane: CUDA preflight blocker confirmed on idle GPU0
 
 - On nlp8, GPU0 appeared idle in `nvidia-smi` (0%, 1MiB), but device-level preflight failed: `CUDA_VISIBLE_DEVICES=0` + torch CUDA tensor allocation returned `cudaErrorDevicesUnavailable`.
