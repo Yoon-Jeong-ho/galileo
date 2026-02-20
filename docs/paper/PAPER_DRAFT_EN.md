@@ -638,7 +638,7 @@ For some families we cap `max_model_len` for KV-cache feasibility on the availab
 
 ### 7.5 Persona pressure vs drift: control comparison (supports C2, rebuttal)
 
-**Table W (Persona vs control).** Compare survival@R and Fail@1 under persona pressure vs the **NRC** condition.
+**Table W (Persona vs control).** Compare survival@R and Fail@1 under persona pressure vs the **NRC** condition. **How to read it:** treat Table W as the headline *drift-corrected* summary—each metric is computed on an initially-correct subset and contrasted against the NRC baseline, so the reported gaps (\(\Delta\) for persona vs NRC; Fig.~\ref{fig:tablew-effect-deltas}) capture persona-induced effects beyond generic multi-turn degradation.
 
 **Definition (what Table W actually aggregates).** Fix a round horizon \(R\) (we use \(R=5\)). **For Table W we use the shared-\(C\) reporting mode**: for each seed \(s\), we first define a single Phase‑1 initially-correct subset \(C_s\) under the neutral prompt, and then evaluate **both** persona pressure and the NRC on that same \(C_s\). (Other parts of the paper may use persona-matched conditioning sets \(C_{p,s}\) for within-persona attribution; regardless of mode, every persona-vs-control comparison is computed on a matched initially-correct set.)
 
