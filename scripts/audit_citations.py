@@ -13,6 +13,11 @@ Default scope:
 Usage:
   python3 scripts/audit_citations.py
 
+Note:
+- This script currently scans only the markdown drafts above.
+  LaTeX SSOT files (e.g., docs/paper/latex_paper_emnlp2023/main.tex) are not
+  included by default.
+
 Exit codes:
 - 0: all cited keys exist in references.bib
 - 2: missing keys detected
