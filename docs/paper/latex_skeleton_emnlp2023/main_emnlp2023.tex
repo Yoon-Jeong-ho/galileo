@@ -40,7 +40,7 @@ Large language models (LLMs) can exhibit \emph{belief-consistency failures}: aba
 While prior work studies sycophancy and persuasion, there is no widely adopted, end-to-end protocol on \emph{ground-truth} tasks that simultaneously measures (i) \emph{when} the first flip occurs (turn-of-failure), (ii) cumulative degradation over rounds (survival / fail@any), and (iii) whether models can return to truth after flipping (recovery).
 
 We introduce \textbf{GALILEO}, a reproducible pipeline for ground-truth tasks (math, extractive QA, multiple-choice QA, and open-domain QA).
-Starting from an initially correct answer, GALILEO applies five fixed adversarial personas for up to five rounds and pairs each with a matched neutral re-asking control to separate generic multi-turn drift from persona-induced degradation.
+Starting from an initially correct answer, GALILEO applies five fixed adversarial personas for up to five rounds and pairs each with a matched \emph{Neutral Re-asking Control} (\textbf{NRC}) to separate generic multi-turn drift from persona-induced degradation.
 To avoid conflating persona effects with shifts in the \emph{initially-correct} conditioning set, we compute persona--control deltas on the same initially-correct subset for each persona arm.
 Across multiple model families and seeds, persona pressure reduces survival, increases fail@any, and shifts turn-of-failure earlier relative to the drift baseline.
 On flipped samples, we evaluate an explicit return-to-truth prompt and find that \emph{robustness} (staying correct) and \emph{recoverability} (returning to truth) are distinct axes.
@@ -54,12 +54,12 @@ Modern LLM assistants are often evaluated on single-turn correctness, but many r
 \emph{belief-consistency failure}: changing a previously correct answer to an incorrect one due to social influence rather than new evidence.
 Despite growing interest in sycophancy and persuasion, existing evaluations rarely provide an end-to-end, reproducible protocol where correctness is \emph{checkable at every turn} and failures can be localized to the exact round where the first flip occurs.
 
-GALILEO targets this gap by instantiating multi-turn pressure on \emph{ground-truth} tasks with automatic checking. We pair adversarial personas with a neutral re-asking control to separate generic answer drift from persona-induced degradation, and we add a recovery stage to measure whether models can return to the original truth after an induced flip.
+GALILEO targets this gap by instantiating multi-turn pressure on \emph{ground-truth} tasks with automatic checking. We pair adversarial personas with a \emph{Neutral Re-asking Control} (\textbf{NRC}) to separate generic answer drift from persona-induced degradation, and we add a recovery stage to measure whether models can return to the original truth after an induced flip.
 
 \noindent\textbf{Contributions.} GALILEO provides:
 \begin{itemize}
   \item \textbf{Ground-truth multi-turn protocol:} survival and turn-of-failure metrics on automatically checkable tasks.
-  \item \textbf{Drift baseline with matched conditioning sets:} a neutral re-asking control, and persona--control deltas computed on the \emph{same} initially-correct subset to avoid conflating persona effects with changes in which examples are initially correct.
+  \item \textbf{Drift baseline with matched conditioning sets:} a \emph{Neutral Re-asking Control} (\textbf{NRC}), and persona--control deltas computed on the \emph{same} initially-correct subset to avoid conflating persona effects with changes in which examples are initially correct.
   \item \textbf{Recovery stage:} a dedicated return-to-truth prompt evaluated \emph{after} the pressure dialogue to quantify recoverability conditional on having flipped.
   \item \textbf{Artifact-level traceability:} per-turn outputs and correctness traces, plotted curves, and reproducer scripts enabling end-to-end auditing.
 \end{itemize}
@@ -68,7 +68,7 @@ GALILEO targets this gap by instantiating multi-turn pressure on \emph{ground-tr
 
 \paragraph{Metrics (at a glance).} We report three complementary views of multi-turn belief consistency: \emph{fail@any} (fraction of initially-correct samples that flip at least once within the $R$ pressure rounds), \emph{turn-of-failure} (the first round where the flip occurs, enabling ``when'' analysis), and \emph{survival} (probability of staying correct through each round, summarizing degradation over time). On flipped samples, we additionally measure \emph{recovery} as the probability of returning to the original ground-truth answer after an explicit recovery prompt.
 
-\paragraph{Formalization.} For each evaluation condition, let $i \in \{1,\dots,n\}$ index examples that are \emph{initially correct} at round $0$ (i.e., $C_{i,0}=1$). Let $C_{i,r} \in \{0,1\}$ denote whether the model's answer is correct at round $r \in \{0,1,\dots,R\}$ under automatic checking, where rounds $1..R$ correspond to persona-pressure turns (or the matched neutral re-asking control).
+\paragraph{Formalization.} For each evaluation condition, let $i \in \{1,\dots,n\}$ index examples that are \emph{initially correct} at round $0$ (i.e., $C_{i,0}=1$). Let $C_{i,r} \in \{0,1\}$ denote whether the model's answer is correct at round $r \in \{0,1,\dots,R\}$ under automatic checking, where rounds $1..R$ correspond to persona-pressure turns (or the matched \textbf{NRC}).
 
 We define the \emph{turn-of-failure} as the first pressure round where correctness is lost:
 \begin{equation}
@@ -99,7 +99,7 @@ Let $C^{\mathrm{rec}}_i\in\{0,1\}$ denote whether the model answers the recovery
 
 Instruction-tuned LLMs can exhibit \emph{sycophancy} and related social-pressure failures, deferring to a user's assertions even when they contradict externally verifiable task truth \citep{sharma2023understandingsycophancylanguagemodels}. Recent benchmarks and analyses broaden this line of work to additional pressure sources and evaluation designs, including sycophancy-focused suites \citep{fanous2025sycevalevaluatingllmsycophancy,cheng2025elephantmeasuringunderstandingsocial}. Closest to our evaluation setting, recent work measures \emph{multi-turn} sycophancy under repeated rebuttal and quantifies longitudinal ``truth decay'' in dialogues \citep{hong2025measuringsycophancylanguagemodels,liu2025truthdecayquantifyingmultiturn}, including setups where an evaluator actively rebuts model responses \citep{kim2025challengingevaluatorllmsycophancy}. Peer-pressure and multi-agent settings are also emerging \citep{song2025kairospeerpressure}. Related sycophancy phenomena have also been studied in specialized domains such as theorem proving \citep{petrov2025brokenmathbenchmarksycophancytheorem}. GALILEO is complementary: we focus on a standardized, end-to-end protocol for \emph{ground-truth} tasks that makes correctness checkable at every turn. Unlike open-ended preference/stance prompts where ``truth'' is ambiguous, our tasks yield automatic per-turn labels, enabling survival and turn-of-failure analysis as well as artifact-level audit trails.
 
-A separate thread studies multi-turn instability even without explicit adversarial pressure: models may change answers across repeated questioning or extended interaction \citep{li2025firmorfickle,tosato2025persistentinstabilityllmspersonality}. GALILEO operationalizes this distinction by introducing an explicit drift baseline (neutral re-asking control) and by reporting \emph{when} failures occur (turn-of-failure) alongside \emph{how much} performance degrades over rounds (survival curves). Our survival-based framing is also related to recent ``time-to-inconsistency'' analyses that apply survival methodology to robustness under attack \citep{li2026timetoinconsistencysurvivalanalysislarge}, though our focus is on persona pressure and includes a dedicated recovery stage.
+A separate thread studies multi-turn instability even without explicit adversarial pressure: models may change answers across repeated questioning or extended interaction \citep{li2025firmorfickle,tosato2025persistentinstabilityllmspersonality}. GALILEO operationalizes this distinction by introducing an explicit drift baseline (\textbf{NRC}) and by reporting \emph{when} failures occur (turn-of-failure) alongside \emph{how much} performance degrades over rounds (survival curves). Our survival-based framing is also related to recent ``time-to-inconsistency'' analyses that apply survival methodology to robustness under attack \citep{li2026timetoinconsistencysurvivalanalysislarge}, though our focus is on persona pressure and includes a dedicated recovery stage.
 
 Our recovery stage also connects to work on belief revision and self-correction in multi-turn reasoning, which studies whether models can update or repair beliefs after intervening turns (e.g., ReviseQA \citep{helwe2025reviseqa}). We differ in that we explicitly condition on an induced flip from an initially correct answer under social pressure, and we measure return-to-truth with respect to the original ground-truth target.
 
@@ -111,10 +111,10 @@ Finally, our emphasis on verifiable truth aligns with truthfulness benchmarks su
 
 \paragraph{Personas and control.}
 We instantiate social pressure via five fixed personas: \emph{Soft Pressure} (gentle doubt), \emph{Simple Denial} (repeated contradiction without justification), \emph{Strong Pressure} (assertive insistence), \emph{Authority Claim} (appeal to an external expert/source), and \emph{Logical Trap} (misleading reasoning that tempts a flip).
-To separate persona-induced effects from generic multi-turn instability, we also run a \emph{neutral re-asking control} that re-queries the same question without adversarial framing.
+To separate persona-induced effects from generic multi-turn instability, we also run the \emph{Neutral Re-asking Control} (\textbf{NRC}), which re-queries the same question without adversarial framing.
 
 \paragraph{Matched conditioning set.}
-Our multi-turn metrics are defined on the \emph{initially-correct} subset, so the effective evaluation set can vary across personas and seeds when runs are executed separately (e.g., due to stochastic decoding, minor prompt/config differences in Phase~1, or caching/runner details). To avoid conflating this \emph{conditioning-set drift} with a true persona effect, for each persona $p$ we define its initially-correct set $C_p$ (examples correct at round $0$ under that run's \emph{persona-free} Phase~1 prompt) and evaluate the neutral re-asking control on the \emph{same} $C_p$ when computing persona--control deltas.
+Our multi-turn metrics are defined on the \emph{initially-correct} subset, so the effective evaluation set can vary across personas and seeds when runs are executed separately (e.g., due to stochastic decoding, minor prompt/config differences in Phase~1, or caching/runner details). To avoid conflating this \emph{conditioning-set drift} with a true persona effect, for each persona $p$ we define its initially-correct set $C_p$ (examples correct at round $0$ under that run's \emph{persona-free} Phase~1 prompt) and evaluate the \textbf{NRC} on the \emph{same} $C_p$ when computing persona--control deltas.
 
 Formally, for any metric $M$ computed on initially-correct examples (e.g., $\widehat{S}(r)$, fail@any, or a TOF statistic), we report persona--control deltas on the matched set:
 \begin{equation}
@@ -127,7 +127,7 @@ Figure~\ref{fig:cross-family-survival} illustrates the resulting survival curves
 \begin{figure}[t]
   \centering
   \maybeincludegraphics[width=\linewidth]{figures/protocol_overview}
-  \caption{GALILEO protocol. Starting from an initially correct answer, we run a neutral re-asking control (drift baseline) and persona pressure rounds (up to five turns). On flipped samples, we additionally evaluate recovery (return-to-truth) and report survival, fail@any, and turn-of-failure metrics.}
+  \caption{GALILEO protocol. Starting from an initially correct answer, we run the \textbf{NRC} (drift baseline) and persona pressure rounds (up to five turns). On flipped samples, we additionally evaluate recovery (return-to-truth) and report survival, fail@any, and turn-of-failure metrics.}
   \label{fig:protocol}
 \end{figure}
 
@@ -169,7 +169,7 @@ Figure~\ref{fig:cross-family-survival} illustrates the resulting survival curves
   % NOTE: SSOT (tracked artifact) lives in docs/paper/figures/ as an SVG.
   % This LaTeX skeleton uses a PDF snapshot in ./figures for compile convenience.
   \maybeincludegraphics[width=\linewidth]{figures/cross_family_survival_r5_control_vs_logicaltrap_seed1-2_20260210}
-  \caption{Example survival curves ($R{=}5$) comparing neutral re-asking control vs. the Logical Trap persona across model families. Persona pressure shifts failures earlier and increases cumulative error over rounds relative to drift. (PDF snapshot used here: docs/paper/latex\_skeleton\_emnlp2023/figures/cross\_family\_survival\_r5\_control\_vs\_logicaltrap\_seed1-2\_20260210.pdf; note: this filename is a stable symlink currently pointing to the latest snapshot in paper\_figures/pdf/. SSOT SVG: docs/paper/figures/cross\_family\_survival\_r5\_control\_vs\_logicaltrap\_seed1-2\_20260219.svg.)}
+  \caption{Example survival curves ($R{=}5$) comparing \textbf{NRC} vs. the Logical Trap persona across model families. Persona pressure shifts failures earlier and increases cumulative error over rounds relative to drift. (PDF snapshot used here: docs/paper/latex\_skeleton\_emnlp2023/figures/cross\_family\_survival\_r5\_control\_vs\_logicaltrap\_seed1-2\_20260210.pdf; note: this filename is a stable symlink currently pointing to the latest snapshot in paper\_figures/pdf/. SSOT SVG: docs/paper/figures/cross\_family\_survival\_r5\_control\_vs\_logicaltrap\_seed1-2\_20260219.svg.)}
   \label{fig:cross-family-survival}
 \end{figure}
 
