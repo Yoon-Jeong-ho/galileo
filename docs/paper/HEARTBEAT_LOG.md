@@ -1290,6 +1290,12 @@ Next:
 - Added a note in `docs/paper/STATUS.md` to prevent stale 4–7 banner text from blocking safe launches on idle GPU0/1.
 - Monitoring this heartbeat confirmed GPU0/1 idle while 2–6 were occupied; launch gating should use real-time idleness, not stale banner constraints.
 
+### 2026-02-20 18:58 KST — Paper writing lane: made Appendix code blocks line-breakable in LaTeX SSOT
+
+- In `docs/paper/latex_paper_emnlp2023/main.tex`, replaced raw `verbatim` blocks with `fvextra`'s `Verbatim` environment using `breaklines`/`breakanywhere`.
+- This removes the large `Overfull \hbox` warnings caused by long prompt/command lines, improving PDF-first workflow stability.
+- Note: total PDF page count increased (Appendix line wrapping adds vertical space); this is expected and acceptable since Appendix is excluded from main-page budgeting.
+
 ### 2026-02-20 03:34 KST — Experiments lane: CUDA preflight blocker confirmed on idle GPU0
 
 - On nlp8, GPU0 appeared idle in `nvidia-smi` (0%, 1MiB), but device-level preflight failed: `CUDA_VISIBLE_DEVICES=0` + torch CUDA tensor allocation returned `cudaErrorDevicesUnavailable`.
