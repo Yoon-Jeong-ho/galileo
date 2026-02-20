@@ -294,6 +294,12 @@ Fail@1 isolates the first challenged turn and is exactly the discrete hazard at 
 
 \subsection{Recovery is a distinct axis from robustness}
 We find that ``staying correct'' and ``returning to truth after a deviation'' are separable model behaviors: personas that substantially reduce Survival@5 do not necessarily reduce Recovery@flip.
+This matters because a deployment can be brittle (high Fail@1) yet still recover under a neutral reset, suggesting that robustness and recovery-oriented guardrails target different failure modes.
+
+\paragraph{Why Recovery@flip is conditional.}
+Recovery is computed only on examples that flipped at least once in the corresponding track.
+This prevents denominators from being dominated by easy examples that never deviate, and makes the metric directly interpretable as ``given a deviation occurred, how often can the model return to truth?'' (\S\ref{sec:metrics}).
+
 For space, we report the full persona-wise \(\Delta\)Recovery@flip plots and the decoding sweep in the Appendix (Appx.~\ref{sec:appendix-extra-results}).
 
 \begin{figure*}[t]
@@ -311,6 +317,10 @@ For space, we report the full persona-wise \(\Delta\)Recovery@flip plots and the
 \end{figure}
 
 \subsection{Cross-family generalization}
+Figure~\ref{fig:crossfam} tests whether the observed persona--NRC gaps are specific to a single model family.
+Across multiple open-weight families, we observe the same qualitative trend: a strong evidence-free persona (Logical Trap) reduces Survival@5 relative to NRC.
+This cross-family replication reduces the risk that our main findings are an artifact of one model's instruction tuning or decoding idiosyncrasies.
+
 \begin{figure}[t]
   \centering
   \includegraphics[width=\linewidth]{figures/cross_family_survival_r5_control_vs_logicaltrap_seed1-2_20260219}

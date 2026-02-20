@@ -1353,6 +1353,13 @@ Next:
   - clarified why Fail@1 complements Survival@5 and ties to the discrete hazard at r=1
 - Page budget (camera-ready) remains main(excl Limitations)=4; next expansions should target Protocol/Results further or compress tables/figures if they are blocking page growth.
 
+### 2026-02-20 20:40 KST — Paper writing lane: expanded Results (Recovery rationale + cross-family replication)
+
+- In `docs/paper/latex_paper_emnlp2023/main.tex`, expanded the Results narrative in two places:
+  - Recovery subsection: clarified deployment implication (brittle yet recoverable) and explained why Recovery@flip is conditional (denominator hygiene; points to \S\ref{sec:metrics}).
+  - Cross-family subsection: added 3 sentences framing Fig.~\ref{fig:crossfam} as a replication check across open-weight families, preempting "single-model artifact" concerns.
+- Camera-ready page budget remains main(excl Limitations)=4 (still below 8; we likely need Table 1 to be real + longer Intro/Protocol text to push the next page break).
+
 ### 2026-02-20 03:34 KST — Experiments lane: CUDA preflight blocker confirmed on idle GPU0
 
 - On nlp8, GPU0 appeared idle in `nvidia-smi` (0%, 1MiB), but device-level preflight failed: `CUDA_VISIBLE_DEVICES=0` + torch CUDA tensor allocation returned `cudaErrorDevicesUnavailable`.
