@@ -3,8 +3,10 @@
 
 Scope (current):
 - Uses per-model survival summaries under docs/paper/artifacts/tier1_*_survival_summary_*.csv
-- Computes persona-UNWEIGHTED aggregates across personas (excluding NRC) for:
-  - Survival@5: outputs NRC mean±std, Persona mean±std (across personas), and Δ = Persona − NRC.
+- Computes persona-weighted aggregates as an equal-weight mean across personas (excluding NRC) of
+  persona--NRC deltas, then reconstructs the Persona absolute as NRC + mean(delta).
+  - Survival@5: outputs NRC mean±std, Persona mean±std (std over personas of the delta at this
+    aggregation level), and Δ = Persona − NRC.
 
 Limitations:
 - Many summaries currently do not include absolute Fail@1 or Recovery@flip values, only deltas.
@@ -33,10 +35,20 @@ ARTIFACTS_DIR = REPO_ROOT / "docs" / "paper" / "artifacts"
 @dataclass(frozen=True)
 class Row:
     model: str
+    # Survival@5
     nrc_surv_mean: float
     nrc_surv_std: float
     persona_surv_mean: float
     persona_surv_std: float
+    # Fail@1 (often only delta available)
+    delta_fail1_mean: float | None = None
+    delta_fail1_std: float | None = None
+    # Recovery@flip (collapsed)
+    nrc_rec_mean: float | None = None
+    nrc_rec_std: float | None = None
+    persona_rec_mean: float | None = None
+    persona_rec_std: float | None = None
+    delta_rec_mean: float | None = None
 
 
 def _read_survival_summary(path: Path) -> tuple[str, list[dict[str, str]]]:
@@ -81,21 +93,36 @@ def build_rows(model_to_glob: dict[str, str]) -> list[Row]:
     out: list[Row] = []
     for display, glob_pat in model_to_glob.items():
         p = _find_latest(glob_pat)
-        model, rows = _read_survival_summary(p)
+        _model, rows = _read_survival_summary(p)
 
         # NRC row
         nrc = [r for r in rows if r["persona"].strip() == "neutral_reask_control"]
         if len(nrc) != 1:
             raise ValueError(f"Expected exactly 1 NRC row in {p}, got {len(nrc)}")
         nrc_surv_mean = float(nrc[0]["survival_r5_mean"])
-        nrc_surv_std = float(nrc[0]["survival_r5_std"])
+        nrc_surv_std = float(nrc[0].get("survival_r5_std", 0.0) or 0.0)
 
         persona_rows = [r for r in rows if r["persona"].strip() != "neutral_reask_control"]
-        surv_means = [float(r["survival_r5_mean"]) for r in persona_rows]
-        # Note: This std is across personas (not seeds). Seeds std exists per-persona, but
-        # combining std across personas is not well-defined without raw per-seed values.
-        persona_surv_mean = _mean(surv_means)
-        persona_surv_std = _std(surv_means)
+
+        # Align with the paper's "persona-weighted aggregate" definition: aggregate the
+        # persona--NRC deltas (equal-weight over personas), then reconstruct the Persona
+        # absolute value as NRC + mean(delta).
+        surv_deltas = [float(r["survival_r5_mean"]) - nrc_surv_mean for r in persona_rows]
+        delta_surv_mean = _mean(surv_deltas)
+        delta_surv_std = _std(surv_deltas)
+        persona_surv_mean = nrc_surv_mean + delta_surv_mean
+        # Since Persona = NRC + Δ, the dispersion we can report at this aggregation level
+        # is the dispersion of Δ across personas.
+        persona_surv_std = delta_surv_std
+
+        # Fail@1: many summaries only provide delta_fail_r1_mean/std.
+        fail_deltas = [
+            float(r["delta_fail_r1_mean"])
+            for r in persona_rows
+            if r.get("delta_fail_r1_mean") not in (None, "")
+        ]
+        fail_delta_mean = _mean(fail_deltas) if fail_deltas else None
+        fail_delta_std = _std(fail_deltas) if len(fail_deltas) >= 2 else (0.0 if fail_deltas else None)
 
         out.append(
             Row(
@@ -104,6 +131,8 @@ def build_rows(model_to_glob: dict[str, str]) -> list[Row]:
                 nrc_surv_std=nrc_surv_std,
                 persona_surv_mean=persona_surv_mean,
                 persona_surv_std=persona_surv_std,
+                delta_fail1_mean=fail_delta_mean,
+                delta_fail1_std=fail_delta_std,
             )
         )
     return out
@@ -114,7 +143,22 @@ def render_table_rows(rows: list[Row]) -> str:
     # Keep the output strictly to tabular rows (no comments/blank lines),
     # because this file is \input'ed inside a tabularx environment.
     for r in rows:
-        delta = r.persona_surv_mean - r.nrc_surv_mean
+        delta_surv = r.persona_surv_mean - r.nrc_surv_mean
+
+        # Fail@1: we typically only have deltas from tier1 summaries.
+        if r.delta_fail1_mean is None:
+            fail_delta_cell = "--"
+        else:
+            if r.delta_fail1_std is None:
+                fail_delta_cell = _fmt(r.delta_fail1_mean)
+            else:
+                fail_delta_cell = f"{_fmt(r.delta_fail1_mean)}$\\pm${_fmt(r.delta_fail1_std)}"
+
+        # Recovery@flip (collapsed): only tracked for some settings.
+        rec_nrc_cell = "--" if r.nrc_rec_mean is None else f"{_fmt(r.nrc_rec_mean)}$\\pm${_fmt(r.nrc_rec_std or 0.0)}"
+        rec_p_cell = "--" if r.persona_rec_mean is None else f"{_fmt(r.persona_rec_mean)}$\\pm${_fmt(r.persona_rec_std or 0.0)}"
+        rec_d_cell = "--" if r.delta_rec_mean is None else _fmt(r.delta_rec_mean)
+
         lines.append(
             " ".join(
                 [
@@ -124,15 +168,17 @@ def render_table_rows(rows: list[Row]) -> str:
                     "&",
                     f"{_fmt(r.persona_surv_mean)}$\\pm${_fmt(r.persona_surv_std)}",
                     "&",
-                    f"{_fmt(delta)}",
+                    f"{_fmt(delta_surv)}",
                     "&",
-                    "-- & -- & --",
+                    "-- & -- &",
+                    f"{fail_delta_cell}",
                     "&",
-                    "-- & -- & --",
+                    f"{rec_nrc_cell} & {rec_p_cell} & {rec_d_cell}",
                     "\\\\",
                 ]
             )
         )
+
     # Put \bottomrule inside the input to avoid alignment edge cases.
     lines.append("\\bottomrule")
     return "\n".join(lines) + "\n"
