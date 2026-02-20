@@ -1371,6 +1371,13 @@ Next:
 - Updated `scripts/report_latex_page_budget.sh` to run `scripts/gen_latex_table1_from_artifacts.py` before compiling, so the camera-ready budget check no longer depends on manually pre-generating `generated/table1_rows.tex`.
 - This keeps the PDF-first "작성↔확인" loop tight even though generated fragments are gitignored.
 
+### 2026-02-20 22:10 KST — Paper development lane: extended Table 1 generator with Fail@1 deltas + Recovery (Qwen2.5-7B)
+
+- Updated `scripts/gen_latex_table1_from_artifacts.py` to populate additional Table 1 cells from tracked artifacts:
+  - Fail@1: computes an unweighted mean±std over persona-wise `delta_fail_r1_mean` values for each model family summary.
+  - Qwen2.5-7B Recovery@flip (collapsed): pulls control/persona/delta (percent) from `recovery_collapsed_control_vs_persona_seed1-4_mean_std_*.csv` and converts to fractions.
+- Generated fragments remain gitignored; `scripts/report_latex_page_budget.sh` already runs the generator before compiling.
+
 ### 2026-02-20 03:34 KST — Experiments lane: CUDA preflight blocker confirmed on idle GPU0
 
 - On nlp8, GPU0 appeared idle in `nvidia-smi` (0%, 1MiB), but device-level preflight failed: `CUDA_VISIBLE_DEVICES=0` + torch CUDA tensor allocation returned `cudaErrorDevicesUnavailable`.
