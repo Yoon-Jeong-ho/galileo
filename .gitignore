@@ -61,5 +61,14 @@ tools/inkscape/
 docs/paper/acl_style_files/
 
 # generated PDFs for LaTeX skeletons (regenerate via scripts/sync_pdf_figures_to_latex_skeleton.sh)
+# By default we ignore PDFs in the LaTeX skeleton figure folders, but we *do* track a small
+# set of symlinked, paper-ready snapshots so the skeleton compiles out-of-the-box.
 docs/paper/latex_skeleton/figures/*.pdf
 docs/paper/latex_skeleton_emnlp2023/figures/*.pdf
+!docs/paper/latex_skeleton_emnlp2023/figures/protocol_overview.pdf
+!docs/paper/latex_skeleton_emnlp2023/figures/cross_family_survival_r5_control_vs_logicaltrap_seed1-2_20260210.pdf
+!docs/paper/latex_skeleton_emnlp2023/figures/decoding_sweep_qwen_delta_seed1-2_20260211.pdf
+!docs/paper/latex_skeleton_emnlp2023/figures/table_w_effect_delta_seed1-4_20260209.pdf
+!docs/paper/latex_skeleton_emnlp2023/figures/survival_curves_rounds_seed1-4_20260209.pdf
+!docs/paper/latex_skeleton_emnlp2023/figures/tof_personawise_fail1_delta_seed1-4_20260209.pdf
+!docs/paper/latex_skeleton_emnlp2023/figures/recovery_personawise_delta_seed1-4_20260209.pdf
