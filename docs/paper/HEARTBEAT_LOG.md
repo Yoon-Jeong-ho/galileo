@@ -1424,6 +1424,13 @@ Next:
   - define what ``--'' means (undefined metric or unavailable in current artifact set)
 - Page budget unchanged: main(excl Limitations)=7.
 
+### 2026-02-21 00:48 KST — Paper writing lane: strengthened cross-family subsection with table-anchored summary + scope note
+
+- In `docs/paper/latex_paper_emnlp2023/main.tex`, added:
+  - an aggregate cross-family paragraph that cites representative Table~\ref{tab:main} deltas (ΔSurvival@5, ΔFail@1)
+  - a short scope note clarifying what cross-family replication does/doesn't claim (directional replication vs universal ranking)
+- Page budget remains main(excl Limitations)=7 (still +1 page short of target 8).
+
 ### 2026-02-20 03:34 KST — Experiments lane: CUDA preflight blocker confirmed on idle GPU0
 
 - On nlp8, GPU0 appeared idle in `nvidia-smi` (0%, 1MiB), but device-level preflight failed: `CUDA_VISIBLE_DEVICES=0` + torch CUDA tensor allocation returned `cudaErrorDevicesUnavailable`.

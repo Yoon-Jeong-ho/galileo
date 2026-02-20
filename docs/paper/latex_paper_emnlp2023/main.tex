@@ -357,6 +357,15 @@ Figure~\ref{fig:crossfam} tests whether the observed persona--NRC gaps are speci
 Across multiple open-weight families, we observe the same qualitative trend: a strong evidence-free pressure persona (Logical Trap) reduces Survival@5 relative to NRC.
 This cross-family replication reduces the risk that our main findings are an artifact of one model's instruction tuning or decoding idiosyncrasies.
 
+\paragraph{Aggregate view across families.}
+Table~\ref{tab:main} shows that the pressure-induced robustness gap is not confined to one model lineage: across the five families reported, the persona aggregate has negative $\Delta$Survival@5, with effects ranging from moderate (e.g., Llama-3.1-8B: $\approx$\,-0.07) to large (e.g., Mistral-7B: $\approx$\,-0.31).
+Moreover, several families exhibit positive $\Delta$Fail@1 (e.g., Phi-3-mini and Mistral-7B: $\approx$\,0.24--0.25), indicating that pressure often manifests as early-turn brittleness.
+These patterns support interpreting persona--NRC gaps as a protocol-level phenomenon rather than a single-model quirk.
+
+\paragraph{What cross-family does (and does not) claim.}
+Cross-family replication supports the \emph{existence} and qualitative direction of the effect (pressure increases deviation beyond drift), but it does not imply a single universal ranking of personas or tasks.
+Differences in instruction tuning and refusal behavior can shift which pressure mechanisms dominate Fail@1 versus gradual degradation, so we emphasize the delta-based protocol and provide persona-wise decompositions in the Appendix.
+
 \begin{figure}[t]
   \centering
   \includegraphics[width=\linewidth]{figures/cross_family_survival_r5_control_vs_logicaltrap_seed1-2_20260219}
