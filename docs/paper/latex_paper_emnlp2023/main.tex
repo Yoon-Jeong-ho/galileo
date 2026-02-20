@@ -220,12 +220,13 @@ Survival curves can be re-expressed as a per-round failure ``hazard'' (condition
 With this convention, $\mathrm{Hazard}^{(t)}@1 = 1-\mathrm{Survival}^{(t)}@1$ is exactly Fail@1. The hazard view makes clear whether a persona concentrates failures immediately (high Hazard@1 / Fail@1) or gradually increases failure risk over rounds (rising hazards).
 
 \paragraph{Turn-of-failure (TOF) and Fail@1.}
-Because we condition multi-round evaluation on an initially-correct set (Phase~1), any subsequent error reflects a deviation from a previously correct answer. We refer to such a deviation (correct $\rightarrow$ incorrect at a later round) as a \emph{flip}.
+Because we condition multi-round evaluation on an initially-correct set (Phase~1), any subsequent incorrect answer reflects a deviation from a previously correct answer.
+Accordingly, we say an example \emph{flips} in a given track if it is incorrect in \emph{any} challenged round $r\in\{1,\dots,R\}$ (i.e., if $c^{(t)}_{r}(x)=0$ for some $r$).
 Define the (possibly censored) first-failure time
 \begin{align}
 \mathrm{TOF}^{(t)}(x)\;=\;
 \begin{cases}
-\min\{r\in\{1,\dots,R\}: c^{(t)}_{r}(x)=0\} & \text{if a failure occurs (at least one flip)}\\
+\min\{r\in\{1,\dots,R\}: c^{(t)}_{r}(x)=0\} & \text{if a failure occurs}\\
 R{+}1 & \text{otherwise (right-censored)}
 \end{cases}
 \end{align}
