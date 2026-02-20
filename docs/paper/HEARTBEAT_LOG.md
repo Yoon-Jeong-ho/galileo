@@ -1410,6 +1410,13 @@ Next:
   - choosing a fixed horizon $R=5$ (expose dynamics while staying auditable)
 - Camera-ready budget remains main(excl Limitations)=7 (target: 8).
 
+### 2026-02-21 00:27 KST — Paper writing lane: expanded Discussion with deployment guardrails + denominator reporting
+
+- In `docs/paper/latex_paper_emnlp2023/main.tex`, added two more Discussion bullets:
+  - deployment guardrails suggested by Fail@1 vs Recovery@flip (front-end vs reset/verification)
+  - explicit guidance to report denominators (|C|/|C_p|) via metadata to avoid baseline ambiguity
+- Camera-ready budget remains main(excl Limitations)=7 (still +1 page away from 8).
+
 ### 2026-02-20 03:34 KST — Experiments lane: CUDA preflight blocker confirmed on idle GPU0
 
 - On nlp8, GPU0 appeared idle in `nvidia-smi` (0%, 1MiB), but device-level preflight failed: `CUDA_VISIBLE_DEVICES=0` + torch CUDA tensor allocation returned `cudaErrorDevicesUnavailable`.

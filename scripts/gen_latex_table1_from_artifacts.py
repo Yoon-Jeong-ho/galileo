@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate LaTeX rows for the main results table (Table 1) from tracked CSV artifacts.
+r"""Generate LaTeX rows for the main results table (Table 1) from tracked CSV artifacts.
 
 Scope (current):
 - Uses per-model survival summaries under docs/paper/artifacts/tier1_*_survival_summary_*.csv
@@ -9,8 +9,8 @@ Scope (current):
     aggregation level), and Δ = Persona − NRC.
 
 Limitations:
-- Many summaries currently do not include absolute Fail@1 or Recovery@flip values, only deltas.
-  This script therefore leaves those columns as '--' by default.
+- Many summaries currently do not include absolute Fail@1 values (only persona--NRC deltas).
+  The paper table therefore reports $\Delta$Fail@1 only.
 
 Usage:
   python3 scripts/gen_latex_table1_from_artifacts.py \
@@ -170,7 +170,6 @@ def render_table_rows(rows: list[Row]) -> str:
                     "&",
                     f"{_fmt(delta_surv)}",
                     "&",
-                    "-- & -- &",
                     f"{fail_delta_cell}",
                     "&",
                     f"{rec_nrc_cell} & {rec_p_cell} & {rec_d_cell}",

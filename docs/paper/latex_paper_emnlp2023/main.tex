@@ -293,15 +293,15 @@ This convention preserves drift correction (each persona is paired with its own 
 \centering
 \small
 \setlength{\tabcolsep}{5pt}
-\begin{tabularx}{\textwidth}{l *{3}{>{\centering\arraybackslash}X} *{3}{>{\centering\arraybackslash}X} *{3}{>{\centering\arraybackslash}X}}
+\begin{tabularx}{\textwidth}{l *{3}{>{\centering\arraybackslash}X} >{\centering\arraybackslash}X *{3}{>{\centering\arraybackslash}X}}
 \toprule
-\multirow{2}{*}{Model family} & \multicolumn{3}{c}{Survival@5} & \multicolumn{3}{c}{Fail@1} & \multicolumn{3}{c}{Recovery@flip} \\
-\cmidrule(lr){2-4} \cmidrule(lr){5-7} \cmidrule(lr){8-10}
-& NRC & Persona & $\Delta$ & NRC & Persona & $\Delta$ & NRC & Persona & $\Delta$ \\
+\multirow{2}{*}{Model family} & \multicolumn{3}{c}{Survival@5} & $\Delta$Fail@1 & \multicolumn{3}{c}{Recovery@flip} \\
+\cmidrule(lr){2-4} \cmidrule(lr){6-8}
+& NRC & Persona & $\Delta$ &  & NRC & Persona & $\Delta$ \\
 \midrule
 \input{generated/table1_rows}
 \end{tabularx}
-\caption{\textbf{Main results (persona-weighted aggregate).} For each model family, we report three paired views under matched decoding on an initially-correct set: Survival@5, Fail@1 (early hazard), and Recovery@flip (conditional on at least one flip). ``Persona'' denotes the persona-weighted aggregate across pressure mechanisms; NRC is the matched evidence-free control. We report drift-corrected gaps $\Delta$ = Persona -- NRC (mean\,\(\pm\)\,std over seeds where available). Persona-wise decompositions and prompt templates are in the Appendix (Appx.~\ref{sec:appendix-extra-results}, Appx.~\ref{sec:appendix-prompts}).}
+\caption{\textbf{Main results (persona-weighted aggregate).} For each model family, we report paired views under matched decoding on an initially-correct set: Survival@5, $\Delta$Fail@1 (early-turn hazard increase under pressure, drift-corrected), and Recovery@flip (conditional on at least one flip). ``Persona'' denotes the persona-weighted aggregate across pressure mechanisms; NRC is the matched evidence-free control. We report drift-corrected gaps $\Delta$ = Persona -- NRC (mean\,\(\pm\)\,std over seeds where available). Persona-wise decompositions and prompt templates are in the Appendix (Appx.~\ref{sec:appendix-extra-results}, Appx.~\ref{sec:appendix-prompts}).}
 \label{tab:main}
 \end{table*}
 
@@ -379,6 +379,8 @@ We include a decoding sweep to test whether persona--NRC gaps persist across tem
   \item \textbf{Cross-family replication matters for claims.} Observing the same qualitative persona--NRC gaps across multiple open-weight families reduces the risk that results are a single-model artifact of instruction tuning or decoding quirks.
   \item \textbf{Conditioning clarifies what is being measured.} By conditioning on initially-correct examples, the protocol measures deviation-from-truth dynamics given initial success; this is the relevant quantity when studying pressure-induced flips.
   \item \textbf{Practical evaluation guidance.} For deployed assistants, we recommend reporting (i) Survival@1..R, (ii) Fail@1, (iii) Recovery@flip, and always pairing pressure prompts with an evidence-free matched control like NRC.
+  \item \textbf{Deployment guardrails suggested by the metrics.} High Fail@1 motivates front-end mitigations (e.g., consistency prompts, calibrated refusal under repeated re-asking), while nontrivial Recovery@flip suggests value in back-end reset/verification steps (e.g., verify-then-answer, neutral re-solve). Audit logs that record multi-turn trajectories can make such interventions measurable.
+  \item \textbf{Reporting should include denominators.} Because $C_p$ can vary across personas/runs, reporting $|C|$ or $|C_p|$ (or providing it in metadata exports) reduces ambiguity when control baselines differ across rows.
 \end{itemize}
 
 \FloatBarrier
