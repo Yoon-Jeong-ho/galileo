@@ -72,7 +72,26 @@ GALILEO targets this gap by instantiating multi-turn pressure on \emph{ground-tr
   \item \textbf{Artifact-level traceability:} per-turn outputs and correctness traces, plotted curves, and reproducer scripts enabling end-to-end auditing.
 \end{itemize}
 
-\paragraph{Reproducibility and auditing.} Each paper-facing result is linked to a concrete, versioned repo artifact (CSV exports, per-turn traces, and figure sources) and a small reproducer script. We maintain a claim-to-evidence map (with paths) to make it easy to audit exactly what data produced each plot/table and to rerun the export pipeline end-to-end.
+\paragraph{Reproducibility and auditing.} Each paper-facing result is linked to a concrete, versioned repo artifact (CSV exports, per-turn traces, and figure sources) and a small reproducer script. We maintain a claim-to-evidence map (with paths) to make it easy to audit exactly what data produced each plot/table and to rerun the export pipeline end-to-end (see \texttt{docs/paper/CLAIM\_EVIDENCE\_MAP.md}).
+
+\paragraph{Evidence at a glance.} Table~\ref{tab:claim-evidence} enumerates the primary paper-facing artifacts and their reproducers.
+\begin{table}[t]
+\centering
+\small
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{L{0.14\linewidth} L{0.60\linewidth} L{0.22\linewidth}}
+\toprule
+Claim & Tracked artifact(s) & Reproducer \\
+\midrule
+Protocol & \texttt{docs/paper/figures/protocol\_overview.svg} & \texttt{scripts/make\_paper\_figures\_from\_artifacts.py} \\
+Survival+TOF & \texttt{docs/paper/artifacts/survival\_curve\_personawise\_control\_vs\_persona\_*.csv};\\ \texttt{docs/paper/artifacts/tof\_personawise\_fail1\_never\_control\_vs\_persona\_*.csv} & \texttt{scripts/make\_paper\_figures\_from\_artifacts.py} \\
+Mechanism vs drift (Table~W) & \texttt{docs/paper/artifacts/table\_w\_control\_vs\_persona\_*.csv};\\ \texttt{docs/paper/artifacts/table\_w\_effect\_delta\_*.csv} & \texttt{scripts/make\_table\_w\_control\_vs\_persona.py} \\
+Recovery@flip & \texttt{docs/paper/artifacts/recovery\_personawise\_control\_vs\_persona\_*.csv} & \texttt{scripts/make\_paper\_figures\_from\_artifacts.py} \\
+\bottomrule
+\end{tabular}
+\caption{Claim-to-evidence pointers (abridged). Full map with stable LaTeX labels is in \texttt{docs/paper/CLAIM\_EVIDENCE\_MAP.md}.}
+\label{tab:claim-evidence}
+\end{table}
 
 \paragraph{Metrics (at a glance).} We report three complementary views of multi-turn belief consistency: \emph{fail@any} (fraction of initially-correct samples that flip at least once within the $R$ pressure rounds), \emph{turn-of-failure} (the first round where the flip occurs, enabling ``when'' analysis), and \emph{survival} (probability of staying correct through each round, summarizing degradation over time). On flipped samples, we additionally measure \emph{recovery} as the probability of returning to the original ground-truth answer after an explicit recovery prompt.
 
