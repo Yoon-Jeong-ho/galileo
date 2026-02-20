@@ -48,7 +48,7 @@ Across multi-seed experiments and several open-weight model families, pressure r
 
 Single-turn accuracy obscures interaction dynamics that matter in deployed assistants: a model can answer correctly and still be \emph{brittle} when a user challenges it over multiple turns.
 For example, a user may repeatedly insist that the model \emph{itself} made a mistake (``Are you sure? Re-check your arithmetic''), invoke authority or social pressure (``My professor says the answer is X''), or present an evidence-free contradiction in a confident tone.
-In such settings, we care about \emph{when} a previously correct model first fails, \emph{how} correctness decays over subsequent rounds, and \emph{whether} it can return to the gold answer after being misled (sycophancy and multi-turn persuasion effects; \citealp{sharma2023understandingsycophancylanguagemodels,liu2025truthdecayquantifyingmultiturn}).
+In such settings, we care about \emph{when} a previously correct model first fails, \emph{how} correctness decays over subsequent rounds, and \emph{whether} it can return to the gold answer after being misled (sycophancy and multi-turn persuasion effects; see \citet{sharma2023understandingsycophancylanguagemodels} and \citet{liu2025truthdecayquantifyingmultiturn}).
 
 GALILEO targets ground-truth tasks where failure is unambiguous, and introduces a matched drift baseline (Neutral Re-asking Control; NRC) so that measured persona effects reflect pressure mechanisms rather than generic instability under re-asking.
 
@@ -158,7 +158,7 @@ Define the (possibly censored) first-failure time
 R{+}1 & \text{otherwise (right-censored)}
 \end{cases}
 \end{align}
-We summarize TOF at the population level using the expectation $\mathbb{E}_{x\sim S}[\mathrm{TOF}^{(t)}(x)]$ (with right-censoring represented as $R{+}1$), and report the drift-corrected gap
+We summarize TOF at the population level using the expectation $\mathbb{E}_{x\sim S}[\mathrm{TOF}^{(t)}(x)]$ (with right-censoring represented as $R{+}1$). Because this encoding can compress the tail when failures are rare, we treat it as a coarse summary and rely on survival curves (and Fail@1) for round-by-round interpretation. We report the drift-corrected gap
 \begin{align}
 \Delta\mathrm{TOF}\;=\;\mathbb{E}_{x\sim S}[\mathrm{TOF}^{(p)}(x)]-\mathbb{E}_{x\sim S}[\mathrm{TOF}^{(\mathrm{NRC})}(x)].
 \end{align}
