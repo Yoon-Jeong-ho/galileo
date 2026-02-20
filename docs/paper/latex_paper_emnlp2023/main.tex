@@ -62,10 +62,11 @@
 \maketitle
 
 \begin{abstract}
-Large language models can abandon previously correct answers when repeatedly challenged \emph{without new evidence}.
-We introduce \textbf{GALILEO}, an auditable multi-turn protocol on ground-truth tasks that (i) conditions evaluation on initially-correct examples and (ii) pairs each pressure persona with a matched \emph{Neutral Re-asking Control} (NRC) to subtract generic multi-turn drift.
-Over $R{=}5$ challenged rounds we measure Survival@$r$, Turn-of-Failure (TOF) with early-turn vulnerability (Fail@1), and a final neutral Recovery@flip prompt (excluded from Survival/TOF).
-Across multiple seeds and open-weight model families, pressure consistently lowers Survival@5 and increases Fail@1 beyond NRC drift (negative $\Delta$Survival@5 and positive $\Delta$Fail@1); Recovery@flip varies by task and persona, indicating that robustness and recoverability are distinct axes.
+Large language models can abandon previously correct answers when repeatedly challenged \emph{without new evidence}, a failure mode not captured by single-turn accuracy.
+We introduce \textbf{GALILEO}, an auditable multi-turn protocol on ground-truth tasks that (i) evaluates only initially-correct examples to isolate \emph{deviations from truth} and (ii) pairs each pressure persona with a \emph{Neutral Re-asking Control} (NRC) that matches interaction length and decoding to subtract generic re-asking drift.
+Over $R{=}5$ challenged rounds, we track survival trajectories (Survival@$r$), time-to-first-failure (TOF/Fail@1), and post-flip recoverability under a final neutral reset (Recovery@flip), exporting per-example transcripts for verification.
+Across seeds and open-weight model families, pressure consistently reduces Survival@5 and increases Fail@1 beyond NRC drift, while Recovery@flip varies by task and persona.
+Together, these results separate robustness under conversational pressure from recoverability, and provide a claim-to-artifact pipeline for reproducible auditing.
 \end{abstract}
 
 \section{Introduction}
