@@ -13,10 +13,13 @@ Default scope:
 Usage:
   python3 scripts/audit_citations.py
 
+Optional:
+  python3 scripts/audit_citations.py --paths docs/paper/latex_paper_emnlp2023/main.tex
+
 Note:
-- This script currently scans only the markdown drafts above.
-  LaTeX SSOT files (e.g., docs/paper/latex_paper_emnlp2023/main.tex) are not
-  included by default.
+- By default, this script scans only the markdown drafts above.
+  You can additionally scan LaTeX SSOT files (e.g., docs/paper/latex_paper_emnlp2023/main.tex)
+  by passing --paths.
 
 Exit codes:
 - 0: all cited keys exist in references.bib
@@ -59,17 +62,37 @@ def main() -> int:
 
     bibk = bib_keys(bib)
 
-    drafts = [ROOT / "docs" / "paper" / "PAPER_DRAFT_EN.md", ROOT / "docs" / "paper" / "PAPER_DRAFT_KO.md"]
-    drafts = [p for p in drafts if p.exists()]
-    if not drafts:
-        print("[ERROR] no drafts found under docs/paper/")
+    # Default paths: markdown drafts (paper-facing).
+    default_paths = [
+        ROOT / "docs" / "paper" / "PAPER_DRAFT_EN.md",
+        ROOT / "docs" / "paper" / "PAPER_DRAFT_KO.md",
+    ]
+    default_paths = [p for p in default_paths if p.exists()]
+
+    # Optional override/extension.
+    paths = default_paths
+    if "--paths" in sys.argv:
+        # Lightweight parse (avoid argparse churn for this tiny script).
+        i = sys.argv.index("--paths")
+        extra = [Path(x) for x in sys.argv[i + 1 :] if not x.startswith("-")]
+        extra = [x if x.is_absolute() else (ROOT / x) for x in extra]
+        # Merge while preserving order and uniqueness.
+        merged = [p for p in paths if p.exists()]
+        for p in extra:
+            if p.exists() and p not in merged:
+                merged.append(p)
+        paths = merged
+
+    if not paths:
+        print("[ERROR] no input paths found")
         return 2
 
     ok = True
-    for d in drafts:
+    for d in paths:
+        rel = d.relative_to(ROOT) if d.is_relative_to(ROOT) else d
         ck = cited_keys(d)
         missing = sorted(ck - bibk)
-        print(f"== {d.relative_to(ROOT)}")
+        print(f"== {rel}")
         print(f"  cited keys: {len(ck)}")
         if missing:
             ok = False
