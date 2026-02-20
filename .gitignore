@@ -59,3 +59,7 @@ tools/inkscape/
 
 # downloaded LaTeX style files (generated)
 docs/paper/acl_style_files/
+
+# generated PDFs for LaTeX skeletons (regenerate via scripts/sync_pdf_figures_to_latex_skeleton.sh)
+docs/paper/latex_skeleton/figures/*.pdf
+docs/paper/latex_skeleton_emnlp2023/figures/*.pdf
