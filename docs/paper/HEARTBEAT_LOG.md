@@ -1313,6 +1313,15 @@ Next:
 - The toggle can now be controlled without editing the file by defining `\CAMERAREADY` at build time (see the commented `latexmk -pdflatex=...` command in the preamble).
 - Verified locally that both builds succeed; current PDF is 7 pages in both modes (this will diverge once we start tight page-budgeting).
 
+### 2026-02-20 19:50 KST — Paper development lane: automated page budgeting (main vs Limitations vs Appendix)
+
+- Added log-based page markers to LaTeX SSOT (`docs/paper/latex_paper_emnlp2023/main.tex`) via `\\pagemark{...}` so we can compute page counts without manual PDF inspection.
+- Added `scripts/report_latex_page_budget.sh` which compiles in camera-ready mode (`\\CAMERAREADY`) and prints:
+  - total pages
+  - main pages (pre-appendix)
+  - main pages excluding Limitations
+- Current camera-ready counts: total=7, main(pre-appendix)=5, main(excl limitations)=3.
+
 ### 2026-02-20 03:34 KST — Experiments lane: CUDA preflight blocker confirmed on idle GPU0
 
 - On nlp8, GPU0 appeared idle in `nvidia-smi` (0%, 1MiB), but device-level preflight failed: `CUDA_VISIBLE_DEVICES=0` + torch CUDA tensor allocation returned `cudaErrorDevicesUnavailable`.

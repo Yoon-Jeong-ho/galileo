@@ -46,6 +46,11 @@
 \newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
 \newcolumntype{Y}{>{\raggedright\arraybackslash}X}
 
+% Page-budget markers (for PDF-first workflow).
+% These print page numbers into the LaTeX log so scripts can compute
+% "main content pages excluding Limitations" without manual PDF inspection.
+\newcommand{\pagemark}[1]{\begingroup\edef\temp{PAGE_MARK:#1=\thepage}\typeout{\temp}\endgroup}
+
 \title{GALILEO: Multi-turn Robustness Dynamics and Recovery under Conversational Pressure}
 \author{Anonymous Authors}
 \date{}
@@ -281,6 +286,7 @@ We include a decoding sweep to test whether persona--NRC gaps persist across tem
 
 \section{Discussion and limitations}
 \label{sec:limitations}
+\pagemark{LIMITATIONS_SECTION_START}
 
 Our results suggest that multi-turn robustness under conversational pressure is not fully captured by single-turn accuracy: models can be initially correct yet brittle in the first challenged turn (Fail@1), degrade over subsequent rounds (Survival@r), and sometimes recover after a flip (Recovery@flip). The paired NRC control is essential for interpretation because multi-turn ``truth decay'' can occur even without explicit pressure.
 
@@ -306,6 +312,7 @@ We hope GALILEO and its paper-ready exports help make multi-turn reliability cla
 \bibliographystyle{acl_natbib}
 
 \appendix
+\pagemark{APPENDIX_START}
 \section{Appendix: experimental settings and prompts}
 
 \subsection{Experimental settings (detailed, reviewer-auditable)}
