@@ -36,7 +36,10 @@ Tier selection:
 Minimum checks **before launching anything**:
 1) `tmux ls`
 2) `nvidia-smi -i 4,5,6`
-3) Tail latest run logs:
+3) **Torch CUDA alloc preflight** on the target GPU (required):
+   - (copy from runbook) run the pure-torch alloc+synchronize snippet; only launch if it prints `OK cuda alloc`.
+   - Rationale: we have observed `nvidia-smi`-idle GPUs that still fail with `cudaErrorDevicesUnavailable`.
+4) Tail latest run logs:
    - `tail -n 50 results/<run>/run.log`
    - `tail -n 50 results/<run>/GLOBAL_VALIDATE.log` (if present)
 

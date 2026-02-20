@@ -162,6 +162,12 @@ Representative commits:
 
 ### 2026-02-20 — Process lane: fix GPU-occupancy check command to avoid invalid `username` query
 
+### 2026-02-20 — Process lane: add “torch alloc preflight must pass” gating (idle != usable)
+
+- Observed that `nvidia-smi` can show GPUs as idle while torch CUDA alloc fails with `cudaErrorDevicesUnavailable`.
+- Updated experiment checklists/runbook guidance to require a pure-torch alloc+synchronize preflight (`OK cuda alloc`) on the target GPU before launching.
+- This is now part of the minimum checks to reduce wasted Tier‑1 launches.
+
 - Observed that `nvidia-smi --query-compute-apps=...,username` fails on nlp8 (field not supported).
 - Updated the heartbeat/runbook guidance to use `--query-compute-apps=gpu_uuid,pid,process_name,used_memory` and map PID→user via `ps` when we must enforce the “idle-only / not used by other users” policy.
 - This reduces silent false-negatives during GPU selection.
