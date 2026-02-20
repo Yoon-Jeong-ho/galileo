@@ -1417,6 +1417,13 @@ Next:
   - explicit guidance to report denominators (|C|/|C_p|) via metadata to avoid baseline ambiguity
 - Camera-ready budget remains main(excl Limitations)=7 (still +1 page away from 8).
 
+### 2026-02-21 00:36 KST — Paper writing lane: clarified Table 1 caption (aggregation + '--' semantics)
+
+- In `docs/paper/latex_paper_emnlp2023/main.tex`, expanded Table~\ref{tab:main} caption to:
+  - explicitly state Persona aggregate weighting (equal-weight over personas)
+  - define what ``--'' means (undefined metric or unavailable in current artifact set)
+- Page budget unchanged: main(excl Limitations)=7.
+
 ### 2026-02-20 03:34 KST — Experiments lane: CUDA preflight blocker confirmed on idle GPU0
 
 - On nlp8, GPU0 appeared idle in `nvidia-smi` (0%, 1MiB), but device-level preflight failed: `CUDA_VISIBLE_DEVICES=0` + torch CUDA tensor allocation returned `cudaErrorDevicesUnavailable`.
