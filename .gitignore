@@ -60,6 +60,30 @@ tools/inkscape/
 # downloaded LaTeX style files (generated)
 docs/paper/acl_style_files/
 
+# LaTeX build artifacts (generated)
+# Keep the repo clean when compiling the paper locally.
+docs/paper/latex_skeleton/*.aux
+docs/paper/latex_skeleton/*.bbl
+docs/paper/latex_skeleton/*.blg
+docs/paper/latex_skeleton/*.fdb_latexmk
+docs/paper/latex_skeleton/*.fls
+docs/paper/latex_skeleton/*.log
+docs/paper/latex_skeleton/*.out
+docs/paper/latex_skeleton/*.pdf
+docs/paper/latex_skeleton/*.synctex.gz
+docs/paper/latex_skeleton/*.toc
+
+docs/paper/latex_skeleton_emnlp2023/*.aux
+docs/paper/latex_skeleton_emnlp2023/*.bbl
+docs/paper/latex_skeleton_emnlp2023/*.blg
+docs/paper/latex_skeleton_emnlp2023/*.fdb_latexmk
+docs/paper/latex_skeleton_emnlp2023/*.fls
+docs/paper/latex_skeleton_emnlp2023/*.log
+docs/paper/latex_skeleton_emnlp2023/*.out
+docs/paper/latex_skeleton_emnlp2023/*.pdf
+docs/paper/latex_skeleton_emnlp2023/*.synctex.gz
+docs/paper/latex_skeleton_emnlp2023/*.toc
+
 # generated PDFs for LaTeX skeletons (regenerate via scripts/sync_pdf_figures_to_latex_skeleton.sh)
 # By default we ignore PDFs in the LaTeX skeleton figure folders, but we *do* track a small
 # set of symlinked, paper-ready snapshots so the skeleton compiles out-of-the-box.
