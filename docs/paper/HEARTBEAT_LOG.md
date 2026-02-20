@@ -1307,6 +1307,11 @@ Next:
 - Added a new Appendix subsection `Additional results` (Appx.~\ref{sec:appendix-extra-results}) containing those two figures.
 - Main text now keeps the core narrative/figures (Survival, Fail@1, Cross-family) and points to the Appendix for the extra decompositions.
 
+### 2026-02-20 19:26 KST — Paper writing lane: added explicit LaTeX review/camera-ready toggle for page counting
+
+- In `docs/paper/latex_paper_emnlp2023/main.tex`, introduced a `\ifreview` toggle that switches between `\usepackage[review]{EMNLP2023}` and `\usepackage{EMNLP2023}`.
+- Default remains `\reviewtrue` for drafting (line numbers), but we can flip to `\reviewfalse` to get a closer-to-submission page count from the PDF-first SSOT.
+
 ### 2026-02-20 03:34 KST — Experiments lane: CUDA preflight blocker confirmed on idle GPU0
 
 - On nlp8, GPU0 appeared idle in `nvidia-smi` (0%, 1MiB), but device-level preflight failed: `CUDA_VISIBLE_DEVICES=0` + torch CUDA tensor allocation returned `cudaErrorDevicesUnavailable`.

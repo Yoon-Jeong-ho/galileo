@@ -3,8 +3,16 @@
 \pdfoutput=1
 \documentclass[11pt]{article}
 
-% Remove [review] for camera-ready.
-\usepackage[review]{EMNLP2023}
+% REVIEW TOGGLE
+% - For drafting with line numbers:  \reviewtrue
+% - For page-counting / camera-ready: \reviewfalse
+\newif\ifreview
+\reviewtrue
+\ifreview
+  \usepackage[review]{EMNLP2023}
+\else
+  \usepackage{EMNLP2023}
+\fi
 
 \usepackage{times}
 \usepackage{latexsym}
