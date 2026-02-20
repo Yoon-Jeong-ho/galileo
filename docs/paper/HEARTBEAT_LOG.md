@@ -1473,3 +1473,8 @@ ef{fig:protocol}).
 - On nlp8, verified GPUs 0–6 look idle via nvidia-smi, then ran scripts/check_cuda_preflight.py per GPU: GPU0 FAIL, GPUs1–6 OK; decision: exclude GPU0 for launches until it recovers.
 - Updated runbook with this operational note.
 
+### 2026-02-21 04:40 KST — Dev lane: add preflight-all helper + runbook snippet
+
+- Added scripts/check_cuda_preflight_all.sh to print a per-GPU OK/FAIL table (wraps scripts/check_cuda_preflight.py).
+- Documented the ssh one-liner to run it in docs/paper/REMOTE_EXPERIMENTS_RUNBOOK.md.
+
