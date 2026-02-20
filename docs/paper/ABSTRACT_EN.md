@@ -6,7 +6,9 @@ We introduce **GALILEO**, a reproducible protocol for measuring **multi-turn rob
 
 GALILEO reports three complementary outcomes: (i) **survival curves** (fraction remaining correct through round *r*), (ii) the **turn-of-failure (TOF) distribution** with **Fail@1** capturing early-turn vulnerability, and (iii) **recovery@flip**—accuracy on a final neutral recovery prompt, conditional on having flipped at least once.
 
-Across multi-seed experiments on several open-weight model families, persona pressure consistently reduces survival relative to the NRC and can induce substantial early-turn vulnerability. In our main aggregated setting (seed1–4; persona-weighted Table~W deltas), persona pressure reduces **Survival@5** by **22.8 percentage points** and increases **Fail@1** by **6.9 points** relative to the NRC. Recovery@flip varies by task and persona, indicating that *staying correct* and *returning to truth after a flip* are distinct, measurable behaviors.
+**Timeline note:** rounds 1–5 are persona pressure (or NRC re-asks); **after** round 5 we append **one additional neutral recovery turn** (identical across arms) solely to measure recovery@flip.
+
+Across multi-seed experiments on several open-weight model families, persona pressure consistently reduces survival relative to the NRC and can induce substantial early-turn vulnerability. In our main aggregated setting (seed1–4; persona-weighted Table~W deltas), persona pressure reduces **Survival@5** by **22.8 percentage points** and increases **Fail@1** by **6.9 points** relative to the NRC. Recovery@flip varies by task and persona, indicating that *staying correct* and *returning to truth after a flip* are distinct, measurable behaviors (see Protocol + Table~W + survival/TOF/recovery figures).
 
 ## (Optional) one-sentence positioning
 
