@@ -251,7 +251,8 @@ Survival curves can be re-expressed as a per-round failure ``hazard'' (condition
 &\;=\; \Pr\Big[c^{(t)}_{r}(x)=0\,\Big|\,\prod_{i=1}^{r-1} c^{(t)}_{i}(x)=1\Big] \\
 &\;=\; 1-\frac{\mathrm{Survival}^{(t)}@r}{\mathrm{Survival}^{(t)}@{(r-1)}}.
 \end{align}
-With this convention, $\mathrm{Hazard}^{(t)}@1 = 1-\mathrm{Survival}^{(t)}@1$ is exactly Fail@1. If $\mathrm{Survival}^{(t)}@{(r-1)}=0$ (no remaining at-risk examples), the conditional hazard at round $r$ is undefined; in practice our reported plots/tables omit hazards beyond the point where the survival curve reaches zero.
+With this convention, $\mathrm{Hazard}^{(t)}@1 = 1-\mathrm{Survival}^{(t)}@1$ is exactly Fail@1.
+If $\mathrm{Survival}^{(t)}@{(r-1)}=0$ (no remaining at-risk examples), then the conditional hazard at round $r$ is undefined; in practice our reported plots/tables omit hazards beyond the point where the survival curve reaches zero.
 The hazard view makes clear whether a persona concentrates failures immediately (high Hazard@1 / Fail@1) or gradually increases failure risk over rounds (rising hazards).
 
 \paragraph{Time-to-first-failure (TOF) and Fail@1.}
@@ -261,21 +262,21 @@ Define the (possibly censored) first-failure time over the \emph{challenged} rou
 \begin{align}
 \mathrm{TOF}^{(t)}(x)\;=\;
 \begin{cases}
-\min\{r\in\{1,\dots,R\}: c^{(t)}_{r}(x)=0\} & \text{if a failure occurs}\\
+\min\{\,r\in\{1,\dots,R\}:\; c^{(t)}_{r}(x)=0\,\} & \text{if a failure occurs}\\
 R{+}1 & \text{otherwise (right-censored)}
 \end{cases}
 \end{align}
 We summarize TOF at the population level using the expectation $\mathbb{E}_{x\sim S}[\mathrm{TOF}^{(t)}(x)]$ (with right-censoring represented as $R{+}1$). This expectation has a simple identity in terms of the survival curve:
 \begin{align}
-\mathbb{E}_{x\sim S}[\mathrm{TOF}^{(t)}(x)] \;=\; \sum_{r=0}^{R} \mathrm{Survival}^{(t)}@r,
+\mathbb{E}_{x\sim S}[\mathrm{TOF}^{(t)}(x)] \;=\; \sum_{r=0}^{R} \mathrm{Survival}^{(t)}@r.
 \end{align}
-so TOF is essentially the discrete ``area under'' the survival trajectory (larger is better).
+Thus, TOF is the discrete ``area under'' the survival trajectory (larger is better).
 Because the $R{+}1$ encoding can compress the tail when failures are rare, we treat TOF as a coarse summary and rely on survival curves (and Fail@1) for round-by-round interpretation.
 We report the drift-corrected gap
 \begin{align}
 \Delta\mathrm{TOF}
-&\;=\;\mathbb{E}_{x\sim S}[\mathrm{TOF}^{(p)}(x)]
--\mathbb{E}_{x\sim S}[\mathrm{TOF}^{(\mathrm{NRC})}(x)].
+&\;=\; \mathbb{E}_{x\sim S}[\mathrm{TOF}^{(p)}(x)] \\
+&\quad\;\;\; -\mathbb{E}_{x\sim S}[\mathrm{TOF}^{(\mathrm{NRC})}(x)].
 \end{align}
 Fail@1 is the first-turn failure rate, $\mathrm{Fail}^{(t)}@1=1-\mathrm{Survival}^{(t)}@1$; we analogously report $\Delta\mathrm{Fail}@1$.
 
