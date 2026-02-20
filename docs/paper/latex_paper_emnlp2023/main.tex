@@ -250,8 +250,9 @@ All expectations below are taken over a specified conditioning set $S$ (either t
 \paragraph{Survival.}
 \SurvivalAt{r} is the probability of remaining correct through all rounds up to $r$:
 \begin{align}
-\mathrm{Survival}^{(t)}@r \;=\; \mathbb{E}_{x\sim S}\left[\prod_{i=1}^{r} c^{(t)}_{i}(x)\right]
-\;=\; \Pr_{x\sim S}\Big[\forall i\in\{1,\dots,r\}:\; c^{(t)}_{i}(x)=1\Big].
+\mathrm{Survival}^{(t)}@r
+&\;=\; \mathbb{E}_{x\sim S}\left[\prod_{i=1}^{r} c^{(t)}_{i}(x)\right] \\
+&\;=\; \Pr_{x\sim S}\Big[\forall i\in\{1,\dots,r\}:\; c^{(t)}_{i}(x)=1\Big].
 \end{align}
 This is the discrete-time analogue of a survival function: it captures the ``stability'' of correctness under repeated questioning rather than a single-turn accuracy snapshot (``accuracy at round $r$ only'').
 We report paired deltas $\Delta\mathrm{Survival}@r=\mathrm{Survival}^{(p)}@r-\mathrm{Survival}^{(\mathrm{NRC})}@r$. 
@@ -272,9 +273,10 @@ Because we condition multi-round evaluation on an initially-correct set (Phase~1
 Accordingly, we say an example \emph{flips} in a given track if it is incorrect in \emph{any} challenged round $r\in\{1,\dots,R\}$ (i.e., if $c^{(t)}_{r}(x)=0$ for some $r$).
 Define the (possibly censored) first-failure time over the \emph{challenged} rounds $r\in\{1,\dots,R\}$ (the final recovery turn is \emph{not} included):
 \begin{align}
-\mathrm{TOF}^{(t)}(x)\;=\;
+\mathrm{TOF}^{(t)}(x)
+&\;=\;
 \begin{cases}
-\min\{\,r\in\{1,\dots,R\}:\; c^{(t)}_{r}(x)=0\,\} & \text{if a failure occurs}\\
+\min\Big\{\,r:\; \substack{1\le r\le R\\ c^{(t)}_{r}(x)=0}\,\Big\} & \text{if a failure occurs}\\ 
 R{+}1 & \text{otherwise (right-censored)}
 \end{cases}
 \end{align}
