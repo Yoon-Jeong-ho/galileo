@@ -254,23 +254,21 @@ All main comparisons are reported as \emph{persona--NRC deltas} to correct for e
 \begin{table*}[t]
 \centering
 \small
-\setlength{\tabcolsep}{6pt}
-\begin{tabularx}{\textwidth}{l *{3}{>{\centering\arraybackslash}X} *{3}{>{\centering\arraybackslash}X} *{2}{>{\centering\arraybackslash}X}}
+\setlength{\tabcolsep}{5pt}
+\begin{tabularx}{\textwidth}{l *{3}{>{\centering\arraybackslash}X} *{3}{>{\centering\arraybackslash}X} *{3}{>{\centering\arraybackslash}X}}
 \toprule
-\multirow{2}{*}{Persona $p$} & \multicolumn{3}{c}{Survival@5} & \multicolumn{3}{c}{Fail@1} & \multicolumn{2}{c}{Recovery@flip} \\
-\cmidrule(lr){2-4} \cmidrule(lr){5-7} \cmidrule(lr){8-9}
-& NRC & Persona & $\Delta$ & NRC & Persona & $\Delta$ & NRC & Persona \\
+\multirow{2}{*}{Model family} & \multicolumn{3}{c}{Survival@5} & \multicolumn{3}{c}{Fail@1} & \multicolumn{3}{c}{Recovery@flip} \\
+\cmidrule(lr){2-4} \cmidrule(lr){5-7} \cmidrule(lr){8-10}
+& NRC & Persona & $\Delta$ & NRC & Persona & $\Delta$ & NRC & Persona & $\Delta$ \\
 \midrule
-Soft Pressure & -- & -- & -- & -- & -- & -- & -- & -- \\
-Simple Denial & -- & -- & -- & -- & -- & -- & -- & -- \\
-Strong Pressure & -- & -- & -- & -- & -- & -- & -- & -- \\
-Authority Claim & -- & -- & -- & -- & -- & -- & -- & -- \\
-Logical Trap & -- & -- & -- & -- & -- & -- & -- & -- \\
-\midrule
-\textbf{Avg. (task-pooled)} & -- & -- & -- & -- & -- & -- & -- & -- \\
+Qwen2.5-7B-Instruct & -- & -- & -- & -- & -- & -- & -- & -- & -- \\
+Llama-3.1-8B-Instruct & -- & -- & -- & -- & -- & -- & -- & -- & -- \\
+Mistral-7B-Instruct & -- & -- & -- & -- & -- & -- & -- & -- & -- \\
+Phi-3-mini-4k-instruct & -- & -- & -- & -- & -- & -- & -- & -- & -- \\
+Qwen2.5-14B-Instruct & -- & -- & -- & -- & -- & -- & -- & -- & -- \\
 \bottomrule
 \end{tabularx}
-\caption{\textbf{Main results table (skeleton).} Each row reports the persona track versus its matched Neutral Re-asking Control (NRC) under identical decoding on an initially-correct conditioning set. Deltas are computed as persona -- NRC. \textbf{Sign conventions:} $\Delta$Survival@5 $\uparrow$ means \emph{more robust} under the persona than NRC (rare); $\Delta$Fail@1 $\uparrow$ means \emph{more brittle} on the first challenged turn; Recovery@flip is reported conditional on having flipped at least once. (Numbers to be filled from tracked CSV artifacts in \texttt{docs/paper/artifacts/}.)}
+\caption{\textbf{Main results (persona-weighted aggregate).} For each model family, we report three paired views under matched decoding on an initially-correct set: Survival@5, Fail@1 (early hazard), and Recovery@flip (conditional on at least one flip). ``Persona'' denotes the persona-weighted aggregate across pressure mechanisms; NRC is the matched evidence-free control. We report drift-corrected gaps $\Delta$ = Persona -- NRC (mean\,\(\pm\)\,std over seeds where available). Persona-wise decompositions and prompt templates are in the Appendix (Appx.~\ref{sec:appendix-extra-results}, Appx.~\ref{sec:appendix-prompts}).}
 \label{tab:main}
 \end{table*}
 

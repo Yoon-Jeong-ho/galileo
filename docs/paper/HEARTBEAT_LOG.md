@@ -1360,6 +1360,12 @@ Next:
   - Cross-family subsection: added 3 sentences framing Fig.~\ref{fig:crossfam} as a replication check across open-weight families, preempting "single-model artifact" concerns.
 - Camera-ready page budget remains main(excl Limitations)=4 (still below 8; we likely need Table 1 to be real + longer Intro/Protocol text to push the next page break).
 
+### 2026-02-20 20:48 KST — Paper writing lane: refactored Table 1 to model-family rows (main-text space efficiency)
+
+- In `docs/paper/latex_paper_emnlp2023/main.tex`, rewrote the main results table (Table~\ref{tab:main}) to be \emph{model-family rows} with persona-weighted aggregates, instead of persona rows.
+- Table now reports NRC / Persona / $\Delta$ for all three metrics (Survival@5, Fail@1, Recovery@flip) and explicitly states mean\,\(\pm\)\,std over seeds where available.
+- Persona-wise decompositions are pushed to Appendix references (Appx.~\ref{sec:appendix-extra-results}).
+
 ### 2026-02-20 03:34 KST — Experiments lane: CUDA preflight blocker confirmed on idle GPU0
 
 - On nlp8, GPU0 appeared idle in `nvidia-smi` (0%, 1MiB), but device-level preflight failed: `CUDA_VISIBLE_DEVICES=0` + torch CUDA tensor allocation returned `cudaErrorDevicesUnavailable`.
