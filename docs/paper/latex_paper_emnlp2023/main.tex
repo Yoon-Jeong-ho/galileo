@@ -65,7 +65,7 @@
 Large language models can abandon previously correct answers when repeatedly challenged \emph{without new evidence}.
 We introduce \textbf{GALILEO}, an auditable multi-turn protocol on ground-truth tasks that (i) conditions evaluation on initially-correct examples and (ii) pairs each pressure persona with a matched \emph{Neutral Re-asking Control} (NRC) to subtract generic multi-turn drift.
 Over $R{=}5$ challenged rounds we measure Survival@$r$, Turn-of-Failure (TOF) with early-turn vulnerability (Fail@1), and a final neutral Recovery@flip prompt (excluded from Survival/TOF).
-Across multiple seeds and open-weight model families, pressure consistently lowers Survival@5 and raises Fail@1 relative to NRC; Recovery@flip varies by task and persona, indicating that robustness and recoverability are distinct axes.
+Across multiple seeds and open-weight model families, pressure consistently lowers Survival@5 and raises Fail@1 relative to NRC, yielding negative/positive \emph{persona--NRC} gaps beyond generic multi-turn drift; Recovery@flip varies by task and persona, indicating that robustness and recoverability are distinct axes.
 \end{abstract}
 
 \section{Introduction}
