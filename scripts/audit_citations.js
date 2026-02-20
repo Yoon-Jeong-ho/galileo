@@ -81,6 +81,10 @@ function extractCiteKeys(text) {
       .split(',')
       .map((s) => s.trim())
       .filter(Boolean)
+      // Ignore common placeholder snippets in drafts/docs like \cite{...}
+      .filter((k) => k !== '...')
+      // Be conservative: keep only plausible BibTeX keys.
+      .filter((k) => /^[A-Za-z0-9:._-]+$/.test(k))
       .forEach((k) => keys.add(k));
   }
   return keys;
