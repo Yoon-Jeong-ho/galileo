@@ -120,8 +120,19 @@ This makes NRC an \emph{evidence-free} baseline: any failures under NRC reflect 
 \textbf{Attribution.} We report persona effects as paired differences (persona -- NRC) under identical decoding and matched conditioning sets, so that measured deltas correspond to pressure mechanisms rather than generic re-asking.
 
 \subsection{Conditioning-set reporting modes (to avoid confusion)}
-We distinguish (i) a shared initially-correct set $C$ (for cross-persona comparisons) and (ii) persona-matched sets $C_p$ (for within-persona attribution).
-Unless stated otherwise, persona\,–\,NRC gaps are computed on the same matched conditioning set ($C_p$), so control baselines can differ across personas.
+Our multi-round metrics are always computed on an \emph{initially-correct} conditioning set, but there are two common reporting choices depending on the comparison.
+
+\textbf{Shared conditioning set $C$ (cross-persona comparisons).}
+For a fixed (model, task, seed, decoding), Phase~1 produces an initially-correct set $C\subseteq D$ under the neutral prompt.
+Using the same $C$ for all personas makes persona-to-persona comparisons interpretable because the denominator is identical.
+
+\textbf{Persona-matched conditioning set $C_p$ (within-persona attribution).}
+In practice, experiments are often run as separate jobs per persona $p$ (and may differ in random seed, batching, or minor decoding details).
+We therefore define $C_p$ as \emph{the Phase~1 initially-correct set for the specific run that generated the persona $p$ results}.
+When reporting persona\,–\,NRC gaps for a given $p$, we compute both tracks on the same $C_p$ to avoid conditioning-set mismatch.
+
+\textbf{Default in this paper.}
+Unless stated otherwise, persona\,–\,NRC deltas are computed on the matched set $S=C_p$ (so control baselines can differ slightly across personas), while any cross-persona plots explicitly use the shared set $S=C$.
 
 \subsection{Metrics}
 We formalize the trajectory metrics used throughout. Let $x$ be an example with gold answer $a(x)$.
