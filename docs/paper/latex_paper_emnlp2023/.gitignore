@@ -1,0 +1,16 @@
+# LaTeX build artifacts
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.pdf
+
+# Keep figures PDFs tracked
+!figures/*.pdf
+
+# If you generate other outputs locally
+*.synctex.gz
+*~
