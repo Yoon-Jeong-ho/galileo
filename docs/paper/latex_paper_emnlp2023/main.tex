@@ -194,8 +194,10 @@ However, directly comparing \emph{absolute} Survival@5 across personas is only c
 \subsection{Metrics}
 \label{sec:metrics}
 We formalize the trajectory metrics used throughout. Let $x$ be an example with gold answer $a(x)$.
-For each track $t\in\{p,\mathrm{NRC}\}$ (persona vs control) and round $r\in\{1,\dots,R\}$, define the correctness indicator
+For each track $t\in\{p,\mathrm{NRC}\}$ (persona vs control) and challenged round $r\in\{1,\dots,R\}$, define the correctness indicator
 $c^{(t)}_{r}(x)=\mathbb{1}[\text{model output at round $r$ matches }a(x)]$.
+Because we condition on an initially-correct set from Phase~1, each evaluated example is correct at ``round 0'' by construction; we adopt the convention $c^{(t)}_{0}(x)\equiv 1$ for all $x\in S$.
+(All Phase~1 correctness is absorbed into the definition of $S$; rounds $1..R$ correspond to the multi-turn pressure/NRC prompts.)
 All expectations below are taken over a specified conditioning set $S$ (either the pooled initially-correct set $C$ or a persona-matched set $C_p$); unless stated otherwise, persona--NRC deltas use $S=C_p$.
 
 \paragraph{Survival.}
