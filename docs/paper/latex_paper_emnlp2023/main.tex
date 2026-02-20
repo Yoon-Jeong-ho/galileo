@@ -245,10 +245,11 @@ All expectations below are taken over a specified conditioning set $S$ (either t
 \paragraph{Survival.}
 \SurvivalAt{r} is the probability of remaining correct through all rounds up to $r$:
 \begin{align}
-\mathrm{Survival}^{(t)}@r \;=\; \mathbb{E}_{x\sim S}\left[\prod_{i=1}^{r} c^{(t)}_{i}(x)\right].
+\mathrm{Survival}^{(t)}@r \;=\; \mathbb{E}_{x\sim S}\left[\prod_{i=1}^{r} c^{(t)}_{i}(x)\right]
+\;=\; \Pr_{x\sim S}\Big[\forall i\in\{1,\dots,r\}:\; c^{(t)}_{i}(x)=1\Big].
 \end{align}
-This is the discrete-time analogue of a survival function: it captures the ``stability'' of correctness under repeated questioning rather than a single-turn accuracy snapshot.
-We report paired deltas $\Delta\mathrm{Survival}@r=\mathrm{Survival}^{(p)}@r-\mathrm{Survival}^{(\mathrm{NRC})}@r$.
+This is the discrete-time analogue of a survival function: it captures the ``stability'' of correctness under repeated questioning rather than a single-turn accuracy snapshot (``accuracy at round $r$ only'').
+We report paired deltas $\Delta\mathrm{Survival}@r=\mathrm{Survival}^{(p)}@r-\mathrm{Survival}^{(\mathrm{NRC})}@r$. 
 
 \paragraph{Discrete hazard (per-round failure risk).}
 Survival curves can be re-expressed as a per-round failure ``hazard'' (conditional risk). Define $\mathrm{Survival}^{(t)}@0\equiv 1$ and, for $r\ge 1$,
