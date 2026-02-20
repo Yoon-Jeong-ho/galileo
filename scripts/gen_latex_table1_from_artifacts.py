@@ -212,7 +212,19 @@ def main() -> int:
     tw_surv = [r for r in tw_rows if r["metric"].strip() == "Survival@5"]
     if len(tw_surv) != 1:
         raise ValueError(f"Expected exactly 1 Survival@5 row in {table_w}")
-    # Table W is in percentage units.
+    # Also pull Fail@1 from Table W (percentage units).
+    tw_fail1 = [r for r in tw_rows if r["metric"].strip() == "Fail@1"]
+    if len(tw_fail1) != 1:
+        raise ValueError(f"Expected exactly 1 Fail@1 row in {table_w}")
+
+    # Recovery@flip (collapsed) is tracked in a separate artifact CSV (percent units).
+    rec_csv = _find_latest("recovery_collapsed_control_vs_persona_seed1-4_mean_std_*.csv")
+    with rec_csv.open("r", newline="") as f:
+        rec_rows = list(csv.DictReader(f))
+    if not rec_rows:
+        raise ValueError(f"Empty CSV: {rec_csv}")
+    rec = rec_rows[0]
+
     rows.append(
         Row(
             model="Qwen2.5-7B-Instruct",
@@ -220,6 +232,13 @@ def main() -> int:
             nrc_surv_std=float(tw_surv[0]["control_std"]) / 100.0,
             persona_surv_mean=float(tw_surv[0]["persona_weighted_mean"]) / 100.0,
             persona_surv_std=float(tw_surv[0]["persona_weighted_std"]) / 100.0,
+            delta_fail1_mean=(float(tw_fail1[0]["persona_weighted_mean"]) - float(tw_fail1[0]["control_mean"])) / 100.0,
+            delta_fail1_std=float(tw_fail1[0]["persona_weighted_std"]) / 100.0,
+            nrc_rec_mean=float(rec["control_mean"]) / 100.0,
+            nrc_rec_std=float(rec["control_std"]) / 100.0,
+            persona_rec_mean=float(rec["persona_pressure_mean"]) / 100.0,
+            persona_rec_std=float(rec["persona_pressure_std"]) / 100.0,
+            delta_rec_mean=float(rec["delta_persona_minus_control_mean"]) / 100.0,
         )
     )
 
