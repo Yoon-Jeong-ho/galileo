@@ -157,6 +157,10 @@ Define the (possibly censored) first-failure time
 R{+}1 & \text{otherwise (right-censored)}
 \end{cases}
 \end{align}
+We summarize TOF at the population level using the expectation $\mathbb{E}_{x\sim S}[\mathrm{TOF}^{(t)}(x)]$ (with right-censoring represented as $R{+}1$), and report the drift-corrected gap
+\begin{align}
+\Delta\mathrm{TOF}\;=\;\mathbb{E}_{x\sim S}[\mathrm{TOF}^{(p)}(x)]-\mathbb{E}_{x\sim S}[\mathrm{TOF}^{(\mathrm{NRC})}(x)].
+\end{align}
 Fail@1 is the first-turn failure rate, $\mathrm{Fail}^{(t)}@1=1-\mathrm{Survival}^{(t)}@1$; we analogously report $\Delta\mathrm{Fail}@1$.
 
 \paragraph{Recovery@flip.}
