@@ -171,7 +171,8 @@ Persona pressure (weighted agg.) & (see CSV) & (see CSV) & (see CSV) \\
 Persona pressure (unweighted agg.) & (see CSV) & (see CSV) & (see CSV) \\
 \bottomrule
 \end{tabular}
-\caption{\textbf{Table W (skeleton).} Control vs persona pressure on initially-correct examples, averaged over seeds (mean$\pm$std). For persona pressure we report both a weighted aggregate (pooling across personas with weights proportional to each persona's evaluation-set size) and an unweighted aggregate (simple mean across personas).
+\caption{\textbf{Table W (skeleton).} Control vs persona pressure on initially-correct examples, averaged over seeds (mean$\pm$std). \textbf{Important:} the control (NRC) row here is \emph{persona-matched}---for each persona $p$, we evaluate NRC on the same initially-correct subset $C_p$ before pooling---so these control values need not match a single ``global NRC'' run.
+For persona pressure we report both a weighted aggregate (pooling across personas with weights proportional to each persona's evaluation-set size) and an unweighted aggregate (simple mean across personas).
 \emph{Implementation note:} in the repo SSOT, the actual numbers are exported as tracked CSV artifacts (e.g., \path{docs/paper/artifacts/table_w_control_vs_persona_seed1-4_mean_std_20260209.csv} and \path{docs/paper/artifacts/table_w_effect_delta_seed1-4_20260209.csv}) and rendered into plots via \path{scripts/make_table_w_control_vs_persona.py}.}
 \label{tab:tablew}
 \end{table}
