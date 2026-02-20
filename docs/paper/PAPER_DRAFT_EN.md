@@ -44,6 +44,13 @@ Single-turn accuracy does not answer:
 
 **Evidence checklist (what the reader should verify):** (i) the protocol + matched NRC design (Fig.~\ref{fig:protocol}); (ii) robustness decay across rounds via survival trajectories (Fig.~\ref{fig:survival-curves-rounds}); (iii) early-turn vulnerability via TOF / Fail@1 (Fig.~\ref{fig:tof-delta-fail1}); (iv) return-to-truth behavior via recovery conditional on flip (Fig.~\ref{fig:recovery-delta}); and (v) attribution beyond generic drift via persona-vs-control deltas (Table~\ref{tab:tablew}; Fig.~\ref{fig:tablew-effect-deltas}). For robustness checks, see cross-family replication (Fig.~\ref{fig:cross-family-survival}) and decoding sensitivity (Appendix~A.1; Fig.~\ref{fig:decoding-sweep}).
 
+**At-a-glance definitions (paper-wide):**
+- **Round 0**: the initial (persona-free) answer used to filter to the initially-correct subset.
+- **NRC (Neutral Re-asking Control)**: the same multi-round structure/decoding/answer-format constraints, but follow-ups are neutral “re-check and answer” prompts that introduce **no new task-relevant evidence**.
+- **Survival@r**: the fraction of initially-correct examples that remain correct through round *r*.
+- **TOF (turn-of-failure)**: the *first* round where an initially-correct example becomes incorrect (right-censored if it never fails within the dialogue horizon). **Fail@1** is \(\Pr(\mathrm{TOF}=1)\).
+- **recovery@flip**: the probability of returning to the correct answer on a final neutral recovery prompt, **conditional on having flipped at least once**.
+
 We target a practically grounded setting: tasks with **ground-truth answers** where failure is unambiguous (task setting: §2), while pressure is delivered through realistic conversational personas paired with an evidence-free drift baseline NRC (protocol: Fig.~\ref{fig:protocol}).
 
 ### 1.3 Why condition on initial correctness?
