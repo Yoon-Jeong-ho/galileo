@@ -262,6 +262,7 @@ All main comparisons are reported as \emph{persona--NRC deltas} to correct for e
 \paragraph{Persona-weighted aggregate (for compact reporting).}
 Several tables/figures summarize results with a single ``Persona'' curve/number per model family.
 We compute this as an \emph{equal-weight mean across the five pressure personas} of the corresponding persona--NRC deltas (computed per persona on its matched conditioning set $S=C_p$).
+For \textbf{Recovery@flip} specifically, if a persona has \emph{no flips} in either track for a given seed/task (so the metric is undefined; \S\ref{sec:metrics}), we exclude that persona from the aggregate for that seed/task and renormalize the weights over the remaining personas.
 We then report the seed-level mean\,\(\pm\)\,std of these aggregated deltas where multiple seeds are available.
 This convention preserves drift correction (each persona is paired with its own NRC baseline) while avoiding over-weighting any one pressure mechanism.
 
