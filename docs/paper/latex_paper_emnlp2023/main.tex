@@ -149,12 +149,12 @@ This is the discrete-time analogue of a survival function: it captures the ``sta
 We report paired deltas $\Delta\mathrm{Survival}@r=\mathrm{Survival}^{(p)}@r-\mathrm{Survival}^{(\mathrm{NRC})}@r$.
 
 \paragraph{Discrete hazard (per-round failure risk).}
-Survival curves can be re-expressed as a per-round failure ``hazard'' (conditional risk): for $r\ge 2$,
+Survival curves can be re-expressed as a per-round failure ``hazard'' (conditional risk). Define $\mathrm{Survival}^{(t)}@0\equiv 1$ and, for $r\ge 1$,
 \begin{align}
 \mathrm{Hazard}^{(t)}@r \;=\; \Pr\big[c^{(t)}_{r}(x)=0\,\big|\,c^{(t)}_{1}(x)=\cdots=c^{(t)}_{r-1}(x)=1\big]
 \;=\; 1-\frac{\mathrm{Survival}^{(t)}@r}{\mathrm{Survival}^{(t)}@{(r-1)}}.
 \end{align}
-This view makes clear whether a persona concentrates failures early (high Hazard@2 / Fail@1) or gradually increases failure risk over rounds (rising hazards).
+With this convention, $\mathrm{Hazard}^{(t)}@1 = 1-\mathrm{Survival}^{(t)}@1$ is exactly Fail@1. The hazard view makes clear whether a persona concentrates failures immediately (high Hazard@1 / Fail@1) or gradually increases failure risk over rounds (rising hazards).
 
 \paragraph{Turn-of-failure (TOF) and Fail@1.}
 Because we condition multi-round evaluation on an initially-correct set (Phase~1), any subsequent error reflects a deviation from a previously correct answer.
