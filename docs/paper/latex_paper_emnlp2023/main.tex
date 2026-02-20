@@ -122,7 +122,17 @@ Recovery@flip is correctness on the recovery prompt conditional on having flippe
 \section{Discussion and limitations}
 \label{sec:limitations}
 
-% TODO: add required Limitations section (desk-reject guardrail) + ethics/misuse note.
+Our results suggest that multi-turn robustness under conversational pressure is not fully captured by single-turn accuracy: models can be initially correct yet brittle in the first challenged turn (Fail@1), degrade over subsequent rounds (Survival@r), and sometimes recover after a flip (recovery@flip). The paired NRC control is essential for interpretation because multi-turn ``truth decay'' can occur even without explicit pressure.
+
+\paragraph{Limitations.}
+\begin{itemize}[leftmargin=*]
+  \item \textbf{Protocol scope.} GALILEO focuses on short-horizon, turn-bounded interactions ($R=5$) with evidence-free prompts. Longer dialogues, tool use, retrieval, or user-provided evidence may yield different dynamics.
+  \item \textbf{Task coverage.} We emphasize ground-truth tasks with unambiguous scoring. This excludes many open-ended domains (e.g., creative writing, policy advice) where ``correctness'' is less well-defined and robustness must be assessed differently.
+  \item \textbf{Persona design.} Pressure personas are handcrafted and cannot span the full space of real adversarial strategies. NRC reduces drift confounds but does not guarantee that all pressure effects are isolated from other latent factors (e.g., wording sensitivity).
+  \item \textbf{Model/decode dependence.} Robustness and recovery can vary with decoding settings and model families. While we include a decoding sweep, our conclusions should be read as comparative within the reported settings rather than universal guarantees.
+\end{itemize}
+
+\paragraph{Ethics and misuse.} Persona prompts could be repurposed to intentionally destabilize a model in deployment. To reduce misuse risk, we (i) report aggregate vulnerability trends rather than releasing curated ``best attacks'' for a specific target system, and (ii) recommend that evaluations include a drift baseline like NRC and that deployments add safeguards (e.g., calibrated refusal on repeated re-asking, consistency checks, and audit logs) when models are used in high-stakes settings.
 
 \section{Conclusion}
 \label{sec:conclusion}
