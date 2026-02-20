@@ -50,7 +50,7 @@
 \maketitle
 
 \begin{abstract}
-Large language models (LLMs) can retract previously correct answers under conversational pressure (e.g., repeated denial, appeals to authority, or persuasive reframing). Standard ground-truth benchmarks largely report single-turn accuracy, obscuring \emph{interaction dynamics}: \textbf{when} a model first flips from correct to incorrect, \textbf{how} robustness decays over rounds, and \textbf{whether} it can return to the correct answer after being misled.
+Large language models (LLMs) can retract previously correct answers under conversational pressure (e.g., repeated denial, appeals to authority, or persuasive reframing; \citealp{sharma2023understandingsycophancylanguagemodels,liu2025truthdecayquantifyingmultiturn}). Standard ground-truth benchmarks largely report single-turn accuracy, obscuring \emph{interaction dynamics}: \textbf{when} a model first flips from correct to incorrect, \textbf{how} robustness decays over rounds, and \textbf{whether} it can return to the correct answer after being misled.
 
 We introduce \textbf{GALILEO}, a reproducible protocol for measuring multi-turn robustness \emph{conditional on initial correctness} on ground-truth tasks (math, extractive QA, multiple-choice QA, and open-domain QA). For each condition, we first filter to examples answered correctly at round $0$, then apply five fixed pressure personas for up to $R{=}5$ rounds. Each persona arm is paired with a matched \emph{Neutral Re-asking Control} (\textbf{NRC}): a neutral ``please re-check'' prompt repeated with the same number of rounds and decoding settings, introducing \emph{no new task-relevant evidence}. To attribute effects to pressure rather than generic multi-turn drift, we compute persona--control deltas on the \emph{same} initially-correct subset.
 
@@ -62,7 +62,7 @@ GALILEO reports survival curves (remaining correct \emph{at every turn} through 
 
 Modern LLM assistants are often evaluated on single-turn correctness, but many real interactions are multi-turn: users challenge answers, assert contradictory ``facts,'' or apply rhetorical pressure (e.g., ``Are you sure?'' or ``My professor said otherwise.''). In these settings, a model can exhibit a 
 \emph{belief-consistency failure}: changing a previously correct answer to an incorrect one due to social influence rather than new evidence.
-Despite growing interest in sycophancy and persuasion, existing evaluations rarely provide an end-to-end, reproducible protocol where correctness is \emph{checkable at every turn} and failures can be localized to the exact round where the first flip occurs.
+Despite growing interest in sycophancy and multi-turn persuasion effects (e.g., \citealp{sharma2023understandingsycophancylanguagemodels,liu2025truthdecayquantifyingmultiturn}), existing evaluations rarely provide an end-to-end, reproducible protocol where correctness is \emph{checkable at every turn} and failures can be localized to the exact round where the first flip occurs.
 
 GALILEO targets this gap by instantiating multi-turn pressure on \emph{ground-truth} tasks with automatic checking. We pair adversarial personas with a \emph{Neutral Re-asking Control} (\textbf{NRC}) to separate generic answer drift from persona-induced degradation, and we add a recovery stage to measure whether models can return to the original truth after an induced flip.
 
