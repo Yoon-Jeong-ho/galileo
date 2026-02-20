@@ -19,7 +19,7 @@ GALILEO reports three complementary outcomes: (i) **survival curves** (cumulativ
 
 We treat flips as a discrete **time-to-event** process with **right-censoring** at the dialogue horizon; survival/TOF use a **first-passage** convention (failure occurs at the first incorrect turn), while return-to-truth is captured separately by recovery@flip.
 
-Across multi-seed experiments on several open-weight model families, persona pressure consistently reduces survival relative to the NRC and can induce substantial early-turn vulnerability (Table~\ref{tab:tablew}; Figs.~\ref{fig:survival-curves-rounds}, \ref{fig:tof-delta-fail1}). In our main aggregated setting (seed1–4; persona-weighted Table~W deltas; summary in `docs/paper/artifacts/table_w_effect_delta_seed1-4_20260209.csv`), persona pressure reduces **Survival@5** by **22.8 percentage points** and increases **Fail@1** by **6.9 points** relative to the NRC. Recovery@flip varies by task and persona, indicating that *staying correct* and *returning to truth after a flip* are distinct, measurable behaviors (Fig.~\ref{fig:recovery-delta}).
+Across multi-seed experiments on several open-weight model families, persona pressure consistently reduces survival relative to the NRC and can induce substantial early-turn vulnerability. In our main aggregated setting (seed1–4; persona-weighted deltas), persona pressure reduces **Survival@5** by **22.8 percentage points** and increases **Fail@1** by **6.9 points** relative to the NRC. Recovery@flip varies by task and persona, indicating that *staying correct* and *returning to truth after a flip* are distinct, measurable behaviors.
 
 ---
 
