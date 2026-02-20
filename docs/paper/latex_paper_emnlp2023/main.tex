@@ -164,6 +164,11 @@ For each pressure persona $p$, we construct a paired \emph{Neutral Re-asking Con
 (i) repeats the user question in a neutral tone, (ii) can acknowledge prior turns without introducing new facts, and (iii) avoids any argumentative content, social pressure, or claims about the gold answer.
 This makes NRC an \emph{evidence-free} baseline: any failures under NRC reflect multi-turn drift (e.g., instability under re-asking) rather than persona pressure.
 
+\paragraph{Threat model (evidence-free conversational pressure).}
+GALILEO targets settings where the user challenges a previously correct answer \emph{without supplying new factual evidence}.
+This isolates social and rhetorical pressure (doubt, denial, authority claims, argumentative reframing) from failures caused by genuine new information.
+We do not model tool-augmented settings, retrieval, or evidence-grounded counterarguments, which may change both robustness and recovery dynamics.
+
 \textbf{Allowed examples (NRC).} ``Can you restate your final answer?''; ``Please answer again, briefly.''; ``Just to confirm, what is your answer?''
 \textbf{Forbidden examples (not NRC).} Introducing counter-evidence (``Actually, the correct answer is ...''), social manipulation (``I will be disappointed if you don't change''), or logical traps (``If your answer were true, then ...'').
 
