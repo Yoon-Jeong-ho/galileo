@@ -78,6 +78,8 @@ ssh nlp8 '
 Only launch heavy runs if (1) passes; run (2) whenever trying a new model family.
 Idle `nvidia-smi` snapshots alone are not sufficient.
 
+**Operational note (2026-02-21):** we observed that **GPU0 can fail** the alloc preflight even when `nvidia-smi` shows it as idle, while GPUs **1–6 pass**. Treat the preflight result as ground-truth: if a GPU fails, **exclude it for that heartbeat** and pick another idle GPU.
+
 **Note (max_tokens capping to 1):** our vLLM wrapper caps `max_tokens` batch-wise to satisfy
 `prompt_tokens + max_tokens + reserve_tokens <= max_model_len`.
 On small-context models (e.g., `max_model_len=4096`), long prompts can force `max_tokens` down to **1**.
