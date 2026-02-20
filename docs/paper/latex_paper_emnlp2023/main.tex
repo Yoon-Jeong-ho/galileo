@@ -253,7 +253,7 @@ Survival curves can be re-expressed as a per-round failure ``hazard'' (condition
 With this convention, $\mathrm{Hazard}^{(t)}@1 = 1-\mathrm{Survival}^{(t)}@1$ is exactly Fail@1. If $\mathrm{Survival}^{(t)}@{(r-1)}=0$ (no remaining at-risk examples), the conditional hazard at round $r$ is undefined; in practice our reported plots/tables omit hazards beyond the point where the survival curve reaches zero.
 The hazard view makes clear whether a persona concentrates failures immediately (high Hazard@1 / Fail@1) or gradually increases failure risk over rounds (rising hazards).
 
-\paragraph{Turn-of-failure (TOF) and Fail@1.}
+\paragraph{Time-to-first-failure (TOF) and Fail@1.}
 Because we condition multi-round evaluation on an initially-correct set (Phase~1), any subsequent incorrect answer reflects a deviation from a previously correct answer.
 Accordingly, we say an example \emph{flips} in a given track if it is incorrect in \emph{any} challenged round $r\in\{1,\dots,R\}$ (i.e., if $c^{(t)}_{r}(x)=0$ for some $r$).
 Define the (possibly censored) first-failure time over the \emph{challenged} rounds $r\in\{1,\dots,R\}$ (the final recovery turn is \emph{not} included):
@@ -336,7 +336,7 @@ This motivates reporting full survival trajectories rather than a single-turn ac
 Because curves are computed on an initially-correct set, a drop at round $r$ corresponds to the fraction of previously-correct examples that have flipped by that round.
 Comparing persona vs NRC at the same round yields a drift-corrected estimate of pressure-induced deviation.
 
-\subsection{Turn-of-failure highlights early vulnerability}
+\subsection{Time-to-first-failure highlights early vulnerability}
 Figure~\ref{fig:fail1} reports persona-wise \(\Delta\)Fail@1.
 Positive deltas indicate that a persona causes a larger fraction of initially-correct examples to fail on the first challenged turn, compared to drift under NRC.
 At the aggregate level, Table~\ref{tab:main} shows that the persona-weighted $\Delta$Fail@1 is typically positive (e.g., Mistral-7B and Phi-3-mini show $\Delta$Fail@1\,$\approx$\,0.24--0.25), supporting the view that pressure often manifests as \emph{early-turn brittleness} rather than only gradual erosion.
