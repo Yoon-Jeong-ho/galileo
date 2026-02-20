@@ -1345,6 +1345,14 @@ Next:
 - Added `\label{sec:metrics}` to the Metrics subsection so notation references resolve.
 - Camera-ready budget now: total=8, main(pre-appendix)=6, main(excl Limitations)=4.
 
+### 2026-02-20 20:30 KST — Paper writing lane: expanded Results narrative (Survival/Fail@1 reading guide)
+
+- In `docs/paper/latex_paper_emnlp2023/main.tex`, expanded the Results section text for Survival and Fail@1:
+  - added explicit recurring patterns (gap widening with rounds; different hazard shapes)
+  - added a short reading guide for survival curves in the conditioned-on-correct setting
+  - clarified why Fail@1 complements Survival@5 and ties to the discrete hazard at r=1
+- Page budget (camera-ready) remains main(excl Limitations)=4; next expansions should target Protocol/Results further or compress tables/figures if they are blocking page growth.
+
 ### 2026-02-20 03:34 KST — Experiments lane: CUDA preflight blocker confirmed on idle GPU0
 
 - On nlp8, GPU0 appeared idle in `nvidia-smi` (0%, 1MiB), but device-level preflight failed: `CUDA_VISIBLE_DEVICES=0` + torch CUDA tensor allocation returned `cudaErrorDevicesUnavailable`.

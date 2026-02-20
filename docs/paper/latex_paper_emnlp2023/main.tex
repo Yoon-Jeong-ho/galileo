@@ -273,13 +273,23 @@ Logical Trap & -- & -- & -- & -- & -- & -- & -- & -- \\
 
 \subsection{Survival degrades under pressure beyond generic drift}
 Figure~\ref{fig:survival} shows survival curves over rounds for representative personas alongside NRC.
-A consistent pattern is that the survival gap widens with rounds: some personas induce immediate early failure (captured by Fail@1), while others erode correctness gradually across turns.
-This supports treating robustness as a trajectory-level property rather than a single scalar accuracy.
+Two patterns recur across tasks and seeds.
+First, the persona--NRC gap often \emph{widens with rounds}: even when Survival@1 is similar, repeated pressure can accumulate into a substantial Survival@5 deficit.
+Second, different personas exhibit distinct hazard shapes: some concentrate failures immediately (high Fail@1 / Hazard@1), while others gradually increase failure risk over turns.
+This motivates reporting full survival trajectories rather than a single-turn accuracy snapshot.
+
+\paragraph{How to read survival curves.}
+Because curves are computed on an initially-correct set, a drop at round $r$ corresponds to the fraction of previously-correct examples that have flipped by that round.
+Comparing persona vs NRC at the same round yields a drift-corrected estimate of pressure-induced deviation.
 
 \subsection{Turn-of-failure highlights early vulnerability}
 Figure~\ref{fig:fail1} reports persona-wise \(\Delta\)Fail@1.
 Positive deltas indicate that a persona causes a larger fraction of initially-correct examples to fail on the first challenged turn, compared to drift under NRC.
-Empirically, we observe that early-turn vulnerability differs substantially by persona, suggesting distinct pressure mechanisms (e.g., social deference vs logical contradiction).
+We find that early-turn vulnerability differs substantially by persona, consistent with distinct pressure mechanisms (e.g., deference to authority vs logical contradiction).
+
+\paragraph{Why Fail@1 is complementary to Survival@5.}
+Survival@5 aggregates failures over the full horizon, but can hide whether errors occur immediately or only after sustained interaction.
+Fail@1 isolates the first challenged turn and is exactly the discrete hazard at $r=1$ (\S\ref{sec:metrics}), making it a sensitive indicator of brittle compliance.
 
 \subsection{Recovery is a distinct axis from robustness}
 We find that ``staying correct'' and ``returning to truth after a deviation'' are separable model behaviors: personas that substantially reduce Survival@5 do not necessarily reduce Recovery@flip.
