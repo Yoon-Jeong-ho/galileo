@@ -1396,6 +1396,12 @@ Next:
 - In `docs/paper/latex_paper_emnlp2023/main.tex`, added Table~\ref{tab:main} number-anchored sentences to the Survival and Fail@1 subsections (e.g., representative $\Delta$Survival@5 and $\Delta$Fail@1 ranges across model families).
 - Re-ran `scripts/report_latex_page_budget.sh` (camera-ready): pagination shifted due to float reflow; current main(excl Limitations)=5. (Next step: stabilize float placement so added text pushes Limitations later, not earlier.)
 
+### 2026-02-21 00:06 KST — Paper development lane: stabilized floats for reliable page budgeting
+
+- In `docs/paper/latex_paper_emnlp2023/main.tex`, added `\usepackage[section]{placeins}` and inserted `\FloatBarrier` before Discussion and before Limitations.
+- This flushes outstanding floats at section boundaries, preventing pagination from swinging when small text changes are made.
+- Camera-ready page budget now: total=10, main(pre-appendix)=8, main(excl Limitations)=7 (target: 8).
+
 ### 2026-02-20 03:34 KST — Experiments lane: CUDA preflight blocker confirmed on idle GPU0
 
 - On nlp8, GPU0 appeared idle in `nvidia-smi` (0%, 1MiB), but device-level preflight failed: `CUDA_VISIBLE_DEVICES=0` + torch CUDA tensor allocation returned `cudaErrorDevicesUnavailable`.

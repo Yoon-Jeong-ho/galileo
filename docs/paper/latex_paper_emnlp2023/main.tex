@@ -40,6 +40,8 @@
 \usepackage{url}
 % Load hyperref late to avoid package option/definition clashes.
 \usepackage{hyperref}
+% Improve float placement stability for page budgeting.
+\usepackage[section]{placeins}
 % Verbatim blocks in the Appendix can be long; fvextra enables safe line breaking.
 \usepackage{fvextra}
 
@@ -357,6 +359,7 @@ This cross-family replication reduces the risk that our main findings are an art
 \subsection{Decoding sensitivity}
 We include a decoding sweep to test whether persona--NRC gaps persist across temperatures; see Appx.~\ref{sec:appendix-extra-results}.
 
+\FloatBarrier
 \section{Discussion}
 \label{sec:discussion}
 
@@ -370,6 +373,7 @@ We include a decoding sweep to test whether persona--NRC gaps persist across tem
   \item \textbf{Practical evaluation guidance.} For deployed assistants, we recommend reporting (i) Survival@1..R, (ii) Fail@1, (iii) Recovery@flip, and always pairing pressure prompts with an evidence-free matched control like NRC.
 \end{itemize}
 
+\FloatBarrier
 \section{Limitations}
 \label{sec:limitations}
 \pagemark{LIMITATIONS_SECTION_START}
