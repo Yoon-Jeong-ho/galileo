@@ -39,8 +39,13 @@ CAPTIONS = Path("docs/paper/FIGURE_CAPTIONS.md")
 SVG_DIR = Path("docs/paper/figures")
 PDF_DIR = Path("paper_figures/pdf")
 
+LATEX_MAIN = Path("docs/paper/latex_paper_emnlp2023/main.tex")
+LATEX_FIG_DIR = Path("docs/paper/latex_paper_emnlp2023/figures")
+
 
 INCLUDE_RE = re.compile(r"\\includegraphics\[[^\]]*\]\{figures/([^}]+)\}")
+# Minimal LaTeX includegraphics matcher for our paper SSOT (no full TeX parsing).
+LATEX_INCLUDE_RE = re.compile(r"\\includegraphics(?:\[[^\]]*\])?\{([^}]+)\}")
 ARTIFACT_RE = re.compile(r"docs/paper/artifacts/([^\s`]+?\.csv)")
 
 
@@ -56,10 +61,10 @@ def main() -> int:
     draft_text = _read(DRAFT)
     caption_text = _read(CAPTIONS) if CAPTIONS.exists() else ""
 
-    # ---- Figure assets ----
+    # ---- Figure assets (Markdown draft) ----
     fig_names = INCLUDE_RE.findall(draft_text)
     if not fig_names:
-        print("[WARN] no \\includegraphics{figures/...} references found")
+        print("[WARN] no \\includegraphics{figures/...} references found in markdown draft")
     else:
         missing_figs = []
         for name in sorted(set(fig_names)):
@@ -69,12 +74,46 @@ def main() -> int:
                 missing_figs.append((name, svg, pdf))
 
         if missing_figs:
-            print(f"[FAIL] {len(missing_figs)} missing figure asset(s)")
+            print(f"[FAIL] {len(missing_figs)} missing figure asset(s) referenced in markdown draft")
             for name, svg, pdf in missing_figs:
                 print(f"- figures/{name}: missing both {svg} and {pdf}")
             return 1
 
         print(f"[OK] figures referenced in draft: {len(set(fig_names))}; all assets present")
+
+    # ---- Figure assets (LaTeX SSOT) ----
+    if LATEX_MAIN.exists():
+        tex_text = _read(LATEX_MAIN)
+        tex_paths = [p for p in LATEX_INCLUDE_RE.findall(tex_text) if p.startswith("figures/")]
+        if not tex_paths:
+            print("[WARN] no figures/... \\includegraphics references found in LaTeX main.tex")
+        else:
+            missing_tex = []
+            for p in sorted(set(tex_paths)):
+                stem = p[len("figures/") :]
+                # LaTeX may resolve extensions; we check common ones we generate.
+                candidates = [
+                    LATEX_FIG_DIR / f"{stem}.pdf",
+                    LATEX_FIG_DIR / f"{stem}.png",
+                    LATEX_FIG_DIR / f"{stem}.jpg",
+                    LATEX_FIG_DIR / f"{stem}.jpeg",
+                    LATEX_FIG_DIR / f"{stem}.svg",
+                ]
+                if not any(c.exists() for c in candidates):
+                    missing_tex.append((p, candidates))
+
+            if missing_tex:
+                print(f"[FAIL] {len(missing_tex)} missing figure asset(s) referenced in LaTeX main.tex")
+                for p, candidates in missing_tex:
+                    cand_str = ", ".join(str(c) for c in candidates)
+                    print(f"- {p}: none found among [{cand_str}]")
+                return 1
+
+            print(
+                f"[OK] figures referenced in LaTeX main.tex: {len(set(tex_paths))}; all assets present"
+            )
+    else:
+        print(f"[WARN] missing LaTeX main.tex (skipping LaTeX asset audit): {LATEX_MAIN}")
 
     # ---- Artifact CSV assets ----
     artifact_names = ARTIFACT_RE.findall(draft_text + "\n" + caption_text)

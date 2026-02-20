@@ -62,6 +62,10 @@ docs/paper/acl_style_files/
 
 # LaTeX build artifacts (generated)
 # Keep the repo clean when compiling the paper locally.
+
+# NOTE: typo/accidental directory seen in past runs; ignore to prevent accidental adds.
+docs/paper/latex_paper_emnlp202p2023/
+
 docs/paper/latex_skeleton/*.aux
 docs/paper/latex_skeleton/*.bbl
 docs/paper/latex_skeleton/*.blg
