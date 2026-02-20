@@ -120,6 +120,12 @@ We complement robustness metrics with \emph{Recovery@flip}, explicitly separatin
 We cover math (GSM8K \citep{cobbe2021trainingverifiers}, SVAMP \citep{patel2021svamp}), extractive QA (SQuAD \citep{rajpurkar2016squad}), multiple-choice QA (ARC-Easy \citep{clark2018thinkyouhave}), and open-domain QA (TriviaQA \citep{joshi2017triviaqa}), using standard evaluation splits.
 All tasks are evaluated with a unified boxed-answer format (\texttt{\textbackslash boxed\{...\}}) and a task-specific scorer.
 
+\paragraph{Auditability of scoring and extraction.}
+Because our goal is to measure deviation from a previously correct answer, we choose tasks with deterministic gold answers and evaluation rules that are easy to audit.
+For each example, the runner records the full multi-turn trajectory and extracts a final answer string (boxed format) using deterministic parsing.
+We then score exact match (with task-specific normalization where required) against the gold answer.
+All per-example trajectories and derived metrics are exported as CSV alongside metadata, enabling post-hoc verification and figure regeneration.
+
 Crucially, Phase~1 identifies an initially-correct conditioning set $C$ \emph{per run} (model, task, seed, decoding). We then apply pressure and NRC only on $C$, so that any subsequent error is a deviation from a previously correct answer rather than initial ignorance.
 
 \section{Protocol}
