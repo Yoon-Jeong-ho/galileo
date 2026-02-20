@@ -76,10 +76,20 @@ Before launching on a GPU, **fingerprint what is already on it** (and do not ass
 **Quoting pitfall (ssh + awk):** if you ever run `awk` inside an `ssh '...` one-liner, ensure the awk program is single-quoted or the `$1` gets expanded by the *local* shell (leading to confusing errors like `awk: (>=4 && <=7){print}`). Prefer `nvidia-smi -i <gpu-list>` instead.
 
 ```bash
+# Preferred (portable): list compute PIDs per GPU, then map PID -> user via ps.
+ssh nlp8 '
+  cd /data_x/aa007878/galileo || exit 1
+  bash scripts/gpu_who.sh 0 1 2 3 4 5 6
+'
+```
+
+If you need the raw PID list only (no user mapping):
+
+```bash
 ssh nlp8 '
   for i in 0 1 2 3 4 5 6; do
     echo "-- GPU $i compute apps --"
-    nvidia-smi -i $i --query-compute-apps=pid,process_name,used_memory,username --format=csv,noheader,nounits
+    nvidia-smi -i $i --query-compute-apps=pid,process_name,used_memory --format=csv,noheader,nounits
   done
 '
 ```
