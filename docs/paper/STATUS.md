@@ -27,8 +27,12 @@ Ground-truth tasks에서 multi-turn persona pressure 하에 **정답 유지(surv
   - **Observed now (nlp16):** GPUs 4/5 are heavily contended (e.g., `jslee-fusion-distill-vllm-v1` holding ~47GiB on GPU5; `eval-worker-gpu1` ~37GiB on GPU4), causing vLLM EngineCore init failures for new TP=4 starts.
   - **Action:** do not blindly relaunch vLLM when free-VRAM is low; fingerprint PIDs first.
 - **Canonical remote launcher (anti-drift):** prefer `scripts/run_multiseed_tmux.sh` (streams logs + writes `runner_metadata.json`). Other launch scripts are allowed only when explicitly justified in `results/<run>/run.log`.
-- **Validator health (paper SSOT):** `results_paper/` global validation + runner-metadata parity is **[OK]** (Tier‑1 families incl. Llama‑3.2‑3B, Phi‑3‑mini, **Mistral‑Nemo**). Incomplete runs are quarantined under `results_paper_incomplete/` to keep paper SSOT clean.
+- **Validator health (paper SSOT):** `results_paper/` global validation + runner-metadata parity is **[OK]** (Tier‑1 families incl. Llama‑3.2‑3B, Phi‑3‑mini, **Phi‑3.5‑mini**, **Mistral‑Nemo**). Incomplete runs are quarantined under `results_paper_incomplete/` to keep paper SSOT clean.
 - **Phi-3-mini Tier-1 (cross-family):** seed1–2 are **paper-ready** (validated) under `results_paper/tier1_phi3mini_seed{1,2}_20260217_*`.
+- **Phi-3.5-mini Tier-1 (cross-family):** seed1–2 are **paper-ready** (validated) and staged under:
+  - `results_paper/tier1_phi35mini_seed1_20260219_143555/`
+  - `results_paper/tier1_phi35mini_seed2_20260219_143555/`
+  - Note: these runs show near-total collapse (Survival@5=0) and `max_tokens` was capped to 1 due to `max_model_len=4096`; treat as “stress-test evidence” rather than a headline claim.
 - **Mistral-Nemo Tier-1 (cross-family):** seed1–2 are **paper-ready** under:
   - `results_paper/tier1_mistralnemo_seed1_20260217_173907/`
   - `results_paper/tier1_mistralnemo_seed2_20260217_180951/`

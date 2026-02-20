@@ -160,6 +160,15 @@ Representative commits:
 
 ## Next heartbeat plan (ONE step)
 
+### 2026-02-20 — Experiments lane: validate + stage Phi-3.5-mini seeds 1–2 into results_paper
+
+- Confirmed both runs have full `paper_exports/` including `runner_metadata.json`:
+  - `results/tier1_phi35mini_seed1_20260219_143555/paper_exports`
+  - `results/tier1_phi35mini_seed2_20260219_143555/paper_exports`
+- Ran validator on each run root: `[OK] .../paper_exports` and `[OK] runner_metadata parity`.
+- Symlink-staged both into paper SSOT `results_paper/` and refreshed global validation: `results_paper/GLOBAL_VALIDATE.log` ends with `[OK] runner_metadata parity`.
+
+
 ### 2026-02-20 — Process lane: fix GPU-occupancy check command to avoid invalid `username` query
 
 ### 2026-02-20 — Process lane: add “torch alloc preflight must pass” gating (idle != usable)
