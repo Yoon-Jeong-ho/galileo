@@ -19,10 +19,22 @@
 \usepackage{url}
 \usepackage{hyperref}
 
-% Compile-friendly helper: include a figure if the PDF snapshot exists; otherwise render a box.
+% Compile-friendly helper: include a figure snapshot if it exists; otherwise render a box.
+% Why: \includegraphics resolves extensions, but \IfFileExists does not. Many of our calls
+% omit the extension (e.g., {figures/protocol_overview}), so we probe common ones.
 % (Keeps this LaTeX skeleton robust even when only the SVG SSOTs are present.)
 \newcommand{\maybeincludegraphics}[2][]{%
-  \IfFileExists{#2}{\includegraphics[#1]{#2}}{\fbox{\texttt{Missing file: #2}}}%
+  \IfFileExists{#2}{\includegraphics[#1]{#2}}{%
+    \IfFileExists{#2.pdf}{\includegraphics[#1]{#2.pdf}}{%
+      \IfFileExists{#2.png}{\includegraphics[#1]{#2.png}}{%
+        \IfFileExists{#2.jpg}{\includegraphics[#1]{#2.jpg}}{%
+          \IfFileExists{#2.jpeg}{\includegraphics[#1]{#2.jpeg}}{%
+            \fbox{\texttt{Missing file: #2(.pdf/.png/.jpg)}}%
+          }%
+        }%
+      }%
+    }%
+  }%
 }
 
 % Better fixed-width columns for long artifact paths.
