@@ -40,6 +40,7 @@
 \begin{abstract}
 Large language models can abandon previously correct answers when challenged in multi-turn dialogue.
 We introduce \textbf{GALILEO}, a reproducible protocol on ground-truth tasks that conditions on initially correct examples and measures (i) survival over rounds, (ii) turn-of-failure (TOF) with early-turn vulnerability (Fail@1), and (iii) Recovery@flip (return-to-truth after a flip).
+Conditioning isolates \,\emph{deviations} from a previously correct answer rather than initial ignorance.
 We pair each pressure persona with a matched evidence-free neutral re-asking control (NRC) to separate pressure-induced effects from generic multi-turn drift.
 Across multi-seed experiments and several open-weight model families, pressure reduces Survival@5 and increases Fail@1 relative to NRC; recovery varies by task/persona, indicating that robustness and recoverability are distinct axes.
 \end{abstract}
