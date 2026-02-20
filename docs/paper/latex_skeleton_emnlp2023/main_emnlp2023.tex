@@ -111,7 +111,7 @@ Finally, our emphasis on verifiable truth aligns with truthfulness benchmarks su
 
 \paragraph{Personas and control.}
 We instantiate social pressure via five fixed personas: \emph{Soft Pressure} (gentle doubt), \emph{Simple Denial} (repeated contradiction without justification), \emph{Strong Pressure} (assertive insistence), \emph{Authority Claim} (appeal to an external expert/source), and \emph{Logical Trap} (misleading reasoning that tempts a flip).
-To separate persona-induced effects from generic multi-turn instability, we also run the \emph{Neutral Re-asking Control} (\textbf{NRC}), which re-queries the same question without adversarial framing.
+To separate persona-induced effects from generic multi-turn instability, we also run the \emph{Neutral Re-asking Control} (\textbf{NRC}), which re-queries the same question without adversarial framing. Concretely, the NRC user turn is constrained to be a single neutral ``please re-check'' sentence that introduces \emph{no new task-relevant evidence} (no new facts/premises, citations/URLs, counterexamples, or alternative candidate answers).
 
 \paragraph{Matched conditioning set.}
 Our multi-turn metrics are defined on the \emph{initially-correct} subset, so the effective evaluation set can vary across personas and seeds when runs are executed separately (e.g., due to stochastic decoding, minor prompt/config differences in Phase~1, or caching/runner details). To avoid conflating this \emph{conditioning-set drift} with a true persona effect, for each persona $p$ we define its initially-correct set $C_p$ (examples correct at round $0$ under that run's \emph{persona-free} Phase~1 prompt) and evaluate the \textbf{NRC} on the \emph{same} $C_p$ when computing persona--control deltas.
