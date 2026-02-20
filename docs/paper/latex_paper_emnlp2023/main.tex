@@ -55,6 +55,10 @@
 \newcommand{\RecoveryAtFlip}{\textsc{Recovery}@flip}
 \newcommand{\TOF}{\textsc{TOF}}
 
+% Acronym macros (consistent small-caps + easier global edits)
+\newcommand{\GALILEO}{\textsc{GALILEO}}
+\newcommand{\NRC}{\textsc{NRC}}
+
 % Page-budget markers (for PDF-first workflow).
 % These print page numbers into the LaTeX log so scripts can compute
 % "main content pages excluding Limitations" without manual PDF inspection.
@@ -69,7 +73,7 @@
 
 \begin{abstract}
 Large language models can abandon previously correct answers when repeatedly challenged \emph{without new evidence}---a multi-turn failure mode that single-turn accuracy does not reveal.
-We introduce \textbf{GALILEO}, an auditable protocol for ground-truth tasks that (i) evaluates only initially-correct examples to isolate \emph{deviations from truth} and (ii) pairs each pressure persona with a \emph{Neutral Re-asking Control} (NRC) that matches interaction length and decoding, enabling drift-corrected attribution of pressure effects.
+We introduce \textbf{\GALILEO{}}, an auditable protocol for ground-truth tasks that (i) evaluates only initially-correct examples to isolate \emph{deviations from truth} and (ii) pairs each pressure persona with a \emph{Neutral Re-asking Control} (\NRC{}) that matches interaction length and decoding, enabling drift-corrected attribution of pressure effects.
 Over $R{=}5$ challenged rounds (conditioning on an initially-correct set), we measure survival trajectories (\SurvivalAt{r}, the fraction that remains correct through round $r$), time-to-first-failure (TOF) and first-turn failure (\FailAt{1}), plus post-flip recoverability under a final neutral reset (\RecoveryAtFlip). We also export per-example transcripts for verification.
 Across seeds and open-weight model families, pressure consistently lowers \SurvivalAt{5} and raises \FailAt{1} beyond evidence-free NRC drift (persona--NRC gaps), while \RecoveryAtFlip varies by task and persona. In our main aggregated setting (seed1--4; equal-weight average over the five personas and five tasks), pressure reduces \SurvivalAt{5} by 22.8 percentage points and increases \FailAt{1} by 6.9 points relative to NRC.
 Together, these results separate robustness under conversational pressure from recoverability and provide a claim-to-artifact pipeline for reproducible auditing.
@@ -82,7 +86,7 @@ Single-turn accuracy obscures interaction dynamics that matter in deployed assis
 For example, a user may repeatedly insist that the model \emph{itself} made a mistake (``Are you sure? Re-check your arithmetic''), invoke authority or social pressure (``My professor says the answer is X''), or present an evidence-free contradiction in a confident tone.
 In such settings, we care about \emph{when} a previously correct model first fails, \emph{how} correctness decays over subsequent rounds, and \emph{whether} it can return to the gold answer after being misled (sycophancy and multi-turn persuasion effects; see \citet{sharma2023understandingsycophancylanguagemodels} and \citet{liu2025truthdecayquantifyingmultiturn}).
 
-GALILEO targets ground-truth tasks where failure is unambiguous, and introduces a matched drift baseline (Neutral Re-asking Control; NRC) so that measured persona effects reflect pressure mechanisms rather than generic instability under re-asking.
+\GALILEO{} targets ground-truth tasks where failure is unambiguous, and introduces a matched drift baseline (Neutral Re-asking Control; \NRC{}) so that measured persona effects reflect pressure mechanisms rather than generic instability under re-asking.
 
 \paragraph{Design goals and questions.}
 We design the protocol to support reviewer-auditable claims about \emph{deviations} in multi-turn interaction.
@@ -95,9 +99,9 @@ This yields three concrete evaluation questions:
 Without conditioning, multi-turn error rates confound \emph{ignorance} (never knew the answer) with \emph{deviation} (abandoned a previously correct answer).
 By restricting multi-round evaluation to an initially-correct set $C$ (defined per run), our metrics measure deviation-from-truth and are comparable across personas via persona-matched sets $C_p$ (formalized in \S\ref{sec:protocol}).
 
-\paragraph{Why a matched neutral control (NRC)?}
+\paragraph{Why a matched neutral control (\NRC{})?}
 Even evidence-free re-asking can induce drift across turns.
-NRC provides the counterfactual where the conversation length and decoding match the persona track but the pressure mechanism is removed, so we report drift-corrected persona effects as \emph{persona -- NRC} gaps throughout (Table~\ref{tab:main}, Fig.~\ref{fig:survival}, Fig.~\ref{fig:fail1}).
+\NRC{} provides the counterfactual where the conversation length and decoding match the persona track but the pressure mechanism is removed, so we report drift-corrected persona effects as \emph{persona -- \NRC{}} gaps throughout (Table~\ref{tab:main}, Fig.~\ref{fig:survival}, Fig.~\ref{fig:fail1}).
 
 \paragraph{Contributions.}
 \begin{itemize}[leftmargin=*]
