@@ -1467,3 +1467,9 @@ Next:
 ef{fig:protocol}).
 - Added paper-facing preflight automation (citations/acronyms/assets) and wired asset preflight into anonymized bundler to fail fast if refs break.
 
+
+### 2026-02-21 04:30 KST — Experiments/dev lane: nlp8 repo sync + per-GPU CUDA preflight (GPU0 excluded)
+
+- On nlp8, verified GPUs 0–6 look idle via nvidia-smi, then ran scripts/check_cuda_preflight.py per GPU: GPU0 FAIL, GPUs1–6 OK; decision: exclude GPU0 for launches until it recovers.
+- Updated runbook with this operational note.
+
