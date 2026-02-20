@@ -29,14 +29,18 @@ Remote experiments:
 - Host: `ssh nlp8`
 - Repo: `/data_x/aa007878/galileo`
 
-**Anti-drift override:** if any other heartbeat/poll text mentions `nlp16`, `/mnt/raid6/...`, or GPUs beyond 4/5/6, ignore it. For EMNLP Main, all experiment work (monitoring/launch/export/validate) is **nlp8 + GPUs 4/5/6 only**.
+**Anti-drift override:** if any other heartbeat/poll text mentions `nlp16`, `/mnt/raid6/...`, or a fixed GPU allowlist like `4,5,6,7`, ignore it. For EMNLP Main, all experiment work (monitoring/launch/export/validate) is **nlp8 + GPUs 0–6**, but **ONLY** on GPUs that are truly idle (not used by other users).
 
 Experiment policy:
-- Allowed GPUs: **4,5,6 only** (`CUDA_VISIBLE_DEVICES=4,5,6`).
+- Allowed GPU range on nlp8: **0–6** (dynamic selection; pick only GPUs that are idle).
+- Before launching, require both:
+  - `nvidia-smi` snapshot looks idle, and
+  - a CUDA preflight passes (e.g., `python scripts/check_cuda_preflight.py` with the chosen `CUDA_VISIBLE_DEVICES=<gpu>`), to avoid the observed `cudaErrorDevicesUnavailable` despite “idle” snapshots.
+- Set `CUDA_VISIBLE_DEVICES=<picked_gpu_id>` (or comma-list if intentionally multi-GPU).
 - Use **tmux**.
 - Avoid CPU overload.
-- Parallel runs allowed: up to **1 run/GPU** (max 3 concurrent runs) with isolated `OUT=results/<run>/`.
-- Every heartbeat: check `tmux ls` + `nvidia-smi -i 4,5,6` + tail `run.log` (and `GLOBAL_VALIDATE.log` if present) **before** launching new runs.
+- Parallel runs allowed: up to **1 run/GPU** (max ~3 concurrent runs) with isolated `OUT=results/<run>/`.
+- Every heartbeat: check `tmux ls` + `nvidia-smi` (+ compute-apps query) and tail the relevant `run.log` (and `GLOBAL_VALIDATE.log` if present) **before** launching new runs.
 
 Reporting (always):
 - What you did (file paths, or 'no change')
