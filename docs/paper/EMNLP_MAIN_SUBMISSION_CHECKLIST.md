@@ -101,6 +101,9 @@ Recommended artifacts to cite in-paper:
   - Page budgeting (PDF-first SSOT): `bash scripts/report_latex_page_budget.sh` (camera-ready build; auto-generates Table~1 rows before compile).
 - [ ] One table: turn-of-failure distribution or Fail@1 / Never-fail.
 - [ ] One table: recovery conditional on flipping.
+- [ ] If using Overleaf / external LaTeX builds: ensure Table~1 row snapshot is up-to-date:
+  - regenerate: `python3 scripts/gen_latex_table1_from_artifacts.py --out docs/paper/latex_paper_emnlp2023/generated/table1_rows.tex`
+  - sync snapshot: `cp docs/paper/latex_paper_emnlp2023/generated/table1_rows.tex docs/paper/latex_paper_emnlp2023/static/table1_rows.tex`
 - [ ] **Aggregation clarity (avoid Table~W confusion):**
   - [ ] Table~W caption states whether it is **matched persona-wise** vs **pooled across personas**.
   - [ ] If pooled, caption specifies the weighting (e.g., weights proportional to \(|C_p|\) or uniform over personas/examples).
