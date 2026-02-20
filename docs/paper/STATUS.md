@@ -124,14 +124,15 @@ Ground-truth tasks에서 multi-turn persona pressure 하에 **정답 유지(surv
 
 ## 4) NEXT HEARTBEAT (ONE step)
 
-**LaTeX packaging: confirm the correct EMNLP year template + ensure our PDF-figure pipeline integrates cleanly.**
+**Paper presentation lock: add a reviewer-first Main Table + Figures plan (no more “no main table / vague figures”).**
 
 - Immediate one-step plan:
-  1) Fetch/pin the current official ACL style snapshot (helper: `bash scripts/get_acl_style_files.sh <ref>`). **Pinned ref (current):** `2353f3ea58abf3fc4d2ee08e8d0cd2fe749f25a9`.
-     - Note: downloaded files live under `docs/paper/acl_style_files/<ref>/` and are gitignored (vendor snapshot for local builds).
-     - Then either (a) add a `latex_skeleton_emnlp20XX/` dir matching the current year, or (b) confirm that `docs/paper/latex_skeleton_emnlp2023/` is acceptable for this cycle.
-  2) Ensure figure includes are consistent with the PDF-first policy (SVG is SSOT; PDFs under `paper_figures/pdf/`).
-  3) Run the existing LaTeX smoke-test (`docs/paper/latex_skeleton_emnlp2023/main_emnlp2023.tex`) and record PASS in `STATUS.md`.
+  1) Define the **single** main summary table spec (Table 1) + which artifacts/runs back each cell.
+  2) Define the **minimum figure set** (protocol + main results + generalization + decoding sweep) and enforce provenance.
+  3) Set a hard section-length budget (Intro/Method/Results/Related) to prevent uneven coverage.
+
+- SSOT file:
+  - `docs/paper/MAIN_TABLE_AND_FIGURES_PLAN.md`
 
 - Working checklist:
   - `docs/paper/EMNLP_MAIN_SUBMISSION_CHECKLIST.md`

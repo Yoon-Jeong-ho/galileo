@@ -160,9 +160,11 @@ Representative commits:
 
 ## Next heartbeat plan (ONE step)
 
-**Paper: reduce reviewer cognitive load by standardizing NRC usage without repeated re-expansion.**
+**Paper: lock a reviewer-first presentation skeleton (Main Table + Figures), so we don’t fail on “no main table / vague figures / uneven section lengths”.**
 
-- Deliverable: keep only the first “Neutral Re-asking Control (NRC)” expansion in `docs/paper/PAPER_DRAFT_EN.md`; thereafter use “NRC” consistently (including bullets/captions).
+- Deliverable:
+  - New SSOT: `docs/paper/MAIN_TABLE_AND_FIGURES_PLAN.md`
+  - Defines Table 1 spec (rows/cols, evidence pointers), minimum figure set, and section-length budget.
 
 ---
 
@@ -1280,6 +1282,7 @@ Next:
 
 ### 2026-02-20 (am) — Paper guardrails: proof pointers + preflight automation
 
-- EN draft: standardized NRC expansion to appear once (Abstract) and avoided re-expansions across Protocol/Related Work; added minimal proof pointers in Abstract + one section-pointer sentence in Intro (§2 + NRC + Fig.~ef{fig:protocol}).
+- EN draft: standardized NRC expansion to appear once (Abstract) and avoided re-expansions across Protocol/Related Work; added minimal proof pointers in Abstract + one section-pointer sentence in Intro (§2 + NRC + Fig.~
+ef{fig:protocol}).
 - Added paper-facing preflight automation (citations/acronyms/assets) and wired asset preflight into anonymized bundler to fail fast if refs break.
 
