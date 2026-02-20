@@ -23,6 +23,7 @@ Ground-truth tasks에서 multi-turn persona pressure 하에 **정답 유지(surv
 - We are in a **10-min heartbeat loop**; each heartbeat must deliver **one primary lane** result and keep continuity via `STATUS.md` + `HEARTBEAT_LOG.md`.
 - **Remote experiments SSOT (confirmed):** paper-ready SSOT is **nlp8** (repo `/data_x/aa007878/galileo`, GPUs **0–6**, but **ONLY** those not used by other users). Heartbeat banner references to `nlp16` are stale.
 - **Idle-GPU usage clarification (2026-02-20):** when GPUs 0/1 are idle on nlp8, they are valid launch targets under SSOT policy (0–6 idle-only). We should not wait for 4–6-only windows because the heartbeat banner text is stale.
+- **GPU occupancy check fix (2026-02-20):** `nvidia-smi --query-compute-apps` does **not** support a `username` field on this host; use PID→user mapping via `ps` if needed.
   - **Observed now (nlp16):** GPUs 4/5 are heavily contended (e.g., `jslee-fusion-distill-vllm-v1` holding ~47GiB on GPU5; `eval-worker-gpu1` ~37GiB on GPU4), causing vLLM EngineCore init failures for new TP=4 starts.
   - **Action:** do not blindly relaunch vLLM when free-VRAM is low; fingerprint PIDs first.
 - **Canonical remote launcher (anti-drift):** prefer `scripts/run_multiseed_tmux.sh` (streams logs + writes `runner_metadata.json`). Other launch scripts are allowed only when explicitly justified in `results/<run>/run.log`.

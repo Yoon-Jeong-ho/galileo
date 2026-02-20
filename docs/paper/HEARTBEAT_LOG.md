@@ -160,6 +160,13 @@ Representative commits:
 
 ## Next heartbeat plan (ONE step)
 
+### 2026-02-20 — Process lane: fix GPU-occupancy check command to avoid invalid `username` query
+
+- Observed that `nvidia-smi --query-compute-apps=...,username` fails on nlp8 (field not supported).
+- Updated the heartbeat/runbook guidance to use `--query-compute-apps=gpu_uuid,pid,process_name,used_memory` and map PID→user via `ps` when we must enforce the “idle-only / not used by other users” policy.
+- This reduces silent false-negatives during GPU selection.
+
+
 **Paper: lock a reviewer-first presentation skeleton (Main Table + Figures), so we don’t fail on “no main table / vague figures / uneven section lengths”.**
 
 - Deliverable:
