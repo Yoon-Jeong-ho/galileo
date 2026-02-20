@@ -521,6 +521,42 @@ Separately, work on **self-verification / verify-then-answer** (e.g., Chain-of-V
 
 Unless stated otherwise, results are reported as mean±std over **seeds 1–4** (Qwen2.5-7B-Instruct; 80 samples/seed) from **auditable green** runs, with paper-ready exports under `results/<run>/paper_exports/` and small, tracked summary artifacts under `docs/paper/artifacts/`. When discussing flips, we treat aggregate flip rates as a *robustness* signal rather than a direct measure of semantic belief change. In extractive QA in particular, strict EM can over-count near-misses (boundary/overanswer; partial-overlap), so we additionally interpret flips via a qualitative taxonomy (diagnostic only) and report semantic-change cases separately (Appendix~A.2). Importantly, taxonomy labels are computed post-hoc from flip samples and are **not** used to recompute survival/TOF/recovery; our primary metrics remain defined on the standard evaluator outputs for reproducibility.
 
+### 7.0 One-stop summary (Main Table)
+
+**Main Table (Table~\ref{tab:main-results}).** Before decomposing by persona and metric, Table~\ref{tab:main-results} provides a reviewer-first summary of the three core outcomes—**Survival@5**, **Fail@1**, and **recovery@flip**—each reported as **Control (NRC) vs Persona** plus their deltas. Each row is a model family (Tier‑1; seeds 1–2 unless noted) under the **same protocol**, enabling quick cross-family generalization checks.
+
+**Sign convention (paper-wide):** \(\Delta\) is always **persona − control** on the matched initially-correct set (so negative \(\Delta\)Survival@5 means persona pressure reduces survival beyond drift).
+
+```latex
+% Table 1 (skeleton): one-stop summary across model families.
+% Populate with tracked artifacts under docs/paper/artifacts/ and paper-ready runs under results_paper/.
+% Prefer persona-weighted aggregates; report mean±std across seeds.
+\begin{table*}[t]
+  \centering
+  \small
+  \setlength{\tabcolsep}{5pt}
+  \begin{tabular}{lcccccc}
+    \toprule
+    Model (seeds) & Survival@5 (C) & Survival@5 (P) & $\Delta$S@5 & Fail@1 (C) & Fail@1 (P) & $\Delta$F@1 \\
+    \midrule
+    Qwen2.5-7B (1--4) & -- & -- & -- & -- & -- & -- \\
+    Llama-3.1-8B (1--2) & -- & -- & -- & -- & -- & -- \\
+    Mistral-7B (1--2) & -- & -- & -- & -- & -- & -- \\
+    Phi-3-mini (1--2) & -- & -- & -- & -- & -- & -- \\
+    Llama-3.2-3B (1--2) & -- & -- & -- & -- & -- & -- \\
+    Mistral-Nemo (1--2) & -- & -- & -- & -- & -- & -- \\
+    Qwen2.5-14B (1--2) & -- & -- & -- & -- & -- & -- \\
+    \midrule
+    & Recovery@flip (C) & Recovery@flip (P) & $\Delta$Rec & \multicolumn{3}{r}{\emph{(Recovery columns can be split into a second panel if space is tight.)}} \\
+    \bottomrule
+  \end{tabular}
+  \caption{\textbf{Main results (one-stop summary).} Survival@5, Fail@1, and recovery@flip for persona pressure (P) versus the Neutral Re-asking Control (C), aggregated over tasks and personas (persona-weighted unless stated). $\Delta$ is persona minus control on the matched initially-correct set. Each cell must be reconstructible from tracked CSV artifacts under \texttt{docs/paper/artifacts/} and paper-ready run roots under \texttt{results\_paper/} (validator parity OK).}
+  \label{tab:main-results}
+\end{table*}
+```
+
+(SSOT plan for what goes into Table~\ref{tab:main-results}: `docs/paper/MAIN_TABLE_AND_FIGURES_PLAN.md`.)
+
 ### 7.1 Main robustness dynamics: survival curves (supports C1, C2)
 
 **Figure X (Survival curves).** Persona-wise survival over rounds `r=1..R` on the main benchmark(s).
