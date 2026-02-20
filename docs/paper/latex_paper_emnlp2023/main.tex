@@ -312,7 +312,8 @@ Figures in this section decompose Table~\ref{tab:main} into dynamics (Fig.~\ref{
 
 \paragraph{Persona-weighted aggregate (for compact reporting).}
 Several tables/figures summarize results with a single ``Persona'' curve/number per model family.
-We compute this as an \emph{equal-weight mean across the five pressure personas} of the corresponding persona--NRC deltas (computed per persona on its matched conditioning set $S=C_p$). Concretely, for a metric $m$ and persona set $\mathcal{P}$,
+We compute this as an \emph{equal-weight mean across the five pressure personas} of the corresponding persona--NRC deltas (computed per persona on its matched conditioning set $S=C_p$). \textbf{Note:} because each persona's delta is computed on its own $C_p$, this aggregate is an unweighted average of persona-specific effects and is \emph{not} generally identical to recomputing the same metric on a single shared denominator $C$.
+Concretely, for a metric $m$ and persona set $\mathcal{P}$,
 \begin{align}
 \Delta \bar{m} \;=\; \frac{1}{|\mathcal{P}|} \sum_{p\in\mathcal{P}} \Big(m^{(p)} - m^{(\mathrm{NRC},p)}\Big),
 \end{align}
