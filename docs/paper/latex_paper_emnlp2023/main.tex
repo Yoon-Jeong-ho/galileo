@@ -147,6 +147,16 @@ Crucially, Phase~1 identifies an initially-correct conditioning set $C$ \emph{pe
 \textbf{Phase 2 (multi-round pressure vs NRC).} Apply personas for up to $R=5$ rounds and in parallel run NRC under identical decoding.
 \textbf{Phase 3 (recovery).} For examples that flip, issue a final neutral recovery prompt (per track) and measure Recovery@flip.
 
+\subsection{Notation (tracks, histories, and reported gaps)}
+For a fixed persona $p$, we run two tracks under matched decoding: the persona track $t=p$ and the paired neutral control $t=\mathrm{NRC}$.
+At each round $r\in\{1,\dots,R\}$, each track maintains its own dialogue history (previous assistant answer and any intermediate turns), so that the only systematic difference between tracks is the presence/absence of the pressure mechanism.
+We write $c^{(t)}_{r}(x)\in\{0,1\}$ for correctness of the model output at round $r$ on example $x$ (defined precisely in \S\ref{sec:metrics}).
+
+Throughout the paper, we report persona effects as paired differences
+\(\Delta m = m^{(p)} - m^{(\mathrm{NRC})}\)
+computed on the same conditioning set (typically $S=C_p$; \S\ref{sec:protocol}).
+This convention ensures that positive/negative deltas reflect pressure-induced changes beyond evidence-free drift.
+
 \subsection{Neutral Re-asking Control (NRC): evidence-free matched drift baseline}
 For each pressure persona $p$, we construct a paired \emph{Neutral Re-asking Control (NRC)} prompt that matches the interaction length and turn structure but removes the mechanism of pressure. Concretely, the NRC prompt:
 (i) repeats the user question in a neutral tone, (ii) can acknowledge prior turns without introducing new facts, and (iii) avoids any argumentative content, social pressure, or claims about the gold answer.
@@ -182,6 +192,7 @@ A persona\,–\,NRC gap for $p$ is computed using only examples in $C_p$ for \em
 However, directly comparing \emph{absolute} Survival@5 across personas is only clean when we hold the denominator fixed (use a shared $C$), which we do explicitly for cross-persona plots.
 
 \subsection{Metrics}
+\label{sec:metrics}
 We formalize the trajectory metrics used throughout. Let $x$ be an example with gold answer $a(x)$.
 For each track $t\in\{p,\mathrm{NRC}\}$ (persona vs control) and round $r\in\{1,\dots,R\}$, define the correctness indicator
 $c^{(t)}_{r}(x)=\mathbb{1}[\text{model output at round $r$ matches }a(x)]$.

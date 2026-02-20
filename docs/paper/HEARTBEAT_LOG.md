@@ -1336,6 +1336,15 @@ Next:
   - motivation for matched neutral control NRC (drift-corrected persona gaps)
 - Camera-ready page-budget moved from main(excl Limitations)=3 → 4 (now Limitations starts on p5).
 
+### 2026-02-20 20:20 KST — Paper writing lane: expanded Protocol with explicit notation + metrics anchor
+
+- In `docs/paper/latex_paper_emnlp2023/main.tex`, added a new Protocol subsection "Notation (tracks, histories, and reported gaps)" clarifying:
+  - two-track setup (persona vs NRC) under matched decoding
+  - per-track history separation
+  - delta convention \(\Delta m = m^{(p)} - m^{(\mathrm{NRC})}\)
+- Added `\label{sec:metrics}` to the Metrics subsection so notation references resolve.
+- Camera-ready budget now: total=8, main(pre-appendix)=6, main(excl Limitations)=4.
+
 ### 2026-02-20 03:34 KST — Experiments lane: CUDA preflight blocker confirmed on idle GPU0
 
 - On nlp8, GPU0 appeared idle in `nvidia-smi` (0%, 1MiB), but device-level preflight failed: `CUDA_VISIBLE_DEVICES=0` + torch CUDA tensor allocation returned `cudaErrorDevicesUnavailable`.
