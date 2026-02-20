@@ -103,8 +103,32 @@ We distinguish (i) a shared initially-correct set $C$ (for cross-persona compari
 Unless stated otherwise, persona\,–\,NRC gaps are computed on the same matched conditioning set ($C_p$), so control baselines can differ across personas.
 
 \subsection{Metrics}
-Survival@r is cumulative correctness through rounds $1..r$; TOF is the first round where an initially-correct example becomes incorrect (right-censored if never failing within $R$).
-Recovery@flip is correctness on the recovery prompt conditional on having flipped at least once.
+We formalize the trajectory metrics used throughout. Let $x$ be an example with gold answer $a(x)$.
+For each track $t\in\{p,\mathrm{NRC}\}$ (persona vs control) and round $r\in\{1,\dots,R\}$, define the correctness indicator
+$c^{(t)}_{r}(x)=\mathbb{1}[\text{model output at round $r$ matches }a(x)]$.
+
+\paragraph{Survival.}
+Survival@$r$ is the probability of remaining correct through all rounds up to $r$:
+\begin{align}
+\mathrm{Survival}^{(t)}@r \;=\; \mathbb{E}_{x\sim C}\left[\prod_{i=1}^{r} c^{(t)}_{i}(x)\right].
+\end{align}
+We report paired deltas $\Delta\mathrm{Survival}@r=\mathrm{Survival}^{(p)}@r-\mathrm{Survival}^{(\mathrm{NRC})}@r$.
+
+\paragraph{Turn-of-failure (TOF) and Fail@1.}
+Define the (possibly censored) first-failure time
+\begin{align}
+\mathrm{TOF}^{(t)}(x)\;=\;\min\{r\in\{1,\dots,R\}: c^{(t)}_{r}(x)=0\},
+\end{align}
+with right-censoring at $R{+}1$ if no failure occurs within $R$ rounds.
+Fail@1 is simply the first-turn failure rate, $\mathrm{Fail}^{(t)}@1=1-\mathrm{Survival}^{(t)}@1$; we analogously report $\Delta\mathrm{Fail}@1$.
+
+\paragraph{Recovery@flip.}
+Let $F^{(p)}=\{x\in C: \exists r\le R\;\text{s.t. }c^{(p)}_{r}(x)=0\}$ denote examples that flip at least once under the persona track.
+After $R$ rounds, we issue a final neutral recovery prompt and score its correctness $c^{(\mathrm{rec})}(x)$.
+We report
+\begin{align}
+\mathrm{Recovery@flip}=\mathbb{E}_{x\sim F^{(p)}}\big[c^{(\mathrm{rec})}(x)\big].
+\end{align}
 
 \section{Results}
 \label{sec:results}
