@@ -286,10 +286,13 @@ We report paired deltas $\Delta\mathrm{Survival}@r=\mathrm{Survival}^{(p)}@r-\ma
 Survival curves can be re-expressed as a per-round failure ``hazard'' (conditional risk). Define $\mathrm{Survival}^{(t)}@0\equiv 1$ and, for $r\ge 1$,
 \begin{align}
 \mathrm{Hazard}^{(t)}@r
-&\;=\; \Pr\Big[c^{(t)}_{r}(x)=0\,\Big|\,\prod_{i=1}^{r-1} c^{(t)}_{i}(x)=1\Big] \\
-&\;=\; 1-\frac{\mathrm{Survival}^{(t)}@r}{\mathrm{Survival}^{(t)}@{(r-1)}}.
+&\;=\; \Pr\Big[c^{(t)}_{r}(x)=0\,\Big|\,c^{(t)}_{1{:}(r-1)}(x)=1\Big] \\ 
+&\;=\; 1-\frac{\mathrm{Survival}^{(t)}@r}{\mathrm{Survival}^{(t)}@{r-1}}.
 \end{align}
-With this convention, $\mathrm{Hazard}^{(t)}@1 = 1-\mathrm{Survival}^{(t)}@1$ is exactly \FailAt{1}.
+With this convention,
+\begin{equation}
+\mathrm{Hazard}^{(t)}@1 = 1-\mathrm{Survival}^{(t)}@1 = \FailAt{1}.
+\end{equation}
 If $\mathrm{Survival}^{(t)}@{(r-1)}=0$ (no remaining at-risk examples), then the conditional hazard at round $r$ is undefined; in practice our reported plots/tables omit hazards beyond the point where the survival curve reaches zero.
 The hazard view makes clear whether a persona concentrates failures immediately (high \(\mathrm{Hazard}@1\)---equivalently, high \FailAt{1}) or gradually increases failure risk over rounds (rising hazards).
 
