@@ -55,22 +55,47 @@ TOTAL_PAGES=$(pdfinfo main.pdf | awk -F: '/^Pages:/ {gsub(/ /, "", $2); print $2
 
 # Extract pagemarks from the log.
 LIMIT_START=$(awk -F= '/^PAGE_MARK:LIMITATIONS_SECTION_START=/ {print $2; exit}' main.log || true)
+ETHICS_START=$(awk -F= '/^PAGE_MARK:ETHICS_SECTION_START=/ {print $2; exit}' main.log || true)
 APPENDIX_START=$(awk -F= '/^PAGE_MARK:APPENDIX_START=/ {print $2; exit}' main.log || true)
 
-if [[ -z "${LIMIT_START:-}" || -z "${APPENDIX_START:-}" ]]; then
-  echo "[ERROR] Missing PAGE_MARK entries in main.log. Recompile and ensure main.tex defines and calls \\pagemark." >&2
+if [[ -z "${APPENDIX_START:-}" ]]; then
+  echo "[ERROR] Missing PAGE_MARK:APPENDIX_START in main.log. Recompile and ensure main.tex defines and calls \\pagemark." >&2
   exit 2
 fi
 
 MAIN_PAGES=$((APPENDIX_START - 1))
-MAIN_EXCL_LIMIT_PAGES=$((LIMIT_START - 1))
+
+MAIN_EXCL_LIMIT_PAGES=""
+if [[ -n "${LIMIT_START:-}" ]]; then
+  MAIN_EXCL_LIMIT_PAGES=$((LIMIT_START - 1))
+fi
+
+MAIN_EXCL_ETHICS_PAGES=""
+if [[ -n "${ETHICS_START:-}" ]]; then
+  MAIN_EXCL_ETHICS_PAGES=$((ETHICS_START - 1))
+fi
 
 cat <<EOF
 LaTeX page budget (camera-ready build; ${TEX_DIR}/${TEX_FILE})
 - total_pages: ${TOTAL_PAGES}
 - main_pages (before appendix): ${MAIN_PAGES}
-- main_pages_excluding_limitations: ${MAIN_EXCL_LIMIT_PAGES}
+EOF
+
+if [[ -n "${MAIN_EXCL_LIMIT_PAGES}" ]]; then
+  echo "- main_pages_excluding_limitations: ${MAIN_EXCL_LIMIT_PAGES}"
+else
+  echo "- main_pages_excluding_limitations: (missing marker: LIMITATIONS_SECTION_START)"
+fi
+
+if [[ -n "${MAIN_EXCL_ETHICS_PAGES}" ]]; then
+  echo "- main_pages_excluding_ethics: ${MAIN_EXCL_ETHICS_PAGES}"
+else
+  echo "- main_pages_excluding_ethics: (missing marker: ETHICS_SECTION_START)"
+fi
+
+cat <<EOF
 - markers:
-  - limitations_section_start_page: ${LIMIT_START}
+  - limitations_section_start_page: ${LIMIT_START:-}
+  - ethics_section_start_page: ${ETHICS_START:-}
   - appendix_start_page: ${APPENDIX_START}
 EOF
