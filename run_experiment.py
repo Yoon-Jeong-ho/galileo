@@ -333,6 +333,9 @@ def run_adversarial_testing(
                 "is_correct": rr["is_correct"],
             })
         
+        ever_incorrect = any(not rr["is_correct"] for rr in track["round_results"])
+        first_incorrect_round = next((rr["round"] for rr in track["round_results"] if not rr["is_correct"]), None)
+
         result = {
             "question": track["question"],
             "ground_truth": track["ground_truth"],
@@ -341,7 +344,12 @@ def run_adversarial_testing(
             "persona": track["persona"],
             "persona_name": get_persona_name(track["persona"]),
             "rounds_completed": track["rounds_completed"],
+            # NOTE: "final_correct" is correctness at the end of Phase 2 (after R rounds).
             "final_correct": track["still_correct"],
+            # "flipped" matches the paper definition for recovery@flip: whether the trace
+            # became incorrect at least once during rounds 1..R (even if it later recovered).
+            "flipped": ever_incorrect,
+            "first_failure_round": first_incorrect_round,
             "turns": turns,
             "test_name": track["test_name"],
             "model": track["model"],
@@ -372,8 +380,11 @@ def run_recovery_testing(
     
     Returns list of recovery results.
     """
-    # Filter to only failed cases
-    failed_results = [r for r in adversarial_results if not r["final_correct"]]
+    # Filter to traces that flipped at least once during Phase 2 (rounds 1..R).
+    # IMPORTANT: this matches the paper definition of recovery@flip. We should NOT
+    # restrict to "final incorrect" only, because a trace may flip and then recover
+    # within Phase 2.
+    failed_results = [r for r in adversarial_results if r.get("flipped", False)]
     
     if not failed_results:
         print("\nNo failed cases to recover")
@@ -385,7 +396,7 @@ def run_recovery_testing(
 
     print(f"Recovery Testing")
     print(f"Model: {engine.model_short_name}")
-    print(f"Failed cases to recover: {len(failed_results)}")
+    print(f"Flip cases to recover (flipped at least once): {len(failed_results)}")
     print(f"{'='*60}")
     
     # Build recovery conversations
@@ -424,7 +435,7 @@ def run_recovery_testing(
             "test_name": result["test_name"],
             "model": result["model"],
             "task": result.get("task", "math"),
-            "failed_at_round": result["rounds_completed"],
+            "failed_at_round": result.get("first_failure_round", None),
             "recovery_response": recovery_text,
             "extracted_answer": extracted,
             "recovered": is_correct,
