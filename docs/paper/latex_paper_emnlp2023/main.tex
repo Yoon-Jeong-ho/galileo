@@ -287,7 +287,7 @@ We report paired deltas $\Delta\mathrm{Survival}@r=\mathrm{Survival}^{(p)}@r-\ma
 Survival curves can be re-expressed as a per-round failure ``hazard'' (conditional risk). Define $\mathrm{Survival}^{(t)}@0\equiv 1$ and, for $r\ge 1$,
 \begin{align}
 \mathrm{Hazard}^{(t)}@r
-&\;=\; \Pr\Big[c^{(t)}_{r}(x)=0\,\Big|\,c^{(t)}_{1{:}(r-1)}(x)=1\Big] \\ 
+&\;=\; \Pr\Big[c^{(t)}_{r}(x)=0\,\Big|\,\forall i<r:\; c^{(t)}_{i}(x)=1\Big] \\ 
 &\;=\; 1-\frac{\mathrm{Survival}^{(t)}@r}{\mathrm{Survival}^{(t)}@{r-1}}.
 \end{align}
 With this convention,
