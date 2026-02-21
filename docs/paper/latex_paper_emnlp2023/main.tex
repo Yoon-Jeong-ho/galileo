@@ -41,12 +41,12 @@
 \usepackage{xcolor}
 \usepackage{enumitem}
 \usepackage{url}
-% Load hyperref late to avoid package option/definition clashes.
-\usepackage{hyperref}
 % Improve float placement stability for page budgeting.
 \usepackage[section]{placeins}
 % Verbatim blocks in the Appendix can be long; fvextra enables safe line breaking.
 \usepackage{fvextra}
+% Load hyperref as late as possible to avoid package option/definition clashes.
+\usepackage{hyperref}
 
 % Helpers
 \newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
