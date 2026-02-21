@@ -88,6 +88,7 @@ Overall, \GALILEO{} separates robustness under conversational pressure from reco
 \label{sec:intro}
 
 Single-turn accuracy obscures interaction dynamics that matter in deployed assistants: a model can answer correctly and still be \emph{brittle} when a user challenges it over multiple turns.
+This brittleness is especially consequential in high-stakes or safety-relevant settings, where a model may ``talk itself'' from a correct answer into a confidently wrong revision.
 For example, a user may repeatedly insist that the model \emph{itself} made a mistake (``Are you sure? Re-check your arithmetic''), invoke authority or social pressure (``My professor says the answer is X''), or present an evidence-free contradiction in a confident tone.
 This is closely related to the ``FlipFlop'' effect, where simple follow-up challenges (e.g., ``Are you sure?'') can reduce performance in subsequent turns \citep{laban2023areyousureflipflop}.
 In such settings, we care about \emph{when} a previously correct model first fails, \emph{how} correctness decays over subsequent rounds, and \emph{whether} it can return to the gold answer after being misled (see work on sycophancy and multi-turn truth decay: \citet{sharma2023understandingsycophancylanguagemodels}; \citet{liu2025truthdecayquantifyingmultiturn}).
