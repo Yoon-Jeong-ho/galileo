@@ -1596,3 +1596,7 @@ ef{fig:protocol}).
 - Filled Table~\ref{tab:main} Recovery@flip columns for the families covered by `docs/paper/artifacts/table1_recovery_from_results_paper_20260222.csv` (computed from nlp8 recovery logs).
 - Updated `scripts/make_table1_partial_from_results_paper_exports.py` to accept `--recovery_csv` and auto-generate LaTeX rows including Recovery@flip (reported in %).
 - Remaining TODO: add Phi‑3‑mini and Mistral‑Nemo run roots back into the nlp8 `results_paper` manifest so their Recovery rows can be extracted and Table~\ref{tab:main} can be fully filled.
+### 2026-02-22 07:59 KST — Writing lane: clarify missing Recovery@flip entries in Table 1
+
+- Added an explicit note in `docs/paper/PAPER_DRAFT_EN.md` Table~\\ref{tab:main} caption and the post-table provenance paragraph explaining that Recovery@flip cells can be `--` when the underlying `recovery_accuracy.csv` is not available under the currently staged paper SSOT.
+- This avoids reviewer confusion about whether `--` means “not applicable” vs “not yet computed.”
