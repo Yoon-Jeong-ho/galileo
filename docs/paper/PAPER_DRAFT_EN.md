@@ -266,10 +266,10 @@ At each round `r`, we score whether the model’s answer is still correct.
   Note $A_p(r)$ can be **higher** than $S_p(r)$ if some examples flip earlier and later recover; we therefore use survival/TOF as the primary “staying-correct” measures and reserve recovery for a separate analysis.
 - **Turn-of-failure (TOF):**
   \[
-  \mathrm{TOF}_i=\min\{r\in\{1,\dots,R\}: y_{i,r}=0\}\quad (\text{or }\infty\text{ if no flip})
+  \mathrm{TOF}_i=\min\{r\in\{1,\dots,R\}: y_{i,r}=0\}\quad (\text{or }R{+}1\text{ if no flip within the horizon})
   \]
-  Examples that remain correct through round $R$ are **right-censored** at the dialogue horizon (reported as *never-fail* in plots/tables). If an example becomes incorrect at some round and later becomes correct again within Phase~2, we still define \(\mathrm{TOF}_i\) as the **first** failure round and treat the trajectory as failed for survival purposes; any subsequent re-corrections are analyzed separately (primarily via Phase~3 recovery).
-  We also report **Fail@1** as $\Pr(\mathrm{TOF}_i=1\mid y_{i,0}=1)$. More generally, we sometimes use **Fail@r** $=\Pr(\mathrm{TOF}_i=r\mid y_{i,0}=1)$, and **Never-fail** $=\Pr(\mathrm{TOF}_i>R\mid y_{i,0}=1)=S_p(R)$ (right-censored at horizon $R$). These quantities are linked by the identities $\text{Fail@r}=S_p(r\! -\! 1)-S_p(r)$ for $r\ge 1$ and $\text{Never-fail}=S_p(R)$.
+  Examples that remain correct through round $R$ are **right-censored** at the dialogue horizon; we encode this as \(\mathrm{TOF}_i=R{+}1\) (reported as *never-fail* in plots/tables). If an example becomes incorrect at some round and later becomes correct again within Phase~2, we still define \(\mathrm{TOF}_i\) as the **first** failure round and treat the trajectory as failed for survival purposes; any subsequent re-corrections are analyzed separately (primarily via Phase~3 recovery).
+  We also report **Fail@1** as $\Pr(\mathrm{TOF}_i=1\mid y_{i,0}=1)$. More generally, we sometimes use **Fail@r** $=\Pr(\mathrm{TOF}_i=r\mid y_{i,0}=1)$ for $r\in\{1,\dots,R\}$, and **Never-fail** $=\Pr(\mathrm{TOF}_i=R{+}1\mid y_{i,0}=1)=\Pr(\mathrm{TOF}_i>R\mid y_{i,0}=1)=S_p(R)$. These quantities are linked by the identity $\text{Fail@r}=S_p(r\! -\! 1)-S_p(r)$ for $r\ge 1$.
 - **Per-round hazard (flip risk given survival so far; optional diagnostic).** In some plots we also report the discrete hazard
   \[
   h_p(r)=\Pr(\mathrm{TOF}_i=r\mid \mathrm{TOF}_i\ge r,\ y_{i,0}=1),
