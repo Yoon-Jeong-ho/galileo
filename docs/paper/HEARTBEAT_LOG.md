@@ -1581,3 +1581,7 @@ ef{fig:protocol}).
 - Added `scripts/restage_results_paper_from_manifest.py` to rebuild the paper-only symlink root `results_paper/` from a simple CSV manifest (alias -> run_dir).
 - Added template manifest: `docs/paper/results_paper_manifest.TEMPLATE.csv`.
 - Updated `docs/paper/REMOTE_EXPERIMENTS_RUNBOOK.md` with the restage command (useful after `git clean -fd` on nlp8).
+### 2026-02-22 07:09 KST — Process/dev lane: make results_paper manifest explicitly local-only
+
+- Updated `docs/paper/REMOTE_EXPERIMENTS_RUNBOOK.md` to clarify that `docs/paper/results_paper_manifest.tsv` will contain absolute internal paths and should remain **local/untracked** (not for anonymized bundles).
+- Created a local placeholder file `docs/paper/results_paper_manifest.tsv` and excluded it via `.git/info/exclude` so it won’t accidentally get committed.
