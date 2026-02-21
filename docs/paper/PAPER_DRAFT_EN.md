@@ -54,7 +54,10 @@ Single-turn accuracy does not answer:
 - **Survival@r**: the *cumulative* fraction of initially-correct examples that remain correct at **every** turn through round *r* (i.e., correct for all turns 1..*r*, not “accuracy at round *r* only”).
 - **Flip**: a correct→incorrect transition at some point during the **multi-turn phase** (rounds 1..R). The final neutral **recovery turn** is *not* counted when defining flips/TOF.
 - **TOF (turn-of-failure)**: the *first* round (within 1..R) where an initially-correct example becomes incorrect (right-censored if it never fails within the multi-turn horizon). **Fail@1** is \(\Pr(\mathrm{TOF}=1)\).
-- **recovery@flip**: the probability of returning to the correct answer on the final neutral recovery prompt, **conditional on having flipped at least once during rounds 1..R**.
+- **recovery@flip**: the probability of returning to the correct answer on the final neutral recovery prompt (round \(R{+}1\)), **conditional on having flipped at least once during rounds 1..R**:
+  \[
+  \Pr\big(y_{i,R+1}=1\mid y_{i,0}=1\ \wedge\ \exists t\in\{1,\dots,R\}:\ y_{i,t}=0\big).
+  \]
 
 We target a practically grounded setting: tasks with **ground-truth answers** where failure is unambiguous (task setting: §2), while pressure is delivered through realistic conversational personas paired with an evidence-free drift baseline NRC (protocol: Fig.~\ref{fig:protocol}).
 
