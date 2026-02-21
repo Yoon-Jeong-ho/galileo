@@ -9,8 +9,8 @@ Scope (current):
     aggregation level), and Δ = Persona − NRC.
 
 Limitations:
-- Many summaries currently do not include absolute Fail@1 values (only persona--NRC deltas).
-  The paper table therefore reports $\Delta$Fail@1 only.
+- Recovery@flip is not yet exported in paper_exports for most Tier-1 cross-family runs; the
+  main table may omit recovery (or footnote availability) until we extend paper exports.
 
 Usage:
   python3 scripts/gen_latex_table1_from_artifacts.py \
@@ -27,6 +27,7 @@ import re
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Iterable
+from collections import defaultdict
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 ARTIFACTS_DIR = REPO_ROOT / "docs" / "paper" / "artifacts"
@@ -91,6 +92,22 @@ def _find_latest(pattern: str) -> Path:
 
 def build_rows(model_to_glob: dict[str, str]) -> list[Row]:
     out: list[Row] = []
+
+    # Prefer absolute Fail@1 from paper-ready exports when available.
+    # This makes Table 1 look “complete” across model families.
+    fail_abs_csv = None
+    try:
+        fail_abs_csv = _find_latest("table1_from_results_paper_exports_*.csv")
+    except Exception:
+        fail_abs_csv = None
+
+    fail_abs_by_model: dict[str, list[dict[str, str]]] = defaultdict(list)
+    if fail_abs_csv is not None:
+        with fail_abs_csv.open("r", newline="") as f:
+            for r in csv.DictReader(f):
+                if r.get("status") == "OK" and r.get("model"):
+                    fail_abs_by_model[r["model"].strip()].append(r)
+
     for display, glob_pat in model_to_glob.items():
         p = _find_latest(glob_pat)
         _model, rows = _read_survival_summary(p)
@@ -115,14 +132,33 @@ def build_rows(model_to_glob: dict[str, str]) -> list[Row]:
         # is the dispersion of Δ across personas.
         persona_surv_std = delta_surv_std
 
-        # Fail@1: many summaries only provide delta_fail_r1_mean/std.
-        fail_deltas = [
-            float(r["delta_fail_r1_mean"])
-            for r in persona_rows
-            if r.get("delta_fail_r1_mean") not in (None, "")
-        ]
-        fail_delta_mean = _mean(fail_deltas) if fail_deltas else None
-        fail_delta_std = _std(fail_deltas) if len(fail_deltas) >= 2 else (0.0 if fail_deltas else None)
+        # Fail@1:
+        # - Prefer absolute values from results_paper-derived artifact (mean±std over seeds).
+        # - Fall back to delta-only from tier1 summaries when abs is unavailable.
+        fail_delta_mean = None
+        fail_delta_std = None
+
+        abs_rows = fail_abs_by_model.get(display, [])
+        if abs_rows:
+            nrc_fail = [float(r["nrc_fail1"]) for r in abs_rows if r.get("nrc_fail1")]
+            p_fail = [float(r["persona_fail1"]) for r in abs_rows if r.get("persona_fail1")]
+            d_fail = [float(r["delta_fail1"]) for r in abs_rows if r.get("delta_fail1")]
+            if d_fail:
+                fail_delta_mean = _mean(d_fail)
+                fail_delta_std = _std(d_fail) if len(d_fail) >= 2 else 0.0
+            elif nrc_fail and p_fail:
+                # reconstruct from absolutes if needed
+                d = [pf - cf for pf, cf in zip(p_fail, nrc_fail)]
+                fail_delta_mean = _mean(d)
+                fail_delta_std = _std(d) if len(d) >= 2 else 0.0
+        else:
+            fail_deltas = [
+                float(r["delta_fail_r1_mean"])
+                for r in persona_rows
+                if r.get("delta_fail_r1_mean") not in (None, "")
+            ]
+            fail_delta_mean = _mean(fail_deltas) if fail_deltas else None
+            fail_delta_std = _std(fail_deltas) if len(fail_deltas) >= 2 else (0.0 if fail_deltas else None)
 
         out.append(
             Row(
