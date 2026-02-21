@@ -41,6 +41,17 @@ So local compiles should succeed even if you haven't regenerated exports.
 
 These are printed into `main.log` and can be used by helper scripts to compute page counts without manually inspecting the PDF.
 
+## Page-budget helper script
+
+For a one-command page count (camera-ready-ish build; main pages vs appendix), use:
+
+```bash
+cd /path/to/repo
+./scripts/report_latex_page_budget.sh
+```
+
+This script regenerates `generated/table1_rows.tex` (from the paper artifacts), compiles with the `CAMERAREADY` toggle, and then reads the `PAGE_MARK:*` entries from `main.log` to report counts.
+
 ## Bibliography
 
 The bib file is shared at the repo root:
