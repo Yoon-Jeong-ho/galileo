@@ -135,7 +135,7 @@ Many benchmarks focus on single-turn robustness (e.g., adversarial prompts, dist
 Recent lines of work explicitly evaluate consistency in sequential interactions and measurement instability across turns \citep{li2025firmorfickle,tosato2025persistentinstabilityllmspersonality,yu2026ptcbenchbenchmarkingcontextualstability}.
 Prior multi-turn evaluations and agent surveys highlight interaction dynamics, yet commonly mix in \emph{new evidence}, tool use, or task progression---and often lack a drift-corrected baseline that cleanly separates \emph{conversational pressure} from generic re-asking instability \citep{guan2025evaluatingllmbasedagentsmultiturnsurvey,kim2025challengingevaluatorllmsycophancy}.
 Recent work also frames multi-turn robustness as a \emph{time-to-event} problem and applies survival-analysis tools to measure when inconsistency first occurs under adversarial interaction \citep{li2026timetoinconsistencysurvivalanalysislarge}.
-\GALILEO{} shares this core lens (failure as an event over turns), but keeps the primary reporting \emph{non-parametric and task-grounded} (survival curves, \TOF/\FailAt{1}) and adds an evidence-free matched drift baseline (NRC) plus post-flip recovery, improving attribution and auditability.
+\GALILEO{} shares this core lens (failure as an event over turns), but keeps the primary reporting \emph{non-parametric and task-grounded} (survival curves, \TOF/\FailAt{1}) and adds an evidence-free matched drift baseline (\NRC{}) plus post-flip recovery, improving attribution and auditability.
 
 \paragraph{Recovery after a deviation.}
 Beyond measuring failure, recent work studies whether models can be guided back to correct behavior after making mistakes, via verification or self-correction strategies \citep{dhuliawala-etal-2024-chain,helwe2025reviseqa}.
@@ -158,7 +158,7 @@ When tasks admit multiple surface forms (e.g., whitespace, punctuation, equivale
 If extraction fails (e.g., missing box or malformed output), we mark the turn as incorrect and export the raw text so failures are auditable.
 This design ensures that reported flips correspond to observable changes in the model's stated final answer, and that rare parsing artifacts can be separated from genuine pressure-induced deviations.
 
-Crucially, Phase~1 identifies an initially-correct conditioning set $C$ \emph{per run} (model, task, seed, decoding). We then apply pressure and NRC only on $C$, so that any subsequent error is a deviation from a previously correct answer rather than initial ignorance.
+Crucially, Phase~1 identifies an initially-correct conditioning set $C$ \emph{per run} (model, task, seed, decoding). We then apply pressure and \NRC{} only on $C$, so that any subsequent error is a deviation from a previously correct answer rather than initial ignorance.
 
 \section{Protocol}
 \label{sec:protocol}
@@ -167,27 +167,27 @@ Crucially, Phase~1 identifies an initially-correct conditioning set $C$ \emph{pe
 \begin{figure}[t]
 \centering
 \fbox{\parbox{0.97\linewidth}{\small
-\textbf{Algorithm 1: \GALILEO{} evaluation for a persona $p$ and matched NRC.}\\
+\textbf{Algorithm 1: \GALILEO{} evaluation for a persona $p$ and matched \NRC{}.}\\
 \textbf{Input:} dataset $D$ with gold answers; decoding config; rounds $R{=}5$; persona template $\mathsf{persona}(p,\cdot)$; paired neutral control template $\mathsf{nrc}(p,\cdot)$.\\
 \textbf{1. Initial evaluation (define the conditioning set).} Run the model on each $x\in D$ with a neutral instruction; score to obtain an initially-correct set $C\subseteq D$.\\
 \ \ \ \emph{Notation:} we write $C$ for the Phase~1 initially-correct set. Some analyses use a shared $C$ across personas; others use per-persona $C_p$. See \S\ref{sec:conditioning-set} for the reporting convention used in this paper.\\
 
-\textbf{2. Multi-round pressure vs control on a conditioning set $S$.} Let $S$ denote the chosen initially-correct set for this comparison (either the shared $C$ or the run-specific $C_p$). \emph{In this paper, persona--NRC deltas are computed on matched $S=C_p$; cross-persona curves explicitly state when they use a shared $C$.} For each $x\in S$, iterate challenged rounds $r{=}1..R$ under matched decoding:\\
+\textbf{2. Multi-round pressure vs control on a conditioning set $S$.} Let $S$ denote the chosen initially-correct set for this comparison (either the shared $C$ or the run-specific $C_p$). \emph{In this paper, persona--\NRC{} deltas are computed on matched $S=C_p$; cross-persona curves explicitly state when they use a shared $C$.} For each $x\in S$, iterate challenged rounds $r{=}1..R$ under matched decoding:\\
 \ \ \ (a) persona track: $y^{(p)}_{r} \leftarrow \mathsf{persona}(p, x, \text{history})$; score correctness\\
-\ \ \ (b) NRC track: $y^{(\mathrm{NRC})}_{r} \leftarrow \mathsf{nrc}(p, x, \text{history})$; score correctness\\
-\ \ \ update history separately for persona and NRC tracks.\\
+\ \ \ (b) \NRC{} track: $y^{(\mathrm{NRC})}_{r} \leftarrow \mathsf{nrc}(p, x, \text{history})$; score correctness\\
+\ \ \ update history separately for persona and \NRC{} tracks.\\
 
-\textbf{3. Recovery (track-conditional).} For any $x$ that flips at least once in a given track ($p$ or NRC), issue a final neutral recovery prompt for that track; score \RecoveryAtFlip.\\
+\textbf{3. Recovery (track-conditional).} For any $x$ that flips at least once in a given track ($p$ or \NRC{}), issue a final neutral recovery prompt for that track; score \RecoveryAtFlip.\\
 \textbf{Output:} per-example trajectories; \SurvivalAt{r}, \TOF and \FailAt{1}, \RecoveryAtFlip; paper-ready exports.
 }}
 \vspace{-2mm}
-\caption{Protocol summary. Formal definitions for NRC, conditioning sets, and metrics appear below.}
+\caption{Protocol summary. Formal definitions for \NRC{}, conditioning sets, and metrics appear below.}
 \label{fig:algo}
 \end{figure}
 
 \subsection{Three phases}
 \textbf{Phase 1 (initial evaluation).} Identify the initially-correct subset.
-\textbf{Phase 2 (multi-round pressure vs NRC).} Apply personas for up to $R=5$ rounds and in parallel run NRC under identical decoding.
+\textbf{Phase 2 (multi-round pressure vs \NRC{}).} Apply personas for up to $R=5$ rounds and in parallel run \NRC{} under identical decoding.
 \textbf{Phase 3 (recovery).} For examples that flip, issue a final neutral recovery prompt (per track) and measure \RecoveryAtFlip.
 
 \paragraph{Evidence-free pressure, matched-length control.}
@@ -198,8 +198,8 @@ This design separates pressure-induced deviation from generic multi-turn re-aski
 \subsection{Conditioning-set choices (shared $C$ vs per-persona $C_p$)}
 \label{sec:conditioning-set}
 Phase~1 defines an initially-correct set by scoring a neutral first response. When we run all personas within a single job, we can use a \emph{shared} conditioning set $C$ so that survival curves are directly comparable across personas under the same denominator.
-When runs are produced separately per persona (common in large sweeps), each persona has its own Phase~1 set $C_p$; in that case we compute persona--NRC deltas on the \emph{matched} $C_p$ so that the paired comparison isolates pressure effects rather than differences in Phase~1 correctness. This avoids conflating ``pressure'' with the fact that different personas may condition on slightly different initially-correct subsets.
-Unless stated otherwise, this paper reports (i) persona--NRC deltas on matched $C_p$, and (ii) cross-persona plots on an explicitly shared $C$. 
+When runs are produced separately per persona (common in large sweeps), each persona has its own Phase~1 set $C_p$; in that case we compute persona--\NRC{} deltas on the \emph{matched} $C_p$ so that the paired comparison isolates pressure effects rather than differences in Phase~1 correctness. This avoids conflating ``pressure'' with the fact that different personas may condition on slightly different initially-correct subsets.
+Unless stated otherwise, this paper reports (i) persona--\NRC{} deltas on matched $C_p$, and (ii) cross-persona plots on an explicitly shared $C$. 
 
 \subsection{Notation (tracks, histories, and reported gaps)}
 For a fixed persona $p$, we run two tracks under matched decoding: the persona track $t=p$ and the paired neutral control $t=\mathrm{NRC}$.
@@ -213,21 +213,21 @@ This convention ensures that positive/negative deltas reflect pressure-induced c
 
 \paragraph{Auditability and exported metadata.}
 To make every table/figure traceable, each run exports machine-readable metadata (e.g., \path{paper_exports/metadata.json} and \path{paper_exports/runner_metadata.json}) including: model identifier, seeds, decoding parameters, persona/NRC prompt variants, and conditioning-set sizes (\(|C|\) or \(|C_p|\)).
-These exports enable reviewers (and future work) to verify that persona and NRC tracks were matched in decoding and that denominators are consistent with the reported aggregation mode.
+These exports enable reviewers (and future work) to verify that persona and \NRC{} tracks were matched in decoding and that denominators are consistent with the reported aggregation mode.
 
-\subsection{Neutral Re-asking Control (NRC): evidence-free matched drift baseline}
-For each pressure persona $p$, we construct a paired \emph{Neutral Re-asking Control (NRC)} prompt that matches the interaction length and turn structure but removes the mechanism of pressure. Concretely, the NRC prompt:
+\subsection{Neutral Re-asking Control (\NRC{}): evidence-free matched drift baseline}
+For each pressure persona $p$, we construct a paired \emph{Neutral Re-asking Control (\NRC{})} prompt that matches the interaction length and turn structure but removes the mechanism of pressure. Concretely, the NRC prompt:
 (i) repeats the user question in a neutral tone, (ii) can acknowledge prior turns without introducing new facts, and (iii) avoids any argumentative content, social pressure, or claims about the gold answer.
-This makes NRC an \emph{evidence-free} baseline: any failures under NRC reflect multi-turn drift (e.g., instability under re-asking) rather than persona pressure.
+This makes NRC an \emph{evidence-free} baseline: any failures under \NRC{} reflect multi-turn drift (e.g., instability under re-asking) rather than persona pressure.
 
 \paragraph{Threat model (evidence-free conversational pressure).}
 \GALILEO{} targets settings where the user challenges a previously correct answer \emph{without supplying new factual evidence}.
 This isolates social and rhetorical pressure (doubt, denial, authority claims, argumentative reframing) from failures caused by genuine new information.
-We intentionally keep all personas evidence-free so that persona--NRC gaps can be interpreted as pressure mechanisms rather than belief revision under new facts.
+We intentionally keep all personas evidence-free so that persona--\NRC{} gaps can be interpreted as pressure mechanisms rather than belief revision under new facts.
 
 \paragraph{Why matched decoding and interaction length?}
 Multi-turn drift can depend strongly on sampling randomness and on how many times the model is re-asked.
-We therefore match decoding settings and turn structure between a persona and its NRC track (\S\ref{sec:protocol}), so that the measured gap corresponds to pressure content rather than differences in temperature, truncation, or conversation length.
+We therefore match decoding settings and turn structure between a persona and its \NRC{} track (\S\ref{sec:protocol}), so that the measured gap corresponds to pressure content rather than differences in temperature, truncation, or conversation length.
 
 \paragraph{Why $R{=}5$ rounds?}
 A small fixed horizon balances two goals: (i) it is long enough to expose cumulative degradation dynamics in survival curves (Fig.~\ref{fig:survival}), and (ii) it remains short enough that evaluation is auditable and not dominated by long-context effects.
@@ -246,7 +246,7 @@ These categories are designed to be simple, copyable, and auditable; exact templ
 
 \subsection{Conditioning sets and denominators (quick recap)}
 All multi-turn metrics are computed on an \emph{initially-correct} conditioning set, so they measure \emph{deviation from a previously correct answer} rather than initial ignorance.
-We use two reporting modes depending on the comparison: a shared set $C$ for cross-persona plots, and persona-matched sets $C_p$ for within-persona persona--NRC deltas. See \S\ref{sec:conditioning-set} for the full convention.
+We use two reporting modes depending on the comparison: a shared set $C$ for cross-persona plots, and persona-matched sets $C_p$ for within-persona persona--\NRC{} deltas. See \S\ref{sec:conditioning-set} for the full convention.
 
 \subsection{Metrics}
 \label{sec:metrics}
@@ -255,7 +255,7 @@ For each track $t\in\{p,\mathrm{NRC}\}$ (persona vs control) and challenged roun
 $c^{(t)}_{r}(x)=\mathbb{1}[\text{model output at round $r$ matches }a(x)]$.
 Because we condition on an initially-correct set from Phase~1, each evaluated example is correct at ``round 0'' by construction; we adopt the convention $c^{(t)}_{0}(x)\equiv 1$ for all $x\in S$.
 (All Phase~1 correctness is absorbed into the definition of $S$; rounds $1..R$ correspond to the multi-turn pressure/NRC prompts.)
-All expectations below are taken over a specified conditioning set $S$ (either the pooled initially-correct set $C$ or a persona-matched set $C_p$); unless stated otherwise, persona--NRC deltas use $S=C_p$.
+All expectations below are taken over a specified conditioning set $S$ (either the pooled initially-correct set $C$ or a persona-matched set $C_p$); unless stated otherwise, persona--\NRC{} deltas use $S=C_p$.
 
 \paragraph{Survival.}
 \SurvivalAt{r} is the probability of remaining correct through all rounds up to $r$:
@@ -328,23 +328,23 @@ and the paired difference $\Delta\mathrm{Recovery}@\mathrm{flip}=\mathrm{Recover
 \label{sec:results}
 
 We summarize multi-turn robustness as complementary views: (i) \textbf{\SurvivalAt{r}} captures cumulative correctness under repeated questioning, (ii) \textbf{\TOF and \FailAt{1}} capture early-turn brittleness and the onset of failure, and (iii) \textbf{\RecoveryAtFlip} captures whether a model can return to the gold answer after it has deviated.
-All main comparisons are reported as \emph{persona--NRC deltas} to correct for evidence-free drift.
+All main comparisons are reported as \emph{persona--\NRC{} deltas} to correct for evidence-free drift.
 
 \paragraph{One-stop summary.}
-Table~\ref{tab:main} provides a compact, cross-family summary: across model families, pressure typically reduces \SurvivalAt{5} (negative $\Delta\,\SurvivalAt{5}$) and increases early-turn failures (positive $\Delta\,\FailAt{1}$) beyond evidence-free drift under NRC.
+Table~\ref{tab:main} provides a compact, cross-family summary: across model families, pressure typically reduces \SurvivalAt{5} (negative $\Delta\,\SurvivalAt{5}$) and increases early-turn failures (positive $\Delta\,\FailAt{1}$) beyond evidence-free drift under \NRC{}.
 \RecoveryAtFlip can be less tightly coupled: some settings show substantial robustness loss but relatively small recovery gaps, reinforcing that brittleness and recoverability are distinct axes (Appx.~\ref{sec:appendix-extra-results}).
 Figures in this section decompose Table~\ref{tab:main} into dynamics (Fig.~\ref{fig:survival}), early hazard (Fig.~\ref{fig:fail1}), and cross-family replication (Fig.~\ref{fig:crossfam}).
 
 \paragraph{Persona-weighted aggregate (for compact reporting).}
 Several tables/figures summarize results with a single ``Persona'' curve/number per model family.
-We compute this as an \emph{equal-weight mean across the five pressure personas} of the corresponding persona--NRC deltas (computed per persona on its matched conditioning set $S=C_p$). \textbf{Note:} because each persona's delta is computed on its own $C_p$, this aggregate is an unweighted average of persona-specific effects and is \emph{not} generally identical to recomputing the same metric on a single shared denominator $C$.
+We compute this as an \emph{equal-weight mean across the five pressure personas} of the corresponding persona--\NRC{} deltas (computed per persona on its matched conditioning set $S=C_p$). \textbf{Note:} because each persona's delta is computed on its own $C_p$, this aggregate is an unweighted average of persona-specific effects and is \emph{not} generally identical to recomputing the same metric on a single shared denominator $C$.
 Concretely, for a metric $m$ and persona set $\mathcal{P}$,
 \begin{align}
 \Delta \bar{m} \;=\; \frac{1}{|\mathcal{P}|} \sum_{p\in\mathcal{P}} \Big(m^{(p)} - m^{(\mathrm{NRC},p)}\Big),
 \end{align}
 where $m^{(\mathrm{NRC},p)}$ denotes the NRC track paired to persona $p$ under matched decoding.
 \textbf{Table interpretation note.} In Table~\ref{tab:main}, the \emph{Persona} and \emph{NRC} columns are computed as equal-weight averages of the underlying (non-delta) metric values across personas and their paired controls, respectively.
-The \(\Delta\) column is the equal-weight average of the \emph{per-persona} deltas in the equation above (i.e., we average within each persona--NRC pairing before aggregating across personas), which keeps the drift correction aligned to each persona's matched control.
+The \(\Delta\) column is the equal-weight average of the \emph{per-persona} deltas in the equation above (i.e., we average within each persona--\NRC{} pairing before aggregating across personas), which keeps the drift correction aligned to each persona's matched control.
 For \textbf{\RecoveryAtFlip} specifically, if a persona has \emph{no flips} in either track for a given seed/task (so the metric is undefined; \S\ref{sec:metrics}), we exclude that persona from the aggregate for that seed/task and renormalize the weights over the remaining personas.
 We then report the seed-level mean\,\(\pm\)\,std of these aggregated deltas where multiple seeds are available.
 This convention preserves drift correction (each persona is paired with its own NRC baseline) while avoiding over-weighting any one pressure mechanism.
@@ -361,7 +361,7 @@ This convention preserves drift correction (each persona is paired with its own 
 \midrule
 \IfFileExists{generated/table1_rows.tex}{\input{generated/table1_rows}}{\input{static/table1_rows}}
 \end{tabularx}
-\caption{\textbf{Main results (persona-weighted aggregate).} For each model family, we report paired views under matched decoding on an initially-correct set: \SurvivalAt{5}, $\Delta\,\FailAt{1}$ (early-turn hazard increase under pressure, drift-corrected), and \RecoveryAtFlip (conditional on at least one flip). \textbf{Sign convention:} throughout, $\Delta$ denotes (Persona $-$ NRC), so negative $\Delta\,\SurvivalAt{5}$ means pressure causes more deviations by round 5 beyond drift, while negative $\Delta\,\RecoveryAtFlip$ means lower recovery conditional on having flipped. \textbf{Denominator note:} \RecoveryAtFlip is computed conditionally on the track-specific flipped set (pressure vs NRC may flip different examples); see \S\ref{sec:metrics}. For interpretability, the per-run flip counts ($|F^{(p)}|$ and $|F^{(\mathrm{NRC})}|$) are exported alongside the recovery rates. Higher \FailAt{1} is worse; thus positive $\Delta\,\FailAt{1}$ indicates increased early-turn brittleness under pressure beyond NRC drift. ``Persona'' denotes the persona-weighted aggregate across pressure mechanisms (equal-weight over the five personas; \S\ref{sec:results}). \textbf{Control note:} because each persona $p$ has its own paired control run (NRC$_p$), the ``NRC'' column is also an equal-weight average over those five controls, and should not be interpreted as a single shared neutral baseline. \textbf{Reporting note:} cells with \(\pm\) report mean\,\(\pm\)\,std over seeds where available. We report $\Delta\,\FailAt{1}$ with mean\,\(\pm\)\,std when multiple seeds are available; $\Delta\,\SurvivalAt{5}$ and $\Delta\,\RecoveryAtFlip$ are shown as the mean of per-seed deltas (std omitted for compactness). Where a cell is ``--'', the metric is undefined (e.g., no flips for \RecoveryAtFlip) or not available for that model family in the current artifact set. Persona-wise decompositions and prompt templates are in the Appendix (Appx.~\ref{sec:appendix-extra-results}, Appx.~\ref{sec:appendix-prompts}).}
+\caption{\textbf{Main results (persona-weighted aggregate).} For each model family, we report paired views under matched decoding on an initially-correct set: \SurvivalAt{5}, $\Delta\,\FailAt{1}$ (early-turn hazard increase under pressure, drift-corrected), and \RecoveryAtFlip (conditional on at least one flip). \textbf{Sign convention:} throughout, $\Delta$ denotes (Persona $-$ NRC), so negative $\Delta\,\SurvivalAt{5}$ means pressure causes more deviations by round 5 beyond drift, while negative $\Delta\,\RecoveryAtFlip$ means lower recovery conditional on having flipped. \textbf{Denominator note:} \RecoveryAtFlip is computed conditionally on the track-specific flipped set (pressure vs \NRC{} may flip different examples); see \S\ref{sec:metrics}. For interpretability, the per-run flip counts ($|F^{(p)}|$ and $|F^{(\mathrm{NRC})}|$) are exported alongside the recovery rates. Higher \FailAt{1} is worse; thus positive $\Delta\,\FailAt{1}$ indicates increased early-turn brittleness under pressure beyond \NRC{} drift. ``Persona'' denotes the persona-weighted aggregate across pressure mechanisms (equal-weight over the five personas; \S\ref{sec:results}). \textbf{Control note:} because each persona $p$ has its own paired control run (NRC$_p$), the ``NRC'' column is also an equal-weight average over those five controls, and should not be interpreted as a single shared neutral baseline. \textbf{Reporting note:} cells with \(\pm\) report mean\,\(\pm\)\,std over seeds where available. We report $\Delta\,\FailAt{1}$ with mean\,\(\pm\)\,std when multiple seeds are available; $\Delta\,\SurvivalAt{5}$ and $\Delta\,\RecoveryAtFlip$ are shown as the mean of per-seed deltas (std omitted for compactness). Where a cell is ``--'', the metric is undefined (e.g., no flips for \RecoveryAtFlip) or not available for that model family in the current artifact set. Persona-wise decompositions and prompt templates are in the Appendix (Appx.~\ref{sec:appendix-extra-results}, Appx.~\ref{sec:appendix-prompts}).}
 \label{tab:main}
 \end{table*}
 
@@ -370,17 +370,17 @@ Figure~\ref{fig:survival} shows survival curves over rounds for representative p
 Table~\ref{tab:main} summarizes this effect at the horizon: for every model family we test, the persona-weighted aggregate shows \emph{negative} $\Delta\,\SurvivalAt{5}$ (e.g., Qwen2.5-7B: $\Delta\,\SurvivalAt{5}\approx -0.23$; Qwen2.5-14B: $\Delta\,\SurvivalAt{5}\approx -0.25$; Mistral-7B: $\Delta\,\SurvivalAt{5}\approx -0.31$), indicating substantial pressure-induced deviations beyond evidence-free drift.
 
 Two patterns recur across tasks and seeds.
-First, the persona--NRC gap often \emph{widens with rounds}: even when Survival@1 is similar, repeated pressure can accumulate into a substantial \SurvivalAt{5} deficit.
+First, the persona--\NRC{} gap often \emph{widens with rounds}: even when Survival@1 is similar, repeated pressure can accumulate into a substantial \SurvivalAt{5} deficit.
 Second, different personas exhibit distinct hazard shapes: some concentrate failures immediately (high \FailAt{1} / Hazard@1), while others gradually increase failure risk over turns.
 This motivates reporting full survival trajectories rather than a single-turn accuracy snapshot.
 
 \paragraph{How to read survival curves.}
 Because curves are computed on an initially-correct set, a drop at round $r$ corresponds to the fraction of previously-correct examples that have flipped by that round.
-Comparing persona vs NRC at the same round yields a drift-corrected estimate of pressure-induced deviation.
+Comparing persona vs \NRC{} at the same round yields a drift-corrected estimate of pressure-induced deviation.
 
 \subsection{Time-to-first-failure highlights early vulnerability}
 Figure~\ref{fig:fail1} reports persona-wise \(\Delta\)\FailAt{1}.
-Positive deltas indicate that a persona causes a larger fraction of initially-correct examples to fail on the first challenged turn, compared to drift under NRC.
+Positive deltas indicate that a persona causes a larger fraction of initially-correct examples to fail on the first challenged turn, compared to drift under \NRC{}.
 At the aggregate level, Table~\ref{tab:main} shows that the persona-weighted $\Delta\,\FailAt{1}$ is typically positive (e.g., Mistral-7B and Phi-3-mini show $\Delta\,\FailAt{1}\approx 0.24\text{--}0.25$), supporting the view that pressure often manifests as \emph{early-turn brittleness} rather than only gradual erosion.
 We find that early-turn vulnerability differs substantially by persona, consistent with distinct pressure mechanisms (e.g., deference to authority vs logical contradiction).
 
@@ -413,14 +413,14 @@ For space, we report the full persona-wise \(\Delta\)\RecoveryAtFlip plots and t
 \end{figure}
 
 \subsection{Cross-family generalization}
-Figure~\ref{fig:crossfam} tests whether the observed persona--NRC gaps are specific to a single model family.
+Figure~\ref{fig:crossfam} tests whether the observed persona--\NRC{} gaps are specific to a single model family.
 Across multiple open-weight families, we observe the same qualitative trend: a strong evidence-free pressure persona (Logical Trap) reduces \SurvivalAt{5} relative to NRC.
 This cross-family replication reduces the risk that our main findings are an artifact of one model's instruction tuning or decoding idiosyncrasies.
 
 \paragraph{Aggregate view across families.}
 Table~\ref{tab:main} shows that the pressure-induced robustness gap is not confined to one model lineage: across the five families reported, the persona aggregate has negative $\Delta\,\SurvivalAt{5}$, with effects ranging from moderate (e.g., Llama-3.1-8B: $\approx$\,-0.07) to large (e.g., Mistral-7B: $\approx$\,-0.31).
 Moreover, several families exhibit positive $\Delta\,\FailAt{1}$ (e.g., Phi-3-mini and Mistral-7B: $\approx$\,0.24--0.25), indicating that pressure often manifests as early-turn brittleness.
-These patterns support interpreting persona--NRC gaps as a protocol-level phenomenon rather than a single-model quirk.
+These patterns support interpreting persona--\NRC{} gaps as a protocol-level phenomenon rather than a single-model quirk.
 
 \paragraph{What cross-family does (and does not) claim.}
 Cross-family replication supports the \emph{existence} and qualitative direction of the effect (pressure increases deviation beyond drift), but it does not imply a single universal ranking of personas or tasks.
@@ -429,12 +429,12 @@ Differences in instruction tuning and refusal behavior can shift which pressure 
 \begin{figure}[t]
   \centering
   \includegraphics[width=\linewidth]{figures/cross_family_survival_r5_control_vs_logicaltrap_seed1-2_20260219}
-  \caption{Cross-family \SurvivalAt{5} under NRC vs a strong persona (Logical Trap), seeds 1--2.}
+  \caption{Cross-family \SurvivalAt{5} under \NRC{} vs a strong persona (Logical Trap), seeds 1--2.}
   \label{fig:crossfam}
 \end{figure}
 
 \subsection{Decoding sensitivity}
-We include a decoding sweep to test whether persona--NRC gaps persist across temperatures; see Appx.~\ref{sec:appendix-extra-results}.
+We include a decoding sweep to test whether persona--\NRC{} gaps persist across temperatures; see Appx.~\ref{sec:appendix-extra-results}.
 
 \FloatBarrier
 \section{Discussion}
@@ -442,10 +442,10 @@ We include a decoding sweep to test whether persona--NRC gaps persist across tem
 
 \paragraph{Findings and implications.}
 \begin{itemize}[leftmargin=*]
-  \item \textbf{Pressure effects are measurable beyond generic multi-turn drift.} Reporting persona--NRC gaps (not persona-only numbers) makes it explicit when failures are attributable to a pressure mechanism rather than evidence-free re-asking instability.
+  \item \textbf{Pressure effects are measurable beyond generic multi-turn drift.} Reporting persona--\NRC{} gaps (not persona-only numbers) makes it explicit when failures are attributable to a pressure mechanism rather than evidence-free re-asking instability.
   \item \textbf{Robustness is a trajectory, not a scalar.} Survival curves reveal whether pressure accumulates gradually or concentrates immediately; \FailAt{1} isolates the first challenged turn as a sensitive brittleness indicator.
   \item \textbf{Brittleness and recoverability can decouple.} Large negative $\Delta\,\SurvivalAt{5}$ with a small $\Delta\,\RecoveryAtFlip$ suggests that post-hoc "neutral reset" interventions may still help even when first-turn brittleness is high.
-  \item \textbf{Cross-family replication matters for claims.} Observing the same qualitative persona--NRC gaps across multiple open-weight families reduces the risk that results are a single-model artifact of instruction tuning or decoding quirks.
+  \item \textbf{Cross-family replication matters for claims.} Observing the same qualitative persona--\NRC{} gaps across multiple open-weight families reduces the risk that results are a single-model artifact of instruction tuning or decoding quirks.
   \item \textbf{Conditioning clarifies what is being measured.} By conditioning on initially-correct examples, the protocol measures deviation-from-truth dynamics given initial success; this is the relevant quantity when studying pressure-induced flips.
   \item \textbf{Practical evaluation guidance.} For deployed assistants, we recommend reporting (i) Survival@1..R, (ii) \FailAt{1}, (iii) \RecoveryAtFlip, and always pairing pressure prompts with an evidence-free matched control like NRC.
   \item \textbf{Deployment guardrails suggested by the metrics.} High \FailAt{1} motivates front-end mitigations (e.g., consistency prompts, calibrated refusal under repeated re-asking), while nontrivial \RecoveryAtFlip suggests value in back-end reset/verification steps (e.g., verify-then-answer, neutral re-solve). Audit logs that record multi-turn trajectories can make such interventions measurable.
@@ -512,7 +512,7 @@ We encourage future work to evaluate how such pressure dynamics interact with sa
 \label{sec:conclusion}
 
 We introduced \textbf{\GALILEO{}}, a reproducible evaluation protocol for \emph{multi-turn} robustness on ground-truth tasks that reports survival trajectories, time-to-first-failure (\TOF) and first-turn failure (\FailAt{1}), and recovery after deviation (\RecoveryAtFlip).
-A key design is the \emph{evidence-free} \textbf{Neutral Re-asking Control (NRC)} paired to each pressure persona, enabling drift-corrected attribution of persona effects.
+A key design is the \emph{evidence-free} \textbf{Neutral Re-asking Control (\NRC{})} paired to each pressure persona, enabling drift-corrected attribution of persona effects.
 Across tasks and model families, we find that conversational pressure can induce substantial early-turn failures and progressive degradation beyond NRC, while recovery behavior can vary independently from robustness.
 We hope \GALILEO{} and its paper-ready exports help make multi-turn reliability claims more auditable and comparable.
 
@@ -524,7 +524,7 @@ We hope \GALILEO{} and its paper-ready exports help make multi-turn reliability 
 \section{Appendix: experimental settings and prompts}
 
 \subsection{Experimental settings (detailed, reviewer-auditable)}
-Unless otherwise noted, we run $R{=}5$ pressure rounds and use the same decoding configuration for persona and NRC tracks.
+Unless otherwise noted, we run $R{=}5$ pressure rounds and use the same decoding configuration for persona and \NRC{} tracks.
 We report multi-seed averages where available; figures in the main text indicate the seed ranges.
 For each run, we export \path{paper_exports/metadata.json} and \path{paper_exports/runner_metadata.json}, which record the exact model identifier, decoding parameters, prompt variants, and dataset slices used.
 
@@ -560,7 +560,7 @@ Recovery step & --- & enabled & --- & \RecoveryAtFlip computed conditional on \e
 \begin{figure}[t]
   \centering
   \includegraphics[width=\linewidth]{figures/decoding_sweep_qwen_delta_seed1-2_20260211}
-  \caption{Decoding sensitivity (seeds 1--2): persona--NRC gaps persist across temperatures.}
+  \caption{Decoding sensitivity (seeds 1--2): persona--\NRC{} gaps persist across temperatures.}
   \label{fig:decoding}
 \end{figure}
 
@@ -584,7 +584,7 @@ User (pressure): {PERSONA_PRESSURE_UTTERANCE}
 User: Please answer again. Give your final answer in \boxed{...}.
 \end{Verbatim}
 
-\paragraph{Neutral Re-asking Control (NRC) prompt (round r, evidence-free).}
+\paragraph{Neutral Re-asking Control (\NRC{}) prompt (round r, evidence-free).}
 \begin{Verbatim}[breaklines,breakanywhere,fontsize=\small]
 System: You are a helpful assistant.
 User: {QUESTION}

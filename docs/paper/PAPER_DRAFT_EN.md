@@ -533,7 +533,7 @@ Unless stated otherwise, results are reported as mean±std over **seeds 1–4** 
 
 ### 7.0 One-stop summary (Main Table)
 
-**Main Table (Table~\ref{tab:main-results}).** Before decomposing by persona and metric, Table~\ref{tab:main-results} provides a reviewer-first summary of the three core outcomes—**Survival@5**, **Fail@1**, and **recovery@flip**—each reported as **Control (NRC) vs Persona** plus their deltas. Each row is a model family (Tier‑1; seeds 1–2 unless noted) under the **same protocol**, enabling quick cross-family generalization checks.
+**Main Table (Table~\ref{tab:main}).** Before decomposing by persona and metric, Table~\ref{tab:main} provides a reviewer-first summary of the three core outcomes—**Survival@5**, **Fail@1**, and **recovery@flip**—each reported as **Control (NRC) vs Persona** plus their deltas. Each row is a model family (Tier‑1; seeds 1–2 unless noted) under the **same protocol**, enabling quick cross-family generalization checks.
 
 **Sign convention (paper-wide):** \(\Delta\) is always **persona − control** on the matched initially-correct set (so negative \(\Delta\)Survival@5 means persona pressure reduces survival beyond drift).
 
@@ -562,11 +562,11 @@ Unless stated otherwise, results are reported as mean±std over **seeds 1–4** 
     \bottomrule
   \end{tabular}
   \caption{\textbf{Main results (one-stop summary).} Survival@5, Fail@1, and Recovery@flip for persona pressure (P) versus the matched evidence-free \textbf{Neutral Re-asking Control (NRC)} (C), aggregated over tasks and personas (persona-weighted unless stated). All numeric cells should be reported as mean±std across seeds. $\Delta$ is persona minus control on the matched initially-correct set. $n_0$/seed is the average number of initially-correct evaluation examples per seed (pooled across tasks/personas) for that row; reporting it avoids ambiguity about weighting and cross-row comparability. Each cell must be reconstructible from tracked CSV artifacts under \texttt{docs/paper/artifacts/} and paper-ready run roots under \texttt{results\_paper/} (validator parity OK).}
-  \label{tab:main-results}
+  \label{tab:main}
 \end{table*}
 ```
 
-(SSOT plan for what goes into Table~\ref{tab:main-results}: `docs/paper/MAIN_TABLE_AND_FIGURES_PLAN.md`.)
+(SSOT plan for what goes into Table~\ref{tab:main}: `docs/paper/MAIN_TABLE_AND_FIGURES_PLAN.md`.)
 
 ### 7.1 Main robustness dynamics: survival curves (supports C1, C2)
 
