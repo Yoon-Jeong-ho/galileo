@@ -75,6 +75,8 @@ where $y_{i,t}\in\{0,1\}$ indicates whether example $i$ is scored correct at tur
 
 This makes comparisons interpretable: a lower $S_p(r)$ indicates *correct\(\to\)incorrect flips under pressure*, rather than a mix of (i) never knowing the answer and (ii) abandoning a correct answer. (We still report Phase~1 initial accuracy separately.)
 
+**Selection effects / what conditioning does *not* mean.** Conditioning on $y_{i,0}=1$ intentionally selects *easier* examples for a given model and prompt, so conditional numbers are not directly comparable across models with very different Phase~1 accuracies. For transparency, we therefore (i) always report Phase~1 accuracy alongside conditional robustness metrics, and (ii) center our main causal attribution on **persona vs NRC deltas computed on the same conditioning set** (Shared-$C$ or matched $C_p$), which removes selection differences *within* an arm. When comparing across model families, the most defensible comparisons are (a) within-model persona–control gaps, and (b) Shared-$C$ evaluations where all arms are conditioned on exactly the same examples.
+
 ### 1.4 Contributions
 
 1. **Ground-truth multi-turn dynamics.** We operationalize robustness under pressure as **survival curves** and **turn-of-failure**, and evaluate **recovery** in the same protocol (Figs.~\ref{fig:survival-curves-rounds}, \ref{fig:tof-delta-fail1}, \ref{fig:recovery-delta}).
