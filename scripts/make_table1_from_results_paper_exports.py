@@ -37,6 +37,7 @@ import argparse
 import csv
 from dataclasses import dataclass
 from pathlib import Path
+import json
 
 
 NRC_ID = "neutral_reask_control"
@@ -123,6 +124,20 @@ def _load_fail1_by_persona(tof_csv: Path) -> dict[str, float]:
     return out
 
 
+def _infer_model_name(paper_exports_dir: Path) -> str:
+    meta = paper_exports_dir / "metadata.json"
+    if not meta.exists():
+        return ""
+    try:
+        j = json.loads(meta.read_text(encoding="utf-8"))
+        model_dir = str(j.get("model_dir", ""))
+        if model_dir:
+            return Path(model_dir).name
+    except Exception:
+        return ""
+    return ""
+
+
 def compute_run_metrics(paper_exports_dir: Path) -> dict[str, float]:
     surv_csv = paper_exports_dir / "survival_curve.csv"
     tof_csv = paper_exports_dir / "turn_of_failure.csv"
@@ -151,6 +166,7 @@ def compute_run_metrics(paper_exports_dir: Path) -> dict[str, float]:
     persona_fail1 = nrc_fail1 + delta_fail1
 
     return {
+        "model_name": _infer_model_name(paper_exports_dir),
         "nrc_survival_r5": nrc_surv5,
         "persona_survival_r5": persona_surv5,
         "delta_survival_r5": delta_surv5,
@@ -198,7 +214,7 @@ def main() -> int:
         out_rows.append(
             {
                 "alias": alias,
-                "model": alias2model.get(alias, ""),
+                "model": alias2model.get(alias, "") or m.get("model_name", ""),
                 "status": "OK",
                 "nrc_survival_r5": f"{m['nrc_survival_r5']:.6f}",
                 "persona_survival_r5": f"{m['persona_survival_r5']:.6f}",
