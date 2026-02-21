@@ -11,7 +11,7 @@ This script:
 - Iterates over results_paper/<alias>/paper_exports/metadata.json
 - Uses metadata["results_root"] to locate recovery_accuracy.csv
 - Aggregates recovered/total across tests, then across personas:
-  - C := persona == "neutral_reask_control"
+  - C := NRC control persona (display name "Control Re-asking" in recovery_accuracy.csv)
   - P := all other personas (pressure) pooled (persona-weighted by total)
 - Emits a per-alias CSV with:
     alias, nrc_recovery, persona_recovery, delta_recovery
@@ -37,7 +37,10 @@ from dataclasses import dataclass
 from typing import Dict, Iterable, Tuple
 
 
-CONTROL_PERSONA = "neutral_reask_control"
+# Note: run_experiment.py writes persona names via get_persona_name(...), so the NRC
+# persona appears as the *display name* "Control Re-asking" in recovery_accuracy.csv.
+# (Survival exports use the normalized id neutral_reask_control, but recovery CSV is legacy.)
+CONTROL_PERSONA = "Control Re-asking"
 
 
 @dataclass

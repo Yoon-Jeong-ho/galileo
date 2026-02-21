@@ -1571,3 +1571,8 @@ ef{fig:protocol}).
 - Confirmed that our current recovery logs for paper-ready runs appear to omit `neutral_reask_control` rows in `recovery_accuracy.csv` (control_total=0 → NRC Recovery@flip NaN).
 - Updated `docs/paper/PAPER_DRAFT_EN.md` to explicitly state this as the reason Recovery@flip cells are still TODO in Table~\ref{tab:main}.
 - Updated `docs/paper/STATUS.md` with the two concrete resolution paths: (i) log recovery for NRC, or (ii) report recovery as persona-only with NRC marked N/A.
+### 2026-02-22 06:39 KST — Dev lane: identify NRC label mismatch in recovery CSV (fix extractor)
+
+- Investigated why NRC Recovery@flip was NaN when reading `recovery_accuracy.csv`.
+- Found `run_experiment.py` writes persona names via `get_persona_name(...)`, so NRC appears as the **display label** `Control Re-asking` (not `neutral_reask_control`).
+- Updated `scripts/make_table1_recovery_from_results_paper.py` to treat `Control Re-asking` as the NRC control persona, unblocking Table-1 recovery extraction.
