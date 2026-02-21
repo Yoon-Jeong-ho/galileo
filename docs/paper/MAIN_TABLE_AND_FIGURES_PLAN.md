@@ -22,10 +22,11 @@ A single table that (i) defines the core evaluation objects and (ii) reports the
   - Qwen2.5‑14B‑Instruct (seed1–2)
 
 **Columns (primary metrics):**
-- Survival@r (r=5): **Control vs Persona**
-- Fail@1 (or TOF summary): **Control vs Persona**
-- Recovery@flip: **Control vs Persona**
-- Δ (Persona − Control) for each metric (sign convention fixed in caption)
+- Survival@r (r=5): **C vs P**
+- Fail@1 (or TOF summary): **C vs P**
+- Recovery@flip: **C vs P**
+- Δ for each metric, with fixed sign convention: **Δ = P − C** on the matched initially-correct set
+- `n0/seed`: average number of initially-correct examples per seed for that model row (pooled across tasks/personas); prevents weighting ambiguity
 - #seeds / #samples / #tasks (small footnote)
 
 **Formatting rules:**
@@ -83,6 +84,10 @@ Suggested budget:
 
 ## 4) Immediate TODOs (for next writing heartbeat)
 
-1) Wire Table 1 skeleton into `docs/paper/PAPER_DRAFT_EN.md` (LaTeX tabular placeholder + caption with sign conventions).
-2) Ensure every figure referenced in the draft has a corresponding entry in `docs/paper/FIGURE_CAPTIONS.md` with provenance → artifacts.
-3) Add 1–2 sentences in Results that explicitly say “Table 1 is the one-stop summary; figures provide decomposition.”
+1) **DONE (2026-02-22):** Wire Table 1 skeleton into `docs/paper/PAPER_DRAFT_EN.md` (LaTeX tabular placeholder + caption with fixed sign conventions + explicit `n0/seed` column).
+2) Populate Table 1 row-by-row by linking each cell to a specific tracked artifact under `docs/paper/artifacts/` and a paper-ready run root under `results_paper/`.
+   - Use the same notation as the draft: `C` = NRC (control), `P` = persona pressure, `Δ` = `P − C` on the matched initially-correct set.
+   - Report each numeric cell as mean±std across seeds; keep persona-weighted aggregates as the default unless explicitly labeled otherwise.
+   - Fill `n0/seed` (average initially-correct examples per seed) to make weighting/comparability unambiguous.
+3) Ensure every figure referenced in the draft has a corresponding entry in `docs/paper/FIGURE_CAPTIONS.md` with provenance → artifacts.
+4) Add 1–2 sentences in Results that explicitly say “Table 1 is the one-stop summary; figures provide decomposition.”
