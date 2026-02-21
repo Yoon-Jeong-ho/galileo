@@ -161,7 +161,8 @@ Crucially, Phase~1 identifies an initially-correct conditioning set $C$ \emph{pe
 \textbf{Algorithm 1: GALILEO evaluation for a persona $p$ and matched NRC.}\\
 \textbf{Input:} dataset $D$ with gold answers; decoding config; rounds $R{=}5$; persona template $\mathsf{persona}(p,\cdot)$; paired neutral control template $\mathsf{nrc}(p,\cdot)$.\\
 \textbf{1. Initial evaluation (define the conditioning set).} Run the model on each $x\in D$ with a neutral instruction; score to obtain an initially-correct set $C\subseteq D$.\\
-\ \ \ \emph{Notation:} when we intentionally share the same denominator across personas, we use the same $C$ for all personas. When results are produced by separate jobs per persona, write $C_p$ for persona $p$'s Phase~1 initially-correct set (\S\ref{sec:protocol}). \emph{Default in this paper:} persona--NRC deltas are computed on matched $C_p$ unless stated, while cross-persona plots explicitly use the shared $C$.\\
+\ \ \ \emph{Notation:} we write $C$ for the Phase~1 initially-correct set. Some analyses use a shared $C$ across personas; others use per-persona $C_p$. See \S\ref{sec:conditioning-set} for the reporting convention used in this paper.\\
+
 \textbf{2. Multi-round pressure vs control on a conditioning set $S$.} Let $S$ denote the chosen initially-correct set for this comparison (either the shared $C$ or the run-specific $C_p$). For each $x\in S$, iterate challenged rounds $r{=}1..R$ under matched decoding:\\
 \ \ \ (a) persona track: $y^{(p)}_{r} \leftarrow \mathsf{persona}(p, x, \text{history})$; score correctness\\
 \ \ \ (b) NRC track: $y^{(\mathrm{NRC})}_{r} \leftarrow \mathsf{nrc}(p, x, \text{history})$; score correctness\\
@@ -178,6 +179,12 @@ Crucially, Phase~1 identifies an initially-correct conditioning set $C$ \emph{pe
 \textbf{Phase 1 (initial evaluation).} Identify the initially-correct subset.
 \textbf{Phase 2 (multi-round pressure vs NRC).} Apply personas for up to $R=5$ rounds and in parallel run NRC under identical decoding.
 \textbf{Phase 3 (recovery).} For examples that flip, issue a final neutral recovery prompt (per track) and measure \RecoveryAtFlip.
+
+\subsection{Conditioning-set choices (shared $C$ vs per-persona $C_p$)}
+\label{sec:conditioning-set}
+Phase~1 defines an initially-correct set by scoring a neutral first response. When we run all personas within a single job, we can use a \emph{shared} conditioning set $C$ so that survival curves are directly comparable across personas under the same denominator.
+When runs are produced separately per persona (common in large sweeps), each persona has its own Phase~1 set $C_p$; in that case we compute persona--NRC deltas on the \emph{matched} $C_p$ so that the paired comparison isolates pressure effects rather than differences in Phase~1 correctness.
+Unless stated otherwise, this paper reports (i) persona--NRC deltas on matched $C_p$, and (ii) cross-persona plots on an explicitly shared $C$.
 
 \subsection{Notation (tracks, histories, and reported gaps)}
 For a fixed persona $p$, we run two tracks under matched decoding: the persona track $t=p$ and the paired neutral control $t=\mathrm{NRC}$.
