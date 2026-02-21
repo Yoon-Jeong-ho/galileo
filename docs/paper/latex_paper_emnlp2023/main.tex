@@ -265,7 +265,7 @@ All expectations below are taken over a specified conditioning set $S$ (either t
 \begin{align}
 \mathrm{Survival}^{(t)}@r
 &\;=\; \mathbb{E}_{x\sim S}\left[\prod_{i=1}^{r} c^{(t)}_{i}(x)\right] \\
-&\;=\; \Pr_{x\sim S}\Big[\forall i\in\{1,\dots,r\}:\; c^{(t)}_{i}(x)=1\Big].
+&\;=\; \Pr_{x\sim S}\big[\forall i\le r:\; c^{(t)}_{i}(x)=1\big].
 \end{align}
 This is the discrete-time analogue of a survival function (cf. Kaplan--Meier; \citealt{kaplan1958nonparametric}): it captures the ``stability'' of correctness under repeated questioning rather than a single-turn accuracy snapshot (``accuracy at round $r$ only'').
 
@@ -298,7 +298,7 @@ Define the (possibly censored) first-failure time over the \emph{challenged} rou
 &\;=\;
 \begin{cases}
 \min\Big\{\,r:\; \substack{1\le r\le R\\ c^{(t)}_{r}(x)=0}\,\Big\} & \text{if a failure occurs}\\ 
-R{+}1 & \text{otherwise (right-censored)}
+R{+}1 & \text{otherwise (right-censored).}
 \end{cases}
 \end{align}
 We summarize \TOF at the population level using the expectation $\mathbb{E}_{x\sim S}[\mathrm{TOF}^{(t)}(x)]$ (with right-censoring represented as $R{+}1$). This expectation has a simple identity in terms of the survival curve:
