@@ -9,7 +9,8 @@ current artifact, so we leave those columns as placeholders.
 
 Usage:
   python3 scripts/make_table1_partial_from_results_paper_exports.py \
-    --in_csv docs/paper/artifacts/table1_from_results_paper_exports_20260222.csv
+    --in_csv docs/paper/artifacts/table1_from_results_paper_exports_20260222.csv \
+    --n0_csv docs/paper/artifacts/table1_n0_from_results_paper_exports_20260222.csv
 
 Output:
   Prints LaTeX tabular rows with mean±std across seeds for each model family row.
@@ -49,6 +50,11 @@ def fmt(m: float, s: float, digits: int = 3) -> str:
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--in_csv", required=True)
+    ap.add_argument(
+        "--n0_csv",
+        default=None,
+        help="Optional CSV (alias,n0) derived from results_paper/*/paper_exports/survival_curve.csv",
+    )
     args = ap.parse_args()
 
     # Map Table-1 rows to aliases in the artifact CSV.
@@ -91,7 +97,18 @@ def main() -> None:
         r = csv.DictReader(f)
         for row in r:
             alias = row["alias"].strip()
-            by_alias[alias] = {k: float(v) for k, v in row.items() if k not in {"alias", "model", "status"} and v != ""}
+            by_alias[alias] = {
+                k: float(v)
+                for k, v in row.items()
+                if k not in {"alias", "model", "status"} and v != ""
+            }
+
+    n0_by_alias: Dict[str, float] = {}
+    if args.n0_csv:
+        with open(args.n0_csv, "r", newline="") as f:
+            r = csv.DictReader(f)
+            for row in r:
+                n0_by_alias[row["alias"].strip()] = float(row["n0"])
 
     # For each table row, aggregate per metric.
     for table_row, aliases in row_to_aliases.items():
@@ -101,6 +118,7 @@ def main() -> None:
         fail_c = Agg([])
         fail_p = Agg([])
         fail_d = Agg([])
+        n0 = Agg([])
 
         missing = []
         for a in aliases:
@@ -114,6 +132,8 @@ def main() -> None:
             fail_c.vals.append(d["nrc_fail1"])
             fail_p.vals.append(d["persona_fail1"])
             fail_d.vals.append(d["delta_fail1"])
+            if a in n0_by_alias:
+                n0.vals.append(n0_by_alias[a])
 
         sc_m, sc_s = surv_c.mean_std()
         sp_m, sp_s = surv_p.mean_std()
@@ -121,14 +141,15 @@ def main() -> None:
         fc_m, fc_s = fail_c.mean_std()
         fp_m, fp_s = fail_p.mean_std()
         fd_m, fd_s = fail_d.mean_std()
+        n0_m, n0_s = n0.mean_std()
 
         miss_note = f" % MISSING: {', '.join(missing)}" if missing else ""
-        # Recovery@flip + n0/seed placeholders left as "--".
+        # Recovery@flip placeholders left as "--".
         print(
             f"{table_row} & "
             f"{fmt(sc_m, sc_s)} & {fmt(sp_m, sp_s)} & {fmt(sd_m, sd_s)} & "
             f"{fmt(fc_m, fc_s)} & {fmt(fp_m, fp_s)} & {fmt(fd_m, fd_s)} & "
-            f"-- & -- & -- & -- \\\\" + miss_note
+            f"-- & -- & -- & {fmt(n0_m, n0_s, digits=1)} \\\\" + miss_note
         )
 
 

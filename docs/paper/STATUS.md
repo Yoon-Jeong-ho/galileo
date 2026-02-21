@@ -151,8 +151,9 @@ Ground-truth tasks에서 multi-turn persona pressure 하에 **정답 유지(surv
 
 **Writing/dev lane: finish Table~\ref{tab:main} by adding Recovery@flip + $n_0$/seed to the tracked artifact and auto-filling those columns too.**
 
-- Done: Survival@5 and Fail@1 columns are now filled in `docs/paper/PAPER_DRAFT_EN.md` from the tracked artifact `docs/paper/artifacts/table1_from_results_paper_exports_20260222.csv` (script: `scripts/make_table1_partial_from_results_paper_exports.py`).
-- Next: extend the artifact generator upstream (on nlp8) to include Recovery@flip + $n_0$/seed, then regenerate + refill.
+- Done: Survival@5 and Fail@1 columns are filled from `docs/paper/artifacts/table1_from_results_paper_exports_20260222.csv`.
+- Done: $n_0$/seed column is filled from `docs/paper/artifacts/table1_n0_from_results_paper_exports_20260222.csv`.
+- Next: extend the upstream export/artifact pipeline (on nlp8) to include **Recovery@flip** for NRC vs persona, then regenerate the Table 1 artifact and fill the last remaining column block.
 
 Required pilot gates (fail-fast):
 - CUDA alloc preflight: `OK cuda alloc` on the chosen GPU

@@ -1544,3 +1544,9 @@ ef{fig:protocol}).
 - Used the auto-generated row values (from `scripts/make_table1_partial_from_results_paper_exports.py`) to replace the `--` placeholders for **Survival@5** and **Fail@1** in Table~\ref{tab:main}.
 - Updated: `docs/paper/PAPER_DRAFT_EN.md` now has mean±std numbers for all 7 Table-1 rows (Survival@5 + Fail@1).
 - Left **Recovery@flip** and **$n_0$/seed** as TODO placeholders until we add those fields to the table artifact.
+### 2026-02-22 04:59 KST — Writing/dev lane: fill Table 1 n0/seed from results_paper exports
+
+- Computed and tracked `n0` (avg initially-correct examples per seed) per run alias by reading `results_paper/*/paper_exports/survival_curve.csv` totals at round=1.
+  - Added tracked artifact: `docs/paper/artifacts/table1_n0_from_results_paper_exports_20260222.csv`.
+- Updated `scripts/make_table1_partial_from_results_paper_exports.py` to accept `--n0_csv` and emit the filled $n_0$/seed column.
+- Updated `docs/paper/PAPER_DRAFT_EN.md` Table~\ref{tab:main} to fill the $n_0$/seed column (Recovery@flip remains TODO).

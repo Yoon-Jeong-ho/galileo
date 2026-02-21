@@ -560,13 +560,13 @@ Unless stated otherwise, results are reported as mean±std over **seeds 1–4** 
     \cmidrule(lr){2-4} \cmidrule(lr){5-7} \cmidrule(lr){8-10}
     Model (seeds) & C & P & $\Delta$ & C & P & $\Delta$ & C & P & $\Delta$ & $n_0$/seed \\
     \midrule
-    Qwen2.5-7B (1--4) & 0.803±0.007 & 0.542±0.010 & -0.261±0.018 & 0.113±0.010 & 0.211±0.007 & 0.098±0.004 & -- & -- & -- & -- \\
-    Llama-3.1-8B (1--2) & 0.131±0.005 & 0.062±0.006 & -0.069±0.001 & 0.606±0.014 & 0.673±0.009 & 0.067±0.004 & -- & -- & -- & -- \\
-    Mistral-7B (1--2) & 0.429±0.062 & 0.122±0.006 & -0.307±0.056 & 0.361±0.062 & 0.614±0.013 & 0.254±0.050 & -- & -- & -- & -- \\
-    Llama-3.2-3B (1--2) & 0.086±0.011 & 0.047±0.005 & -0.039±0.017 & 0.570±0.019 & 0.657±0.008 & 0.087±0.011 & -- & -- & -- & -- \\
-    Phi-3-mini-4k (1--2) & 0.252±0.078 & 0.109±0.038 & -0.144±0.041 & 0.316±0.023 & 0.554±0.014 & 0.239±0.009 & -- & -- & -- & -- \\
-    Mistral-Nemo (1--2) & 0.325±0.048 & 0.179±0.017 & -0.146±0.031 & 0.446±0.000 & 0.516±0.022 & 0.071±0.022 & -- & -- & -- & -- \\
-    Qwen2.5-14B (1--2) & 0.970±0.003 & 0.720±0.010 & -0.250±0.013 & 0.020±0.006 & 0.081±0.001 & 0.061±0.007 & -- & -- & -- & -- \\
+    Qwen2.5-7B (1--4) & 0.803±0.007 & 0.542±0.010 & -0.261±0.018 & 0.113±0.010 & 0.211±0.007 & 0.098±0.004 & -- & -- & -- & 398.8±6.0 \\
+    Llama-3.1-8B (1--2) & 0.131±0.005 & 0.062±0.006 & -0.069±0.001 & 0.606±0.014 & 0.673±0.009 & 0.067±0.004 & -- & -- & -- & 416.5±10.6 \\
+    Mistral-7B (1--2) & 0.429±0.062 & 0.122±0.006 & -0.307±0.056 & 0.361±0.062 & 0.614±0.013 & 0.254±0.050 & -- & -- & -- & 608.0±377.6 \\
+    Llama-3.2-3B (1--2) & 0.086±0.011 & 0.047±0.005 & -0.039±0.017 & 0.570±0.019 & 0.657±0.008 & 0.087±0.011 & -- & -- & -- & 399.5±4.9 \\
+    Phi-3-mini-4k (1--2) & 0.252±0.078 & 0.109±0.038 & -0.144±0.041 & 0.316±0.023 & 0.554±0.014 & 0.239±0.009 & -- & -- & -- & 245.5±2.1 \\
+    Mistral-Nemo (1--2) & 0.325±0.048 & 0.179±0.017 & -0.146±0.031 & 0.446±0.000 & 0.516±0.022 & 0.071±0.022 & -- & -- & -- & 317.5±7.8 \\
+    Qwen2.5-14B (1--2) & 0.970±0.003 & 0.720±0.010 & -0.250±0.013 & 0.020±0.006 & 0.081±0.001 & 0.061±0.007 & -- & -- & -- & 250.0±1.4 \\
     \bottomrule
   \end{tabular}
   \caption{\textbf{Main results (one-stop summary).} Survival@5, Fail@1, and Recovery@flip for persona pressure (P) versus the matched evidence-free \textbf{Neutral Re-asking Control (NRC)} (C), aggregated over tasks and personas (persona-weighted unless stated). All numeric cells should be reported as mean±std across seeds. $\Delta$ is persona minus control on the matched initially-correct set. $n_0$/seed is the average number of initially-correct evaluation examples per seed (pooled across tasks/personas) for that row; reporting it avoids ambiguity about weighting and cross-row comparability. Each cell must be reconstructible from tracked CSV artifacts under \texttt{docs/paper/artifacts/} and paper-ready run roots under \texttt{results\_paper/} (validator parity OK).}
@@ -576,7 +576,7 @@ Unless stated otherwise, results are reported as mean±std over **seeds 1–4** 
 
 (SSOT plan for what goes into Table~\ref{tab:main}: `docs/paper/MAIN_TABLE_AND_FIGURES_PLAN.md`.)
 
-Numbers currently filled for Survival@5 and Fail@1 are auto-derived from the tracked artifact `docs/paper/artifacts/table1_from_results_paper_exports_20260222.csv` (script: `scripts/make_table1_partial_from_results_paper_exports.py`). Recovery@flip and $n_0$/seed remain TODO until we export those fields in the table artifact.
+Numbers currently filled for Survival@5 and Fail@1 are auto-derived from the tracked artifact `docs/paper/artifacts/table1_from_results_paper_exports_20260222.csv` (script: `scripts/make_table1_partial_from_results_paper_exports.py`). The $n_0$/seed column is derived from `docs/paper/artifacts/table1_n0_from_results_paper_exports_20260222.csv` (computed from `results_paper/*/paper_exports/survival_curve.csv` totals at round 1). Recovery@flip remains TODO until we export recovery fields in the table artifact.
 
 ### 7.1 Main robustness dynamics: survival curves (supports C1, C2)
 
