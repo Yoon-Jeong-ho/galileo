@@ -700,7 +700,7 @@ For some families we cap `max_model_len` for KV-cache feasibility on the availab
 % Source SVG (repo): docs/paper/figures/cross_family_survival_r5_control_vs_logicaltrap_seed1-2_20260221.svg
 \begin{figure}[t]
   \centering
-  \includegraphics[width=\linewidth]{figures/cross_family_survival_r5_control_vs_logicaltrap_seed1-2_20260219}
+  \includegraphics[width=\linewidth]{figures/cross_family_survival_r5_control_vs_logicaltrap_seed1-2_20260221}
   \caption{Cross-family generalization: Survival@5 for the NRC (non-adversarial drift baseline) vs a strong persona (Logical Trap), averaged over seeds 1--2 for each model family. The same qualitative gap appears across families under an identical protocol.}
   \label{fig:cross-family-survival}
 \end{figure}
