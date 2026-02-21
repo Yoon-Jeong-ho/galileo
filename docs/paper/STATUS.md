@@ -40,7 +40,11 @@ Ground-truth tasks에서 multi-turn persona pressure 하에 **정답 유지(surv
   - `results_paper/tier1_deepseek7b_seed1_20260221_052948/`
   - `results_paper/tier1_deepseek7b_seed2_20260221_061004/`
   - Artifact (CSV): `docs/paper/artifacts/tier1_deepseek7b_seed1-2_survival_summary_20260221.csv`
-  - Canonical figure (SVG): `docs/paper/figures/cross_family_survival_r5_control_vs_logicaltrap_seed1-2_20260221.svg`
+- **Yi-6B-Chat Tier-1 (cross-family):** seed1–2 are **paper-ready** and staged into `results_paper/`:
+  - `results_paper/tier1_yi6b_seed1_20260221_122636/`
+  - `results_paper/tier1_yi6b_seed2_20260221_125813/`
+  - Artifact (CSV): `docs/paper/artifacts/tier1_yi6b_seed1-2_survival_summary_20260221.csv`
+- **Canonical cross-family figure (SVG):** `docs/paper/figures/cross_family_survival_r5_control_vs_logicaltrap_seed1-2_20260221.svg`
 - **Decoding sweep (seed1–2) done:** `results_paper/qwen_temp0_seed{1,2}` + `results_paper/qwen_temp0p7_seed{1,2}` are paper-ready; `results_paper/GLOBAL_VALIDATE.log` remains all `[OK]`.
 - **Tier‑1 Qwen2.5‑14B‑Instruct (cross-family extension):**
   - seed1 is paper-ready and staged into `results_paper/`.
