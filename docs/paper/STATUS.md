@@ -154,9 +154,10 @@ Ground-truth tasks에서 multi-turn persona pressure 하에 **정답 유지(surv
 - Done: Survival@5 and Fail@1 columns are filled from `docs/paper/artifacts/table1_from_results_paper_exports_20260222.csv`.
 - Done: $n_0$/seed column is filled from `docs/paper/artifacts/table1_n0_from_results_paper_exports_20260222.csv`.
 - Next: fill Table~\ref{tab:main} Recovery@flip columns.
-  - Root cause found: `recovery_accuracy.csv` writes NRC as the display name **"Control Re-asking"** (via `get_persona_name`) rather than `neutral_reask_control`.
-  - Fix applied: `scripts/make_table1_recovery_from_results_paper.py` now treats **Control Re-asking** as the NRC control persona.
-  - Next action: run the script on nlp8 to produce `docs/paper/artifacts/table1_recovery_from_results_paper_<date>.csv`, then aggregate into the 7 Table-1 rows and fill the Recovery block.
+  - Root cause: `recovery_accuracy.csv` writes NRC as the display name **"Control Re-asking"** (via `get_persona_name`) rather than `neutral_reask_control`.
+  - Done: extracted per-alias recovery into `docs/paper/artifacts/table1_recovery_from_results_paper_20260222.csv` (from nlp8 `results_paper/` minimal restage).
+  - Next action: aggregate per-alias recovery into the 7 Table-1 rows (mean±std over seeds) and fill the Recovery block in `docs/paper/PAPER_DRAFT_EN.md`.
+  - Coverage note: some Tier‑1 families (e.g., Phi‑3‑mini, Mistral‑Nemo, DeepSeek/Yi) require adding their run roots back into the nlp8 `results_paper` manifest before we can compute their Recovery cells.
 - Sanity note: Table~\ref{tab:main} now exposes a large $n_0$/seed variance for **Mistral-7B** (seed1 vs seed2). This likely indicates a config / evaluation-set mismatch between those two paper-ready runs; ideally rerun Mistral seeds 1–2 under the standardized Tier‑1 setting so cross-seed aggregation is clean.
 
 Required pilot gates (fail-fast):

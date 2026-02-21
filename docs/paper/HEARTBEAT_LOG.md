@@ -1585,3 +1585,9 @@ ef{fig:protocol}).
 
 - Updated `docs/paper/REMOTE_EXPERIMENTS_RUNBOOK.md` to clarify that `docs/paper/results_paper_manifest.tsv` will contain absolute internal paths and should remain **local/untracked** (not for anonymized bundles).
 - Created a local placeholder file `docs/paper/results_paper_manifest.tsv` and excluded it via `.git/info/exclude` so it won’t accidentally get committed.
+### 2026-02-22 07:19 KST — Experiments/dev lane: restage results_paper (minimal) + extract Recovery@flip (NRC vs persona)
+
+- On nlp8, rebuilt `results_paper/` (16 aliases; minimal set needed for Table 1 rows that still exist under `results/`) using `scripts/restage_results_paper_from_manifest.py` and validated it (`results_paper/GLOBAL_VALIDATE.log`).
+- Ran `scripts/make_table1_recovery_from_results_paper.py` (with NRC label = `Control Re-asking`) to generate a per-alias Recovery@flip CSV.
+- Synced the artifact into the local repo as: `docs/paper/artifacts/table1_recovery_from_results_paper_20260222.csv`.
+- Note: some Tier‑1 families previously staged only under `results_paper/` (e.g., Phi‑3‑mini, Mistral‑Nemo, DeepSeek/Yi) were not in the current minimal restage set and will require adding their run roots to the manifest (or regenerating them) to fill their Recovery cells.
