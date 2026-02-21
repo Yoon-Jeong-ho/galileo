@@ -280,12 +280,11 @@ We report survival because it matches the operational question ``did the model e
 We report paired deltas $\Delta\mathrm{Survival}@r=\mathrm{Survival}^{(p)}@r-\mathrm{Survival}^{(\mathrm{NRC})}@r$.
 
 \paragraph{Discrete hazard (per-round failure risk).}
-Survival curves can be re-expressed as a per-round failure ``hazard'' (conditional risk). Define $\mathrm{Survival}^{(t)}@0\equiv 1$ and, for $r\ge 1$,
-\begin{align}
+Survival curves can be re-expressed as a per-round failure ``hazard'' (conditional risk): the probability of failing at round $r$ \,\emph{given} the example has remained correct through rounds $1\ldots (r{-}1)$. Define $\mathrm{Survival}^{(t)}@0\equiv 1$ and, for $r\ge 1$,
+\begin{equation}
 \mathrm{Hazard}^{(t)}@r
-&\;=\; \Pr\big[c^{(t)}_{r}(x)=0 \mid \forall i<r,\; c^{(t)}_{i}(x)=1\big] \\ 
-&\;=\; 1-\tfrac{\mathrm{Survival}^{(t)}@r}{\mathrm{Survival}^{(t)}@({r-1})}.
-\end{align}
+\;=\; 1-\frac{\mathrm{Survival}^{(t)}@r}{\mathrm{Survival}^{(t)}@({r-1})}.
+\end{equation}
 With this convention,
 \begin{equation}
 \mathrm{Hazard}^{(t)}@1 = 1-\mathrm{Survival}^{(t)}@1 = \FailAt{1}.
