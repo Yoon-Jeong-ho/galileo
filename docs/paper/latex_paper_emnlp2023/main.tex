@@ -131,6 +131,7 @@ Even evidence-free re-asking can induce drift across turns.
 
 \paragraph{Sycophancy, social pressure, and multi-turn truth decay.}
 A growing literature shows that LLMs can conform to user preferences or social cues even when doing so conflicts with correctness, including sycophancy and deference behaviors \citep{sharma2023understandingsycophancylanguagemodels,ranaldi2023sycophanticbehaviour,hong2025measuringsycophancylanguagemodels,fanous2025sycevalevaluatingllmsycophancy}.
+Our setting is adjacent but deliberately narrower: we use \emph{evidence-free} challenges that apply doubt or pressure \emph{without adding task-relevant facts}, and we score against deterministic gold answers, so failures correspond to auditable deviations rather than preference-following.
 Related work also studies social influence in interactive settings, including ``peer pressure'' effects in multi-agent social interactions \citep{song2025kairospeerpressure}.
 Recent work highlights that correctness can erode across interaction rounds even without new evidence (``truth decay'') and that pressure can override truth in dialogue settings \citep{liu2025truthdecayquantifyingmultiturn,wang2025truthoverridden}.
 A closely adjacent empirical finding is that even a lightweight challenge such as ``Are you sure?'' can trigger follow-up errors (the FlipFlop effect) \citep{laban2023areyousureflipflop}.
