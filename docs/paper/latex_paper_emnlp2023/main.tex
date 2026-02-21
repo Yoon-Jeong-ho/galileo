@@ -117,6 +117,7 @@ Even evidence-free re-asking can induce drift across turns.
 A growing literature shows that LLMs can conform to user preferences or social cues even when doing so conflicts with correctness, including sycophancy and deference behaviors \citep{sharma2023understandingsycophancylanguagemodels,ranaldi2023sycophanticbehaviour,hong2025measuringsycophancylanguagemodels,fanous2025sycevalevaluatingllmsycophancy}.
 Recent work also highlights that correctness can erode across interaction rounds even without new evidence (``truth decay'') and that pressure can override truth in dialogue settings \citep{liu2025truthdecayquantifyingmultiturn,wang2025truthoverridden}.
 Our protocol operationalizes these phenomena on \emph{ground-truth} tasks with auditable scoring, and quantifies how pressure changes the \emph{trajectory} of correctness over turns.
+Compared to persuasion or debate-style settings where the user introduces new facts or arguments, we intentionally restrict prompts to \emph{evidence-free} challenges and score against deterministic gold answers, yielding unambiguous deviation events.
 
 \paragraph{Robustness evaluation beyond single-turn accuracy.}
 Many benchmarks focus on single-turn robustness (e.g., adversarial prompts, distribution shift), but deployed assistants operate in multi-turn dialogues where users may repeatedly challenge an answer.
