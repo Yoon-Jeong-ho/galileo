@@ -1,6 +1,6 @@
 # GALILEO EMNLP Main — Heartbeat log & next plan
 
-**SSOT (do not drift):** all EMNLP Main experiment work uses `ssh nlp8` + repo `/data_x/aa007878/galileo` + GPUs **4/5/6 only**. Older log entries may mention `nlp16` or `/mnt/raid6/...`; treat those as stale historical context.
+**SSOT (do not drift):** all EMNLP Main experiment work uses `ssh nlp8` + repo `/data_x/aa007878/galileo` + GPUs **0–6 (idle-only; not used by other users)**. Older log entries may mention `nlp16` or `/mnt/raid6/...`; treat those as stale historical context.
 
 > Goal: avoid repeating the same shallow update every 10 minutes.
 >
@@ -1526,3 +1526,8 @@ ef{fig:protocol}).
 - Added scripts/make_tier1_survival_summary_from_paper_exports.py to compute Survival@5 and ΔSurvival@5/ΔFail@1 vs NRC across seeds from paper_exports/{survival_curve,turn_of_failure}.csv.
 - Generated docs/paper/artifacts/tier1_deepseek7b_seed1-2_survival_summary_20260221.csv from the paper-ready DeepSeek seed1/seed2 exports.
 
+### 2026-02-22 04:09 KST — Experiments triage: nlp8 GPU occupancy sanity (no GALILEO launch)
+
+- Checked `tmux ls` + `nvidia-smi` on nlp8.
+- Found GPU3 is in use by our own unrelated job (aa007878 `Training/train_llama.py`); GPUs 0/1/2/4/5/6 idle.
+- Decision: do **not** launch a new GALILEO run in this heartbeat to avoid CPU/IO contention while the training job is active; instead updated SSOT docs to reflect the 0–6 idle-only policy consistently.
