@@ -426,10 +426,13 @@ We use two complementary aggregation choices that answer different questions:
   \]
   This isolates the incremental effect of the persona’s pressure wording beyond generic multi-turn re-asking drift **on a matched subset**.
 
-- **Pooled headline view (overall reliability impact vs drift).** Pool across personas/examples first (equivalently: weight personas by evaluation set size), then compare pooled persona pressure vs pooled control:
+- **Pooled headline view (overall reliability impact vs drift; used by Table~W artifacts).** Pool across personas/examples first (equivalently: weight personas by evaluation set size), then compare pooled persona pressure vs pooled control:
   \[
   \Delta_{\mathrm{pool}} = \sum_p w_p\,\text{metric}_{\text{persona},p} - \sum_p w_p\,\text{metric}_{\text{control},p},\quad w_p \propto |C_p|.
   \]
+  This is the semantics of the tracked Table~W artifacts (which export both weighted and unweighted aggregates).
+
+  **Note (cross-family Tier-1 summaries / Table~1 rows):** our current `tier1_*_survival_summary_*.csv` artifacts do not export per-persona denominators \(|C_p|\), so when we need a single “persona aggregate” from those summaries we implement it as an **equal-weight mean over personas of the persona–NRC deltas** (matching `scripts/gen_latex_table1_from_artifacts.py`).
 
 **Interpretation guide (signs matter).** We define \(\Delta\) as (persona pressure − NRC). Under this convention:
 - \(\Delta\)Survival@\(r\) < 0 means **persona pressure reduces robustness** beyond drift (more flips).
