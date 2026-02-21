@@ -175,6 +175,7 @@ Representative commits:
 
 Next:
 - Do a 50-sample pilot for the next candidate cross-family model and require “no capped-to-1 warnings” before running full Tier‑1 seeds 1–2.
+- Use the fail-fast checker (added 2026-02-21): `python3 scripts/check_runlog_for_token_caps.py results/<run>/run.log`.
 
 ## Next heartbeat plan (ONE step)
 

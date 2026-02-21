@@ -148,9 +148,14 @@ Ground-truth tasks에서 multi-turn persona pressure 하에 **정답 유지(surv
 
 ## 4) NEXT HEARTBEAT (ONE step)
 
-**Experiments lane: pick the next cross-family model that is vLLM-feasible without prompt packing collapse, and run a 50-sample pilot (seed1) to validate `max_tokens` is not capped to 1 before committing to a full Tier‑1 (80 samples × seeds 1–2).**
+**Experiments lane: pick the next cross-family model that is vLLM-feasible without prompt packing collapse, and run a 50-sample pilot (seed1) gated by the run-log cap detector before committing to full Tier‑1 (80 samples × seeds 1–2).**
 
-Candidate shortlist (needs vLLM preflight + short pilot first): a model with comfortable context headroom / stable vLLM backend on nlp8.
+Required pilot gates (fail-fast):
+- CUDA alloc preflight: `OK cuda alloc` on the chosen GPU
+- vLLM init preflight: `python scripts/preflight_vllm_model.py --model <hf_id>`
+- Log gate: `python3 scripts/check_runlog_for_token_caps.py results/<run>/run.log` must NOT fail (default fail on cap==1; warn on cap<=32)
+
+Candidate shortlist (needs preflight + pilot first): a model with comfortable context headroom / stable vLLM backend on nlp8.
 
 (StableLM is currently *not* a safe default under the current prompt+R=5 settings.)
 
