@@ -59,8 +59,11 @@
 \newcommand{\TOF}{\textsc{TOF}}
 
 % Acronym macros (consistent small-caps + easier global edits)
-\newcommand{\GALILEO}{\textsc{GALILEO}}
-\newcommand{\NRC}{\textsc{NRC}}
+% NOTE: We wrap in \textup{...} so these macros render as upright small-caps even
+% when used inside \emph{...} (otherwise Times lacks italic small-caps, yielding
+% font-shape warnings and slightly inconsistent typography).
+\newcommand{\GALILEO}{\textup{\textsc{GALILEO}}}
+\newcommand{\NRC}{\textup{\textsc{NRC}}}
 
 % Page-budget markers (for PDF-first workflow).
 % These print page numbers into the LaTeX log so scripts can compute
