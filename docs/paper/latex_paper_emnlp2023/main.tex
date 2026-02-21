@@ -257,6 +257,13 @@ All expectations below are taken over a specified conditioning set $S$ (either t
 &\;=\; \Pr_{x\sim S}\Big[\forall i\in\{1,\dots,r\}:\; c^{(t)}_{i}(x)=1\Big].
 \end{align}
 This is the discrete-time analogue of a survival function (cf. Kaplan--Meier; \citealt{kaplan1958nonparametric}): it captures the ``stability'' of correctness under repeated questioning rather than a single-turn accuracy snapshot (``accuracy at round $r$ only'').
+
+\textbf{Survival vs. per-round accuracy.}
+For contrast, define the (marginal) per-round accuracy at round $r$ as
+\(\mathrm{Acc}^{(t)}@r = \mathbb{E}_{x\sim S}[c^{(t)}_{r}(x)]\).
+Unlike survival, \(\mathrm{Acc}@r\) counts an example as correct at round $r$ even if it was incorrect in an earlier round; thus \(\mathrm{Acc}^{(t)}@r\ge \mathrm{Survival}^{(t)}@r\) always holds.
+We report survival because it matches the operational question ``did the model ever abandon the gold answer up to this point?''.
+
 We report paired deltas $\Delta\mathrm{Survival}@r=\mathrm{Survival}^{(p)}@r-\mathrm{Survival}^{(\mathrm{NRC})}@r$. 
 
 \paragraph{Discrete hazard (per-round failure risk).}
