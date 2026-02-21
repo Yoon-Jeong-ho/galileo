@@ -77,10 +77,10 @@
 \begin{abstract}
 Large language models can abandon a previously correct answer when repeatedly challenged \emph{without new evidence}---a multi-turn failure mode that single-turn accuracy does not reveal.
 We introduce \textbf{\GALILEO{}}, an auditable protocol for ground-truth tasks that isolates \emph{deviations from truth} by (i) evaluating only initially-correct examples and (ii) pairing each pressure persona with a matched \emph{Neutral Re-asking Control} (\NRC{}) that matches dialogue length and decoding, enabling drift-corrected reporting as persona--\NRC{} deltas.
-Over $R{=}5$ challenged rounds, we quantify (a) robustness dynamics via survival trajectories (\SurvivalAt{r}: fraction that stays correct for all challenged turns $1..r$), (b) early vulnerability via first-turn failure (\FailAt{1}) and time-to-first-failure (\TOF), and (c) recoverability after a flip under a final neutral reset (\RecoveryAtFlip).
-We also export per-example transcripts for end-to-end verification.
+Over $R{=}5$ challenged rounds (computed on an initially-correct conditioning set), we quantify (a) robustness dynamics via survival trajectories (\SurvivalAt{r}: fraction that stays correct for all challenged turns $1..r$), (b) early vulnerability via first-turn failure (\FailAt{1}) and time-to-first-failure (\TOF), and (c) recoverability after a flip under a final neutral reset (\RecoveryAtFlip).
+We also export per-example transcripts and per-turn scores for end-to-end verification.
 Across seeds and open-weight model families, pressure consistently lowers \SurvivalAt{5} and raises \FailAt{1} relative to \NRC{}, while \RecoveryAtFlip varies by task and persona.
-For \textbf{Qwen2.5-7B-Instruct} in our main aggregated setting (seeds~1--4; equal-weight average over five personas and five tasks), pressure reduces \SurvivalAt{5} by 22.8 percentage points and increases \FailAt{1} by 6.9 percentage points.
+For \textbf{Qwen2.5-7B-Instruct} in our main aggregated setting (seeds~1--4; equal-weight average over five personas and five tasks), pressure reduces \SurvivalAt{5} by 22.8 percentage points (pp) and increases \FailAt{1} by 6.9\,pp.
 Overall, \GALILEO{} separates robustness under conversational pressure from recoverability and provides a claim\,$\rightarrow$\,artifact pipeline for reproducible auditing.
 \end{abstract}
 
