@@ -180,6 +180,11 @@ Crucially, Phase~1 identifies an initially-correct conditioning set $C$ \emph{pe
 \textbf{Phase 2 (multi-round pressure vs NRC).} Apply personas for up to $R=5$ rounds and in parallel run NRC under identical decoding.
 \textbf{Phase 3 (recovery).} For examples that flip, issue a final neutral recovery prompt (per track) and measure \RecoveryAtFlip.
 
+\paragraph{Evidence-free pressure, matched-length control.}
+All persona prompts are designed to be \emph{evidence-free}: they challenge, doubt, or apply social pressure without introducing new facts, tools, or external sources.
+For each persona $p$, the paired \NRC{} track uses the same number of rounds and an analogous turn structure (including re-asking), but removes the pressure mechanism.
+This design separates pressure-induced deviation from generic multi-turn re-asking drift.
+
 \subsection{Conditioning-set choices (shared $C$ vs per-persona $C_p$)}
 \label{sec:conditioning-set}
 Phase~1 defines an initially-correct set by scoring a neutral first response. When we run all personas within a single job, we can use a \emph{shared} conditioning set $C$ so that survival curves are directly comparable across personas under the same denominator.
