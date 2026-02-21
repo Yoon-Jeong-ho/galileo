@@ -17,7 +17,14 @@ fi
 
 printf "%-6s %-10s\n" "GPU" "PREFLIGHT"
 for g in "${GPUS[@]}"; do
-  if CUDA_VISIBLE_DEVICES="$g" python3 scripts/check_cuda_preflight.py >/dev/null 2>&1; then
+  # Prefer running inside the known-good conda env on nlp8 (system python may not have torch).
+  PRE_PY=(python3)
+  if [[ -x /mnt/raid6/aa007878/miniconda3/bin/conda ]]; then
+    # If the env does not exist, conda run will fail and we'll fall back.
+    PRE_PY=(/mnt/raid6/aa007878/miniconda3/bin/conda run -n emp python3)
+  fi
+
+  if CUDA_VISIBLE_DEVICES="$g" "${PRE_PY[@]}" scripts/check_cuda_preflight.py >/dev/null 2>&1; then
     printf "%-6s %-10s\n" "$g" "OK"
   else
     printf "%-6s %-10s\n" "$g" "FAIL"

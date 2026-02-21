@@ -47,6 +47,10 @@ If `run.log` is not updating but GPU is busy, monitor progress via **output file
 
 **CUDA preflight (required before launch on an apparently idle GPU):**
 
+**Environment note (nlp8):** the system `python3` may not have `torch` installed, which makes preflight fail with
+`[FAIL] torch import failed: No module named 'torch'`.
+Use the known-good conda env on nlp8 (currently `emp` under `/mnt/raid6/aa007878/miniconda3`).
+
 Convenience helper (prints an OK/FAIL table; run on **nlp8**):
 
 ```bash
@@ -60,7 +64,9 @@ We have two complementary preflights:
 ```bash
 ssh nlp8 '
   cd /data_x/aa007878/galileo || exit 1
-  CUDA_VISIBLE_DEVICES=<gpu_id> /data_x/aa007878/miniconda3/envs/galileo/bin/python - <<"PY"
+  source /mnt/raid6/aa007878/miniconda3/etc/profile.d/conda.sh
+  conda activate emp
+  CUDA_VISIBLE_DEVICES=<gpu_id> python - <<"PY"
 import torch
 assert torch.cuda.is_available(), "cuda not available"
 # small alloc + sync (fail-fast if device is unusable)
@@ -78,8 +84,9 @@ ssh nlp8 '
   cd /data_x/aa007878/galileo || exit 1
   # Important: set CUDA_VISIBLE_DEVICES explicitly, otherwise vLLM can fail with
   # cudaErrorDevicesUnavailable even when the alloc preflight passes.
-  CUDA_VISIBLE_DEVICES=<gpu_id> conda run -n galileo \
-    python scripts/preflight_vllm_model.py --model <hf_model_id>
+  source /mnt/raid6/aa007878/miniconda3/etc/profile.d/conda.sh
+  conda activate emp
+  CUDA_VISIBLE_DEVICES=<gpu_id> python scripts/preflight_vllm_model.py --model <hf_model_id>
 '
 ```
 
