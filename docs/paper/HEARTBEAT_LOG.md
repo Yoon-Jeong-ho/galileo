@@ -1550,3 +1550,9 @@ ef{fig:protocol}).
   - Added tracked artifact: `docs/paper/artifacts/table1_n0_from_results_paper_exports_20260222.csv`.
 - Updated `scripts/make_table1_partial_from_results_paper_exports.py` to accept `--n0_csv` and emit the filled $n_0$/seed column.
 - Updated `docs/paper/PAPER_DRAFT_EN.md` Table~\ref{tab:main} to fill the $n_0$/seed column (Recovery@flip remains TODO).
+### 2026-02-22 05:29 KST — Writing/triage: explain Table 1 n0 variance (Mistral seed mismatch)
+
+- Investigated why Table~\ref{tab:main} shows huge $n_0$/seed variance for Mistral-7B.
+- Found `results_paper/mistral_seed1` has `survival_curve.csv` total=341 at round=1, while `mistral_seed2` total=875 (these totals are the initially-correct pool sizes).
+- `metadata.json` indicates the two runs come from different result roots and even different `num_flip_samples` (50 vs 200), suggesting they were produced under mismatched configs / eval sets.
+- Added a caption note clarifying that $n_0$/seed is reported to make such mismatches visible; recommended rerunning Mistral seeds 1–2 under the standardized Tier‑1 setting.
