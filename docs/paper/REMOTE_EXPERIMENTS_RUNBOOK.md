@@ -76,6 +76,8 @@ PY
 ```bash
 ssh nlp8 '
   cd /data_x/aa007878/galileo || exit 1
+  # Important: set CUDA_VISIBLE_DEVICES explicitly, otherwise vLLM can fail with
+  # cudaErrorDevicesUnavailable even when the alloc preflight passes.
   CUDA_VISIBLE_DEVICES=<gpu_id> conda run -n galileo \
     python scripts/preflight_vllm_model.py --model <hf_model_id>
 '
