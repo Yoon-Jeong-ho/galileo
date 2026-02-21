@@ -4,7 +4,8 @@ This folder contains the **MD-only** paper-writing workflow for the GALILEO EMNL
 
 ## Key files
 
-- `PAPER_DRAFT_EN.md`: main English draft (submission-oriented wording scaffold)
+- `PAPER_DRAFT_EN.md`: main English draft (submission-oriented wording scaffold; **SSOT for Abstract wording**)
+- `ABSTRACT_EN.md`: standalone abstract draft for quick copy/paste; **keep in sync with the Abstract section in `PAPER_DRAFT_EN.md`**
 - `PAPER_DRAFT_KO.md`: Korean draft/notes
 - `FIGURE_CAPTIONS.md`: centralized draft captions + provenance for artifact-derived figures
 - `REMOTE_EXPERIMENTS_RUNBOOK.md`: nlp8 experiment lane runbook (tmux/GPU/log checks + launch discipline)
