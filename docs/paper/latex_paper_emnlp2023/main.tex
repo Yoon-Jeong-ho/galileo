@@ -234,25 +234,9 @@ These categories are designed to be simple, copyable, and auditable; exact templ
 
 \textbf{Attribution.} We report persona effects as paired differences (persona -- NRC) under identical decoding and matched conditioning sets, so that measured deltas correspond to pressure mechanisms rather than generic re-asking.
 
-\subsection{Conditioning-set reporting modes (to avoid confusion)}
-Our multi-round metrics are always computed on an \emph{initially-correct} conditioning set, but there are two common reporting choices depending on the comparison.
-
-\textbf{Shared conditioning set $C$ (cross-persona comparisons).}
-For a fixed (model, task, seed, decoding), Phase~1 produces an initially-correct set $C\subseteq D$ under the neutral prompt.
-Using the same $C$ for all personas makes persona-to-persona comparisons interpretable because the denominator is identical.
-
-\textbf{Persona-matched conditioning set $C_p$ (within-persona attribution).}
-In practice, experiments are often run as separate jobs per persona $p$ (and may differ in random seed, batching, or minor decoding details).
-We therefore define $C_p$ as \emph{the Phase~1 initially-correct set for the specific run that generated the persona $p$ results}.
-When reporting persona\,–\,NRC gaps for a given $p$, we compute both tracks on the same $C_p$ to avoid conditioning-set mismatch.
-
-\textbf{Default in this paper.}
-Unless stated otherwise, persona\,–\,NRC deltas are computed on the matched set $C_p$ (so control baselines can differ slightly across personas), while any cross-persona plots explicitly use the shared set $C$. 
-
-\textbf{Concrete example (why this matters).}
-Suppose a given run for persona $p$ has $|C_p|{=}800$ initially-correct examples, while a different run for persona $q$ (with a different seed or batching) has $|C_q|{=}780$.
-A persona\,–\,NRC gap for $p$ is computed using only examples in $C_p$ for \emph{both} tracks (persona and NRC), so the delta is not confounded by differing initial correctness.
-However, directly comparing \emph{absolute} \SurvivalAt{5} across personas is only clean when we hold the denominator fixed (use a shared $C$), which we do explicitly for cross-persona plots.
+\subsection{Conditioning sets and denominators (quick recap)}
+All multi-turn metrics are computed on an \emph{initially-correct} conditioning set, so they measure \emph{deviation from a previously correct answer} rather than initial ignorance.
+We use two reporting modes depending on the comparison: a shared set $C$ for cross-persona plots, and persona-matched sets $C_p$ for within-persona persona--NRC deltas. See \S\ref{sec:conditioning-set} for the full convention.
 
 \subsection{Metrics}
 \label{sec:metrics}
