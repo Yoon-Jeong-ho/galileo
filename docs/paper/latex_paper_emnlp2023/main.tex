@@ -195,8 +195,8 @@ This design separates pressure-induced deviation from generic multi-turn re-aski
 \subsection{Conditioning-set choices (shared $C$ vs per-persona $C_p$)}
 \label{sec:conditioning-set}
 Phase~1 defines an initially-correct set by scoring a neutral first response. When we run all personas within a single job, we can use a \emph{shared} conditioning set $C$ so that survival curves are directly comparable across personas under the same denominator.
-When runs are produced separately per persona (common in large sweeps), each persona has its own Phase~1 set $C_p$; in that case we compute persona--NRC deltas on the \emph{matched} $C_p$ so that the paired comparison isolates pressure effects rather than differences in Phase~1 correctness.
-Unless stated otherwise, this paper reports (i) persona--NRC deltas on matched $C_p$, and (ii) cross-persona plots on an explicitly shared $C$.
+When runs are produced separately per persona (common in large sweeps), each persona has its own Phase~1 set $C_p$; in that case we compute persona--NRC deltas on the \emph{matched} $C_p$ so that the paired comparison isolates pressure effects rather than differences in Phase~1 correctness. This avoids conflating ``pressure'' with the fact that different personas may condition on slightly different initially-correct subsets.
+Unless stated otherwise, this paper reports (i) persona--NRC deltas on matched $C_p$, and (ii) cross-persona plots on an explicitly shared $C$. 
 
 \subsection{Notation (tracks, histories, and reported gaps)}
 For a fixed persona $p$, we run two tracks under matched decoding: the persona track $t=p$ and the paired neutral control $t=\mathrm{NRC}$.
