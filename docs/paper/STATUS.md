@@ -27,7 +27,7 @@ Ground-truth tasks에서 multi-turn persona pressure 하에 **정답 유지(surv
   - **Observed now (nlp16):** GPUs 4/5 are heavily contended (e.g., `jslee-fusion-distill-vllm-v1` holding ~47GiB on GPU5; `eval-worker-gpu1` ~37GiB on GPU4), causing vLLM EngineCore init failures for new TP=4 starts.
   - **Action:** do not blindly relaunch vLLM when free-VRAM is low; fingerprint PIDs first.
 - **Canonical remote launcher (anti-drift):** prefer `scripts/run_multiseed_tmux.sh` (streams logs + writes `runner_metadata.json`). Other launch scripts are allowed only when explicitly justified in `results/<run>/run.log`.
-- **Validator health (paper SSOT):** `results_paper/` global validation + runner-metadata parity is **[OK]** (Tier‑1 families incl. Llama‑3.2‑3B, Phi‑3‑mini, **Phi‑3.5‑mini**, **Mistral‑Nemo**). Incomplete runs are quarantined under `results_paper_incomplete/` to keep paper SSOT clean.
+- **Validator health (paper SSOT):** `results_paper/` global validation + runner-metadata parity is **[OK]** (Tier‑1 families incl. Llama‑3.2‑3B, Phi‑3‑mini, **Phi‑3.5‑mini**, **Mistral‑Nemo**, **DeepSeek‑LLM‑7B‑Chat**). Incomplete runs are quarantined under `results_paper_incomplete/` to keep paper SSOT clean.
 - **Phi-3-mini Tier-1 (cross-family):** seed1–2 are **paper-ready** (validated) under `results_paper/tier1_phi3mini_seed{1,2}_20260217_*`.
 - **Phi-3.5-mini Tier-1 (cross-family):** seed1–2 are **paper-ready** (validated) and staged under:
   - `results_paper/tier1_phi35mini_seed1_20260219_143555/`
@@ -36,6 +36,11 @@ Ground-truth tasks에서 multi-turn persona pressure 하에 **정답 유지(surv
 - **Mistral-Nemo Tier-1 (cross-family):** seed1–2 are **paper-ready** under:
   - `results_paper/tier1_mistralnemo_seed1_20260217_173907/`
   - `results_paper/tier1_mistralnemo_seed2_20260217_180951/`
+- **DeepSeek-LLM-7B-Chat Tier-1 (cross-family):** seed1–2 are **paper-ready** and staged into `results_paper/`:
+  - `results_paper/tier1_deepseek7b_seed1_20260221_052948/`
+  - `results_paper/tier1_deepseek7b_seed2_20260221_061004/`
+  - Artifact (CSV): `docs/paper/artifacts/tier1_deepseek7b_seed1-2_survival_summary_20260221.csv`
+  - Canonical figure (SVG): `docs/paper/figures/cross_family_survival_r5_control_vs_logicaltrap_seed1-2_20260221.svg`
 - **Decoding sweep (seed1–2) done:** `results_paper/qwen_temp0_seed{1,2}` + `results_paper/qwen_temp0p7_seed{1,2}` are paper-ready; `results_paper/GLOBAL_VALIDATE.log` remains all `[OK]`.
 - **Tier‑1 Qwen2.5‑14B‑Instruct (cross-family extension):**
   - seed1 is paper-ready and staged into `results_paper/`.
