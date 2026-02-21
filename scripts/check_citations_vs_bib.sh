@@ -31,6 +31,7 @@ if [[ "$#" -eq 0 ]]; then
   mapfile -t PAPER_FILES < <(
     find docs/paper -type f \( -name "*.tex" -o -name "*.md" \) \
       ! -path "docs/paper/emnlp_template/*" \
+      ! -path "docs/paper/acl_style_files/*" \
       ! -path "docs/paper/latex_skeleton/*" \
       ! -path "docs/paper/latex_skeleton_emnlp2023/*" \
       ! -path "docs/paper/tmp/*" \
