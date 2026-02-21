@@ -160,6 +160,24 @@ Representative commits:
 
 ## Next heartbeat plan (ONE step)
 
+### 2026-02-21 (pm) — Experiments lane: StableLM Tier‑1 attempt aborted (max_tokens capped to 1)
+
+- Remote (SSOT=npl8): monitored the in-progress runs:
+  - `results/tier1_stablelm2_1_6b_seed1_20260221_203004/`
+  - `results/tier1_stablelm2_1_6b_seed2_20260221_204951/`
+- Found repeated critical feasibility warnings in `run.log` indicating vLLM prompt packing forced generation-length caps down to 1 token:
+  - `requested max_tokens=256 capped to 1 (max_model_len=4096)`
+  - `requested max_tokens=2048 capped to 1 (max_model_len=4096)`
+- Decision: treat as **settings/feasibility failure** (not paper evidence); aborted both jobs to avoid wasting GPU-hours.
+  - Killed tmux sessions:
+    - `tier1_stablelm2_1_6b_s1_g1_20260221_203004`
+    - `tier1_stablelm2_1_6b_s2_g2_20260221_204951`
+
+Next:
+- Do a 50-sample pilot for the next candidate cross-family model and require “no capped-to-1 warnings” before running full Tier‑1 seeds 1–2.
+
+## Next heartbeat plan (ONE step)
+
 ### 2026-02-20 — Experiments lane: validate + stage Phi-3.5-mini seeds 1–2 into results_paper
 
 - Confirmed both runs have full `paper_exports/` including `runner_metadata.json`:

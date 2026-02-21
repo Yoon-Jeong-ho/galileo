@@ -44,6 +44,7 @@ Ground-truth tasks에서 multi-turn persona pressure 하에 **정답 유지(surv
   - `results_paper/tier1_yi6b_seed1_20260221_122636/`
   - `results_paper/tier1_yi6b_seed2_20260221_125813/`
   - Artifact (CSV): `docs/paper/artifacts/tier1_yi6b_seed1-2_survival_summary_20260221.csv`
+- **StableLM-2-1.6B chat Tier-1 attempt (2026-02-21):** **aborted / not citable** due to repeated vLLM batch cap warnings that force generations down to 1 token (e.g., `requested max_tokens=256 capped to 1`). This indicates a context/packing feasibility mismatch for our R=5 prompts at `max_model_len=4096` on this stack; do **not** stage into `results_paper/`.
 - **Canonical cross-family figure (SVG):** `docs/paper/figures/cross_family_survival_r5_control_vs_logicaltrap_seed1-2_20260221.svg`
 - **Decoding sweep (seed1–2) done:** `results_paper/qwen_temp0_seed{1,2}` + `results_paper/qwen_temp0p7_seed{1,2}` are paper-ready; `results_paper/GLOBAL_VALIDATE.log` remains all `[OK]`.
 - **Tier‑1 Qwen2.5‑14B‑Instruct (cross-family extension):**
@@ -147,7 +148,11 @@ Ground-truth tasks에서 multi-turn persona pressure 하에 **정답 유지(surv
 
 ## 4) NEXT HEARTBEAT (ONE step)
 
-**Paper presentation lock: add a reviewer-first Main Table + Figures plan (no more “no main table / vague figures”).**
+**Experiments lane: pick the next cross-family model that is vLLM-feasible without prompt packing collapse, and run a 50-sample pilot (seed1) to validate `max_tokens` is not capped to 1 before committing to a full Tier‑1 (80 samples × seeds 1–2).**
+
+Candidate shortlist (needs vLLM preflight + short pilot first): a model with comfortable context headroom / stable vLLM backend on nlp8.
+
+(StableLM is currently *not* a safe default under the current prompt+R=5 settings.)
 
 (Recent progress: Results section now explicitly leads with Table~\ref{tab:main} as a one-stop summary; figures are framed as decompositions. Discussion now has a bulletized findings/implications block to improve skim readability.)
 
