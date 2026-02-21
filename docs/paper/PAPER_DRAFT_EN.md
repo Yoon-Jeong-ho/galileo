@@ -576,7 +576,7 @@ Unless stated otherwise, results are reported as mean±std over **seeds 1–4** 
 
 (SSOT plan for what goes into Table~\ref{tab:main}: `docs/paper/MAIN_TABLE_AND_FIGURES_PLAN.md`.)
 
-Numbers currently filled for Survival@5 and Fail@1 are auto-derived from the tracked artifact `docs/paper/artifacts/table1_from_results_paper_exports_20260222.csv` (script: `scripts/make_table1_partial_from_results_paper_exports.py`). The $n_0$/seed column is derived from `docs/paper/artifacts/table1_n0_from_results_paper_exports_20260222.csv` (computed from `results_paper/*/paper_exports/survival_curve.csv` totals at round 1). Recovery@flip remains TODO until we export recovery fields in the table artifact.
+Numbers currently filled for Survival@5 and Fail@1 are auto-derived from the tracked artifact `docs/paper/artifacts/table1_from_results_paper_exports_20260222.csv` (script: `scripts/make_table1_partial_from_results_paper_exports.py`). The $n_0$/seed column is derived from `docs/paper/artifacts/table1_n0_from_results_paper_exports_20260222.csv` (computed from `results_paper/*/paper_exports/survival_curve.csv` totals at round 1). **Recovery@flip is currently left as TODO** because our present per-run logs (`recovery_accuracy.csv`) appear to omit NRC rows (`neutral_reask_control`), making the control recovery rate undefined (NaN). We must either (i) log/run the recovery phase for NRC so Recovery@flip is defined for both conditions, or (ii) report Recovery@flip as persona-only (with NRC marked N/A) in Table~\ref{tab:main}.
 
 ### 7.1 Main robustness dynamics: survival curves (supports C1, C2)
 

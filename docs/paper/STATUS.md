@@ -153,8 +153,12 @@ Ground-truth tasks에서 multi-turn persona pressure 하에 **정답 유지(surv
 
 - Done: Survival@5 and Fail@1 columns are filled from `docs/paper/artifacts/table1_from_results_paper_exports_20260222.csv`.
 - Done: $n_0$/seed column is filled from `docs/paper/artifacts/table1_n0_from_results_paper_exports_20260222.csv`.
-- Next: generate a tracked Table-1 Recovery@flip artifact from the underlying `results_root/recovery_accuracy.csv` files (via metadata pointers) and fill the remaining Recovery@flip columns in Table~\ref{tab:main}.
-  - New helper script: `scripts/make_table1_recovery_from_results_paper.py`
+- Next: resolve the **Recovery@flip vs NRC** logging gap so Table~\ref{tab:main} can be completed.
+  - Current issue: `recovery_accuracy.csv` for paper-ready runs appears to omit `neutral_reask_control` rows (control_total=0), so NRC Recovery@flip is NaN.
+  - Options:
+    1) Run/log a recovery phase for NRC so Recovery@flip is defined for both conditions (preferred if feasible).
+    2) Make Table 1’s Recovery@flip columns persona-only (mark NRC/Δ as N/A) and explain the rationale.
+  - Helper (already added): `scripts/make_table1_recovery_from_results_paper.py`
 - Sanity note: Table~\ref{tab:main} now exposes a large $n_0$/seed variance for **Mistral-7B** (seed1 vs seed2). This likely indicates a config / evaluation-set mismatch between those two paper-ready runs; ideally rerun Mistral seeds 1–2 under the standardized Tier‑1 setting so cross-seed aggregation is clean.
 
 Required pilot gates (fail-fast):

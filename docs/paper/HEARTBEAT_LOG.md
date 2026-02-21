@@ -1566,3 +1566,8 @@ ef{fig:protocol}).
 - Added `scripts/make_table1_recovery_from_results_paper.py` to compute Recovery@flip (NRC vs pooled persona pressure) for each `results_paper/<alias>`.
 - It uses `paper_exports/metadata.json` to locate the original `results_root` and reads `recovery_accuracy.csv` (if present).
 - Output is a tracked CSV artifact suitable for filling the remaining Recovery@flip block of Table~\ref{tab:main}.
+### 2026-02-22 06:29 KST — Writing/dev lane: document Recovery@flip NRC-missing issue blocking Table 1
+
+- Confirmed that our current recovery logs for paper-ready runs appear to omit `neutral_reask_control` rows in `recovery_accuracy.csv` (control_total=0 → NRC Recovery@flip NaN).
+- Updated `docs/paper/PAPER_DRAFT_EN.md` to explicitly state this as the reason Recovery@flip cells are still TODO in Table~\ref{tab:main}.
+- Updated `docs/paper/STATUS.md` with the two concrete resolution paths: (i) log recovery for NRC, or (ii) report recovery as persona-only with NRC marked N/A.
