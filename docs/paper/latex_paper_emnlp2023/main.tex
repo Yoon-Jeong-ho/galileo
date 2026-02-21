@@ -77,7 +77,7 @@
 \begin{abstract}
 Large language models can abandon previously correct answers when repeatedly challenged \emph{without new evidence}---a multi-turn failure mode that single-turn accuracy does not reveal.
 We introduce \textbf{\GALILEO{}}, an auditable protocol for ground-truth tasks that (i) evaluates only initially-correct examples to isolate \emph{deviations from truth} and (ii) pairs each pressure persona with a \emph{Neutral Re-asking Control} (\NRC{}) that matches interaction length and decoding, enabling drift-corrected attribution of pressure effects.
-Over $R{=}5$ challenged rounds (conditioning on an initially-correct set), we measure survival trajectories (\SurvivalAt{r}, the fraction that remains correct through round $r$), time-to-first-failure (TOF) and first-turn failure (\FailAt{1}), plus post-flip recoverability under a final neutral reset (\RecoveryAtFlip). We also export per-example transcripts for verification.
+Over $R{=}5$ challenged rounds (conditioning on an initially-correct set), we measure survival trajectories (\SurvivalAt{r}, the fraction that remains correct through round $r$), time-to-first-failure (\TOF) and first-turn failure (\FailAt{1}), plus post-flip recoverability under a final neutral reset (\RecoveryAtFlip). We also export per-example transcripts for verification.
 Across seeds and open-weight model families, pressure consistently lowers \SurvivalAt{5} and raises \FailAt{1} beyond evidence-free NRC drift (persona--NRC gaps), while \RecoveryAtFlip varies by task and persona. For \textbf{Qwen2.5-7B-Instruct} in our main aggregated setting (seed1--4; equal-weight average over the five personas and five tasks), pressure reduces \SurvivalAt{5} by 22.8 percentage points and increases \FailAt{1} by 6.9 points relative to NRC.
 Together, these results separate robustness under conversational pressure from recoverability and provide a claim-to-artifact pipeline for reproducible auditing.
 \end{abstract}
@@ -108,7 +108,7 @@ Even evidence-free re-asking can induce drift across turns.
 
 \paragraph{Contributions.}
 \begin{itemize}[leftmargin=*]
-  \item We propose a ground-truth multi-turn protocol with survival curves, TOF and \FailAt{1}, and \RecoveryAtFlip.
+  \item We propose a ground-truth multi-turn protocol with survival curves, \TOF and \FailAt{1}, and \RecoveryAtFlip.
   \item We introduce NRC, an evidence-free matched-length control, enabling drift-corrected attribution of pressure mechanisms.
   \item We provide paper-ready exports and a claim\,$\rightarrow$\,artifact pipeline for auditing and figure regeneration.
 \end{itemize}
@@ -126,7 +126,7 @@ Compared to persuasion or debate-style settings where the user introduces new fa
 Many benchmarks focus on single-turn robustness (e.g., adversarial prompts, distribution shift), but deployed assistants operate in multi-turn dialogues where users may repeatedly challenge an answer.
 Prior multi-turn evaluations and agent surveys highlight interaction dynamics, yet commonly mix in \emph{new evidence}, tool use, or task progression---and often lack a drift-corrected baseline that cleanly separates \emph{conversational pressure} from generic re-asking instability \citep{guan2025evaluatingllmbasedagentsmultiturnsurvey,kim2025challengingevaluatorllmsycophancy}.
 Recent work also frames multi-turn robustness as a \emph{time-to-event} problem and applies survival-analysis tools to measure when inconsistency first occurs under adversarial interaction \citep{li2026timetoinconsistencysurvivalanalysislarge}.
-\GALILEO{} shares this core lens (failure as an event over turns), but keeps the primary reporting \emph{non-parametric and task-grounded} (survival curves, TOF/\FailAt{1}) and adds an evidence-free matched drift baseline (NRC) plus post-flip recovery, improving attribution and auditability.
+\GALILEO{} shares this core lens (failure as an event over turns), but keeps the primary reporting \emph{non-parametric and task-grounded} (survival curves, \TOF/\FailAt{1}) and adds an evidence-free matched drift baseline (NRC) plus post-flip recovery, improving attribution and auditability.
 
 \paragraph{Recovery after a deviation.}
 Beyond measuring failure, recent work studies whether models can be guided back to correct behavior after making mistakes, via verification or self-correction strategies \citep{dhuliawala-etal-2024-chain,helwe2025reviseqa}.
@@ -168,7 +168,7 @@ Crucially, Phase~1 identifies an initially-correct conditioning set $C$ \emph{pe
 \ \ \ (b) NRC track: $y^{(\mathrm{NRC})}_{r} \leftarrow \mathsf{nrc}(p, x, \text{history})$; score correctness\\
 \ \ \ update history separately for persona and NRC tracks.\\
 \textbf{3. Recovery (track-conditional).} For any $x$ that flips at least once in a given track ($p$ or NRC), issue a final neutral recovery prompt for that track; score \RecoveryAtFlip.\\
-\textbf{Output:} per-example trajectories; \SurvivalAt{r}, TOF and \FailAt{1}, \RecoveryAtFlip; paper-ready exports.
+\textbf{Output:} per-example trajectories; \SurvivalAt{r}, \TOF and \FailAt{1}, \RecoveryAtFlip; paper-ready exports.
 }}
 \vspace{-2mm}
 \caption{Protocol summary. Formal definitions for NRC, conditioning sets, and metrics appear below.}
@@ -279,7 +279,7 @@ With this convention, $\mathrm{Hazard}^{(t)}@1 = 1-\mathrm{Survival}^{(t)}@1$ is
 If $\mathrm{Survival}^{(t)}@{(r-1)}=0$ (no remaining at-risk examples), then the conditional hazard at round $r$ is undefined; in practice our reported plots/tables omit hazards beyond the point where the survival curve reaches zero.
 The hazard view makes clear whether a persona concentrates failures immediately (high Hazard@1 / \FailAt{1}) or gradually increases failure risk over rounds (rising hazards).
 
-\paragraph{Time-to-first-failure (TOF) and \FailAt{1}.}
+\paragraph{Time-to-first-failure (\TOF) and \FailAt{1}.}
 Because we condition multi-round evaluation on an initially-correct set (Phase~1), any subsequent incorrect answer reflects a deviation from a previously correct answer.
 Accordingly, we say an example \emph{flips} in a given track if it is incorrect in \emph{any} challenged round $r\in\{1,\dots,R\}$ (i.e., if $c^{(t)}_{r}(x)=0$ for some $r$).
 Define the (possibly censored) first-failure time over the \emph{challenged} rounds $r\in\{1,\dots,R\}$ (the final recovery turn is \emph{not} included):
@@ -291,13 +291,13 @@ Define the (possibly censored) first-failure time over the \emph{challenged} rou
 R{+}1 & \text{otherwise (right-censored)}
 \end{cases}
 \end{align}
-We summarize TOF at the population level using the expectation $\mathbb{E}_{x\sim S}[\mathrm{TOF}^{(t)}(x)]$ (with right-censoring represented as $R{+}1$). This expectation has a simple identity in terms of the survival curve:
+We summarize \TOF at the population level using the expectation $\mathbb{E}_{x\sim S}[\mathrm{TOF}^{(t)}(x)]$ (with right-censoring represented as $R{+}1$). This expectation has a simple identity in terms of the survival curve:
 \begin{align}
 \mathbb{E}_{x\sim S}[\mathrm{TOF}^{(t)}(x)] \;=\; \sum_{r=0}^{R} \mathrm{Survival}^{(t)}@r.
 \end{align}
-Thus, TOF is the discrete ``area under'' the survival trajectory (larger is better). This follows from the tail-sum identity
+Thus, \TOF is the discrete ``area under'' the survival trajectory (larger is better). This follows from the tail-sum identity
 \(\mathbb{E}[\mathrm{TOF}]=\sum_{r=0}^{R}\Pr[\mathrm{TOF}>r]\) together with \(\Pr[\mathrm{TOF}>r]=\mathrm{Survival}@r\) under our definitions.
-Because the $R{+}1$ encoding can compress the tail when failures are rare, we treat TOF as a coarse summary and rely on survival curves (and \FailAt{1}) for round-by-round interpretation.
+Because the $R{+}1$ encoding can compress the tail when failures are rare, we treat \TOF as a coarse summary and rely on survival curves (and \FailAt{1}) for round-by-round interpretation.
 We report the drift-corrected gap
 \begin{align}
 \Delta\mathrm{TOF}
@@ -308,7 +308,7 @@ We report the drift-corrected gap
 
 \paragraph{\RecoveryAtFlip.}
 For each track $t\in\{p,\mathrm{NRC}\}$, let $F^{(t)}=\{x\in S: \exists r\le R\;\text{s.t. }c^{(t)}_{r}(x)=0\}$ denote examples that \emph{fail at least once} (i.e., exhibit at least one flip) in rounds $1..R$ (even if the model later returns to the gold answer within the challenged rounds).
-After $R$ challenged rounds, we issue a final neutral recovery prompt (identical across tracks). For notational convenience, you can think of this as an additional round $r=R{+}1$, but it is \emph{not} counted toward Survival/TOF; we score its correctness as $c^{(\mathrm{rec},t)}(x)$. This isolates ``can a neutral reset recover truth after any deviation'' from the within-round dynamics captured by Survival/TOF.
+After $R$ challenged rounds, we issue a final neutral recovery prompt (identical across tracks). For notational convenience, you can think of this as an additional round $r=R{+}1$, but it is \emph{not} counted toward Survival/\TOF; we score its correctness as $c^{(\mathrm{rec},t)}(x)$. This isolates ``can a neutral reset recover truth after any deviation'' from the within-round dynamics captured by Survival/\TOF.
 We report the conditional recovery rate
 \begin{align}
 \mathrm{Recovery}^{(t)}@\mathrm{flip}=\mathbb{E}_{x\sim F^{(t)}}\big[c^{(\mathrm{rec},t)}(x)\big],
@@ -320,7 +320,7 @@ and the paired difference $\Delta\mathrm{Recovery}@\mathrm{flip}=\mathrm{Recover
 \section{Results}
 \label{sec:results}
 
-We summarize multi-turn robustness as complementary views: (i) \textbf{\SurvivalAt{r}} captures cumulative correctness under repeated questioning, (ii) \textbf{TOF and \FailAt{1}} capture early-turn brittleness and the onset of failure, and (iii) \textbf{\RecoveryAtFlip} captures whether a model can return to the gold answer after it has deviated.
+We summarize multi-turn robustness as complementary views: (i) \textbf{\SurvivalAt{r}} captures cumulative correctness under repeated questioning, (ii) \textbf{\TOF and \FailAt{1}} capture early-turn brittleness and the onset of failure, and (iii) \textbf{\RecoveryAtFlip} captures whether a model can return to the gold answer after it has deviated.
 All main comparisons are reported as \emph{persona--NRC deltas} to correct for evidence-free drift.
 
 \paragraph{One-stop summary.}
@@ -496,7 +496,7 @@ We encourage future work to evaluate how such pressure dynamics interact with sa
 \section{Conclusion}
 \label{sec:conclusion}
 
-We introduced \textbf{\GALILEO{}}, a reproducible evaluation protocol for \emph{multi-turn} robustness on ground-truth tasks that reports survival trajectories, time-to-first-failure (TOF) and first-turn failure (\FailAt{1}), and recovery after deviation (\RecoveryAtFlip).
+We introduced \textbf{\GALILEO{}}, a reproducible evaluation protocol for \emph{multi-turn} robustness on ground-truth tasks that reports survival trajectories, time-to-first-failure (\TOF) and first-turn failure (\FailAt{1}), and recovery after deviation (\RecoveryAtFlip).
 A key design is the \emph{evidence-free} \textbf{Neutral Re-asking Control (NRC)} paired to each pressure persona, enabling drift-corrected attribution of persona effects.
 Across tasks and model families, we find that conversational pressure can induce substantial early-turn failures and progressive degradation beyond NRC, while recovery behavior can vary independently from robustness.
 We hope \GALILEO{} and its paper-ready exports help make multi-turn reliability claims more auditable and comparable.
@@ -521,7 +521,7 @@ For each run, we export \path{paper_exports/metadata.json} and \path{paper_expor
 \toprule
 \textbf{Component} & \textbf{Symbol} & \textbf{Default} & \textbf{Compared variants} & \textbf{Notes}\\
 \midrule
-Pressure rounds & $R$ & 5 & --- & \SurvivalAt{r} reported for $r\le R$; TOF right-censored at $R{+}1$ (i.e., no failure within $R$ rounds).\\
+Pressure rounds & $R$ & 5 & --- & \SurvivalAt{r} reported for $r\le R$; \TOF right-censored at $R{+}1$ (i.e., no failure within $R$ rounds).\\
 Conditioning set & $C,\,C_p$ & $C_p$ for deltas & $C$ (pooled) & Persona--NRC gaps computed on matched $C_p$ unless stated.\\
 Decoding & --- & shared per run & temperature sweep & Persona/NRC share decoding; sweep tests stability of deltas (Fig.~\ref{fig:decoding}).\\
 Model families & --- & open-weight & cross-family check & Cross-family generalization shown in Fig.~\ref{fig:crossfam}.\\
