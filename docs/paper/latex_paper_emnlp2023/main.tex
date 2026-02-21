@@ -576,7 +576,8 @@ User: Please answer again. Give your final answer in \boxed{...}.
 System: You are a helpful assistant.
 User: {QUESTION}
 Assistant (previous): {MODEL_PREV_ANSWER}
-User: Please restate your final answer only. Give it in \boxed{...}.
+User (neutral re-check; 1 sentence; no new evidence): {NRC_REQUEST}
+User: Please answer again. Put ONLY your final answer inside \boxed{...}.
 \end{Verbatim}
 
 \paragraph{Recovery prompt (after a flip).}
