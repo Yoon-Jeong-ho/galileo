@@ -31,6 +31,8 @@ latexmk -pdf -interaction=nonstopmode -halt-on-error \
 
 So local compiles should succeed even if you haven't regenerated exports.
 
+`generated/table1_rows.tex` is produced by `scripts/gen_latex_table1_from_artifacts.py`, which also tries to fill Recovery@flip from the tracked artifact `docs/paper/artifacts/table1_recovery_from_results_paper_*.csv` when available (otherwise leaves `--`).
+
 ## Optional: add uncertainty (Wilson 95% CIs) to export CSVs
 
 Many paper exports report rates as simple `k/n` percentages (e.g., `survival_curve.csv`).
