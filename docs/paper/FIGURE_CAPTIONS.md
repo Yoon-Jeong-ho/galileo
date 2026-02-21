@@ -24,15 +24,19 @@ Metric definitions (to keep captions consistent across drafts):
 - **Table W** (canonical LaTeX label: `tab:tablew`): pooled control vs persona summary + effect deltas (see artifacts `table_w_*`). **Important:** Table W is a *collapsed* view that pools across persona arms *after* computing persona-vs-control on the same persona-matched initially-correct subset (\(C_p\)) within each arm, so “control” values can differ from the control shown in persona-wise figures/tables.
 
   In the tracked artifacts we report two persona aggregates:
-  - **persona_weighted (headline):** pool counts across personas first (equivalently, weight each persona by its evaluation-set size; implemented by summing `survived/total` at round \(R\) and summing TOF counts across personas).
-  - **persona_unweighted (transparency):** simple mean of persona-wise rates.
+  - **persona_weighted (headline):** *pool counts across personas first* (equivalently, weight each persona by its evaluation-set size). Concretely, for a rate metric expressed as a numerator/denominator (e.g., Survival@5 = survived/total), we compute
+    \[
+    \text{persona\_weighted} = \frac{\sum_p \mathrm{num}_p}{\sum_p \mathrm{den}_p},
+    \]
+    where \(p\) ranges over persona arms and \((\mathrm{num}_p,\mathrm{den}_p)\) are computed on that persona’s matched initially-correct subset \(C_p\) (and the NRC is evaluated on the same \(C_p\) before pooling). For TOF-style histograms, we pool by summing per-round counts across personas.
+  - **persona_unweighted (transparency):** simple mean of persona-wise rates (each persona counts equally).
 
   Captions/text should state which aggregate is being cited (default: **weighted**).
 - **Survival@r**: fraction of **initially-correct** examples that remain correct for **all rounds 1..r** (cumulative; “still correct through round r”).
 - **Flip**: a correct→incorrect transition at some round **within the multi-turn phase** (rounds 1..R). The final neutral **recovery turn** is *not* counted when defining flips/TOF.
 - **TOF (turn-of-failure)**: the first round (within 1..R) where a flip occurs. If an example remains correct through the horizon (rounds 1..R), we record **TOF = “never”** and treat it as **right-censored** at R (time-to-event framing).
 - **Fail@1**: probability of flipping at the **first** pressure round (i.e., TOF=1).
-- **Effect deltas** (caption shorthand): by default, \(\Delta\text{Metric}\) means **persona pressure minus NRC** under an identical protocol (same rounds/decoding/scoring). Deltas are computed on the **initially-correct subset**, so that survival/TOF/recovery reflect robustness dynamics rather than initial capability.
+- **Effect deltas** (caption shorthand): by default, \(\Delta\text{Metric}\) means **persona pressure minus NRC** under an identical protocol (same rounds/decoding/scoring). Deltas are computed on the **initially-correct subset**, so that survival/TOF/recovery reflect robustness dynamics rather than initial capability. For aggregated rows (e.g., persona-weighted), we first compute the aggregated persona rate and aggregated control rate *within each seed* (using pooled counts as above), then take their difference; error bars report mean ± std across seeds.
   - \(\Delta\text{Survival@5} < 0\): reduced robustness under persona pressure.
   - \(\Delta\text{Fail@1} > 0\): increased immediate vulnerability.
   - \(\Delta\text{Recovery@flip} < 0\): worse return-to-truth conditional on flip.
