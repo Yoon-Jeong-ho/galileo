@@ -54,20 +54,19 @@ PYTHONUNBUFFERED=1 \
   2>&1 | tee -a "$OUT/run.log"
 
 # runner metadata
-cat > "$OUT/paper_exports/runner_metadata.json" <<JSON
-{
-  "generated_at": "$(date -Iseconds)",
-  "gpu_list": "${GPU}",
-  "tensor_parallel_size": ${TP},
-  "num_samples": ${NUM_SAMPLES},
-  "max_model_len": ${MAX_MODEL_LEN},
-  "max_tokens": ${MAX_TOKENS},
-  "conda_env": "galileo",
-  "model": "${MODEL}",
-  "seed": ${SEED},
-  "tag": "smoke"
-}
-JSON
+PYTHONUNBUFFERED=1 \
+  "$PY" scripts/write_runner_metadata.py \
+    --paper_exports "$OUT/paper_exports" \
+    --model "$MODEL" \
+    --seed "$SEED" \
+    --gpu_list "$GPU" \
+    --tp "$TP" \
+    --num_samples "$NUM_SAMPLES" \
+    --max_model_len "$MAX_MODEL_LEN" \
+    --max_tokens "$MAX_TOKENS" \
+    --conda_env "galileo" \
+    --extra_json '{"tag":"smoke"}' \
+  2>&1 | tee -a "$OUT/run.log"
 
 # validate (per-run)
 PYTHONUNBUFFERED=1 \
