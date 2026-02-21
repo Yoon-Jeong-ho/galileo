@@ -1561,3 +1561,8 @@ ef{fig:protocol}).
 - Added a dagger marker to the Mistral-7B row in Table~\\ref{tab:main} and a corresponding caption note.
 - Goal: prevent over-trusting cross-seed aggregates when $n_0$/seed indicates a strong mismatch (likely config divergence).
 - Temporary guardrail until we rerun Mistral seeds 1–2 under the standardized Tier‑1 setting.
+### 2026-02-22 05:59 KST — Dev lane: add recovery@flip extractor for Table 1 (results_paper -> artifact)
+
+- Added `scripts/make_table1_recovery_from_results_paper.py` to compute Recovery@flip (NRC vs pooled persona pressure) for each `results_paper/<alias>`.
+- It uses `paper_exports/metadata.json` to locate the original `results_root` and reads `recovery_accuracy.csv` (if present).
+- Output is a tracked CSV artifact suitable for filling the remaining Recovery@flip block of Table~\ref{tab:main}.

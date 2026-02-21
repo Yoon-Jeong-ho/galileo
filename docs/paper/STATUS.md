@@ -153,7 +153,8 @@ Ground-truth tasks에서 multi-turn persona pressure 하에 **정답 유지(surv
 
 - Done: Survival@5 and Fail@1 columns are filled from `docs/paper/artifacts/table1_from_results_paper_exports_20260222.csv`.
 - Done: $n_0$/seed column is filled from `docs/paper/artifacts/table1_n0_from_results_paper_exports_20260222.csv`.
-- Next: extend the upstream export/artifact pipeline (on nlp8) to include **Recovery@flip** for NRC vs persona, then regenerate the Table 1 artifact and fill the last remaining column block.
+- Next: generate a tracked Table-1 Recovery@flip artifact from the underlying `results_root/recovery_accuracy.csv` files (via metadata pointers) and fill the remaining Recovery@flip columns in Table~\ref{tab:main}.
+  - New helper script: `scripts/make_table1_recovery_from_results_paper.py`
 - Sanity note: Table~\ref{tab:main} now exposes a large $n_0$/seed variance for **Mistral-7B** (seed1 vs seed2). This likely indicates a config / evaluation-set mismatch between those two paper-ready runs; ideally rerun Mistral seeds 1–2 under the standardized Tier‑1 setting so cross-seed aggregation is clean.
 
 Required pilot gates (fail-fast):
