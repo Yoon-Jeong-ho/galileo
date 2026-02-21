@@ -115,21 +115,18 @@ run_one() {
     2>&1 | tee -a "$out_dir/run.log"
 
   # Runner-side metadata (auditable run settings). Keep separate from paper_export.py metadata.
-  cat > "${out_dir}/paper_exports/runner_metadata.json" <<JSON
-{
-  "generated_at": "$(date -Iseconds)",
-  "gpu_list": "${GPU_LIST}",
-  "tensor_parallel_size": ${TP_SIZE},
-  "num_samples": ${NUM_SAMPLES},
-  "max_model_len": ${MAX_MODEL_LEN},
-  "max_tokens": ${MAX_TOKENS},
-  "greedy_temperature": ${temp},
-  "conda_env": "${CONDA_ENV}",
-  "model": "${model}",
-  "seed": ${seed},
-  "tag": "${tag}"
-}
-JSON
+  python3 scripts/write_runner_metadata.py \
+    --paper_exports "${out_dir}/paper_exports" \
+    --model "${model}" \
+    --seed "${seed}" \
+    --gpu_list "${GPU_LIST}" \
+    --tp "${TP_SIZE}" \
+    --num_samples "${NUM_SAMPLES}" \
+    --max_model_len "${MAX_MODEL_LEN}" \
+    --max_tokens "${MAX_TOKENS}" \
+    --conda_env "${CONDA_ENV}" \
+    --extra_json "{\"greedy_temperature\": ${temp}, \"tag\": \"${tag}\"}" \
+    2>&1 | tee -a "$out_dir/run.log"
 
   # Fail fast if exports are incomplete.
   "${CONDA_BIN}" run -n "${CONDA_ENV}" python scripts/validate_paper_exports.py --results_root "${out_dir}" \

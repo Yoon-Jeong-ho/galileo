@@ -35,12 +35,22 @@ def main() -> None:
     ap.add_argument("--max_model_len", type=int, required=True)
     ap.add_argument("--max_tokens", type=int, required=True)
     ap.add_argument("--conda_env", default="galileo")
+    ap.add_argument(
+        "--extra_json",
+        default="{}",
+        help="Additional JSON dict to merge into runner_metadata (e.g., '{\"greedy_temperature\":0.7,\"tag\":\"mistral\"}')",
+    )
     args = ap.parse_args()
 
     pe = Path(args.paper_exports)
     pe.mkdir(parents=True, exist_ok=True)
 
     out = pe / "runner_metadata.json"
+
+    extra = json.loads(args.extra_json)
+    if not isinstance(extra, dict):
+        raise SystemExit("--extra_json must decode to a JSON object/dict")
+
     payload = {
         "generated_at": datetime.now(timezone.utc).isoformat(),
         "gpu_list": args.gpu_list,
@@ -51,6 +61,7 @@ def main() -> None:
         "conda_env": args.conda_env,
         "model": args.model,
         "seed": args.seed,
+        **extra,
     }
 
     out.write_text(json.dumps(payload, indent=2, sort_keys=True) + "\n", encoding="utf-8")
