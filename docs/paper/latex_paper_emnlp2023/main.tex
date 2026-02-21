@@ -264,9 +264,10 @@ This is the discrete-time analogue of a survival function (cf. Kaplan--Meier; \c
 For contrast, define the (marginal) per-round accuracy at round $r$ as
 \(\mathrm{Acc}^{(t)}@r = \mathbb{E}_{x\sim S}[c^{(t)}_{r}(x)]\).
 Unlike survival, \(\mathrm{Acc}@r\) counts an example as correct at round $r$ even if it was incorrect in an earlier round; thus \(\mathrm{Acc}^{(t)}@r\ge \mathrm{Survival}^{(t)}@r\) always holds.
+For example, if an item is correct at $r{=}1$, incorrect at $r{=}2$, and correct again at $r{=}3$, then \(\mathrm{Acc}@3\) counts it as correct while \(\mathrm{Survival}@3\) does not (since it already deviated at $r{=}2$).
 We report survival because it matches the operational question ``did the model ever abandon the gold answer up to this point?''.
 
-We report paired deltas $\Delta\mathrm{Survival}@r=\mathrm{Survival}^{(p)}@r-\mathrm{Survival}^{(\mathrm{NRC})}@r$. 
+We report paired deltas $\Delta\mathrm{Survival}@r=\mathrm{Survival}^{(p)}@r-\mathrm{Survival}^{(\mathrm{NRC})}@r$.
 
 \paragraph{Discrete hazard (per-round failure risk).}
 Survival curves can be re-expressed as a per-round failure ``hazard'' (conditional risk). Define $\mathrm{Survival}^{(t)}@0\equiv 1$ and, for $r\ge 1$,
