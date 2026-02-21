@@ -72,7 +72,22 @@ This is written as if we’re responding in review/rebuttal; keep it aligned wit
 
 ---
 
-## Q5) “Do these effects generalize beyond one model family, or is it Qwen-specific?”
+## Q5) “Why do your NRC (control) numbers differ across personas? Is that a bug?”
+
+**What they mean:** In Table~W they may notice that the control row for NRC is not identical across personas, which can look like an error if they assume one shared control run.
+
+**Our answer:** This is expected under our **persona-matched conditioning** mode. For each persona arm \(p\), we condition on an arm-specific initially-correct set \(C_p\) (the examples the model got right at round 0 in that arm’s Phase‑1 run config). We then compute **both** persona outcomes and NRC outcomes on that same \(C_p\). Because \(C_p\) can differ across personas (and across seeds), the NRC values in Table~W can also differ across personas—even though the NRC prompts and decoding are fixed. This is precisely what makes the persona–NRC delta interpretable as “pressure beyond drift” *within the same conditioning set*.
+
+**Where to point:**
+- Conditioning-set discussion (shared \(C\) vs persona-matched \(C_p\)): `docs/paper/PAPER_DRAFT_EN.md` (Intro §1.1 / §1.3; Protocol §3 Phase 1).
+- We also provide shared-\(C\) mode for clean cross-persona comparisons (if reviewers want one fixed NRC baseline across personas).
+
+**Suggested paper footnote (drop-in):**
+> “Control (NRC) values are reported on the same initially-correct subset used for the corresponding persona arm (persona-matched \(C_p\)); therefore NRC rows can vary across personas because the conditioning sets differ. Persona effects are reported as within-persona deltas vs NRC.”
+
+---
+
+## Q6) “Do these effects generalize beyond one model family, or is it Qwen-specific?”
 
 **What they mean:** They want cross-family replication and to ensure it’s not a decoding/config artifact.
 
