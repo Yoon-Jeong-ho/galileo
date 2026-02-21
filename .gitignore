@@ -122,6 +122,7 @@ docs/paper/latex_skeleton/figures/*.pdf
 docs/paper/latex_skeleton_emnlp2023/figures/*.pdf
 !docs/paper/latex_skeleton_emnlp2023/figures/protocol_overview.pdf
 !docs/paper/latex_skeleton_emnlp2023/figures/cross_family_survival_r5_control_vs_logicaltrap_seed1-2_20260210.pdf
+!docs/paper/latex_skeleton_emnlp2023/figures/cross_family_survival_r5_control_vs_logicaltrap_seed1-2_20260221.pdf
 !docs/paper/latex_skeleton_emnlp2023/figures/decoding_sweep_qwen_delta_seed1-2_20260211.pdf
 !docs/paper/latex_skeleton_emnlp2023/figures/table_w_effect_delta_seed1-4_20260209.pdf
 !docs/paper/latex_skeleton_emnlp2023/figures/survival_curves_rounds_seed1-4_20260209.pdf
