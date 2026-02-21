@@ -34,6 +34,18 @@ def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("run_log", type=Path)
     ap.add_argument("--max_show", type=int, default=12)
+    ap.add_argument(
+        "--fail_if_cap_le",
+        type=int,
+        default=1,
+        help="Exit 2 if any cap <= this value is observed (default: 1)",
+    )
+    ap.add_argument(
+        "--warn_if_cap_le",
+        type=int,
+        default=32,
+        help="Emit WARN if any cap <= this value is observed (default: 32)",
+    )
     args = ap.parse_args()
 
     p: Path = args.run_log
@@ -41,7 +53,8 @@ def main() -> int:
         print(f"[ERROR] missing file: {p}", file=sys.stderr)
         return 3
 
-    capped_to_1 = []
+    fail_caps = []
+    warn_caps = []
     caps = Counter()
 
     try:
@@ -53,8 +66,10 @@ def main() -> int:
                 req = int(m.group("req"))
                 cap = int(m.group("cap"))
                 caps[(req, cap)] += 1
-                if cap == 1:
-                    capped_to_1.append((i, line.rstrip("\n")))
+                if cap <= args.fail_if_cap_le:
+                    fail_caps.append((i, line.rstrip("\n")))
+                if cap <= args.warn_if_cap_le:
+                    warn_caps.append((i, line.rstrip("\n")))
     except OSError as e:
         print(f"[ERROR] cannot read {p}: {e}", file=sys.stderr)
         return 3
@@ -67,15 +82,20 @@ def main() -> int:
     for (req, cap), cnt in caps.most_common():
         print(f"  - {req}->{cap} : {cnt}")
 
-    if capped_to_1:
-        print(f"[FAIL] found {len(capped_to_1)} lines with capped-to-1 (non-comparable run)")
-        for i, (lineno, s) in enumerate(capped_to_1[: args.max_show], start=1):
+    if fail_caps:
+        thr = args.fail_if_cap_le
+        print(f"[FAIL] found {len(fail_caps)} lines with cap <= {thr} (non-comparable run)")
+        for i, (lineno, s) in enumerate(fail_caps[: args.max_show], start=1):
             print(f"  [{i:02d}] L{lineno}: {s}")
-        if len(capped_to_1) > args.max_show:
-            print(f"  ... ({len(capped_to_1) - args.max_show} more)")
+        if len(fail_caps) > args.max_show:
+            print(f"  ... ({len(fail_caps) - args.max_show} more)")
         return 2
 
-    print("[OK] cap warnings exist, but none capped to 1")
+    if warn_caps:
+        thr = args.warn_if_cap_le
+        print(f"[WARN] found {len(warn_caps)} lines with cap <= {thr} (may degrade comparability)")
+
+    print("[OK] cap warnings exist, but none violate fail threshold")
     return 0
 
 
