@@ -165,7 +165,7 @@ Crucially, Phase~1 identifies an initially-correct conditioning set $C$ \emph{pe
 \subsection{Overview (paper-auditable loop)}
 \begin{figure}[t]
 \centering
-\fbox{\parbox{0.97\linewidth}{
+\fbox{\parbox{0.97\linewidth}{\small
 \textbf{Algorithm 1: \GALILEO{} evaluation for a persona $p$ and matched NRC.}\\
 \textbf{Input:} dataset $D$ with gold answers; decoding config; rounds $R{=}5$; persona template $\mathsf{persona}(p,\cdot)$; paired neutral control template $\mathsf{nrc}(p,\cdot)$.\\
 \textbf{1. Initial evaluation (define the conditioning set).} Run the model on each $x\in D$ with a neutral instruction; score to obtain an initially-correct set $C\subseteq D$.\\
