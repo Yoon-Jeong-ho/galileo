@@ -76,7 +76,7 @@
 
 \begin{abstract}
 Large language models can abandon a previously correct answer when repeatedly challenged \emph{without new evidence}---a multi-turn failure mode that single-turn accuracy does not reveal.
-We introduce \textbf{\GALILEO{}}, an auditable protocol for ground-truth tasks that isolates \emph{deviations from truth} by (i) evaluating only initially-correct examples and (ii) pairing each pressure persona with a matched \emph{Neutral Re-asking Control} (\NRC{}) that keeps dialogue length and decoding fixed.
+We introduce \textbf{\GALILEO{}}, an auditable protocol for ground-truth tasks that isolates \emph{deviations from truth} by (i) evaluating only initially-correct examples and (ii) pairing each pressure persona with a matched \emph{Neutral Re-asking Control} (\NRC{}) that keeps dialogue length and decoding fixed, so persona effects can be reported as drift-corrected persona--\NRC{} deltas.
 Over $R{=}5$ challenged rounds, we quantify (a) robustness dynamics via survival trajectories (\SurvivalAt{r}: fraction that stays correct for all challenged turns $1..r$), (b) vulnerability via first-turn failure (\FailAt{1}) and time-to-first-failure (\TOF), and (c) recoverability after a flip under a final neutral reset (\RecoveryAtFlip).
 We also export per-example transcripts for end-to-end verification.
 Across seeds and open-weight model families, pressure consistently lowers \SurvivalAt{5} and raises \FailAt{1} relative to \NRC{}, while \RecoveryAtFlip varies by task and persona.
