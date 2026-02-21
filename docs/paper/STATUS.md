@@ -149,9 +149,10 @@ Ground-truth tasks에서 multi-turn persona pressure 하에 **정답 유지(surv
 
 ## 4) NEXT HEARTBEAT (ONE step)
 
-**Writing/dev lane: populate Table~\ref{tab:main} programmatically (at least Survival@5 + Fail@1) from tracked artifacts, to eliminate copy/paste drift before we fill Recovery@flip + $n_0$/seed.**
+**Writing/dev lane: finish Table~\ref{tab:main} by adding Recovery@flip + $n_0$/seed to the tracked artifact and auto-filling those columns too.**
 
-(We now have a generator for the partial table rows from `docs/paper/artifacts/table1_from_results_paper_exports_20260222.csv`: `scripts/make_table1_partial_from_results_paper_exports.py`.)
+- Done: Survival@5 and Fail@1 columns are now filled in `docs/paper/PAPER_DRAFT_EN.md` from the tracked artifact `docs/paper/artifacts/table1_from_results_paper_exports_20260222.csv` (script: `scripts/make_table1_partial_from_results_paper_exports.py`).
+- Next: extend the artifact generator upstream (on nlp8) to include Recovery@flip + $n_0$/seed, then regenerate + refill.
 
 Required pilot gates (fail-fast):
 - CUDA alloc preflight: `OK cuda alloc` on the chosen GPU

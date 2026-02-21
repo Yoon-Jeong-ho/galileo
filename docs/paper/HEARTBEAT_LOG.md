@@ -1539,3 +1539,8 @@ ef{fig:protocol}).
 - Checked `tmux ls` + `nvidia-smi` on nlp8.
 - Found GPU3 is in use by our own unrelated job (aa007878 `Training/train_llama.py`); GPUs 0/1/2/4/5/6 idle.
 - Decision: do **not** launch a new GALILEO run in this heartbeat to avoid CPU/IO contention while the training job is active; instead updated SSOT docs to reflect the 0–6 idle-only policy consistently.
+### 2026-02-22 04:39 KST — Writing lane: fill Table 1 (Survival@5 + Fail@1) in the EN draft
+
+- Used the auto-generated row values (from `scripts/make_table1_partial_from_results_paper_exports.py`) to replace the `--` placeholders for **Survival@5** and **Fail@1** in Table~\ref{tab:main}.
+- Updated: `docs/paper/PAPER_DRAFT_EN.md` now has mean±std numbers for all 7 Table-1 rows (Survival@5 + Fail@1).
+- Left **Recovery@flip** and **$n_0$/seed** as TODO placeholders until we add those fields to the table artifact.
