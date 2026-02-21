@@ -315,7 +315,7 @@ We report the drift-corrected gap
 &\;=\; \mathbb{E}_{x\sim S}[\mathrm{TOF}^{(p)}(x)] \\
 &\quad\;\;\; -\mathbb{E}_{x\sim S}[\mathrm{TOF}^{(\mathrm{NRC})}(x)].
 \end{align}
-\FailAt{1} is the first-turn failure rate, $\mathrm{Fail}^{(t)}@1=1-\mathrm{Survival}^{(t)}@1$; we analogously report $\Delta\mathrm{Fail}@1$.
+We define the first-turn failure rate as $\mathrm{Fail}^{(t)}@1\equiv 1-\mathrm{Survival}^{(t)}@1$ (equivalently, $\mathrm{Fail}^{(t)}@1=\mathrm{Hazard}^{(t)}@1$). We refer to this metric as \FailAt{1} and analogously report $\Delta\mathrm{Fail}@1$. 
 
 \paragraph{\RecoveryAtFlip.}
 For each track $t\in\{p,\mathrm{NRC}\}$, let $F^{(t)}=\{x\in S: \exists r\le R\;\text{s.t. }c^{(t)}_{r}(x)=0\}$ denote examples that \emph{fail at least once} (i.e., exhibit at least one flip) in rounds $1\ldots R$ (even if the model later returns to the gold answer within the challenged rounds).
