@@ -346,8 +346,12 @@ Concretely, for a metric $m$ and persona set $\mathcal{P}$,
 \Delta \bar{m} \;=\; \frac{1}{|\mathcal{P}|} \sum_{p\in\mathcal{P}} \Big(m^{(p)} - m^{(\mathrm{NRC},p)}\Big),
 \end{align}
 where $m^{(\mathrm{NRC},p)}$ denotes the NRC track paired to persona $p$ under matched decoding.
-\textbf{Table interpretation note.} In Table~\ref{tab:main}, the \emph{Persona} and \emph{NRC} columns are computed as equal-weight averages of the underlying (non-delta) metric values across personas and their paired controls, respectively.
-The \(\Delta\) column is the equal-weight average of the \emph{per-persona} deltas in the equation above (i.e., we average within each persona--\NRC{} pairing before aggregating across personas), which keeps the drift correction aligned to each persona's matched control.
+\textbf{Table interpretation note.} In Table~\ref{tab:main}, the \emph{Persona} and \emph{NRC} columns are computed as equal-weight averages of the underlying (non-delta) metric values across personas and their paired controls, respectively:
+\(
+\bar{m}^{(\mathrm{Persona})}=\tfrac{1}{|\mathcal{P}|}\sum_{p\in\mathcal{P}} m^{(p)},\;
+\bar{m}^{(\mathrm{NRC})}=\tfrac{1}{|\mathcal{P}|}\sum_{p\in\mathcal{P}} m^{(\mathrm{NRC},p)}
+\).
+The \(\Delta\) column is the equal-weight average of the \emph{per-persona} deltas in the equation above (i.e., we average within each persona--\NRC{} pairing before aggregating across personas), so in general \(\Delta\bar{m}\neq \bar{m}^{(\mathrm{Persona})}-\bar{m}^{(\mathrm{NRC})}\). This keeps the drift correction aligned to each persona's matched control.
 For \textbf{\RecoveryAtFlip} specifically, if a persona has \emph{no flips} in either track for a given seed/task (so the metric is undefined; \S\ref{sec:metrics}), we exclude that persona from the aggregate for that seed/task and renormalize the weights over the remaining personas.
 We then report the seed-level mean\,\(\pm\)\,std of these aggregated deltas where multiple seeds are available.
 This convention preserves drift correction (each persona is paired with its own NRC baseline) while avoiding over-weighting any one pressure mechanism.
