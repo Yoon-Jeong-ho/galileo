@@ -160,6 +160,14 @@ Representative commits:
 
 ## Next heartbeat plan (ONE step)
 
+### 2026-02-22 04:29 KST — Writing/dev lane: auto-generate Table 1 partial (Survival@5 + Fail@1)
+
+- Added a small generator script to turn the already-tracked per-run summary artifact into Table~\ref{tab:main} row strings:
+  - `scripts/make_table1_partial_from_results_paper_exports.py`
+  - Input: `docs/paper/artifacts/table1_from_results_paper_exports_20260222.csv`
+  - Output: LaTeX-ready rows with mean±std across seeds for **Survival@5** and **Fail@1** (leaves Recovery@flip and $n_0$/seed as placeholders until we add those to the artifact).
+- This reduces copy/paste errors and makes Table 1 population auditable + reproducible.
+
 ### 2026-02-21 (pm) — Experiments lane: StableLM Tier‑1 attempt aborted (max_tokens capped to 1)
 
 - Remote (SSOT=npl8): monitored the in-progress runs:

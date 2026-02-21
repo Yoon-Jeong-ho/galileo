@@ -149,7 +149,9 @@ Ground-truth tasks에서 multi-turn persona pressure 하에 **정답 유지(surv
 
 ## 4) NEXT HEARTBEAT (ONE step)
 
-**Experiments lane: pick the next cross-family model that is vLLM-feasible without prompt packing collapse, and run a 50-sample pilot (seed1) gated by the run-log cap detector before committing to full Tier‑1 (80 samples × seeds 1–2).**
+**Writing/dev lane: populate Table~\ref{tab:main} programmatically (at least Survival@5 + Fail@1) from tracked artifacts, to eliminate copy/paste drift before we fill Recovery@flip + $n_0$/seed.**
+
+(We now have a generator for the partial table rows from `docs/paper/artifacts/table1_from_results_paper_exports_20260222.csv`: `scripts/make_table1_partial_from_results_paper_exports.py`.)
 
 Required pilot gates (fail-fast):
 - CUDA alloc preflight: `OK cuda alloc` on the chosen GPU
