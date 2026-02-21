@@ -90,6 +90,12 @@ ssh nlp8 '
 '
 ```
 
+If the model defaults to bf16 but the GPU does not support it (e.g., RTX8000 cc7.5), force fp16:
+
+```bash
+CUDA_VISIBLE_DEVICES=<gpu_id> python scripts/preflight_vllm_model.py --model <hf_model_id> --dtype float16
+```
+
 Only launch heavy runs if (1) passes; run (2) whenever trying a new model family.
 Idle `nvidia-smi` snapshots alone are not sufficient.
 

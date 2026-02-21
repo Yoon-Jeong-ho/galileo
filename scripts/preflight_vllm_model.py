@@ -61,6 +61,15 @@ def main() -> int:
         action="store_true",
         help="Sets VLLM_ALLOW_LONG_MAX_MODEL_LEN=1 (dangerous; use only if you know model uses RoPE safely).",
     )
+    ap.add_argument(
+        "--dtype",
+        choices=["auto", "float16", "bfloat16"],
+        default="auto",
+        help=(
+            "vLLM dtype override. Use float16 on GPUs without bf16 support (e.g., RTX8000 cc7.5). "
+            "Default: auto (let vLLM decide)."
+        ),
+    )
     args = ap.parse_args()
 
     inferred = _infer_max_len_from_hf_config(args.model)
@@ -79,18 +88,24 @@ def main() -> int:
     try:
         from vllm import LLM
 
-        _ = LLM(
+        llm_kwargs = dict(
             model=args.model,
             trust_remote_code=True,
             max_model_len=max_len,
             tensor_parallel_size=1,
             disable_log_stats=True,
         )
-        print(f"OK model={args.model} max_model_len={max_len} inferred={inferred} CUDA_VISIBLE_DEVICES={cuda}")
+        if args.dtype != "auto":
+            llm_kwargs["dtype"] = args.dtype
+
+        _ = LLM(**llm_kwargs)
+        print(
+            f"OK model={args.model} max_model_len={max_len} inferred={inferred} dtype={args.dtype} CUDA_VISIBLE_DEVICES={cuda}"
+        )
         return 0
     except Exception as e:
         print(
-            f"FAIL model={args.model} max_model_len={max_len} inferred={inferred} CUDA_VISIBLE_DEVICES={cuda} err={type(e).__name__}: {str(e)[:220]}",
+            f"FAIL model={args.model} max_model_len={max_len} inferred={inferred} dtype={args.dtype} CUDA_VISIBLE_DEVICES={cuda} err={type(e).__name__}: {str(e)[:220]}",
             file=sys.stdout,
         )
         return 2
