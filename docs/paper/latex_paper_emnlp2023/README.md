@@ -31,6 +31,29 @@ latexmk -pdf -interaction=nonstopmode -halt-on-error \
 
 So local compiles should succeed even if you haven't regenerated exports.
 
+## Optional: add uncertainty (Wilson 95% CIs) to export CSVs
+
+Many paper exports report rates as simple `k/n` percentages (e.g., `survival_curve.csv`).
+If you want lightweight confidence intervals for plotting/error bars **without rerunning any experiments**, you can use:
+
+```bash
+python3 ../../../scripts/add_wilson_ci.py \
+  --in_csv  path/to/paper_exports/survival_curve.csv \
+  --out_csv path/to/paper_exports/survival_curve_wilson95.csv \
+  --k_col survived --n_col total \
+  --rate_col survival_rate
+```
+
+For turn-of-failure histograms:
+
+```bash
+python3 ../../../scripts/add_wilson_ci.py \
+  --in_csv  path/to/paper_exports/turn_of_failure.csv \
+  --out_csv path/to/paper_exports/turn_of_failure_wilson95.csv \
+  --k_col count --n_col total \
+  --rate_col rate
+```
+
 ## Page-budget markers (for scripts)
 
 `main.tex` emits log markers like:
