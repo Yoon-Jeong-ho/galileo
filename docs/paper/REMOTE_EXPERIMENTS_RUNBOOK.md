@@ -100,6 +100,15 @@ Idle `nvidia-smi` snapshots alone are not sufficient.
 On small-context models (e.g., `max_model_len=4096`), long prompts can force `max_tokens` down to **1**.
 If you see `[warn] requested max_tokens=... capped to 1`, treat the run as a **settings/feasibility issue** (not a meaningful robustness result) until we (i) shorten prompts, (ii) reduce `reserve_tokens`, or (iii) reduce the requested generation length.
 
+Fail-fast helper (run locally or on nlp8):
+
+```bash
+python3 scripts/check_runlog_for_token_caps.py results/<run>/run.log
+```
+
+- exits 0 if no capped-to-1 lines are present
+- exits 2 if capped-to-1 is detected (do not stage into `results_paper/`)
+
 **Stall cutoff (recommended):** if (i) no new files under `OUT/<ModelName>/` for **≥30 minutes** and (ii) the runner PID is sleeping (0% CPU) while `VLLM::EngineCore` keeps GPU busy, treat it as hung and relaunch (do not start seed2 until seed1 is healthy).
 
 ```bash
