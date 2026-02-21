@@ -150,6 +150,8 @@ Each dataset is stored as **JSONL**, with one example per line. We unify fields 
 
 Given a dataset and an LLM, GALILEO proceeds in three phases:
 
+**Round indexing convention (to avoid off-by-one confusion):** we label the initial, persona-free answer as **round 0**. We then run **R pressure/control rounds** labeled **1..R** (default: R=5). Finally, we optionally append **one neutral recovery round** (round **R+1**) used **only** to compute recovery@flip; it is **excluded** from Survival@r and TOF/Fail@1 definitions.
+
 ### Phase 1: Initial evaluation
 
 We prompt the model to answer each question and score the response against ground truth.
