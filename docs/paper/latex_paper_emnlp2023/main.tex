@@ -520,10 +520,15 @@ To mitigate this risk, we:
   \item recommend pairing any pressure evaluation with an evidence-free matched control (\NRC{}) and adding deployment guardrails (e.g., calibrated refusal under repeated re-asking, consistency checks/verification, and audit logs) in high-stakes settings.
 \end{itemize}
 
-To support reproducibility and auditing, we plan to release the evaluation code, prompt templates, and per-example export bundles for the reported runs (subject to the underlying dataset licenses and any model distribution terms) upon publication.
+To support reproducibility and auditing, see our Data and Code Availability statement below.
 
 Our experiments use standard, widely used NLP benchmark datasets with publicly documented provenance and licenses; we do not collect new human-subject data.
 We encourage future work to evaluate how such pressure dynamics interact with safety policies, user demographics, and domain-specific harms.
+
+\section{Data and Code Availability}
+\label{sec:availability}
+To enable end-to-end auditing, we will release the evaluation code, prompt templates, and per-example export bundles (transcripts, per-turn scores, and metadata sufficient to regenerate tables and figures) for the reported runs upon publication, subject to the underlying dataset licenses and model distribution terms.
+For double-blind review, we omit repository URLs here and will add them in the camera-ready.
 
 \section{Conclusion}
 \label{sec:conclusion}
