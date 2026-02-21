@@ -1,0 +1,4 @@
+alias	run_dir
+# Example:
+# qwen_control_seed1	/data_x/aa007878/galileo/results/c2run_control_20260209_172640
+# qwen_persona_seed1	/data_x/aa007878/galileo/results/c2run_persona_20260209_174640

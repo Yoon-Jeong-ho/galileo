@@ -1576,3 +1576,8 @@ ef{fig:protocol}).
 - Investigated why NRC Recovery@flip was NaN when reading `recovery_accuracy.csv`.
 - Found `run_experiment.py` writes persona names via `get_persona_name(...)`, so NRC appears as the **display label** `Control Re-asking` (not `neutral_reask_control`).
 - Updated `scripts/make_table1_recovery_from_results_paper.py` to treat `Control Re-asking` as the NRC control persona, unblocking Table-1 recovery extraction.
+### 2026-02-22 06:59 KST — Dev lane: add one-command restage for results_paper/
+
+- Added `scripts/restage_results_paper_from_manifest.py` to rebuild the paper-only symlink root `results_paper/` from a simple CSV manifest (alias -> run_dir).
+- Added template manifest: `docs/paper/results_paper_manifest.TEMPLATE.csv`.
+- Updated `docs/paper/REMOTE_EXPERIMENTS_RUNBOOK.md` with the restage command (useful after `git clean -fd` on nlp8).

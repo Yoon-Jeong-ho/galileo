@@ -213,6 +213,10 @@ This avoids legacy directories breaking global validation.
 
 - Location: `results_paper/` (under the repo root on nlp8)
 - Structure: `results_paper/<alias>/paper_exports -> ../../results/<run>/paper_exports` (symlink)
+- If `results_paper/` gets deleted (e.g., after `git clean -fd`), restage it from a manifest:
+  - Create `docs/paper/results_paper_manifest.tsv` (start from `docs/paper/results_paper_manifest.TEMPLATE.tsv`)
+  - Then run:
+    - `python3 scripts/restage_results_paper_from_manifest.py --manifest docs/paper/results_paper_manifest.tsv --repo_root $(pwd) --validate`
 - Validation command:
 
 ```bash
