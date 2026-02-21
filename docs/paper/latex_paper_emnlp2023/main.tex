@@ -1,6 +1,9 @@
 % GALILEO — EMNLP Main (working LaTeX)
 % Goal: compile locally (2-column) and iteratively improve paper quality.
 \pdfoutput=1
+% Silence harmless pdfTeX warning when including multiple PDFs with page groups.
+% This keeps CI / local builds clean without affecting output.
+\pdfsuppresswarningpagegroup=1
 \documentclass[11pt]{article}
 
 % REVIEW TOGGLE
