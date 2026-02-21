@@ -13,6 +13,30 @@ TEX_DIR="docs/paper/latex_paper_emnlp2023"
 TEX_FILE="main.tex"
 
 cd "$(git rev-parse --show-toplevel)"
+
+# Dependency checks (fail fast with actionable messages)
+need_cmd() {
+  if ! command -v "$1" >/dev/null 2>&1; then
+    echo "[ERROR] Missing required command: $1" >&2
+    case "$1" in
+      pdfinfo)
+        echo "        Install poppler-utils (e.g., 'sudo apt-get install -y poppler-utils')." >&2
+        ;;
+      latexmk)
+        echo "        Install latexmk + a LaTeX distribution (e.g., TeX Live)." >&2
+        ;;
+      python3)
+        echo "        Install Python 3." >&2
+        ;;
+    esac
+    exit 127
+  fi
+}
+
+need_cmd python3
+need_cmd latexmk
+need_cmd pdfinfo
+
 cd "$TEX_DIR"
 
 # Ensure generated LaTeX fragments (e.g., Table 1 rows) exist before compiling.
