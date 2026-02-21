@@ -301,7 +301,7 @@ Define the (possibly censored) first-failure time over the \emph{challenged} rou
 R{+}1 & \text{otherwise (right-censored).}
 \end{cases}
 \end{align}
-We summarize \TOF at the population level using the expectation $\mathbb{E}_{x\sim S}[\mathrm{TOF}^{(t)}(x)]$ (with right-censoring represented as $R{+}1$). This expectation has a simple identity in terms of the survival curve:
+We summarize \TOF at the population level using the expectation $\mathbb{E}_{x\sim S}[\mathrm{TOF}^{(t)}(x)]$ (with right-censoring represented as $R{+}1$). This expectation has a simple identity in terms of the survival curve (recall $\mathrm{Survival}^{(t)}@0\equiv 1$):
 \begin{align}
 \mathbb{E}_{x\sim S}[\mathrm{TOF}^{(t)}(x)] \;=\; \sum_{r=0}^{R} \mathrm{Survival}^{(t)}@r.
 \end{align}
