@@ -228,6 +228,7 @@ These are the exact “proof pointer” hooks we want a reviewer to notice in th
   - Artifact (CSV): `docs/paper/artifacts/tier1_zephyr7b_seed1-2_survival_summary_20260218.csv`
   - Artifact (CSV): `docs/paper/artifacts/tier1_qwen2p5_14b_seed1-2_survival_summary_20260219.csv`
   - Artifact (CSV): `docs/paper/artifacts/tier1_deepseek7b_seed1-2_survival_summary_20260221.csv`
+  - Artifact (CSV): `docs/paper/artifacts/tier1_yi6b_seed1-2_survival_summary_20260221.csv`
 
   (Keep this list in sync with `docs/paper/FIGURE_CAPTIONS.md`.)
   - Regeneration (when `results_paper/` is synced locally; not tracked in git):
