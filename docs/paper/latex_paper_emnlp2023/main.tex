@@ -58,6 +58,9 @@
 \newcommand{\RecoveryAtFlip}{\textsc{Recovery}@flip}
 \newcommand{\TOF}{\textsc{TOF}}
 
+% Table helper: tighter \pm for dense numeric columns (avoids minor overfull boxes)
+\newcommand{\tabpm}{\ensuremath{\!\pm\!}}
+
 % Acronym macros (consistent small-caps + easier global edits)
 % NOTE: We wrap in \textup{...} so these macros render as upright small-caps even
 % when used inside \emph{...} (otherwise Times lacks italic small-caps, yielding
@@ -80,7 +83,7 @@
 \begin{abstract}
 Large language models can abandon a previously correct answer when repeatedly challenged \emph{without new evidence}---a multi-turn failure mode that single-turn accuracy does not reveal.
 We introduce \textbf{\GALILEO{}}, an auditable protocol for ground-truth tasks that isolates \emph{deviations from truth} by (i) evaluating only initially-correct examples and (ii) pairing each pressure persona with a matched \emph{Neutral Re-asking Control} (\NRC{}) that matches dialogue length and decoding, enabling drift-corrected reporting as persona--\NRC{} deltas.
-Over $R{=}5$ challenged rounds (computed on an initially-correct conditioning set), we quantify (a) robustness dynamics via survival trajectories (\SurvivalAt{r}: fraction that stays correct for all challenged turns $1..r$), (b) early vulnerability via first-turn failure (\FailAt{1}) and time-to-first-failure (\TOF), and (c) recoverability after a flip under a final neutral reset (\RecoveryAtFlip).
+Over $R{=}5$ challenged rounds (computed on an initially-correct conditioning set), we quantify (a) robustness dynamics via survival trajectories (\SurvivalAt{r}: fraction that stays correct for all challenged turns $1..r$), (b) early vulnerability via first-turn failure (\FailAt{1}) and time-to-first-failure (\TOF), and (c) recoverability after a flip under a final neutral reset (\RecoveryAtFlip). The recovery turn is excluded from \SurvivalAt{r}/\TOF computation.
 We also export per-example transcripts and per-turn scores for end-to-end verification.
 Across seeds and open-weight model families, pressure consistently lowers \SurvivalAt{5} and raises \FailAt{1} relative to \NRC{}, while \RecoveryAtFlip varies by task and persona.
 For \textbf{Qwen2.5-7B-Instruct} in our main aggregated setting (seeds~1--4; per seed we compute persona--\NRC{} deltas, then take an equal-weight mean over the five pressure personas and an equal-weight mean over the five ground-truth tasks), pressure reduces \SurvivalAt{5} by 22.8 percentage points and increases \FailAt{1} by 6.9 percentage points.
@@ -359,7 +362,7 @@ This convention preserves drift correction (each persona is paired with its own 
 \begin{table*}[t]
 \centering
 \small
-\setlength{\tabcolsep}{5pt}
+\setlength{\tabcolsep}{4pt} % compact but readable spacing for dense numeric columns
 \begin{tabularx}{\textwidth}{l *{3}{>{\centering\arraybackslash}X} >{\centering\arraybackslash}X *{3}{>{\centering\arraybackslash}X}}
 \toprule
 \multirow{2}{*}{Model family} & \multicolumn{3}{c}{\SurvivalAt{5}} & $\Delta\,\FailAt{1}$ & \multicolumn{3}{c}{\RecoveryAtFlip} \\
