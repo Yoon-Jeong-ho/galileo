@@ -497,8 +497,10 @@ We study evidence-free conversational pressure that can cause a model to abandon
 While this improves our understanding of multi-turn reliability, it also carries misuse risk: similar prompts could be used to intentionally destabilize deployed systems.
 To mitigate this risk, we:
 \begin{itemize}[leftmargin=*]
-  \item report aggregate trends and drift-corrected gaps (persona -- NRC) rather than releasing curated ``best attacks'' targeting any specific deployed model;
-  \item recommend pairing pressure evaluations with an evidence-free matched control (NRC) and adding deployment guardrails (e.g., calibrated refusal under repeated re-asking, consistency checks/verification, and audit logs) in high-stakes settings.
+  \item report aggregate trends and drift-corrected gaps (persona -- NRC) rather than curating or optimizing ``best attack'' prompts against any specific deployed system;
+  \item restrict our evaluation to open-weight models that can be run and audited locally, and we do not test against third-party deployed assistants without explicit authorization;
+  \item release prompt templates and per-example exports for reproducibility, but avoid packaging them as a turnkey ``destabilization kit'' (e.g., no model-specific prompt tuning aimed at maximizing flips);
+  \item recommend pairing any pressure evaluation with an evidence-free matched control (NRC) and adding deployment guardrails (e.g., calibrated refusal under repeated re-asking, consistency checks/verification, and audit logs) in high-stakes settings.
 \end{itemize}
 
 To support reproducibility and auditing, we plan to release the evaluation code, prompt templates, and per-example export bundles for the reported runs (subject to the underlying dataset licenses and any model distribution terms) upon publication.
