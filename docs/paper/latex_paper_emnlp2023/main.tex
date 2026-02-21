@@ -90,6 +90,8 @@ For example, a user may repeatedly insist that the model \emph{itself} made a mi
 This is closely related to the ``FlipFlop'' effect, where simple follow-up challenges (e.g., ``Are you sure?'') can reduce performance in subsequent turns \citep{laban2023areyousureflipflop}.
 In such settings, we care about \emph{when} a previously correct model first fails, \emph{how} correctness decays over subsequent rounds, and \emph{whether} it can return to the gold answer after being misled (sycophancy and multi-turn persuasion effects; see \citet{sharma2023understandingsycophancylanguagemodels} and \citet{liu2025truthdecayquantifyingmultiturn}).
 
+Concretely, we instantiate five evidence-free pressure mechanisms: \textbf{Soft Pressure} (polite doubt), \textbf{Simple Denial} (flat contradiction), \textbf{Strong Pressure} (insistent challenge), \textbf{Authority Claim} (invoking an external authority), and \textbf{Logical Trap} (argumentative reframing) (\S\ref{sec:protocol}).
+
 \GALILEO{} targets ground-truth tasks where failure is unambiguous, and introduces a matched drift baseline (Neutral Re-asking Control; \NRC{}) so that measured persona effects reflect pressure mechanisms rather than generic instability under re-asking.
 
 \paragraph{Design goals and questions.}
