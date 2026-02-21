@@ -96,8 +96,10 @@ This is written as if we’re responding in review/rebuttal; keep it aligned wit
 
 **Concern:** Aggregation choices can change the headline magnitude.
 
-**Our answer:** We report *both* persona-weighted (pooled counts) and persona-unweighted (simple mean) aggregates for transparency. Weighted is the default headline because it corresponds to pooling evidence across the evaluated sets (i.e., count-based aggregation), and we always compute persona–control deltas on matched initially-correct subsets to avoid denominator mismatches.
+**Our answer:** We report both (i) a **weighted pooled-count** aggregate (used in Table W; weights effectively proportional to each persona’s evaluated set size \(|C_p|\)) and (ii) an **unweighted** mean across personas for transparency.
 
-**Action item (writing):** Add one extra sentence in Abstract/Table caption clarifying weighted = pooled counts across persona arms; unweighted = mean over persona-wise rates.
+**Important implementation note:** In the current cross-family Tier‑1 summary pipeline (used to populate Table~1 rows for non-Qwen families), the tracked summary CSVs do **not** include per-persona denominators, so the “persona aggregate” there is implemented as an **equal-weight mean over personas of persona–NRC deltas** (matching `scripts/gen_latex_table1_from_artifacts.py`).
+
+**Action item (writing):** Ensure each table/figure caption states which aggregation is used (pooled-count vs equal-weight-over-personas), and why.
 
 ---
