@@ -83,7 +83,7 @@
 \begin{abstract}
 Large language models can abandon a previously correct answer when repeatedly challenged \emph{without new evidence}---a multi-turn failure mode that single-turn accuracy does not reveal.
 We introduce \textbf{\GALILEO{}}, an auditable protocol for ground-truth tasks that isolates \emph{deviations from truth} by (i) evaluating only initially-correct examples and (ii) pairing each pressure persona with a matched \emph{Neutral Re-asking Control} (\NRC{}) that matches dialogue length and decoding, enabling drift-corrected reporting as persona--\NRC{} deltas.
-Over $R{=}5$ challenged rounds (computed on an initially-correct conditioning set), we quantify (a) robustness dynamics via survival trajectories (\SurvivalAt{r}: fraction that stays correct for all challenged turns $1..r$), (b) early vulnerability via first-turn failure (\FailAt{1}) and time-to-first-failure (\TOF), and (c) recoverability after a flip under a final neutral reset (\RecoveryAtFlip). The recovery turn is excluded from \SurvivalAt{r}/\TOF computation.
+Over $R{=}5$ challenged rounds (computed on an initially-correct conditioning set), we quantify (a) robustness dynamics via survival trajectories (\SurvivalAt{r}: fraction that stays correct for all challenged turns $1\ldots r$), (b) early vulnerability via first-turn failure (\FailAt{1}) and time-to-first-failure (\TOF), and (c) recoverability after a flip under a final neutral reset (\RecoveryAtFlip). The recovery turn is excluded from \SurvivalAt{r}/\TOF computation.
 We also export per-example transcripts and per-turn scores for end-to-end verification.
 Across seeds and open-weight model families, pressure consistently lowers \SurvivalAt{5} and raises \FailAt{1} relative to \NRC{}, while \RecoveryAtFlip varies by task and persona.
 For \textbf{Qwen2.5-7B-Instruct} in our main aggregated setting (seeds~1--4), averaging persona--\NRC{} deltas with equal weight over the five pressure personas and five tasks, pressure reduces \SurvivalAt{5} by 22.8 percentage points and increases \FailAt{1} by 6.9 percentage points.
@@ -179,7 +179,7 @@ Crucially, Phase~1 identifies an initially-correct conditioning set $C$ \emph{pe
 \textbf{1. Initial evaluation (define the conditioning set).} Run the model on each $x\in D$ with a neutral instruction; score to obtain an initially-correct set $C\subseteq D$.\\
 \ \ \ \emph{Notation:} we write $C$ for the Phase~1 initially-correct set. Some analyses use a shared $C$ across personas; others use per-persona $C_p$. See \S\ref{sec:conditioning-set} for the reporting convention used in this paper.\\
 
-\textbf{2. Multi-round pressure vs control on a conditioning set $S$.} Let $S$ denote the chosen initially-correct set for this comparison (either the shared $C$ or the run-specific $C_p$). \emph{In this paper, persona--\NRC{} deltas are computed on matched $S=C_p$; cross-persona curves explicitly state when they use a shared $C$.} For each $x\in S$, iterate challenged rounds $r{=}1..R$ under matched decoding:\\
+\textbf{2. Multi-round pressure vs control on a conditioning set $S$.} Let $S$ denote the chosen initially-correct set for this comparison (either the shared $C$ or the run-specific $C_p$). \emph{In this paper, persona--\NRC{} deltas are computed on matched $S=C_p$; cross-persona curves explicitly state when they use a shared $C$.} For each $x\in S$, iterate challenged rounds $r{=}1\ldots R$ under matched decoding:\\
 \ \ \ (a) persona track: $y^{(p)}_{r} \leftarrow \mathsf{persona}(p, x, \text{history})$; score correctness\\
 \ \ \ (b) \NRC{} track: $y^{(\mathrm{NRC})}_{r} \leftarrow \mathsf{nrc}(p, x, \text{history})$; score correctness\\
 \ \ \ update history separately for persona and \NRC{} tracks.\\
@@ -261,7 +261,7 @@ We formalize the trajectory metrics used throughout. Let $x$ be an example with 
 For each track $t\in\{p,\mathrm{NRC}\}$ (persona vs control) and challenged round $r\in\{1,\dots,R\}$, define the correctness indicator
 $c^{(t)}_{r}(x)=\mathbb{1}[\text{model output at round $r$ matches }a(x)]$.
 Because we condition on an initially-correct set from Phase~1, each evaluated example is correct at ``round 0'' by construction; we adopt the convention $c^{(t)}_{0}(x)\equiv 1$ for all $x\in S$.
-(All Phase~1 correctness is absorbed into the definition of $S$; rounds $1..R$ correspond to the multi-turn pressure/NRC prompts.)
+(All Phase~1 correctness is absorbed into the definition of $S$; rounds $1\ldots R$ correspond to the multi-turn pressure/NRC prompts.)
 All expectations below are taken over a specified conditioning set $S$ (either the pooled initially-correct set $C$ or a persona-matched set $C_p$); unless stated otherwise, persona--\NRC{} deltas use $S=C_p$.
 
 \paragraph{Survival.}
@@ -321,7 +321,7 @@ We report the drift-corrected gap
 \FailAt{1} is the first-turn failure rate, $\mathrm{Fail}^{(t)}@1=1-\mathrm{Survival}^{(t)}@1$; we analogously report $\Delta\mathrm{Fail}@1$.
 
 \paragraph{\RecoveryAtFlip.}
-For each track $t\in\{p,\mathrm{NRC}\}$, let $F^{(t)}=\{x\in S: \exists r\le R\;\text{s.t. }c^{(t)}_{r}(x)=0\}$ denote examples that \emph{fail at least once} (i.e., exhibit at least one flip) in rounds $1..R$ (even if the model later returns to the gold answer within the challenged rounds).
+For each track $t\in\{p,\mathrm{NRC}\}$, let $F^{(t)}=\{x\in S: \exists r\le R\;\text{s.t. }c^{(t)}_{r}(x)=0\}$ denote examples that \emph{fail at least once} (i.e., exhibit at least one flip) in rounds $1\ldots R$ (even if the model later returns to the gold answer within the challenged rounds).
 After $R$ challenged rounds, we issue a final neutral recovery prompt (identical across tracks). For notational convenience, you can think of this as an additional round $r=R{+}1$, but it is \emph{not} counted toward Survival/\TOF; we score its correctness as $c^{(\mathrm{rec},t)}(x)$. This isolates ``can a neutral reset recover truth after any deviation'' from the within-round dynamics captured by Survival/\TOF.
 We report the conditional recovery rate
 \begin{align}
@@ -464,7 +464,7 @@ We include a decoding sweep to test whether persona--\NRC{} gaps persist across 
   \item \textbf{Brittleness and recoverability can decouple.} Large negative $\Delta\,\SurvivalAt{5}$ with a small $\Delta\,\RecoveryAtFlip$ suggests that post-hoc "neutral reset" interventions may still help even when first-turn brittleness is high.
   \item \textbf{Cross-family replication matters for claims.} Observing the same qualitative persona--\NRC{} gaps across multiple open-weight families reduces the risk that results are a single-model artifact of instruction tuning or decoding quirks.
   \item \textbf{Conditioning clarifies what is being measured.} By conditioning on initially-correct examples, the protocol measures deviation-from-truth dynamics given initial success; this is the relevant quantity when studying pressure-induced flips.
-  \item \textbf{Practical evaluation guidance.} For deployed assistants, we recommend reporting (i) Survival@1..R, (ii) \FailAt{1}, (iii) \RecoveryAtFlip, and always pairing pressure prompts with an evidence-free matched control like NRC.
+  \item \textbf{Practical evaluation guidance.} For deployed assistants, we recommend reporting (i) Survival@1\ldots R, (ii) \FailAt{1}, (iii) \RecoveryAtFlip, and always pairing pressure prompts with an evidence-free matched control like NRC.
   \item \textbf{Deployment guardrails suggested by the metrics.} High \FailAt{1} motivates front-end mitigations (e.g., consistency prompts, calibrated refusal under repeated re-asking), while nontrivial \RecoveryAtFlip suggests value in back-end reset/verification steps (e.g., verify-then-answer, neutral re-solve). Audit logs that record multi-turn trajectories can make such interventions measurable.
   \item \textbf{Reporting should include denominators.} Because $C_p$ can vary across personas/runs, reporting $|C|$ or $|C_p|$ (or providing it in metadata exports) reduces ambiguity when control baselines differ across rows.
 \end{itemize}
