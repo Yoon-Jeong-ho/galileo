@@ -1591,3 +1591,8 @@ ef{fig:protocol}).
 - Ran `scripts/make_table1_recovery_from_results_paper.py` (with NRC label = `Control Re-asking`) to generate a per-alias Recovery@flip CSV.
 - Synced the artifact into the local repo as: `docs/paper/artifacts/table1_recovery_from_results_paper_20260222.csv`.
 - Note: some Tier‑1 families previously staged only under `results_paper/` (e.g., Phi‑3‑mini, Mistral‑Nemo, DeepSeek/Yi) were not in the current minimal restage set and will require adding their run roots to the manifest (or regenerating them) to fill their Recovery cells.
+### 2026-02-22 07:29 KST — Writing/dev lane: fill Table 1 Recovery@flip (partial coverage)
+
+- Filled Table~\ref{tab:main} Recovery@flip columns for the families covered by `docs/paper/artifacts/table1_recovery_from_results_paper_20260222.csv` (computed from nlp8 recovery logs).
+- Updated `scripts/make_table1_partial_from_results_paper_exports.py` to accept `--recovery_csv` and auto-generate LaTeX rows including Recovery@flip (reported in %).
+- Remaining TODO: add Phi‑3‑mini and Mistral‑Nemo run roots back into the nlp8 `results_paper` manifest so their Recovery rows can be extracted and Table~\ref{tab:main} can be fully filled.

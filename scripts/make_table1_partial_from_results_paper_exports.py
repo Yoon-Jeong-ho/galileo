@@ -55,6 +55,14 @@ def main() -> None:
         default=None,
         help="Optional CSV (alias,n0) derived from results_paper/*/paper_exports/survival_curve.csv",
     )
+    ap.add_argument(
+        "--recovery_csv",
+        default=None,
+        help=(
+            "Optional CSV (alias,nrc_recovery,persona_recovery,delta_recovery,...) produced by "
+            "scripts/make_table1_recovery_from_results_paper.py. Values are in [0,1]."
+        ),
+    )
     args = ap.parse_args()
 
     # Map Table-1 rows to aliases in the artifact CSV.
@@ -110,6 +118,23 @@ def main() -> None:
             for row in r:
                 n0_by_alias[row["alias"].strip()] = float(row["n0"])
 
+    rec_by_alias: Dict[str, Dict[str, float]] = {}
+    if args.recovery_csv:
+        with open(args.recovery_csv, "r", newline="") as f:
+            r = csv.DictReader(f)
+            for row in r:
+                a = row["alias"].strip()
+                rec_by_alias[a] = {
+                    "c": float(row["nrc_recovery"]),
+                    "p": float(row["persona_recovery"]),
+                    "d": float(row["delta_recovery"]),
+                }
+
+    def fmt_pct(m: float, s: float) -> str:
+        if math.isnan(m):
+            return "--"
+        return fmt(m * 100.0, s * 100.0, digits=1)
+
     # For each table row, aggregate per metric.
     for table_row, aliases in row_to_aliases.items():
         surv_c = Agg([])
@@ -118,6 +143,9 @@ def main() -> None:
         fail_c = Agg([])
         fail_p = Agg([])
         fail_d = Agg([])
+        rec_c = Agg([])
+        rec_p = Agg([])
+        rec_d = Agg([])
         n0 = Agg([])
 
         missing = []
@@ -134,6 +162,10 @@ def main() -> None:
             fail_d.vals.append(d["delta_fail1"])
             if a in n0_by_alias:
                 n0.vals.append(n0_by_alias[a])
+            if a in rec_by_alias:
+                rec_c.vals.append(rec_by_alias[a]["c"])
+                rec_p.vals.append(rec_by_alias[a]["p"])
+                rec_d.vals.append(rec_by_alias[a]["d"])
 
         sc_m, sc_s = surv_c.mean_std()
         sp_m, sp_s = surv_p.mean_std()
@@ -141,15 +173,17 @@ def main() -> None:
         fc_m, fc_s = fail_c.mean_std()
         fp_m, fp_s = fail_p.mean_std()
         fd_m, fd_s = fail_d.mean_std()
+        rc_m, rc_s = rec_c.mean_std()
+        rp_m, rp_s = rec_p.mean_std()
+        rd_m, rd_s = rec_d.mean_std()
         n0_m, n0_s = n0.mean_std()
 
         miss_note = f" % MISSING: {', '.join(missing)}" if missing else ""
-        # Recovery@flip placeholders left as "--".
         print(
             f"{table_row} & "
             f"{fmt(sc_m, sc_s)} & {fmt(sp_m, sp_s)} & {fmt(sd_m, sd_s)} & "
             f"{fmt(fc_m, fc_s)} & {fmt(fp_m, fp_s)} & {fmt(fd_m, fd_s)} & "
-            f"-- & -- & -- & {fmt(n0_m, n0_s, digits=1)} \\\\" + miss_note
+            f"{fmt_pct(rc_m, rc_s)} & {fmt_pct(rp_m, rp_s)} & {fmt_pct(rd_m, rd_s)} & {fmt(n0_m, n0_s, digits=1)} \\\\" + miss_note
         )
 
 
