@@ -743,7 +743,7 @@ Finally, we summarize across seeds with mean±std.
 \begin{figure}[t]
   \centering
   \includegraphics[width=\linewidth]{figures/table_w_effect_delta_seed1-4_20260209}
-  \caption{Table W effect sizes: persona pressure minus NRC (non-adversarial drift baseline), mean across seeds 1--4. The large negative \(\Delta\)Survival@5 and positive \(\Delta\)Fail@1 indicate persona-induced failure dynamics beyond generic multi-turn drift.}
+  \caption{Table W effect sizes (persona pressure minus NRC drift baseline), mean across seeds 1--4. All metrics are computed conditional on initial correctness on a shared per-seed subset \(C_s\), with the persona aggregate micro-averaged across personas ("weighted"). The large negative \(\Delta\)Survival@5 and positive \(\Delta\)Fail@1 indicate persona-induced failure dynamics beyond generic multi-turn drift under identical rounds/decoding/scoring.}
   \label{fig:tablew-effect-deltas}
 \end{figure}
 ```
