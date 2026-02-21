@@ -1556,3 +1556,8 @@ ef{fig:protocol}).
 - Found `results_paper/mistral_seed1` has `survival_curve.csv` total=341 at round=1, while `mistral_seed2` total=875 (these totals are the initially-correct pool sizes).
 - `metadata.json` indicates the two runs come from different result roots and even different `num_flip_samples` (50 vs 200), suggesting they were produced under mismatched configs / eval sets.
 - Added a caption note clarifying that $n_0$/seed is reported to make such mismatches visible; recommended rerunning Mistral seeds 1–2 under the standardized Tier‑1 setting.
+### 2026-02-22 05:39 KST — Writing lane: mark Mistral row as non-standard in Table 1
+
+- Added a dagger marker to the Mistral-7B row in Table~\\ref{tab:main} and a corresponding caption note.
+- Goal: prevent over-trusting cross-seed aggregates when $n_0$/seed indicates a strong mismatch (likely config divergence).
+- Temporary guardrail until we rerun Mistral seeds 1–2 under the standardized Tier‑1 setting.
