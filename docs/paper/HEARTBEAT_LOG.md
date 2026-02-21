@@ -1600,3 +1600,7 @@ ef{fig:protocol}).
 
 - Added an explicit note in `docs/paper/PAPER_DRAFT_EN.md` Table~\\ref{tab:main} caption and the post-table provenance paragraph explaining that Recovery@flip cells can be `--` when the underlying `recovery_accuracy.csv` is not available under the currently staged paper SSOT.
 - This avoids reviewer confusion about whether `--` means “not applicable” vs “not yet computed.”
+### 2026-02-22 08:39 KST — Writing lane: mark cross-family Recovery@flip gaps explicitly in Table 1
+
+- Added a $^{\ddagger}$ marker to Phi-3-mini and Mistral-Nemo rows in Table~\\ref{tab:main} and a matching caption note.
+- Goal: make it unambiguous that missing Recovery@flip entries are a **known TODO** (missing recovery logs under the currently staged paper SSOT), not an omitted metric or a zero.
