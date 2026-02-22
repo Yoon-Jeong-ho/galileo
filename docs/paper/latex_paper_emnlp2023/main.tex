@@ -109,7 +109,7 @@ Concretely, we instantiate five evidence-free pressure mechanisms: \textbf{Soft 
 We design the protocol to support reviewer-auditable claims about \emph{deviations} in multi-turn interaction.
 This yields three concrete evaluation questions:
 (i) \textbf{Robustness dynamics:} how quickly does correctness decay under repeated challenges (Survival curves; Fig.~\ref{fig:survival})?
-(ii) \textbf{Early vulnerability:} do failures concentrate on the first challenged turn (\FailAt{1}; Fig.~\ref{fig:fail1})?
+(ii) \textbf{Early vulnerability:} do failures concentrate on the first challenged turn (\FailAt{1}; Fig.~\ref{fig:fail1}), and how long until the first deviation (time-to-first-failure, \TOF{}: the first challenged round $r$ where the model becomes incorrect; we set \TOF{}$=R{+}1$ if it never fails in $R$ rounds)?
 (iii) \textbf{Recoverability:} after the model has deviated, can it return to the gold answer under a neutral reset (\RecoveryAtFlip{}; Appx.~\ref{sec:appendix-extra-results})?
 
 \paragraph{Why conditioning on initially-correct examples?}
