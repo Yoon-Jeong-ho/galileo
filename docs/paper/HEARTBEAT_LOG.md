@@ -1612,3 +1612,7 @@ ef{fig:protocol}).
 
 - Updated `docs/paper/PAPER_DRAFT_EN.md` right below Table~\ref{tab:main} provenance note to explicitly list the current Recovery@flip TODO rows (Phi-3-mini, Mistral-Nemo).
 - Goal: keep Option-B (partial recovery coverage) reviewer-proof by making the gap explicit and scoped.
+### 2026-02-22 10:19 KST — Writing lane: add denominator caveat for Table-1 Recovery@flip
+
+- Added an explicit interpretation note right below Table~\ref{tab:main} explaining that Recovery@flip is conditional on flipping and its effective sample size varies.
+- Pointed to the tracked artifact columns (`control_total`, `persona_total`) in `docs/paper/artifacts/table1_recovery_from_results_paper_20260222.csv` to make this auditable.
