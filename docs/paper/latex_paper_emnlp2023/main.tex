@@ -53,9 +53,11 @@
 \newcolumntype{Y}{>{\raggedright\arraybackslash}X}
 
 % Metric name macros (consistent typography + safer math-mode usage)
-\newcommand{\SurvivalAt}[1]{\textsc{Survival}@#1}
-\newcommand{\FailAt}[1]{\textsc{Fail}@#1}
-\newcommand{\RecoveryAtFlip}{\textsc{Recovery}@flip}
+% NOTE: We write round-indexed metrics in function form, e.g., Survival(5),
+% to avoid overloading the ``@'' symbol (commonly used for email/LaTeX internals).
+\newcommand{\SurvivalAt}[1]{\textsc{Survival}(#1)}
+\newcommand{\FailAt}[1]{\textsc{Fail}(#1)}
+\newcommand{\RecoveryAtFlip}{\textsc{Recovery}(flip)}
 \newcommand{\TOF}{\textsc{TOF}}
 
 % Table helper: tighter \pm for dense numeric columns (avoids minor overfull boxes)
@@ -284,7 +286,7 @@ All expectations below are taken over a specified conditioning set $S$ (either t
 \paragraph{Survival.}
 \SurvivalAt{r} is the probability of remaining correct through all rounds up to $r$:
 \begin{align}
-\mathrm{Survival}^{(t)}@r
+\mathrm{Survival}^{(t)}(r)
 &\;=\; \mathbb{E}_{x\sim S}\left[\prod_{i=1}^{r} c^{(t)}_{i}(x)\right] \\
 &\;=\; \Pr_{x\sim S}\big[\forall i\le r:\; c^{(t)}_{i}(x)=1\big].
 \end{align}
@@ -292,25 +294,25 @@ This is the discrete-time analogue of a survival function (cf. Kaplan--Meier; \c
 
 \textbf{Survival vs. per-round accuracy.}
 For contrast, define the (marginal) per-round accuracy at round $r$ as
-\(\mathrm{Acc}^{(t)}@r = \mathbb{E}_{x\sim S}[c^{(t)}_{r}(x)]\).
-Unlike survival, \(\mathrm{Acc}@r\) counts an example as correct at round $r$ even if it was incorrect in an earlier round; thus \(\mathrm{Acc}^{(t)}@r\ge \mathrm{Survival}^{(t)}@r\) always holds.
-For example, if an item is correct at $r{=}1$, incorrect at $r{=}2$, and correct again at $r{=}3$, then \(\mathrm{Acc}@3\) counts it as correct while \(\mathrm{Survival}@3\) does not (since it already deviated at $r{=}2$).
+\(\mathrm{Acc}^{(t)}(r) = \mathbb{E}_{x\sim S}[c^{(t)}_{r}(x)]\).
+Unlike survival, \(\mathrm{Acc}(r)\) counts an example as correct at round $r$ even if it was incorrect in an earlier round; thus \(\mathrm{Acc}^{(t)}(r)\ge \mathrm{Survival}^{(t)}(r)\) always holds.
+For example, if an item is correct at $r{=}1$, incorrect at $r{=}2$, and correct again at $r{=}3$, then \(\mathrm{Acc}(3)\) counts it as correct while \(\mathrm{Survival}(3)\) does not (since it already deviated at $r{=}2$).
 We report survival because it matches the operational question ``did the model ever abandon the gold answer up to this point?''.
 
-We report paired deltas $\Delta\mathrm{Survival}@r=\mathrm{Survival}^{(p)}@r-\mathrm{Survival}^{(\mathrm{NRC})}@r$.
+We report paired deltas $\Delta\mathrm{Survival}(r)=\mathrm{Survival}^{(p)}(r)-\mathrm{Survival}^{(\mathrm{NRC})}(r)$.
 
 \paragraph{Discrete hazard (per-round failure risk).}
-Survival curves can be re-expressed as a per-round failure ``hazard'' (conditional risk): the probability of failing at round $r$ \,\emph{given} the example has remained correct through rounds $1\ldots (r{-}1)$. Define $\mathrm{Survival}^{(t)}@0\equiv 1$ and, for $r\ge 1$,
+Survival curves can be re-expressed as a per-round failure ``hazard'' (conditional risk): the probability of failing at round $r$ \,\emph{given} the example has remained correct through rounds $1\ldots (r{-}1)$. Define $\mathrm{Survival}^{(t)}(0)\equiv 1$ and, for $r\ge 1$,
 \begin{equation}
-\mathrm{Hazard}^{(t)}@r
-\;=\; 1-\frac{\mathrm{Survival}^{(t)}@r}{\mathrm{Survival}^{(t)}@({r-1})}.
+\mathrm{Hazard}^{(t)}(r)
+\;=\; 1-\frac{\mathrm{Survival}^{(t)}(r)}{\mathrm{Survival}^{(t)}(r-1)}.
 \end{equation}
 With this convention,
 \begin{equation}
-\mathrm{Hazard}^{(t)}@1 = 1-\mathrm{Survival}^{(t)}@1 = \FailAt{1}.
+\mathrm{Hazard}^{(t)}(1) = 1-\mathrm{Survival}^{(t)}(1) = \FailAt{1}.
 \end{equation}
-If $\mathrm{Survival}^{(t)}@{(r-1)}=0$ (no remaining at-risk examples), then the conditional hazard at round $r$ is undefined; in practice our reported plots/tables omit hazards beyond the point where the survival curve reaches zero.
-The hazard view makes clear whether a persona concentrates failures immediately (high \(\mathrm{Hazard}@1\)---equivalently, high \FailAt{1}) or gradually increases failure risk over rounds (rising hazards).
+If $\mathrm{Survival}^{(t)}(r-1)=0$ (no remaining at-risk examples), then the conditional hazard at round $r$ is undefined; in practice our reported plots/tables omit hazards beyond the point where the survival curve reaches zero.
+The hazard view makes clear whether a persona concentrates failures immediately (high \(\mathrm{Hazard}(1)\)---equivalently, high \FailAt{1}) or gradually increases failure risk over rounds (rising hazards).
 
 \paragraph{Time-to-first-failure (\TOF) and \FailAt{1}.}
 Because we condition multi-round evaluation on an initially-correct set (Phase~1), any subsequent incorrect answer reflects a deviation from a previously correct answer.
@@ -320,16 +322,16 @@ Define the (possibly censored) first-failure time over the \emph{challenged} rou
 \mathrm{TOF}^{(t)}(x)
 \;=\;
 \begin{cases}
-\min\{\, r\;:\; c^{(t)}_{r}(x)=0 \,\} & \text{if a failure occurs in rounds $1\ldots R$,}\\
+\min\{\, r\;:\; c^{(t)}_{r}(x)=0 \,\} & \text{if $\exists\, r\le R:\; c^{(t)}_{r}(x)=0$,}\\
 R{+}1 & \text{otherwise (right-censoring).}
 \end{cases}
 \end{equation}
-We summarize \TOF at the population level using the expectation $\mathbb{E}_{x\sim S}[\mathrm{TOF}^{(t)}(x)]$ (with right-censoring encoded as $R{+}1$). This expectation has a simple identity in terms of the survival curve (recall $\mathrm{Survival}^{(t)}@0\equiv 1$):
+We summarize \TOF at the population level using the expectation $\mathbb{E}_{x\sim S}[\mathrm{TOF}^{(t)}(x)]$ (with right-censoring encoded as $R{+}1$). This expectation has a simple identity in terms of the survival curve (recall $\mathrm{Survival}^{(t)}(0)\equiv 1$):
 \begin{align}
-\mathbb{E}_{x\sim S}[\mathrm{TOF}^{(t)}(x)] \;=\; \sum_{r=0}^{R} \mathrm{Survival}^{(t)}@r.
+\mathbb{E}_{x\sim S}[\mathrm{TOF}^{(t)}(x)] \;=\; \sum_{r=0}^{R} \mathrm{Survival}^{(t)}(r).
 \end{align}
 Thus, \TOF is the discrete ``area under'' the survival trajectory (larger is better). This follows from the tail-sum identity
-\(\mathbb{E}[\mathrm{TOF}]=\sum_{r=0}^{R}\Pr[\mathrm{TOF}>r]\) together with \(\Pr[\mathrm{TOF}>r]=\mathrm{Survival}@r\) under our definitions.
+\(\mathbb{E}[\mathrm{TOF}]=\sum_{r=0}^{R}\Pr[\mathrm{TOF}>r]\) together with \(\Pr[\mathrm{TOF}>r]=\mathrm{Survival}(r)\) under our definitions.
 Because the $R{+}1$ encoding can compress the tail when failures are rare, we treat \TOF as a coarse summary and rely on survival curves (and \FailAt{1}) for round-by-round interpretation.
 We report the drift-corrected gap
 \begin{align}
@@ -337,16 +339,16 @@ We report the drift-corrected gap
 &\;=\; \mathbb{E}_{x\sim S}[\mathrm{TOF}^{(p)}(x)] \\
 &\quad\;\;\; -\mathbb{E}_{x\sim S}[\mathrm{TOF}^{(\mathrm{NRC})}(x)].
 \end{align}
-We define the first-turn failure rate as $\mathrm{Fail}^{(t)}@1\equiv 1-\mathrm{Survival}^{(t)}@1$ (equivalently, $\mathrm{Fail}^{(t)}@1=\mathrm{Hazard}^{(t)}@1$). We refer to this metric as \FailAt{1} and analogously report $\Delta\mathrm{Fail}@1$. 
+We define the first-turn failure rate as $\mathrm{Fail}^{(t)}(1)\equiv 1-\mathrm{Survival}^{(t)}(1)$ (equivalently, $\mathrm{Fail}^{(t)}(1)=\mathrm{Hazard}^{(t)}(1)$). We refer to this metric as \FailAt{1} and analogously report $\Delta\mathrm{Fail}(1)$. 
 
 \paragraph{\RecoveryAtFlip{}.}
 For each track $t\in\{p,\mathrm{NRC}\}$, let $F^{(t)}=\{x\in S: \exists r\le R\;\text{s.t. }c^{(t)}_{r}(x)=0\}$ denote examples that \emph{fail at least once} (i.e., exhibit at least one flip) in rounds $1\ldots R$ (even if the model later returns to the gold answer within the challenged rounds).
 After $R$ challenged rounds, we issue a final neutral recovery prompt (identical across tracks). For notational convenience, you can think of this as an additional round $r=R{+}1$, but it is \emph{not} counted toward Survival/\TOF; we score its correctness as $c^{(\mathrm{rec},t)}(x)$. This isolates ``can a neutral reset recover truth after any deviation'' from the within-round dynamics captured by Survival/\TOF.
 We report the conditional recovery rate
 \begin{align}
-\mathrm{Recovery}^{(t)}@\mathrm{flip}=\mathbb{E}_{x\sim F^{(t)}}\big[c^{(\mathrm{rec},t)}(x)\big],
+\mathrm{Recovery}^{(t)}(\mathrm{flip})=\mathbb{E}_{x\sim F^{(t)}}\big[c^{(\mathrm{rec},t)}(x)\big],
 \end{align}
-and the paired difference $\Delta\mathrm{Recovery}@\mathrm{flip}=\mathrm{Recovery}^{(p)}@\mathrm{flip}-\mathrm{Recovery}^{(\mathrm{NRC})}@\mathrm{flip}$.
+and the paired difference $\Delta\mathrm{Recovery}(\mathrm{flip})=\mathrm{Recovery}^{(p)}(\mathrm{flip})-\mathrm{Recovery}^{(\mathrm{NRC})}(\mathrm{flip})$.
 \textbf{Interpretation note (track-dependent denominators).} Because flips are defined \emph{within each track}, the recovery denominator can differ: $F^{(p)}$ (flipped under pressure) need not equal $F^{(\mathrm{NRC})}$ (flipped under control). Accordingly, $\Delta\,\RecoveryAtFlip{}$ is \emph{not} a paired per-example comparison; it answers a within-track question: \emph{``conditional on having flipped at least once in this track, does a final neutral reset recover the gold answer?''} This also means both signs can be denominator-driven: pressure may introduce additional (possibly harder) flips, lowering recovery, while a positive gap can arise if the flipped subset under pressure is systematically easier to recover on. A strictly paired alternative would require issuing the recovery prompt to both tracks for a shared flipped set (e.g., $F^{(p)}\cup F^{(\mathrm{NRC})}$), which we leave as an extension.
 \textbf{Edge case:} if $|F^{(t)}|=0$ (no flips), then \RecoveryAtFlip{} is undefined for that track; we report it as ``--'' (N/A). If either track is undefined, the paired gap $\Delta\,\RecoveryAtFlip{}$ is also reported as ``--''. We exclude undefined values from any task-pooled averages. \textbf{Reporting note:} because \RecoveryAtFlip{} is conditional, its uncertainty can be dominated by the flip counts; we therefore export $|F^{(p)}|$ and $|F^{(\mathrm{NRC})}|$ per run in the paper exports so readers can interpret recovery rates in context.
 
@@ -413,8 +415,8 @@ Figure~\ref{fig:survival} shows survival curves over rounds for representative p
 Table~\ref{tab:main} summarizes this effect at the horizon: for every model family we test, the persona aggregate shows \emph{negative} $\Delta\,\SurvivalAt{5}$ (e.g., Qwen2.5-7B: $\Delta\,\SurvivalAt{5}\approx -0.23$; Qwen2.5-14B: $\Delta\,\SurvivalAt{5}\approx -0.25$; Mistral-7B: $\Delta\,\SurvivalAt{5}\approx -0.31$), indicating substantial pressure-induced deviations beyond evidence-free drift.
 
 Two patterns recur across tasks and seeds.
-First, the persona--\NRC{} gap often \emph{widens with rounds}: even when Survival@1 is similar, repeated pressure can accumulate into a substantial \SurvivalAt{5} deficit.
-Second, different personas exhibit distinct hazard shapes: some concentrate failures immediately (high \FailAt{1}, i.e., high \(\mathrm{Hazard}@1\)), while others gradually increase failure risk over turns.
+First, the persona--\NRC{} gap often \emph{widens with rounds}: even when \SurvivalAt{1} is similar, repeated pressure can accumulate into a substantial \SurvivalAt{5} deficit.
+Second, different personas exhibit distinct hazard shapes: some concentrate failures immediately (high \FailAt{1}, i.e., high \(\mathrm{Hazard}(1)\)), while others gradually increase failure risk over turns.
 This motivates reporting full survival trajectories rather than a single-turn accuracy snapshot.
 
 \paragraph{How to read survival curves.}
@@ -490,7 +492,7 @@ We include a decoding sweep to test whether persona--\NRC{} gaps persist across 
   \item \textbf{Brittleness and recoverability can decouple.} Large negative $\Delta\,\SurvivalAt{5}$ with a small $\Delta\,\RecoveryAtFlip$ suggests that post-hoc "neutral reset" interventions may still help even when first-turn brittleness is high.
   \item \textbf{Cross-family replication matters for claims.} Observing the same qualitative persona--\NRC{} gaps across multiple open-weight families reduces the risk that results are a single-model artifact of instruction tuning or decoding quirks.
   \item \textbf{Conditioning clarifies what is being measured.} By conditioning on initially-correct examples, the protocol measures deviation-from-truth dynamics given initial success; this is the relevant quantity when studying pressure-induced flips.
-  \item \textbf{Practical evaluation guidance.} For deployed assistants, we recommend reporting (i) Survival@1\ldots R, (ii) \FailAt{1}, (iii) \RecoveryAtFlip{}, and always pairing pressure prompts with an evidence-free matched control like NRC.
+  \item \textbf{Practical evaluation guidance.} For deployed assistants, we recommend reporting (i) \SurvivalAt{1}\ldots R, (ii) \FailAt{1}, (iii) \RecoveryAtFlip{}, and always pairing pressure prompts with an evidence-free matched control like NRC.
   \item \textbf{Deployment guardrails suggested by the metrics.} High \FailAt{1} motivates front-end mitigations (e.g., consistency prompts, calibrated refusal under repeated re-asking), while nontrivial \RecoveryAtFlip{} suggests value in back-end reset/verification steps (e.g., verify-then-answer, neutral re-solve). Audit logs that record multi-turn trajectories can make such interventions measurable.
   \item \textbf{Reporting should include denominators.} Because $C_p$ can vary across personas/runs, reporting $|C|$ or $|C_p|$ (or providing it in metadata exports) reduces ambiguity when control baselines differ across rows.
 \end{itemize}
