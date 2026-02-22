@@ -20,11 +20,13 @@ citations-check:
 
 # Build the working EMNLP main paper PDF (review mode, with line numbers)
 # Output: docs/paper/latex_paper_emnlp2023/main.pdf
-paper:
+# Guardrail: run citation-key check first so builds fail fast with a clear error.
+paper: citations-check
 	cd docs/paper/latex_paper_emnlp2023 && latexmk -pdf -interaction=nonstopmode -halt-on-error main.tex
 
 # Build a camera-ready style PDF (no line numbers) for page counting
-paper-camera-ready:
+# Guardrail: run citation-key check first so builds fail fast with a clear error.
+paper-camera-ready: citations-check
 	cd docs/paper/latex_paper_emnlp2023 && latexmk -pdf -interaction=nonstopmode -halt-on-error \
 		-pdflatex='pdflatex %O "\\def\\CAMERAREADY{1}\\input{%S}"' main.tex
 
