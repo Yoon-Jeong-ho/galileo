@@ -1635,3 +1635,8 @@ ef{fig:protocol}).
 
 - Wrapped the appendix denominator table rows include with `\IfFileExists{...}{\input{...}}{...}` so local builds don’t hard-fail if the generated file is missing.
 - CI/paper builds can still enforce fail-fast by ensuring the generator runs before LaTeX compile.
+### 2026-02-22 12:09 KST — Experiments triage: GPU alloc preflight confirms GPU0 unusable
+
+- On nlp8, ran `nvidia-smi` + `bash scripts/check_cuda_preflight_all.sh`.
+- Result: GPU0 FAIL, GPUs1–6 OK (GPU3 still occupied by our PrivacyRestore training job).
+- Operational decision: do not schedule GALILEO on GPU0 even if it appears idle; prefer GPUs1/2/4/5/6 (idle + preflight OK).
