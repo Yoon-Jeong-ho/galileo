@@ -1608,3 +1608,7 @@ ef{fig:protocol}).
 
 - Added a one-sentence clarification in `docs/paper/PAPER_DRAFT_EN.md` §7.0 that Recovery@flip is reported only where recovery logs are available; missing entries remain explicit TODOs.
 - Goal: prevent reviewers from assuming missing recovery entries are zeros or from over-weighting incomplete cross-family recovery coverage.
+### 2026-02-22 09:59 KST — Writing lane: explicitly list which Table-1 Recovery rows are TODO
+
+- Updated `docs/paper/PAPER_DRAFT_EN.md` right below Table~\ref{tab:main} provenance note to explicitly list the current Recovery@flip TODO rows (Phi-3-mini, Mistral-Nemo).
+- Goal: keep Option-B (partial recovery coverage) reviewer-proof by making the gap explicit and scoped.
