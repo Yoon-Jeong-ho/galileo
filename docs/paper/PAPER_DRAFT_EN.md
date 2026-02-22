@@ -851,13 +851,9 @@ Because Recovery@flip is conditional on flipping, its effective sample size can 
     \toprule
     Model (seeds) & $|F|_{\mathrm{NRC}}$ & $|F|_{\mathrm{persona}}$ \\
     \midrule
-    Qwen2.5-7B (1--4) & 78.5±3.5 & 912.8±22.0 \\
-    Llama-3.1-8B (1--2) & 362.0±11.3 & 1953.5±61.5 \\
-    Mistral-7B (1--2) & 359.0±253.1 & 2675.0±1675.8 \\
-    Llama-3.2-3B (1--2) & 365.0 & 1903.0±33.9 \\
-    Phi-3-mini-4k (1--2) & -- & -- \\
-    Mistral-Nemo (1--2) & -- & -- \\
-    Qwen2.5-14B (1--2) & 7.5±0.7 & 350.5±14.8 \\
+    % Auto-generated table rows:
+    % (Generate: python3 scripts/gen_recovery_denominators_rows_tex.py --in_csv docs/paper/artifacts/table1_recovery_denominators_20260222.csv)
+    \input{generated/recovery_denominators_rows}
     \bottomrule
   \end{tabular}
   \caption{Recovery@flip denominators (number of flip cases) for Table~\ref{tab:main}. Small $|F|$ explains higher variance in conditional recovery rates.}

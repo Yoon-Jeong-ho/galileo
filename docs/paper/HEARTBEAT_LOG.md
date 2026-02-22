@@ -1627,3 +1627,7 @@ ef{fig:protocol}).
 
 - Added `scripts/make_table1_recovery_denominators_latex.py` to print LaTeX-ready rows from `docs/paper/artifacts/table1_recovery_denominators_20260222.csv`.
 - Inserted a small LaTeX table snippet in Appendix A.1.1 of `docs/paper/PAPER_DRAFT_EN.md` that reports $|F|_{NRC}$ and $|F|_{persona}$ (flip-case denominators) so recovery variance is properly contextualized.
+### 2026-02-22 11:09 KST — Writing/dev lane: make Recovery denominator appendix table auto-generated
+
+- Added `scripts/gen_recovery_denominators_rows_tex.py` to generate `docs/paper/latex_paper_emnlp2023/generated/recovery_denominators_rows.tex` from the tracked artifact `docs/paper/artifacts/table1_recovery_denominators_20260222.csv`.
+- Updated the Appendix LaTeX snippet in `docs/paper/PAPER_DRAFT_EN.md` to `\\input{generated/recovery_denominators_rows}` to eliminate drift between the CSV artifact and the paper table.
