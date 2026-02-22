@@ -1,0 +1,8 @@
+row,num_aliases_present,control_total_mean,control_total_std,persona_total_mean,persona_total_std
+Qwen2.5-7B (1--4),4,78.5,3.5,912.8,22.0
+Llama-3.1-8B (1--2),2,362.0,11.3,1953.5,61.5
+Mistral-7B (1--2),2,359.0,253.1,2675.0,1675.8
+Llama-3.2-3B (1--2),2,365.0,0.0,1903.0,33.9
+Phi-3-mini-4k (1--2),0,,,,
+Mistral-Nemo (1--2),0,,,,
+Qwen2.5-14B (1--2),2,7.5,0.7,350.5,14.8

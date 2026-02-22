@@ -835,6 +835,10 @@ We ran a minimal decoding sweep over the multi-turn phase temperature (`--greedy
 \end{figure}
 ```
 
+### A.1.1 Denominators for Recovery@flip in Table~\ref{tab:main} (why variance can be large)
+
+Because Recovery@flip is conditional on flipping, its effective sample size can be small (especially for strong models under NRC). We therefore track the recovery denominators (number of flip cases) used for the Control Re-asking (NRC) and persona-pooled conditions. See `docs/paper/artifacts/table1_recovery_denominators_20260222.csv` (computed from per-alias recovery logs).
+
 ### A.2 Qualitative flip taxonomy: boundary/overanswer vs partial-overlap vs semantic-change (evaluator caveat)
 
 **Appendix note (Recovery@flip coverage).** Cross-family Recovery@flip coverage in Table~\ref{tab:main} is currently partial because some older cross-family runs did not retain `recovery_accuracy.csv` under the staged paper SSOT. To complete those TODO rows, rerun the missing families (seed1 pilot first) under the standardized Tier‑1 pipeline with recovery logging enabled, then regenerate the tracked artifact via `scripts/make_table1_recovery_from_results_paper.py`.

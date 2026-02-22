@@ -1619,3 +1619,7 @@ ef{fig:protocol}).
 ### 2026-02-22 10:39 KST — Writing lane: add appendix note on how to complete missing Recovery@flip rows
 
 - Added a short Appendix A note explaining why cross-family Recovery@flip coverage is partial and how to complete the TODO rows (rerun missing families with recovery logging, then regenerate the recovery artifact).
+### 2026-02-22 10:49 KST — Writing lane: add appendix denominators note for Recovery@flip
+
+- Added tracked artifact: `docs/paper/artifacts/table1_recovery_denominators_20260222.csv` summarizing recovery denominators (control_total/persona_total) per Table-1 row.
+- Added Appendix A.1.1 note in `docs/paper/PAPER_DRAFT_EN.md` pointing readers to the denominator artifact to calibrate Recovery@flip variance.
