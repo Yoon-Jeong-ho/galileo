@@ -1616,3 +1616,6 @@ ef{fig:protocol}).
 
 - Added an explicit interpretation note right below Table~\ref{tab:main} explaining that Recovery@flip is conditional on flipping and its effective sample size varies.
 - Pointed to the tracked artifact columns (`control_total`, `persona_total`) in `docs/paper/artifacts/table1_recovery_from_results_paper_20260222.csv` to make this auditable.
+### 2026-02-22 10:39 KST — Writing lane: add appendix note on how to complete missing Recovery@flip rows
+
+- Added a short Appendix A note explaining why cross-family Recovery@flip coverage is partial and how to complete the TODO rows (rerun missing families with recovery logging, then regenerate the recovery artifact).

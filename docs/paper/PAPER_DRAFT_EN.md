@@ -837,6 +837,8 @@ We ran a minimal decoding sweep over the multi-turn phase temperature (`--greedy
 
 ### A.2 Qualitative flip taxonomy: boundary/overanswer vs partial-overlap vs semantic-change (evaluator caveat)
 
+**Appendix note (Recovery@flip coverage).** Cross-family Recovery@flip coverage in Table~\ref{tab:main} is currently partial because some older cross-family runs did not retain `recovery_accuracy.csv` under the staged paper SSOT. To complete those TODO rows, rerun the missing families (seed1 pilot first) under the standardized Tier‑1 pipeline with recovery logging enabled, then regenerate the tracked artifact via `scripts/make_table1_recovery_from_results_paper.py`.
+
 In extractive QA, strict exact-match (EM) scoring can label *near-miss* flips as failures (e.g., over-answers that include the correct entity plus modifiers). **Terminology:** we use three *diagnostic buckets* (not new evaluation metrics): **boundary/overanswer** (high F1; e.g., F1≥0.8), **partial-overlap** (moderate F1; e.g., 0.5≤F1<0.8), and **semantic-change** (low F1; e.g., F1<0.5). To avoid overstating “belief change,” we bucket flip cases using token-overlap (F1) as a diagnostic. We also treat rare *format/extraction failure* artifacts (e.g., stray `\\text{...}` strings, seen only in SVAMP in our qualitative snapshot samples) as separate cases rather than semantic flips. This taxonomy is an interpretability aid for comparing NRC errors (often partial-overlap) versus persona pressure (semantic-change dominates), and does not replace the quantitative survival/TOF/recovery claims. For MCQA, answers are discrete labels, so label flips correspond to unambiguous semantic changes (e.g., ARC-Easy label flips under persona pressure, observed across multiple seeds).
 
 ---
