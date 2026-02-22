@@ -1623,3 +1623,7 @@ ef{fig:protocol}).
 
 - Added tracked artifact: `docs/paper/artifacts/table1_recovery_denominators_20260222.csv` summarizing recovery denominators (control_total/persona_total) per Table-1 row.
 - Added Appendix A.1.1 note in `docs/paper/PAPER_DRAFT_EN.md` pointing readers to the denominator artifact to calibrate Recovery@flip variance.
+### 2026-02-22 10:59 KST — Writing lane: add LaTeX appendix table for Recovery@flip denominators
+
+- Added `scripts/make_table1_recovery_denominators_latex.py` to print LaTeX-ready rows from `docs/paper/artifacts/table1_recovery_denominators_20260222.csv`.
+- Inserted a small LaTeX table snippet in Appendix A.1.1 of `docs/paper/PAPER_DRAFT_EN.md` that reports $|F|_{NRC}$ and $|F|_{persona}$ (flip-case denominators) so recovery variance is properly contextualized.

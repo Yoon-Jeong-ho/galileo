@@ -839,6 +839,32 @@ We ran a minimal decoding sweep over the multi-turn phase temperature (`--greedy
 
 Because Recovery@flip is conditional on flipping, its effective sample size can be small (especially for strong models under NRC). We therefore track the recovery denominators (number of flip cases) used for the Control Re-asking (NRC) and persona-pooled conditions. See `docs/paper/artifacts/table1_recovery_denominators_20260222.csv` (computed from per-alias recovery logs).
 
+**Paper include (LaTeX snippet).**
+
+```latex
+% Denominators for Recovery@flip (Table~\ref{tab:main}); mean±std across seeds.
+\begin{table}[t]
+  \centering
+  \scriptsize
+  \setlength{\tabcolsep}{4pt}
+  \begin{tabular}{lcc}
+    \toprule
+    Model (seeds) & $|F|_{\mathrm{NRC}}$ & $|F|_{\mathrm{persona}}$ \\
+    \midrule
+    Qwen2.5-7B (1--4) & 78.5±3.5 & 912.8±22.0 \\
+    Llama-3.1-8B (1--2) & 362.0±11.3 & 1953.5±61.5 \\
+    Mistral-7B (1--2) & 359.0±253.1 & 2675.0±1675.8 \\
+    Llama-3.2-3B (1--2) & 365.0 & 1903.0±33.9 \\
+    Phi-3-mini-4k (1--2) & -- & -- \\
+    Mistral-Nemo (1--2) & -- & -- \\
+    Qwen2.5-14B (1--2) & 7.5±0.7 & 350.5±14.8 \\
+    \bottomrule
+  \end{tabular}
+  \caption{Recovery@flip denominators (number of flip cases) for Table~\ref{tab:main}. Small $|F|$ explains higher variance in conditional recovery rates.}
+  \label{tab:recovery-denominators}
+\end{table}
+```
+
 ### A.2 Qualitative flip taxonomy: boundary/overanswer vs partial-overlap vs semantic-change (evaluator caveat)
 
 **Appendix note (Recovery@flip coverage).** Cross-family Recovery@flip coverage in Table~\ref{tab:main} is currently partial because some older cross-family runs did not retain `recovery_accuracy.csv` under the staged paper SSOT. To complete those TODO rows, rerun the missing families (seed1 pilot first) under the standardized Tier‑1 pipeline with recovery logging enabled, then regenerate the tracked artifact via `scripts/make_table1_recovery_from_results_paper.py`.
