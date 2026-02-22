@@ -446,7 +446,7 @@ For space, we report the full persona-wise \(\Delta\)\RecoveryAtFlip{} plots and
 \begin{figure*}[t]
   \centering
   \includegraphics[width=0.98\textwidth]{figures/survival_curves_rounds_seed1-4_20260209}
-  \caption{\textbf{Survival over rounds under pressure vs matched neutral re-asking control (NRC).} Curves show \SurvivalAt{r} on an initially-correct conditioning set (Phase~1), so a drop at round $r$ corresponds to the fraction of previously-correct examples that have flipped by that round. Persona effects are read as the vertical gap between a persona and its NRC curve at the same round (drift-corrected).}
+  \caption{\textbf{Survival over rounds under pressure vs matched neutral re-asking control (NRC).} Curves show \SurvivalAt{r} on an initially-correct conditioning set from Phase~1, so a drop at round $r$ corresponds to the fraction of previously-correct examples that have flipped by that round. \textbf{Denominator:} for cross-persona comparability, this plot uses a shared initially-correct set $C$ (\S\ref{sec:conditioning-set}); persona effects are read as the vertical gap between a persona and its paired NRC curve at the same round (drift-corrected).}
   \label{fig:survival}
 \end{figure*}
 
