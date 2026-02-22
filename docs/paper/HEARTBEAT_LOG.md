@@ -1631,3 +1631,7 @@ ef{fig:protocol}).
 
 - Added `scripts/gen_recovery_denominators_rows_tex.py` to generate `docs/paper/latex_paper_emnlp2023/generated/recovery_denominators_rows.tex` from the tracked artifact `docs/paper/artifacts/table1_recovery_denominators_20260222.csv`.
 - Updated the Appendix LaTeX snippet in `docs/paper/PAPER_DRAFT_EN.md` to `\\input{generated/recovery_denominators_rows}` to eliminate drift between the CSV artifact and the paper table.
+### 2026-02-22 11:29 KST — Writing/dev lane: best-effort LaTeX input for generated denominator rows
+
+- Wrapped the appendix denominator table rows include with `\IfFileExists{...}{\input{...}}{...}` so local builds don’t hard-fail if the generated file is missing.
+- CI/paper builds can still enforce fail-fast by ensuring the generator runs before LaTeX compile.

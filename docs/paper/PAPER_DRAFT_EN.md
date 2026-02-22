@@ -853,7 +853,12 @@ Because Recovery@flip is conditional on flipping, its effective sample size can 
     \midrule
     % Auto-generated table rows:
     % (Generate: python3 scripts/gen_recovery_denominators_rows_tex.py --in_csv docs/paper/artifacts/table1_recovery_denominators_20260222.csv)
-    \input{generated/recovery_denominators_rows}
+    % Best-effort local build: compile even if the generated file is missing.
+    \IfFileExists{generated/recovery_denominators_rows.tex}{%
+      \input{generated/recovery_denominators_rows}%
+    }{%
+      \multicolumn{3}{c}{\textit{(run generator to populate denominators)}}\\
+    }
     \bottomrule
   \end{tabular}
   \caption{Recovery@flip denominators (number of flip cases) for Table~\ref{tab:main}. Small $|F|$ explains higher variance in conditional recovery rates.}
