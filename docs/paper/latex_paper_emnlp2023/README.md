@@ -2,6 +2,17 @@
 
 This folder contains the **compilable** EMNLP-style main paper (`main.tex`) plus the paper figures/tables it references.
 
+## Dependencies
+
+You need a working LaTeX install with `latexmk` (and `pdflatex`). On Ubuntu, the simplest is `texlive-full`; a lighter setup that usually works is:
+
+```bash
+sudo apt-get update
+sudo apt-get install -y latexmk texlive-latex-extra texlive-fonts-recommended texlive-fonts-extra texlive-science
+```
+
+If compilation fails due to a missing `.sty`, install the corresponding TeX Live package (the error log will name it).
+
 ## Quick build
 
 From this directory:
