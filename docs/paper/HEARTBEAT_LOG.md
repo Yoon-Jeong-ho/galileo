@@ -1604,3 +1604,7 @@ ef{fig:protocol}).
 
 - Added a $^{\ddagger}$ marker to Phi-3-mini and Mistral-Nemo rows in Table~\\ref{tab:main} and a matching caption note.
 - Goal: make it unambiguous that missing Recovery@flip entries are a **known TODO** (missing recovery logs under the currently staged paper SSOT), not an omitted metric or a zero.
+### 2026-02-22 09:39 KST — Writing lane: explicitly scope Table 1 Recovery@flip coverage
+
+- Added a one-sentence clarification in `docs/paper/PAPER_DRAFT_EN.md` §7.0 that Recovery@flip is reported only where recovery logs are available; missing entries remain explicit TODOs.
+- Goal: prevent reviewers from assuming missing recovery entries are zeros or from over-weighting incomplete cross-family recovery coverage.

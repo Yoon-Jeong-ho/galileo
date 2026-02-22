@@ -541,7 +541,7 @@ Unless stated otherwise, results are reported as mean±std over **seeds 1–4** 
 
 ### 7.0 One-stop summary (Main Table)
 
-**Main Table (Table~\ref{tab:main}).** Before decomposing by persona and metric, Table~\ref{tab:main} provides a reviewer-first summary of the three core outcomes—**Survival@5**, **Fail@1**, and **recovery@flip**—each reported as **Control (NRC) vs Persona** plus their deltas. Each row is a model family (Tier‑1; seeds 1–2 unless noted) under the **same protocol**, enabling quick cross-family generalization checks.
+**Main Table (Table~\ref{tab:main}).** Before decomposing by persona and metric, Table~\ref{tab:main} provides a reviewer-first summary of the three core outcomes—**Survival@5**, **Fail@1**, and **recovery@flip**—each reported as **Control (NRC) vs Persona** plus their deltas. Each row is a model family (Tier‑1; seeds 1–2 unless noted) under the **same protocol**, enabling quick cross-family generalization checks. **Recovery@flip is reported where the underlying recovery logs are available**; missing entries are explicitly marked as TODO (rather than treated as zero).
 
 **Sign convention (paper-wide):** \(\Delta\) is always **persona − control** on the matched initially-correct set (so negative \(\Delta\)Survival@5 means persona pressure reduces survival beyond drift).
 
