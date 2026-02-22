@@ -33,4 +33,25 @@ if grep -RInE "$MARKER_RE" "${MARKER_PATHS[@]}" >/tmp/paper_preflight_markers.tx
   exit 1
 fi
 
+
+# Structural LaTeX guardrails (prevent accidental deletion during refactors)
+LATEX_MAIN="docs/paper/latex_paper_emnlp2023/main.tex"
+
+if ! grep -nE '^\\bibliographystyle\{acl_natbib\}' "$LATEX_MAIN" >/dev/null; then
+  echo "[FAIL] Missing \\bibliographystyle{acl_natbib} in $LATEX_MAIN" >&2
+  exit 1
+fi
+if ! grep -nE '^\\bibliography\{' "$LATEX_MAIN" >/dev/null; then
+  echo "[FAIL] Missing \\bibliography{...} in $LATEX_MAIN" >&2
+  exit 1
+fi
+if ! grep -nE '^\\section\{Limitations\}' "$LATEX_MAIN" >/dev/null; then
+  echo "[FAIL] Missing \\section{Limitations} in $LATEX_MAIN" >&2
+  exit 1
+fi
+if ! grep -nE '^\\section\{Ethics Statement\}' "$LATEX_MAIN" >/dev/null; then
+  echo "[FAIL] Missing \\section{Ethics Statement} in $LATEX_MAIN" >&2
+  exit 1
+fi
+
 echo "[OK] paper preflights passed"
