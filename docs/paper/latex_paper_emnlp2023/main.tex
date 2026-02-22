@@ -255,7 +255,15 @@ These categories are designed to be simple, copyable, and auditable; exact templ
 
 \subsection{Metrics}
 \label{sec:metrics}
-We formalize the trajectory metrics used throughout. Let $x$ be an example with gold answer $a(x)$.
+\paragraph{Metric cheat sheet (at a glance).}
+We report four complementary quantities over the $R{=}5$ challenged rounds (all computed on a specified conditioning set $S$; \S\ref{sec:conditioning-set}):
+(i) \textbf{\SurvivalAt{r}}: fraction of examples that stay correct for \emph{all} challenged rounds $1\ldots r$;
+(ii) \textbf{\FailAt{1}}: fraction that first fail on the very first challenged turn;
+(iii) \textbf{\TOF}: time-to-first-failure over challenged rounds ($R{+}1$ if never fails);
+(iv) \textbf{\RecoveryAtFlip{}}: conditional recovery rate on a final neutral reset, among examples that flipped at least once in a given track.
+Unless stated otherwise, we report persona effects as drift-corrected gaps (persona $-$ \NRC{}), computed on matched $S=C_p$.
+
+We formalize the trajectory metrics used throughout. Let $x$ be an example with gold answer $a(x)$. 
 For each track $t\in\{p,\mathrm{NRC}\}$ (persona vs control) and challenged round $r\in\{1,\dots,R\}$, define the correctness indicator
 $c^{(t)}_{r}(x)=\mathbb{1}[\text{model output at round $r$ matches }a(x)]$.
 Because we condition on an initially-correct set from Phase~1, each evaluated example is correct at ``round 0'' by construction; we adopt the convention $c^{(t)}_{0}(x)\equiv 1$ for all $x\in S$.
