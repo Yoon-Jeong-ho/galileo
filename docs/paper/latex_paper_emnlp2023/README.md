@@ -33,6 +33,23 @@ So local compiles should succeed even if you haven't regenerated exports.
 
 `generated/table1_rows.tex` is produced by `scripts/gen_latex_table1_from_artifacts.py`, which also tries to fill Recovery@flip from the tracked artifact `docs/paper/artifacts/table1_recovery_from_results_paper_*.csv` when available (otherwise leaves `--`).
 
+## Artifacts + figure regeneration (local-only)
+
+This LaTeX paper is designed to be **auditable from tracked artifacts** in this repo.
+
+- Tracked numeric artifacts live under: `docs/paper/artifacts/`
+- Figure PDFs/PNGs referenced by `main.tex` live under: `figures/`
+
+If you update artifacts (e.g., add a new `table1_recovery_from_results_paper_*.csv`), you can refresh the main table rows (without rerunning inference) via:
+
+```bash
+cd /path/to/repo/docs/paper/latex_paper_emnlp2023
+python3 ../../../scripts/gen_latex_table1_from_artifacts.py \
+  --out generated/table1_rows.tex
+```
+
+Then recompile with `latexmk` as usual.
+
 ## Optional: add uncertainty (Wilson 95% CIs) to export CSVs
 
 Many paper exports report rates as simple `k/n` percentages (e.g., `survival_curve.csv`).
