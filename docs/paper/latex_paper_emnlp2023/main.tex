@@ -209,6 +209,13 @@ Phase~1 defines an initially-correct set by scoring a neutral first response. Wh
 When runs are produced separately per persona (common in large sweeps), each persona has its own Phase~1 set $C_p$; in that case we compute persona--\NRC{} deltas on the \emph{matched} $C_p$ so that the paired comparison isolates pressure effects rather than differences in Phase~1 correctness. This avoids conflating ``pressure'' with the fact that different personas may condition on slightly different initially-correct subsets.
 Unless stated otherwise, this paper reports (i) persona--\NRC{} deltas on matched $C_p$, and (ii) cross-persona plots on an explicitly shared $C$ (with the denominator choice stated in the plot/table caption; e.g., Table~\ref{tab:main} uses matched $C_p$, while Fig.~\ref{fig:survival} uses a shared $C$ for cross-persona comparability).
 
+\paragraph{Reporting conventions (quick reference).}
+\begin{itemize}[leftmargin=*]
+  \item \textbf{Denominators:} persona--\NRC{} gaps are computed on the same conditioning set (default: matched $C_p$) unless explicitly noted.
+  \item \textbf{Cross-persona comparability:} when directly comparing personas to each other (not just persona vs its \NRC{}), we use a shared $C$ and state this in the caption.
+  \item \textbf{Sign:} throughout, $\Delta$ always means (Persona$-$\NRC{}).
+\end{itemize}
+
 \subsection{Notation (tracks, histories, and reported gaps)}
 For a fixed persona $p$, we run two tracks under matched decoding: the persona track $t=p$ and the paired neutral control $t=\mathrm{NRC}$.
 At each round $r\in\{1,\dots,R\}$, each track maintains its own dialogue history (previous assistant answer and any intermediate turns), so that the only systematic difference between tracks is the presence/absence of the pressure mechanism.
