@@ -357,7 +357,8 @@ where $m^{(\mathrm{NRC},p)}$ denotes the NRC track paired to persona $p$ under m
 The \(\Delta\) column is the equal-weight average of the \emph{per-persona} deltas in the equation above (i.e., we average within each persona--\NRC{} pairing before aggregating across personas), so in general \(\Delta\bar{m}\neq \bar{m}^{(\mathrm{Persona})}-\bar{m}^{(\mathrm{NRC})}\). This keeps the drift correction aligned to each persona's matched control.
 
 \paragraph{Task aggregate and seed aggregation (used for headline numbers).}
-When we report a single headline number per model family (including the main aggregated setting referenced in the abstract), we aggregate persona--\NRC{} \emph{deltas} in three stages: (i) compute deltas within each persona--NRC pairing on its matched conditioning set $S=C_p$, (ii) take an equal-weight mean over the five personas, and (iii) take an equal-weight mean over the five tasks.
+When we report a single headline number per model family (including the main aggregated setting referenced in the abstract), we aggregate persona--\NRC{} \emph{deltas} in three stages. \textbf{Macro-averaging note:} our default aggregates are \emph{equal-weight} over personas and tasks (not weighted by dataset size). This avoids having one large benchmark dominate the headline effect, but it means the aggregate should be read as an ``average pressure effect across tasks'' rather than a micro-average over all examples.
+We aggregate by: (i) compute deltas within each persona--NRC pairing on its matched conditioning set $S=C_p$, (ii) take an equal-weight mean over the five personas, and (iii) take an equal-weight mean over the five tasks.
 When multiple random seeds are available, we compute this task\,$\times$\,persona aggregated delta separately per seed, then report mean\,\(\pm\)\,std over seeds.
 This ordering (delta-first, then averaging) keeps drift correction aligned to each persona's paired control before pooling across tasks/personas.
 
