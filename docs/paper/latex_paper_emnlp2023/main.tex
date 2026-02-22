@@ -234,8 +234,10 @@ This isolates social and rhetorical pressure (doubt, denial, authority claims, a
 We intentionally keep all personas evidence-free so that persona--\NRC{} gaps can be interpreted as pressure mechanisms rather than belief revision under new facts.
 
 \paragraph{Why matched decoding and interaction length?}
-Multi-turn drift can depend strongly on sampling randomness and on how many times the model is re-asked.
-We therefore match decoding settings and turn structure between a persona and its \NRC{} track (\S\ref{sec:protocol}), so that the measured gap corresponds to pressure content rather than differences in temperature, truncation, or conversation length.
+Multi-turn drift can depend strongly on decoding hyperparameters and on how many times the model is re-asked.
+We therefore match decoding settings (e.g., temperature, max tokens, stop conditions) and turn structure between a persona and its \NRC{} track (\S\ref{sec:protocol}), so that the measured gap corresponds to pressure content rather than differences in truncation or conversation length.
+\textbf{Clarification.} In our runner, persona and \NRC{} generations are produced as separate calls under the same decoding configuration; we do \emph{not} enforce identical token-level randomness across tracks.
+Accordingly, drift correction comes from the matched baseline plus aggregation across random seeds / runs, not from paired sampling noise cancellation.
 
 \paragraph{Why $R{=}5$ rounds?}
 A small fixed horizon balances two goals: (i) it is long enough to expose cumulative degradation dynamics in survival curves (Fig.~\ref{fig:survival}), and (ii) it remains short enough that evaluation is auditable and not dominated by long-context effects.
