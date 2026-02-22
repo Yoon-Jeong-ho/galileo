@@ -413,7 +413,7 @@ This convention preserves drift correction (each persona is paired with its own 
 
 \subsection{Survival degrades under pressure beyond generic drift}
 Figure~\ref{fig:survival} shows survival curves over rounds for representative personas alongside NRC.
-Table~\ref{tab:main} summarizes this effect at the horizon: for every model family we test, the persona aggregate shows \emph{negative} $\Delta\,\SurvivalAt{5}$ (e.g., Qwen2.5-7B: $\Delta\,\SurvivalAt{5}\approx -0.23$; Qwen2.5-14B: $\Delta\,\SurvivalAt{5}\approx -0.25$; Mistral-7B: $\Delta\,\SurvivalAt{5}\approx -0.31$), indicating substantial pressure-induced deviations beyond evidence-free drift.
+Table~\ref{tab:main} summarizes this effect at the horizon: for every model family we test, the persona aggregate shows \emph{negative} $\Delta\,\SurvivalAt{5}$ (e.g., Qwen2.5-7B: $\Delta\,\SurvivalAt{5}\approx -0.23$ (\emph{i.e.}, $-23$ percentage points); Qwen2.5-14B: $\Delta\,\SurvivalAt{5}\approx -0.25$ ($-25$ pp); Mistral-7B: $\Delta\,\SurvivalAt{5}\approx -0.31$ ($-31$ pp)), indicating substantial pressure-induced deviations beyond evidence-free drift.
 
 Two patterns recur across tasks and seeds.
 First, the persona--\NRC{} gap often \emph{widens with rounds}: even when \SurvivalAt{1} is similar, repeated pressure can accumulate into a substantial \SurvivalAt{5} deficit.
@@ -464,7 +464,7 @@ Across multiple open-weight families, we observe the same qualitative trend: a s
 This cross-family replication reduces the risk that our main findings are an artifact of one model's instruction tuning or decoding idiosyncrasies.
 
 \paragraph{Aggregate view across families.}
-Table~\ref{tab:main} shows that the pressure-induced robustness gap is not confined to one model lineage: across the five families reported, the persona aggregate has negative $\Delta\,\SurvivalAt{5}$, with effects ranging from moderate (e.g., Llama-3.1-8B: $\approx$\,-0.07) to large (e.g., Mistral-7B: $\approx$\,-0.31).
+Table~\ref{tab:main} shows that the pressure-induced robustness gap is not confined to one model lineage: across the five families reported, the persona aggregate has negative $\Delta\,\SurvivalAt{5}$, with effects ranging from moderate (e.g., Llama-3.1-8B: $\approx$\,-0.07, i.e., $-7$ pp) to large (e.g., Mistral-7B: $\approx$\,-0.31, $-31$ pp).
 Moreover, several families exhibit positive $\Delta\,\FailAt{1}$ (e.g., Phi-3-mini and Mistral-7B: $\approx$\,0.24--0.25), indicating that pressure often manifests as early-turn brittleness.
 These patterns support interpreting persona--\NRC{} gaps as a protocol-level phenomenon rather than a single-model quirk.
 
