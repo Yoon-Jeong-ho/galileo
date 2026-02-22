@@ -81,13 +81,12 @@
 \maketitle
 
 \begin{abstract}
-Large language models can abandon a previously correct answer when repeatedly challenged \emph{without new evidence}---a multi-turn failure mode that single-turn accuracy does not reveal.
-We introduce \textbf{\GALILEO{}}, an auditable protocol for ground-truth tasks that isolates \emph{deviation from truth} by (i) evaluating only initially-correct examples and (ii) pairing each pressure persona $p$ with its own matched \emph{Neutral Re-asking Control} (\NRC{}$_p$) that matches dialogue length and decoding, enabling drift-corrected reporting as persona--\NRC{} deltas.
-Over $R{=}5$ challenged rounds on initially-correct examples, we quantify (a) robustness dynamics via survival trajectories (\SurvivalAt{r}: fraction that stays correct for all challenged turns $1\ldots r$), (b) early vulnerability via first-turn failure (\FailAt{1}) and time-to-first-failure (\TOF), and (c) recoverability after a flip under a neutral reset (\RecoveryAtFlip{}). We implement recovery as an additional, final neutral turn that is excluded from the $R$ challenged rounds used for \SurvivalAt{r}/\TOF.
+Large language models can abandon a previously correct answer when repeatedly challenged \emph{without new evidence}---a multi-turn failure mode that single-turn accuracy can hide.
+We introduce \textbf{\GALILEO{}}, an auditable protocol for ground-truth tasks that isolates \emph{deviation from truth} by (i) evaluating only initially-correct examples and (ii) pairing each pressure persona $p$ with a matched \emph{Neutral Re-asking Control} (\NRC{}$_p$) that matches dialogue length and decoding, enabling drift-corrected reporting as persona--\NRC{} deltas.
+Over $R{=}5$ challenged rounds, we measure robustness dynamics via survival trajectories (\SurvivalAt{r}), early vulnerability via \FailAt{1} and time-to-first-failure (\TOF), and post-deviation recoverability via \RecoveryAtFlip{} implemented as a final neutral reset turn (excluded from \SurvivalAt{r}/\TOF).
 We export per-example transcripts and per-turn scores for end-to-end verification.
 Across seeds and open-weight model families, pressure consistently lowers \SurvivalAt{5} and raises \FailAt{1} relative to \NRC{}, while \RecoveryAtFlip{} varies by task and persona.
-Because even neutral re-asking can drift across turns, we recommend reporting both arm-wise rates and the drift-corrected persona--\NRC{} deltas.
-For \textbf{Qwen2.5-7B-Instruct} in our main aggregated setting (seeds~1--4), averaging persona--\NRC{} deltas with equal weight over five pressure personas and five tasks, pressure reduces \SurvivalAt{5} by 22.8 \emph{percentage points} and increases \FailAt{1} by 6.9 \emph{percentage points} (Table~\ref{tab:main}).
+For \textbf{Qwen2.5-7B-Instruct} in our main aggregated setting (seeds~1--4), equal-weight averaging persona--\NRC{} deltas over five personas and five tasks, pressure reduces \SurvivalAt{5} by 22.8 \emph{percentage points} and increases \FailAt{1} by 6.9 \emph{percentage points} (Table~\ref{tab:main}).
 Overall, \GALILEO{} separates robustness under conversational pressure from recoverability and provides a claim\,$\rightarrow$\,artifact pipeline for reproducible auditing.
 \end{abstract}
 
