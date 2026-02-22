@@ -1640,3 +1640,7 @@ ef{fig:protocol}).
 - On nlp8, ran `nvidia-smi` + `bash scripts/check_cuda_preflight_all.sh`.
 - Result: GPU0 FAIL, GPUs1–6 OK (GPU3 still occupied by our PrivacyRestore training job).
 - Operational decision: do not schedule GALILEO on GPU0 even if it appears idle; prefer GPUs1/2/4/5/6 (idle + preflight OK).
+### 2026-02-22 12:50 KST — Dev lane: make Tier‑1 pilot command generation configurable
+
+- Updated `scripts/print_crossfamily_run_commands.py` to accept overrides (`--num_samples`, `--max_model_len`, `--max_tokens`, `--greedy_temperature`) so we can generate a 50-sample seed1 pilot command without hand-editing.
+- Added a short run note: `docs/paper/NEXT_TIER1_PILOT.md` (preflight + command generator + cap-check gate).
