@@ -229,3 +229,7 @@ This file is intentionally kept short to reduce token burn.
 ### 2026-02-24 22:05 KST — CLI: fix --data_dir + --data_file precedence for single-file diagnostics
 
 - `run_experiment.py`: when both `--data_dir` and `--data_file` are set, now restricts to that one JSONL under `data_dir` (previously `--data_dir` overrode and ran all JSONLs).
+
+### 2026-02-24 23:32 KST — Runbook fix: paper_export requires --model_dir
+
+- Updated `docs/paper/NEXT_TIER1_RERUN_PLAN.md` to pass `--model_dir $OUT/${MODEL##*/}` to `scripts/paper_export.py` (it is required).
