@@ -104,7 +104,7 @@ We refer to such a deviation event (from a previously correct answer to an incor
 Operationally, a flip occurs at the first challenged round where the model's extracted final answer (\S\ref{sec:task-setting}) no longer matches the deterministic gold label.
 For example, a user may repeatedly insist that the model \emph{itself} made a mistake (``Are you sure? Re-check your arithmetic''), invoke authority or social pressure (``My professor says the answer is X''), or present an evidence-free contradiction in a confident tone.
 Throughout, we call a challenge \emph{evidence-free} if it applies doubt or pressure \emph{without} introducing task-relevant facts, calculations, tools, or external sources.
-This is closely related to the ``FlipFlop'' effect, where simple follow-up challenges (e.g., ``Are you sure?'') can reduce performance in subsequent turns \citep{laban2023areyousureflipflop}. 
+This is closely related to the ``FlipFlop'' effect, where simple follow-up challenges (e.g., ``Are you sure?'') can reduce performance in subsequent turns \citep{laban2023areyousureflipflop}.
 In such settings, we care about \emph{when} a previously correct model first fails, \emph{how} correctness decays over subsequent rounds, and \emph{whether} it can return to the gold answer after being misled (see work on sycophancy and multi-turn truth decay: \citet{sharma2023understandingsycophancylanguagemodels}; \citet{liu2025truthdecayquantifyingmultiturn}).
 
 Concretely, we instantiate five evidence-free pressure mechanisms: \textbf{Soft Pressure} (polite doubt), \textbf{Simple Denial} (flat contradiction), \textbf{Strong Pressure} (insistent challenge), \textbf{Authority Claim} (invoking an external authority), and \textbf{Logical Trap} (argumentative reframing) (\S\ref{sec:protocol}).
@@ -117,6 +117,7 @@ This yields three concrete evaluation questions:
 (i) \textbf{Robustness dynamics:} how quickly does correctness decay under repeated challenges (Survival curves; Fig.~\ref{fig:survival})?
 (ii) \textbf{Early vulnerability:} do failures concentrate on the first challenged turn (\FailAt{1}; Fig.~\ref{fig:fail1}), and how long until the first deviation (time-to-first-failure, \TTF{}: the first challenged round $r$ where the model becomes incorrect; we set \TTF{}$=R{+}1$ if it never fails in $R$ rounds)?
 (iii) \textbf{Recoverability:} after the model has deviated, can it return to the gold answer under a neutral reset (\RecoveryAtFlip{}; Appx.~\ref{sec:appendix-extra-results})?
+Formal definitions of all metrics appear in \S\ref{sec:metrics}.
 
 \paragraph{Why conditioning on initially-correct examples?}
 Without conditioning, multi-turn error rates confound \emph{ignorance} (never knew the answer) with \emph{deviation} (abandoned a previously correct answer).
