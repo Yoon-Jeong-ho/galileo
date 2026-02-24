@@ -70,6 +70,14 @@ def main() -> int:
             "Default: auto (let vLLM decide)."
         ),
     )
+    ap.add_argument(
+        "--enforce_eager",
+        action="store_true",
+        help=(
+            "Initialize vLLM with enforce_eager=True to avoid CUDA graph capture / torch.compile "
+            "overhead during preflight (often enough to verify environment/model compatibility)."
+        ),
+    )
     args = ap.parse_args()
 
     # NOTE: Many modern HF configs report very large context lengths (e.g., 128k).
@@ -102,6 +110,7 @@ def main() -> int:
             max_model_len=max_len,
             tensor_parallel_size=1,
             disable_log_stats=True,
+            enforce_eager=bool(args.enforce_eager),
         )
         if args.dtype != "auto":
             llm_kwargs["dtype"] = args.dtype
