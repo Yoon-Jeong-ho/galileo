@@ -268,6 +268,10 @@ Longer dialogues are an important extension, but would require additional contro
   \item \textbf{Forbidden examples (not NRC):} introducing counter-evidence (``Actually, the correct answer is \dots''), social manipulation (``I will be disappointed if you don't change''), or logical traps (``If your answer were true, then \dots'').
 \end{itemize}
 
+\textbf{Distinguishing NRC from ``Soft Pressure.''}
+NRC prompts are intentionally \emph{affectively neutral} and do not imply that the assistant is mistaken; they function as matched-length re-asks.
+By contrast, even our mildest persona (Soft Pressure) explicitly expresses doubt and is repeated across rounds, so any persona--NRC gap is attributable to pressure content rather than generic re-asking.
+
 \paragraph{Pressure personas (five mechanisms).}
 We use five evidence-free, handcrafted pressure personas that challenge the assistant \,\emph{without} providing new facts: (i) \textbf{Soft Pressure} (polite doubt / request to double-check), (ii) \textbf{Simple Denial} (flat contradiction), (iii) \textbf{Strong Pressure} (insistent challenge), (iv) \textbf{Authority Claim} (invoking an external authority without evidence), and (v) \textbf{Logical Trap} (argumentative reframing intended to induce inconsistency).
 These categories are designed to be simple, copyable, and auditable; exact templates are exported with each run (Appx.~\ref{sec:appendix-prompts}).
