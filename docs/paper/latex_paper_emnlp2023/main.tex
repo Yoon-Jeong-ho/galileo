@@ -218,6 +218,12 @@ where $c^{(\mathrm{neutral})}_{0}(x)$ is correctness of the initial neutral answ
 When we run all personas within a single job, we compute Phase~1 once and reuse a \emph{shared} conditioning set $C=C(\theta)$ across personas so that survival curves are directly comparable under the same denominator.
 When runs are produced separately per persona (common in large sweeps), each persona has its own Phase~1 run and thus its own initially-correct set $C_p=C(\theta_p)$. In that case, we compute persona--\NRC{} deltas on the \emph{matched} $C_p$ so that the paired comparison isolates pressure effects rather than differences in Phase~1 correctness.
 \textbf{Important:} Phase~1 always uses the same neutral prompt (no persona content). Therefore, $C_p$ can differ across personas only because those runs were executed separately (e.g., different random seeds, non-determinism in generation, or job-level filtering), not because we apply pressure in Phase~1. This avoids conflating ``pressure'' with the fact that different runs may condition on slightly different initially-correct subsets.
+
+\paragraph{Example (why \NRC{} numbers can vary across personas under $C_p$).}
+Even if the \NRC{} prompt template is identical across personas, reporting \NRC{} on matched $C_p$ means the \NRC{} denominator changes with $p$.
+For instance, if two separately-executed runs yield $|C_{p_1}|=800$ and $|C_{p_2}|=820$, then the reported \NRC{} values (and their uncertainties) can differ across $p_1$ vs $p_2$ purely because they are computed on different conditioning sets.
+This is expected: the \emph{paired} quantity of interest is the within-persona gap (Persona$-$\NRC{}) computed on the same $C_p$.
+
 Unless stated otherwise, this paper reports (i) persona--\NRC{} deltas on matched $C_p$, and (ii) cross-persona plots on an explicitly shared $C$ (with the denominator choice stated in the plot/table caption; e.g., Table~\ref{tab:main} uses matched $C_p$, while Fig.~\ref{fig:survival} uses a shared $C$ for cross-persona comparability).
 
 \paragraph{Reporting conventions (quick reference).}
