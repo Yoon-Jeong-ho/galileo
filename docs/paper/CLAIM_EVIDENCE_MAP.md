@@ -13,8 +13,8 @@ This file is intentionally pragmatic: a SSOT for “what proves what”, and a g
 
 - **Survival(r)**: probability the model remains correct **for every round 1..r** (cumulative), *not* “accuracy at round r only.”
 - **Flip**: a trajectory event **correct → incorrect** between rounds.
-- **TOF (time-to-first-failure)**: the **first challenged round index** where a flip occurs; **Fail(1)** is the probability that TOF = 1.
-- **Recovery(flip)**: correctness **after** a flip (distinct from survival/TOF); reported separately.
+- **TTF (time-to-first-failure; older drafts: TOF)**: the **first challenged round index** where a flip occurs; **Fail(1)** is the probability that TTF = 1.
+- **Recovery(flip)**: correctness **after** a flip (distinct from survival/TTF); reported separately.
 
 ### Conditioning-set reporting modes (must be explicit in captions)
 
@@ -68,7 +68,7 @@ These are the claims most likely to be read without the Appendix. Each needs an 
   - Protocol overview: `fig:algo` → `docs/paper/figures/protocol_overview.svg`
   - Drift-corrected reporting is reflected throughout Results as persona–NRC deltas (e.g., `tab:main`).
 
-**A2 (metrics): survival / TOF+Fail(1) / Recovery(flip) are distinct.**
+**A2 (metrics): survival / TTF+Fail(1) (older drafts: TOF) / Recovery(flip) are distinct.**
 - Where stated: `main.tex` Intro + Metrics/Results
 - Evidence:
   - Survival: `fig:survival`

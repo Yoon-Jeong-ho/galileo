@@ -10,7 +10,7 @@ Goal: strengthen GALILEO’s **methodology + positioning** (not just add citatio
   - Formalizes conversational robustness as a **time-to-event** process and applies survival analysis (Cox/AFT/RSF).
   - Uses drift features; shows hazard spikes with abrupt drift; proposes lightweight risk monitor.
 - How it changes *our* paper:
-  - Strengthens our methodological framing: TOF + survival curves are a special case of time-to-event.
+  - Strengthens our methodological framing: TTF + survival curves are a special case of time-to-event. (Older drafts: TOF.)
   - We can add a short paragraph in Method/Related Work: “we keep survival curves as direct, interpretable metrics on *ground-truth tasks*, rather than fitting parametric hazard models; but survival-analysis framing supports our design.”
   - Optional analysis add-on (if we want): fit an AFT or Cox model on our per-turn correctness logs with persona/control indicators.
 - Action item:

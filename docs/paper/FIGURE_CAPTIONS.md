@@ -7,7 +7,7 @@ Conventions:
 - SVGs live under `docs/paper/figures/`.
 - If PDFs are needed for LaTeX, generate via `scripts/convert_figures_svg_to_pdf.sh`.
 - Unless otherwise stated, error bars / uncertainty annotations reflect **variation across random seeds** (reported as mean ± std).
-- Unless otherwise stated, all multi-turn robustness metrics (Survival/TOF/Fail@1/Recovery(flip)) are computed on the **initially-correct subset** (conditioning on correctness at round 0). As a result:
+- Unless otherwise stated, all multi-turn robustness metrics (Survival/TTF/Fail@1/Recovery(flip)) are computed on the **initially-correct subset** (conditioning on correctness at round 0). As a result:
   - The effective sample size can differ across personas/seeds/tasks; captions should avoid implying a fixed global \(n\).
   - When comparing persona pressure to the **Neutral Re-asking Control (NRC)**, we use a **matched conditioning set**: the control arm is evaluated on the same initially-correct subset as the persona arm. This prevents conditioning-set drift from being mistaken as a treatment effect.
 
@@ -17,7 +17,7 @@ Caption boilerplate (optional, to keep wording consistent):
 - “Computed on the initially-correct subset; control is evaluated on the same persona-matched subset. Error bars are mean ± std over seeds.”
 
 Caption style notes (paper-ready):
-- First mention expands abbreviations (TOF, Fail@1, etc.).
+- First mention expands abbreviations (TTF, Fail@1, etc.).
 - Captions explicitly state the comparison direction for \(\Delta\) metrics (persona − control).
 
 Metric definitions (to keep captions consistent across drafts):
@@ -29,15 +29,15 @@ Metric definitions (to keep captions consistent across drafts):
     \[
     \text{persona\_weighted} = \frac{\sum_p \mathrm{num}_p}{\sum_p \mathrm{den}_p},
     \]
-    where \(p\) ranges over persona arms and \((\mathrm{num}_p,\mathrm{den}_p)\) are computed on that persona’s matched initially-correct subset \(C_p\) (and the NRC is evaluated on the same \(C_p\) before pooling). For TOF-style histograms, we pool by summing per-round counts across personas.
+    where \(p\) ranges over persona arms and \((\mathrm{num}_p,\mathrm{den}_p)\) are computed on that persona’s matched initially-correct subset \(C_p\) (and the NRC is evaluated on the same \(C_p\) before pooling). For TTF-style histograms (older drafts: TOF), we pool by summing per-round counts across personas.
   - **persona_unweighted:** simple mean of persona-wise rates (each persona counts equally).
 
   Default for this captions file: follow the paper default unless a specific artifact/figure is explicitly defined as pooled-counts (persona_weighted).
 - **Survival@r**: fraction of **initially-correct** examples that remain correct for **all rounds 1..r** (cumulative; “still correct through round r”).
-- **Flip**: a correct→incorrect transition at some round **within the multi-turn phase** (rounds 1..R). The final neutral **recovery turn** is *not* counted when defining flips/TOF.
-- **TOF (turn-of-failure)**: the first round (within 1..R) where a flip occurs. If an example remains correct through the horizon (rounds 1..R), we record **TOF = “never”** and treat it as **right-censored** at R (time-to-event framing).
-- **Fail@1**: probability of flipping at the **first** pressure round (i.e., TOF=1).
-- **Effect deltas** (caption shorthand): by default, \(\Delta\text{Metric}\) means **persona pressure minus NRC** under an identical protocol (same rounds/decoding/scoring). Deltas are computed on the **initially-correct subset**, so that survival/TOF/recovery reflect robustness dynamics rather than initial capability.
+- **Flip**: a correct→incorrect transition at some round **within the multi-turn phase** (rounds 1..R). The final neutral **recovery turn** is *not* counted when defining flips/TTF.
+- **TTF (time-to-first-failure)**: the first round (within 1..R) where a flip occurs. If an example remains correct through the horizon (rounds 1..R), we record **TTF = “never”** and treat it as **right-censored** at R (time-to-event framing). (Older drafts used “TOF”.)
+- **Fail@1**: probability of flipping at the **first** pressure round (i.e., TTF=1).
+- **Effect deltas** (caption shorthand): by default, \(\Delta\text{Metric}\) means **persona pressure minus NRC** under an identical protocol (same rounds/decoding/scoring). Deltas are computed on the **initially-correct subset**, so that survival/TTF/recovery reflect robustness dynamics rather than initial capability.
   - **When an artifact defines persona aggregates via pooled counts** (e.g., Table W; decoding sweep summaries), we compute the aggregated persona rate and aggregated control rate *within each seed* by pooling numerators/denominators across personas (as specified above), then take their difference; error bars report mean ± std across seeds.
   - **When an artifact only exposes per-persona rates/deltas without denominators** (e.g., Tier-1 cross-family `tier1_*_survival_summary_*.csv`), any “persona aggregate” is computed as an **equal-weight mean over personas** of the persona–NRC deltas (then reconstructed as NRC + mean(delta)), matching `scripts/gen_latex_table1_from_artifacts.py`.
   - \(\Delta\text{Survival@5} < 0\): reduced robustness under persona pressure.
@@ -53,7 +53,7 @@ Metric definitions (to keep captions consistent across drafts):
 - Source: generated diagram (not artifact-derived) via `scripts/make_protocol_figure_svg.py`
 
 **Caption (draft):**
-Overview of the GALILEO protocol: (1) initial evaluation on ground-truth tasks, (2) multi-round persona pressure vs NRC (drift baseline) to measure survival and turn-of-failure (TOF), and (3) recovery measured conditional on flip. Robustness metrics are computed on the initially-correct subset (conditioning on round-0 correctness); the control arm is evaluated on the same persona-matched subset to isolate multi-turn drift from conditioning-set differences.
+Overview of the GALILEO protocol: (1) initial evaluation on ground-truth tasks, (2) multi-round persona pressure vs NRC (drift baseline) to measure survival and time-to-first-failure (TTF; older drafts: TOF), and (3) recovery measured conditional on flip. Robustness metrics are computed on the initially-correct subset (conditioning on round-0 correctness); the control arm is evaluated on the same persona-matched subset to isolate multi-turn drift from conditioning-set differences.
 
 ---
 
@@ -79,14 +79,14 @@ Persona-wise effect size at round 5: \(\Delta\)Survival@5 (persona pressure − 
 
 ---
 
-## Fig: Persona-wise ΔFail@1 (TOF)
+## Fig: Persona-wise ΔFail@1 (TTF)
 
 - File: `docs/paper/figures/tof_personawise_fail1_delta_seed1-4_20260209.svg`
 - LaTeX label (suggested): `fig:tof-delta-fail1`
 - Source artifact: `docs/paper/artifacts/tof_personawise_fail1_never_control_vs_persona_seed1-4_mean_std_20260209.csv`
 
 **Caption (draft):**
-Persona-wise effect size on early-turn vulnerability: \(\Delta\)Fail@1 (persona pressure − control), computed on the initially-correct subset; the control arm is evaluated on the same persona-matched subset. Error bars are mean ± std across seeds 1–4. Fail@1 summarizes the turn-of-failure (TOF) distribution at round 1 (immediate flip); paired with the “never-fail” mass, it distinguishes early-turn brittleness from sustained robustness, complementing survival curves.
+Persona-wise effect size on early-turn vulnerability: \(\Delta\)Fail@1 (persona pressure − control), computed on the initially-correct subset; the control arm is evaluated on the same persona-matched subset. Error bars are mean ± std across seeds 1–4. Fail@1 summarizes the time-to-first-failure (TTF; older drafts: TOF) distribution at round 1 (immediate flip); paired with the “never-fail” mass, it distinguishes early-turn brittleness from sustained robustness, complementing survival curves.
 
 ---
 

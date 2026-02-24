@@ -23,7 +23,7 @@ A single table that (i) defines the core evaluation objects and (ii) reports the
 
 **Columns (primary metrics):**
 - Survival@r (r=5): **C vs P**
-- Fail@1 (or TOF summary): **C vs P**
+- Fail@1 (or TTF summary; older drafts: TOF): **C vs P**
 - Recovery(flip): **C vs P**
 - Δ for each metric, with fixed sign convention: **Δ = P − C** on the matched initially-correct set
 - `n0/seed`: average number of initially-correct examples per seed for that model row (pooled across tasks/personas); prevents weighting ambiguity
@@ -45,7 +45,7 @@ A single table that (i) defines the core evaluation objects and (ii) reports the
 
 ### Figure 1 — protocol overview (already exists)
 - Use `docs/paper/figures/protocol_overview.svg` (source) + PDF for LaTeX.
-- Caption emphasizes: (i) ground-truth tasks, (ii) multi-round persona pressure, (iii) Neutral Re-asking Control (NRC), (iv) survival/TOF/recovery definitions.
+- Caption emphasizes: (i) ground-truth tasks, (ii) multi-round persona pressure, (iii) Neutral Re-asking Control (NRC), (iv) survival/TTF/recovery definitions (older drafts: TOF).
 
 ### Figure 2 — main survival curves (Qwen seed1–4)
 - `docs/paper/figures/survival_curves_rounds_seed1-4_20260209.svg`
@@ -75,7 +75,7 @@ Hard constraint: avoid reviewer fatigue.
 Suggested budget:
 - Introduction: 1.0–1.25p
 - Protocol/Threat model: 0.75–1.0p (includes Fig 1)
-- Metrics/Definitions: 0.5–0.75p (Survival/TOF/Recovery; keep crisp)
+- Metrics/Definitions: 0.5–0.75p (Survival/TTF/Recovery; keep crisp; older drafts: TOF)
 - Experiments: 2.0–2.5p (Table 1 + Figs 2–5)
 - Related Work: 0.75–1.0p (tight, proof-pointer style)
 - Limitations/Ethics: 0.5–0.75p

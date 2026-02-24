@@ -30,7 +30,7 @@ Recommended artifacts to cite in-paper:
 - [ ] Abstract: 1) problem 2) what we do 3) key results 4) why it matters.
 - [ ] Intro: clear evaluation gap; crisp contributions list.
 - [ ] Method: protocol diagram (3 phases) + personas + recovery prompts.
-- [ ] Metrics: define **InitialAcc / Survival(p,r) / TOF / Recovery**.
+- [ ] Metrics: define **InitialAcc / Survival(p,r) / TTF (older drafts: TOF) / Recovery**.
 - [ ] Experiments: datasets, models, decoding, seeds, compute.
 - [ ] Results: persona ranking, dataset/task effects, robustness vs recovery.
 - [ ] Analysis: failure-mode taxonomy with examples + discussion.
