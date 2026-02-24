@@ -711,6 +711,23 @@ For auditability, we export per-example trajectories and derived metrics as CSV 
 # Paper-facing preflight (citations, acronyms, assets)
 bash scripts/run_paper_preflights.sh
 
+# Build the PDF (review mode; line numbers)
+cd docs/paper/latex_paper_emnlp2023
+latexmk -pdf -interaction=nonstopmode -halt-on-error main.tex
+
+# Build camera-ready PDF (no line numbers; for page-count checks)
+latexmk -pdf -interaction=nonstopmode -halt-on-error \
+  -pdflatex='pdflatex %O "\\def\\CAMERAREADY{1}\\input{%S}"' main.tex
+cd -
+
+# Regenerate submission figures from *tracked* CSV artifacts (stdlib-only)
+python3 scripts/make_paper_figures_from_artifacts.py
+
+# Regenerate the main results table (LaTeX) from paper exports
+python3 scripts/make_table1_from_results_paper_exports.py \
+  --results_paper results_paper \
+  --out docs/paper/artifacts/table1_main_autogen.tex
+
 # Validate a run's paper exports
 python3 scripts/validate_paper_exports.py --results_root <RUN_DIR>
 
