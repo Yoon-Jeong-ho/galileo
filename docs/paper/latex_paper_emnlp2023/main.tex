@@ -98,6 +98,7 @@ Overall, \GALILEO{} separates robustness under conversational pressure from post
 Single-turn accuracy obscures interaction dynamics that matter in deployed assistants: a model can answer correctly and still be \emph{brittle} when a user challenges it over multiple turns.
 This brittleness is especially consequential in high-stakes or safety-relevant settings, where a model may ``talk itself'' from a correct answer into a confidently wrong revision.
 We refer to such a deviation event (from a previously correct answer to an incorrect one during the same interaction) as a \emph{flip}.
+Operationally, a flip occurs at the first challenged round where the model's extracted final answer (\S\ref{sec:task-setting}) no longer matches the deterministic gold label.
 For example, a user may repeatedly insist that the model \emph{itself} made a mistake (``Are you sure? Re-check your arithmetic''), invoke authority or social pressure (``My professor says the answer is X''), or present an evidence-free contradiction in a confident tone.
 Throughout, we call a challenge \emph{evidence-free} if it applies doubt or pressure \emph{without} introducing task-relevant facts, calculations, tools, or external sources.
 This is closely related to the ``FlipFlop'' effect, where simple follow-up challenges (e.g., ``Are you sure?'') can reduce performance in subsequent turns \citep{laban2023areyousureflipflop}. 
@@ -155,6 +156,7 @@ Beyond measuring failure, recent work studies whether models can be guided back 
 We complement robustness metrics with \RecoveryAtFlip{}, explicitly separating ``staying correct'' from ``returning to truth'' after a conversational flip.
 
 \section{Task setting}
+\label{sec:task-setting}
 We cover math (GSM8K \citep{cobbe2021trainingverifiers}, SVAMP \citep{patel2021svamp}), extractive QA (SQuAD \citep{rajpurkar2016squad}), multiple-choice QA (ARC-Easy \citep{clark2018thinkyouhave}), and open-domain QA (TriviaQA \citep{joshi2017triviaqa}), using standard evaluation splits.
 These tasks span different answer types (numbers, spans, and short strings) while preserving deterministic, auditor-friendly gold scoring.
 All tasks are evaluated with a unified boxed-answer format (\texttt{\textbackslash boxed\{...\}}) and a task-specific scorer.
