@@ -12,10 +12,9 @@ Limitations:
 - Fail@1 absolutes: only available when we have paper-ready exports under
   `docs/paper/artifacts/table1_from_results_paper_exports_*.csv`; otherwise we fall back to the
   delta-only values in the tier1 summaries.
-- Recovery@flip availability depends on whether a run retained (or can be traced to)
-  `paper_exports/recovery_accuracy.csv`. When present, we ingest the tracked artifact
-  `docs/paper/artifacts/table1_recovery_from_results_paper_*.csv`; otherwise the recovery
-  cells remain `--`.
+- Recovery@flip: only populated when the paper-ready exports include recovery columns
+  (`nrc_recovery`, `persona_recovery`, `delta_recovery`), which in turn requires the underlying run
+  to have exported `paper_exports/recovery_accuracy.csv`. Otherwise the recovery cells remain `--`.
 
 Usage:
   python3 scripts/gen_latex_table1_from_artifacts.py \
