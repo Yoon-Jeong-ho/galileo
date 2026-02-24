@@ -5,10 +5,12 @@ Exports:
 - survival_curve.csv: persona x round survival rate (aggregate)
 - turn_of_failure.csv: distribution of the first incorrect round per persona
 - flip_samples.csv: qualitative sample sheet for manual taxonomy labeling
+- recovery_accuracy.csv (optional): recovery accuracy per persona/test (normalized persona ids)
 
 The script reads:
 - adversarial_survival.csv (for aggregate curves)
 - model_results_dir/*_adversarial.jsonl (for turn-of-failure + flip samples)
+- recovery_accuracy.csv (optional; for recovery export)
 
 Usage:
   python scripts/paper_export.py \
@@ -217,6 +219,40 @@ def export_flip_samples(model_dir: Path, out_path: Path, num_samples: int, seed:
     )
 
 
+def export_recovery_accuracy(results_root: Path, out_path: Path):
+    """Optional export: recovery accuracy by persona/test.
+
+    Upstream (`run_experiment.py`) writes persona as a display name (e.g.,
+    "Control Re-asking"); for paper artifacts we normalize persona ids so NRC is
+    always `neutral_reask_control`.
+
+    If recovery_accuracy.csv is missing, we silently skip.
+    """
+    src = results_root / "recovery_accuracy.csv"
+    if not src.exists():
+        return False
+
+    rows_in = read_csv(src)
+    rows_out = []
+    for r in rows_in:
+        rr = dict(r)
+        rr["persona"] = normalize_persona_id(r.get("persona", ""))
+        rows_out.append(rr)
+
+    # Preserve column order if present; fall back to a canonical schema.
+    fieldnames = list(rows_in[0].keys()) if rows_in else [
+        "model",
+        "test_name",
+        "persona",
+        "recovered",
+        "total",
+        "recovery_rate",
+    ]
+
+    write_csv(out_path, fieldnames, rows_out)
+    return True
+
+
 def _safe_git_commit(cwd: Path):
     try:
         out = subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=str(cwd), stderr=subprocess.DEVNULL)
@@ -259,12 +295,15 @@ def main():
     export_survival_curve(results_root / "adversarial_survival.csv", out_dir / "survival_curve.csv")
     export_turn_of_failure(model_dir, out_dir / "turn_of_failure.csv")
     export_flip_samples(model_dir, out_dir / "flip_samples.csv", num_samples=args.num_flip_samples, seed=args.seed)
+    wrote_recovery = export_recovery_accuracy(results_root, out_dir / "recovery_accuracy.csv")
     write_metadata(out_dir, args, git_commit)
 
     print("Wrote:")
     print(out_dir / "survival_curve.csv")
     print(out_dir / "turn_of_failure.csv")
     print(out_dir / "flip_samples.csv")
+    if wrote_recovery:
+        print(out_dir / "recovery_accuracy.csv")
     print(out_dir / "metadata.json")
 
 
