@@ -55,7 +55,7 @@ Large language models (LLMs) can abandon previously correct answers when users a
 
 We introduce \textbf{GALILEO}, a reproducible protocol for measuring multi-turn robustness \emph{conditional on initial correctness} on ground-truth tasks (math, extractive QA, multiple-choice QA, open-domain QA). For each task, we filter to examples answered correctly at round $0$, then apply five evidence-free pressure personas for five rounds. Each persona arm is paired with a matched \textbf{Neutral Re-asking Control} (\textbf{NRC}) that repeats the same multi-round structure and decoding but uses neutral ``double-check'' follow-ups that introduce no new task-relevant evidence. Persona--control comparisons are computed on the same initially-correct subset, isolating pressure effects from generic multi-turn drift.
 
-GALILEO reports three complementary outcomes: (i) survival curves, where Survival@$r$ is the fraction that stays correct at every turn through round $r$ (not merely accuracy at round $r$); (ii) the turn-of-failure (TOF) distribution, including Fail@1 for immediate vulnerability; and (iii) Recovery@flip, measured on a final neutral recovery prompt after round $5$, conditional on having flipped at least once during rounds $1$--$5$.
+GALILEO reports three complementary outcomes: (i) survival curves, where Survival@$r$ is the fraction that stays correct at every turn through round $r$ (not merely accuracy at round $r$); (ii) the 	extbf{time-to-first-failure} (	extbf{TTF}; also referred to as 	extbf{turn-of-failure}, TOF) distribution, including Fail@1 for immediate vulnerability; and (iii) Recovery@flip, measured on a final neutral recovery prompt after round $5$, conditional on having flipped at least once during rounds $1$--$5$.
 
 Across multi-seed experiments on several open-weight model families, persona pressure consistently reduces survival relative to the NRC and increases early-turn vulnerability. In our main aggregated setting (4 seeds), persona pressure reduces Survival@5 by 22.8 percentage points and increases Fail@1 by 6.9 points relative to the NRC. Recovery@flip varies by task and persona, indicating that staying correct and returning to truth after a flip are distinct behaviors. We release an auditable evaluation pipeline with paper-ready exports (CSV artifacts and figure sources) to support reproduction and reviewer verification.
 \end{abstract}
@@ -112,6 +112,7 @@ We define the \emph{time-to-first-failure} (\textbf{TTF}; a.k.a. turn-of-failure
 \begin{equation}
   T_i = \min\{r \in \{1,\dots,R\} : C_{i,r}=0\},\quad \text{with } T_i = R{+}1 \text{ if no failure occurs within $R$ rounds.}
 \end{equation}
+We refer to the empirical distribution of $T_i$ values (including the mass at $R{+}1$ for ``never fail'') as the \textbf{turn-of-failure} (TOF) distribution.
 The (multi-turn) \emph{survival} event at round $r$ is ``no failure has occurred up to $r$,'' i.e., remaining correct through all rounds $1..r$ (cumulative correctness). Importantly, $\widehat{S}(r)$ is \emph{not} the marginal accuracy at round $r$; it is the probability of staying correct \emph{through} round $r$.
 Accordingly, the empirical survival curve is
 \begin{equation}
