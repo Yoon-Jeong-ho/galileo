@@ -1695,3 +1695,8 @@ ef{fig:protocol}).
 
 - Updated `docs/paper/PAPER_RESULTS_ANALYSIS_KO.md` to remove stale nlp16/raid6 references and to anchor analysis on nlp8 `results_paper/` + tracked artifacts.
 - Added a “핵심 정량 결과” subsection that links Table W, cross-family figure, and the auto-extracted Table‑1 artifact CSV.
+
+### 2026-02-24 16:20 KST — Docs: paper README now includes Table‑1 regen (reduces “table looks empty” risk)
+
+- Updated `docs/paper/README.md` to include Table‑1 regeneration commands (`make_table1_from_results_paper_exports.py` + `gen_latex_table1_from_artifacts.py`).
+- This makes the Table‑1 pipeline discoverable for collaborators and reduces the chance Table‑1 stays stale/partial.
