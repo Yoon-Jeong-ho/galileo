@@ -233,3 +233,8 @@ This file is intentionally kept short to reduce token burn.
 ### 2026-02-24 23:32 KST — Runbook fix: paper_export requires --model_dir
 
 - Updated `docs/paper/NEXT_TIER1_RERUN_PLAN.md` to pass `--model_dir $OUT/${MODEL##*/}` to `scripts/paper_export.py` (it is required).
+
+### 2026-02-25 02:30 KST — Table1: regenerate artifact from results_paper exports (Nemo Tier1(6) pilots)
+
+- Generated `docs/paper/artifacts/table1_from_results_paper_exports_20260225_0229.csv` from nlp8 `results_paper/`.
+- Includes Mistral‑Nemo seed1–2 Tier‑1(6-benchmark) pilots with Recovery@flip.
