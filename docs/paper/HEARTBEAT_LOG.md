@@ -238,3 +238,8 @@ This file is intentionally kept short to reduce token burn.
 
 - Generated `docs/paper/artifacts/table1_from_results_paper_exports_20260225_0229.csv` from nlp8 `results_paper/`.
 - Includes Mistral‑Nemo seed1–2 Tier‑1(6-benchmark) pilots with Recovery@flip.
+
+### 2026-02-25 04:02 KST — Tooling: add JSONL-mtime-based run liveness checker
+
+- Added `scripts/check_run_progress.py` to quickly decide alive vs stalled when `run.log` is silent.
+- Signals completion via presence of root CSVs: `initial_accuracy.csv`, `adversarial_survival.csv`, `recovery_accuracy.csv`.
