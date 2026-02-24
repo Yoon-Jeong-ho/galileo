@@ -1707,3 +1707,12 @@ ef{fig:protocol}).
 - Session: `tmux attach -t tier1_phi3mini_seed1_rerun`
 - Output dir: `results/tier1_phi3mini_seed1_rerun_20260224_170149/` (run.log inside)
 - Gates in-script: CUDA alloc preflight → vLLM init preflight → run → paper_export (incl recovery) → runner_metadata → validator → token-cap check.
+
+### 2026-02-24 18:12 KST — Experiments: restarted Phi‑3‑mini as a safer pilot (200 samples, max_tokens=512)
+
+- Detected the previous Phi‑3‑mini seed1 rerun stalled (no new outputs after ~17:20 while GPU stayed busy). Sent SIGINT to stop cleanly and free GPU1.
+- Restarted a safer pilot run in tmux with reduced load to avoid long-tail stalls:
+  - Session: `tmux attach -t tier1_phi3mini_seed1_pilot`
+  - Output: `results/tier1_phi3mini_seed1_pilot_200_512_20260224_181145/`
+  - Params: `num_samples=200`, `max_tokens=512`, `max_model_len=4096`.
+- Plan: if this pilot reaches paper_exports+validator OK, scale up to 1000 samples (seed1) and then seed2.
