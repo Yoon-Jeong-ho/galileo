@@ -72,12 +72,20 @@ def main() -> int:
     )
     args = ap.parse_args()
 
+    # NOTE: Many modern HF configs report very large context lengths (e.g., 128k).
+    # For *preflight* we want a conservative setting that fits typical GPUs.
     inferred = _infer_max_len_from_hf_config(args.model)
     if inferred is None:
         inferred = 4096
 
-    max_len = args.max_model_len if args.max_model_len is not None else inferred
+    if args.max_model_len is None:
+        # Default conservative cap to avoid OOM / KV cache init failures during preflight.
+        max_len = min(inferred, 4096)
+    else:
+        max_len = args.max_model_len
+
     if not args.allow_long_max_model_len:
+        # Never exceed inferred model limit unless explicitly permitted.
         max_len = min(max_len, inferred)
 
     if args.allow_long_max_model_len:
