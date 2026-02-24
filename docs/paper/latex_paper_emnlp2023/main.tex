@@ -628,7 +628,7 @@ Recovery step & --- & enabled & --- & \RecoveryAtFlip{} computed conditional on 
 \hline
 \input{generated/recovery_denominators_rows.tex}
 \end{tabular}
-\caption{\textbf{Recovery denominators (flip counts).} \RecoveryAtFlip{} is defined only on examples that flip at least once in the corresponding track. We report the mean\,\(\pm\)\,std number of flipped examples (across seeds, where applicable) for the persona aggregate and its matched \NRC{} baseline. ``--'' indicates recovery was not run/exported for that model family.}
+\caption{\textbf{Recovery denominators (flip counts).} \RecoveryAtFlip{} is computed only over examples that flip at least once in the same track (persona or \NRC{}). Entries report the mean\,\(\pm\)\,std number of flipped examples across seeds for the persona aggregate and its matched \NRC{} baseline. ``--'' indicates recovery was not exported for that model family.}
 \label{tab:recovery-denoms}
 \end{table}
 
