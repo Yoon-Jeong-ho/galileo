@@ -88,7 +88,7 @@ We introduce \textbf{\GALILEO{}}, an auditable protocol on ground-truth tasks th
 Over $R{=}5$ rounds, we report survival trajectories (\SurvivalAt{r}), first-turn vulnerability (\FailAt{1}), time-to-first-failure (\TOF{}), and post-deviation recoverability (\RecoveryAtFlip{}): the conditional probability of returning to the gold answer on a final neutral reset among examples that deviated at least once.
 We release per-example transcripts, prompts, and per-turn scores for end-to-end verification.
 Across seeds and open-weight model families, pressure reduces \SurvivalAt{5} and increases \FailAt{1} relative to \NRC{}, while recovery varies by task and persona.
-For \textbf{Qwen2.5-7B-Instruct} (seeds~1--4), macro-averaged over the 5 personas $\times$ 5 tasks ($=25$ persona--task cells) and computed as persona--\NRC{} gaps on persona-matched initially-correct sets $C_p$, pressure reduces \SurvivalAt{5} by 22.8 percentage points and increases \FailAt{1} by 6.9 percentage points (Table~\ref{tab:main}).
+For \textbf{Qwen2.5-7B-Instruct} (seeds~1--4), averaged over 25 persona--task cells (5 personas $\times$ 5 tasks) using persona--\NRC{} gaps on matched initially-correct sets $C_p$, pressure reduces \SurvivalAt{5} by 22.8\,pp and increases \FailAt{1} by 6.9\,pp (Table~\ref{tab:main}).
 Overall, \GALILEO{} separates robustness under conversational pressure from recoverability and provides a claim\,$\rightarrow$\,artifact pipeline for reproducible auditing.
 \end{abstract}
 
