@@ -98,6 +98,12 @@ tmux new-session -d -s tier1-rerun \
 Notes:
 - Prefer a **pilot first** (`--num_samples 200 --max_tokens 512`) if the model/stack is flaky; only scale up after validator + token-cap gate.
 - If `run.log` looks silent but GPU is busy, check output growth under `$OUT/<model_name>/*.jsonl` (size/mtime) to confirm progress.
+- **Stall watchdog (recommended):** if *no* JSONL file under `$OUT/<model_name>/` changes mtime for **>10 minutes**, treat as a hang and kill the tmux session to free the GPU.
+  - Quick check:
+    ```bash
+    OUT=results/<run>
+    find $OUT -name '*.jsonl' -printf '%TY-%Tm-%Td %TH:%TM:%TS %p\n' | sort | tail -n 5
+    ```
 - `--max_model_len` must respect the model’s true context window (Phi‑3‑mini‑4k → 4096).
 
 ## After the rerun
