@@ -31,6 +31,9 @@ This note defines a **single-run** plan (seed1 or seed2) that is reviewer-risk-o
 
 Run on nlp8 only.
 
+> **Important:** on nlp8, system `python3` may not have torch/vLLM. Use the conda env:
+> `CONDA_RUN="/data_x/aa007878/miniconda3/bin/conda run -n galileo"`
+
 1) **GPU availability gate** (idle + not other users)
 ```bash
 nvidia-smi
@@ -41,19 +44,23 @@ ps -o user= -p <pid>
 2) **CUDA alloc preflight gate**
 ```bash
 cd /data_x/aa007878/galileo
-CUDA_VISIBLE_DEVICES=<gpu> python3 scripts/check_cuda_preflight.py
+CONDA_RUN="/data_x/aa007878/miniconda3/bin/conda run -n galileo"
+CUDA_VISIBLE_DEVICES=<gpu> $CONDA_RUN python3 scripts/check_cuda_preflight.py
 # must print: OK cuda alloc
 ```
 
 3) **vLLM init preflight gate**
 ```bash
 cd /data_x/aa007878/galileo
-CUDA_VISIBLE_DEVICES=<gpu> python3 scripts/preflight_vllm_model.py --model <hf_model_id>
+CONDA_RUN="/data_x/aa007878/miniconda3/bin/conda run -n galileo"
+CUDA_VISIBLE_DEVICES=<gpu> $CONDA_RUN python3 scripts/preflight_vllm_model.py --model <hf_model_id>
 ```
 
 4) **Token-cap gate (post-run)**
 ```bash
-python3 scripts/check_runlog_for_token_caps.py results/<run>/run.log
+cd /data_x/aa007878/galileo
+CONDA_RUN="/data_x/aa007878/miniconda3/bin/conda run -n galileo"
+$CONDA_RUN python3 scripts/check_runlog_for_token_caps.py results/<run>/run.log
 # must NOT contain "capped to 1"
 ```
 
@@ -61,28 +68,35 @@ python3 scripts/check_runlog_for_token_caps.py results/<run>/run.log
 
 > NOTE: use the existing canonical runner script if available; otherwise run `run_experiment.py` directly.
 
-Template:
+Template (Tier‑1 = **6-benchmark SSOT**; conda required):
 ```bash
 tmux new-session -d -s tier1-rerun \
   "set -euo pipefail; \
    cd /data_x/aa007878/galileo; \
+   CONDA_RUN='/data_x/aa007878/miniconda3/bin/conda run -n galileo'; \
    GPU=<gpu>; MODEL=<hf_model_id>; SEED=<1|2>; \
+   DATA_DIR=/data_x/aa007878/galileo/data_tier1_6; \
    OUT=results/tier1_rerun_${MODEL##*/}_seed${SEED}_$(date +%Y%m%d_%H%M%S); \
    mkdir -p $OUT; \
-   echo \"GPU=$GPU MODEL=$MODEL SEED=$SEED OUT=$OUT\" | tee -a $OUT/run.log; \
-   CUDA_VISIBLE_DEVICES=$GPU python3 run_experiment.py \
+   echo \"GPU=$GPU MODEL=$MODEL SEED=$SEED DATA_DIR=$DATA_DIR OUT=$OUT\" | tee -a $OUT/run.log; \
+   CUDA_VISIBLE_DEVICES=$GPU $CONDA_RUN python3 run_experiment.py \
      --model $MODEL --seed $SEED --num_samples 1000 --tensor_parallel_size 1 \
-     --max_model_len 16384 --max_tokens 2048 \
+     --data_dir $DATA_DIR \
+     --max_model_len 4096 --max_tokens 2048 \
      --results_dir $OUT 2>&1 | tee -a $OUT/run.log; \
-   python3 scripts/paper_export.py --results_root $OUT --model_dir $OUT/${MODEL##*/} --out_dir $OUT/paper_exports --seed $SEED --num_flip_samples 200 2>&1 | tee -a $OUT/run.log; \
-   python3 scripts/write_runner_metadata.py --paper_exports $OUT/paper_exports --model $MODEL --seed $SEED --gpu_list $GPU --tp 1 --num_samples 1000 --max_model_len 16384 --max_tokens 2048 --conda_env galileo 2>&1 | tee -a $OUT/run.log; \
-   python3 scripts/validate_paper_exports.py --results_root $OUT 2>&1 | tee -a $OUT/run.log; \
-   python3 scripts/check_runlog_for_token_caps.py $OUT/run.log 2>&1 | tee -a $OUT/run.log; \
+   $CONDA_RUN python3 scripts/paper_export.py --results_root $OUT --out_dir $OUT/paper_exports --seed $SEED --num_flip_samples 200 2>&1 | tee -a $OUT/run.log; \
+   $CONDA_RUN python3 scripts/write_runner_metadata.py --paper_exports $OUT/paper_exports --model $MODEL --seed $SEED --gpu_list $GPU --tp 1 --num_samples 1000 --max_model_len 4096 --max_tokens 2048 --conda_env galileo 2>&1 | tee -a $OUT/run.log; \
+   $CONDA_RUN python3 scripts/validate_paper_exports.py --results_root $OUT 2>&1 | tee -a $OUT/run.log; \
+   $CONDA_RUN python3 scripts/check_runlog_for_token_caps.py $OUT/run.log 2>&1 | tee -a $OUT/run.log; \
    echo DONE | tee -a $OUT/run.log"
 
 # attach:
 # tmux attach -t tier1-rerun
 ```
+
+Notes:
+- Prefer a **pilot first** (`--num_samples 200 --max_tokens 512`) if the model/stack is flaky; only scale up after validator + token-cap gate.
+- `--max_model_len` must respect the model’s true context window (Phi‑3‑mini‑4k → 4096).
 
 ## After the rerun
 
