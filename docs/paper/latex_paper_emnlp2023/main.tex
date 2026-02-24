@@ -328,9 +328,9 @@ Define the (possibly censored) first-failure time over the \emph{challenged} rou
 \end{equation}
 If $x$ never becomes incorrect in the $R$ challenged rounds, we set \TOF{}$^{(t)}(x)=R{+}1$.
 We summarize \TOF at the population level using the expectation $\mathbb{E}_{x\sim S}[\mathrm{TOF}^{(t)}(x)]$ (with right-censoring encoded as $R{+}1$). This expectation has a simple identity in terms of the survival curve (recall $\mathrm{Survival}^{(t)}(0)\equiv 1$):
-\begin{align}
+\begin{equation*}
 \mathbb{E}_{x\sim S}[\mathrm{TOF}^{(t)}(x)] \;=\; \sum_{r=0}^{R} \mathrm{Survival}^{(t)}(r).
-\end{align}
+\end{equation*}
 Thus, \TOF is the discrete ``area under'' the survival trajectory (larger is better). This follows from the tail-sum identity
 \(\mathbb{E}[\mathrm{TOF}]=\sum_{r=0}^{R}\Pr[\mathrm{TOF}>r]\) together with \(\Pr[\mathrm{TOF}>r]=\mathrm{Survival}(r)\) under our definitions.
 Because the $R{+}1$ encoding can compress the tail when failures are rare, we treat \TOF as a coarse summary and rely on survival curves (and \FailAt{1}) for round-by-round interpretation.
@@ -368,9 +368,9 @@ Figures in this section decompose Table~\ref{tab:main} into dynamics (Fig.~\ref{
 Several tables/figures summarize results with a single ``Persona'' curve/number per model family.
 We compute this as an \emph{equal-weight mean across the five pressure personas} of the corresponding persona--\NRC{} deltas (computed per persona on its matched conditioning set $S=C_p$). \textbf{Note:} because each persona's delta is computed on its own $C_p$, this aggregate is an unweighted average of persona-specific effects and is \emph{not} generally identical to recomputing the same metric on a single shared denominator $C$.
 Concretely, for a metric $m$ and persona set $\mathcal{P}$,
-\begin{align}
+\begin{equation*}
 \Delta \bar{m} \;=\; \frac{1}{|\mathcal{P}|} \sum_{p\in\mathcal{P}} \Big(m^{(p)} - m^{(\mathrm{NRC},p)}\Big),
-\end{align}
+\end{equation*}
 where $m^{(\mathrm{NRC},p)}$ denotes the NRC track paired to persona $p$ under matched decoding.
 \textbf{Table interpretation note.} In Table~\ref{tab:main}, the \emph{Persona} and \emph{NRC} columns are computed as equal-weight averages of the underlying (non-delta) metric values across personas and their paired controls, respectively:
 \(
