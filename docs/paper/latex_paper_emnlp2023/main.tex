@@ -197,17 +197,26 @@ Crucially, Phase~1 identifies an initially-correct conditioning set $C$ \emph{pe
 \begin{figure}[t]
 \centering
 \fbox{\parbox{0.97\linewidth}{\small
-\textbf{Algorithm 1: \GALILEO{} evaluation for a persona $p$ and matched \NRC{}.}\\
-\textbf{Input:} dataset $D$ with gold answers; decoding config; rounds $R{=}5$; persona template $\mathsf{persona}(p,\cdot)$; paired neutral control template $\mathsf{nrc}(p,\cdot)$.\\
-\textbf{1. Initial evaluation (define the conditioning set).} Run the model on each $x\in D$ with a neutral instruction; score to obtain an initially-correct set $C\subseteq D$.\\
-\ \ \ \emph{Notation:} we write $C$ for the Phase~1 initially-correct set. Some analyses use a shared $C$ across personas; others use per-persona $C_p$. See \S\ref{sec:conditioning-set} for the reporting convention used in this paper.\\
+\textbf{Algorithm 1: \GALILEO{} evaluation for a persona $p$ and matched \NRC{}.}
 
-\textbf{2. Multi-round pressure vs control on a conditioning set $S$.} Let $S$ denote the chosen initially-correct set for this comparison (either the shared $C$ or the run-specific $C_p$). \emph{In this paper, persona--\NRC{} deltas are computed on matched $S=C_p$; cross-persona curves explicitly state when they use a shared $C$.} For each $x\in S$, iterate challenged rounds $r{=}1\ldots R$ under matched decoding:\\
-\ \ \ (a) persona track: $y^{(p)}_{r} \leftarrow \mathsf{persona}(p, x, \text{history})$; score correctness\\
-\ \ \ (b) \NRC{} track: $y^{(\mathrm{NRC})}_{r} \leftarrow \mathsf{nrc}(p, x, \text{history})$; score correctness\\
-\ \ \ update history separately for persona and \NRC{} tracks.\\
+\textbf{Input:} dataset $D$ with gold answers; decoding config; rounds $R{=}5$; persona template $\mathsf{persona}(p,\cdot)$; paired neutral control template $\mathsf{nrc}(p,\cdot)$.
 
-\textbf{3. Recovery (track-conditional).} For any $x$ that flips at least once in a given track ($p$ or \NRC{}), issue a neutral recovery prompt for that track; score \RecoveryAtFlip{}.\\
+\begin{enumerate}[leftmargin=*, itemsep=0.25ex, topsep=0.25ex]
+  \item \textbf{Initial evaluation (define the conditioning set).} Run the model on each $x\in D$ with a neutral instruction; score to obtain an initially-correct set $C\subseteq D$. 
+  \emph{Notation:} we write $C$ for the Phase~1 initially-correct set. Some analyses use a shared $C$ across personas; others use per-persona $C_p$. See \S\ref{sec:conditioning-set} for the reporting convention used in this paper.
+
+  \item \textbf{Multi-round pressure vs control on a conditioning set $S$.} Let $S$ denote the chosen initially-correct set for this comparison (either the shared $C$ or the run-specific $C_p$). 
+  \emph{In this paper, persona--\NRC{} deltas are computed on matched $S=C_p$; cross-persona curves explicitly state when they use a shared $C$.}
+  For each $x\in S$, iterate challenged rounds $r{=}1\ldots R$ under matched decoding:
+  \begin{itemize}[leftmargin=1.25em, itemsep=0.1ex, topsep=0.1ex]
+    \item persona track: $y^{(p)}_{r} \leftarrow \mathsf{persona}(p, x, \text{history})$; score correctness
+    \item \NRC{} track: $y^{(\mathrm{NRC})}_{r} \leftarrow \mathsf{nrc}(p, x, \text{history})$; score correctness
+    \item update history separately for persona and \NRC{} tracks.
+  \end{itemize}
+
+  \item \textbf{Recovery (track-conditional).} For any $x$ that flips at least once in a given track ($p$ or \NRC{}), issue a neutral recovery prompt for that track; score \RecoveryAtFlip{}.
+\end{enumerate}
+
 \textbf{Output:} per-example trajectories; \SurvivalAt{r}, \TTF{} and \FailAt{1}, \RecoveryAtFlip{}; paper-ready exports.
 }}
 \vspace{-2mm}
