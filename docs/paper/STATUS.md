@@ -188,3 +188,5 @@ So the immediate next step becomes:
 
 - (2026-02-25) Added stdlib run-liveness checker (JSONL mtime + root CSV completion) to reduce silent-stall GPU burn:
   - `scripts/check_run_progress.py`
+
+- (2026-02-25) Fixed `scripts/preflight_vllm_model.py` default behavior: preflight now caps `max_model_len` to 4096 by default to avoid KV-cache init failures on long-context models (e.g., Nemo 128k) on RTX8000.
