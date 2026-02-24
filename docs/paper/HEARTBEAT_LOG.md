@@ -212,3 +212,7 @@ This file is intentionally kept short to reduce token burn.
 
 - Updated `docs/paper/NEXT_TIER1_RERUN_PLAN.md` to require `--data_dir /data_x/aa007878/galileo/data_tier1_6` for Tier‑1 and to run all preflights/validators via `conda run -n galileo`.
 - Updated `docs/paper/STATUS.md` to record the 6-benchmark Tier‑1 SSOT decision.
+
+### 2026-02-24 20:40 KST — Run reliability: force live logging for tmux Tier‑1 runs
+
+- Updated `docs/paper/NEXT_TIER1_RERUN_PLAN.md` to use `stdbuf -oL -eL` + `python -u` so `run.log` updates live (avoids silent-buffer confusion).
