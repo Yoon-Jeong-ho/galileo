@@ -27,7 +27,24 @@ python3 scripts/validate_paper_exports.py --results_root results_paper --check_r
 
 Expected output: a clean run and a log written under `results_paper/GLOBAL_VALIDATE.log`.
 
-### 2) Regenerate the paper headline table (Table W)
+### 2) Regenerate the main paper table cells (Table 1; Survival/Fail@1/Recovery)
+
+```bash
+# Extract Table‑1-ready metrics from staged paper_exports
+python3 scripts/make_table1_from_results_paper_exports.py \
+  --results_paper results_paper \
+  --out docs/paper/artifacts/table1_from_results_paper_exports_$(date +%Y%m%d).csv
+
+# (Optional) regenerate LaTeX rows for Table 1
+python3 scripts/gen_latex_table1_from_artifacts.py \
+  --out docs/paper/latex_paper_emnlp2023/generated/table1_rows.tex
+```
+
+Notes:
+- Recovery@flip is filled only when a run exported `paper_exports/recovery_accuracy.csv`.
+- For missing families, rerun or re-export via `scripts/paper_export.py`.
+
+### 3) Regenerate the paper headline table (Table W)
 
 ```bash
 # produces control-vs-persona aggregates + effect deltas used in the paper
