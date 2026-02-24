@@ -23,15 +23,16 @@ Caption style notes (paper-ready):
 Metric definitions (to keep captions consistent across drafts):
 - **Table W** (canonical LaTeX label: `tab:tablew`): pooled control vs persona summary + effect deltas (see artifacts `table_w_*`). **Important:** Table W is a *collapsed* view that pools across persona arms *after* computing persona-vs-control on the same persona-matched initially-correct subset (\(C_p\)) within each arm, so “control” values can differ from the control shown in persona-wise figures/tables.
 
-  In the tracked artifacts we report two persona aggregates:
-  - **persona_weighted (headline):** *pool counts across personas first* (equivalently, weight each persona by its evaluation-set size). Concretely, for a rate metric expressed as a numerator/denominator (e.g., Survival@5 = survived/total), we compute
+  In the tracked artifacts we report multiple aggregation conventions (these can yield slightly different headline numbers; captions/text should state which is being cited):
+  - **delta-first macro (paper default):** compute the persona--NRC delta within each (persona, task) cell first, then take an equal-weight mean across cells (optionally then mean±std across seeds). This avoids implicit dataset-size weighting and keeps drift-correction aligned to each persona’s matched control before pooling.
+  - **persona_weighted (pooled-counts):** *pool counts across personas first* (equivalently, weight each persona by its evaluation-set size). Concretely, for a rate metric expressed as a numerator/denominator (e.g., Survival@5 = survived/total), we compute
     \[
     \text{persona\_weighted} = \frac{\sum_p \mathrm{num}_p}{\sum_p \mathrm{den}_p},
     \]
     where \(p\) ranges over persona arms and \((\mathrm{num}_p,\mathrm{den}_p)\) are computed on that persona’s matched initially-correct subset \(C_p\) (and the NRC is evaluated on the same \(C_p\) before pooling). For TOF-style histograms, we pool by summing per-round counts across personas.
-  - **persona_unweighted (transparency):** simple mean of persona-wise rates (each persona counts equally).
+  - **persona_unweighted:** simple mean of persona-wise rates (each persona counts equally).
 
-  Captions/text should state which aggregate is being cited (default: **weighted**).
+  Default for this captions file: follow the paper default unless a specific artifact/figure is explicitly defined as pooled-counts (persona_weighted).
 - **Survival@r**: fraction of **initially-correct** examples that remain correct for **all rounds 1..r** (cumulative; “still correct through round r”).
 - **Flip**: a correct→incorrect transition at some round **within the multi-turn phase** (rounds 1..R). The final neutral **recovery turn** is *not* counted when defining flips/TOF.
 - **TOF (turn-of-failure)**: the first round (within 1..R) where a flip occurs. If an example remains correct through the horizon (rounds 1..R), we record **TOF = “never”** and treat it as **right-censored** at R (time-to-event framing).
@@ -107,7 +108,9 @@ Persona-wise effect size on recovery after flipping: \(\Delta\)Recovery@flip (pe
 - Source artifact: `docs/paper/artifacts/table_w_effect_delta_seed1-4_20260209.csv`
 
 **Caption (draft):**
-Table W effect sizes using the **persona-weighted** aggregate (pooled across personas with weights \(w_p\propto |C_p|\), where \(|C_p|\) is the persona-specific initially-correct set size): persona pressure minus NRC (drift baseline). Metrics are computed on the initially-correct subset within each persona arm, and the control arm is evaluated on the same persona-matched subsets before pooling. Error bars are mean ± std across seeds 1–4. Large negative \(\Delta\)Survival@5 and positive \(\Delta\)Fail@1 indicate persona-induced failure dynamics beyond generic multi-turn drift under identical rounds/decoding/scoring. (Table W also includes a persona-unweighted aggregate for transparency.)
+Table W effect sizes (persona pressure minus NRC, drift baseline). Unless otherwise stated, we use the paper-default **delta-first macro** aggregation: compute persona--NRC deltas within each (persona, task) cell on its matched initially-correct set \(C_p\), then average deltas across cells (mean ± std across seeds 1–4). This keeps drift-correction aligned to each persona’s paired control before pooling and avoids implicit dataset-size weighting.
+
+(Alternative view available in artifacts: **persona_weighted** pooled-counts aggregation, weighting personas by \(|C_p|\). Table W also includes a persona-unweighted aggregate for transparency.)
 
 ---
 
