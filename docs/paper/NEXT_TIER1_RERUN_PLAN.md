@@ -16,6 +16,9 @@ This note defines a **single-run** plan (seed1 or seed2) that is reviewer-risk-o
 
 ## Candidate targets (pick ONE)
 
+### Recommended default (unless you explicitly want Nemo)
+**Phi‑3‑mini seed1** first. It’s the fastest way to restore “missing-family Recovery@flip coverage” in Table 1 with minimal GPU risk.
+
 ### Option A — Phi‑3‑mini (4k)
 - Model: `microsoft/Phi-3-mini-4k-instruct`
 - Rationale: small/fast → quickest cross-family recovery coverage.
