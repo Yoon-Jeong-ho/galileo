@@ -114,15 +114,33 @@ def export_survival_curve(adversarial_survival_csv: Path, out_path: Path):
     write_csv(out_path, ["persona", "round", "survived", "total", "survival_rate"], rows)
 
 
+def _safe_int(x, default=None):
+    try:
+        return int(x)
+    except Exception:
+        return default
+
+
 def first_failure_turn(turns):
-    # turns: list[{turn, is_correct, ...}]
-    # returns integer: 1..max_rounds for first incorrect, or 0 if never incorrect
-    for t in turns:
-        try:
-            if not bool(t.get("is_correct")):
-                return int(t.get("turn"))
-        except Exception:
-            continue
+    """Return the first (lowest) turn index where the model is incorrect.
+
+    turns: list[{turn, is_correct, ...}]
+    returns: 1..max_rounds for first incorrect, or 0 if never incorrect/unknown
+
+    Notes:
+      - Some logs do not guarantee turns are ordered.
+      - Some turns have non-integer/missing `turn` fields.
+    """
+    # Sort by turn index when available; otherwise preserve relative order.
+    sortable = []
+    for idx, t in enumerate(turns or []):
+        ti = _safe_int((t or {}).get("turn"), default=None)
+        sortable.append((ti if ti is not None else 10**9, idx, t or {}))
+
+    for _, __, t in sorted(sortable):
+        if not bool(t.get("is_correct")):
+            ti = _safe_int(t.get("turn"), default=0)
+            return ti if ti is not None else 0
     return 0
 
 
@@ -176,7 +194,7 @@ def export_flip_samples(model_dir: Path, out_path: Path, num_samples: int, seed:
             # extract the failure turn info
             fail_turn_obj = None
             for t in turns:
-                if int(t.get("turn")) == ft:
+                if _safe_int((t or {}).get("turn"), default=None) == ft:
                     fail_turn_obj = t
                     break
 
