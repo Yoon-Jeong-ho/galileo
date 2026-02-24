@@ -139,9 +139,11 @@ These are the exact “proof pointer” hooks we want a reviewer to notice in th
      - `docs/paper/artifacts/tier1_zephyr7b_seed1-2_survival_summary_20260218.csv`
      - `docs/paper/artifacts/tier1_qwen2p5_14b_seed1-2_survival_summary_20260219.csv`
      - `docs/paper/artifacts/tier1_deepseek7b_seed1-2_survival_summary_20260221.csv`
+     - `docs/paper/artifacts/tier1_yi6b_seed1-2_survival_summary_20260221.csv`
 
      (This list should match the “Cross-family” entry in `docs/paper/FIGURE_CAPTIONS.md`; update both together to avoid drift.)
    - Regenerate: `python3 scripts/make_cross_family_figure_svg.py`
+   - **Reviewer-risk guardrail (token-capping / context feasibility):** any family included as evidence for “replication” must pass the run-log gate (`scripts/check_runlog_for_token_caps.py`) with **no** `max_tokens` capped to 1. If a model family only runs under cap==1 (context/packing infeasible at current R/settings), treat it as a **settings stress-test** and move it to appendix-only (do not count it as cross-family replication evidence).
 6) **Decoding sensitivity check: persona-vs-control gaps are qualitatively stable under sampling.**
    - Evidence: `docs/paper/figures/decoding_sweep_qwen_delta_seed1-2_20260211.svg`
    - Artifact: `docs/paper/artifacts/decoding_sweep_qwen_temp_summary_seed1-2_20260211.csv`
