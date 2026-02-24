@@ -1716,3 +1716,11 @@ ef{fig:protocol}).
   - Output: `results/tier1_phi3mini_seed1_pilot_200_512_20260224_181145/`
   - Params: `num_samples=200`, `max_tokens=512`, `max_model_len=4096`.
 - Plan: if this pilot reaches paper_exports+validator OK, scale up to 1000 samples (seed1) and then seed2.
+
+### 2026-02-24 19:01 KST — Experiments: fixed pilot benchmark coverage by forcing --data_dir
+
+- Root cause: `config.DATA_DIR=/data_x/aa007878/galileo/data` currently contains only 4 datasets (`arc_easy_val_50.jsonl`, `squad_val_50.jsonl`, `gsm8k.jsonl`, `svamp.jsonl`). Without `--data_dir`, runs may implicitly use a partial default list, which makes pilot runs non-comparable to Tier‑1.
+- Action: stopped the earlier pilot and restarted a new pilot that **forces dataset coverage** via `--data_dir /data_x/aa007878/galileo/data`.
+  - Session: `tmux attach -t tier1_phi3mini_seed1_pilotfull`
+  - Output: `results/tier1_phi3mini_seed1_pilotFULL_200_512_20260224_190053/`
+  - Params: `num_samples=200`, `max_tokens=512`.
