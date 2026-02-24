@@ -7,7 +7,7 @@ Conventions:
 - SVGs live under `docs/paper/figures/`.
 - If PDFs are needed for LaTeX, generate via `scripts/convert_figures_svg_to_pdf.sh`.
 - Unless otherwise stated, error bars / uncertainty annotations reflect **variation across random seeds** (reported as mean ± std).
-- Unless otherwise stated, all multi-turn robustness metrics (Survival/TOF/Fail@1/Recovery@flip) are computed on the **initially-correct subset** (conditioning on correctness at round 0). As a result:
+- Unless otherwise stated, all multi-turn robustness metrics (Survival/TOF/Fail@1/Recovery(flip)) are computed on the **initially-correct subset** (conditioning on correctness at round 0). As a result:
   - The effective sample size can differ across personas/seeds/tasks; captions should avoid implying a fixed global \(n\).
   - When comparing persona pressure to the **Neutral Re-asking Control (NRC)**, we use a **matched conditioning set**: the control arm is evaluated on the same initially-correct subset as the persona arm. This prevents conditioning-set drift from being mistaken as a treatment effect.
 
@@ -42,7 +42,7 @@ Metric definitions (to keep captions consistent across drafts):
   - **When an artifact only exposes per-persona rates/deltas without denominators** (e.g., Tier-1 cross-family `tier1_*_survival_summary_*.csv`), any “persona aggregate” is computed as an **equal-weight mean over personas** of the persona–NRC deltas (then reconstructed as NRC + mean(delta)), matching `scripts/gen_latex_table1_from_artifacts.py`.
   - \(\Delta\text{Survival@5} < 0\): reduced robustness under persona pressure.
   - \(\Delta\text{Fail@1} > 0\): increased immediate vulnerability.
-  - \(\Delta\text{Recovery@flip} < 0\): worse return-to-truth conditional on flip.
+  - \(\Delta\text{Recovery(flip)} < 0\): worse return-to-truth conditional on flip.
 
 ---
 
@@ -90,14 +90,14 @@ Persona-wise effect size on early-turn vulnerability: \(\Delta\)Fail@1 (persona 
 
 ---
 
-## Fig: Persona-wise ΔRecovery@flip
+## Fig: Persona-wise ΔRecovery(flip)
 
 - File: `docs/paper/figures/recovery_personawise_delta_seed1-4_20260209.svg`
 - LaTeX label (suggested): `fig:recovery-delta`
 - Source artifact: `docs/paper/artifacts/recovery_personawise_control_vs_persona_seed1-4_mean_std_20260209.csv`
 
 **Caption (draft):**
-Persona-wise effect size on recovery after flipping: \(\Delta\)Recovery@flip (persona pressure − control), computed on the initially-correct subset; the control arm is evaluated on the same persona-matched subset. Error bars are mean ± std across seeds 1–4. Recovery is measured conditional on flip, separating intervention-style “return to truth” behavior from robustness (staying correct throughout).
+Persona-wise effect size on recovery after flipping: \(\Delta\)Recovery(flip) (persona pressure − control), computed on the initially-correct subset; the control arm is evaluated on the same persona-matched subset. Error bars are mean ± std across seeds 1–4. Recovery is measured conditional on flip, separating intervention-style “return to truth” behavior from robustness (staying correct throughout).
 
 ---
 

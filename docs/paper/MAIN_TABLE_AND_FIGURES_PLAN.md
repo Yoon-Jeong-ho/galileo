@@ -24,7 +24,7 @@ A single table that (i) defines the core evaluation objects and (ii) reports the
 **Columns (primary metrics):**
 - Survival@r (r=5): **C vs P**
 - Fail@1 (or TOF summary): **C vs P**
-- Recovery@flip: **C vs P**
+- Recovery(flip): **C vs P**
 - Δ for each metric, with fixed sign convention: **Δ = P − C** on the matched initially-correct set
 - `n0/seed`: average number of initially-correct examples per seed for that model row (pooled across tasks/personas); prevents weighting ambiguity
 - #seeds / #samples / #tasks (small footnote)
