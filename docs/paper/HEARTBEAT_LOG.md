@@ -1700,3 +1700,10 @@ ef{fig:protocol}).
 
 - Updated `docs/paper/README.md` to include Table‑1 regeneration commands (`make_table1_from_results_paper_exports.py` + `gen_latex_table1_from_artifacts.py`).
 - This makes the Table‑1 pipeline discoverable for collaborators and reduces the chance Table‑1 stays stale/partial.
+
+### 2026-02-24 17:02 KST — Experiments: started Tier‑1 Phi‑3‑mini seed1 rerun (nlp8, GPU1)
+
+- Launched `microsoft/Phi-3-mini-4k-instruct` seed1 standardized Tier‑1 rerun in tmux on nlp8.
+- Session: `tmux attach -t tier1_phi3mini_seed1_rerun`
+- Output dir: `results/tier1_phi3mini_seed1_rerun_20260224_170149/` (run.log inside)
+- Gates in-script: CUDA alloc preflight → vLLM init preflight → run → paper_export (incl recovery) → runner_metadata → validator → token-cap check.
