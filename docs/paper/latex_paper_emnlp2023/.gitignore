@@ -2,7 +2,9 @@
 # We keep most generated files out of git, but we *do* version the small, paper-ready
 # LaTeX snippet(s) that the draft \input{}s directly.
 generated/
+!generated/
 !generated/table1_rows.tex
+!generated/recovery_denominators_rows.tex
 
 # LaTeX build artifacts
 *.aux
