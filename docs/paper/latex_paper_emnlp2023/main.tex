@@ -129,6 +129,11 @@ Even evidence-free re-asking can induce drift across turns.
 Concretely, for each pressure persona $p$ we define a paired control template \NRC{}$_p$ that preserves the round structure and surface ``re-ask'' intent (e.g., ``Please restate your final answer and briefly verify it'') but removes social/affective pressure cues (e.g., denial, authority, insinuations).
 \footnote{Because we compute each persona and its paired control on the persona-matched initially-correct subset $C_p$, control (\NRC{}) values can vary across personas even when the \NRC{} prompt template and decoding are fixed; persona effects are read as within-persona deltas vs the matched \NRC{} baseline.}
 
+\paragraph{Scope and non-goals.}
+\GALILEO{} is not a persuasion or debate benchmark: during challenged rounds, the interlocutor is restricted to \emph{evidence-free} language (no task-relevant facts, calculations, tools, or external sources).
+Accordingly, failures in our setting reflect \emph{conversational instability under pressure} rather than a model being convinced by correct counterevidence.
+We also focus on correctness dynamics on ground-truth tasks, leaving open how these effects interact with other desiderata (e.g., calibration, refusal behavior, or user satisfaction).
+
 \paragraph{Contributions.}
 \begin{itemize}[leftmargin=*]
   \item We propose a ground-truth multi-turn protocol with survival curves, \TTF{} and \FailAt{1}, and \RecoveryAtFlip{}.
