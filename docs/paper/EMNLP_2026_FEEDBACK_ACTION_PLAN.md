@@ -108,4 +108,7 @@ Every heartbeat must do **exactly one** primary lane and tick items here.
 ## 5) Notes / constraints
 
 - Use all *idle and healthy* GPUs on nlp8 **sequentially** (one heavy run at a time); do not collide with other users.
-- If the nlp8 `data/` directory is incomplete vs the paper’s benchmark list, do **not** silently treat a subset as Tier‑1 without labeling it as such.
+- **Benchmark set SSOT (Tier‑1 = 6 tasks):** on nlp8 we stage a canonical data directory at:
+  - `nlp8:/data_x/aa007878/galileo/data_tier1_6/`
+  - files: `gsm8k.jsonl`, `svamp.jsonl`, `arc_easy_validation.jsonl`, `squad11_validation.jsonl`, `squad20_validation.jsonl`, `triviaqa_rc_validation.jsonl`
+  - All Tier‑1 runs must pass `--data_dir /data_x/aa007878/galileo/data_tier1_6` explicitly (do not rely on defaults).
