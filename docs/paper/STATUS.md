@@ -185,3 +185,6 @@ So the immediate next step becomes:
 
 - (2026-02-25) Added a stdlib-only liveness/completion checker for remote runs (mitigates silent `run.log` buffering):
   - `scripts/check_run_progress.py` (checks JSONL mtimes + root CSV completion)
+
+- (2026-02-25) Added stdlib run-liveness checker (JSONL mtime + root CSV completion) to reduce silent-stall GPU burn:
+  - `scripts/check_run_progress.py`

@@ -243,3 +243,7 @@ This file is intentionally kept short to reduce token burn.
 
 - Added `scripts/check_run_progress.py` to quickly decide alive vs stalled when `run.log` is silent.
 - Signals completion via presence of root CSVs: `initial_accuracy.csv`, `adversarial_survival.csv`, `recovery_accuracy.csv`.
+
+### 2026-02-25 04:10 KST — Tooling: add run progress checker (JSONL mtime + root CSV)
+
+- Added `scripts/check_run_progress.py` to quickly detect silent stalls via JSONL mtimes and root CSV completion.
