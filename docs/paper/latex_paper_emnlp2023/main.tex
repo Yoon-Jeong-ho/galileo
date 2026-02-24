@@ -84,12 +84,12 @@
 
 \begin{abstract}
 Large language models can abandon a previously correct answer when repeatedly challenged \emph{without new evidence}---a multi-turn failure mode that single-turn accuracy can hide.
-We introduce \textbf{\GALILEO{}}, an auditable protocol on ground-truth tasks that measures \emph{deviation from truth} by (i) evaluating only initially-correct examples and (ii) pairing each pressure persona $p$ with a matched \emph{Neutral Re-asking Control} (\NRC$_p$) that matches dialogue length and decoding but uses neutral re-asks.
-Over $R{=}5$ rounds, we report survival trajectories (\SurvivalAt{r}), first-turn vulnerability (\FailAt{1}), time-to-first-failure (\TOF{}), and post-deviation recoverability (\RecoveryAtFlip{}): the conditional probability of returning to the gold answer on a final neutral reset among examples that deviated at least once.
+We introduce \textbf{\GALILEO{}}, an auditable protocol on ground-truth tasks that measures \emph{deviation from truth} by (i) evaluating only initially-correct examples and (ii) pairing each pressure persona $p$ with a matched \emph{Neutral Re-asking Control} (\NRC$_p$) that matches dialogue length and decoding, but replaces pressure with affectively neutral re-asks.
+Over $R{=}5$ challenged rounds, we report survival trajectories (\SurvivalAt{r}), first-turn vulnerability (\FailAt{1}), time-to-first-failure (\TOF{}), and recoverability after deviation (\RecoveryAtFlip{}): the probability that a final neutral reset returns to the gold answer \emph{conditional on having flipped at least once}.
 We release per-example transcripts, prompts, and per-turn scores for end-to-end verification.
 Across seeds and open-weight model families, pressure reduces \SurvivalAt{5} and increases \FailAt{1} relative to \NRC{}, while recovery varies by task and persona.
-For \textbf{Qwen2.5-7B-Instruct} (seeds~1--4), averaged over 25 persona--task cells (5 personas $\times$ 5 tasks) using persona--\NRC{} gaps on matched initially-correct sets $C_p$ (examples answered correctly at round~0 under the persona's decoding), pressure reduces \SurvivalAt{5} by 22.8\,pp and increases \FailAt{1} by 6.9\,pp (Table~\ref{tab:main}).
-Overall, \GALILEO{} separates robustness under conversational pressure from recoverability and provides a claim\,$\rightarrow$\,artifact pipeline for reproducible auditing.
+For \textbf{Qwen2.5-7B-Instruct} (seeds~1--4), averaged over 25 persona--task cells (5 personas $\times$ 5 tasks) using persona--\NRC{} gaps on matched initially-correct sets $C_p$ (examples answered correctly at round~0 under the persona run's decoding), pressure reduces \SurvivalAt{5} by 22.8\,pp and increases \FailAt{1} by 6.9\,pp (Table~\ref{tab:main}).
+Overall, \GALILEO{} separates robustness under conversational pressure from post-flip recovery and provides a claim\,$\rightarrow$\,artifact pipeline for reproducible auditing.
 \end{abstract}
 
 \section{Introduction}
