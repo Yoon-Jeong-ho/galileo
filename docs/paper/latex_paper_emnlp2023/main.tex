@@ -60,8 +60,10 @@
 \newcommand{\SurvivalAt}[1]{\textsc{Survival}(#1)}
 \newcommand{\FailAt}[1]{\textsc{Fail}(#1)}
 \newcommand{\RecoveryAtFlip}{\textsc{Recovery}(flip)}
-% Time-to-first-failure (renamed from ``TOF'' to avoid terminology collision with SYCON).
+% Time-to-first-failure (we use TTF to avoid abbreviation collisions with prior work).
 \newcommand{\TTF}{\textsc{TTF}}
+% Number-of-flips: how many times correctness changes state across rounds.
+\newcommand{\NoF}{\textsc{NoF}}
 % Backward-compat alias (older drafts used \TOF).
 \newcommand{\TOF}{\TTF}
 
@@ -312,12 +314,13 @@ These categories are designed to be simple, copyable, and auditable; exact templ
 \subsection{Metrics}
 \label{sec:metrics}
 \paragraph{Metric cheat sheet (at a glance).}
-We report four complementary quantities over the $R{=}5$ challenged rounds (all computed on a specified conditioning set $S$; \S\ref{sec:conditioning-set}):
+We report four complementary quantities over the $R{=}5$ challenged rounds (all computed on a specified conditioning set $S$; \S\ref{sec:conditioning-set}), and optionally one auxiliary instability summary in the appendix:
 \begin{itemize}[leftmargin=*]
   \item \textbf{\SurvivalAt{r}}: fraction of examples that stay correct for \emph{all} challenged rounds $1\ldots r$.
   \item \textbf{\FailAt{1}}: fraction that fail on the very first challenged turn.
   \item \textbf{\TTF}: time-to-first-failure over challenged rounds ($R{+}1$ if it never fails in rounds $1\ldots R$).
   \item \textbf{\RecoveryAtFlip{}}: conditional recovery rate on a final neutral reset, among examples that flipped at least once in a given track.
+  \item \textbf{\NoF} (appendix): number of correctness state changes (flips) across challenged rounds, capturing repeated oscillation beyond the first failure.
 \end{itemize}
 \textbf{Relations and interpretation.} \FailAt{1} is the complement of one-step survival: \(\FailAt{1}=1-\SurvivalAt{1}\). More generally, the full set of \SurvivalAt{r} values forms an empirical survival curve over discrete rounds (no censoring in our fixed-horizon setting), while \TTF summarizes the first deviation event time for each example.
 \textbf{Reporting convention.} Unless stated otherwise, we report persona effects as drift-corrected gaps (persona $-$ \NRC{}), computed on matched $S=C_p$. For rate-valued metrics (e.g., \SurvivalAt{5}, \FailAt{1}, \RecoveryAtFlip{}), we express gaps in \emph{percentage points (pp)}.
@@ -387,6 +390,14 @@ We report the drift-corrected gap
 &\quad\;\;\; -\mathbb{E}_{x\sim S}[\mathrm{TTF}^{(\mathrm{NRC})}(x)].
 \end{align}
 We define the first-turn failure rate as $\mathrm{Fail}^{(t)}(1)\equiv 1-\mathrm{Survival}^{(t)}(1)$ (equivalently, $\mathrm{Fail}^{(t)}(1)=\mathrm{Hazard}^{(t)}(1)$). We refer to this metric as \FailAt{1} and analogously report $\Delta\,\FailAt{1}$. 
+
+\paragraph{Number of flips (\NoF{}; auxiliary).}
+Survival/\TTF{} focus on the \emph{first} deviation event. To characterize \emph{repeated oscillation} (correct$\leftrightarrow$incorrect) within the challenged rounds, we also define the number of correctness state changes for an example:
+\begin{equation}
+\mathrm{NoF}^{(t)}(x) 
+\;=\; \sum_{r=1}^{R} \mathbb{1}\big[c^{(t)}_{r}(x) \neq c^{(t)}_{r-1}(x)\big].
+\end{equation}
+Because $c^{(t)}_{0}(x)\equiv 1$ on our conditioning set, the first deviation (if any) contributes 1 to \NoF{}, and each within-track recovery/re-failure adds additional transitions. Larger \NoF{} therefore indicates more unstable behavior over turns. We report \NoF{} as an appendix diagnostic and can analogously compute a drift-corrected gap $\Delta\,\NoF{}$.
 
 \paragraph{\RecoveryAtFlip{}.}
 For each track $t\in\{p,\mathrm{NRC}\}$, let $F^{(t)}=\{x\in S: \exists r\le R\;\text{s.t. }c^{(t)}_{r}(x)=0\}$ denote examples that \emph{fail at least once} (i.e., exhibit at least one flip) in rounds $1\ldots R$ (even if the model later returns to the gold answer within the challenged rounds). Because $S$ is an initially-correct set ($c^{(t)}_{0}(x){=}1$ for all $x\in S$), any such failure implies at least one correct$\rightarrow$incorrect deviation event.
