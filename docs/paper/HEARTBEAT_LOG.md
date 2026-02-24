@@ -1644,3 +1644,8 @@ ef{fig:protocol}).
 
 - Updated `scripts/print_crossfamily_run_commands.py` to accept overrides (`--num_samples`, `--max_model_len`, `--max_tokens`, `--greedy_temperature`) so we can generate a 50-sample seed1 pilot command without hand-editing.
 - Added a short run note: `docs/paper/NEXT_TIER1_PILOT.md` (preflight + command generator + cap-check gate).
+
+### 2026-02-24 14:37 KST — Dev lane: export normalized recovery_accuracy into paper_exports (Table‑1 unblock)
+
+- Updated `scripts/paper_export.py` to optionally export `recovery_accuracy.csv` into `paper_exports/` when present, while normalizing persona ids so NRC is always `neutral_reask_control`.
+- This unblocks Table~1 Recovery@flip auto-fill from the same SSOT `paper_exports/` bundle (no more per-run ad-hoc parsing) and removes the fragile 'Control Re-asking' display-name mismatch.

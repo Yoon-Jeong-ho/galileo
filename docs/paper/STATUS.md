@@ -149,39 +149,11 @@ Ground-truth tasks에서 multi-turn persona pressure 하에 **정답 유지(surv
 
 ## 4) NEXT HEARTBEAT (ONE step)
 
-**Writing/dev lane: finish Table~\ref{tab:main} by adding Recovery@flip + $n_0$/seed to the tracked artifact and auto-filling those columns too.**
+**Dev lane (Table 1): wire Recovery@flip into the paper_exports→artifact→LaTeX pipeline.**
 
-- Done: Survival@5 and Fail@1 columns are filled from `docs/paper/artifacts/table1_from_results_paper_exports_20260222.csv`.
-- Done: $n_0$/seed column is filled from `docs/paper/artifacts/table1_n0_from_results_paper_exports_20260222.csv`.
-- Next: fill Table~\ref{tab:main} Recovery@flip columns.
-  - Root cause: `recovery_accuracy.csv` writes NRC as the display name **"Control Re-asking"** (via `get_persona_name`) rather than `neutral_reask_control`.
-  - Done: extracted per-alias recovery into `docs/paper/artifacts/table1_recovery_from_results_paper_20260222.csv` (from nlp8 `results_paper/` minimal restage).
-  - Next action: aggregate per-alias recovery into the 7 Table-1 rows (mean±std over seeds) and fill the Recovery block in `docs/paper/PAPER_DRAFT_EN.md`.
-  - Coverage note: some Tier‑1 families (e.g., Phi‑3‑mini, Mistral‑Nemo, DeepSeek/Yi) require adding their run roots back into the nlp8 `results_paper` manifest before we can compute their Recovery cells.
-- Sanity note: Table~\ref{tab:main} now exposes a large $n_0$/seed variance for **Mistral-7B** (seed1 vs seed2). This likely indicates a config / evaluation-set mismatch between those two paper-ready runs; ideally rerun Mistral seeds 1–2 under the standardized Tier‑1 setting so cross-seed aggregation is clean.
-
-Required pilot gates (fail-fast):
-- CUDA alloc preflight: `OK cuda alloc` on the chosen GPU
-- vLLM init preflight: `python scripts/preflight_vllm_model.py --model <hf_id>`
-- Log gate: `python3 scripts/check_runlog_for_token_caps.py results/<run>/run.log` must NOT fail (default fail on cap==1; warn on cap<=32)
-
-Candidate shortlist (needs preflight + pilot first): a model with comfortable context headroom / stable vLLM backend on nlp8.
-
-(StableLM is currently *not* a safe default under the current prompt+R=5 settings.)
-
-(Recent progress: Results section now explicitly leads with Table~\ref{tab:main} as a one-stop summary; figures are framed as decompositions. Discussion now has a bulletized findings/implications block to improve skim readability.)
-
-- Immediate one-step plan:
-  1) **Wire Table 1 skeleton into the EN draft** (LaTeX snippet + caption + sign conventions).
-  2) Next: replace “--” with numbers by linking each row/cell to a specific tracked artifact + `results_paper/` run root.
-  3) Keep the minimum figure set and enforce provenance (captions must point to artifacts).
-
-- SSOT file:
-  - `docs/paper/MAIN_TABLE_AND_FIGURES_PLAN.md`
-
-- Working checklist:
-  - `docs/paper/EMNLP_MAIN_SUBMISSION_CHECKLIST.md`
-  - `docs/paper/ROADMAP_TO_20260228.md`
+- Just done (local): `scripts/paper_export.py` now optionally exports normalized `recovery_accuracy.csv` into `paper_exports/` (NRC id is stable).
+- Next action: extend `scripts/make_table1_from_results_paper_exports.py` to compute Recovery@flip metrics from `paper_exports/recovery_accuracy.csv` when present, and emit columns into the Table‑1 artifact CSV.
+- Then: patch `scripts/gen_latex_table1_from_artifacts.py` to ingest those Recovery columns without hardcoded alias lists.
 
 ---
 
