@@ -18,15 +18,25 @@ import os
 
 
 def fmt(ms: str, ss: str) -> str:
+    """Format mean/std for LaTeX tables.
+
+    We avoid the Unicode '±' character and instead emit the paper's `\tabpm`
+    macro inside math mode. This prevents font/encoding issues and reduces
+    overfull boxes in some setups.
+    """
+
     if not ms:
         return "--"
     m = float(ms)
+
     if not ss:
-        return f"{m:.1f}"
+        return f"\\({m:.1f}\\)"
+
     s = float(ss)
     if s == 0.0:
-        return f"{m:.1f}"
-    return f"{m:.1f}±{s:.1f}"
+        return f"\\({m:.1f}\\)"
+
+    return f"\\({m:.1f}\\tabpm{s:.1f}\\)"
 
 
 def main() -> None:
