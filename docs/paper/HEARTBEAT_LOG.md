@@ -207,3 +207,8 @@ This file is intentionally kept short to reduce token burn.
 - On nlp8, staged `data_tier1_6/` with symlinks to the 6 canonical JSONL files:
   - gsm8k, svamp, arc_easy_validation, squad11_validation, squad20_validation, triviaqa_rc_validation.
 - Updated `docs/paper/EMNLP_2026_FEEDBACK_ACTION_PLAN.md` to require `--data_dir /data_x/aa007878/galileo/data_tier1_6` for all Tier‑1 runs.
+
+### 2026-02-24 20:00 KST — Runbook: enforce Tier‑1 data_tier1_6 + conda gates on nlp8
+
+- Updated `docs/paper/NEXT_TIER1_RERUN_PLAN.md` to require `--data_dir /data_x/aa007878/galileo/data_tier1_6` for Tier‑1 and to run all preflights/validators via `conda run -n galileo`.
+- Updated `docs/paper/STATUS.md` to record the 6-benchmark Tier‑1 SSOT decision.
