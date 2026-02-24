@@ -1686,3 +1686,7 @@ ef{fig:protocol}).
 
 - Updated `docs/paper/NEXT_TIER1_RERUN_PLAN.md` to recommend Phi‑3‑mini seed1 as the default next rerun target unless we explicitly want Nemo.
 - Rationale: fastest path to restore missing-family Recovery@flip coverage in Table 1 with minimal GPU risk.
+
+### 2026-02-24 16:15 KST — Docs: README updated (SSOT policy + Table‑1 regen)
+
+- Updated repo root `README.md` to reflect the correct experiment SSOT (nlp8, GPUs 0–6 idle-only+preflight) and to add Table‑1 auto-regeneration commands from `results_paper/*/paper_exports`.
