@@ -27,14 +27,15 @@ Usage (run on nlp8 repo, then commit artifacts):
     --out docs/paper/artifacts/table1_from_results_paper_exports_$(date +%Y%m%d).csv
 
 Notes
-- Recovery@flip is NOT exported in paper_exports for most runs today, so this
-  script does not attempt to fill it.
+- Recovery@flip is exported only if `paper_exports/recovery_accuracy.csv` exists
+  (newer runs). If missing, recovery columns are left blank.
 """
 
 from __future__ import annotations
 
 import argparse
 import csv
+import math
 from dataclasses import dataclass
 from pathlib import Path
 import json
@@ -47,6 +48,7 @@ NRC_ID = "neutral_reask_control"
 class PersonaMetrics:
     surv5: float  # in [0,1]
     fail1: float  # in [0,1]
+    rec: float  # Recovery@flip, in [0,1] when available
 
 
 def _read_csv(p: Path) -> list[dict[str, str]]:
@@ -78,7 +80,7 @@ def _load_survival5_by_persona(survival_curve_csv: Path) -> dict[str, PersonaMet
     out: dict[str, PersonaMetrics] = {}
     for persona, a in accum.items():
         surv5 = (a["survived"] / a["total"]) if a["total"] else float("nan")
-        out[persona] = PersonaMetrics(surv5=surv5, fail1=float("nan"))
+        out[persona] = PersonaMetrics(surv5=surv5, fail1=float("nan"), rec=float("nan"))
     return out
 
 
@@ -124,6 +126,44 @@ def _load_fail1_by_persona(tof_csv: Path) -> dict[str, float]:
     return out
 
 
+def _load_recovery_by_persona(recovery_csv: Path) -> dict[str, float]:
+    """Load Recovery@flip by persona.
+
+    Expected schema (from results_root/recovery_accuracy.csv, copied into paper_exports):
+      model,test_name,persona,recovered,total,recovery_rate
+
+    We micro-average across tasks by summing recovered/total per (persona,test_name).
+    If the file is missing, return empty dict.
+    """
+    if not recovery_csv.exists():
+        return {}
+
+    rows = _read_csv(recovery_csv)
+    numer: dict[str, int] = {}
+    denom: dict[str, int] = {}
+
+    seen_totals: set[tuple[str, str]] = set()
+    for r in rows:
+        persona = r["persona"].strip()
+        test = r["test_name"].strip()
+        key = (persona, test)
+
+        recovered = int(float(r["recovered"]))
+        tot = int(float(r["total"]))
+
+        # denom counted once per (persona,test)
+        if key not in seen_totals:
+            denom[persona] = denom.get(persona, 0) + tot
+            seen_totals.add(key)
+
+        numer[persona] = numer.get(persona, 0) + recovered
+
+    out: dict[str, float] = {}
+    for persona in denom:
+        out[persona] = (numer.get(persona, 0) / denom[persona]) if denom[persona] else float("nan")
+    return out
+
+
 def _infer_model_name(paper_exports_dir: Path) -> str:
     meta = paper_exports_dir / "metadata.json"
     if not meta.exists():
@@ -141,9 +181,11 @@ def _infer_model_name(paper_exports_dir: Path) -> str:
 def compute_run_metrics(paper_exports_dir: Path) -> dict[str, float]:
     surv_csv = paper_exports_dir / "survival_curve.csv"
     tof_csv = paper_exports_dir / "turn_of_failure.csv"
+    rec_csv = paper_exports_dir / "recovery_accuracy.csv"
 
     surv = _load_survival5_by_persona(surv_csv)
     fail = _load_fail1_by_persona(tof_csv)
+    rec = _load_recovery_by_persona(rec_csv)
 
     if NRC_ID not in surv or NRC_ID not in fail:
         raise ValueError(f"Missing NRC persona '{NRC_ID}' in {paper_exports_dir}")
@@ -158,12 +200,18 @@ def compute_run_metrics(paper_exports_dir: Path) -> dict[str, float]:
     surv_deltas = [(surv[p].surv5 - nrc_surv5) for p in personas]
     fail_deltas = [(fail.get(p, float("nan")) - nrc_fail1) for p in personas if p in fail]
 
+    # Optional: recovery may be missing for older bundles.
+    nrc_rec = rec.get(NRC_ID, float("nan")) if rec else float("nan")
+    rec_deltas = [(rec.get(p, float("nan")) - nrc_rec) for p in personas if p in rec] if rec else []
+
     # equal-weight mean of deltas
     delta_surv5 = _mean(surv_deltas)
     delta_fail1 = _mean(fail_deltas) if fail_deltas else float("nan")
+    delta_rec = _mean(rec_deltas) if rec_deltas else float("nan")
 
     persona_surv5 = nrc_surv5 + delta_surv5
     persona_fail1 = nrc_fail1 + delta_fail1
+    persona_rec = nrc_rec + delta_rec if not math.isnan(nrc_rec) and not math.isnan(delta_rec) else float("nan")
 
     return {
         "model_name": _infer_model_name(paper_exports_dir),
@@ -173,6 +221,9 @@ def compute_run_metrics(paper_exports_dir: Path) -> dict[str, float]:
         "nrc_fail1": nrc_fail1,
         "persona_fail1": persona_fail1,
         "delta_fail1": delta_fail1,
+        "nrc_recovery": nrc_rec,
+        "persona_recovery": persona_rec,
+        "delta_recovery": delta_rec,
         "num_personas": float(len(personas)),
     }
 
@@ -211,17 +262,23 @@ def main() -> int:
             )
             continue
 
+        def _fmt(x: float) -> str:
+            return "" if (x is None or math.isnan(x)) else f"{x:.6f}"
+
         out_rows.append(
             {
                 "alias": alias,
                 "model": alias2model.get(alias, "") or m.get("model_name", ""),
                 "status": "OK",
-                "nrc_survival_r5": f"{m['nrc_survival_r5']:.6f}",
-                "persona_survival_r5": f"{m['persona_survival_r5']:.6f}",
-                "delta_survival_r5": f"{m['delta_survival_r5']:.6f}",
-                "nrc_fail1": f"{m['nrc_fail1']:.6f}",
-                "persona_fail1": f"{m['persona_fail1']:.6f}",
-                "delta_fail1": f"{m['delta_fail1']:.6f}",
+                "nrc_survival_r5": _fmt(m["nrc_survival_r5"]),
+                "persona_survival_r5": _fmt(m["persona_survival_r5"]),
+                "delta_survival_r5": _fmt(m["delta_survival_r5"]),
+                "nrc_fail1": _fmt(m["nrc_fail1"]),
+                "persona_fail1": _fmt(m["persona_fail1"]),
+                "delta_fail1": _fmt(m["delta_fail1"]),
+                "nrc_recovery": _fmt(m["nrc_recovery"]),
+                "persona_recovery": _fmt(m["persona_recovery"]),
+                "delta_recovery": _fmt(m["delta_recovery"]),
                 "num_personas": f"{m['num_personas']:.0f}",
             }
         )
@@ -237,6 +294,9 @@ def main() -> int:
         "nrc_fail1",
         "persona_fail1",
         "delta_fail1",
+        "nrc_recovery",
+        "persona_recovery",
+        "delta_recovery",
         "num_personas",
     ]
     with args.out.open("w", newline="") as f:
