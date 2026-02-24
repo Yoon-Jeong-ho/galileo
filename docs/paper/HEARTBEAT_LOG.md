@@ -216,3 +216,8 @@ This file is intentionally kept short to reduce token burn.
 ### 2026-02-24 20:40 KST — Run reliability: force live logging for tmux Tier‑1 runs
 
 - Updated `docs/paper/NEXT_TIER1_RERUN_PLAN.md` to use `stdbuf -oL -eL` + `python -u` so `run.log` updates live (avoids silent-buffer confusion).
+
+### 2026-02-24 21:09 KST — Experiments: Tier‑1(6) Phi‑3‑mini seed1 pilot is progressing (silent log)
+
+- Running: `results/tier1_phi3mini_seed1_tier1_6_pilot_200_512_20260224_202211/` (GPU4).
+- Output evidence (log may be buffered): JSONLs created for ARC-Easy + TriviaQA (initial/adversarial/recovery).
