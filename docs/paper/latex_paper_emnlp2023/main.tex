@@ -322,10 +322,9 @@ Define the (possibly censored) first-failure time over the \emph{challenged} rou
 \begin{equation}
 \mathrm{TOF}^{(t)}(x)
 \;=\;
-\begin{cases}
-\min\{\, r\;:\; c^{(t)}_{r}(x)=0 \,\} & \text{if $\exists\, r\le R:\; c^{(t)}_{r}(x)=0$,}\\
-R{+}1 & \text{otherwise (right-censoring).}
-\end{cases}
+\min\Big(
+\{\, r\in\{1,\dots,R\}\;:\; c^{(t)}_{r}(x)=0 \,\}\;\cup\;\{R{+}1\}
+\Big).
 \end{equation}
 We summarize \TOF at the population level using the expectation $\mathbb{E}_{x\sim S}[\mathrm{TOF}^{(t)}(x)]$ (with right-censoring encoded as $R{+}1$). This expectation has a simple identity in terms of the survival curve (recall $\mathrm{Survival}^{(t)}(0)\equiv 1$):
 \begin{align}
