@@ -694,7 +694,7 @@ Recovery step & --- & enabled & --- & \RecoveryAtFlip{} computed conditional on 
 We report prompt templates in a minimal form. Bracketed fields (e.g., \texttt{\{QUESTION\}}) are filled deterministically by the runner.
 
 \paragraph{How persona and \NRC{} utterances are instantiated.}
-In each challenged round, the runner deterministically instantiates a persona challenge (field \texttt{\{PERSONA\_PRESSURE\_UTTERANCE\}}) and a matched control request (field \texttt{\{NRC\_REQUEST\}}).
+In each challenged round, the runner deterministically instantiates a persona challenge (field \path{PERSONA_PRESSURE_UTTERANCE}) and a matched control request (field \path{NRC_REQUEST}).
 We generate these one-sentence utterances from a small set of ``handwritten generation prompts'' (one per pressure mechanism plus one for \NRC{}), and we export (i) all instantiated utterances in the per-example transcript artifacts and (ii) the exact generation prompts (included below and in \path{personas.py}).
 
 \paragraph{Utterance-generation prompts (one per mechanism).}
