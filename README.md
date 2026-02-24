@@ -21,7 +21,9 @@
 
 ### 1.1 실험(Experiments): “paper-ready(=auditable green)” 파이프라인 확립
 
-**핵심 정책(SSOT):** EMNLP Main 실험은 원격에서 `ssh nlp8`, 레포 `/data_x/aa007878/galileo`, GPU **4/5/6만** 사용, 모든 장기 작업은 `tmux`로 실행.
+**핵심 정책(SSOT):** EMNLP Main 실험은 원격에서 `ssh nlp8`, 레포 `/data_x/aa007878/galileo`, GPU는 **0–6 중에서 “진짜 idle + 타 유저 미사용 + CUDA alloc preflight OK”만** 사용, 모든 장기 작업은 `tmux`로 실행.
+
+> 주의: heartbeat 배너에 `nlp16`/`CUDA_VISIBLE_DEVICES=4,5,6,7`가 등장하는 경우가 있는데, **stale**한 문구입니다. 실험 SSOT는 nlp8 기준으로만 운영합니다.
 
 **Paper-ready(인용 가능) 판정 기준**
 
@@ -182,6 +184,23 @@ nvidia-smi -i 4,5,6
 ```bash
 python3 scripts/validate_paper_exports.py --results_root results_paper --check_runner_parity
 ```
+
+### 5.3.1 Table 1 자동 재생성(권장; 표가 빈약해 보이는 문제 해결)
+
+Table 1(메인 테이블)에 들어가는 Survival/Fail@1/Recovery@flip 값은 **results_paper의 paper_exports에서 자동 추출**되어 `docs/paper/artifacts/`에 고정됩니다.
+
+```bash
+# (nlp8) results_paper/*/paper_exports로부터 Table-1 셀을 추출해 artifact CSV 생성
+python3 scripts/make_table1_from_results_paper_exports.py \
+  --results_paper results_paper \
+  --out docs/paper/artifacts/table1_from_results_paper_exports_$(date +%Y%m%d).csv
+
+# (로컬/원격) artifact로부터 LaTeX Table-1 rows 생성
+python3 scripts/gen_latex_table1_from_artifacts.py \
+  --out docs/paper/latex_paper_emnlp2023/generated/table1_rows.tex
+```
+
+> Recovery@flip은 `paper_exports/recovery_accuracy.csv`가 export된 run에서만 채워집니다. (구버전 paper_exports에는 없을 수 있음)
 
 ### 5.4 (로컬) artifacts → SVG figures 재생성
 
