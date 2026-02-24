@@ -6,9 +6,14 @@ This folder contains the **compilable** EMNLP-style main paper (`main.tex`) plus
 
 You need a working LaTeX install with `latexmk` (and `pdflatex`). On Ubuntu, the simplest is `texlive-full`; a lighter setup that usually works is:
 
+> Note: the paper will compile without Python. Python (`python3`) is only needed for the optional helper scripts that regenerate LaTeX table rows from tracked artifacts.
+
 ```bash
 sudo apt-get update
 sudo apt-get install -y latexmk texlive-latex-extra texlive-fonts-recommended texlive-fonts-extra texlive-science
+
+# Optional (only if you want to run the helper scripts):
+sudo apt-get install -y python3
 ```
 
 If compilation fails due to a missing `.sty`, install the corresponding TeX Live package (the error log will name it).
