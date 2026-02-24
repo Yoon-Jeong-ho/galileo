@@ -1729,3 +1729,10 @@ ef{fig:protocol}).
 
 - Added `docs/paper/EMNLP_2026_FEEDBACK_ACTION_PLAN.md` capturing all received reviewer-style feedback as concrete counters + prioritized experiments.
 - Includes a 10-min heartbeat checklist with tickable items so progress is cumulative and auditable.
+
+### 2026-02-24 20:00 KST — Infra/data: created Tier‑1 6-benchmark data SSOT on nlp8
+
+- User decision: **match Tier‑1 to the full 6-benchmark set** before proceeding.
+- On nlp8, staged `data_tier1_6/` with symlinks to the 6 canonical JSONL files:
+  - gsm8k, svamp, arc_easy_validation, squad11_validation, squad20_validation, triviaqa_rc_validation.
+- Updated `docs/paper/EMNLP_2026_FEEDBACK_ACTION_PLAN.md` to require `--data_dir /data_x/aa007878/galileo/data_tier1_6` for all Tier‑1 runs.
