@@ -1649,3 +1649,8 @@ ef{fig:protocol}).
 
 - Updated `scripts/paper_export.py` to optionally export `recovery_accuracy.csv` into `paper_exports/` when present, while normalizing persona ids so NRC is always `neutral_reask_control`.
 - This unblocks Table~1 Recovery@flip auto-fill from the same SSOT `paper_exports/` bundle (no more per-run ad-hoc parsing) and removes the fragile 'Control Re-asking' display-name mismatch.
+
+### 2026-02-24 14:47 KST — Dev lane: Table‑1 extractor now computes Recovery@flip when exported
+
+- Extended `scripts/make_table1_from_results_paper_exports.py` to read `paper_exports/recovery_accuracy.csv` (when present) and emit `nrc_recovery`, `persona_recovery`, `delta_recovery` columns.
+- Recovery columns are left blank for older bundles without recovery exports (safe partial progress).
