@@ -261,6 +261,7 @@ This makes NRC an \emph{evidence-free} baseline: any failures under \NRC{} refle
 
 \paragraph{Threat model (evidence-free conversational pressure).}
 \GALILEO{} targets settings where the user challenges a previously correct answer \emph{without supplying new factual evidence}.
+We treat unverifiable appeals such as ``My professor says the answer is $X$'' as \emph{pressure} rather than evidence, because they do not add task-relevant facts that an auditor can check.
 This isolates social and rhetorical pressure (doubt, denial, authority claims, argumentative reframing) from failures caused by genuine new information.
 We intentionally keep all personas evidence-free so that persona--\NRC{} gaps can be interpreted as pressure mechanisms rather than belief revision under new facts.
 
