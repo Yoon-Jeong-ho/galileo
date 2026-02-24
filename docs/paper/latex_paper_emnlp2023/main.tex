@@ -124,7 +124,9 @@ By restricting multi-round evaluation to an initially-correct set $C$ (defined p
 
 \paragraph{Why a matched neutral control (\NRC{})?}
 Even evidence-free re-asking can induce drift across turns.
-\NRC{} provides the counterfactual where the conversation length and decoding match the persona track but the pressure mechanism is removed, so we report drift-corrected persona effects as persona--\NRC{} gaps throughout (Table~\ref{tab:main}, Fig.~\ref{fig:survival}, Fig.~\ref{fig:fail1}).\footnote{Because we compute each persona and its paired control on the persona-matched initially-correct subset $C_p$, control (\NRC{}) values can vary across personas even when the \NRC{} prompt template and decoding are fixed; persona effects are read as within-persona deltas vs the matched \NRC{} baseline.}
+\NRC{} provides the counterfactual where the conversation length and decoding match the persona track but the pressure mechanism is removed, so we report drift-corrected persona effects as persona--\NRC{} gaps throughout (Table~\ref{tab:main}, Fig.~\ref{fig:survival}, Fig.~\ref{fig:fail1}).
+Concretely, for each pressure persona $p$ we define a paired control template \NRC{}$_p$ that preserves the round structure and surface ``re-ask'' intent (e.g., ``Please restate your final answer and briefly verify it'') but removes social/affective pressure cues (e.g., denial, authority, insinuations).
+\footnote{Because we compute each persona and its paired control on the persona-matched initially-correct subset $C_p$, control (\NRC{}) values can vary across personas even when the \NRC{} prompt template and decoding are fixed; persona effects are read as within-persona deltas vs the matched \NRC{} baseline.}
 
 \paragraph{Contributions.}
 \begin{itemize}[leftmargin=*]
