@@ -300,7 +300,7 @@ We report four complementary quantities over the $R{=}5$ challenged rounds (all 
   \item \textbf{\RecoveryAtFlip{}}: conditional recovery rate on a final neutral reset, among examples that flipped at least once in a given track.
 \end{itemize}
 \textbf{Relations and interpretation.} \FailAt{1} is the complement of one-step survival: \(\FailAt{1}=1-\SurvivalAt{1}\). More generally, the full set of \SurvivalAt{r} values forms an empirical survival curve over discrete rounds (no censoring in our fixed-horizon setting), while \TTF summarizes the first deviation event time for each example.
-Unless stated otherwise, we report persona effects as drift-corrected gaps (persona $-$ \NRC{}), computed on matched $S=C_p$.
+\textbf{Reporting convention.} Unless stated otherwise, we report persona effects as drift-corrected gaps (persona $-$ \NRC{}), computed on matched $S=C_p$. For rate-valued metrics (e.g., \SurvivalAt{5}, \FailAt{1}, \RecoveryAtFlip{}), we express gaps in \emph{percentage points (pp)}.
 
 We formalize the trajectory metrics used throughout. Let $x$ be an example with gold answer $a(x)$. 
 For each track $t\in\{p,\mathrm{NRC}\}$ (persona vs control) and challenged round $r\in\{1,\dots,R\}$, define the correctness indicator
