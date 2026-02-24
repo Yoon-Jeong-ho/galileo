@@ -21,6 +21,9 @@ Ground-truth tasks에서 multi-turn persona pressure 하에 **정답 유지(surv
 ## 1) NOW (what we are doing / what is true *right now*)
 
 - We are in a **10-min heartbeat loop**; each heartbeat must deliver **one primary lane** result and keep continuity via `STATUS.md` + `HEARTBEAT_LOG.md`.
+- **Active run (nlp8, Tier‑1 6-benchmark pilot):** Phi‑3‑mini seed1 is running on GPU4 (tmux session created at 20:22 KST):
+  - `results/tier1_phi3mini_seed1_tier1_6_pilot_200_512_20260224_202211/`
+  - Note: `run.log` is currently silent due to buffering; monitor progress via output JSONLs under `Phi-3-mini-4k-instruct/` (size/mtime).
 - **Remote experiments SSOT (confirmed):** paper-ready SSOT is **nlp8** (repo `/data_x/aa007878/galileo`, GPUs **0–6**, but **ONLY** those not used by other users). Heartbeat banner references to `nlp16` are stale.
 - **Tier‑1 benchmark SSOT (2026-02-24 decision):** all Tier‑1 runs must use the full 6-task set via `--data_dir /data_x/aa007878/galileo/data_tier1_6` (do not rely on defaults).
 - **Remote sanity (2026-02-22 12:09 KST):** GPU3 is currently occupied by **aa007878** (`Training/train_llama.py` for PrivacyRestore; ~21.6GiB). GPUs 1/2/4/5/6 appear idle; GPU0 looks idle in `nvidia-smi` but **CUDA alloc preflight FAIL** → exclude GPU0 for launches until it recovers. Avoid launching GALILEO on GPU3 until that job finishes.
