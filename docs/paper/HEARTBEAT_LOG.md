@@ -1681,3 +1681,8 @@ ef{fig:protocol}).
 
 - Added `docs/paper/NEXT_TIER1_RERUN_PLAN.md` with a single-run tmux template + preflight/token-cap gates.
 - Purpose: make the next Tier‑1 rerun decision executable immediately once the target family is chosen.
+
+### 2026-02-24 16:00 KST — Planning: pick default next Tier‑1 rerun target (Phi‑3‑mini seed1)
+
+- Updated `docs/paper/NEXT_TIER1_RERUN_PLAN.md` to recommend Phi‑3‑mini seed1 as the default next rerun target unless we explicitly want Nemo.
+- Rationale: fastest path to restore missing-family Recovery@flip coverage in Table 1 with minimal GPU risk.
