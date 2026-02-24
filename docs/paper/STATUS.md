@@ -155,10 +155,14 @@ Ground-truth tasks에서 multi-turn persona pressure 하에 **정답 유지(surv
 - Done (code): `make_table1_from_results_paper_exports.py` computes `nrc_recovery/persona_recovery/delta_recovery` when recovery export exists.
 - Done (code): `gen_latex_table1_from_artifacts.py` ingests Recovery from the same `table1_from_results_paper_exports_*.csv` artifact (no alias hardcoding).
 
-**Next action (SSOT, nlp8):** backfill recovery exports for *one* missing Tier‑1 family beyond Mistral (Phi‑3‑mini or Mistral‑Nemo):
-1) locate the run dirs on nlp8 (if not present, note as missing / needs rerun)
-2) run `scripts/paper_export.py` to write `paper_exports/recovery_accuracy.csv`
-3) regenerate `docs/paper/artifacts/table1_from_results_paper_exports_<today>.csv`
+**Next action (SSOT, nlp8):** backfill recovery exports for *one* missing Tier‑1 family beyond Mistral.
+
+- Triage (2026-02-24): on nlp8, `results/` currently contains Phi‑3.5‑mini runs, but **no** `*phi3mini*` or `*mistralnemo*` run dirs were found under `results/` (maxdepth=1), and no `phi|nemo` aliases exist under `results_paper/`.
+
+So the immediate next step becomes:
+1) decide target family: **Phi‑3‑mini** or **Mistral‑Nemo**
+2) either (a) recover the run dirs (if archived elsewhere) **or** (b) rerun seed1–2 under standardized Tier‑1 to recreate those paper-ready runs
+3) once run dirs exist, restage into `results_paper/` + run `paper_export.py` (to include recovery) + regenerate `docs/paper/artifacts/table1_from_results_paper_exports_<today>.csv`
 
 ---
 

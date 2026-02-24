@@ -1670,3 +1670,9 @@ ef{fig:protocol}).
 
 - Confirmed the Recovery@flip pipeline is now end-to-end in code (export → Table1 artifact → LaTeX ingestion).
 - Mistral seeds were backfilled first on nlp8; next step is to locate+backfill Recovery exports for one more Tier‑1 family (Phi‑3‑mini or Mistral‑Nemo) on nlp8, or explicitly mark as missing/needs rerun if run dirs no longer exist.
+
+### 2026-02-24 15:29 KST — Experiments triage (nlp8): Phi‑3‑mini / Mistral‑Nemo run dirs not found
+
+- Checked nlp8 `/data_x/aa007878/galileo/results` for `*phi3mini*` and `*mistralnemo*` at maxdepth=1: none found.
+- Checked nlp8 `results_paper/` for aliases containing `phi|nemo`: none found.
+- Only Phi‑3.5‑mini runs are currently present under `results/` (seed1–3). This means the “backfill recovery for Phi‑3‑mini/Mistral‑Nemo” step requires either recovering archived run dirs or rerunning those families.
