@@ -221,3 +221,7 @@ This file is intentionally kept short to reduce token burn.
 
 - Running: `results/tier1_phi3mini_seed1_tier1_6_pilot_200_512_20260224_202211/` (GPU4).
 - Output evidence (log may be buffered): JSONLs created for ARC-Easy + TriviaQA (initial/adversarial/recovery).
+
+### 2026-02-24 21:49 KST — Runbook: add JSONL-mtime stall watchdog for silent vLLM runs
+
+- Updated `docs/paper/NEXT_TIER1_RERUN_PLAN.md` with a 10-minute JSONL mtime watchdog rule (kill tmux if no output changes) to prevent long GPU burns when `run.log` is buffered.
