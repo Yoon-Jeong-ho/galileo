@@ -85,7 +85,7 @@ tmux new-session -d -s tier1-rerun \
      --data_dir $DATA_DIR \
      --max_model_len 4096 --max_tokens 2048 \
      --results_dir $OUT 2>&1 | tee -a $OUT/run.log; \
-   $CONDA_RUN python3 scripts/paper_export.py --results_root $OUT --out_dir $OUT/paper_exports --seed $SEED --num_flip_samples 200 2>&1 | tee -a $OUT/run.log; \
+   $CONDA_RUN python3 scripts/paper_export.py --results_root $OUT --model_dir $OUT/${MODEL##*/} --out_dir $OUT/paper_exports --seed $SEED --num_flip_samples 200 2>&1 | tee -a $OUT/run.log; \
    $CONDA_RUN python3 scripts/write_runner_metadata.py --paper_exports $OUT/paper_exports --model $MODEL --seed $SEED --gpu_list $GPU --tp 1 --num_samples 1000 --max_model_len 4096 --max_tokens 2048 --conda_env galileo 2>&1 | tee -a $OUT/run.log; \
    $CONDA_RUN python3 scripts/validate_paper_exports.py --results_root $OUT 2>&1 | tee -a $OUT/run.log; \
    $CONDA_RUN python3 scripts/check_runlog_for_token_caps.py $OUT/run.log 2>&1 | tee -a $OUT/run.log; \
