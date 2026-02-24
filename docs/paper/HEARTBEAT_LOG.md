@@ -1690,3 +1690,8 @@ ef{fig:protocol}).
 ### 2026-02-24 16:15 KST — Docs: README updated (SSOT policy + Table‑1 regen)
 
 - Updated repo root `README.md` to reflect the correct experiment SSOT (nlp8, GPUs 0–6 idle-only+preflight) and to add Table‑1 auto-regeneration commands from `results_paper/*/paper_exports`.
+
+### 2026-02-24 16:10 KST — Writing/analysis: KO results analysis updated with SSOT + proof pointers
+
+- Updated `docs/paper/PAPER_RESULTS_ANALYSIS_KO.md` to remove stale nlp16/raid6 references and to anchor analysis on nlp8 `results_paper/` + tracked artifacts.
+- Added a “핵심 정량 결과” subsection that links Table W, cross-family figure, and the auto-extracted Table‑1 artifact CSV.
