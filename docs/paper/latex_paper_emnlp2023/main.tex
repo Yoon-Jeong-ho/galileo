@@ -149,6 +149,7 @@ We also focus on correctness dynamics on ground-truth tasks, leaving open how th
 \paragraph{Sycophancy, social pressure, and multi-turn truth decay.}
 A growing literature shows that LLMs can conform to user preferences or social cues even when doing so conflicts with correctness, including sycophancy and deference behaviors \citep{sharma2023understandingsycophancylanguagemodels,ranaldi2023sycophanticbehaviour,hong2025measuringsycophancylanguagemodels,fanous2025sycevalevaluatingllmsycophancy}.
 Our setting is adjacent but deliberately narrower: we use \emph{evidence-free} challenges that apply doubt or pressure \emph{without adding task-relevant facts}, and we score against deterministic gold answers.
+This design cleanly separates pressure-induced \emph{deviation from truth} from (i) preference-alignment/sycophancy effects on subjective questions and (ii) generic multi-turn instability from being asked again.
 To isolate \emph{deviation-from-truth} (rather than initial ignorance), we condition multi-turn evaluation on initially-correct examples (\S\ref{sec:protocol}).
 Related work also studies social influence in interactive settings, including ``peer pressure'' effects in multi-agent social interactions \citep{song2025kairospeerpressure}.
 Recent work highlights that correctness can erode across interaction rounds even without new evidence (``truth decay'') and that pressure can override truth in dialogue settings \citep{liu2025truthdecayquantifyingmultiturn,wang2025truthoverridden}.
