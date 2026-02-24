@@ -397,6 +397,7 @@ All main comparisons are reported as \emph{persona--\NRC{} deltas} to correct fo
 
 \paragraph{One-stop summary.}
 Table~\ref{tab:main} provides a compact, cross-family summary: across model families, pressure typically reduces \SurvivalAt{5} (negative $\Delta\,\SurvivalAt{5}$) and increases early-turn failures (positive $\Delta\,\FailAt{1}$) beyond evidence-free drift under \NRC{}.
+\textbf{Reading the table.} Because each persona and its paired \NRC{} are computed on the same persona-matched initially-correct set $C_p$ (\S\ref{sec:conditioning-set}), the \NRC{} column can vary slightly across personas; the primary quantity of interest is the within-pair gap $\Delta$.
 \RecoveryAtFlip{} can be less tightly coupled: some settings show substantial robustness loss but relatively small recovery gaps, reinforcing that brittleness and recoverability are distinct axes (Appx.~\ref{sec:appendix-extra-results}).
 Figures in this section decompose Table~\ref{tab:main} into dynamics (Fig.~\ref{fig:survival}), early hazard (Fig.~\ref{fig:fail1}), and cross-family replication (Fig.~\ref{fig:crossfam}).
 
