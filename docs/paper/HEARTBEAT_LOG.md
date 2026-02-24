@@ -1659,3 +1659,9 @@ ef{fig:protocol}).
 
 - Updated `scripts/gen_latex_table1_from_artifacts.py` to remove the hardcoded `model_to_aliases_for_recovery` mapping.
 - Recovery cells are now filled (when available) by reading `docs/paper/artifacts/table1_from_results_paper_exports_*.csv` and taking mean±std over staged aliases/seeds, matching Fail@1 behavior.
+
+### 2026-02-24 15:08 KST — Experiments/dev: backfill Mistral Recovery exports and regenerate Table‑1 artifact
+
+- On nlp8 SSOT, re-ran `scripts/paper_export.py` for `results_paper/mistral_seed1` and `results_paper/mistral_seed2` so `paper_exports/recovery_accuracy.csv` is now present (NRC normalized).
+- Regenerated tracked artifact `docs/paper/artifacts/table1_from_results_paper_exports_20260224.csv`, which now contains Recovery@flip columns for those Mistral seeds.
+- Synced the artifact back to the local repo and committed it.
