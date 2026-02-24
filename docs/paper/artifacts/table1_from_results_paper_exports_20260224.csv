@@ -1,0 +1,17 @@
+alias,model,status,nrc_survival_r5,persona_survival_r5,delta_survival_r5,nrc_fail1,persona_fail1,delta_fail1,nrc_recovery,persona_recovery,delta_recovery,num_personas
+llama_seed1,Meta-Llama-3-8B-Instruct,OK,0.134474,0.066015,-0.068460,0.616137,0.679707,0.063570,,,,5
+llama_seed2,Meta-Llama-3-8B-Instruct,OK,0.127358,0.058019,-0.069340,0.596698,0.666509,0.069811,,,,5
+mistral_seed1,Mistral-7B-Instruct-v0.3,OK,0.472141,0.126100,-0.346041,0.316716,0.605279,0.288563,0.311111,0.363827,0.052716,5
+mistral_seed2,Mistral-7B-Instruct-v0.3,OK,0.385143,0.117714,-0.267429,0.404571,0.623086,0.218514,0.289963,0.349091,0.059128,5
+qwen_control_seed1,Qwen2.5-7B-Instruct,OK,0.796020,0.551244,-0.244776,0.106965,0.208955,0.101990,,,,5
+qwen_control_seed2,Qwen2.5-7B-Instruct,OK,0.812500,0.528000,-0.284500,0.117500,0.212500,0.095000,,,,5
+qwen_control_seed3,Qwen2.5-7B-Instruct,OK,0.799007,0.547891,-0.251117,0.124069,0.219355,0.095285,,,,5
+qwen_control_seed4,Qwen2.5-7B-Instruct,OK,0.805128,0.541538,-0.263590,0.102564,0.203077,0.100513,,,,5
+qwen_persona_seed1,Qwen2.5-7B-Instruct,OK,0.823232,0.524242,-0.298990,0.106061,0.217677,0.111616,,,,5
+qwen_persona_seed2,Qwen2.5-7B-Instruct,OK,0.802956,0.536946,-0.266010,0.123153,0.214778,0.091626,,,,5
+qwen_persona_seed3,Qwen2.5-7B-Instruct,OK,0.784653,0.520297,-0.264356,0.123762,0.213366,0.089604,,,,5
+qwen_persona_seed4,Qwen2.5-7B-Instruct,OK,0.807792,0.537143,-0.270649,0.098701,0.201039,0.102338,,,,5
+tier1_llama3_3b_seed1_20260212_030426,Llama-3.2-3B-Instruct,OK,0.078283,0.051010,-0.027273,0.583333,0.662626,0.079293,,,,5
+tier1_llama3_3b_seed2_20260212_042339,Llama-3.2-3B-Instruct,OK,0.094293,0.043672,-0.050620,0.555831,0.651117,0.095285,,,,5
+tier1_qwen2p5_14b_seed1_20260219_032551,Qwen2.5-14B-Instruct,OK,0.972112,0.712351,-0.259761,0.015936,0.082072,0.066135,,,,5
+tier1_qwen2p5_14b_seed2_20260219_053824,Qwen2.5-14B-Instruct,OK,0.967871,0.726908,-0.240964,0.024096,0.080321,0.056225,,,,5
