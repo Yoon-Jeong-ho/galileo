@@ -591,7 +591,10 @@ We encourage future work to evaluate how such pressure dynamics interact with sa
 \section{Data and Code Availability}
 \label{sec:availability}
 To enable end-to-end auditing, we will release the evaluation code, prompt templates, and per-example export bundles (transcripts, per-turn scores, and metadata sufficient to regenerate tables and figures) for the reported runs upon publication, subject to the underlying dataset licenses and model distribution terms.
-To make figure/table regeneration reviewer-friendly, the release will include a minimal ``one-command'' build path (e.g., Makefile targets such as \texttt{make paper} and \texttt{make figures-pdf}) and the scripts used to convert/export plots from the machine-readable bundles.
+
+To make regeneration reviewer-friendly, the release will include (i) a manifest that maps each reported table/figure to concrete export bundles (e.g., a \texttt{results\_paper\_manifest.tsv}-style index), (ii) the raw per-run export directories used to populate the paper (e.g., \path{artifacts/raw/*\_paper\_exports/} containing \path{metadata.json}, \path{runner\_metadata.json}, per-turn score CSVs, and transcripts), and (iii) the small build scripts that materialize LaTeX-ready intermediates (e.g., \path{latex\_paper\_emnlp2023/generated/*.tex}) from those machine-readable bundles.
+
+The release will also include a minimal ``one-command'' build path (e.g., Makefile targets such as \texttt{make paper} and \texttt{make figures-pdf}) so that reviewers can rebuild the PDF and regenerate plots without rerunning model inference.
 For double-blind review, we omit repository URLs here and will add them in the camera-ready.
 
 \section{Conclusion}
