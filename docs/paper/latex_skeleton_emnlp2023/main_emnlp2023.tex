@@ -55,7 +55,7 @@ Large language models (LLMs) can retract previously correct answers under conver
 
 We introduce \textbf{GALILEO}, a reproducible protocol for measuring multi-turn robustness \emph{conditional on initial correctness} on ground-truth tasks (math, extractive QA, multiple-choice QA, and open-domain QA). For each condition, we first filter to examples answered correctly at round $0$, then apply five fixed pressure personas for up to $R{=}5$ rounds. Each persona arm is paired with a matched \emph{Neutral Re-asking Control} (\textbf{NRC}): a neutral ``please re-check'' prompt repeated with the same number of rounds and decoding settings, introducing \emph{no new task-relevant evidence}. To attribute effects to pressure rather than generic multi-turn drift, we compute persona--control deltas on the \emph{same} initially-correct subset.
 
-GALILEO reports survival curves (remaining correct \emph{at every turn} through round $r$), turn-of-failure (TOF; including $\text{Fail@1}=\Pr(\mathrm{TOF}=1)$ for early-turn vulnerability), and \emph{recovery@flip}: accuracy on a final neutral return-to-truth prompt, conditional on having flipped at least once. Across multiple model families and seeds, persona pressure reduces survival relative to the NRC and can induce substantial early-turn vulnerability; recovery@flip varies by task and persona, highlighting that \emph{staying correct} and \emph{returning to truth after a flip} are distinct, measurable behaviors. We release artifact-level exports (per-turn traces, curves, and reproducer scripts) to support end-to-end auditing and reuse.
+GALILEO reports survival curves (remaining correct \emph{at every turn} through round $r$), \emph{time-to-first-failure} (\textbf{TTF}; a.k.a. turn-of-failure; including $\text{Fail@1}=\Pr(\mathrm{TTF}=1)$ for early-turn vulnerability), and \emph{recovery@flip}: accuracy on a final neutral return-to-truth prompt, conditional on having flipped at least once. Across multiple model families and seeds, persona pressure reduces survival relative to the NRC and can induce substantial early-turn vulnerability; recovery@flip varies by task and persona, highlighting that \emph{staying correct} and \emph{returning to truth after a flip} are distinct, measurable behaviors. We release artifact-level exports (per-turn traces, curves, and reproducer scripts) to support end-to-end auditing and reuse.
 \end{abstract}
 
 \section{Introduction}
@@ -69,7 +69,7 @@ GALILEO targets this gap by instantiating multi-turn pressure on \emph{ground-tr
 
 \noindent\textbf{Contributions.} GALILEO provides:
 \begin{itemize}
-  \item \textbf{Ground-truth multi-turn protocol:} survival and turn-of-failure metrics on automatically checkable tasks.
+  \item \textbf{Ground-truth multi-turn protocol:} survival and time-to-first-failure (TTF) metrics on automatically checkable tasks.
   \item \textbf{Drift baseline with matched conditioning sets:} a \emph{Neutral Re-asking Control} (\textbf{NRC}), and persona--control deltas computed on the \emph{same} initially-correct subset to avoid conflating persona effects with changes in which examples are initially correct.
   \item \textbf{Recovery stage:} a dedicated return-to-truth prompt evaluated \emph{after} the pressure dialogue to quantify recoverability conditional on having flipped.
   \item \textbf{Artifact-level traceability:} per-turn outputs and correctness traces, plotted curves, and reproducer scripts enabling end-to-end auditing.
@@ -93,7 +93,7 @@ Table~\ref{tab:claim-evidence} enumerates the primary paper-facing artifacts and
 Claim & Tracked artifact(s) & Reproducer \\
 \midrule
 Protocol & \texttt{docs/paper/figures/protocol\_overview.svg} & \texttt{scripts/make\_paper\_figures\_from\_artifacts.py} \\
-Survival+TOF & \texttt{docs/paper/artifacts/survival\_curve\_personawise\_control\_vs\_persona\_*.csv};\\ \texttt{docs/paper/artifacts/tof\_personawise\_fail1\_never\_control\_vs\_persona\_*.csv} & \texttt{scripts/make\_paper\_figures\_from\_artifacts.py} \\
+Survival+TTF & \texttt{docs/paper/artifacts/survival\_curve\_personawise\_control\_vs\_persona\_*.csv};\\ \texttt{docs/paper/artifacts/tof\_personawise\_fail1\_never\_control\_vs\_persona\_*.csv} & \texttt{scripts/make\_paper\_figures\_from\_artifacts.py} \\
 Mechanism vs drift (Table~W) & \texttt{docs/paper/artifacts/table\_w\_control\_vs\_persona\_*.csv};\\ \texttt{docs/paper/artifacts/table\_w\_effect\_delta\_*.csv} & \texttt{scripts/make\_table\_w\_control\_vs\_persona.py} \\
 Recovery@flip & \texttt{docs/paper/artifacts/recovery\_personawise\_control\_vs\_persona\_*.csv} & \texttt{scripts/make\_paper\_figures\_from\_artifacts.py} \\
 \bottomrule
@@ -102,11 +102,11 @@ Recovery@flip & \texttt{docs/paper/artifacts/recovery\_personawise\_control\_vs\
 \label{tab:claim-evidence}
 \end{table}
 
-\paragraph{Metrics (at a glance).} We report three complementary views of multi-turn belief consistency: \emph{fail@any} (fraction of initially-correct samples that flip at least once within the $R$ pressure rounds), \emph{turn-of-failure} (the first round where the flip occurs, enabling ``when'' analysis), and \emph{survival} (probability of staying correct through each round, summarizing degradation over time). On flipped samples, we additionally measure \emph{recovery} as the probability of returning to the original ground-truth answer after an explicit recovery prompt.
+\paragraph{Metrics (at a glance).} We report three complementary views of multi-turn belief consistency: \emph{fail@any} (fraction of initially-correct samples that flip at least once within the $R$ pressure rounds), \emph{time-to-first-failure} (\textbf{TTF}; the first round where the flip occurs, enabling ``when'' analysis; also referred to as turn-of-failure), and \emph{survival} (probability of staying correct through each round, summarizing degradation over time). On flipped samples, we additionally measure \emph{recovery} as the probability of returning to the original ground-truth answer after an explicit recovery prompt.
 
 \paragraph{Formalization.} For each evaluation condition, let $i \in \{1,\dots,n\}$ index examples that are \emph{initially correct} at round $0$ (i.e., $C_{i,0}=1$). Let $C_{i,r} \in \{0,1\}$ denote whether the model's answer is correct at round $r \in \{0,1,\dots,R\}$ under automatic checking, where rounds $1..R$ correspond to persona-pressure turns (or the matched \textbf{NRC}).
 
-We define the \emph{turn-of-failure} as the first pressure round where correctness is lost:
+We define the \emph{time-to-first-failure} (\textbf{TTF}; a.k.a. turn-of-failure) as the first pressure round where correctness is lost:
 \begin{equation}
   T_i = \min\{r \in \{1,\dots,R\} : C_{i,r}=0\},\quad \text{with } T_i = R{+}1 \text{ if no failure occurs within $R$ rounds.}
 \end{equation}
@@ -119,7 +119,7 @@ so that $\text{fail@any} = 1-\widehat{S}(R)=\frac{1}{n}\sum_{i=1}^n \mathbf{1}[T
 \begin{equation}
   \text{Fail@1} = \Pr(T=1) \approx \frac{1}{n}\sum_{i=1}^n \mathbf{1}[T_i=1].
 \end{equation}
-Note that survival/TOF depend only on the \emph{first} flip; if a model flips and later reverts within the pressure rounds, we still count the initial loss of truth as a failure.
+Note that survival/TTF depend only on the \emph{first} flip; if a model flips and later reverts within the pressure rounds, we still count the initial loss of truth as a failure.
 
 \paragraph{Estimation details.} When all examples are run for the same fixed number of rounds $R$, $\widehat{S}(r)$ above is the empirical survival curve. If some traces terminate early (e.g., due to transient API failures), we treat these as right-censored at the last completed round and compute a Kaplan--Meier estimate \citep{kaplan1958nonparametric}; in the no-censoring case this reduces to the empirical form. In our main reported artifacts/plots we aggregate across random seeds and report mean$\pm$std at each round; bootstrap CIs are optional and can be added as a robustness appendix if space permits.
 
@@ -160,7 +160,7 @@ To separate persona-induced effects from generic multi-turn instability, we also
 \paragraph{Matched conditioning set.}
 Our multi-turn metrics are defined on the \emph{initially-correct} subset, so the effective evaluation set can vary across personas and seeds when runs are executed separately (e.g., due to stochastic decoding, minor prompt/config differences in Phase~1, or caching/runner details). To avoid conflating this \emph{conditioning-set drift} with a true persona effect, for each persona $p$ we define its initially-correct set $C_p$ (examples correct at round $0$ under that run's \emph{persona-free} Phase~1 prompt) and evaluate the \textbf{NRC} on the \emph{same} $C_p$ when computing persona--control deltas.
 
-Formally, for any metric $M$ computed on initially-correct examples (e.g., $\widehat{S}(r)$, fail@any, or a TOF statistic), we report persona--control deltas on the matched set:
+Formally, for any metric $M$ computed on initially-correct examples (e.g., $\widehat{S}(r)$, fail@any, or a TTF statistic), we report persona--control deltas on the matched set:
 \begin{equation}
   \Delta M(p) = M\big(\text{persona}=p\,;\, i\in C_p\big) - M\big(\text{control}\,;\, i\in C_p\big).
 \end{equation}
@@ -171,7 +171,7 @@ Figure~\ref{fig:cross-family-survival} illustrates the resulting survival curves
 \begin{figure}[t]
   \centering
   \maybeincludegraphics[width=\linewidth]{figures/protocol_overview}
-  \caption{GALILEO protocol. Starting from an initially correct answer, we run the \textbf{NRC} (drift baseline) and persona pressure rounds (up to five turns). On flipped samples, we additionally evaluate recovery (return-to-truth) and report survival, fail@any, and turn-of-failure metrics.}
+  \caption{GALILEO protocol. Starting from an initially correct answer, we run the \textbf{NRC} (drift baseline) and persona pressure rounds (up to five turns). On flipped samples, we additionally evaluate recovery (return-to-truth) and report survival, fail@any, and time-to-first-failure (TTF) metrics.}
   \label{fig:protocol}
 \end{figure}
 
