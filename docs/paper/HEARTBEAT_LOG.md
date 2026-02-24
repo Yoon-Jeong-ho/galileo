@@ -1665,3 +1665,8 @@ ef{fig:protocol}).
 - On nlp8 SSOT, re-ran `scripts/paper_export.py` for `results_paper/mistral_seed1` and `results_paper/mistral_seed2` so `paper_exports/recovery_accuracy.csv` is now present (NRC normalized).
 - Regenerated tracked artifact `docs/paper/artifacts/table1_from_results_paper_exports_20260224.csv`, which now contains Recovery@flip columns for those Mistral seeds.
 - Synced the artifact back to the local repo and committed it.
+
+### 2026-02-24 15:18 KST — Planning lane: Recovery@flip pipeline now end-to-end; next is SSOT backfill for another family
+
+- Confirmed the Recovery@flip pipeline is now end-to-end in code (export → Table1 artifact → LaTeX ingestion).
+- Mistral seeds were backfilled first on nlp8; next step is to locate+backfill Recovery exports for one more Tier‑1 family (Phi‑3‑mini or Mistral‑Nemo) on nlp8, or explicitly mark as missing/needs rerun if run dirs no longer exist.

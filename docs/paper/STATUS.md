@@ -149,11 +149,16 @@ Ground-truth tasks에서 multi-turn persona pressure 하에 **정답 유지(surv
 
 ## 4) NEXT HEARTBEAT (ONE step)
 
-**Dev lane (Table 1): wire Recovery@flip into the paper_exports→artifact→LaTeX pipeline.**
+**Dev/experiments lane (Table 1): finish Recovery@flip auto-fill end-to-end on SSOT (nlp8).**
 
-- Just done (local): `scripts/paper_export.py` now optionally exports normalized `recovery_accuracy.csv` into `paper_exports/` (NRC id is stable).
-- Next action: extend `scripts/make_table1_from_results_paper_exports.py` to compute Recovery@flip metrics from `paper_exports/recovery_accuracy.csv` when present, and emit columns into the Table‑1 artifact CSV.
-- Then: patch `scripts/gen_latex_table1_from_artifacts.py` to ingest those Recovery columns without hardcoded alias lists.
+- Done (code): `paper_export.py` can now export normalized `paper_exports/recovery_accuracy.csv` (NRC id stable).
+- Done (code): `make_table1_from_results_paper_exports.py` computes `nrc_recovery/persona_recovery/delta_recovery` when recovery export exists.
+- Done (code): `gen_latex_table1_from_artifacts.py` ingests Recovery from the same `table1_from_results_paper_exports_*.csv` artifact (no alias hardcoding).
+
+**Next action (SSOT, nlp8):** backfill recovery exports for *one* missing Tier‑1 family beyond Mistral (Phi‑3‑mini or Mistral‑Nemo):
+1) locate the run dirs on nlp8 (if not present, note as missing / needs rerun)
+2) run `scripts/paper_export.py` to write `paper_exports/recovery_accuracy.csv`
+3) regenerate `docs/paper/artifacts/table1_from_results_paper_exports_<today>.csv`
 
 ---
 
