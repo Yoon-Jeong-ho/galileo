@@ -265,7 +265,7 @@ These exports enable reviewers (and future work) to verify that persona and \NRC
 
 \subsection{Neutral Re-asking Control (\NRC{}): evidence-free matched drift baseline}
 For each pressure persona $p$, we construct a paired \emph{Neutral Re-asking Control (\NRC{})} prompt that matches the interaction length and turn structure but removes the mechanism of pressure. Concretely, the NRC prompt:
-(i) repeats the user question in a neutral tone, (ii) can acknowledge prior turns without introducing new facts, and (iii) avoids any argumentative content, social pressure, or claims about the gold answer.
+(i) repeats the user question in a neutral tone, (ii) can acknowledge prior turns without introducing new facts, (iii) avoids any argumentative content, social pressure, or claims about the gold answer, and (iv) mirrors the \emph{round-specific request type} (e.g., ``restate'' vs. ``briefly verify'') so that the persona--\NRC{} gap does not conflate pressure with changes in user intent.
 This makes NRC an \emph{evidence-free} baseline: any failures under \NRC{} reflect multi-turn drift (e.g., instability under re-asking) rather than persona pressure.
 
 \paragraph{Threat model (evidence-free conversational pressure).}
