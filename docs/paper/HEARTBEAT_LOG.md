@@ -1724,3 +1724,8 @@ ef{fig:protocol}).
   - Session: `tmux attach -t tier1_phi3mini_seed1_pilotfull`
   - Output: `results/tier1_phi3mini_seed1_pilotFULL_200_512_20260224_190053/`
   - Params: `num_samples=200`, `max_tokens=512`.
+
+### 2026-02-24 19:50 KST — Planning: created SSOT feedback→action plan + heartbeat checklist
+
+- Added `docs/paper/EMNLP_2026_FEEDBACK_ACTION_PLAN.md` capturing all received reviewer-style feedback as concrete counters + prioritized experiments.
+- Includes a 10-min heartbeat checklist with tickable items so progress is cumulative and auditable.
