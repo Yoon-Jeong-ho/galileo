@@ -1654,3 +1654,8 @@ ef{fig:protocol}).
 
 - Extended `scripts/make_table1_from_results_paper_exports.py` to read `paper_exports/recovery_accuracy.csv` (when present) and emit `nrc_recovery`, `persona_recovery`, `delta_recovery` columns.
 - Recovery columns are left blank for older bundles without recovery exports (safe partial progress).
+
+### 2026-02-24 14:57 KST — Dev lane: LaTeX Table‑1 generator ingests Recovery from the same results_paper exports artifact
+
+- Updated `scripts/gen_latex_table1_from_artifacts.py` to remove the hardcoded `model_to_aliases_for_recovery` mapping.
+- Recovery cells are now filled (when available) by reading `docs/paper/artifacts/table1_from_results_paper_exports_*.csv` and taking mean±std over staged aliases/seeds, matching Fail@1 behavior.
