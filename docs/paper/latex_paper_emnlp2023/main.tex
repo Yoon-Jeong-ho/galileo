@@ -141,7 +141,7 @@ Related work also studies social influence in interactive settings, including ``
 Recent work highlights that correctness can erode across interaction rounds even without new evidence (``truth decay'') and that pressure can override truth in dialogue settings \citep{liu2025truthdecayquantifyingmultiturn,wang2025truthoverridden}.
 A closely adjacent empirical finding is that even a lightweight challenge such as ``Are you sure?'' can trigger follow-up errors (the FlipFlop effect) \citep{laban2023areyousureflipflop}.
 Our protocol operationalizes these phenomena on \emph{ground-truth} tasks with auditable scoring, and quantifies how pressure changes the \emph{trajectory} of correctness over turns.
-Compared to persuasion or debate-style settings where an interlocutor typically introduces substantive arguments, evidence, or strategic framing (e.g., conversational persuasion interventions and debate dynamics; \citep{salvi2025conversationalpersuasivenessgpt4,huang2026vulnerabilityllmsbeliefsystems,prasad2025llmsdebatethinktheyll}), we intentionally restrict prompts to \emph{evidence-free} challenges and score against deterministic gold answers, yielding unambiguous deviation events.
+Compared to persuasion or debate-style settings---where an interlocutor introduces substantive arguments, evidence, or strategic framing---we restrict prompts to \emph{evidence-free} challenges and score against deterministic gold answers, yielding unambiguous deviation events (see, e.g., \citep{salvi2025conversationalpersuasivenessgpt4,huang2026vulnerabilityllmsbeliefsystems,prasad2025llmsdebatethinktheyll}).
 
 \paragraph{Robustness evaluation beyond single-turn accuracy.}
 Many benchmarks focus on single-turn robustness (e.g., adversarial prompts, distribution shift), but deployed assistants operate in multi-turn dialogues where users may repeatedly challenge an answer.
@@ -615,6 +615,20 @@ Recovery step & --- & enabled & --- & \RecoveryAtFlip{} computed conditional on 
   \label{fig:recovery}
 \end{figure}
 
+\begin{table}[t]
+\centering
+\small
+\setlength{\tabcolsep}{6pt}
+\begin{tabular}{lcc}
+\hline
+\textbf{Model family (seeds)} & \textbf{Flips in NRC} & \textbf{Flips under persona} \\
+\hline
+\input{generated/recovery_denominators_rows.tex}
+\end{tabular}
+\caption{\textbf{Recovery denominators (flip counts).} \RecoveryAtFlip{} is defined only over examples that deviated at least once in the corresponding track. To make the conditioning explicit, we report the mean\,\(\pm\)\,std number of flipped examples (over seeds where applicable) in the persona aggregate and its matched \NRC{} baseline. ``--'' indicates the recovery step was not run/exported for that model family in the current artifact bundle.}
+\label{tab:recovery-denoms}
+\end{table}
+
 \begin{figure}[t]
   \centering
   \includegraphics[width=\linewidth]{figures/decoding_sweep_qwen_delta_seed1-2_20260211}
@@ -727,10 +741,12 @@ cd -
 # Regenerate submission figures from *tracked* CSV artifacts (stdlib-only)
 python3 scripts/make_paper_figures_from_artifacts.py
 
-# Regenerate the main results table (LaTeX) from paper exports
-python3 scripts/make_table1_from_results_paper_exports.py \
-  --results_paper results_paper \
-  --out docs/paper/artifacts/table1_main_autogen.tex
+# Regenerate the main results table rows (LaTeX) from *tracked* CSV artifacts
+python3 scripts/gen_latex_table1_from_artifacts.py \
+  --out docs/paper/latex_paper_emnlp2023/generated/table1_rows.tex
+
+# One-command page budget report (camera-ready build; uses PAGE_MARK:* emitted in the LaTeX log)
+bash scripts/report_latex_page_budget.sh
 
 # Validate a run's paper exports
 python3 scripts/validate_paper_exports.py --results_root <RUN_DIR>
