@@ -669,16 +669,22 @@ def main():
     if args.model:
         config.models = [args.model]
 
-    if args.data_file:
-        config.data_files = [args.data_file]
-
+    # Data selection precedence:
+    # - If --data_dir is provided, we treat it as the root directory.
+    # - If --data_file is ALSO provided, restrict to that single file within data_dir.
+    # - Otherwise, run all *.jsonl under data_dir.
     if args.data_dir is not None:
         import os as _os
-        config.data_files = [
-            _os.path.join(args.data_dir, f)
-            for f in _os.listdir(args.data_dir)
-            if f.endswith(".jsonl")
-        ]
+        if args.data_file:
+            config.data_files = [_os.path.join(args.data_dir, str(args.data_file))]
+        else:
+            config.data_files = [
+                _os.path.join(args.data_dir, f)
+                for f in _os.listdir(args.data_dir)
+                if f.endswith(".jsonl")
+            ]
+    elif args.data_file:
+        config.data_files = [args.data_file]
 
     if args.results_dir is not None:
         config.results_dir = args.results_dir
