@@ -9,8 +9,11 @@ Scope (current):
     aggregation level), and Δ = Persona − NRC.
 
 Limitations:
+- Fail@1 absolutes: only available when we have paper-ready exports under
+  `docs/paper/artifacts/table1_from_results_paper_exports_*.csv`; otherwise we fall back to the
+  delta-only values in the tier1 summaries.
 - Recovery@flip availability depends on whether a run retained (or can be traced to)
-  `recovery_accuracy.csv`. When present, we ingest the tracked artifact
+  `paper_exports/recovery_accuracy.csv`. When present, we ingest the tracked artifact
   `docs/paper/artifacts/table1_recovery_from_results_paper_*.csv`; otherwise the recovery
   cells remain `--`.
 
@@ -110,43 +113,10 @@ def build_rows(model_to_glob: dict[str, str]) -> list[Row]:
                 if r.get("status") == "OK" and r.get("model"):
                     fail_abs_by_model[r["model"].strip()].append(r)
 
-    # Recovery@flip (Control vs Persona) from results_paper metadata tracing.
-    # This is optional: if the artifact is absent, or a model-family doesn't have
-    # recorded aliases, we leave recovery cells as "--".
-    rec_csv = None
-    try:
-        rec_csv = _find_latest("table1_recovery_from_results_paper_*.csv")
-    except Exception:
-        rec_csv = None
-
-    rec_by_alias: dict[str, dict[str, float]] = {}
-    if rec_csv is not None:
-        with rec_csv.open("r", newline="") as f:
-            for r in csv.DictReader(f):
-                a = (r.get("alias") or "").strip()
-                if not a:
-                    continue
-                rec_by_alias[a] = {
-                    "c": float(r["nrc_recovery"]),
-                    "p": float(r["persona_recovery"]),
-                    "d": float(r["delta_recovery"]),
-                }
-
-    # Keep this in sync with Table~\ref{tab:main} row definitions.
-    model_to_aliases_for_recovery: dict[str, list[str]] = {
-        "Llama-3.1-8B-Instruct": ["llama_seed1", "llama_seed2"],
-        "Mistral-7B-Instruct": ["mistral_seed1", "mistral_seed2"],
-        "Llama-3.2-3B-Instruct": [
-            "tier1_llama3_3b_seed1_20260212_030426",
-            "tier1_llama3_3b_seed2_20260212_042339",
-        ],
-        "Qwen2.5-14B-Instruct": [
-            "tier1_qwen2p5_14b_seed1_20260219_032551",
-            "tier1_qwen2p5_14b_seed2_20260219_053824",
-        ],
-        # NOTE: Phi / Zephyr / DeepSeek / Yi recovery is currently missing from the
-        # staged results_paper manifest in this repo snapshot.
-    }
+    # Recovery@flip (Control vs Persona):
+    # Prefer absolute values from results_paper-derived artifact when available.
+    # (These columns are present only when the underlying run exported
+    # `paper_exports/recovery_accuracy.csv`.)
 
     for display, glob_pat in model_to_glob.items():
         p = _find_latest(glob_pat)
@@ -200,21 +170,20 @@ def build_rows(model_to_glob: dict[str, str]) -> list[Row]:
             fail_delta_mean = _mean(fail_deltas) if fail_deltas else None
             fail_delta_std = _std(fail_deltas) if len(fail_deltas) >= 2 else (0.0 if fail_deltas else None)
 
-        # Recovery@flip (collapsed over personas): mean±std across staged aliases/seeds.
+        # Recovery@flip (collapsed over personas): mean±std over staged aliases/seeds.
         rec_c_mean = rec_c_std = rec_p_mean = rec_p_std = rec_d_mean = None
-        if display in model_to_aliases_for_recovery and rec_by_alias:
-            aliases = model_to_aliases_for_recovery[display]
-            c_vals = [rec_by_alias[a]["c"] for a in aliases if a in rec_by_alias]
-            p_vals = [rec_by_alias[a]["p"] for a in aliases if a in rec_by_alias]
-            d_vals = [rec_by_alias[a]["d"] for a in aliases if a in rec_by_alias]
-            if c_vals:
-                rec_c_mean = _mean(c_vals)
-                rec_c_std = _std(c_vals)
-            if p_vals:
-                rec_p_mean = _mean(p_vals)
-                rec_p_std = _std(p_vals)
-            if d_vals:
-                rec_d_mean = _mean(d_vals)
+        if abs_rows:
+            nrc_rec = [float(r["nrc_recovery"]) for r in abs_rows if r.get("nrc_recovery")]
+            p_rec = [float(r["persona_recovery"]) for r in abs_rows if r.get("persona_recovery")]
+            d_rec = [float(r["delta_recovery"]) for r in abs_rows if r.get("delta_recovery")]
+            if nrc_rec:
+                rec_c_mean = _mean(nrc_rec)
+                rec_c_std = _std(nrc_rec) if len(nrc_rec) >= 2 else 0.0
+            if p_rec:
+                rec_p_mean = _mean(p_rec)
+                rec_p_std = _std(p_rec) if len(p_rec) >= 2 else 0.0
+            if d_rec:
+                rec_d_mean = _mean(d_rec)
 
         out.append(
             Row(
