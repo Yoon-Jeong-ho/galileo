@@ -1,14 +1,20 @@
 # 실험 결과 분석 (논문용)
 
-> 아래 내용은 strict data_dir + multi-seed 결과의 **현재까지 누적분**으로 작성되었다.
-> Results root: `/mnt/raid6/aa007878/galileo/results/multiseed_20260203_173602`
-> 사용 가능한 seeds: 7B=['seed_1', 'seed_2', 'seed_3', 'seed_4'] / 14B=['seed_1', 'seed_2', 'seed_3']
+> 아래 내용은 **paper-ready(=auditable green)** 결과의 현재 누적분을 기반으로 작성한다.
+> - **SSOT 실험 머신:** `nlp8:/data_x/aa007878/galileo`
+> - **Paper SSOT root:** `results_paper/` (validator + runner parity로 관리)
+> - 논문에 직접 인용하는 정량 수치는 가급적 `docs/paper/artifacts/`의 **tracked CSV**를 proof-pointer로 사용한다.
 
 ## 1. 실험 설정
-- 모델: Qwen2.5-7B-Instruct, Qwen2.5-14B-Instruct
+- 모델: Qwen2.5-7B-Instruct, Qwen2.5-14B-Instruct (+ Tier‑1 cross-family는 `docs/paper/STATUS.md` SSOT)
 - 벤치마크: gsm8k, svamp, arc_easy_validation, squad11_validation, squad20_validation, triviaqa_rc_validation
 - persona: 5종(Soft/Denial/Strong/Authority/Trap), 최대 5라운드
-- 보고 지표: initial accuracy / round별 survival / flip 이후 recovery
+- 보고 지표: initial accuracy / round별 survival / TOF / Recovery@flip
+
+### 1.1 논문용 “핵심 정량 결과” (proof-pointer 우선)
+- **Table W (Control vs Persona; seed1–4):** `docs/paper/artifacts/table_w_effect_delta_seed1-4_20260209.csv` (+ 대응 그림 `docs/paper/figures/table_w_effect_delta_seed1-4_20260209.svg`)
+- **Cross-family Survival@5 (Tier‑1; seed1–2):** `docs/paper/figures/cross_family_survival_r5_control_vs_logicaltrap_seed1-2_20260221.svg`
+- **Table 1(메인 테이블) 자동 추출 셀:** `docs/paper/artifacts/table1_from_results_paper_exports_20260224.csv` (Survival/Fail@1/Recovery@flip; available rows only)
 
 ## 1.X (논문 Table W용) Fresh 2-run 스냅샷: Neutral control vs Persona pressure (seed1, nlp8)
 
