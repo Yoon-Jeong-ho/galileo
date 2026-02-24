@@ -179,3 +179,6 @@ So the immediate next step becomes:
 
 - Keep runs light (avoid CPU overload; one heavy run at a time).
 - If any repo file changes: commit+push (no carry-over ambiguity).
+
+- (2026-02-25) Table‑1 artifact updated from `results_paper/` exports to include **Mistral‑Nemo Tier‑1(6-benchmark) pilots seed1–2** with Recovery@flip populated:
+  - `docs/paper/artifacts/table1_from_results_paper_exports_20260225_0229.csv`
