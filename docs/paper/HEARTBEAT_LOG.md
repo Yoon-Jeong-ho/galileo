@@ -1676,3 +1676,8 @@ ef{fig:protocol}).
 - Checked nlp8 `/data_x/aa007878/galileo/results` for `*phi3mini*` and `*mistralnemo*` at maxdepth=1: none found.
 - Checked nlp8 `results_paper/` for aliases containing `phi|nemo`: none found.
 - Only Phi‑3.5‑mini runs are currently present under `results/` (seed1–3). This means the “backfill recovery for Phi‑3‑mini/Mistral‑Nemo” step requires either recovering archived run dirs or rerunning those families.
+
+### 2026-02-24 15:40 KST — Planning/dev: wrote Tier‑1 rerun runbook note (Phi‑3‑mini vs Mistral‑Nemo)
+
+- Added `docs/paper/NEXT_TIER1_RERUN_PLAN.md` with a single-run tmux template + preflight/token-cap gates.
+- Purpose: make the next Tier‑1 rerun decision executable immediately once the target family is chosen.
