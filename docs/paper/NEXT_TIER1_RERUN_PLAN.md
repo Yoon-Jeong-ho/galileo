@@ -79,7 +79,8 @@ tmux new-session -d -s tier1-rerun \
    OUT=results/tier1_rerun_${MODEL##*/}_seed${SEED}_$(date +%Y%m%d_%H%M%S); \
    mkdir -p $OUT; \
    echo \"GPU=$GPU MODEL=$MODEL SEED=$SEED DATA_DIR=$DATA_DIR OUT=$OUT\" | tee -a $OUT/run.log; \
-   CUDA_VISIBLE_DEVICES=$GPU $CONDA_RUN python3 run_experiment.py \
+   # NOTE: stdout can be block-buffered; force line-buffering so run.log updates live.
+   CUDA_VISIBLE_DEVICES=$GPU PYTHONUNBUFFERED=1 stdbuf -oL -eL $CONDA_RUN python3 -u run_experiment.py \
      --model $MODEL --seed $SEED --num_samples 1000 --tensor_parallel_size 1 \
      --data_dir $DATA_DIR \
      --max_model_len 4096 --max_tokens 2048 \
@@ -96,6 +97,7 @@ tmux new-session -d -s tier1-rerun \
 
 Notes:
 - Prefer a **pilot first** (`--num_samples 200 --max_tokens 512`) if the model/stack is flaky; only scale up after validator + token-cap gate.
+- If `run.log` looks silent but GPU is busy, check output growth under `$OUT/<model_name>/*.jsonl` (size/mtime) to confirm progress.
 - `--max_model_len` must respect the model’s true context window (Phi‑3‑mini‑4k → 4096).
 
 ## After the rerun
