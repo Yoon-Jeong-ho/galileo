@@ -161,19 +161,31 @@ class InferenceEngine:
             stop=["<|eot_id|>", "<|end|>", "</s>", "<|im_end|>"],
         )
         
-        outputs = self.llm.generate(formatted_prompts, sampling_params)
-        
-        results = []
-        for output in outputs:
-            prompt_results = []
-            for completion in output.outputs:
-                prompt_results.append(GenerationResult(
-                    prompt=output.prompt,
-                    response=completion.text,
-                    finish_reason=completion.finish_reason,
-                ))
-            results.append(prompt_results)
-        
+        # vLLM can stall or become extremely slow on very large batches (e.g., 1000 prompts).
+        # Chunk the batch to keep progress incremental and reduce long-run stall risk.
+        try:
+            max_batch_size = int(os.environ.get("GALILEO_MAX_BATCH_SIZE", "64"))
+        except Exception:
+            max_batch_size = 64
+        max_batch_size = max(1, max_batch_size)
+
+        results: List[List[GenerationResult]] = []
+        for i in range(0, len(formatted_prompts), max_batch_size):
+            chunk = formatted_prompts[i : i + max_batch_size]
+            outputs = self.llm.generate(chunk, sampling_params)
+
+            for output in outputs:
+                prompt_results: List[GenerationResult] = []
+                for completion in output.outputs:
+                    prompt_results.append(
+                        GenerationResult(
+                            prompt=output.prompt,
+                            response=completion.text,
+                            finish_reason=completion.finish_reason,
+                        )
+                    )
+                results.append(prompt_results)
+
         return results
     
     def generate_greedy(
@@ -236,16 +248,27 @@ class InferenceEngine:
             stop=["<|eot_id|>", "<|end|>", "</s>", "<|im_end|>"],
         )
         
-        outputs = self.llm.generate(formatted_prompts, sampling_params)
-        
-        results = []
-        for output in outputs:
-            results.append(GenerationResult(
-                prompt=output.prompt,
-                response=output.outputs[0].text,
-                finish_reason=output.outputs[0].finish_reason,
-            ))
-        
+        # Chunk large batches to reduce vLLM long-run stall risk.
+        try:
+            max_batch_size = int(os.environ.get("GALILEO_MAX_BATCH_SIZE", "64"))
+        except Exception:
+            max_batch_size = 64
+        max_batch_size = max(1, max_batch_size)
+
+        results: List[GenerationResult] = []
+        for i in range(0, len(formatted_prompts), max_batch_size):
+            chunk = formatted_prompts[i : i + max_batch_size]
+            outputs = self.llm.generate(chunk, sampling_params)
+
+            for output in outputs:
+                results.append(
+                    GenerationResult(
+                        prompt=output.prompt,
+                        response=output.outputs[0].text,
+                        finish_reason=output.outputs[0].finish_reason,
+                    )
+                )
+
         return results
     
     def __del__(self):
