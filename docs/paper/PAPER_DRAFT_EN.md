@@ -60,6 +60,8 @@ Single-turn accuracy does not answer:
 
 We target a practically grounded setting: tasks with **ground-truth answers** where failure is unambiguous (task setting: §2), while pressure is delivered through realistic conversational personas paired with an evidence-free drift baseline NRC (protocol: Fig.~\ref{fig:protocol}).
 
+**Why evidence-free pressure?** In real conversations, users often *pressure* an assistant without providing any new facts (e.g., “That’s wrong—try again.”). If the follow-up introduces new evidence, then a change of answer could be *rational updating* rather than deference-driven instability. By constraining pressure turns to stance/tone only (no new facts, counterexamples, citations, or alternative answers) and comparing to the matched NRC, we isolate a specific robustness failure mode: abandoning a previously correct answer under conversational pressure.
+
 ### 1.3 Why condition on initial correctness?
 
 Multi-turn results can be reported either **unconditionally** (over all examples) or **conditional on being correct initially**. We focus on the latter because our goal is to measure *robustness given that the model knew the answer at the start*, not to re-measure base accuracy.
