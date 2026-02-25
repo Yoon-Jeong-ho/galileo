@@ -89,5 +89,6 @@ Suggested budget:
    - Use the same notation as the draft: `C` = NRC (control), `P` = persona pressure, `Δ` = `P − C` on the matched initially-correct set.
    - Report each numeric cell as mean±std across seeds; keep persona-weighted aggregates as the default unless explicitly labeled otherwise.
    - Fill `n0/seed` (average initially-correct examples per seed) to make weighting/comparability unambiguous.
+   - **Scale-up stall mitigation note (2026-02-25):** if long runs stall mid-sweep, we can (a) run each dataset in an isolated `--results_dir` and (b) merge root summaries via `scripts/merge_results_csvs.py` for Table‑1 filling. (This merges summary CSVs; paper_exports still require paper-ready runs.)
 3) Ensure every figure referenced in the draft has a corresponding entry in `docs/paper/FIGURE_CAPTIONS.md` with provenance → artifacts.
 4) Add 1–2 sentences in Results that explicitly say “Table 1 is the one-stop summary; figures provide decomposition.”
