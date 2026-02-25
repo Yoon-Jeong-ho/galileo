@@ -1,0 +1,23 @@
+Aggregated mean±std across seeds (from docs/paper/artifacts/table1_from_results_paper_exports_20260226_0040.csv)
+
+MODEL Llama-3.2-3B-Instruct (n=2)
+  nrc_survival_r5: 0.094862 ± 0.000000
+  persona_survival_r5: 0.045159 ± 0.002655
+  delta_survival_r5: -0.049703 ± 0.002655
+  nrc_fail1: 0.546442 ± 0.013975
+  persona_fail1: 0.663933 ± 0.000140
+  delta_fail1: 0.117490 ± 0.014114
+  nrc_recovery: 0.504913 ± 0.025474
+  persona_recovery: 0.455642 ± 0.004615
+  delta_recovery: -0.049271 ± 0.030090
+
+MODEL Mistral-Nemo-Instruct-2407 (n=2)
+  nrc_survival_r5: 0.305417 ± 0.008915
+  persona_survival_r5: 0.168912 ± 0.006581
+  delta_survival_r5: -0.136505 ± 0.002334
+  nrc_fail1: 0.439453 ± 0.018411
+  persona_fail1: 0.525227 ± 0.003936
+  delta_fail1: 0.085775 ± 0.014475
+  nrc_recovery: 0.526707 ± 0.016032
+  persona_recovery: 0.570563 ± 0.015743
+  delta_recovery: 0.043856 ± 0.000288
