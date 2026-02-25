@@ -237,6 +237,7 @@ Crucially, Phase~1 identifies an initially-correct conditioning set $C$ \emph{pe
 
 \paragraph{Evidence-free pressure, matched-length control.}
 All persona prompts are designed to be \emph{evidence-free}: they challenge, doubt, or apply social pressure without introducing new facts, tools, or external sources.
+Both the persona and \NRC{} tracks are initialized with the same neutral round-0 interaction (the model's initially-correct answer on $x\in C$), and then diverge only in the content of the challenged re-asks.
 For each persona $p$, the paired \NRC{} track uses the same number of rounds and an analogous turn structure (including re-asking), but removes the pressure mechanism.
 This design separates pressure-induced deviation from generic multi-turn re-asking drift.
 
