@@ -3,6 +3,8 @@ vLLM-based inference engine for batch generation.
 """
 
 import os
+import sys
+import time
 from typing import List, Dict, Any, Optional, Union
 from dataclasses import dataclass
 from vllm import LLM, SamplingParams
@@ -44,6 +46,12 @@ class InferenceEngine:
         print(f"  Tensor parallel size: {tensor_parallel_size}")
         print(f"  Max model length: {max_model_len}")
         
+        t0 = time.time()
+        print(
+            f"[vllm:init] model={model_name} tp={tensor_parallel_size} max_model_len={max_model_len} "
+            f"gpu_memory_utilization={gpu_memory_utilization} enforce_eager={bool(enforce_eager)}",
+            flush=True,
+        )
         self.llm = LLM(
             model=model_name,
             tensor_parallel_size=tensor_parallel_size,
@@ -52,6 +60,7 @@ class InferenceEngine:
             trust_remote_code=True,
             enforce_eager=bool(enforce_eager),
         )
+        print(f"[vllm:init] done in {time.time()-t0:.1f}s", flush=True)
         
         self.tokenizer = self.llm.get_tokenizer()
         print(f"Model loaded successfully: {self.model_short_name}")
@@ -174,7 +183,14 @@ class InferenceEngine:
         results: List[List[GenerationResult]] = []
         for i in range(0, len(formatted_prompts), max_batch_size):
             chunk = formatted_prompts[i : i + max_batch_size]
+            print(
+                f"[vllm:generate] beam chunk={i}:{i+len(chunk)}/{len(formatted_prompts)} n={n} "
+                f"max_tokens={safe_max_tokens} temp={temperature}",
+                flush=True,
+            )
+            t_gen = time.time()
             outputs = self.llm.generate(chunk, sampling_params)
+            print(f"[vllm:generate] beam chunk done in {time.time()-t_gen:.1f}s", flush=True)
 
             for output in outputs:
                 prompt_results: List[GenerationResult] = []
@@ -260,7 +276,14 @@ class InferenceEngine:
         results: List[GenerationResult] = []
         for i in range(0, len(formatted_prompts), max_batch_size):
             chunk = formatted_prompts[i : i + max_batch_size]
+            print(
+                f"[vllm:generate] mt chunk={i}:{i+len(chunk)}/{len(formatted_prompts)} "
+                f"max_tokens={safe_max_tokens} temp={temperature}",
+                flush=True,
+            )
+            t_gen = time.time()
             outputs = self.llm.generate(chunk, sampling_params)
+            print(f"[vllm:generate] mt chunk done in {time.time()-t_gen:.1f}s", flush=True)
 
             for output in outputs:
                 results.append(
