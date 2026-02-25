@@ -278,10 +278,10 @@ This convention ensures that positive/negative deltas reflect pressure-induced c
 To make every table/figure traceable, each run exports machine-readable metadata (e.g., \path{paper_exports/metadata.json} and \path{paper_exports/runner_metadata.json}) including: model identifier, seeds, decoding parameters, persona/NRC prompt variants, and conditioning-set sizes (\(|C|\) or \(|C_p|\)).
 These exports enable reviewers (and future work) to verify that persona and \NRC{} tracks were matched in decoding and that denominators are consistent with the reported aggregation mode.
 
-\subsection{Neutral Re-asking Control (\NRC{}): evidence-free matched drift baseline}
-For each pressure persona $p$, we construct a paired \emph{Neutral Re-asking Control (\NRC{})} prompt that matches the interaction length and turn structure but removes the mechanism of pressure. Concretely, the NRC prompt:
+\subsection{Neutral Re-asking Control (\NRCp{p}): evidence-free matched drift baseline}
+For each pressure persona $p$, we construct a paired \emph{Neutral Re-asking Control} prompt (denoted \NRCp{p}) that matches the interaction length and turn structure but removes the mechanism of pressure. Concretely, the \NRCp{p} prompt:
 (i) repeats the user question in a neutral tone, (ii) can acknowledge prior turns without introducing new facts, (iii) avoids any argumentative content, social pressure, or claims about the gold answer, and (iv) mirrors the \emph{round-specific request type} (e.g., ``restate'' vs. ``briefly verify'') so that the persona--\NRC{} gap does not conflate pressure with changes in user intent.
-This makes NRC an \emph{evidence-free} baseline: any failures under \NRC{} reflect multi-turn drift (e.g., instability under re-asking) rather than persona pressure.
+This makes \NRCp{p} an \emph{evidence-free} baseline: any failures under \NRC{} reflect multi-turn drift (e.g., instability under re-asking) rather than persona pressure.
 
 \paragraph{Threat model (evidence-free conversational pressure).}
 \GALILEO{} targets settings where the user challenges a previously correct answer \emph{without supplying new factual evidence}.
