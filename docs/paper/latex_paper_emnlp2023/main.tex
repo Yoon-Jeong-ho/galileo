@@ -93,7 +93,7 @@
 \maketitle
 
 \begin{abstract}
-Large language models can abandon a previously correct answer (a \emph{flip}) when repeatedly challenged \emph{without new evidence}---a multi-turn failure mode that single-turn accuracy can hide.
+Large language models can abandon a previously correct answer (a \emph{flip}) when repeatedly challenged \emph{without new evidence}---a multi-turn failure mode that single-turn accuracy can hide \citep{laban2023areyousureflipflop,liu2025truthdecayquantifyingmultiturn}.
 We introduce \textbf{\GALILEO{}}, an auditable protocol on ground-truth tasks that measures \emph{deviation from truth} by (i) evaluating only initially-correct examples and (ii) pairing each pressure persona $p$ with a matched \emph{Neutral Re-asking Control} (\NRCp{p}) that keeps interaction length and decoding fixed, but replaces pressure with affectively neutral re-asks.
 Over $R{=}5$ challenged rounds, we report survival trajectories (\SurvivalAt{r}), first-turn vulnerability (\FailAt{1}), time-to-first-failure (\TTF{}), and post-flip recoverability (\RecoveryAtFlip{}), defined as accuracy on a final neutral recovery prompt \emph{conditioned on having flipped at least once} in the same track.
 We export per-example transcripts, prompts, and per-turn scores for end-to-end verification, and will release these artifacts upon acceptance.
