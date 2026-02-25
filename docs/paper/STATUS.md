@@ -201,3 +201,7 @@ So the immediate next step becomes:
 - (2026-02-25) Exposed vLLM stability knobs for long scale-up runs: `run_experiment.py --gpu_memory_utilization <float>` and `--enforce_eager` (plumbs into `InferenceEngine`/vLLM).
 - (2026-02-25) Nemo scale-up instability update: multiple Nemo runs stall at/after `gsm8k_initial.jsonl` (no JSONL mtime updates; root CSVs absent). For diagnosing silent stalls, prefer `scripts/check_run_progress.py` (JSONL mtimes + root CSV presence) over `run.log`.
 - (2026-02-25) Debugging note: Llama-3.2-3B smoke runs emit `[dbg ...]` logs and complete, but Nemo smoke runs can produce **no stdout/stderr at all** (even with import breadcrumbs), while leaving a `VLLM::EngineCore` process on GPU. Treat as an early/hard hang and kill quickly to avoid GPU burn.
+
+- (2026-02-26) New cross-family evidence added: **Llama-3.2-3B-Instruct Tier-1(6) pilots seeds 1–2** completed and made paper-ready (exports generated + validator OK). Table-1 artifact + LaTeX rows updated:
+  - `docs/paper/artifacts/table1_from_results_paper_exports_20260226_0040.csv`
+  - `docs/paper/latex_paper_emnlp2023/generated/table1_rows.tex`
