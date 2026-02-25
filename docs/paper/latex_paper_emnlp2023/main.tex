@@ -323,6 +323,12 @@ We report four complementary quantities over the $R{=}5$ challenged rounds (all 
 \textbf{Aggregation (personas $\rightarrow$ tasks).} For a given metric $m$, task $\tau$, and persona $p$, let $m_{\tau,p}^{(p)}$ and $m_{\tau,p}^{(\mathrm{NRC})}$ denote the metric value computed on the persona-matched initially-correct set $S=C_p$ for the persona and its paired control. We form the within-persona gap $\Delta m_{\tau,p}=m_{\tau,p}^{(p)}-m_{\tau,p}^{(\mathrm{NRC})}$.
 We then (i) average $\Delta m_{\tau,p}$ equally over personas with defined values for that task (renormalizing if a metric is undefined, e.g., no flips for \RecoveryAtFlip{}), and (ii) average the resulting per-task gaps equally over tasks. This matches the reporting in Table~\ref{tab:main}.
 
+\paragraph{Uncertainty reporting (recommended).}
+Because metrics are computed on finite conditioning sets and we emphasize persona--\NRC{} \emph{gaps}, we recommend reporting uncertainty for all headline deltas using resampling that respects the matched-set design.
+Concretely, for a fixed run (seed) and persona $p$, compute a \emph{paired} bootstrap confidence interval for $\Delta m_{\tau,p}$ by resampling examples $x$ with replacement from the shared conditioning set $C_p$ and recomputing both persona and \NRC{} metrics on the same resampled indices.
+When aggregating across seeds, report mean\,$\pm$\,std over seeds and/or a hierarchical bootstrap that first resamples seeds and then examples within each seed.
+This yields interpretable uncertainty without assuming parametric survival models.
+
 We formalize the trajectory metrics used throughout. Let $x$ be an example with gold answer $a(x)$. 
 For each track $t\in\{p,\mathrm{NRC}\}$ (persona vs control) and challenged round $r\in\{1,\dots,R\}$, define the correctness indicator
 $c^{(t)}_{r}(x)=\mathbb{1}[\text{model output at round $r$ matches }a(x)]$.
