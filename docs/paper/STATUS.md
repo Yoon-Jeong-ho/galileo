@@ -198,3 +198,5 @@ So the immediate next step becomes:
 - (2026-02-25) Added stronger robustness flag: `run_experiment.py --reset_engine_between_tasks` (recreates vLLM engine per dataset JSONL) to mitigate scale-up stalls that survive phase-level resets.
 
 - (2026-02-25) Added `scripts/merge_results_csvs.py` to merge root CSV summaries across multiple partial runs (enables dataset-by-dataset isolation when long scale-up sweeps stall).
+
+- (2026-02-25) Mitigation for scale-up stalls: vLLM generation is now chunked to avoid huge batches. Control via env `GALILEO_MAX_BATCH_SIZE` (default 64). See `inference.py`.
