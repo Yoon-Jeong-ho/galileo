@@ -375,7 +375,7 @@ The hazard view makes clear whether a persona concentrates failures immediately 
 \paragraph{Time-to-first-failure (\TTF{}) and \FailAt{1}.}
 Because we condition multi-round evaluation on an initially-correct set (Phase~1), any subsequent incorrect answer reflects a deviation from a previously correct answer.
 Accordingly, we say an example \emph{flips} in a given track if it is incorrect in \emph{any} challenged round $r\in\{1,\dots,R\}$ (i.e., if $c^{(t)}_{r}(x)=0$ for some $r$).
-Define the right-censored first-failure time over the \emph{challenged} rounds $r\in\{1,\dots,R\}$ (the final recovery turn is \emph{not} included):
+Define the finite-horizon first-failure time over the \emph{challenged} rounds $r\in\{1,\dots,R\}$ (the final recovery turn is \emph{not} included). If an example never fails within the horizon, we encode its time as $R{+}1$ (an ``administrative'' right-censoring at the study end, not statistical censoring from missing observations):
 Let $A^{(t)}(x) \equiv \{\, r \in \{1,\dots,R\} : c^{(t)}_{r}(x)=0 \,\}$ be the set of challenged rounds where the example is incorrect.
 \begin{equation}
 \mathrm{TTF}^{(t)}(x)
@@ -385,7 +385,7 @@ Let $A^{(t)}(x) \equiv \{\, r \in \{1,\dots,R\} : c^{(t)}_{r}(x)=0 \,\}$ be the 
 R{+}1 & \text{otherwise}.
 \end{cases}
 \end{equation}
-We summarize \TTF at the population level using the expectation $\mathbb{E}_{x\sim S}[\mathrm{TTF}^{(t)}(x)]$ (with right-censoring encoded as $R{+}1$). This expectation has a simple identity in terms of the survival curve (recall $\mathrm{Survival}^{(t)}(0)\equiv 1$):
+We summarize \TTF at the population level using the expectation $\mathbb{E}_{x\sim S}[\mathrm{TTF}^{(t)}(x)]$ (with the no-failure case encoded as $R{+}1$). This expectation has a simple identity in terms of the survival curve (recall $\mathrm{Survival}^{(t)}(0)\equiv 1$):
 \begin{equation*}
 \mathbb{E}_{x\sim S}[\mathrm{TTF}^{(t)}(x)] \;=\; \sum_{r=0}^{R} \mathrm{Survival}^{(t)}(r).
 \end{equation*}
