@@ -268,7 +268,7 @@ computed on the same conditioning set (typically $C_p$; \S\ref{sec:conditioning-
 This convention ensures that positive/negative deltas reflect pressure-induced changes beyond evidence-free drift.
 
 \paragraph{Auditability and exported metadata.}
-To make every table/figure traceable, each run exports machine-readable metadata under \texttt{paper\_exports/} (e.g., \texttt{metadata.json} and \texttt{runner\_metadata.json}) including: model identifier, seeds, decoding parameters, persona/NRC prompt variants, conditioning-set sizes (\(|C|\) or \(|C_p|\)), and the git commit hash of the code used to generate the artifacts.
+To make every table and figure traceable, each run exports machine-readable metadata under \path{paper_exports/}. For example, we include \path{metadata.json} and \path{runner_metadata.json} with: model identifier, seeds, decoding parameters, persona/NRC prompt variants, conditioning-set sizes (\(|C|\) or \(|C_p|\)), and the git commit hash of the code used to generate the artifacts.
 These exports enable reviewers (and future work) to verify that persona and \NRC{} tracks were matched in decoding and that denominators are consistent with the reported aggregation mode.
 
 \subsection{Neutral Re-asking Control (\NRCp{p}): evidence-free matched drift baseline}
