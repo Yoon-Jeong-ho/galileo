@@ -217,11 +217,12 @@ def render_table_rows(rows: list[Row]) -> str:
             if r.delta_fail1_std is None:
                 fail_delta_cell = _fmt(r.delta_fail1_mean)
             else:
-                fail_delta_cell = f"{_fmt(r.delta_fail1_mean)}$\\pm${_fmt(r.delta_fail1_std)}"
+                # Use \tabpm (defined in main.tex) to keep dense numeric columns from overflowing.
+                fail_delta_cell = f"{_fmt(r.delta_fail1_mean)}\\tabpm{_fmt(r.delta_fail1_std)}"
 
         # Recovery@flip (collapsed): only tracked for some settings.
-        rec_nrc_cell = "--" if r.nrc_rec_mean is None else f"{_fmt(r.nrc_rec_mean)}$\\pm${_fmt(r.nrc_rec_std or 0.0)}"
-        rec_p_cell = "--" if r.persona_rec_mean is None else f"{_fmt(r.persona_rec_mean)}$\\pm${_fmt(r.persona_rec_std or 0.0)}"
+        rec_nrc_cell = "--" if r.nrc_rec_mean is None else f"{_fmt(r.nrc_rec_mean)}\\tabpm{_fmt(r.nrc_rec_std or 0.0)}"
+        rec_p_cell = "--" if r.persona_rec_mean is None else f"{_fmt(r.persona_rec_mean)}\\tabpm{_fmt(r.persona_rec_std or 0.0)}"
         rec_d_cell = "--" if r.delta_rec_mean is None else _fmt(r.delta_rec_mean)
 
         lines.append(
@@ -229,9 +230,9 @@ def render_table_rows(rows: list[Row]) -> str:
                 [
                     f"{r.model}",
                     "&",
-                    f"{_fmt(r.nrc_surv_mean)}$\\pm${_fmt(r.nrc_surv_std)}",
+                    f"{_fmt(r.nrc_surv_mean)}\\tabpm{_fmt(r.nrc_surv_std)}",
                     "&",
-                    f"{_fmt(r.persona_surv_mean)}$\\pm${_fmt(r.persona_surv_std)}",
+                    f"{_fmt(r.persona_surv_mean)}\\tabpm{_fmt(r.persona_surv_std)}",
                     "&",
                     f"{_fmt(delta_surv)}",
                     "&",
