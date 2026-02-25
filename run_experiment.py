@@ -14,6 +14,10 @@ NEW DESIGN:
 
 import os
 import sys
+
+# Import-phase debug breadcrumbs (helps localize stalls before run_experiment() starts).
+print("[import] run_experiment.py: begin", flush=True)
+
 import argparse
 import json
 import csv
@@ -34,7 +38,9 @@ except ImportError:
 # Set GPU visibility before importing torch/vllm
 # (default is also set in config.py; keep this aligned with shared-server policy)
 os.environ.setdefault("CUDA_VISIBLE_DEVICES", "4,5,6,7")
+print(f"[import] CUDA_VISIBLE_DEVICES={os.environ.get('CUDA_VISIBLE_DEVICES')}", flush=True)
 
+print("[import] importing config...", flush=True)
 from config import (
     MODELS,
     SYSTEM_PROMPT,
