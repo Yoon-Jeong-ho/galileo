@@ -265,7 +265,7 @@ def main() -> int:
         "Llama-3.1-8B-Instruct": "tier1_llama3_8b_seed1-2_survival_summary_*.csv",
         "Llama-3.2-3B-Instruct": "tier1_llama3_3b_seed1-2_survival_summary_*.csv",
         "Mistral-7B-Instruct": "tier1_mistral7b_seed1-2_survival_summary_*.csv",
-        "Mistral-Nemo-Instruct": "tier1_mistralnemo_seed1-2_survival_summary_*.csv",
+        "Mistral-Nemo-Instruct-2407": "tier1_mistralnemo_seed1-2_survival_summary_*.csv",
         "Phi-3-mini-4k-instruct": "tier1_phi3mini_seed1-2_survival_summary_*.csv",
         "Phi-3.5-mini-instruct": "tier1_phi35mini_seed1-2_survival_summary_*.csv",
         "Zephyr-7B": "tier1_zephyr7b_seed1-2_survival_summary_*.csv",
