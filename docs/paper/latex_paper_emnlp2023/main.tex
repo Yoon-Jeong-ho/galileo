@@ -97,8 +97,8 @@ Large language models can abandon a previously correct answer (a \emph{flip}) wh
 We introduce \textbf{\GALILEO{}}, an auditable protocol on ground-truth tasks that measures \emph{deviation from truth} by (i) evaluating only initially-correct examples and (ii) pairing each pressure persona $p$ with a matched \emph{Neutral Re-asking Control} (\NRCp{p}) that keeps interaction length and decoding fixed, but replaces pressure with affectively neutral re-asks.
 Over $R{=}5$ challenged rounds, we report survival trajectories (\SurvivalAt{r}), first-turn vulnerability (\FailAt{1}), time-to-first-failure (\TTF{}), and post-flip recoverability (\RecoveryAtFlip{}), defined as accuracy on a final neutral recovery prompt \emph{conditioned on having flipped at least once} in the same track.
 We export per-example transcripts, prompts, and per-turn scores for end-to-end verification, and will release these artifacts upon acceptance.
-Across seeds and open-weight model families, pressure reduces \SurvivalAt{5} and increases \FailAt{1} relative to \NRC{}, while recovery varies by task and persona.
-For \textbf{Qwen2.5-7B-Instruct} (seeds~1--4), equal-weight averaging over 5 tasks $\times$ 5 personas, pressure lowers \SurvivalAt{5} by 22.8\,pp and raises \FailAt{1} by 6.9\,pp versus the matched \NRC{} baseline (Table~\ref{tab:main}). These gaps are computed within each persona on the same initially-correct subset $C_p$ (examples correct at round~0), isolating pressure effects from generic drift under repeated re-asking.
+Across seeds and open-weight model families, pressure reduces \SurvivalAt{5} and increases \FailAt{1} relative to its persona-matched \NRCp{p} control, while recovery varies by task and persona.
+For \textbf{Qwen2.5-7B-Instruct} (seeds~1--4), equal-weight averaging over 5 tasks $\times$ 5 personas, pressure lowers \SurvivalAt{5} by 22.8\,pp and raises \FailAt{1} by 6.9\,pp versus the matched \NRCp{p} baseline (Table~\ref{tab:main}). These gaps are computed within each persona on the same initially-correct subset $C_p$ (examples correct at round~0), isolating pressure effects from generic drift under repeated re-asking.
 Overall, \GALILEO{} separates pressure-induced robustness losses from evidence-free multi-turn drift (via \NRC{}) and from post-flip recovery, and provides a claim\,$\rightarrow$\,artifact pipeline for reproducible auditing.
 \end{abstract}
 
@@ -275,7 +275,7 @@ computed on the same conditioning set (typically $C_p$; \S\ref{sec:conditioning-
 This convention ensures that positive/negative deltas reflect pressure-induced changes beyond evidence-free drift.
 
 \paragraph{Auditability and exported metadata.}
-To make every table/figure traceable, each run exports machine-readable metadata (e.g., \path{paper_exports/metadata.json} and \path{paper_exports/runner_metadata.json}) including: model identifier, seeds, decoding parameters, persona/NRC prompt variants, and conditioning-set sizes (\(|C|\) or \(|C_p|\)).
+To make every table/figure traceable, each run exports machine-readable metadata under \texttt{paper\_exports/} (e.g., \texttt{metadata.json} and \texttt{runner\_metadata.json}) including: model identifier, seeds, decoding parameters, persona/NRC prompt variants, and conditioning-set sizes (\(|C|\) or \(|C_p|\)).
 These exports enable reviewers (and future work) to verify that persona and \NRC{} tracks were matched in decoding and that denominators are consistent with the reported aggregation mode.
 
 \subsection{Neutral Re-asking Control (\NRCp{p}): evidence-free matched drift baseline}
@@ -655,7 +655,7 @@ We hope \GALILEO{} and its paper-ready exports help make multi-turn reliability 
 \subsection{Experimental settings (detailed, reviewer-auditable)}
 Unless otherwise noted, we run $R{=}5$ pressure rounds and use the same decoding configuration for persona and \NRC{} tracks.
 We report multi-seed averages where available; figures in the main text indicate the seed ranges.
-For each run, we export metadata files (\texttt{paper\_exports/metadata.json} and \texttt{paper\_exports/runner\_metadata.json}) that record the exact model identifier, decoding parameters, prompt variants, and dataset slices used.
+For each run, we export metadata files under \texttt{paper\_exports/} (e.g., \texttt{metadata.json} and \texttt{runner\_metadata.json}) that record the exact model identifier, decoding parameters, prompt variants, and dataset slices used.
 
 \begin{table*}[t]
 \centering
