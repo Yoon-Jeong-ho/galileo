@@ -543,37 +543,20 @@ Unless stated otherwise, results are reported as mean±std over **seeds 1–4** 
 **Sign convention (paper-wide):** \(\Delta\) is always **persona − control** on the matched initially-correct set (so negative \(\Delta\)Survival@5 means persona pressure reduces survival beyond drift).
 
 ```latex
-% Table 1 (skeleton): one-stop summary across model families.
-% Populate from tracked artifacts under docs/paper/artifacts/ + paper-ready runs under results_paper/.
-% Prefer persona-weighted aggregates; each numeric cell should be reported as mean±std across seeds.
-% Notation: C = Neutral Re-asking Control (NRC); P = persona pressure; Δ = P − C on the matched initially-correct set.
-\begin{table*}[t]
-  \centering
-  \scriptsize
-  \setlength{\tabcolsep}{4pt}
-  \begin{tabular}{lccc ccc ccc r}
-    \toprule
-    & \multicolumn{3}{c}{Survival@5 $\uparrow$} & \multicolumn{3}{c}{Fail@1 $\downarrow$} & \multicolumn{3}{c}{Recovery@flip $\uparrow$} & \\
-    \cmidrule(lr){2-4} \cmidrule(lr){5-7} \cmidrule(lr){8-10}
-    Model (seeds) & C & P & $\Delta$ & C & P & $\Delta$ & C & P & $\Delta$ & $n_0$/seed \\
-    \midrule
-    Qwen2.5-7B (1--4) & 0.803±0.007 & 0.542±0.010 & -0.261±0.018 & 0.113±0.010 & 0.211±0.007 & 0.098±0.004 & 0.704±0.015 & 0.773±0.009 & 0.069±0.011 & 398.8±6.0 \\
-    Llama-3.1-8B (1--2) & 0.131±0.005 & 0.062±0.006 & -0.069±0.001 & 0.606±0.014 & 0.673±0.009 & 0.067±0.004 & 0.717±0.069 & 0.646±0.010 & -0.070±0.059 & 416.5±10.6 \\
-    Mistral-7B (1--2)$^{\dagger}$ & 0.429±0.062 & 0.122±0.006 & -0.307±0.056 & 0.361±0.062 & 0.614±0.013 & 0.254±0.050 & 0.301±0.015 & 0.354±0.009 & 0.053±0.006 & 608.0±377.6 \\
-    Llama-3.2-3B (1--2) & 0.086±0.011 & 0.047±0.005 & -0.039±0.017 & 0.570±0.019 & 0.657±0.008 & 0.087±0.011 & 0.573±0.015 & 0.476±0.013 & -0.096±0.002 & 399.5±4.9 \\
-    Phi-3-mini-4k (1--2)$^{\ddagger}$ & 0.252±0.078 & 0.109±0.038 & -0.144±0.041 & 0.316±0.023 & 0.554±0.014 & 0.239±0.009 & -- & -- & -- & 245.5±2.1 \\
-    Mistral-Nemo (1--2)$^{\ddagger}$ & 0.325±0.048 & 0.179±0.017 & -0.146±0.031 & 0.446±0.000 & 0.516±0.022 & 0.071±0.022 & -- & -- & -- & 317.5±7.8 \\
-    Qwen2.5-14B (1--2) & 0.970±0.003 & 0.720±0.010 & -0.250±0.013 & 0.020±0.006 & 0.081±0.001 & 0.061±0.007 & 0.661±0.126 & 0.926±0.011 & 0.265±0.137 & 250.0±1.4 \\
-    \bottomrule
-  \end{tabular}
-  \caption{\textbf{Main results (one-stop summary).} Survival@5, Fail@1, and Recovery@flip (all reported as probabilities in $[0,1]$) for persona pressure (P) versus the matched evidence-free \textbf{Neutral Re-asking Control (NRC)} (C), aggregated over tasks and personas (persona-weighted unless stated). All numeric cells should be reported as mean±std across seeds. $\Delta$ is persona minus control on the matched initially-correct set. $n_0$/seed is the average number of initially-correct evaluation examples per seed (pooled across tasks/personas) for that row; reporting it avoids ambiguity about weighting and cross-row comparability and makes configuration mismatches visible when $n_0$ varies substantially across seeds. $^{\dagger}$Mistral seeds currently show a large $n_0$ mismatch, suggesting a non-standard run configuration; we plan to rerun under the standardized Tier-1 setting. $^{\ddagger}$For some cross-family runs, Recovery@flip is not yet available (recovery logs not retained under the current staged paper SSOT), so we show `--` and treat these entries as pending (not yet available). If Recovery@flip entries are shown as `--`, it indicates the recovery log was not available under the currently staged paper SSOT for that row. Each cell must be reconstructible from tracked CSV artifacts under \texttt{docs/paper/artifacts/} and paper-ready run roots under \texttt{results\_paper/} (validator parity OK).}
-  \label{tab:main}
-\end{table*}
+% Table 1 is maintained in the LaTeX SSOT (docs/paper/latex_paper_emnlp2023/main.tex)
+% and its rows are generated from tracked artifacts + results_paper exports:
+%   - docs/paper/latex_paper_emnlp2023/generated/table1_rows.tex
+%   - docs/paper/artifacts/table1_from_results_paper_exports_*.csv
+% Avoid duplicating numeric content here (prevents drift).
 ```
 
 (SSOT plan for what goes into Table~\ref{tab:main}: `docs/paper/MAIN_TABLE_AND_FIGURES_PLAN.md`.)
 
-Numbers currently filled for Survival@5 and Fail@1 are auto-derived from the tracked artifact `docs/paper/artifacts/table1_from_results_paper_exports_20260222.csv` (script: `scripts/make_table1_partial_from_results_paper_exports.py`). The $n_0$/seed column is derived from `docs/paper/artifacts/table1_n0_from_results_paper_exports_20260222.csv` (computed from `results_paper/*/paper_exports/survival_curve.csv` totals at round 1). Recovery@flip values (when present) are derived from `docs/paper/artifacts/table1_recovery_from_results_paper_20260222.csv`, which is computed from each run’s `recovery_accuracy.csv` (note: NRC appears there under the display label `Control Re-asking`). For some cross-family runs, `recovery_accuracy.csv` was not retained under the currently-staged paper SSOT; those rows are left as `--` and can be completed by re-running the recovery phase under the standardized Tier‑1 pipeline. (Rows still pending in Table~\ref{tab:main}: Phi-3-mini, Mistral-Nemo.)
+Table~\ref{tab:main} values are generated from paper-ready exports staged under `results_paper/` (nlp8 SSOT) and a tracked artifact snapshot:
+- Latest snapshot: `docs/paper/artifacts/table1_from_results_paper_exports_20260226_0040.csv`
+- LaTeX rows (SSOT include): `docs/paper/latex_paper_emnlp2023/generated/table1_rows.tex`
+
+(We avoid duplicating per-cell numeric provenance here; see `docs/paper/CLAIM_EVIDENCE_MAP.md`.)
 
 **Interpretation note.** Recovery@flip is conditional on flipping, so its effective sample size varies substantially across models/conditions; when interpreting Table~\ref{tab:main} recovery values, also consider the recovery denominators (see `control_total` / `persona_total` columns in `docs/paper/artifacts/table1_recovery_from_results_paper_20260222.csv`).
 
