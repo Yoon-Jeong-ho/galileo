@@ -76,6 +76,9 @@
 % font-shape warnings and slightly inconsistent typography).
 \newcommand{\GALILEO}{\textup{\textsc{GALILEO}}}
 \newcommand{\NRC}{\textup{\textsc{NRC}}}
+% Subscripted NRC variant used for persona-paired controls (e.g., NRC_p).
+% Wrap as a macro to keep typography consistent and avoid manual $_p$ sprinkling.
+\newcommand{\NRCp}[1]{\NRC{}$_{#1}$}
 
 % Page-budget markers (for PDF-first workflow).
 % These print page numbers into the LaTeX log so scripts can compute
@@ -91,7 +94,7 @@
 
 \begin{abstract}
 Large language models can abandon a previously correct answer (a \emph{flip}) when repeatedly challenged \emph{without new evidence}---a multi-turn failure mode that single-turn accuracy can hide.
-We introduce \textbf{\GALILEO{}}, an auditable protocol on ground-truth tasks that measures \emph{deviation from truth} by (i) evaluating only initially-correct examples and (ii) pairing each pressure persona $p$ with a matched \emph{Neutral Re-asking Control} (\NRC{}$_p$) that keeps interaction length and decoding fixed, but replaces pressure with affectively neutral re-asks.
+We introduce \textbf{\GALILEO{}}, an auditable protocol on ground-truth tasks that measures \emph{deviation from truth} by (i) evaluating only initially-correct examples and (ii) pairing each pressure persona $p$ with a matched \emph{Neutral Re-asking Control} (\NRCp{p}) that keeps interaction length and decoding fixed, but replaces pressure with affectively neutral re-asks.
 Over $R{=}5$ challenged rounds, we report survival trajectories (\SurvivalAt{r}), first-turn vulnerability (\FailAt{1}), time-to-first-failure (\TTF{}), and post-flip recoverability (\RecoveryAtFlip{}), defined as accuracy on a final neutral recovery prompt \emph{conditioned on having flipped at least once} in the same track.
 We export per-example transcripts, prompts, and per-turn scores for end-to-end verification, and will release these artifacts upon publication.
 Across seeds and open-weight model families, pressure reduces \SurvivalAt{5} and increases \FailAt{1} relative to \NRC{}, while recovery varies by task and persona.
@@ -130,7 +133,7 @@ By restricting multi-round evaluation to an initially-correct set $C$ (defined p
 \paragraph{Why a matched neutral control (\NRC{})?}
 Even evidence-free re-asking can induce drift across turns.
 \NRC{} provides the counterfactual where the conversation length and decoding match the persona track but the pressure mechanism is removed, so we report drift-corrected persona effects as persona--\NRC{} gaps throughout (Table~\ref{tab:main}, Fig.~\ref{fig:survival}, Fig.~\ref{fig:fail1}).
-Concretely, for each pressure persona $p$ we define a paired control template \NRC{}$_p$ that preserves the round structure and surface ``re-ask'' intent (e.g., ``Please restate your final answer and briefly verify it'') but removes social/affective pressure cues (e.g., denial, authority, insinuations).
+Concretely, for each pressure persona $p$ we define a paired control template \NRCp{p} that preserves the round structure and surface ``re-ask'' intent (e.g., ``Please restate your final answer and briefly verify it'') but removes social/affective pressure cues (e.g., denial, authority, insinuations).
 \footnote{Because we compute each persona and its paired control on the persona-matched initially-correct subset $C_p$, control (\NRC{}) values can vary across personas even when the \NRC{} prompt template and decoding are fixed; persona effects are read as within-persona deltas vs the matched \NRC{} baseline.}
 
 \paragraph{Scope and non-goals.}
@@ -473,7 +476,7 @@ This convention preserves drift correction (each persona is paired with its own 
 \midrule
 \IfFileExists{generated/table1_rows.tex}{\input{generated/table1_rows}}{\input{static/table1_rows}}
 \end{tabularx}
-\caption{\textbf{Main results (equal-weight over personas and tasks).} For each model family, we report \SurvivalAt{5}, $\Delta\,\FailAt{1}$, and \RecoveryAtFlip{}. Each persona $p$ (and its paired NRC$_p$) is computed on its matched Phase~1 initially-correct set $C_p$ (\S\ref{sec:conditioning-set}); $\Delta$ denotes the equal-weight mean of per-persona (Persona$-$NRC) gaps, then an equal-weight mean over tasks (\S\ref{sec:metrics}). Values are proportions in $[0,1]$ (multiply gaps by 100 for percentage points). \RecoveryAtFlip{} is conditional on the track-specific flipped set (\S\ref{sec:metrics}); interpret recovery alongside flip denominators (Table~\ref{tab:recovery-denoms}). ``--'' denotes undefined (no flips) or unavailable in the current artifact bundle.}
+\caption{\textbf{Main results (equal-weight over personas and tasks).} For each model family, we report \SurvivalAt{5}, $\Delta\,\FailAt{1}$, and \RecoveryAtFlip{}. Each persona $p$ (and its paired \NRCp{p}) is computed on its matched Phase~1 initially-correct set $C_p$ (\S\ref{sec:conditioning-set}); $\Delta$ denotes the equal-weight mean of per-persona (Persona$-$NRC) gaps, then an equal-weight mean over tasks (\S\ref{sec:metrics}). Values are proportions in $[0,1]$ (multiply gaps by 100 for percentage points). \RecoveryAtFlip{} is conditional on the track-specific flipped set (\S\ref{sec:metrics}); interpret recovery alongside flip denominators (Table~\ref{tab:recovery-denoms}). ``--'' denotes undefined (no flips) or unavailable in the current artifact bundle.}
 \label{tab:main}
 \end{table*}
 
