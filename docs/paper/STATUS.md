@@ -183,11 +183,8 @@ So the immediate next step becomes:
 - (2026-02-25) Table‑1 artifact updated from `results_paper/` exports to include **Mistral‑Nemo Tier‑1(6-benchmark) pilots seed1–2** with Recovery@flip populated:
   - `docs/paper/artifacts/table1_from_results_paper_exports_20260225_0229.csv`
 
-- (2026-02-25) Added a stdlib-only liveness/completion checker for remote runs (mitigates silent `run.log` buffering):
+- (2026-02-25) Added a stdlib-only liveness/completion checker for remote runs (mitigates silent `run.log` buffering + silent-stall GPU burn):
   - `scripts/check_run_progress.py` (checks JSONL mtimes + root CSV completion)
-
-- (2026-02-25) Added stdlib run-liveness checker (JSONL mtime + root CSV completion) to reduce silent-stall GPU burn:
-  - `scripts/check_run_progress.py`
 
 - (2026-02-25) Fixed `scripts/preflight_vllm_model.py` default behavior: preflight now caps `max_model_len` to 4096 by default to avoid KV-cache init failures on long-context models (e.g., Nemo 128k) on RTX8000.
 
