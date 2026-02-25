@@ -18,6 +18,7 @@ import argparse
 import json
 import csv
 import gc
+import time
 from datetime import datetime
 from typing import List, Dict, Any, Optional, Tuple
 from collections import defaultdict
@@ -531,6 +532,12 @@ def save_results_to_csv(
     print(f"  Saved to {config.results_dir}/")
 
 
+def _dbg(msg: str) -> None:
+    """Always-flushed timestamped log for diagnosing silent stalls."""
+    ts = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    print(f"[dbg {ts}] {msg}", flush=True)
+
+
 def run_experiment(config: ExperimentConfig) -> None:
     """Run the complete experiment pipeline."""
     print("\n" + "="*70)
@@ -556,13 +563,21 @@ def run_experiment(config: ExperimentConfig) -> None:
     all_recovery_results = []
     
     def _make_engine(model_name: str) -> InferenceEngine:
-        return InferenceEngine(
+        _dbg(
+            "engine_create start "
+            f"model={model_name} tp={config.tensor_parallel_size} max_model_len={config.max_model_len} "
+            f"gmu={getattr(config, 'gpu_memory_utilization', 0.90)} eager={getattr(config, 'enforce_eager', False)}"
+        )
+        t0 = time.time()
+        eng = InferenceEngine(
             model_name=model_name,
             tensor_parallel_size=config.tensor_parallel_size,
             max_model_len=config.max_model_len,
             gpu_memory_utilization=getattr(config, "gpu_memory_utilization", 0.90),
             enforce_eager=getattr(config, "enforce_eager", False),
         )
+        _dbg(f"engine_create done dt={time.time()-t0:.1f}s")
+        return eng
 
     for model_name in config.models:
         print(f"\n{'#'*70}")
@@ -576,6 +591,7 @@ def run_experiment(config: ExperimentConfig) -> None:
         
         for data_file in config.data_files:
             test_name = get_test_name(data_file)
+            _dbg(f"task_start test={test_name} data_file={data_file}")
 
             # Optionally isolate each dataset/task with a fresh engine.
             if config.reset_engine_between_tasks:
@@ -584,18 +600,30 @@ def run_experiment(config: ExperimentConfig) -> None:
                 engine = _make_engine(model_name)
             
             # Load data
+            _dbg(
+                f"load_dataset start test={test_name} num_samples={config.num_samples} "
+                f"shuffle={bool(config.test_mode or (config.num_samples > 0))} seed={config.seed}"
+            )
+            t_load = time.time()
             problems = load_dataset(
                 data_file,
                 num_samples=config.num_samples,
                 shuffle=(config.test_mode or (config.num_samples > 0)),
                 seed=config.seed,
             )
+            _dbg(f"load_dataset done test={test_name} n={len(problems)} dt={time.time()-t_load:.1f}s")
             problems = [prepare_problem(p) for p in problems]
             
             # Phase 1: Initial evaluation
+            _dbg(f"phase1_initial start test={test_name}")
+            t_p1 = time.time()
             initial_results = run_initial_evaluation(engine, problems, test_name, config)
+            _dbg(f"phase1_initial done test={test_name} n={len(initial_results)} dt={time.time()-t_p1:.1f}s")
             all_initial_results.extend(initial_results)
-            save_jsonl(initial_results, os.path.join(model_results_dir, f"{test_name}_initial.jsonl"))
+            out_initial = os.path.join(model_results_dir, f"{test_name}_initial.jsonl")
+            _dbg(f"save_jsonl initial start path={out_initial}")
+            save_jsonl(initial_results, out_initial)
+            _dbg("save_jsonl initial done")
 
             if config.reset_engine_between_phases:
                 del engine
@@ -603,11 +631,17 @@ def run_experiment(config: ExperimentConfig) -> None:
                 engine = _make_engine(model_name)
 
             # Phase 2: Adversarial testing
+            _dbg(f"phase2_adversarial start test={test_name}")
+            t_p2 = time.time()
             adversarial_results = run_adversarial_testing(engine, initial_results, config)
+            _dbg(f"phase2_adversarial done test={test_name} n={len(adversarial_results)} dt={time.time()-t_p2:.1f}s")
             all_adversarial_results.extend(adversarial_results)
             # Filter out internal fields (starting with _) when saving
             save_data = [{k: v for k, v in r.items() if not k.startswith("_")} for r in adversarial_results]
-            save_jsonl(save_data, os.path.join(model_results_dir, f"{test_name}_adversarial.jsonl"))
+            out_adv = os.path.join(model_results_dir, f"{test_name}_adversarial.jsonl")
+            _dbg(f"save_jsonl adversarial start path={out_adv}")
+            save_jsonl(save_data, out_adv)
+            _dbg("save_jsonl adversarial done")
 
             if config.reset_engine_between_phases:
                 del engine
@@ -615,10 +649,16 @@ def run_experiment(config: ExperimentConfig) -> None:
                 engine = _make_engine(model_name)
 
             # Phase 3: Recovery testing
+            _dbg(f"phase3_recovery start test={test_name}")
+            t_p3 = time.time()
             recovery_results = run_recovery_testing(engine, adversarial_results, config)
+            _dbg(f"phase3_recovery done test={test_name} n={len(recovery_results)} dt={time.time()-t_p3:.1f}s")
             all_recovery_results.extend(recovery_results)
             if recovery_results:
-                save_jsonl(recovery_results, os.path.join(model_results_dir, f"{test_name}_recovery.jsonl"))
+                out_rec = os.path.join(model_results_dir, f"{test_name}_recovery.jsonl")
+                _dbg(f"save_jsonl recovery start path={out_rec}")
+                save_jsonl(recovery_results, out_rec)
+                _dbg("save_jsonl recovery done")
         
         del engine
         gc.collect()
