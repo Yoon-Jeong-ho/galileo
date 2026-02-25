@@ -301,6 +301,7 @@ We intentionally keep all personas evidence-free so that persona--\NRC{} gaps ca
 Multi-turn drift can depend strongly on decoding hyperparameters and on how many times the model is re-asked.
 We therefore match decoding settings (e.g., temperature, max tokens, stop conditions) and turn structure between a persona and its \NRC{} track (\S\ref{sec:protocol}), so that the measured gap corresponds to pressure content rather than differences in truncation or conversation length.
 \textbf{Clarification.} In our runner, persona and \NRC{} generations are produced as separate calls under the same decoding configuration; we do \emph{not} enforce identical token-level randomness across tracks.
+Even if we were to fix RNG seeds, token-level ``pairing'' is ill-defined once the two tracks condition on different histories, because the next-token distributions differ.
 Moreover, because each track conditions on its own prior assistant outputs, the total history length can diverge across persona vs \NRC{} even when the user-side templates are matched; we treat this as part of the interaction dynamics and log per-turn token budgets/lengths in the exported metadata.
 Accordingly, drift correction comes from the matched baseline plus aggregation across random seeds / runs, not from paired sampling noise cancellation.
 
