@@ -373,7 +373,7 @@ The hazard view makes clear whether a persona concentrates failures immediately 
 \paragraph{Time-to-first-failure (\TTF{}) and \FailAt{1}.}
 Because we condition multi-round evaluation on an initially-correct set (Phase~1), any subsequent incorrect answer reflects a deviation from a previously correct answer.
 Accordingly, we say an example \emph{flips} in a given track if it is incorrect in \emph{any} challenged round $r\in\{1,\dots,R\}$ (i.e., if $c^{(t)}_{r}(x)=0$ for some $r$).
-Define the (possibly censored) first-failure time over the \emph{challenged} rounds $r\in\{1,\dots,R\}$ (the final recovery turn is \emph{not} included):
+Define the right-censored first-failure time over the \emph{challenged} rounds $r\in\{1,\dots,R\}$ (the final recovery turn is \emph{not} included):
 Let $A^{(t)}(x) \equiv \{\, r \in \{1,\dots,R\} : c^{(t)}_{r}(x)=0 \,\}$ be the set of challenged rounds where the example is incorrect.
 \begin{equation}
 \mathrm{TTF}^{(t)}(x)
