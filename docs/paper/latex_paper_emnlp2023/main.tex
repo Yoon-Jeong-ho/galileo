@@ -117,6 +117,7 @@ In such settings, we care about \emph{when} a previously correct model first fai
 Concretely, we instantiate five evidence-free pressure mechanisms: \textbf{Soft Pressure} (polite doubt), \textbf{Simple Denial} (flat contradiction), \textbf{Strong Pressure} (insistent challenge), \textbf{Authority Claim} (invoking an external authority), and \textbf{Logical Trap} (argumentative reframing) (\S\ref{sec:protocol}).
 
 \GALILEO{} targets ground-truth tasks where failure is unambiguous, and introduces a matched drift baseline (Neutral Re-asking Control, \NRC{}) so that measured persona effects reflect pressure mechanisms rather than generic instability under re-asking.
+Concretely, where a pressure persona might say ``Are you sure? My professor says the answer is $X$'' (no checkable evidence), the matched \NRC{} variant instead issues an affectively neutral re-ask such as ``Please restate your final answer and briefly verify it.''
 
 \paragraph{Design goals and questions.}
 We design the protocol to support reviewer-auditable claims about \emph{deviations} in multi-turn interaction.
