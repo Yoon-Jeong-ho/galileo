@@ -205,34 +205,11 @@ Crucially, Phase~1 identifies an initially-correct conditioning set $C$ \emph{pe
 
 \subsection{Overview (paper-auditable loop)}
 \begin{figure}[t]
-\centering
-\fbox{\parbox{0.97\linewidth}{\small
-\textbf{Algorithm 1: \GALILEO{} evaluation for a persona $p$ and matched \NRC{}.}
-
-\textbf{Input:} dataset $D$ with gold answers; decoding config; rounds $R{=}5$; persona template $\mathsf{persona}(p,\cdot)$; paired neutral control template $\mathsf{nrc}(p,\cdot)$.
-
-\begin{enumerate}[leftmargin=*, itemsep=0.25ex, topsep=0.25ex]
-  \item \textbf{Initial evaluation (define the conditioning set).} Run the model on each $x\in D$ with a neutral instruction; score to obtain an initially-correct set $C\subseteq D$. 
-  \emph{Notation:} we write $C$ for the Phase~1 initially-correct set. Some analyses use a shared $C$ across personas; others use per-persona $C_p$. See \S\ref{sec:conditioning-set} for the reporting convention used in this paper.
-
-  \item \textbf{Multi-round pressure vs control on a conditioning set $S$.} Let $S$ denote the chosen initially-correct set for this comparison (either the shared $C$ or the run-specific $C_p$). 
-  \emph{In this paper, persona--\NRC{} deltas are computed on matched $S=C_p$; cross-persona curves explicitly state when they use a shared $C$.}
-  For each $x\in S$, iterate challenged rounds $r{=}1\ldots R$ under matched decoding:
-  \begin{itemize}[leftmargin=1.25em, itemsep=0.1ex, topsep=0.1ex]
-    \item initialize both tracks with the same neutral ``round 0'' interaction from Phase~1 (so $c_0\equiv 1$ on $S$ by construction).
-    \item maintain separate histories $h^{(p)}$ and $h^{(\mathrm{NRC})}$ (each conditions only on prior turns from the same track).
-    \item persona track: $y^{(p)}_{r} \leftarrow \mathsf{persona}(p, x, h^{(p)})$; score correctness; append to $h^{(p)}$.
-    \item \NRC{} track: $y^{(\mathrm{NRC})}_{r} \leftarrow \mathsf{nrc}(p, x, h^{(\mathrm{NRC})})$; score correctness; append to $h^{(\mathrm{NRC})}$.
-  \end{itemize}
-
-  \item \textbf{Recovery (track-conditional).} For each track $t\in\{p,\mathrm{NRC}\}$, let $F^{(t)}$ be the subset of $S$ that flips at least once in rounds $1\ldots R$ in that track. For $x\in F^{(t)}$, issue a final neutral recovery prompt (conditioned on that track's history) and score \RecoveryAtFlip{} as accuracy on this recovery turn. If $|F^{(t)}|=0$ (no flips), then \RecoveryAtFlip{} is undefined (N/A) for that track.
-\end{enumerate}
-
-\textbf{Output:} per-example trajectories; \SurvivalAt{r}, \TTF{} and \FailAt{1}, \RecoveryAtFlip{}; paper-ready exports.
-}}
-\vspace{-2mm}
-\caption{Protocol summary. Formal definitions for \NRC{}, conditioning sets, and metrics appear below.}
-\label{fig:algo}
+  \centering
+  \includegraphics[width=\linewidth]{figures/protocol_overview}
+  \vspace{-1mm}
+  \caption{\textbf{\GALILEO{} protocol overview.} Phase~1: run a neutral prompt to define an initially-correct conditioning set $C$. Phase~2: for $R{=}5$ challenged rounds, run a pressure persona $p$ and its paired neutral re-asking control (\NRCp{p}) under matched decoding and compute per-round correctness trajectories. Phase~3: for each track, issue a final neutral recovery prompt on the subset of examples that flipped at least once and measure \RecoveryAtFlip{}. We export per-example transcripts, prompts, and scores for auditability.}
+  \label{fig:algo}
 \end{figure}
 
 \subsection{Three phases}
