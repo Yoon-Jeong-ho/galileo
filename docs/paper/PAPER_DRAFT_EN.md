@@ -244,7 +244,7 @@ At each round `r`, we score whether the model’s answer is still correct.
 **Metrics in brief (notation and timing).** Let round $r\in\{1,\dots,R\}$ index the *persona/control user message + the model’s subsequent response* at that round, and let round $0$ denote the initial (pre-pressure) answer.
 
 - **Survival curve (staying-correct).** For persona $p$, we define $S_p(r)$ as the probability an initially-correct example remains correct through round $r$ (i.e., **no** correct\(\to\)incorrect flip in rounds $1..r$), conditional on $y_{i,0}=1$. In discrete time-to-event terms, this is exactly $S_p(r)=\Pr(\mathrm{TTF}>r\mid y_{i,0}=1)$.
-- **Turn-of-failure (TTF) / Fail@1 (first-flip timing).** For an initially-correct example, TTF is the *first* round $r\ge 1$ at which the model’s **post-round response** is incorrect. If the example never becomes incorrect within $R$ rounds, TTF is **right-censored** at the horizon (reported as *never-fail*). For survival/TTF we use a *first-passage* convention: once an example flips at any round, it is treated as failed even if it later returns to a correct answer within Phase~2.
+- **Time-to-first-failure (TTF) / Fail@1 (first-flip timing).** For an initially-correct example, TTF is the *first* round $r\ge 1$ at which the model’s **post-round response** is incorrect. If the example never becomes incorrect within $R$ rounds, TTF is **right-censored** at the horizon (reported as *never-fail*). For survival/TTF we use a *first-passage* convention: once an example flips at any round, it is treated as failed even if it later returns to a correct answer within Phase~2.
 - **Recovery@flip (return-to-truth).** Recovery is evaluated only on examples that flipped at least once during rounds $1..R$; it measures the probability the model returns to the correct answer after the Phase~3 recovery prompt, conditional on having flipped. Recovery is therefore a separate endpoint and does not “undo” a Phase~2 failure event for survival/TTF reporting.
 
 **Toy example (trajectory bookkeeping).** Let $R=5$ and suppose an example is initially correct ($y_0=1$) with per-round correctness $[y_1,y_2,y_3,y_4,y_5]=[1,0,1,1,0]$. Then the **TTF** is $2$ (first failure at round 2). Under our **first-passage** convention, this example is counted as *not surviving* past round 2 even though it becomes correct again at rounds 3–4; that later re-correction is not credited in survival/TTF, but can be captured by **Recovery@flip** if the Phase~3 recovery prompt elicits a correct answer. If instead $[y_1..y_5]=[1,1,1,1,1]$, then TTF is right-censored at the horizon (reported as *never-fail*) and the example contributes to $S_p(r)$ for all $r\le 5$.
@@ -261,7 +261,7 @@ At each round `r`, we score whether the model’s answer is still correct.
   A_p(r)=\Pr\big(y_{i,r}=1\mid y_{i,0}=1\big).
   \]
   Note $A_p(r)$ can be **higher** than $S_p(r)$ if some examples flip earlier and later recover; we therefore use survival/TTF as the primary “staying-correct” measures and reserve recovery for a separate analysis.
-- **Turn-of-failure (TTF):**
+- **Time-to-first-failure (TTF):**
   \[
   \mathrm{TTF}_i=\min\{r\in\{1,\dots,R\}: y_{i,r}=0\}\quad (\text{or }R{+}1\text{ if no flip within the horizon})
   \]
@@ -367,7 +367,7 @@ This produces a **survival curve** across rounds. In plots/tables, we report per
 
 **Note (survival vs. per-round accuracy).** Survival is a *cumulative* “still-correct-so-far” quantity. It is **not** the same as the marginal probability of being correct *at* round `r` (which would count examples that failed earlier but happen to be correct again at `r`). We use survival because it aligns with a reliability question reviewers care about: “Has the model *ever* yielded to pressure so far?”; recovery is reported separately to capture return-to-truth after a flip.
 
-### 4.3 Turn-of-failure (TTF)
+### 4.3 Time-to-first-failure (TTF)
 
 For each example `x ∈ C_p` under persona `p`, define `TTF(x, p)` as the earliest round where the answer first becomes incorrect. If it never flips within `R` rounds, set `TTF = never-fail`.
 
@@ -639,7 +639,7 @@ For interpretability, we further analyze detected flips with a qualitative taxon
 
 ### 7.2 When failures happen: time-to-first-failure (TTF) (supports C1)
 
-**Table Y (Turn-of-failure distribution).** Distribution over `{1..R, never}` per persona.
+**Table Y (Time-to-first-failure distribution).** Distribution over `{1..R, never}` per persona.
 
 - Figure file (artifact-derived SVG; committed): `docs/paper/figures/tof_personawise_fail1_delta_seed1-4_20260209.svg` (persona-wise ΔFail@1; seed1–4)
 - Data source: `paper_exports/turn_of_failure.csv`
