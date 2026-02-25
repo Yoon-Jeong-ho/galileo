@@ -143,9 +143,9 @@ We also focus on correctness dynamics on ground-truth tasks, leaving open how th
 
 \paragraph{Contributions.}
 \begin{itemize}[leftmargin=*]
-  \item We propose a ground-truth multi-turn protocol with survival curves, \TTF{} and \FailAt{1}, and \RecoveryAtFlip{}.
-  \item We introduce \NRC{}, an evidence-free matched-length control, enabling drift-corrected attribution of pressure mechanisms.
-  \item We provide paper-ready exports and a claim-to-artifact pipeline for auditing and figure regeneration.
+  \item We propose \GALILEO{}, a two-phase multi-turn protocol on ground-truth tasks that conditions on initially-correct examples and reports survival trajectories (\SurvivalAt{r}), early vulnerability (\FailAt{1}), time-to-first-failure (\TTF{}), and post-flip recovery (\RecoveryAtFlip{}).
+  \item We introduce persona-paired \emph{Neutral Re-asking Controls} (\NRCp{p}) that match interaction length and decoding, enabling drift-corrected within-persona deltas that isolate pressure effects from generic re-asking instability.
+  \item We provide paper-ready exports (prompts, transcripts, per-turn scores, and metadata) and a claim-to-artifact pipeline for auditing and figure regeneration.
 \end{itemize}
 
 \section{Related work}
