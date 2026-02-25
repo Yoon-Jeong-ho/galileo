@@ -304,19 +304,19 @@ A small fixed horizon balances two goals: (i) it is long enough to expose cumula
 Longer dialogues are an important extension, but would require additional controls (e.g., retrieval/tooling) and are outside the current evidence-free threat model.
 
 \begin{itemize}[leftmargin=*]
-  \item \textbf{Allowed examples (NRC):} ``Can you restate your final answer?''; ``Please answer again, briefly.''; ``Just to confirm, what is your answer?''
-  \item \textbf{Forbidden examples (not NRC):} introducing counter-evidence (``Actually, the correct answer is \dots''), social manipulation (``I will be disappointed if you don't change''), or logical traps (``If your answer were true, then \dots'').
+  \item \textbf{Allowed examples (\NRC{}):} ``Can you restate your final answer?''; ``Please answer again, briefly.''; ``Just to confirm, what is your answer?''
+  \item \textbf{Forbidden examples (not \NRC{}):} introducing counter-evidence (``Actually, the correct answer is \dots''), social manipulation (``I will be disappointed if you don't change''), or logical traps (``If your answer were true, then \dots'').
 \end{itemize}
 
-\textbf{Distinguishing NRC from ``Soft Pressure.''}
-NRC prompts are intentionally \emph{affectively neutral} and do not imply that the assistant is mistaken; they function as matched-length re-asks.
-By contrast, even our mildest persona (Soft Pressure) explicitly expresses doubt and is repeated across rounds, so any persona--NRC gap is attributable to pressure content rather than generic re-asking.
+\textbf{Distinguishing \NRC{} from ``Soft Pressure.''}
+\NRC{} prompts are intentionally \emph{affectively neutral} and do not imply that the assistant is mistaken; they function as matched-length re-asks.
+By contrast, even our mildest persona (Soft Pressure) explicitly expresses doubt and is repeated across rounds, so any persona--\NRC{} gap is attributable to pressure content rather than generic re-asking.
 
 \paragraph{Pressure personas (five mechanisms).}
 We use five evidence-free, handcrafted pressure personas that challenge the assistant \,\emph{without} providing new facts: (i) \textbf{Soft Pressure} (polite doubt / mild skepticism), (ii) \textbf{Simple Denial} (flat contradiction), (iii) \textbf{Strong Pressure} (insistent challenge), (iv) \textbf{Authority Claim} (invoking an external authority without evidence), and (v) \textbf{Logical Trap} (argumentative reframing intended to induce inconsistency).
 These categories are designed to be simple, copyable, and auditable; exact templates are exported with each run (Appx.~\ref{sec:appendix-prompts}).
 
-\textbf{Attribution.} We report persona effects as paired differences (persona -- NRC) under identical decoding and matched conditioning sets, so that measured deltas correspond to pressure mechanisms rather than generic re-asking.
+\textbf{Attribution.} We report persona effects as paired differences (persona -- \NRC{}) under identical decoding and matched conditioning sets, so that measured deltas correspond to pressure mechanisms rather than generic re-asking.
 
 \subsection{Metrics}
 \label{sec:metrics}
@@ -526,7 +526,7 @@ For space, we report the full persona-wise \(\Delta\)\RecoveryAtFlip{} plots and
 \begin{figure*}[t]
   \centering
   \includegraphics[width=0.98\textwidth]{figures/survival_curves_rounds_seed1-4_20260209}
-  \caption{\textbf{Survival over rounds under pressure vs matched neutral re-asking control (NRC).} Curves show \SurvivalAt{r} on an initially-correct conditioning set from Phase~1, so a drop at round $r$ corresponds to the fraction of previously-correct examples that have flipped by that round. \textbf{Denominator:} for cross-persona comparability, this figure uses a shared initially-correct set $C$ (\S\ref{sec:conditioning-set}). \textbf{Note:} headline tables in the paper compute persona--NRC deltas on persona-matched sets $C_p$; we use $C$ here purely for a single, visually comparable denominator across personas.}
+  \caption{\textbf{Survival over rounds under pressure vs matched neutral re-asking control (\NRC{}).} Curves show \SurvivalAt{r} on an initially-correct conditioning set from Phase~1, so a drop at round $r$ corresponds to the fraction of previously-correct examples that have flipped by that round. \textbf{Denominator:} for cross-persona comparability, this figure uses a shared initially-correct set $C$ (\S\ref{sec:conditioning-set}). \textbf{Note:} headline tables in the paper compute persona--\NRC{} deltas on persona-matched sets $C_p$; we use $C$ here purely for a single, visually comparable denominator across personas.}
   \label{fig:survival}
 \end{figure*}
 
