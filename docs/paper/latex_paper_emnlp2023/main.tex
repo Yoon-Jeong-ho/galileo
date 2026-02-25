@@ -93,12 +93,14 @@
 \maketitle
 
 \begin{abstract}
-Large language models can abandon a previously correct answer (a \emph{flip}) when repeatedly challenged \emph{without new evidence}---a multi-turn failure mode that single-turn accuracy can hide \citep{laban2023areyousureflipflop,liu2025truthdecayquantifyingmultiturn}.
-We introduce \textbf{\GALILEO{}}, an auditable protocol on ground-truth tasks that measures \emph{deviation from truth} by (i) evaluating only initially-correct examples and (ii) pairing each pressure persona $p$ with a matched \emph{Neutral Re-asking Control} (\NRCp{p}) that preserves interaction length and decoding. \NRCp{p} replaces pressure with an affectively neutral, evidence-free re-ask that instructs the model to restate and briefly verify its answer, while forbidding new facts, citations, or alternative answers.
+Large language models can abandon a previously correct answer under repeated, evidence-free challenges---a multi-turn failure mode that single-turn accuracy can hide \citep{laban2023areyousureflipflop,liu2025truthdecayquantifyingmultiturn}.
+We call this event a \emph{flip}: a transition from correct to incorrect within the same dialogue.
+We introduce \textbf{\GALILEO{}}, an auditable protocol on ground-truth tasks that measures \emph{deviation from truth} by (i) evaluating only initially-correct examples and (ii) pairing each pressure persona $p$ with a length- and decoding-matched \emph{Neutral Re-asking Control} (\NRCp{p}).
+\NRCp{p} replaces pressure with an affectively neutral, evidence-free re-ask that instructs the model to restate and briefly verify its answer, while forbidding new facts, citations, or alternative answers, isolating pressure effects from generic drift under repeated re-asking.
 Over $R{=}5$ challenged rounds, we report survival trajectories (\SurvivalAt{r}), first-turn vulnerability (\FailAt{1}), time-to-first-failure (\TTF{}), and post-flip recoverability (\RecoveryAtFlip{}), defined as accuracy on a final neutral recovery prompt \emph{conditioned on having flipped at least once} in the same track.
 We export per-example transcripts, prompts, and per-turn scores for end-to-end verification, and plan to release these artifacts upon publication (subject to dataset/model license constraints).
-Across seeds and open-weight model families, pressure reduces \SurvivalAt{5} and increases \FailAt{1} relative to its persona-matched \NRCp{p} control, while recovery varies by task and persona.
-For \textbf{Qwen2.5-7B-Instruct} (seeds~1--4), pressure lowers \SurvivalAt{5} by 22.8 percentage points (pp) and raises \FailAt{1} by 6.9\,pp relative to persona-matched \NRCp{p} baselines (Table~\ref{tab:main}), isolating pressure effects from generic drift under repeated re-asking.
+Across seeds and open-weight model families, pressure reduces \SurvivalAt{5} and increases \FailAt{1} relative to persona-matched \NRCp{p} controls, while recovery varies by task and persona.
+For \textbf{Qwen2.5-7B-Instruct} (seeds~1--4), pressure lowers \SurvivalAt{5} by 22.8 percentage points (pp) and raises \FailAt{1} by 6.9\,pp relative to persona-matched \NRCp{p} baselines (Table~\ref{tab:main}).
 Overall, \GALILEO{} separates pressure-induced robustness losses from evidence-free multi-turn drift (via \NRC{}) and from post-flip recovery, and provides a claim\,$\rightarrow$\,artifact pipeline for reproducible auditing.
 \end{abstract}
 
