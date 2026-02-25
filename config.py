@@ -86,6 +86,10 @@ class ExperimentConfig:
 
     tensor_parallel_size: int = TENSOR_PARALLEL_SIZE
 
+    # vLLM stability knobs
+    gpu_memory_utilization: float = 0.90
+    enforce_eager: bool = False
+
     # Personas to run in Phase 2. Empty means "all".
     personas: List[str] = field(default_factory=list)
 

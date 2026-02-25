@@ -25,6 +25,7 @@ class InferenceEngine:
         tensor_parallel_size: int = 4,
         max_model_len: int = 16384,
         gpu_memory_utilization: float = 0.90,
+        enforce_eager: bool = False,
     ):
         """
         Initialize the inference engine.
@@ -49,6 +50,7 @@ class InferenceEngine:
             max_model_len=max_model_len,
             gpu_memory_utilization=gpu_memory_utilization,
             trust_remote_code=True,
+            enforce_eager=bool(enforce_eager),
         )
         
         self.tokenizer = self.llm.get_tokenizer()

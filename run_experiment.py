@@ -560,6 +560,8 @@ def run_experiment(config: ExperimentConfig) -> None:
             model_name=model_name,
             tensor_parallel_size=config.tensor_parallel_size,
             max_model_len=config.max_model_len,
+            gpu_memory_utilization=getattr(config, "gpu_memory_utilization", 0.90),
+            enforce_eager=getattr(config, "enforce_eager", False),
         )
 
     for model_name in config.models:
@@ -657,6 +659,8 @@ def main():
     parser.add_argument("--max_tokens", type=int, default=None, help="Max new tokens per generation (overrides config)")
     parser.add_argument("--max_model_len", type=int, default=None, help="Max context length for vLLM (overrides config)")
     parser.add_argument("--tensor_parallel_size", type=int, default=None, help="Tensor parallel size (overrides config)")
+    parser.add_argument("--gpu_memory_utilization", type=float, default=None, help="vLLM gpu_memory_utilization (default 0.90)")
+    parser.add_argument("--enforce_eager", action="store_true", help="Pass enforce_eager=True to vLLM to avoid CUDA graphs/compile")
     parser.add_argument("--greedy_temperature", type=float, default=None, help="Decoding temperature for adversarial/recovery turns (overrides config)")
     parser.add_argument("--recovery_variant", type=str, default=None, choices=["baseline","reinforce_correct","verify_then_answer"], help="Recovery prompt variant ablation")
     parser.add_argument(
@@ -726,6 +730,12 @@ def main():
 
     if args.tensor_parallel_size is not None:
         config.tensor_parallel_size = args.tensor_parallel_size
+
+    if args.gpu_memory_utilization is not None:
+        config.gpu_memory_utilization = float(args.gpu_memory_utilization)
+
+    if args.enforce_eager:
+        config.enforce_eager = True
 
     if args.greedy_temperature is not None:
         config.greedy_temperature = float(args.greedy_temperature)
