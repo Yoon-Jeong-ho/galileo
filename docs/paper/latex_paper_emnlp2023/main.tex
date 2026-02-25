@@ -123,7 +123,7 @@ Concretely, where a pressure persona might say ``Are you sure? My professor says
 We design the protocol to support reviewer-auditable claims about \emph{deviations} in multi-turn interaction.
 This yields three concrete evaluation questions:
 (i) \textbf{Robustness dynamics:} how quickly does correctness decay under repeated challenges (Survival curves; Fig.~\ref{fig:survival})?
-(ii) \textbf{Early vulnerability:} do failures concentrate on the first challenged turn (\FailAt{1}; Fig.~\ref{fig:fail1}), and how long until the first deviation (time-to-first-failure, \TTF{}: the first challenged round $r$ where the model becomes incorrect; if it never fails within the $R$-round horizon, \TTF{} is right-censored and encoded as $R{+}1$ in our fixed-horizon summaries)?
+(ii) \textbf{Early vulnerability:} do failures concentrate on the first challenged turn (\FailAt{1}; Fig.~\ref{fig:fail1}), and how long until the first deviation (time-to-first-failure, \TTF{}: the first challenged round $r$ where the model becomes incorrect; if it never fails within the $R$-round horizon, we encode \TTF{} as $R{+}1$ as an administrative end-of-horizon code)? 
 (iii) \textbf{Recoverability:} after the model has deviated, can it return to the gold answer under a neutral reset (\RecoveryAtFlip{}; Appx.~\ref{sec:appendix-extra-results})?
 Formal definitions of all metrics appear in \S\ref{sec:metrics}.
 
@@ -669,7 +669,7 @@ For each run, we export metadata files under \texttt{paper\_exports/} (e.g., \te
 \toprule
 \textbf{Component} & \textbf{Symbol} & \textbf{Default} & \textbf{Compared variants} & \textbf{Notes}\\
 \midrule
-Pressure rounds & $R$ & 5 & --- & \SurvivalAt{r} reported for $r\le R$; \TTF{} right-censored at $R{+}1$ (i.e., no failure within $R$ rounds).\\
+Pressure rounds & $R$ & 5 & --- & \SurvivalAt{r} reported for $r\le R$; \TTF{} encoded as $R{+}1$ when no failure occurs within $R$ rounds (administrative end-of-horizon code).\\
 Conditioning set & $C,\,C_p$ & $C_p$ for deltas & $C$ (pooled) & Persona--NRC gaps computed on matched $C_p$ unless stated.\\
 Decoding & --- & shared per run & temperature sweep & Persona/NRC share decoding; sweep tests stability of deltas (Fig.~\ref{fig:decoding}).\\
 Model families & --- & open-weight & cross-family check & Cross-family generalization shown in Fig.~\ref{fig:crossfam}.\\
