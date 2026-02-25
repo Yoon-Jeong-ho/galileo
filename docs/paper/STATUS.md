@@ -14,7 +14,7 @@
 
 ## 0) One-line pitch (draft)
 
-Ground-truth tasks에서 multi-turn persona pressure 하에 **정답 유지(survival)**, **최초 붕괴 시점(TOF)**, **붕괴 후 회복(recovery)** 을 측정하고, **NRC(Neutral Re-asking Control)**로 drift를 분리하는 평가 프로토콜/벤치마크.
+Ground-truth tasks에서 multi-turn persona pressure 하에 **정답 유지(survival)**, **최초 실패 시점(TTF; time-to-first-failure)**, **붕괴 후 회복(recovery)** 을 측정하고, **NRC(Neutral Re-asking Control)**로 drift를 분리하는 평가 프로토콜/벤치마크.
 
 ---
 
