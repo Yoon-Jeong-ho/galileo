@@ -48,6 +48,11 @@ We use two matched-set modes; the draft must say which one is used for each plot
   - `docs/paper/latex_paper_emnlp2023/generated/table1_rows.tex` (if present) or
   - `docs/paper/latex_paper_emnlp2023/static/table1_rows.tex` (fallback tracked in git)
 
+  The numeric inputs for absolute Fail@1 and Recovery@flip are sourced from the latest tracked artifact:
+  - `docs/paper/artifacts/table1_from_results_paper_exports_*.csv`
+
+  This artifact is generated from paper-ready runs staged under `results_paper/` on the experiment SSOT machine (nlp8).
+
 (If any filename/label changes due to regeneration, update **both** LaTeX and this map in the same commit.)
 
 ---
@@ -79,6 +84,10 @@ These are the claims most likely to be read without the Appendix. Each needs an 
 - Where stated: `main.tex` Results (§5.3)
 - Evidence:
   - Cross-family barplot: `fig:crossfam` → `docs/paper/figures/cross_family_survival_r5_control_vs_logicaltrap_seed1-2_20260221.svg`
+  - Main-table cross-family aggregates (Survival@5 / Fail@1 / Recovery@flip): `tab:main`
+    - Latest tracked Table-1 artifact: `docs/paper/artifacts/table1_from_results_paper_exports_20260226_0040.csv`
+    - Mean±std helper note (for the newly added Llama-3.2-3B + Nemo seed1–2):
+      `docs/paper/artifacts/table1_from_results_paper_exports_20260226_0040_agg_mean_std.txt`
 
 ---
 
