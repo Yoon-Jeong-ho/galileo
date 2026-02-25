@@ -72,6 +72,11 @@ tools/inkscape/
 # OS
 .DS_Store
 
+# Editor/backup files
+*.bak
+*.bak_*
+docs/paper/*.bak_*
+
 # downloaded LaTeX style files (generated)
 docs/paper/acl_style_files/
 
