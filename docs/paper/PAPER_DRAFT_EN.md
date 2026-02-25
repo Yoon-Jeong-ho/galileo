@@ -52,6 +52,7 @@ Single-turn accuracy does not answer:
 - **Round 0**: the initial (persona-free) answer used to filter to the initially-correct subset.
 - **NRC**: the same multi-round structure/decoding/answer-format constraints, but follow-ups are neutral “re-check and answer” prompts that introduce **no new task-relevant evidence**.
 - **Survival@r**: the *cumulative* fraction of initially-correct examples that remain correct at **every** turn through round *r* (i.e., correct for all turns 1..*r*, not “accuracy at round *r* only”).
+- **Accuracy@r (marginal)**: the fraction correct *at* round *r* (ignoring whether the example was incorrect at any earlier round). We do **not** use this as a primary robustness metric because it can hide intermediate flips (incorrect→correct oscillations) that Survival@r and TOF make explicit.
 - **Flip**: a correct→incorrect transition at some point during the **multi-turn phase** (rounds 1..R). The final neutral **recovery turn** is *not* counted when defining flips/TOF.
 - **TOF (turn-of-failure)**: the *first* round (within 1..R) where an initially-correct example becomes incorrect (right-censored if it never fails within the multi-turn horizon). **Fail@1** is \(\Pr(\mathrm{TOF}=1)\).
 - **Recovery@flip**: the probability of returning to the correct answer on the final neutral recovery prompt (round \(R{+}1\)), **conditional on having flipped at least once during rounds 1..R**:
