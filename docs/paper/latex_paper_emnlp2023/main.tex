@@ -153,7 +153,8 @@ We discuss limitations and out-of-scope regimes in \S\ref{sec:limitations}.
 \label{sec:related}
 
 \paragraph{Sycophancy, social pressure, and multi-turn truth decay.}
-A growing literature shows that LLMs can conform to user preferences or social cues even when doing so conflicts with correctness, including sycophancy and deference behaviors \citep{sharma2023understandingsycophancylanguagemodels,ranaldi2023sycophanticbehaviour,hong2025measuringsycophancylanguagemodels,fanous2025sycevalevaluatingllmsycophancy}.
+A growing literature shows that LLMs can conform to user preferences or social cues even when doing so conflicts with correctness.
+This includes sycophancy and deference behaviors \citep{sharma2023understandingsycophancylanguagemodels,ranaldi2023sycophanticbehaviour,hong2025measuringsycophancylanguagemodels,fanous2025sycevalevaluatingllmsycophancy}.
 Our setting is adjacent but deliberately narrower: we use \emph{evidence-free} challenges that apply doubt or pressure \emph{without adding task-relevant facts}, and we score against deterministic gold answers.
 This design cleanly separates pressure-induced \emph{deviation from truth} from (i) preference-alignment/sycophancy effects on subjective questions and (ii) generic multi-turn instability from being asked again.
 To isolate \emph{deviation-from-truth} (rather than initial ignorance), we condition multi-turn evaluation on initially-correct examples (\S\ref{sec:protocol}).
