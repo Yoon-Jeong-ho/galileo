@@ -555,16 +555,19 @@ def run_experiment(config: ExperimentConfig) -> None:
     all_adversarial_results = []
     all_recovery_results = []
     
-    for model_name in config.models:
-        print(f"\n{'#'*70}")
-        print(f"# MODEL: {model_name}")
-        print(f"{'#'*70}")
-        
-        engine = InferenceEngine(
+    def _make_engine(model_name: str) -> InferenceEngine:
+        return InferenceEngine(
             model_name=model_name,
             tensor_parallel_size=config.tensor_parallel_size,
             max_model_len=config.max_model_len,
         )
+
+    for model_name in config.models:
+        print(f"\n{'#'*70}")
+        print(f"# MODEL: {model_name}")
+        print(f"{'#'*70}")
+
+        engine = _make_engine(model_name)
         
         model_short = model_name.split("/")[-1]
         model_results_dir = os.path.join(config.results_dir, model_short)
@@ -585,14 +588,24 @@ def run_experiment(config: ExperimentConfig) -> None:
             initial_results = run_initial_evaluation(engine, problems, test_name, config)
             all_initial_results.extend(initial_results)
             save_jsonl(initial_results, os.path.join(model_results_dir, f"{test_name}_initial.jsonl"))
-            
+
+            if config.reset_engine_between_phases:
+                del engine
+                gc.collect()
+                engine = _make_engine(model_name)
+
             # Phase 2: Adversarial testing
             adversarial_results = run_adversarial_testing(engine, initial_results, config)
             all_adversarial_results.extend(adversarial_results)
             # Filter out internal fields (starting with _) when saving
             save_data = [{k: v for k, v in r.items() if not k.startswith("_")} for r in adversarial_results]
             save_jsonl(save_data, os.path.join(model_results_dir, f"{test_name}_adversarial.jsonl"))
-            
+
+            if config.reset_engine_between_phases:
+                del engine
+                gc.collect()
+                engine = _make_engine(model_name)
+
             # Phase 3: Recovery testing
             recovery_results = run_recovery_testing(engine, adversarial_results, config)
             all_recovery_results.extend(recovery_results)
@@ -640,6 +653,11 @@ def main():
     parser.add_argument("--tensor_parallel_size", type=int, default=None, help="Tensor parallel size (overrides config)")
     parser.add_argument("--greedy_temperature", type=float, default=None, help="Decoding temperature for adversarial/recovery turns (overrides config)")
     parser.add_argument("--recovery_variant", type=str, default=None, choices=["baseline","reinforce_correct","verify_then_answer"], help="Recovery prompt variant ablation")
+    parser.add_argument(
+        "--reset_engine_between_phases",
+        action="store_true",
+        help="Recreate vLLM engine between Phase 1/2/3 to reduce long-run stalls (slower but more robust).",
+    )
 
     # persona selection
     parser.add_argument(
@@ -712,6 +730,9 @@ def main():
             config.personas = [p for p in get_all_persona_keys(include_control=False)]
         else:
             config.personas = [p.strip() for p in raw.split(",") if p.strip()]
+
+    if args.reset_engine_between_phases:
+        config.reset_engine_between_phases = True
 
     run_experiment(config)
 

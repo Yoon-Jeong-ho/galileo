@@ -92,6 +92,10 @@ class ExperimentConfig:
     test_mode: bool = False
     num_samples: int = -1
 
+    # Stability
+    # If True, recreate the vLLM engine between Phase 1/2/3 to reduce long-run stalls.
+    reset_engine_between_phases: bool = False
+
     # Reproducibility
     seed: int = 42
 
