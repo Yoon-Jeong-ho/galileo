@@ -1,0 +1,11 @@
+alias	run_dir
+# Local-only manifest for nlp8 restaging of results_paper/.
+# Fill run_dir with absolute paths to the run directories that contain paper_exports/.
+# Example:
+# qwen_control_seed1	/data_x/aa007878/galileo/results/c2run_control_20260209_172640
+
+# Added 2026-02-26: cross-family Tier-1(6) paper-ready runs (seed1-2)
+tier1_llama32_3b_seed1_tier1_6_pilot_200_512_20260225_214335	/data_x/aa007878/galileo/results/tier1_llama32_3b_seed1_tier1_6_pilot_200_512_20260225_214335
+tier1_llama32_3b_seed2_tier1_6_pilot_200_512_20260225_231526	/data_x/aa007878/galileo/results/tier1_llama32_3b_seed2_tier1_6_pilot_200_512_20260225_231526
+tier1_mistralnemo_seed1_tier1_6_pilot_complete_200_512_20260225_004032	/data_x/aa007878/galileo/results/tier1_mistralnemo_seed1_tier1_6_pilot_complete_200_512_20260225_004032
+tier1_mistralnemo_seed2_tier1_6_pilot_complete_200_512_20260225_004032	/data_x/aa007878/galileo/results/tier1_mistralnemo_seed2_tier1_6_pilot_complete_200_512_20260225_004032
