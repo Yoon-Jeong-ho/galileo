@@ -194,3 +194,5 @@ So the immediate next step becomes:
 - (2026-02-25) `preflight_vllm_model.py`: added `--enforce_eager` to avoid heavy CUDA graph capture/torch.compile during preflight (helps prevent SIGKILL/timeouts on shared GPUs).
 
 - (2026-02-25) Added robustness flag to mitigate scale-up stalls: `run_experiment.py --reset_engine_between_phases` (recreates vLLM engine between Phase 1/2/3).
+
+- (2026-02-25) Added stronger robustness flag: `run_experiment.py --reset_engine_between_tasks` (recreates vLLM engine per dataset JSONL) to mitigate scale-up stalls that survive phase-level resets.
