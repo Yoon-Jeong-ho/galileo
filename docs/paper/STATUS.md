@@ -196,3 +196,5 @@ So the immediate next step becomes:
 - (2026-02-25) Added robustness flag to mitigate scale-up stalls: `run_experiment.py --reset_engine_between_phases` (recreates vLLM engine between Phase 1/2/3).
 
 - (2026-02-25) Added stronger robustness flag: `run_experiment.py --reset_engine_between_tasks` (recreates vLLM engine per dataset JSONL) to mitigate scale-up stalls that survive phase-level resets.
+
+- (2026-02-25) Added `scripts/merge_results_csvs.py` to merge root CSV summaries across multiple partial runs (enables dataset-by-dataset isolation when long scale-up sweeps stall).
