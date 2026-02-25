@@ -192,3 +192,5 @@ So the immediate next step becomes:
 - (2026-02-25) Fixed `scripts/preflight_vllm_model.py` default behavior: preflight now caps `max_model_len` to 4096 by default to avoid KV-cache init failures on long-context models (e.g., Nemo 128k) on RTX8000.
 
 - (2026-02-25) `preflight_vllm_model.py`: added `--enforce_eager` to avoid heavy CUDA graph capture/torch.compile during preflight (helps prevent SIGKILL/timeouts on shared GPUs).
+
+- (2026-02-25) Added robustness flag to mitigate scale-up stalls: `run_experiment.py --reset_engine_between_phases` (recreates vLLM engine between Phase 1/2/3).
