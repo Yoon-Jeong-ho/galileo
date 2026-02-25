@@ -61,7 +61,7 @@ Ground-truth tasks에서 multi-turn persona pressure 하에 **정답 유지(surv
 - **Current risk:** process drift (conflicting docs about host/GPU policy, lane starvation, missing commits) → we keep SSOT docs aligned (STATUS/CHECKLIST/RUNBOOK).
 - **Paper clarity micro-risk:** repeated long phrase “Neutral Re-asking Control” can add cognitive load; prefer introducing the acronym **NRC** once (Abstract) and using it consistently thereafter.
 - **LaTeX SSOT hygiene (2026-02-20):** Appendix prompt/command blocks now use `fvextra` line-breaking `Verbatim`, eliminating noisy `Overfull \\hbox` warnings from long lines (better PDF-first iteration).
-- **LaTeX Metrics section hygiene (2026-02-20):** rewrote long hazard/TOF expressions to avoid overfull math boxes; current `main.log` has no `Overfull \\hbox` entries.
+- **LaTeX Metrics section hygiene (2026-02-20):** rewrote long hazard/TTF expressions (older drafts: TOF) to avoid overfull math boxes; current `main.log` has no `Overfull \\hbox` entries.
 - **Main-text space management (2026-02-20):** moved Recovery persona-wise plot + decoding sweep figure to Appendix (`Additional results`), keeping main Results focused on Survival/Fail@1/Cross-family.
 - **Page-counting hygiene (2026-02-20):** LaTeX SSOT now supports a build-time `\CAMERAREADY` switch (no file edits) to compile with/without EMNLP review mode (line numbers). Use camera-ready mode for closer-to-submission page budgeting.
 - **Limitations-excluded budgeting (2026-02-20):** added `scripts/report_latex_page_budget.sh` + LaTeX log markers to compute "main pages excluding Limitations" automatically in the PDF-first SSOT.
@@ -110,8 +110,8 @@ Ground-truth tasks에서 multi-turn persona pressure 하에 **정답 유지(surv
 - ✅ Tightened the reviewer-facing **Claims → evidence** table to include explicit **LaTeX figure labels** (reduces proof-pointer drift): `docs/paper/PAPER_DRAFT_EN.md` (§9).
 - ✅ Synced `docs/paper/CLAIM_EVIDENCE_MAP.md` cross-family evidence pointers with current SSOT artifacts (removed stale Zephyr pending placeholder; now points to `tier1_zephyr7b_seed1-2_survival_summary_20260218.csv`).
 - ✅ Refreshed Tier-1 gap ledger to explicitly quarantine recent Pythia failures (`seed1_20260219_*`, `seed2_20260219_211411`) and codified no-blind-retry rule in `docs/paper/TIER1_GAP_CHECKLIST_20260219.md`.
-- ✅ Results section now has artifact-cited prose for survival/TOF/recovery/control-comparison (seed1–4) + a Results preface stating the seed/"auditable green" convention.
-- ✅ Added an explicit **Abstract proof-pointer line** (protocol/survival/TOF/recovery/Table W) to reduce reviewer search cost (`docs/paper/PAPER_DRAFT_EN.md`).
+- ✅ Results section now has artifact-cited prose for survival/TTF/recovery/control-comparison (seed1–4) + a Results preface stating the seed/"auditable green" convention.
+- ✅ Added an explicit **Abstract proof-pointer line** (protocol/survival/TTF/recovery/Table W) to reduce reviewer search cost (`docs/paper/PAPER_DRAFT_EN.md`).
 - ✅ Made Intro §1.1 reviewer-skim friendly by adding an **“Evidence at a glance”** bullet list with explicit figure/table pointers; kept SSOT alignment via `docs/paper/CLAIM_EVIDENCE_MAP.md`.
 - ✅ Table W (control vs persona) is supported by both mean±std and Δ(effect-size) tracked artifacts, and the Results text cites them.
 - ✅ De-duplicated “no-new-evidence” framing between protocol/control bullets and ReviseQA positioning (`docs/paper/PAPER_DRAFT_EN.md`).
@@ -125,7 +125,7 @@ Ground-truth tasks에서 multi-turn persona pressure 하에 **정답 유지(surv
 - ✅ Added heartbeat checklist guardrails: `docs/paper/HEARTBEAT_CHECKLIST.md`
 - ✅ De-confused deprecated `nlp16` SSH note to reduce copy/paste drift: `docs/paper/SSH_TROUBLESHOOT_NLP16.md`
 - ✅ Canonical cross-family figure filename (anti-drift): `docs/paper/figures/cross_family_survival_r5_control_vs_logicaltrap_seed1-2_20260221.svg`
-- ✅ Metric definitions SSOT: `docs/paper/FIGURE_CAPTIONS.md` (Survival@r / Flip / TOF)
+- ✅ Metric definitions SSOT: `docs/paper/FIGURE_CAPTIONS.md` (Survival@r / Flip / TTF; older drafts: TOF)
 - ✅ Added CUDA preflight helper + runbook gate to prevent false-idle launch failures:
   - `scripts/check_cuda_preflight.py`
   - `docs/paper/REMOTE_EXPERIMENTS_RUNBOOK.md`
