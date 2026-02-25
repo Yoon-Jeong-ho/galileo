@@ -5,7 +5,8 @@ set -euo pipefail
 # Computes:
 #   - total pages
 #   - main pages (everything before \appendix)
-#   - main pages excluding the "Discussion and limitations" section
+#   - main pages excluding Limitations (if the marker is present)
+#   - main pages excluding Ethics (if the marker is present)
 #
 # This relies on \pagemark{...} markers emitted into the LaTeX log.
 
