@@ -337,6 +337,7 @@ We then (i) average $\Delta m_{\tau,p}$ equally over personas with defined value
 \paragraph{Uncertainty reporting (recommended).}
 Because metrics are computed on finite conditioning sets and we emphasize persona--\NRC{} \emph{gaps}, we recommend reporting uncertainty for all headline deltas using resampling that respects the matched-set design.
 Concretely, for a fixed run (seed) and persona $p$, compute a \emph{paired} bootstrap confidence interval for $\Delta m_{\tau,p}$ by resampling examples $x$ with replacement from the shared conditioning set $C_p$ and recomputing both persona and \NRC{} metrics on the same resampled indices.
+\textbf{Recovery caveat.} This ``paired over $C_p$'' bootstrap applies cleanly to metrics defined on the full conditioning set (e.g., \SurvivalAt{r}, \FailAt{1}, \TTF{}). For \RecoveryAtFlip{}, the denominator is the track-specific flipped set $F^{(t)}$, so a paired bootstrap over $C_p$ does not directly yield a paired per-example CI. In practice, we recommend either (i) bootstrapping within each flipped set $F^{(t)}$ separately while reporting flip counts, or (ii) using a shared-denominator recovery design (discussed below) if paired uncertainty is required.
 When aggregating across seeds, report mean\,$\pm$\,std over seeds and/or a hierarchical bootstrap that first resamples seeds and then examples within each seed.
 This yields interpretable uncertainty without assuming parametric survival models.
 
