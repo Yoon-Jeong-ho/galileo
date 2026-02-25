@@ -32,7 +32,7 @@ Metric definitions (to keep captions consistent across drafts):
     where \(p\) ranges over persona arms and \((\mathrm{num}_p,\mathrm{den}_p)\) are computed on that persona’s matched initially-correct subset \(C_p\) (and the NRC is evaluated on the same \(C_p\) before pooling). For TTF-style histograms (older drafts: TOF), we pool by summing per-round counts across personas.
   - **persona_unweighted:** simple mean of persona-wise rates (each persona counts equally).
 
-  Default for this captions file: follow the paper default unless a specific artifact/figure is explicitly defined as pooled-counts (persona_weighted).
+  Default for this captions file: follow the "paper default" unless a specific artifact/figure is explicitly defined as pooled-counts (persona_weighted).
 - **Survival@r**: fraction of **initially-correct** examples that remain correct for **all rounds 1..r** (cumulative; “still correct through round r”).
 - **Flip**: a correct→incorrect transition at some round **within the multi-turn phase** (rounds 1..R). The final neutral **recovery turn** is *not* counted when defining flips/TTF.
 - **TTF (time-to-first-failure)**: the first round (within 1..R) where a flip occurs. If an example remains correct through the horizon (rounds 1..R), we record **TTF = R+1** (reported as **“never-fail”**). This is an administrative end-of-horizon code in a fixed-length, fully observed protocol (not missingness-driven censoring), but it can be interpreted using standard time-to-event framing. (Older drafts used “TOF”.)
