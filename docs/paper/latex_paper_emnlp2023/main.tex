@@ -268,7 +268,7 @@ Unless stated otherwise, this paper reports (i) persona--\NRC{} deltas on matche
 \end{itemize}
 
 \subsection{Notation (tracks, histories, and reported gaps)}
-For a fixed persona $p$, we run two tracks under matched decoding: the persona track $t=p$ and the paired neutral control $t=\mathrm{NRC}$.
+For a fixed persona $p$, we run two tracks under matched decoding: the persona track $t=p$ and the paired neutral control $t=\mathrm{NRC}$. \textbf{Notation note:} throughout this subsection and \S\ref{sec:metrics}, superscripts $(p)$ denote the \emph{persona track for the fixed persona $p$} (not a different persona index), while $(\mathrm{NRC})$ denotes the paired neutral-control track.
 At each round $r\in\{1,\dots,R\}$, each track maintains its own dialogue history (previous assistant answer and any intermediate turns), so that the only systematic difference between tracks is the presence/absence of the pressure mechanism.
 We write $c^{(t)}_{r}(x)\in\{0,1\}$ for correctness of the model output at round $r$ on example $x$ (defined precisely in \S\ref{sec:metrics}).
 
