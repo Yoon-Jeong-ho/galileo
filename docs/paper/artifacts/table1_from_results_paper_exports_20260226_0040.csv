@@ -1,0 +1,5 @@
+alias,model,status,nrc_survival_r5,persona_survival_r5,delta_survival_r5,nrc_fail1,persona_fail1,delta_fail1,nrc_recovery,persona_recovery,delta_recovery,num_personas
+tier1_llama32_3b_seed1_tier1_6_pilot_200_512_20260225_214335,Llama-3.2-3B-Instruct,OK,0.094862,0.047036,-0.047826,0.556324,0.663834,0.107510,0.522926,0.452378,-0.070547,5
+tier1_llama32_3b_seed2_tier1_6_pilot_200_512_20260225_231526,Llama-3.2-3B-Instruct,OK,0.094862,0.043281,-0.051581,0.536561,0.664032,0.127470,0.486900,0.458905,-0.027994,5
+tier1_mistralnemo_seed1_tier1_6_pilot_complete_200_512_20260225_004032,Mistral-Nemo-Instruct-2407,OK,0.299113,0.164259,-0.134854,0.452471,0.528010,0.075539,0.515371,0.559431,0.044060,5
+tier1_mistralnemo_seed2_tier1_6_pilot_complete_200_512_20260225_004032,Mistral-Nemo-Instruct-2407,OK,0.311721,0.173566,-0.138155,0.426434,0.522444,0.096010,0.538043,0.581695,0.043652,5
