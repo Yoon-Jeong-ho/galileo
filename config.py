@@ -96,6 +96,10 @@ class ExperimentConfig:
     # If True, recreate the vLLM engine between Phase 1/2/3 to reduce long-run stalls.
     reset_engine_between_phases: bool = False
 
+    # If True, recreate the vLLM engine between datasets/tasks (each data_file).
+    # This is slower but strongly isolates long runs from vLLM state accumulation.
+    reset_engine_between_tasks: bool = False
+
     # Reproducibility
     seed: int = 42
 

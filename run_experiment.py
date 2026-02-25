@@ -574,6 +574,12 @@ def run_experiment(config: ExperimentConfig) -> None:
         
         for data_file in config.data_files:
             test_name = get_test_name(data_file)
+
+            # Optionally isolate each dataset/task with a fresh engine.
+            if config.reset_engine_between_tasks:
+                del engine
+                gc.collect()
+                engine = _make_engine(model_name)
             
             # Load data
             problems = load_dataset(
@@ -658,6 +664,11 @@ def main():
         action="store_true",
         help="Recreate vLLM engine between Phase 1/2/3 to reduce long-run stalls (slower but more robust).",
     )
+    parser.add_argument(
+        "--reset_engine_between_tasks",
+        action="store_true",
+        help="Recreate vLLM engine between datasets/tasks (each data_file). Slowest but most robust.",
+    )
 
     # persona selection
     parser.add_argument(
@@ -733,6 +744,9 @@ def main():
 
     if args.reset_engine_between_phases:
         config.reset_engine_between_phases = True
+
+    if args.reset_engine_between_tasks:
+        config.reset_engine_between_tasks = True
 
     run_experiment(config)
 
