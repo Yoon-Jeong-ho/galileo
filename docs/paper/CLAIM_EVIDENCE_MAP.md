@@ -32,7 +32,7 @@ We use two matched-set modes; the draft must say which one is used for each plot
 
 ### Figures used in the main draft
 
-- `fig:algo` → `docs/paper/figures/protocol_overview.svg`
+- `fig:protocol` → `docs/paper/figures/protocol_overview.svg`
 - `fig:survival` → `docs/paper/figures/survival_curves_rounds_seed1-4_20260209.svg`
 - `fig:fail1` → `docs/paper/figures/tof_personawise_fail1_delta_seed1-4_20260209.svg`
 - `fig:crossfam` → `docs/paper/figures/cross_family_survival_r5_control_vs_logicaltrap_seed1-2_20260221.svg` (canonical; keep LaTeX + this map aligned)
@@ -65,7 +65,7 @@ These are the claims most likely to be read without the Appendix. Each needs an 
 **A1 (protocol): GALILEO + matched drift baseline (NRC).**
 - Where stated: `main.tex` Abstract + Protocol (§4)
 - Evidence:
-  - Protocol overview: `fig:algo` → `docs/paper/figures/protocol_overview.svg`
+  - Protocol overview: `fig:protocol` → `docs/paper/figures/protocol_overview.svg`
   - Drift-corrected reporting is reflected throughout Results as persona–NRC deltas (e.g., `tab:main`).
 
 **A2 (metrics): survival / TTF+Fail(1) (older drafts: TOF) / Recovery(flip) are distinct.**
