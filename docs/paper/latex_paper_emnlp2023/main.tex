@@ -94,7 +94,7 @@
 
 \begin{abstract}
 Large language models can abandon a previously correct answer under repeated, evidence-free challenges---a multi-turn failure mode that single-turn accuracy can hide \citep{laban2023areyousureflipflop,liu2025truthdecayquantifyingmultiturn}.
-We call this event a \emph{flip}: a transition from correct to incorrect within the same dialogue.
+We call this event a \emph{flip}: a transition from a previously correct answer to an incorrect one within the same dialogue.
 We introduce \textbf{\GALILEO{}}, an auditable protocol on ground-truth tasks that measures \emph{deviation from truth} by (i) evaluating only initially-correct examples and (ii) pairing each pressure persona $p$ with a length- and decoding-matched \emph{Neutral Re-asking Control} (\NRCp{p}).
 \NRCp{p} replaces pressure with an affectively neutral, evidence-free re-ask that asks the model to restate its answer and briefly verify it \emph{without introducing new external evidence}. This matched-length control lets us attribute persona effects to pressure content rather than generic drift from being asked again.
 Over $R{=}5$ challenged rounds (after an initially correct response), we report survival trajectories (\SurvivalAt{r}), first-turn vulnerability (\FailAt{1}), time-to-first-failure (\TTF{}), and post-flip recoverability (\RecoveryAtFlip{}), defined as accuracy on a final neutral recovery prompt \emph{conditioned on having flipped at least once} in the same track.
