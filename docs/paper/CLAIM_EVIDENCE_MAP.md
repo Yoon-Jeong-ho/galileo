@@ -35,7 +35,7 @@ We use two matched-set modes; the draft must say which one is used for each plot
 - `fig:algo` → `docs/paper/figures/protocol_overview.svg`
 - `fig:survival` → `docs/paper/figures/survival_curves_rounds_seed1-4_20260209.svg`
 - `fig:fail1` → `docs/paper/figures/tof_personawise_fail1_delta_seed1-4_20260209.svg`
-- `fig:crossfam` → `docs/paper/figures/cross_family_survival_r5_control_vs_logicaltrap_seed1-2_20260219.svg` (note: newer dated variants may exist; keep LaTeX + this map aligned)
+- `fig:crossfam` → `docs/paper/figures/cross_family_survival_r5_control_vs_logicaltrap_seed1-2_20260221.svg` (canonical; keep LaTeX + this map aligned)
 
 ### Appendix figures referenced in the main draft text
 
@@ -78,7 +78,7 @@ These are the claims most likely to be read without the Appendix. Each needs an 
 **A3 (replication): effects persist across open-weight families (at least seeds 1–2).**
 - Where stated: `main.tex` Results (§5.3)
 - Evidence:
-  - Cross-family barplot: `fig:crossfam` → `docs/paper/figures/cross_family_survival_r5_control_vs_logicaltrap_seed1-2_20260219.svg`
+  - Cross-family barplot: `fig:crossfam` → `docs/paper/figures/cross_family_survival_r5_control_vs_logicaltrap_seed1-2_20260221.svg`
 
 ---
 
