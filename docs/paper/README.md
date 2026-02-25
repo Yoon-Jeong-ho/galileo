@@ -61,7 +61,20 @@ Tracked outputs live under `docs/paper/artifacts/` (CSV) and `docs/paper/figures
 ./scripts/convert_figures_svg_to_pdf.sh
 ```
 
-### 4) Build an anonymized submission bundle (optional)
+### 4) Build the LaTeX paper PDF (optional)
+
+```bash
+# review-mode (line numbers)
+./scripts/build_paper.sh
+
+# camera-ready style (no line numbers; useful for page counting)
+./scripts/build_paper.sh --camera-ready
+```
+
+Note: a `Makefile` exists with equivalent targets, but some minimal environments
+(e.g., inside containers) may not have `make` installed; this script avoids that dependency.
+
+### 5) Build an anonymized submission bundle (optional)
 
 ```bash
 ./scripts/package_anonymized_bundle.sh
