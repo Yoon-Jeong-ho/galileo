@@ -284,8 +284,9 @@ For each pressure persona $p$, we construct a paired \emph{Neutral Re-asking Con
 This makes \NRCp{p} an \emph{evidence-free} baseline: any failures under \NRC{} reflect multi-turn drift (e.g., instability under re-asking) rather than persona pressure.
 
 \paragraph{Threat model (evidence-free conversational pressure).}
-\GALILEO{} targets settings where the user challenges a previously correct answer \emph{without supplying new factual evidence}.
-We treat unverifiable appeals such as ``My professor says the answer is $X$'' as \emph{pressure} rather than evidence, because they do not add task-relevant facts that an auditor can check.
+\GALILEO{} targets settings where a user challenges a previously correct answer \emph{without supplying new task-relevant evidence}.
+Operationally, our pressure personas are restricted to language that adds \emph{no} checkable facts, intermediate calculations, citations, tool outputs, or external sources that could legitimately change the gold answer.
+We treat unverifiable appeals such as ``My professor says the answer is $X$'' as \emph{pressure} rather than evidence, because they provide no auditor-checkable information about the underlying task.
 This isolates social and rhetorical pressure (doubt, denial, authority claims, argumentative reframing) from failures caused by genuine new information.
 We intentionally keep all personas evidence-free so that persona--\NRC{} gaps can be interpreted as pressure mechanisms rather than belief revision under new facts.
 
