@@ -518,7 +518,8 @@ Because curves are computed on an initially-correct set, a drop at round $r$ cor
 Comparing persona vs \NRC{} at the same round yields a drift-corrected estimate of pressure-induced deviation.
 
 \subsection{Time-to-first-failure highlights early vulnerability}
-Figure~\ref{fig:fail1} reports persona-wise \(\Delta\)\FailAt{1}.
+\textbf{Why we do not separately table \TTF{}.} \TTF{} is a useful scalar summary of when the first deviation occurs, but in our fixed-horizon setting it is exactly the (discrete) area under the survival curve: \(\mathbb{E}[\mathrm{TTF}]=\sum_{r=0}^{R}\mathrm{Survival}(r)\) (\S\ref{sec:metrics}). Accordingly, the \emph{direction} of \(\Delta\)\TTF{} is determined by the survival trajectories; we therefore emphasize full survival curves and \FailAt{1} (the round-1 hazard) rather than adding another redundant headline column.
+Figure~\ref{fig:fail1} reports persona-wise \(\Delta\)\FailAt{1}. 
 Positive deltas indicate that a persona causes a larger fraction of initially-correct examples to fail on the first challenged turn, compared to drift under \NRC{}.
 At the aggregate level, Table~\ref{tab:main} shows that the persona-aggregated $\Delta\,\FailAt{1}$ is typically positive (e.g., Mistral-7B and Phi-3-mini show $\Delta\,\FailAt{1}\approx 0.24\text{--}0.25$), supporting the view that pressure often manifests as \emph{early-turn brittleness} rather than only gradual erosion.
 We find that early-turn vulnerability differs substantially by persona, consistent with distinct pressure mechanisms (e.g., deference to authority vs logical contradiction).
