@@ -247,3 +247,7 @@ This file is intentionally kept short to reduce token burn.
 ### 2026-02-25 04:10 KST — Tooling: add run progress checker (JSONL mtime + root CSV)
 
 - Added `scripts/check_run_progress.py` to quickly detect silent stalls via JSONL mtimes and root CSV completion.
+
+### 2026-02-27 17:28 KST — Paper: disambiguate time-to-first metric acronyms in Related Work
+
+- Added an explicit Related Work sentence noting `ToF` acronym collisions and standardizing our terminology on `TTF` (time-to-first-failure) + explicit `NoF` definition pointer (\Sef{sec:metrics}).

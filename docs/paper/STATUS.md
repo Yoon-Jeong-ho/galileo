@@ -60,6 +60,7 @@ Ground-truth tasks에서 multi-turn persona pressure 하에 **정답 유지(surv
     - validator: `[OK] .../paper_exports` and global `[OK] runner_metadata parity`
 - **Current risk:** process drift (conflicting docs about host/GPU policy, lane starvation, missing commits) → we keep SSOT docs aligned (STATUS/CHECKLIST/RUNBOOK).
 - **Paper clarity micro-risk:** repeated long phrase “Neutral Re-asking Control” can add cognitive load; prefer introducing the acronym **NRC** once (Abstract) and using it consistently thereafter.
+- **Terminology clarity (2026-02-27):** Related Work now explicitly flags acronym collisions around ``time-of-first'' metrics (ToF) and standardizes on \TTF{} + explicit \NoF{} definition with a pointer to \S\ref{sec:metrics}.
 - **LaTeX SSOT hygiene (2026-02-20):** Appendix prompt/command blocks now use `fvextra` line-breaking `Verbatim`, eliminating noisy `Overfull \\hbox` warnings from long lines (better PDF-first iteration).
 - **LaTeX Metrics section hygiene (2026-02-20):** rewrote long hazard/TTF expressions (older drafts: TOF) to avoid overfull math boxes; current `main.log` has no `Overfull \\hbox` entries.
 - **Main-text space management (2026-02-20):** moved Recovery persona-wise plot + decoding sweep figure to Appendix (`Additional results`), keeping main Results focused on Survival/Fail@1/Cross-family.

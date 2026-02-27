@@ -179,6 +179,7 @@ This distinction is practically important: if re-asking alone induces drift, per
 Accordingly, we recommend reporting both persona-only trajectories and drift-corrected persona--\NRC{} gaps when comparing models or prompt variants.
 Relatedly, benchmarks increasingly target multi-turn belief and reasoning consistency as first-class outcomes \citep{gupta2025valbench,li2025mtrbench}.
 Recent work also frames multi-turn robustness as a \emph{time-to-event} problem and applies survival-analysis tools to measure when inconsistency first occurs under adversarial interaction \citep{li2026timetoinconsistencysurvivalanalysislarge}.
+To avoid acronym collisions in this area (e.g., \emph{ToF} for ``time-of-first'' inconsistency), we use \TTF{} (time-to-first-failure) and define auxiliary flip-count diagnostics such as \NoF{} explicitly (\S\ref{sec:metrics}).
 \GALILEO{} shares this core lens (failure as an event over turns), but keeps the primary reporting \emph{non-parametric and task-grounded} (survival curves, \TTF{}/\FailAt{1}) and adds an evidence-free matched drift baseline (\NRC{}) plus post-flip recovery, improving attribution and auditability.
 
 \paragraph{Recovery after a deviation.}
