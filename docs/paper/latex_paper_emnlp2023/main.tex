@@ -96,7 +96,7 @@
 Large language models can abandon a previously correct answer under repeated, evidence-free challenges---a multi-turn failure mode that single-turn accuracy can hide \citep{laban2023areyousureflipflop,liu2025truthdecayquantifyingmultiturn}.
 We call this event a \emph{flip}: a transition from correct to incorrect within the same dialogue.
 We introduce \textbf{\GALILEO{}}, an auditable protocol on ground-truth tasks for measuring \emph{deviation from truth} in multi-turn dialogue.
-\GALILEO{} evaluates only initially-correct examples (to isolate deviation from initial ignorance) and pairs each pressure persona $p$ with a template- and decoding-matched \emph{Neutral Re-asking Control} (\NRCp{p}) that restates and briefly verifies the answer \emph{without adding task-relevant evidence}.
+\GALILEO{} evaluates only initially-correct examples (to isolate deviation from initial ignorance) and pairs each pressure persona $p$ with a template- and decoding-matched \emph{Neutral Re-asking Control} (\NRC{}), instantiated per persona as \NRCp{p}, that restates and briefly verifies the answer \emph{without adding task-relevant evidence}.
 Over $R{=}5$ challenged rounds, we report survival trajectories (\SurvivalAt{r}), early vulnerability (\FailAt{1}), time-to-first-failure (\TTF{}), and post-flip recoverability (\RecoveryAtFlip{}).
 Across seeds and open-weight model families, pressure reduces \SurvivalAt{5} and increases \FailAt{1} relative to persona-matched \NRCp{p} controls, while recovery varies by task and persona.
 For \textbf{Qwen2.5-7B-Instruct} (seeds~1--4), pressure lowers \SurvivalAt{5} by 22.8 percentage points (pp) and raises \FailAt{1} by 6.9\,pp versus \NRCp{p} baselines (Table~\ref{tab:main}).
