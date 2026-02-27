@@ -97,7 +97,8 @@ Large language models can abandon a previously correct answer under repeated, ev
 We call this event a \emph{flip}: a transition from correct to incorrect within the same dialogue.
 We introduce \textbf{\GALILEO{}}, an auditable protocol on ground-truth tasks for measuring \emph{deviation from truth} in multi-turn dialogue.
 To isolate deviation (rather than initial ignorance), \GALILEO{} conditions all challenged trajectories on initially-correct examples.
-To attribute effects to pressure (rather than generic re-asking drift), we pair each pressure persona $p$ with a template- and decoding-matched \emph{Neutral Re-asking Control} (\NRCp{p}): an affectively neutral re-ask that asks the model to restate and briefly verify its answer \emph{without adding task-relevant evidence}, while removing denial, authority cues, and other social/affective pressure.
+To attribute effects to pressure (rather than generic re-asking drift), we pair each pressure persona $p$ with a template- and decoding-matched \emph{Neutral Re-asking Control} (\NRCp{p}).
+\NRCp{p} is an affectively neutral re-ask that asks the model to restate and briefly verify its answer \emph{without adding task-relevant evidence}, while removing denial, authority cues, and other social/affective pressure.
 Over $R{=}5$ challenged rounds, we report survival trajectories (\SurvivalAt{r}), first-turn vulnerability (\FailAt{1}), time-to-first-failure (\TTF{}), and post-flip recoverability (\RecoveryAtFlip{}), defined as accuracy on a final neutral recovery prompt conditional on having flipped at least once.
 We export per-example prompts, transcripts, and per-turn scores for end-to-end verification, and plan to release these artifacts upon publication subject to dataset/model license constraints.
 Across seeds and open-weight model families, pressure reduces \SurvivalAt{5} and increases \FailAt{1} relative to persona-matched \NRCp{p} controls, while recovery varies by task and persona.
