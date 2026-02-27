@@ -6,10 +6,13 @@ set -euo pipefail
 
 cd "$(dirname "${BASH_SOURCE[0]}")/.."
 
-# Include the LaTeX SSOT in citation audit by default.
-# This catches missing BibTeX entries used in the actual submission PDF.
+# Include both the LaTeX SSOT and the Markdown writing scaffolds in citation audit.
+# - LaTeX catches missing BibTeX entries in the actual submission PDF.
+# - Markdown catches missing keys early (before LaTeX conversion / copy-paste drift).
 python3 scripts/audit_citations.py --paths \
-  docs/paper/latex_paper_emnlp2023/main.tex
+  docs/paper/latex_paper_emnlp2023/main.tex \
+  docs/paper/PAPER_DRAFT_EN.md \
+  docs/paper/ABSTRACT_EN.md
 
 python3 scripts/audit_acronyms.py --paper-facing \
   --acronym NRC \
