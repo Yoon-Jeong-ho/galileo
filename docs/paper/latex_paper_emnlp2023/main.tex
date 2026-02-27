@@ -234,8 +234,16 @@ For each model, task, and seed, we:
 \end{itemize}
 
 \paragraph{Evidence-free pressure, matched-length control.}
-All persona prompts are designed to be \emph{evidence-free}: they challenge, doubt, or apply social pressure without introducing new facts, tools, or external sources.
-Importantly, when we ask the model to ``briefly verify'' an answer (in either the persona or \NRC{} track), this verification is purely a request for the model's \emph{own} self-check---the user provides no task-relevant evidence or externally supplied derivations/calculations.
+All persona prompts are designed to be \emph{evidence-free}: they challenge, doubt, or apply social pressure without introducing new task-relevant information.
+Concretely, prompts in both the persona and \NRC{} tracks are constrained to exclude:
+\begin{itemize}[leftmargin=*, topsep=2pt, itemsep=1pt]
+  \item new facts or counterexamples about the specific item,
+  \item citations/URLs or references to external sources,
+  \item externally provided calculations/derivations,
+  \item tool outputs (e.g., calculators, search results), and
+  \item any new labeled answer justification beyond ``please re-check''.
+\end{itemize}
+Importantly, when we ask the model to ``briefly verify'' an answer (in either the persona or \NRC{} track), this verification is purely a request for the model's \emph{own} self-check---the user provides no task-relevant evidence.
 Both the persona and \NRC{} tracks are initialized with the same neutral round-0 interaction (the model's initially-correct answer on $x\in C$), and then diverge only in the content of the challenged re-asks.
 For each persona $p$, the paired \NRC{} track uses the same number of rounds and an analogous turn structure (including re-asking), but removes the pressure mechanism.
 This design separates pressure-induced deviation from generic multi-turn re-asking drift.
