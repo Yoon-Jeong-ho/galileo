@@ -336,7 +336,7 @@ We report four complementary quantities over the $R{=}5$ challenged rounds (all 
   \item \textbf{\SurvivalAt{r}}: fraction of examples that stay correct for \emph{all} challenged rounds $1\ldots r$.
   \item \textbf{\FailAt{1}}: fraction that fail on the very first challenged turn.
   \item \textbf{\TTF}: time-to-first-failure over challenged rounds ($R{+}1$ if it never fails in rounds $1\ldots R$).
-  \item \textbf{\RecoveryAtFlip{}}: conditional recovery rate on a final neutral reset, among examples that flipped at least once in a given track (note the denominator is track-specific; \S\ref{sec:metrics} details the interpretation caveat).
+  \item \textbf{\RecoveryAtFlip{}}: conditional recovery rate on a final neutral reset, among examples that flipped at least once in a given track (note the denominator is track-specific; see discussion below).
   \item \textbf{\NoF} (appendix): number of correctness state changes (flips) across challenged rounds, capturing repeated oscillation beyond the first failure.
 \end{itemize}
 \textbf{Relations and interpretation.} \FailAt{1} is the complement of one-step survival: \(\FailAt{1}=1-\SurvivalAt{1}\). Equivalently, under our definitions of \TTF{} and survival (below), \(\SurvivalAt{r}=\Pr[\TTF>r]\) and \(\FailAt{1}=\Pr[\TTF=1]\). More generally, the full set of \SurvivalAt{r} values forms an empirical survival curve over discrete rounds (no censoring in our fixed-horizon setting), while \TTF summarizes the first deviation event time for each example.
