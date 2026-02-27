@@ -85,7 +85,7 @@ These are the claims most likely to be read without the Appendix. Each needs an 
 - Evidence:
   - Cross-family barplot: `fig:crossfam` → `docs/paper/figures/cross_family_survival_r5_control_vs_logicaltrap_seed1-2_20260221.svg`
   - Main-table cross-family aggregates (Survival@5 / Fail@1 / Recovery@flip): `tab:main`
-    - Latest tracked Table-1 artifact: `docs/paper/artifacts/table1_from_results_paper_exports_20260227_1859.csv` (includes Mistral‑7B seed1)
+    - Latest tracked Table-1 artifact: `docs/paper/artifacts/table1_from_results_paper_exports_20260227_2038.csv` (includes Mistral‑7B seed1)
     - Mean±std helper note (seed-level provenance retained; aggregation helper):
       `docs/paper/artifacts/table1_from_results_paper_exports_20260226_0040_agg_mean_std.txt`
 

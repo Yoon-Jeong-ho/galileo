@@ -37,7 +37,7 @@ Ground-truth tasks에서 multi-turn persona pressure 하에 **정답 유지(surv
   - Run root: `results/tier1_mistral7b_seed1_tier1_6_tasksplit_100_256_20260227_170050/`
   - Paper-ready merged root (validator green): `results/tier1_mistral7b_seed1_tier1_6_tasksplit_100_256_20260227_170050/merged2_with_jsonls/`
   - Staged under paper SSOT: `results_paper/tier1_mistral7b_seed1_tier1_6_tasksplit_100_256_20260227_170050_merged/` (symlink)
-  - Table-1 artifact snapshot updated to include this row: `docs/paper/artifacts/table1_from_results_paper_exports_20260227_1859.csv` (LaTeX rows regenerated from artifacts).
+  - Table-1 artifact snapshot updated to include this row: `docs/paper/artifacts/table1_from_results_paper_exports_20260227_2038.csv` (LaTeX rows regenerated from artifacts).
 - **Phi-3-mini Tier-1 (cross-family):** seed1–2 are **paper-ready** (validated) under `results_paper/tier1_phi3mini_seed{1,2}_20260217_*`.
 - **Phi-3.5-mini Tier-1 (cross-family):** seed1–2 are **paper-ready** (validated) and staged under:
   - `results_paper/tier1_phi35mini_seed1_20260219_143555/`
