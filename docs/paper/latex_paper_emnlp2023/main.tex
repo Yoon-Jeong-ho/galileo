@@ -438,8 +438,11 @@ and the paired difference $\Delta\mathrm{Recovery}(\mathrm{flip})=\mathrm{Recove
 
 \textbf{Paired alternative (shared-denominator recovery).} If a strictly paired recovery comparison is desired, define the shared flipped set $F^{(\cup)}:=F^{(p)}\cup F^{(\mathrm{NRC})}$. Apply the same neutral recovery prompt to \emph{both} tracks for all $x\in F^{(\cup)}$ (even if a particular track did not flip on $x$) and score $c^{(\mathrm{rec},t)}(x)$ for $t\in\{p,\mathrm{NRC}\}$. Then
 \begin{align}
-\mathrm{Recovery}^{(t)}(\cup)=\mathbb{E}_{x\sim F^{(\cup)}}\big[c^{(\mathrm{rec},t)}(x)\big],\quad
-\Delta\mathrm{Recovery}(\cup)=\mathrm{Recovery}^{(p)}(\cup)-\mathrm{Recovery}^{(\mathrm{NRC})}(\cup),
+\mathrm{Recovery}^{(t)}(\cup)
+&=\mathbb{E}_{x\sim F^{(\cup)}}\big[c^{(\mathrm{rec},t)}(x)\big],
+\\
+\Delta\mathrm{Recovery}(\cup)
+&=\mathrm{Recovery}^{(p)}(\cup)-\mathrm{Recovery}^{(\mathrm{NRC})}(\cup).
 \end{align}
 which yields a paired per-example comparison at the cost of additional recovery generations. We do not use this as the default because it changes the run budget and because the conditional view (\RecoveryAtFlip{}) cleanly answers the operational question ``after a deviation, can the model return to the gold answer?''
 
