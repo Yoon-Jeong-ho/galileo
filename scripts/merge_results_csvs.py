@@ -27,6 +27,7 @@ from __future__ import annotations
 
 import argparse
 import csv
+import shutil
 from collections import defaultdict
 from pathlib import Path
 
@@ -125,10 +126,49 @@ def merge_recovery(results_dirs: list[Path], out_dir: Path) -> bool:
     return True
 
 
+def _copy_jsonls(results_dirs: list[Path], out_dir: Path, model_dir: str) -> None:
+    """Copy per-example JSONLs into a merged directory so paper_export can compute TOF/flip_samples.
+
+    We copy any *.jsonl under <results_dir>/<model_dir>/ into <out_dir>/<model_dir>/.
+
+    If a filename collision occurs, we keep the first copy and warn if sizes differ.
+    """
+
+    dst_model = out_dir / model_dir
+    dst_model.mkdir(parents=True, exist_ok=True)
+
+    copied = 0
+    for rd in results_dirs:
+        src_model = rd / model_dir
+        if not src_model.exists():
+            raise SystemExit(f"--copy_jsonls requested but missing model_dir in results_dir: {src_model}")
+
+        for src in sorted(src_model.glob("*.jsonl")):
+            dst = dst_model / src.name
+            if dst.exists():
+                if dst.stat().st_size != src.stat().st_size:
+                    print(f"[WARN] JSONL name collision with different size; keeping first: {dst}")
+                continue
+            shutil.copy2(src, dst)
+            copied += 1
+
+    print(f"[OK] copied {copied} JSONLs into: {dst_model}")
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--out_dir", type=Path, required=True)
     ap.add_argument("--results_dirs", type=Path, nargs="+", required=True)
+    ap.add_argument(
+        "--copy_jsonls",
+        action="store_true",
+        help="Also copy per-example JSONLs into out_dir/<model_dir>/ so paper_export can produce TOF/flip_samples.",
+    )
+    ap.add_argument(
+        "--model_dir",
+        default=None,
+        help="Model directory name under each results_dir (required if --copy_jsonls). Example: 'Mistral-7B-Instruct-v0.3'.",
+    )
     args = ap.parse_args()
 
     out_dir: Path = args.out_dir
@@ -141,6 +181,11 @@ def main() -> int:
 
     if not ok_any:
         raise SystemExit("No input CSVs found under provided results_dirs")
+
+    if args.copy_jsonls:
+        if not args.model_dir:
+            raise SystemExit("--model_dir is required when using --copy_jsonls")
+        _copy_jsonls(results_dirs, out_dir, args.model_dir)
 
     print(f"[OK] wrote merged CSVs under: {out_dir}")
     return 0
