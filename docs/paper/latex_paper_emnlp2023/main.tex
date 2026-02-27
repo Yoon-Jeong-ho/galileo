@@ -470,29 +470,13 @@ where $m^{(\mathrm{NRC},p)}$ denotes the NRC track paired to persona $p$ under m
 \bar{m}^{(\mathrm{Persona})}=\tfrac{1}{|\mathcal{P}|}\sum_{p\in\mathcal{P}} m^{(p)},\;
 \bar{m}^{(\mathrm{NRC})}=\tfrac{1}{|\mathcal{P}|}\sum_{p\in\mathcal{P}} m^{(\mathrm{NRC},p)}
 \).
-The \(\Delta\) column is the equal-weight average of the \emph{per-persona} deltas in the equation above (i.e., we average within each persona--\NRC{} pairing before aggregating across personas). When the same set of personas contributes to all three columns (as for \SurvivalAt{5} and \FailAt{1}), this equals \(\bar{m}^{(\mathrm{Persona})}-\bar{m}^{(\mathrm{NRC})}\) by linearity.
-However, for metrics that can be undefined for some personas (notably \RecoveryAtFlip{} when no flips occur in a track), we exclude undefined persona cells and renormalize the remaining weights; in that common case, the displayed \(\Delta\) need not equal the difference of the displayed Persona and NRC column means. This keeps the drift correction aligned to each persona's matched control while avoiding empty-denominator artifacts.
+The \(\Delta\) column reports an equal-weight mean of \emph{per-persona} deltas (Persona$-$\NRC{}), i.e., we compute the paired gap within each persona--\NRC{} pair before averaging across personas.
+When the same set of personas is defined for the metric, linearity implies \(\Delta=\bar{m}^{(\mathrm{Persona})}-\bar{m}^{(\mathrm{NRC})}\).
+For metrics that can be undefined for some personas (notably \RecoveryAtFlip{} when a track has no flips), we exclude undefined persona cells and renormalize the remaining weights; in that case, the displayed \(\Delta\) need not equal the difference of the displayed Persona and NRC column means.
 
-\textbf{Worked example (why \(\Delta\neq \bar{m}^{(\mathrm{Persona})}-\bar{m}^{(\mathrm{NRC})}\) can happen).}
-Suppose two personas have recovery rates \(m^{(p_1)}{=}0.50\), \(m^{(\mathrm{NRC},p_1)}{=}0.40\) and \(m^{(p_2)}{=}0.60\), but the NRC track for \(p_2\) has no flips so \(m^{(\mathrm{NRC},p_2)}\) is undefined.
-Then the \(\Delta\) column averages only defined deltas, so \(\Delta\bar{m}{=}(0.50{-}0.40)=0.10\), while the displayed Persona mean may still incorporate \(p_2\) (depending on which cells are defined), and the displayed NRC mean must exclude \(p_2\); the difference of those two displayed means therefore need not equal 0.10.
-
-\paragraph{Task aggregate and seed aggregation (used for headline numbers).}
-When we report a single headline number per model family (including the main aggregated setting referenced in the abstract), we aggregate persona--\NRC{} \emph{deltas} in three stages. \textbf{Macro-averaging note:} our default aggregates are \emph{equal-weight} over personas and tasks (not weighted by dataset size). This avoids having one large benchmark dominate the headline effect, but it means the aggregate should be read as an ``average pressure effect across tasks'' rather than a micro-average over all examples.
-We aggregate by: (i) compute deltas within each persona--\NRC{} pairing on its matched conditioning set $S=C_p$, (ii) take an equal-weight mean over the five personas, and (iii) take an equal-weight mean over the five tasks.
-Concretely, for metric $m$, persona set $\mathcal{P}$, task set $\mathcal{T}$, and seed $s$,
-\begin{align}
-\Delta m_{p,\tau,s} &= m^{(p)}_{\tau,s} - m^{(\mathrm{NRC},p)}_{\tau,s}, \\
-\Delta m_{\tau,s} &= \tfrac{1}{|\mathcal{P}|}\sum_{p\in\mathcal{P}} \Delta m_{p,\tau,s}, \\
-\Delta m_{s} &= \tfrac{1}{|\mathcal{T}|}\sum_{\tau\in\mathcal{T}} \Delta m_{\tau,s}.
-\end{align}
-When multiple random seeds are available, we compute $\Delta m_s$ separately per seed, then report mean\,\(\pm\)\,std over seeds.
-This ordering (delta-first, then averaging) keeps drift correction aligned to each persona's paired control before pooling across tasks/personas.
-
-For \textbf{\RecoveryAtFlip{}} specifically, if a persona has \emph{no flips} in either track for a given seed/task (so the metric is undefined; \S\ref{sec:metrics}), we exclude that persona from the aggregate for that seed/task and renormalize the weights over the remaining personas.
-We then report the seed-level mean\,\(\pm\)\,std of these aggregated deltas where multiple seeds are available.
-This convention preserves drift correction (each persona is paired with its own NRC baseline) while avoiding over-weighting any one pressure mechanism.
-
+\paragraph{Task/seed aggregation (used for headline numbers).}
+When we report a single headline number per model family (including the aggregated setting referenced in the abstract), we macro-average \emph{deltas} (not raw metrics): (i) compute persona--\NRC{} gaps on matched conditioning sets $S=C_p$, (ii) average gaps equally over personas, and (iii) average equally over tasks (\S\ref{sec:metrics}). When multiple random seeds are available, we compute this aggregate delta per seed and report mean\,\(\pm\)\,std over seeds.
+For \RecoveryAtFlip{}, if a persona has no flips in either track for a given seed/task (undefined denominator), we exclude it from that seed/task aggregate and renormalize the remaining persona weights.
 \begin{table*}[t]
 \centering
 \small
