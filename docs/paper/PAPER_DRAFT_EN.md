@@ -43,6 +43,9 @@ Single-turn accuracy does not answer:
 **Evidence checklist (what the reader should verify):** (i) the protocol + matched NRC design (Fig.~\ref{fig:protocol}); (ii) robustness decay across rounds via survival trajectories (Fig.~\ref{fig:survival-curves-rounds}); (iii) early-turn vulnerability via TTF / Fail@1 (Fig.~\ref{fig:tof-delta-fail1}); (iv) return-to-truth behavior via recovery conditional on flip (Fig.~\ref{fig:recovery-delta}); and (v) attribution beyond generic drift via persona-vs-control deltas (Table~\ref{tab:tablew}; Fig.~\ref{fig:tablew-effect-deltas}). For robustness checks, see cross-family replication (Fig.~\ref{fig:cross-family-survival}) and decoding sensitivity (Appendix~A.1; Fig.~\ref{fig:decoding-sweep}).
 
 **At-a-glance definitions (paper-wide):**
+
+**Primary reporting convention:** unless explicitly marked “marginal/unconditional”, all robustness metrics below are computed **conditional on initial correctness** (i.e., on the subset with \(y_{i,0}=1\)).
+
 - **Round 0**: the initial (persona-free) answer used to filter to the initially-correct subset.
 - **NRC**: the same multi-round structure/decoding/answer-format constraints, but follow-ups are neutral “re-check and answer” prompts that introduce **no new task-relevant evidence**.
 - **Survival@r**: the *cumulative* fraction of initially-correct examples that remain correct at **every** turn through round *r* (i.e., correct for all turns 1..*r*, not “accuracy at round *r* only”).
