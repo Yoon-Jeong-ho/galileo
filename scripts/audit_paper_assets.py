@@ -116,17 +116,32 @@ def main() -> int:
         print(f"[WARN] missing LaTeX main.tex (skipping LaTeX asset audit): {LATEX_MAIN}")
 
     # ---- Artifact CSV assets ----
-    artifact_names = ARTIFACT_RE.findall(draft_text + "\n" + caption_text)
-    artifact_paths = [Path("docs/paper/artifacts") / n for n in sorted(set(artifact_names))]
+    artifact_refs = sorted(set(ARTIFACT_RE.findall(draft_text + "\n" + caption_text)))
 
-    missing_artifacts = [p for p in artifact_paths if not p.exists()]
-    if missing_artifacts:
-        print(f"[FAIL] {len(missing_artifacts)} missing artifact CSV(s)")
-        for p in missing_artifacts:
+    artifacts_dir = Path("docs/paper/artifacts")
+    missing: list[str] = []
+
+    # We allow lightweight glob patterns in docs (e.g., table1_*.csv) so the paper
+    # can refer to a family of timestamped exports without forcing a single pinned
+    # filename in prose. Here we treat any reference containing glob metacharacters
+    # as a pattern and require at least one match.
+    for ref in artifact_refs:
+        if any(ch in ref for ch in "*?["):
+            matches = sorted(artifacts_dir.glob(ref))
+            if not matches:
+                missing.append(str(artifacts_dir / ref))
+        else:
+            p = artifacts_dir / ref
+            if not p.exists():
+                missing.append(str(p))
+
+    if missing:
+        print(f"[FAIL] {len(missing)} missing artifact CSV reference(s)")
+        for p in missing:
             print(f"- missing: {p}")
         return 1
 
-    print(f"[OK] artifact CSV references: {len(artifact_paths)}; all present")
+    print(f"[OK] artifact CSV references: {len(artifact_refs)}; all present")
     return 0
 
 
