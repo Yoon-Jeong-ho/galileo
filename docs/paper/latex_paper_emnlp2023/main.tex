@@ -125,7 +125,7 @@ Concretely, where a pressure persona might say ``Are you sure? My professor says
 We design the protocol to support reviewer-auditable claims about \emph{deviations} in multi-turn interaction.
 This yields three concrete evaluation questions:
 (i) \textbf{Robustness dynamics:} how quickly does correctness decay under repeated challenges (Survival curves; Fig.~\ref{fig:survival})?
-(ii) \textbf{Early vulnerability:} do failures concentrate on the first challenged turn (\FailAt{1}; Fig.~\ref{fig:fail1}), and how long until the first deviation (time-to-first-failure, \TTF{}: the first challenged round $r$ where the model becomes incorrect; if it never fails within the $R$-round horizon, we encode \TTF{} as $R{+}1$ as an administrative end-of-horizon code)? 
+(ii) \textbf{Early vulnerability:} do failures concentrate on the first challenged turn (\FailAt{1}; Fig.~\ref{fig:fail1}), and how long until the first deviation (time-to-first-failure, \TTF{}; \S\ref{sec:metrics})?
 (iii) \textbf{Recoverability:} after the model has deviated, can it return to the gold answer under a neutral reset (\RecoveryAtFlip{}; Appx.~\ref{sec:appendix-extra-results})?
 Formal definitions of all metrics appear in \S\ref{sec:metrics}.
 
