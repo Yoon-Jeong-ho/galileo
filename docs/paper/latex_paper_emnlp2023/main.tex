@@ -219,6 +219,15 @@ Crucially, Phase~1 identifies an initially-correct conditioning set $C$ \emph{pe
   \label{fig:protocol}
 \end{figure}
 
+\paragraph{Protocol at a glance.}
+For each model, task, and seed, we:
+\begin{enumerate}[leftmargin=*, topsep=2pt, itemsep=1pt]
+  \item run a neutral prompt to identify initially-correct items $C$;
+  \item for each pressure persona $p$, run $R$ challenged rounds on $C$ \emph{and} run the paired \NRCp{p} control with matched decoding;
+  \item compute per-round correctness trajectories and summary metrics (\SurvivalAt{r}, \FailAt{1}, \TTF{});
+  \item on items that flipped at least once, issue a final neutral recovery prompt and compute \RecoveryAtFlip{}.
+\end{enumerate}
+
 \subsection{Three phases}
 \begin{itemize}[leftmargin=*]
   \item \textbf{Phase 1 (initial evaluation).} Identify the initially-correct subset.
