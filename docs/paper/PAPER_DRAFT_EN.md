@@ -171,7 +171,7 @@ We prompt the model to answer each question and score the response against groun
 
 ### Phase 2: Persona pressure (multi-round)
 
-For each example in the initially-correct set (recommended: shared `C`; if runs are executed separately per persona, arm-specific `C_p`), we run a multi-turn conversation where the user adopts a pressure persona that challenges the model’s answer for up to `R` rounds (default: `R=5`). Personas are designed to represent qualitatively different **pressure mechanisms while withholding any new task-relevant evidence** (no new facts, counterexamples, citations, or alternative answers).
+For each example in the initially-correct set (either the shared set `C` or the persona-matched set `C_p`; we state the choice per result), we run a multi-turn conversation where the user adopts a pressure persona that challenges the model’s answer for up to `R` rounds (default: `R=5`). Personas are designed to represent qualitatively different **pressure mechanisms while withholding any new task-relevant evidence** (no new facts, counterexamples, citations, or alternative answers).
 
 **Persona taxonomy (pressure mechanisms; evidence-free).**
 
@@ -340,11 +340,16 @@ We do **not** use this as a primary metric (it collapses dynamics), but it is a 
 
 ## 4. Metrics
 
-Let `D` be the full dataset and `P` the set of personas. In the **recommended protocol**, Phase~1 defines a single initially-correct subset `C \subseteq D` (persona-free) that is shared across all arms. When reporting results from runs executed separately per persona, we denote the arm-specific initially-correct subset as `C_p \subseteq D`.
+Let `D` be the full dataset and `P` the set of personas. We support two reporting modes for the initially-correct conditioning set:
+
+- **Shared-`C` (clean cross-persona comparisons):** Phase~1 defines a single initially-correct subset `C \subseteq D` (persona-free) that is shared across all persona arms and the NRC.
+- **Persona-matched `C_p` (clean within-persona attribution):** when runs are executed separately per persona arm `p`, we use an arm-specific initially-correct subset `C_p \subseteq D` and compute both (i) persona pressure and (ii) the NRC on that same `C_p`.
+
+**Paper default / tracked artifacts.** Unless otherwise stated, our main tracked exports (e.g., Table~W and persona-vs-control deltas) use the **persona-matched `C_p`** mode because it yields the cleanest attribution beyond drift within each persona mechanism.
 
 ### 4.1 Initial accuracy
 
-In the **recommended protocol** (single shared initially-correct set `C`), initial accuracy is persona-independent:
+In **Shared-`C` mode** (single shared initially-correct set `C`), initial accuracy is persona-independent:
 \[
 \text{InitialAcc} = \frac{|C|}{|D|}.
 \]
@@ -408,7 +413,7 @@ We interpret recovery as an intervention-style metric that is intentionally dist
 
 ### 4.5 Multi-seed aggregation
 
-For each seed, we compute the above metrics per persona/dataset/round on that seed’s initially-correct subset (recommended: the shared `C`; otherwise `C_p`). We then aggregate across seeds by reporting **mean ± std** of the *per-seed* metrics.
+For each seed, we compute the above metrics per persona/dataset/round on that seed’s initially-correct subset (either the shared `C` or the persona-matched `C_p`, depending on the reporting mode). We then aggregate across seeds by reporting **mean ± std** of the *per-seed* metrics.
 
 **Uncertainty / confidence intervals (paper default).** Our primary uncertainty summary is the **across-seed** variability (reported as std). If the camera-ready requires 95% CIs, a simple and reviewer-friendly option is:
 - compute the metric per seed;
