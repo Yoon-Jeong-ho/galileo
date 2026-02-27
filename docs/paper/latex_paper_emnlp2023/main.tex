@@ -730,7 +730,7 @@ Recovery step & --- & enabled & --- & \RecoveryAtFlip{} computed conditional on 
 \midrule
 \input{generated/recovery_denominators_rows.tex}
 \end{tabularx}
-\caption{\textbf{Recovery denominators (flip counts).} \RecoveryAtFlip{} is computed only over examples that flip at least once in the same track (persona or \NRC{}). Entries report the mean\,\(\pm\)\,std number of flipped examples across seeds for the persona aggregate and its matched \NRC{} baseline. ``--'' indicates recovery was not exported for that model family.}
+\caption{\textbf{Recovery denominators (flip counts).} \RecoveryAtFlip{} is computed only over examples that flip at least once in the same track (persona or \NRC{}). Entries report the mean\,\(\pm\)\,std \emph{total number of flipped examples} across seeds (aliases), where totals sum over the five tasks and over the persona aggregate setting used in Table~\ref{tab:main} (i.e., pooled over the five pressure personas, each paired with its matched \NRC{}). ``--'' indicates recovery was not exported for that model family.}
 \label{tab:recovery-denoms}
 \end{table}
 
