@@ -32,7 +32,12 @@ Ground-truth tasks에서 multi-turn persona pressure 하에 **정답 유지(surv
   - **Observed now (nlp16):** GPUs 4/5 are heavily contended (e.g., `jslee-fusion-distill-vllm-v1` holding ~47GiB on GPU5; `eval-worker-gpu1` ~37GiB on GPU4), causing vLLM EngineCore init failures for new TP=4 starts.
   - **Action:** do not blindly relaunch vLLM when free-VRAM is low; fingerprint PIDs first.
 - **Canonical remote launcher (anti-drift):** prefer `scripts/run_multiseed_tmux.sh` (streams logs + writes `runner_metadata.json`). Other launch scripts are allowed only when explicitly justified in `results/<run>/run.log`.
-- **Validator health (paper SSOT):** `results_paper/` global validation + runner-metadata parity is **[OK]** (Tier‑1 families incl. Llama‑3.2‑3B, Phi‑3‑mini, **Phi‑3.5‑mini**, **Mistral‑Nemo**, **DeepSeek‑LLM‑7B‑Chat**). Incomplete runs are quarantined under `results_paper_incomplete/` to keep paper SSOT clean.
+- **Validator health (paper SSOT):** `results_paper/` global validation + runner-metadata parity is **[OK]** (Tier‑1 families incl. Llama‑3.2‑3B, Phi‑3‑mini, **Phi‑3.5‑mini**, **Mistral‑Nemo**, **DeepSeek‑LLM‑7B‑Chat**, **Mistral‑7B (seed1)**). Incomplete runs are quarantined under `results_paper_incomplete/` to keep paper SSOT clean.
+- **NEW (2026-02-27): Mistral-7B Tier-1(6) seed1 is paper-ready via task-split→merge(+JSONLs)**
+  - Run root: `results/tier1_mistral7b_seed1_tier1_6_tasksplit_100_256_20260227_170050/`
+  - Paper-ready merged root (validator green): `results/tier1_mistral7b_seed1_tier1_6_tasksplit_100_256_20260227_170050/merged2_with_jsonls/`
+  - Staged under paper SSOT: `results_paper/tier1_mistral7b_seed1_tier1_6_tasksplit_100_256_20260227_170050_merged/` (symlink)
+  - Table-1 artifact snapshot updated to include this row: `docs/paper/artifacts/table1_from_results_paper_exports_20260227_1859.csv` (LaTeX rows regenerated from artifacts).
 - **Phi-3-mini Tier-1 (cross-family):** seed1–2 are **paper-ready** (validated) under `results_paper/tier1_phi3mini_seed{1,2}_20260217_*`.
 - **Phi-3.5-mini Tier-1 (cross-family):** seed1–2 are **paper-ready** (validated) and staged under:
   - `results_paper/tier1_phi35mini_seed1_20260219_143555/`
