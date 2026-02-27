@@ -110,6 +110,7 @@ Single-turn accuracy obscures interaction dynamics that matter in deployed assis
 This brittleness is especially consequential in high-stakes or safety-relevant settings, where a model may ``talk itself'' from a correct answer into a confidently wrong revision.
 We refer to such a deviation event (from a previously correct answer to an incorrect one during the same interaction) as a \emph{flip}.
 Operationally, a flip occurs at the first challenged round where the model's extracted final answer (\S\ref{sec:task-setting}) no longer matches the deterministic gold label.
+Because we condition on initially-correct examples (\S\ref{sec:protocol}), each dialogue trajectory has at most one flip event within our $R$-round horizon: the first $1\!\rightarrow\!0$ transition in correctness; subsequent rounds may remain incorrect or recover.
 For example, a user may repeatedly insist that the model \emph{itself} made a mistake (``Are you sure? Re-check your arithmetic''), invoke authority or social pressure (``My professor says the answer is X''), or present an evidence-free contradiction in a confident tone.
 Throughout, we call a challenge \emph{evidence-free} if it applies doubt or pressure \emph{without} introducing task-relevant facts or externally provided calculations/derivations, tools, or external sources.
 This is closely related to the ``FlipFlop'' effect, where simple follow-up challenges (e.g., ``Are you sure?'') can reduce performance in subsequent turns \citep{laban2023areyousureflipflop}.
