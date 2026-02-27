@@ -96,7 +96,7 @@
 Large language models can abandon a previously correct answer under repeated, evidence-free challenges---a multi-turn failure mode that single-turn accuracy can hide \citep{laban2023areyousureflipflop,liu2025truthdecayquantifyingmultiturn}.
 We call this event a \emph{flip}: a transition from correct to incorrect within the same dialogue.
 We introduce \textbf{\GALILEO{}}, an auditable protocol on ground-truth tasks for measuring \emph{deviation from truth} in multi-turn dialogue.
-\GALILEO{} evaluates only initially-correct examples (to isolate deviation from initial ignorance) and pairs each pressure persona $p$ with a template- and decoding-matched \emph{Neutral Re-asking Control} (\NRC{}), instantiated per persona as \NRCp{p}, that restates and briefly verifies the answer \emph{without adding task-relevant evidence}.
+\GALILEO{} evaluates only initially-correct examples (to isolate deviation from initial ignorance) and pairs each pressure persona $p$ with a template- and decoding-matched \emph{Neutral Re-asking Control} (\NRC{}), instantiated per persona as \NRCp{p}, that issues a one-sentence, affectively neutral ``double-check'' re-ask \emph{without introducing any new task-relevant evidence} (no new facts, counterexamples, citations, or alternative answers).
 Over $R{=}5$ challenged rounds, we report survival trajectories (\SurvivalAt{r}), early vulnerability (\FailAt{1}), time-to-first-failure (\TTF{}), and post-flip recoverability (\RecoveryAtFlip{}).
 Across seeds and open-weight model families, pressure reduces \SurvivalAt{5} and increases \FailAt{1} relative to persona-matched \NRCp{p} controls, while recovery varies by task and persona.
 For \textbf{Qwen2.5-7B-Instruct} (seeds~1--4), pressure lowers \SurvivalAt{5} by 22.8 percentage points (pp) and raises \FailAt{1} by 6.9\,pp versus \NRCp{p} baselines (Table~\ref{tab:main}).
@@ -119,7 +119,7 @@ In such settings, we care about \emph{when} a previously correct model first fai
 Concretely, we instantiate five evidence-free pressure mechanisms: \textbf{Soft Pressure} (polite doubt), \textbf{Simple Denial} (flat contradiction), \textbf{Strong Pressure} (insistent challenge), \textbf{Authority Claim} (invoking an external authority), and \textbf{Logical Trap} (argumentative reframing) (\S\ref{sec:protocol}).
 
 \GALILEO{} targets ground-truth tasks where failure is unambiguous, and introduces a matched drift baseline (Neutral Re-asking Control, \NRC{}) so that measured persona effects reflect pressure mechanisms rather than generic instability under re-asking.
-Concretely, where a pressure persona might say ``Are you sure? My professor says the answer is $X$'' (no checkable evidence), the matched \NRC{} variant instead issues an affectively neutral re-ask such as ``Please restate your final answer and briefly verify it.''
+Concretely, where a pressure persona might say ``Are you sure? My professor says the answer is $X$'' (no checkable evidence), the matched \NRC{} variant instead issues an affectively neutral re-ask such as ``Please double-check and restate your final answer.''
 
 \paragraph{Design goals and questions.}
 We design the protocol to support reviewer-auditable claims about \emph{deviations} in multi-turn interaction.
@@ -136,7 +136,7 @@ By restricting multi-round evaluation to an initially-correct set $C$ (defined p
 \paragraph{Why a matched neutral control (\NRC{})?}
 Even evidence-free re-asking can induce drift across turns.
 \NRC{} provides the counterfactual where the conversation length and decoding match the persona track but the pressure mechanism is removed, so we report drift-corrected persona effects as persona--\NRC{} gaps throughout (Table~\ref{tab:main}, Fig.~\ref{fig:survival}, Fig.~\ref{fig:fail1}).
-Concretely, for each pressure persona $p$ we define a paired control template \NRCp{p} that preserves the round structure and surface ``re-ask'' intent (e.g., ``Please restate your final answer and briefly verify it'') but removes social/affective pressure cues (e.g., denial, authority, insinuations).
+Concretely, for each pressure persona $p$ we define a paired control template \NRCp{p} that preserves the round structure and surface ``re-ask'' intent (e.g., ``Please double-check and restate your final answer.'') but removes social/affective pressure cues (e.g., denial, authority, insinuations).
 \footnote{Because we compute each persona and its paired control on the persona-matched initially-correct subset $C_p$, control (\NRC{}) values can vary across personas even when the \NRC{} prompt template and decoding are fixed; persona effects are read as within-persona deltas vs the matched \NRC{} baseline.}
 
 \paragraph{Scope and non-goals.}
