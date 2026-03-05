@@ -182,6 +182,9 @@ Recent work also frames multi-turn robustness as a \emph{time-to-event} problem 
 To avoid acronym collisions in this area (e.g., \emph{ToF} for ``time-of-first'' inconsistency), we use \TTF{} (time-to-first-failure) and define auxiliary flip-count diagnostics such as \NoF{} explicitly (\S\ref{sec:metrics}).
 \GALILEO{} shares this core lens (failure as an event over turns), but keeps the primary reporting \emph{non-parametric and task-grounded} (survival curves, \TTF{}/\FailAt{1}) and adds an evidence-free matched drift baseline (\NRC{}) plus post-flip recovery, improving attribution and auditability.
 
+\paragraph{Controls for multi-turn drift.}
+In multi-turn settings, even a polite request to ``answer again'' can change generations via exposure to the model's own prior text, length effects, and decoding stochasticity. As a result, a persona-only multi-round curve can over-attribute generic re-asking instability to the persona's social mechanism. Our persona-paired \NRCp{p} baseline makes this drift explicit and supports an interpretable counterfactual: what would the same model do over the same number of rounds under the same decoding if the pressure content were removed?
+
 \paragraph{Recovery after a deviation.}
 Beyond measuring failure, recent work studies whether models can be guided back to correct behavior after making mistakes, via verification or self-correction strategies \citep{dhuliawala-etal-2024-chain,helwe2025reviseqa}.
 We complement robustness metrics with \RecoveryAtFlip{}, explicitly separating ``staying correct'' from ``returning to truth'' after a conversational flip.
