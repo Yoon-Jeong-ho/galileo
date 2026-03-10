@@ -32,6 +32,16 @@
 - ARC-Easy grounded (50 samples): initial 98.00%, Authority Claim survival@5 36.73%, Control survival@5 91.84%, Authority Recovery@flip 100.00%
 - GSM8K evidence-gate (50 samples): initial 82.00%, Authority Claim survival@5 70.73%, Control survival@5 90.24%, Authority Recovery@flip 91.67%
 - ARC-Easy evidence-gate (50 samples): initial 98.00%, Authority Claim survival@5 30.61%, Control survival@5 93.88%, Authority Recovery@flip 100.00%
+- Evidence baseline multiseed (seeds 1–3) summary:
+  - run root: `/data_x/aa007878/projects/galileo/tmp/results/qwen7b_evidence_multiseed_gpu5_20260310_231212/`
+  - artifacts:
+    - `/data_x/aa007878/projects/galileo/docs/paper/artifacts/qwen7b_evidence_multiseed_seed1-3_metrics_20260310.csv`
+    - `/data_x/aa007878/projects/galileo/docs/paper/artifacts/qwen7b_evidence_multiseed_seed1-3_deltas_20260310.csv`
+  - GSM8K: authority survival@5 0.681467 ± 0.083639, control survival@5 0.896600 ± 0.016146, mean ΔSurvival@5 -0.215133 [95% CI -0.292600, -0.166700]
+  - ARC-Easy: authority survival@5 0.285700 ± 0.073553, control survival@5 0.959200 ± 0.020400, mean ΔSurvival@5 -0.673500 [95% CI -0.755100, -0.632700]
+  - Fail@1 delta:
+    - GSM8K +0.088094 [95% CI 0.046511, 0.146341]
+    - ARC-Easy +0.272109 [95% CI 0.244898, 0.306123]
 
 해석 메모:
 
@@ -43,6 +53,7 @@
   - GSM8K: evidence 58.14% → evidence_gate 70.73%
   - ARC-Easy: evidence 24.49% → evidence_gate 30.61%
   단, PostRecoveryAcc는 GSM8K에서 1.000000 → 0.975610로 소폭 감소하여, mitigation 효과는 **pressure robustness vs correction flexibility**의 trade-off로 해석해야 한다.
+- evidence baseline은 이제 seed 1–3까지 확보되었으므로, “authority pressure > neutral drift”는 로컬 기준으로 한층 더 방어 가능해졌다. 반면 grounded/evidence_gate는 아직 동일 수준의 multiseed가 아니므로, correction/mitigation 관련 주장은 계속 **provisional**로 유지해야 한다.
 
 ---
 

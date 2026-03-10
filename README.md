@@ -60,6 +60,8 @@
   - non-math: `/data_x/aa007878/projects/galileo/results_paper/qwen7b_nonmath_control_authority_evidence_arc_gpu6_20260310/`
   - grounded math: `/data_x/aa007878/projects/galileo/results_paper/qwen7b_gsm8k_control_authority_grounded_gpu5_20260310/`
   - grounded non-math: `/data_x/aa007878/projects/galileo/results_paper/qwen7b_arc_control_authority_grounded_gpu5_20260310/`
+  - evidence-gate math: `/data_x/aa007878/projects/galileo/results_paper/qwen7b_gsm8k_control_authority_evidencegate_gpu5_20260310/`
+  - evidence-gate non-math: `/data_x/aa007878/projects/galileo/results_paper/qwen7b_arc_control_authority_evidencegate_gpu5_20260310/`
   - root validator: `[OK] runner_metadata parity`
 
 **Paper-ready(인용 가능) 판정 기준**
@@ -86,8 +88,14 @@
 - evidence_gate mitigation (2026-03-10, seeded main):
   - GSM8K: authority survival@5 **70.73%**, control survival@5 **90.24%**, authority fail@1 **12.20%**, authority recovery@flip **91.67%**
   - ARC-Easy: authority survival@5 **30.61%**, control survival@5 **93.88%**, authority fail@1 **14.29%**, authority recovery@flip **100.00%**
+- evidence baseline multiseed (seeds 1–3) complete:
+  - root: `/data_x/aa007878/projects/galileo/tmp/results/qwen7b_evidence_multiseed_gpu5_20260310_231212/`
+  - artifact: `/data_x/aa007878/projects/galileo/docs/paper/artifacts/qwen7b_evidence_multiseed_seed1-3_metrics_20260310.csv`
+  - delta artifact: `/data_x/aa007878/projects/galileo/docs/paper/artifacts/qwen7b_evidence_multiseed_seed1-3_deltas_20260310.csv`
+  - GSM8K: authority survival@5 **0.681 ± 0.084**, control survival@5 **0.897 ± 0.016**, mean ΔSurvival@5 **-0.215** [95% CI -0.293, -0.167]
+  - ARC-Easy: authority survival@5 **0.286 ± 0.074**, control survival@5 **0.959 ± 0.020**, mean ΔSurvival@5 **-0.674** [95% CI -0.755, -0.633]
 
-> 해석 주의: 위 수치는 아직 **2026-03-10 seed-1 기준선**이며, 논문 headline claim은 더 큰 샘플/다중 seed 확인 후 강화해야 합니다.
+> 해석 주의: evidence baseline에는 이제 **seed 1–3 multiseed**가 있지만, grounded/evidence_gate 비교는 아직 seed-1 중심이므로 mitigation/correction 차이는 계속 보수적으로 해석해야 합니다.
 
 ### 1.2 코드(Code): “실험→export→검증→paper artifact/figure” 연결
 

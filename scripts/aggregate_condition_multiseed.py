@@ -13,6 +13,7 @@ from __future__ import annotations
 import argparse
 import csv
 import math
+import random
 from collections import defaultdict
 from pathlib import Path
 
@@ -41,6 +42,23 @@ def mean_std(xs: list[float]) -> tuple[float, float]:
     return m, math.sqrt(var)
 
 
+def bootstrap_ci(xs: list[float], n_boot: int = 2000, seed: int = 42) -> tuple[float, float]:
+    if not xs:
+        return 0.0, 0.0
+    if len(xs) == 1:
+        return xs[0], xs[0]
+    rng = random.Random(seed)
+    means = []
+    n = len(xs)
+    for _ in range(n_boot):
+        sample = [xs[rng.randrange(n)] for _ in range(n)]
+        means.append(sum(sample) / n)
+    means.sort()
+    lo_idx = max(0, int(0.025 * (n_boot - 1)))
+    hi_idx = min(n_boot - 1, int(0.975 * (n_boot - 1)))
+    return means[lo_idx], means[hi_idx]
+
+
 def persona_key(name: str) -> str:
     low = (name or "").strip().lower()
     if low in {"control re-asking", "control_reask", "neutral_reask_control"}:
@@ -55,6 +73,8 @@ def main() -> int:
     ap.add_argument("--results_root", required=True)
     ap.add_argument("--out_dir", required=True)
     ap.add_argument("--round", type=int, default=5)
+    ap.add_argument("--bootstrap_samples", type=int, default=2000)
+    ap.add_argument("--bootstrap_seed", type=int, default=42)
     args = ap.parse_args()
 
     root = Path(args.results_root).resolve()
@@ -151,6 +171,7 @@ def main() -> int:
         for metric in ["initial_accuracy", "survival_r5", "fail1", "recovery_rate", "post_recovery_acc"]:
             vals = [float(r[metric]) for r in rows]
             m, sd = mean_std(vals)
+            ci_lo, ci_hi = bootstrap_ci(vals, n_boot=args.bootstrap_samples, seed=args.bootstrap_seed)
             mean_rows.append(
                 {
                     "dataset_alias": dataset_alias,
@@ -159,12 +180,14 @@ def main() -> int:
                     "metric": metric,
                     "mean": f"{m:.6f}",
                     "std": f"{sd:.6f}",
+                    "ci95_lo": f"{ci_lo:.6f}",
+                    "ci95_hi": f"{ci_hi:.6f}",
                     "n_seeds": len(vals),
                 }
             )
     write_csv(
         out_dir / "metrics_mean_std.csv",
-        ["dataset_alias", "dataset_name", "persona", "metric", "mean", "std", "n_seeds"],
+        ["dataset_alias", "dataset_name", "persona", "metric", "mean", "std", "ci95_lo", "ci95_hi", "n_seeds"],
         mean_rows,
     )
 
@@ -184,6 +207,7 @@ def main() -> int:
     for key, vals in sorted(per_dataset_metric.items()):
         dataset_alias, dataset_name, metric = key
         m, sd = mean_std(vals)
+        ci_lo, ci_hi = bootstrap_ci(vals, n_boot=args.bootstrap_samples, seed=args.bootstrap_seed)
         delta_rows.append(
             {
                 "dataset_alias": dataset_alias,
@@ -191,12 +215,14 @@ def main() -> int:
                 "metric": metric,
                 "mean_delta_authority_minus_control": f"{m:.6f}",
                 "std_delta_authority_minus_control": f"{sd:.6f}",
+                "ci95_lo": f"{ci_lo:.6f}",
+                "ci95_hi": f"{ci_hi:.6f}",
                 "n_seeds": len(vals),
             }
         )
     write_csv(
         out_dir / "delta_mean_std.csv",
-        ["dataset_alias", "dataset_name", "metric", "mean_delta_authority_minus_control", "std_delta_authority_minus_control", "n_seeds"],
+        ["dataset_alias", "dataset_name", "metric", "mean_delta_authority_minus_control", "std_delta_authority_minus_control", "ci95_lo", "ci95_hi", "n_seeds"],
         delta_rows,
     )
 
@@ -204,7 +230,8 @@ def main() -> int:
     for row in delta_rows:
         md.append(
             f"- {row['dataset_name']} / {row['metric']}: "
-            f"{row['mean_delta_authority_minus_control']} ± {row['std_delta_authority_minus_control']} (n={row['n_seeds']})\n"
+            f"{row['mean_delta_authority_minus_control']} ± {row['std_delta_authority_minus_control']} "
+            f"[95% CI {row['ci95_lo']}, {row['ci95_hi']}] (n={row['n_seeds']})\n"
         )
     (out_dir / "summary.md").write_text("".join(md), encoding="utf-8")
 
