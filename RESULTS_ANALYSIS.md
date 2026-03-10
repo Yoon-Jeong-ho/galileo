@@ -27,6 +27,7 @@
 
 - 현재 기준선은 **pressure vs neutral drift 분리**에는 충분히 유망하다.
 - 다만 `evidence_bearing` recovery가 모두 100%인 것은 작은 단일-seed 기준선이므로, 아직 “강한 논문 결론”로 쓰기보다 **작동 확인 + 후속 다중 seed 필요**로 정리해야 한다.
+- 추가로, 2026-03-10 late pass에서 **generation seed를 Phase 1/2/3에 명시적으로 고정**하도록 수정했다. 이 수정 전에는 recovery variant만 바꿔도 Phase 2가 stochastic하게 달라질 수 있었기 때문에, correction-arm 직접 비교는 **seeded rerun 결과**를 기준으로 해석해야 한다.
 
 ---
 

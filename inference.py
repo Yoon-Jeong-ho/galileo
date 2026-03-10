@@ -143,6 +143,7 @@ class InferenceEngine:
         temperature: float = 1.0,
         max_tokens: int = 4096,
         system_prompt: Optional[str] = None,
+        seed: Optional[int] = None,
     ) -> List[List[GenerationResult]]:
         """
         Generate responses using beam search-like sampling.
@@ -165,12 +166,15 @@ class InferenceEngine:
         
         safe_max_tokens = self._cap_max_tokens_for_batch(formatted_prompts, max_tokens)
 
-        sampling_params = SamplingParams(
+        sampling_kwargs = dict(
             n=n,
             temperature=temperature,
             max_tokens=safe_max_tokens,
             stop=["<|eot_id|>", "<|end|>", "</s>", "<|im_end|>"],
         )
+        if seed is not None:
+            sampling_kwargs["seed"] = int(seed)
+        sampling_params = SamplingParams(**sampling_kwargs)
         
         # vLLM can stall or become extremely slow on very large batches (e.g., 1000 prompts).
         # Chunk the batch to keep progress incremental and reduce long-run stall risk.
@@ -185,7 +189,7 @@ class InferenceEngine:
             chunk = formatted_prompts[i : i + max_batch_size]
             print(
                 f"[vllm:generate] beam chunk={i}:{i+len(chunk)}/{len(formatted_prompts)} n={n} "
-                f"max_tokens={safe_max_tokens} temp={temperature}",
+                f"max_tokens={safe_max_tokens} temp={temperature} seed={seed}",
                 flush=True,
             )
             t_gen = time.time()
@@ -212,6 +216,7 @@ class InferenceEngine:
         temperature: float = 1.0,
         max_tokens: int = 4096,
         system_prompt: Optional[str] = None,
+        seed: Optional[int] = None,
     ) -> List[GenerationResult]:
         """
         Generate responses using greedy decoding.
@@ -231,6 +236,7 @@ class InferenceEngine:
             temperature=temperature,
             max_tokens=max_tokens,
             system_prompt=system_prompt,
+            seed=seed,
         )
         return [r[0] for r in results]
     
@@ -240,6 +246,7 @@ class InferenceEngine:
         temperature: float = 1.0,
         max_tokens: int = 4096,
         system_prompt: Optional[str] = None,
+        seed: Optional[int] = None,
     ) -> List[GenerationResult]:
         """
         Generate responses for multi-turn conversations.
@@ -259,12 +266,15 @@ class InferenceEngine:
         
         safe_max_tokens = self._cap_max_tokens_for_batch(formatted_prompts, max_tokens)
 
-        sampling_params = SamplingParams(
+        sampling_kwargs = dict(
             n=1,
             temperature=temperature,
             max_tokens=safe_max_tokens,
             stop=["<|eot_id|>", "<|end|>", "</s>", "<|im_end|>"],
         )
+        if seed is not None:
+            sampling_kwargs["seed"] = int(seed)
+        sampling_params = SamplingParams(**sampling_kwargs)
         
         # Chunk large batches to reduce vLLM long-run stall risk.
         try:
@@ -278,7 +288,7 @@ class InferenceEngine:
             chunk = formatted_prompts[i : i + max_batch_size]
             print(
                 f"[vllm:generate] mt chunk={i}:{i+len(chunk)}/{len(formatted_prompts)} "
-                f"max_tokens={safe_max_tokens} temp={temperature}",
+                f"max_tokens={safe_max_tokens} temp={temperature} seed={seed}",
                 flush=True,
             )
             t_gen = time.time()

@@ -170,6 +170,7 @@ def run_initial_evaluation(
         temperature=config.beam_search_temperature,
         max_tokens=config.max_tokens,
         system_prompt=task_spec.system_prompt,
+        seed=config.seed,
     )
     
     all_results = []
@@ -317,6 +318,7 @@ def run_adversarial_testing(
             temperature=0.7,  # Slightly creative for claim generation
             max_tokens=256,   # Claims should be short
             system_prompt=task_spec.system_prompt,
+            seed=config.seed + 1000 + round_num,
         )
         
         # Step 2: Generate retry answers with the claims
@@ -347,6 +349,7 @@ def run_adversarial_testing(
             temperature=config.greedy_temperature,
             max_tokens=config.max_tokens,
             system_prompt=task_spec.system_prompt,
+            seed=config.seed + 2000 + round_num,
         )
         
         # Step 3: Evaluate and update tracks
@@ -493,6 +496,7 @@ def run_recovery_testing(
         temperature=config.greedy_temperature,
         max_tokens=config.max_tokens,
         system_prompt=task_spec.system_prompt,
+        seed=config.seed + 3000,
     )
     
     # Evaluate recovery
