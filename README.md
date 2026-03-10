@@ -94,8 +94,14 @@
   - delta artifact: `/data_x/aa007878/projects/galileo/docs/paper/artifacts/qwen7b_evidence_multiseed_seed1-3_deltas_20260310.csv`
   - GSM8K: authority survival@5 **0.681 ± 0.084**, control survival@5 **0.897 ± 0.016**, mean ΔSurvival@5 **-0.215** [95% CI -0.293, -0.167]
   - ARC-Easy: authority survival@5 **0.286 ± 0.074**, control survival@5 **0.959 ± 0.020**, mean ΔSurvival@5 **-0.674** [95% CI -0.755, -0.633]
+- grounded baseline multiseed (seeds 1–3) complete:
+  - root: `/data_x/aa007878/projects/galileo/tmp/results/qwen7b_grounded_multiseed_gpu5_20260310_232747/`
+  - artifact: `/data_x/aa007878/projects/galileo/docs/paper/artifacts/qwen7b_grounded_multiseed_seed1-3_metrics_20260310.csv`
+  - delta artifact: `/data_x/aa007878/projects/galileo/docs/paper/artifacts/qwen7b_grounded_multiseed_seed1-3_deltas_20260310.csv`
+  - GSM8K: authority survival@5 **0.704 ± 0.162**, control survival@5 **0.912 ± 0.030**, mean ΔSurvival@5 **-0.208** [95% CI -0.341, -0.070]
+  - ARC-Easy: authority survival@5 **0.333 ± 0.072**, control survival@5 **0.946 ± 0.024**, mean ΔSurvival@5 **-0.612** [95% CI -0.653, -0.551]
 
-> 해석 주의: evidence baseline에는 이제 **seed 1–3 multiseed**가 있지만, grounded/evidence_gate 비교는 아직 seed-1 중심이므로 mitigation/correction 차이는 계속 보수적으로 해석해야 합니다.
+> 해석 주의: evidence와 grounded는 이제 **seed 1–3 multiseed**까지 확보되었지만, evidence_gate는 아직 multiseed 진행 중이다. 따라서 mitigation 비교는 계속 보수적으로 해석해야 합니다.
 
 ### 1.2 코드(Code): “실험→export→검증→paper artifact/figure” 연결
 

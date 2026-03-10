@@ -42,6 +42,16 @@
   - Fail@1 delta:
     - GSM8K +0.088094 [95% CI 0.046511, 0.146341]
     - ARC-Easy +0.272109 [95% CI 0.244898, 0.306123]
+- Grounded baseline multiseed (seeds 1–3) summary:
+  - run root: `/data_x/aa007878/projects/galileo/tmp/results/qwen7b_grounded_multiseed_gpu5_20260310_232747/`
+  - artifacts:
+    - `/data_x/aa007878/projects/galileo/docs/paper/artifacts/qwen7b_grounded_multiseed_seed1-3_metrics_20260310.csv`
+    - `/data_x/aa007878/projects/galileo/docs/paper/artifacts/qwen7b_grounded_multiseed_seed1-3_deltas_20260310.csv`
+  - GSM8K: authority survival@5 0.703800 ± 0.162205, control survival@5 0.912267 ± 0.029687, mean ΔSurvival@5 -0.208467 [95% CI -0.341400, -0.069700]
+  - ARC-Easy: authority survival@5 0.333333 ± 0.071695, control survival@5 0.945600 ± 0.023556, mean ΔSurvival@5 -0.612267 [95% CI -0.653100, -0.551000]
+  - Fail@1 delta:
+    - GSM8K +0.096215 [95% CI 0.023256, 0.146341]
+    - ARC-Easy +0.285715 [95% CI 0.265306, 0.326531]
 
 해석 메모:
 
@@ -54,6 +64,7 @@
   - ARC-Easy: evidence 24.49% → evidence_gate 30.61%
   단, PostRecoveryAcc는 GSM8K에서 1.000000 → 0.975610로 소폭 감소하여, mitigation 효과는 **pressure robustness vs correction flexibility**의 trade-off로 해석해야 한다.
 - evidence baseline은 이제 seed 1–3까지 확보되었으므로, “authority pressure > neutral drift”는 로컬 기준으로 한층 더 방어 가능해졌다. 반면 grounded/evidence_gate는 아직 동일 수준의 multiseed가 아니므로, correction/mitigation 관련 주장은 계속 **provisional**로 유지해야 한다.
+- grounded baseline도 이제 seed 1–3까지 확보되었다. 현재 로컬 evidence는 “pressure > drift”라는 본 주장뿐 아니라, grounded correction에서도 authority gap이 남는다는 점을 보여준다. 다만 evidence vs grounded 차이는 아직 **우열**보다 **different dynamics**로 설명하는 편이 안전하다.
 
 ---
 

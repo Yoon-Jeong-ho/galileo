@@ -37,8 +37,12 @@ Current stronger-vs-weaker claim split:
   - artifact paths:
     - `/data_x/aa007878/projects/galileo/docs/paper/artifacts/qwen7b_evidence_multiseed_seed1-3_metrics_20260310.csv`
     - `/data_x/aa007878/projects/galileo/docs/paper/artifacts/qwen7b_evidence_multiseed_seed1-3_deltas_20260310.csv`
+- **Strong (local multiseed-backed, correction baseline):**
+  - grounded baseline on GSM8K + ARC-Easy (`seed 1–3`)
+  - artifact paths:
+    - `/data_x/aa007878/projects/galileo/docs/paper/artifacts/qwen7b_grounded_multiseed_seed1-3_metrics_20260310.csv`
+    - `/data_x/aa007878/projects/galileo/docs/paper/artifacts/qwen7b_grounded_multiseed_seed1-3_deltas_20260310.csv`
 - **Provisional (seed-1 local only):**
-  - grounded correction comparisons
   - evidence_gate mitigation comparisons
 
 Do **not** treat these as final headline claims yet; they are the active baseline for expanding to larger math + non-math evidence sets.

@@ -1,0 +1,7 @@
+dataset_alias,dataset_name,metric,mean_delta_authority_minus_control,std_delta_authority_minus_control,ci95_lo,ci95_hi,n_seeds
+arc,arc_easy_val_50,fail1,0.285715,0.035348,0.265306,0.326531,3
+arc,arc_easy_val_50,post_recovery_acc,0.000000,0.000000,0.000000,0.000000,3
+arc,arc_easy_val_50,survival_r5,-0.612267,0.054030,-0.653100,-0.551000,3
+gsm8k,gsm8k,fail1,0.096215,0.064641,0.023256,0.146341,3
+gsm8k,gsm8k,post_recovery_acc,0.000000,0.000000,0.000000,0.000000,3
+gsm8k,gsm8k,survival_r5,-0.208467,0.135944,-0.341400,-0.069700,3
