@@ -16,18 +16,27 @@
 - Non-math baseline:
   - raw run: `/data_x/aa007878/projects/galileo/tmp/results/main_arc_gpu6_20260310_191906/`
   - promoted alias: `/data_x/aa007878/projects/galileo/results_paper/qwen7b_nonmath_control_authority_evidence_arc_gpu6_20260310/`
+- Grounded comparison runs:
+  - GSM8K grounded main: `/data_x/aa007878/projects/galileo/tmp/results/qwen7b_gsm8k_control_authority_grounded_gpu5_20260310_221155/`
+  - ARC grounded main: `/data_x/aa007878/projects/galileo/tmp/results/qwen7b_arc_control_authority_grounded_gpu5_20260310_221155/`
+  - promoted aliases:
+    - `/data_x/aa007878/projects/galileo/results_paper/qwen7b_gsm8k_control_authority_grounded_gpu5_20260310/`
+    - `/data_x/aa007878/projects/galileo/results_paper/qwen7b_arc_control_authority_grounded_gpu5_20260310/`
 
 핵심 확인 사실:
 
 - GSM8K (50 samples): initial 86.00%, Authority Claim survival@5 58.14%, Control survival@5 88.37%, Recovery@flip 100.00%
 - SVAMP (50 samples): initial 96.00%, Authority Claim survival@5 75.00%, Control survival@5 93.75%, Recovery@flip 100.00%
 - ARC-Easy (50 samples): initial 98.00%, Authority Claim survival@5 24.49%, Control survival@5 93.88%, Recovery@flip 100.00%
+- GSM8K grounded (50 samples): initial 82.00%, Authority Claim survival@5 63.41%, Control survival@5 92.68%, Authority Recovery@flip 93.33%
+- ARC-Easy grounded (50 samples): initial 98.00%, Authority Claim survival@5 36.73%, Control survival@5 91.84%, Authority Recovery@flip 100.00%
 
 해석 메모:
 
 - 현재 기준선은 **pressure vs neutral drift 분리**에는 충분히 유망하다.
 - 다만 `evidence_bearing` recovery가 모두 100%인 것은 작은 단일-seed 기준선이므로, 아직 “강한 논문 결론”로 쓰기보다 **작동 확인 + 후속 다중 seed 필요**로 정리해야 한다.
 - 추가로, 2026-03-10 late pass에서 **generation seed를 Phase 1/2/3에 명시적으로 고정**하도록 수정했다. 이 수정 전에는 recovery variant만 바꿔도 Phase 2가 stochastic하게 달라질 수 있었기 때문에, correction-arm 직접 비교는 **seeded rerun 결과**를 기준으로 해석해야 한다.
+- 현재 seeded sanity에서는 `evidence_bearing` vs `grounded_correction`가 동일한 Phase-2 survival을 재현하는 것을 확인했다. 따라서 이후 direct comparison에서는 **Phase-3 correction dynamics 차이**에 더 집중할 수 있다.
 
 ---
 

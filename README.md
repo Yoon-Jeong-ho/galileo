@@ -57,6 +57,8 @@
 - **논문 후보 승격(results_paper)**
   - math: `/data_x/aa007878/projects/galileo/results_paper/qwen7b_math_control_authority_evidence_gsm8k_svamp_gpu5_20260310/`
   - non-math: `/data_x/aa007878/projects/galileo/results_paper/qwen7b_nonmath_control_authority_evidence_arc_gpu6_20260310/`
+  - grounded math: `/data_x/aa007878/projects/galileo/results_paper/qwen7b_gsm8k_control_authority_grounded_gpu5_20260310/`
+  - grounded non-math: `/data_x/aa007878/projects/galileo/results_paper/qwen7b_arc_control_authority_grounded_gpu5_20260310/`
   - root validator: `[OK] runner_metadata parity`
 
 **Paper-ready(인용 가능) 판정 기준**
@@ -77,8 +79,11 @@
 - SVAMP 50샘플 pilot에서 `Authority Claim` survival@5는 **75.00%**, `Control Re-asking` survival@5는 **93.75%**
 - ARC-Easy 50샘플 main run에서 `Authority Claim` survival@5는 **24.49%**, `Control Re-asking` survival@5는 **93.88%**
 - 위 세 run 모두에서 `evidence_bearing` recovery는 현재까지 **100%** recovery@flip을 보였음
+- grounded main comparison (seeded-evidence와 직접 비교용):
+  - GSM8K grounded main: authority survival@5 **63.41%**, control survival@5 **92.68%**, authority recovery@flip **93.33%**
+  - ARC-Easy grounded main: authority survival@5 **36.73%**, control survival@5 **91.84%**, authority recovery@flip **100.00%**
 
-> 해석 주의: 위 수치는 아직 **2026-03-10 pilot/sanity 기준선**이며, 논문 headline claim은 더 큰 샘플/다중 seed 확인 후 강화해야 합니다.
+> 해석 주의: 위 수치는 아직 **2026-03-10 seed-1 기준선**이며, 논문 headline claim은 더 큰 샘플/다중 seed 확인 후 강화해야 합니다.
 
 ### 1.2 코드(Code): “실험→export→검증→paper artifact/figure” 연결
 
