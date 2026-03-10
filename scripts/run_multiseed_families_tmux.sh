@@ -2,15 +2,18 @@
 set -euo pipefail
 
 SESSION=${1:-galileo-multiseed-families}
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+REPO_DIR=${REPO_DIR:-"$(cd "${SCRIPT_DIR}/.." && pwd)"}
 
-GPU_LIST=${GPU_LIST:-4,5,6,7}
-TP_SIZE=${TP_SIZE:-4}
+# Safe local default: GPU 7 only. Override explicitly for multi-GPU runs.
+GPU_LIST=${GPU_LIST:-7}
+TP_SIZE=${TP_SIZE:-1}
 
-DATA_ALL_DIR=${DATA_ALL_DIR:-/data_x/aa007878/galileo/data_all_strict}
-MATH_DIR=${MATH_DIR:-/data_x/aa007878/galileo/data}
-QA_DIR=${QA_DIR:-/data_x/aa007878/galileo/data_qa_full}
+DATA_ALL_DIR=${DATA_ALL_DIR:-${REPO_DIR}/data_all_strict}
+MATH_DIR=${MATH_DIR:-${REPO_DIR}/data}
+QA_DIR=${QA_DIR:-${REPO_DIR}/data_qa_full}
 
-RESULTS_ROOT=${RESULTS_ROOT:-/mnt/raid6/aa007878/galileo/results/multiseed_families_$(date +%Y%m%d_%H%M%S)}
+RESULTS_ROOT=${RESULTS_ROOT:-${REPO_DIR}/results/multiseed_families_$(date +%Y%m%d_%H%M%S)}
 NUM_SAMPLES=${NUM_SAMPLES:-1000}
 MAX_MODEL_LEN=${MAX_MODEL_LEN:-16384}
 MAX_TOKENS=${MAX_TOKENS:-2048}
@@ -28,14 +31,14 @@ MODELS=${MODELS:-llama3_8b=meta-llama/Meta-Llama-3-8B-Instruct,llama3_3b=meta-ll
 mkdir -p "$RESULTS_ROOT"
 
 # Build strict unified data dir
-MATH_DIR="$MATH_DIR" QA_DIR="$QA_DIR" bash scripts/make_all_data_dir_strict.sh "$DATA_ALL_DIR" >/dev/null
+MATH_DIR="$MATH_DIR" QA_DIR="$QA_DIR" bash "${SCRIPT_DIR}/make_all_data_dir_strict.sh" "$DATA_ALL_DIR" >/dev/null
 
 RUNNER="$RESULTS_ROOT/run_multiseed_families.sh"
 
 cat > "$RUNNER" <<RUN1
 #!/usr/bin/env bash
 set -euo pipefail
-cd /mnt/raid6/aa007878/galileo-dev
+cd "$REPO_DIR"
 
 GPU_LIST="$GPU_LIST"
 TP_SIZE="$TP_SIZE"
@@ -115,7 +118,7 @@ run_one() {
     2>&1 | tee -a "$out_dir/run.log"
 
   # Runner-side metadata (auditable run settings). Keep separate from paper_export.py metadata.
-  python3 scripts/write_runner_metadata.py \
+  "${CONDA_BIN}" run -n "${CONDA_ENV}" python scripts/write_runner_metadata.py \
     --paper_exports "${out_dir}/paper_exports" \
     --model "${model}" \
     --seed "${seed}" \

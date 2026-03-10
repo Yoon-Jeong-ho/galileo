@@ -59,6 +59,26 @@ def load_dataset(file_path: str, num_samples: int = -1, shuffle: bool = False, s
 def prepare_problem(item: Dict[str, Any]) -> Dict[str, Any]:
     task = str(item.get("task", "math")).lower().strip()
     question = str(item.get("question", "")).strip()
+    correction_evidence = None
+    for key in (
+        "correction_evidence",
+        "evidence",
+        "supporting_evidence",
+        "supporting_facts",
+        "explanation",
+        "rationale",
+    ):
+        value = item.get(key)
+        if value is None:
+            continue
+        if isinstance(value, list):
+            parts = [str(v).strip() for v in value if str(v).strip()]
+            correction_evidence = "\n".join(parts) if parts else None
+        else:
+            text = str(value).strip()
+            correction_evidence = text or None
+        if correction_evidence:
+            break
 
     if task == "qa":
         gt = item.get("answers", None)
@@ -81,5 +101,6 @@ def prepare_problem(item: Dict[str, Any]) -> Dict[str, Any]:
         "question": question,
         "ground_truth": gt,
         "choices": choices,
+        "correction_evidence": correction_evidence,
         "original": item,
     }

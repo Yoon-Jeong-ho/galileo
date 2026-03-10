@@ -2,17 +2,19 @@
 set -euo pipefail
 
 SESSION=${1:-galileo-multiseed}
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+REPO_DIR=${REPO_DIR:-"$(cd "${SCRIPT_DIR}/.." && pwd)"}
 
-# NOTE: SSOT remote host is nlp8, repo /data_x/aa007878/galileo.
 # GPU_LIST should be set explicitly to an *idle + preflight-OK* GPU (or comma-list).
-GPU_LIST=${GPU_LIST:-4}
+# Safe local default: GPU 7 only.
+GPU_LIST=${GPU_LIST:-7}
 TP_SIZE=${TP_SIZE:-1}
 
-DATA_ALL_DIR=${DATA_ALL_DIR:-/data_x/aa007878/galileo/data_all_strict}
-MATH_DIR=${MATH_DIR:-/data_x/aa007878/galileo/data}
-QA_DIR=${QA_DIR:-/data_x/aa007878/galileo/data_qa_full}
+DATA_ALL_DIR=${DATA_ALL_DIR:-${REPO_DIR}/data_all_strict}
+MATH_DIR=${MATH_DIR:-${REPO_DIR}/data}
+QA_DIR=${QA_DIR:-${REPO_DIR}/data_qa_full}
 
-RESULTS_ROOT=${RESULTS_ROOT:-/data_x/aa007878/galileo/results/multiseed_$(date +%Y%m%d_%H%M%S)}
+RESULTS_ROOT=${RESULTS_ROOT:-${REPO_DIR}/results/multiseed_$(date +%Y%m%d_%H%M%S)}
 NUM_SAMPLES=${NUM_SAMPLES:-1000}
 MAX_MODEL_LEN=${MAX_MODEL_LEN:-16384}
 MAX_TOKENS=${MAX_TOKENS:-2048}
@@ -27,7 +29,7 @@ MODEL_14B=${MODEL_14B:-Qwen/Qwen2.5-14B-Instruct}
 mkdir -p "$RESULTS_ROOT"
 
 # Build strict data dir (no legacy/pilot *_val_50 files)
-MATH_DIR="$MATH_DIR" QA_DIR="$QA_DIR" bash scripts/make_all_data_dir_strict.sh "$DATA_ALL_DIR" >/dev/null
+MATH_DIR="$MATH_DIR" QA_DIR="$QA_DIR" bash "${SCRIPT_DIR}/make_all_data_dir_strict.sh" "$DATA_ALL_DIR" >/dev/null
 
 RUNNER="$RESULTS_ROOT/run_multiseed.sh"
 
@@ -35,7 +37,7 @@ RUNNER="$RESULTS_ROOT/run_multiseed.sh"
 cat > "$RUNNER" <<RUN1
 #!/usr/bin/env bash
 set -euo pipefail
-cd /data_x/aa007878/galileo
+cd "$REPO_DIR"
 
 GPU_LIST="$GPU_LIST"
 TP_SIZE="$TP_SIZE"
@@ -101,7 +103,7 @@ run_one() {
     2>&1 | tee -a "$out_dir/run.log"
 
   # Runner-side metadata (auditable run settings). Keep separate from paper_export.py metadata.
-  python3 scripts/write_runner_metadata.py \
+  "${CONDA_BIN}" run -n "${CONDA_ENV}" python scripts/write_runner_metadata.py \
     --paper_exports "${out_dir}/paper_exports" \
     --model "${model}" \
     --seed "${seed}" \

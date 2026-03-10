@@ -22,6 +22,7 @@ import argparse
 import json
 import csv
 import gc
+import subprocess
 import time
 from datetime import datetime
 from typing import List, Dict, Any, Optional, Tuple
@@ -35,9 +36,8 @@ try:
 except ImportError:
     pass
 
-# Set GPU visibility before importing torch/vllm
-# (default is also set in config.py; keep this aligned with shared-server policy)
-os.environ.setdefault("CUDA_VISIBLE_DEVICES", "4,5,6,7")
+# Do not silently bind GPUs here; the launcher should set
+# CUDA_VISIBLE_DEVICES explicitly.
 print(f"[import] CUDA_VISIBLE_DEVICES={os.environ.get('CUDA_VISIBLE_DEVICES')}", flush=True)
 
 print("[import] importing config...", flush=True)
@@ -45,6 +45,7 @@ from config import (
     MODELS,
     SYSTEM_PROMPT,
     INSTRUCTION_TEMPLATE,
+    REPO_ROOT,
     RESULTS_DIR,
     MAX_TOKENS,
     MAX_MODEL_LEN,
@@ -74,6 +75,61 @@ def setup_results_dir(config: ExperimentConfig) -> None:
     for model in config.models:
         model_short = model.split("/")[-1]
         os.makedirs(os.path.join(config.results_dir, model_short), exist_ok=True)
+
+
+def _safe_git_commit() -> Optional[str]:
+    try:
+        return (
+            subprocess.check_output(
+                ["git", "rev-parse", "HEAD"],
+                cwd=str(REPO_ROOT),
+                stderr=subprocess.DEVNULL,
+            )
+            .decode("utf-8")
+            .strip()
+        )
+    except Exception:
+        return None
+
+
+def write_run_metadata(
+    config: ExperimentConfig,
+    initial_results: List[Dict[str, Any]],
+    adversarial_results: List[Dict[str, Any]],
+    recovery_results: List[Dict[str, Any]],
+) -> None:
+    """Persist runner-side metadata for reruns, auditability, and paper exports."""
+    payload = {
+        "generated_at": datetime.utcnow().isoformat() + "Z",
+        "repo_root": str(REPO_ROOT),
+        "results_dir": str(config.results_dir),
+        "models": list(config.models),
+        "data_files": list(config.data_files),
+        "cuda_visible_devices": os.environ.get("CUDA_VISIBLE_DEVICES", ""),
+        "tensor_parallel_size": int(config.tensor_parallel_size),
+        "max_model_len": int(config.max_model_len),
+        "max_tokens": int(config.max_tokens),
+        "beam_search_n": int(config.beam_search_n),
+        "beam_search_temperature": float(config.beam_search_temperature),
+        "greedy_temperature": float(config.greedy_temperature),
+        "max_adversarial_rounds": int(config.max_adversarial_rounds),
+        "personas": list(config.personas),
+        "seed": int(config.seed),
+        "test_mode": bool(config.test_mode),
+        "num_samples": int(config.num_samples),
+        "recovery_variant": str(getattr(config, "recovery_variant", "baseline")),
+        "git_commit": _safe_git_commit(),
+        "counts": {
+            "initial_results": len(initial_results),
+            "adversarial_results": len(adversarial_results),
+            "recovery_results": len(recovery_results),
+        },
+    }
+    out_path = os.path.join(config.results_dir, "run_metadata.json")
+    with open(out_path, "w", encoding="utf-8") as f:
+        json.dump(payload, f, indent=2, ensure_ascii=False)
+        f.write("\n")
+    print(f"  Wrote metadata: {out_path}")
 
 
 def run_initial_evaluation(
@@ -138,6 +194,8 @@ def run_initial_evaluation(
         result = {
             "question": prob["question"],
             "ground_truth": prob["ground_truth"],
+            "choices": prob.get("choices", []),
+            "correction_evidence": prob.get("correction_evidence"),
             "initial_response": best_response,
             "extracted_answer": extracted_answer,
             "is_correct": is_correct,
@@ -183,12 +241,12 @@ def run_adversarial_testing(
     print(f"Adversarial Testing (Dynamic Claim Generation)")
     print(f"Model: {engine.model_short_name}")
     print(f"Correct answers to challenge: {len(correct_results)}")
-    print(f"Personas: {len(get_all_persona_keys())}")
+    persona_keys = config.personas if getattr(config, "personas", None) else get_all_persona_keys()
+    print(f"Personas: {len(persona_keys)}")
     print(f"Max rounds per persona: {config.max_adversarial_rounds}")
     print(f"{'='*60}")
     
     all_adversarial_results = []
-    persona_keys = config.personas if getattr(config, "personas", None) else get_all_persona_keys()
     
     # Create tracking for each (problem, persona) pair
     # Structure: {(question, persona): {conversation_history, still_correct, rounds_completed, ...}}
@@ -205,6 +263,7 @@ def run_adversarial_testing(
                 "model": result["model"],
                 "task": result.get("task", "math"),
                 "choices": result.get("choices", []),
+                "correction_evidence": result.get("correction_evidence"),
                 "conversation": [
                     {"role": "user", "content": (
                         task_spec.instruction_template.format(
@@ -350,6 +409,8 @@ def run_adversarial_testing(
             "initial_extracted": track.get("initial_extracted", None),
             "persona": track["persona"],
             "persona_name": get_persona_name(track["persona"]),
+            "choices": track.get("choices", []),
+            "correction_evidence": track.get("correction_evidence"),
             "rounds_completed": track["rounds_completed"],
             # NOTE: "final_correct" is correctness at the end of Phase 2 (after R rounds).
             "final_correct": track["still_correct"],
@@ -411,7 +472,18 @@ def run_recovery_testing(
     for result in failed_results:
         # Use full conversation history + recovery prompt
         conv = deepcopy(result["conversation"])
-        conv.append({"role": "user", "content": get_recovery_prompt(task_spec.answer_style, variant=getattr(config, "recovery_variant", "baseline"))})
+        conv.append(
+            {
+                "role": "user",
+                "content": get_recovery_prompt(
+                    task_spec.answer_style,
+                    variant=getattr(config, "recovery_variant", "baseline"),
+                    ground_truth=result.get("ground_truth"),
+                    correction_evidence=result.get("correction_evidence"),
+                    choices=result.get("choices", []),
+                ),
+            }
+        )
         conversations.append(conv)
     
     # Generate recovery responses
@@ -439,6 +511,8 @@ def run_recovery_testing(
             "ground_truth": result["ground_truth"],
             "persona": result["persona"],
             "persona_name": result["persona_name"],
+            "choices": result.get("choices", []),
+            "correction_evidence": result.get("correction_evidence"),
             "test_name": result["test_name"],
             "model": result["model"],
             "task": result.get("task", "math"),
@@ -447,7 +521,16 @@ def run_recovery_testing(
             "extracted_answer": extracted,
             "recovered": is_correct,
             "full_conversation": result["conversation"] + [
-                {"role": "user", "content": get_recovery_prompt(task_spec.answer_style, variant=getattr(config, "recovery_variant", "baseline"))},
+                {
+                    "role": "user",
+                    "content": get_recovery_prompt(
+                        task_spec.answer_style,
+                        variant=getattr(config, "recovery_variant", "baseline"),
+                        ground_truth=result.get("ground_truth"),
+                        correction_evidence=result.get("correction_evidence"),
+                        choices=result.get("choices", []),
+                    ),
+                },
                 {"role": "assistant", "content": recovery_text},
             ],
         }
@@ -676,6 +759,12 @@ def run_experiment(config: ExperimentConfig) -> None:
         all_recovery_results,
         config,
     )
+    write_run_metadata(
+        config,
+        all_initial_results,
+        all_adversarial_results,
+        all_recovery_results,
+    )
     
     print("\n" + "="*70)
     print("EXPERIMENT COMPLETE")
@@ -708,7 +797,19 @@ def main():
     parser.add_argument("--gpu_memory_utilization", type=float, default=None, help="vLLM gpu_memory_utilization (default 0.90)")
     parser.add_argument("--enforce_eager", action="store_true", help="Pass enforce_eager=True to vLLM to avoid CUDA graphs/compile")
     parser.add_argument("--greedy_temperature", type=float, default=None, help="Decoding temperature for adversarial/recovery turns (overrides config)")
-    parser.add_argument("--recovery_variant", type=str, default=None, choices=["baseline","reinforce_correct","verify_then_answer"], help="Recovery prompt variant ablation")
+    parser.add_argument(
+        "--recovery_variant",
+        type=str,
+        default=None,
+        choices=[
+            "baseline",
+            "reinforce_correct",
+            "verify_then_answer",
+            "grounded_correction",
+            "evidence_bearing",
+        ],
+        help="Recovery prompt variant ablation",
+    )
     parser.add_argument(
         "--reset_engine_between_phases",
         action="store_true",
