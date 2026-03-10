@@ -295,3 +295,13 @@ This file is intentionally kept short to reduce token burn.
   - safe body-ready wording candidates.
 - Added a pointer to that new summary in `docs/paper/CLAIM_EVIDENCE_MAP.md`.
 - No paper-body edit was made; this cycle stays in the evidence/supporting-docs layer only.
+
+### 2026-03-11 01:00 KST — Repo ops: added validated-results inventory for the March 10 package
+
+- Added `docs/paper/RESULTS_INVENTORY_20260310.md` as an additive repository-ops inventory for:
+  - active validated evidence roots,
+  - directional-only validated roots,
+  - tracked March 10 paper-facing exports,
+  - current safe housekeeping notes.
+- Added a discoverability pointer to that inventory in `docs/paper/README.md`.
+- No raw results or generated artifacts were deleted in this cycle.

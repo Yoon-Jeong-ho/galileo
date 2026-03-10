@@ -8,6 +8,7 @@ This folder contains the **MD-only** paper-writing workflow for the GALILEO EMNL
 - `ABSTRACT_EN.md`: standalone abstract draft for quick copy/paste; **keep in sync with the Abstract section in `PAPER_DRAFT_EN.md`**
 - `PAPER_DRAFT_KO.md`: Korean draft/notes
 - `FIGURE_CAPTIONS.md`: centralized draft captions + provenance for artifact-derived figures
+- `RESULTS_INVENTORY_20260310.md`: validated March 10 result-root and export inventory for repository ops / paper-support discovery
 - `REMOTE_EXPERIMENTS_RUNBOOK.md`: nlp8 experiment lane runbook (tmux/GPU/log checks + launch discipline)
 - `EMNLP_MAIN_SUBMISSION_CHECKLIST.md`: submission checklist + repo/paper readiness items
 - `LITERATURE_REVIEW_AND_POSITIONING_KO.md`: longer-form related-work notes + positioning
