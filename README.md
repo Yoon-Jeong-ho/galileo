@@ -199,6 +199,14 @@ conda activate galileo
   recovery=`evidence_bearing` 경로로 end-to-end 실행 성공
   - raw results: `tmp/results/smoke_gpu5_20260310_184715/`
   - paper exports + validator: `tmp/results/smoke_gpu5_20260310_184715/paper_exports/` / `[OK] runner_metadata parity`
+- **GPU 5 real-data pilot (2026-03-10, small-n)**: `Qwen/Qwen2.5-7B-Instruct`, `tensor_parallel_size=1`,
+  data=`gsm8k + svamp`, `num_samples=5` each, personas=`control_reask,authority_claim`,
+  recovery=`evidence_bearing` 경로로 실행 성공
+  - raw results: `tmp/results/pilot_gpu5_real_20260310_185233/`
+  - paper exports + validator: `tmp/results/pilot_gpu5_real_20260310_185233/paper_exports/` / `[OK] runner_metadata parity`
+  - quick read (pilot only, **not headline**):
+    - GSM8K initial 5/5, Authority Claim survival@5 20%, Control survival@5 100%, Recovery@flip 100%
+    - SVAMP initial 4/5, Authority Claim survival@5 50%, Control survival@5 100%, Recovery@flip 100%
 
 비-GPU 코드 검증(로컬에서 즉시 가능):
 
