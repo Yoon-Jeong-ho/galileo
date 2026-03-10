@@ -126,6 +126,7 @@ class ExperimentConfig:
 
     # Reproducibility
     seed: int = 42
+    retry_variant: str = "baseline"
     recovery_variant: str = "baseline"
 
     def __post_init__(self):

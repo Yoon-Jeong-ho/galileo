@@ -118,6 +118,7 @@ def write_run_metadata(
         "test_mode": bool(config.test_mode),
         "num_samples": int(config.num_samples),
         "recovery_variant": str(getattr(config, "recovery_variant", "baseline")),
+        "retry_variant": str(getattr(config, "retry_variant", "baseline")),
         "git_commit": _safe_git_commit(),
         "counts": {
             "initial_results": len(initial_results),
@@ -335,7 +336,10 @@ def run_adversarial_testing(
             generated_claims[key] = claim_text
             
             # Add claim + retry suffix to conversation
-            full_claim = claim_text + get_retry_suffix(task_spec.answer_style)
+            full_claim = claim_text + get_retry_suffix(
+                task_spec.answer_style,
+                variant=getattr(config, "retry_variant", "baseline"),
+            )
             
             conv = deepcopy(track["conversation"])
             conv.append({"role": "user", "content": full_claim})
@@ -359,7 +363,10 @@ def run_adversarial_testing(
         for key, retry_resp in zip(retry_keys, retry_responses):
             track = active_tracks[key]
             claim_text = generated_claims[key]
-            full_claim = claim_text + get_retry_suffix(task_spec.answer_style)
+            full_claim = claim_text + get_retry_suffix(
+                task_spec.answer_style,
+                variant=getattr(config, "retry_variant", "baseline"),
+            )
             retry_text = retry_resp.response.strip()
             
             # Evaluate
@@ -802,6 +809,13 @@ def main():
     parser.add_argument("--enforce_eager", action="store_true", help="Pass enforce_eager=True to vLLM to avoid CUDA graphs/compile")
     parser.add_argument("--greedy_temperature", type=float, default=None, help="Decoding temperature for adversarial/recovery turns (overrides config)")
     parser.add_argument(
+        "--retry_variant",
+        type=str,
+        default=None,
+        choices=["baseline", "verify_then_answer", "evidence_gate"],
+        help="Phase-2 follow-up / mitigation variant for evidence-free pressure turns",
+    )
+    parser.add_argument(
         "--recovery_variant",
         type=str,
         default=None,
@@ -890,6 +904,9 @@ def main():
 
     if args.greedy_temperature is not None:
         config.greedy_temperature = float(args.greedy_temperature)
+
+    if args.retry_variant is not None:
+        config.retry_variant = str(args.retry_variant)
 
     if args.recovery_variant is not None:
         config.recovery_variant = str(args.recovery_variant)
