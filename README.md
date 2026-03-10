@@ -194,6 +194,11 @@ conda activate galileo
   중 하나가 있으면 evidence-bearing correction arm에서 사용할 수 있도록 로더가 보존함
 - recovery variant로 `grounded_correction` / `evidence_bearing`를 사용할 수 있음
 - 현재 로컬 checkout에는 `data/`, `results/`, `results_paper/`가 없을 수 있으므로, 실험 재개 시 경로를 명시하거나 remote SSOT를 사용해야 함
+- **GPU 5 smoke run (2026-03-10)**: `Qwen/Qwen2.5-7B-Instruct`, `tensor_parallel_size=1`,
+  `tmp/smoke_data/{smoke_math,smoke_mcqa}.jsonl`, personas=`control_reask,authority_claim`,
+  recovery=`evidence_bearing` 경로로 end-to-end 실행 성공
+  - raw results: `tmp/results/smoke_gpu5_20260310_184715/`
+  - paper exports + validator: `tmp/results/smoke_gpu5_20260310_184715/paper_exports/` / `[OK] runner_metadata parity`
 
 비-GPU 코드 검증(로컬에서 즉시 가능):
 
