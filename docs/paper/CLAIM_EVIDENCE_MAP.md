@@ -58,6 +58,38 @@ Current stronger-vs-weaker claim split:
 
 Do **not** treat these as final headline claims yet; they are the active baseline for expanding to larger math + non-math evidence sets.
 
+### Verified March 10, 2026 Qwen7B multiseed proof bundle
+
+These are the strongest currently verified **same-model / same-protocol** proof pointers in the repo and should be preferred over older seed-1-only notes:
+
+- **Evidence-bearing baseline multiseed**
+  - root: `/data_x/aa007878/projects/galileo/tmp/results/qwen7b_evidence_multiseed_gpu5_20260310_231212/`
+  - validator: `/data_x/aa007878/projects/galileo/tmp/results/qwen7b_evidence_multiseed_gpu5_20260310_231212/GLOBAL_VALIDATE.log`
+  - tracked CSVs:
+    - `/data_x/aa007878/projects/galileo/docs/paper/artifacts/qwen7b_evidence_multiseed_seed1-3_metrics_20260310.csv`
+    - `/data_x/aa007878/projects/galileo/docs/paper/artifacts/qwen7b_evidence_multiseed_seed1-3_deltas_20260310.csv`
+- **Grounded-correction baseline multiseed**
+  - root: `/data_x/aa007878/projects/galileo/tmp/results/qwen7b_grounded_multiseed_gpu5_20260310_232747/`
+  - validator: `/data_x/aa007878/projects/galileo/tmp/results/qwen7b_grounded_multiseed_gpu5_20260310_232747/GLOBAL_VALIDATE.log`
+  - tracked CSVs:
+    - `/data_x/aa007878/projects/galileo/docs/paper/artifacts/qwen7b_grounded_multiseed_seed1-3_metrics_20260310.csv`
+    - `/data_x/aa007878/projects/galileo/docs/paper/artifacts/qwen7b_grounded_multiseed_seed1-3_deltas_20260310.csv`
+- **Evidence-gate mitigation multiseed**
+  - root: `/data_x/aa007878/projects/galileo/tmp/results/qwen7b_evidencegate_multiseed_gpu5_20260310_234316/`
+  - validator: `/data_x/aa007878/projects/galileo/tmp/results/qwen7b_evidencegate_multiseed_gpu5_20260310_234316/GLOBAL_VALIDATE.log`
+  - tracked CSVs / figures:
+    - `/data_x/aa007878/projects/galileo/docs/paper/artifacts/qwen7b_evidencegate_multiseed_seed1-3_metrics_20260310.csv`
+    - `/data_x/aa007878/projects/galileo/docs/paper/artifacts/qwen7b_evidencegate_multiseed_seed1-3_deltas_20260310.csv`
+    - `/data_x/aa007878/projects/galileo/docs/paper/artifacts/qwen7b_threeway_multiseed_comparison_20260310.csv`
+    - `/data_x/aa007878/projects/galileo/docs/paper/artifacts/qwen7b_tradeoff_gsm8k_multiseed_20260310.svg`
+    - `/data_x/aa007878/projects/galileo/docs/paper/artifacts/qwen7b_tradeoff_arc_multiseed_20260310.svg`
+
+Reviewer-safe takeaways supported directly by those files:
+
+- pressure still reduces Survival@5 relative to control under both evidence-bearing and grounded-correction baselines;
+- the effect is larger on ARC-Easy than on GSM8K in the current Qwen7B multiseed package;
+- evidence-gate is measurable in the same export schema, but should still be framed as a trade-off, not a final mitigation headline.
+
 ---
 
 ## Terminology guardrails (avoid reviewer confusion)
@@ -140,12 +172,44 @@ These are the claims most likely to be read without the Appendix. Each needs an 
     - Mean±std helper note (seed-level provenance retained; aggregation helper):
       `docs/paper/artifacts/table1_from_results_paper_exports_20260227_2038_agg_mean_std.txt`
 
+**A4 (same-model robustness persists across correction baselines): Qwen7B still shows authority-pressure degradation under multiseed evidence-bearing and grounded-correction evaluation.**
+- Where stated:
+  - currently explicit in `README.md` §1.1 (“현재까지 한 일 (요약)” / 2026-03-10 multiseed bullets)
+  - **not yet pinned to a main-draft section**; keep this as repo-level evidence until draft text is added
+- Evidence:
+  - Evidence-bearing multiseed:
+    - `docs/paper/artifacts/qwen7b_evidence_multiseed_seed1-3_metrics_20260310.csv`
+    - `docs/paper/artifacts/qwen7b_evidence_multiseed_seed1-3_deltas_20260310.csv`
+  - Grounded-correction multiseed:
+    - `docs/paper/artifacts/qwen7b_grounded_multiseed_seed1-3_metrics_20260310.csv`
+    - `docs/paper/artifacts/qwen7b_grounded_multiseed_seed1-3_deltas_20260310.csv`
+  - Concrete examples already verified in the tracked CSVs:
+    - grounded GSM8K ΔSurvival@5 = `-0.208467`
+    - grounded ARC-Easy ΔSurvival@5 = `-0.612267`
+
+**A5 (mitigation trade-off): evidence-gate changes the same-model trade-off surface, but it is not yet a clean headline mitigation claim.**
+- Where stated:
+  - currently explicit in `README.md` §1.1 (`evidence_gate mitigation (2026-03-10, seeded main)` and the multiseed caution note)
+  - **not yet pinned to a main-draft section**; do not promote beyond repo-level trade-off evidence until draft text exists
+- Evidence:
+  - `docs/paper/artifacts/qwen7b_evidencegate_multiseed_seed1-3_metrics_20260310.csv`
+  - `docs/paper/artifacts/qwen7b_evidencegate_multiseed_seed1-3_deltas_20260310.csv`
+  - `docs/paper/artifacts/qwen7b_threeway_multiseed_comparison_20260310.csv`
+  - `docs/paper/artifacts/qwen7b_tradeoff_gsm8k_multiseed_20260310.svg`
+  - `docs/paper/artifacts/qwen7b_tradeoff_arc_multiseed_20260310.svg`
+- Guardrail:
+  - cite these as **trade-off evidence** unless/until a broader, cleaner evidence set is verified.
+  - `scripts/aggregate_condition_multiseed.py` covers the multiseed metrics/deltas only; the three-way CSV and tradeoff SVGs are currently **tracked outputs whose regeneration path still needs to be pinned** before they should back any headline claim.
+
 ---
 
 ## Regeneration entry points (scripts)
 
 - Paper-facing figure rendering from tracked CSV artifacts:
   - `python3 scripts/make_paper_figures_from_artifacts.py`
+
+- Condition multiseed metric/delta aggregation:
+  - `python3 scripts/aggregate_condition_multiseed.py --results_root <multiseed_root> --out_dir <out_dir>`
 
 - Cross-family figure:
   - `python3 scripts/make_cross_family_figure_svg.py`

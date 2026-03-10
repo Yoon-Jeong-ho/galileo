@@ -251,3 +251,32 @@ This file is intentionally kept short to reduce token burn.
 ### 2026-02-27 17:28 KST — Paper: disambiguate time-to-first metric acronyms in Related Work
 
 - Added an explicit Related Work sentence noting `ToF` acronym collisions and standardizing our terminology on `TTF` (time-to-first-failure) + explicit `NoF` definition pointer (\Sef{sec:metrics}).
+
+### 2026-03-11 00:32 KST — Experiments: confirmed grounded Qwen7B multiseed result root + validation artifacts
+
+- Confirmed the grounded multiseed queue command in `tmp/results/queue_grounded_multiseed_20260310_232647.sh` launches `scripts/run_qwen7b_multiseed_single_gpu_tmux.sh` with `RUN_GROUP=qwen7b_grounded_multiseed_gpu5`, seeds `1,2,3`, GPU `5`, and grounded GSM8K/ARC dataset roots.
+- Confirmed result root exists at `tmp/results/qwen7b_grounded_multiseed_gpu5_20260310_232747/`.
+- Verified `GLOBAL_VALIDATE.log` reports `[OK]` for ARC + GSM8K `seed_1`–`seed_3` `paper_exports` and `[OK] runner_metadata parity`.
+- Existing extracted artifacts remain:
+  - `docs/paper/artifacts/qwen7b_grounded_multiseed_seed1-3_metrics_20260310.csv`
+  - `docs/paper/artifacts/qwen7b_grounded_multiseed_seed1-3_deltas_20260310.csv`
+- Note: `scripts/check_run_progress.py` warns on this root because it expects root-level CSV summaries, but that does not invalidate the multiseed per-seed export layout validated above.
+
+### 2026-03-11 00:41 KST — Docs/evidence: refreshed claim→evidence map for March 10 Qwen7B multiseed package
+
+- Rechecked that the three March 10, 2026 Qwen7B multiseed roots still validate:
+  - `tmp/results/qwen7b_evidence_multiseed_gpu5_20260310_231212/`
+  - `tmp/results/qwen7b_grounded_multiseed_gpu5_20260310_232747/`
+  - `tmp/results/qwen7b_evidencegate_multiseed_gpu5_20260310_234316/`
+- Confirmed the tracked multiseed metric/delta artifacts and three-way comparison artifact still exist under `docs/paper/artifacts/`.
+- Updated `docs/paper/CLAIM_EVIDENCE_MAP.md` to add:
+  - an explicit March 10 Qwen7B multiseed proof bundle section,
+  - new claim-level proof pointers for same-model multiseed robustness and evidence-gate trade-off framing,
+  - the concrete regeneration entry point `scripts/aggregate_condition_multiseed.py` for multiseed metric/delta aggregation.
+- No GPU rerun was needed because equivalent validated outputs already existed.
+
+### 2026-03-11 00:46 KST — Cleanup: removed redundant lowercase claim-map symlink
+
+- Audited `docs/paper/claim_evidence_map.md` versus `docs/paper/CLAIM_EVIDENCE_MAP.md`.
+- Confirmed the lowercase path was only a symlink to the uppercase SSOT file and found no active non-archive references to the lowercase path in current README/docs/scripts.
+- Removed the redundant lowercase symlink to reduce duplicate-path drift risk; the uppercase `docs/paper/CLAIM_EVIDENCE_MAP.md` remains the only tracked claim-map SSOT.
