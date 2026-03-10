@@ -30,6 +30,8 @@
 - ARC-Easy (50 samples): initial 98.00%, Authority Claim survival@5 24.49%, Control survival@5 93.88%, Recovery@flip 100.00%
 - GSM8K grounded (50 samples): initial 82.00%, Authority Claim survival@5 63.41%, Control survival@5 92.68%, Authority Recovery@flip 93.33%
 - ARC-Easy grounded (50 samples): initial 98.00%, Authority Claim survival@5 36.73%, Control survival@5 91.84%, Authority Recovery@flip 100.00%
+- GSM8K evidence-gate (50 samples): initial 82.00%, Authority Claim survival@5 70.73%, Control survival@5 90.24%, Authority Recovery@flip 91.67%
+- ARC-Easy evidence-gate (50 samples): initial 98.00%, Authority Claim survival@5 30.61%, Control survival@5 93.88%, Authority Recovery@flip 100.00%
 
 해석 메모:
 
@@ -37,6 +39,10 @@
 - 다만 `evidence_bearing` recovery가 모두 100%인 것은 작은 단일-seed 기준선이므로, 아직 “강한 논문 결론”로 쓰기보다 **작동 확인 + 후속 다중 seed 필요**로 정리해야 한다.
 - 추가로, 2026-03-10 late pass에서 **generation seed를 Phase 1/2/3에 명시적으로 고정**하도록 수정했다. 이 수정 전에는 recovery variant만 바꿔도 Phase 2가 stochastic하게 달라질 수 있었기 때문에, correction-arm 직접 비교는 **seeded rerun 결과**를 기준으로 해석해야 한다.
 - 현재 seeded sanity에서는 `evidence_bearing` vs `grounded_correction`가 동일한 Phase-2 survival을 재현하는 것을 확인했다. 따라서 이후 direct comparison에서는 **Phase-3 correction dynamics 차이**에 더 집중할 수 있다.
+- seeded main 기준으로는 `evidence_gate`가 authority pressure 하의 survival@5를 개선하는 방향을 보였다:
+  - GSM8K: evidence 58.14% → evidence_gate 70.73%
+  - ARC-Easy: evidence 24.49% → evidence_gate 30.61%
+  단, PostRecoveryAcc는 GSM8K에서 1.000000 → 0.975610로 소폭 감소하여, mitigation 효과는 **pressure robustness vs correction flexibility**의 trade-off로 해석해야 한다.
 
 ---
 

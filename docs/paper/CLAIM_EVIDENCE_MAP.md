@@ -21,10 +21,14 @@ These are the currently verified runs under `/data_x/aa007878/projects/galileo`,
   - `/data_x/aa007878/projects/galileo/tmp/results/pilot50_gpu5_20260310_185825/`
 - Non-math sanity (ARC-Easy MCQA):
   - `/data_x/aa007878/projects/galileo/tmp/results/sanity_arc_gpu6_20260310_191641/`
+- Evidence-gate mitigation mains:
+  - `/data_x/aa007878/projects/galileo/tmp/results/qwen7b_gsm8k_control_authority_evidencegate_gpu5_20260310_230240/`
+  - `/data_x/aa007878/projects/galileo/tmp/results/qwen7b_arc_control_authority_evidencegate_gpu5_20260310_230240/`
 
 All of the above have `paper_exports/` plus validator `[OK]`. They are baseline evidence for:
 - pressure (`authority_claim`) < control (`control_reask`) on the same protocol
 - evidence-bearing recovery path executing end-to-end
+- preliminary mitigation (`evidence_gate`) being measurable within the same export schema
 
 Do **not** treat these as final headline claims yet; they are the active baseline for expanding to larger math + non-math evidence sets.
 

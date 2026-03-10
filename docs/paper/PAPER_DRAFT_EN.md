@@ -4,7 +4,7 @@
 > - Experiments/results/figures are tracked in the repo (`results/`, `paper_figures/`, `scripts/`).
 > - BibTeX entries: `references.bib`.
 > - Section numbers in headings are **placeholders** (we may renumber/remove them during LaTeX conversion).
-> - **Current local baseline (2026-03-10):** `/data_x/aa007878/projects/galileo/tmp/results/` contains verified smoke/pilot runs showing `authority_claim < control_reask` on GSM8K, SVAMP, and ARC-Easy, with `evidence_bearing` recovery executing end-to-end. Treat these as the active repo baseline; larger runs should extend this baseline rather than rely on older heartbeat notes.
+> - **Current local baseline (2026-03-10):** `/data_x/aa007878/projects/galileo/tmp/results/` contains verified smoke/pilot runs showing `authority_claim < control_reask` on GSM8K, SVAMP, and ARC-Easy, with `evidence_bearing` and `grounded_correction` recovery executing end-to-end. A preliminary `evidence_gate` mitigation is also implemented and shows task-dependent survival improvements in local seed-1 runs. Treat these as the active repo baseline; larger runs should extend this baseline rather than rely on older heartbeat notes.
 
 ---
 

@@ -82,6 +82,9 @@
 - grounded main comparison (seeded-evidence와 직접 비교용):
   - GSM8K grounded main: authority survival@5 **63.41%**, control survival@5 **92.68%**, authority recovery@flip **93.33%**
   - ARC-Easy grounded main: authority survival@5 **36.73%**, control survival@5 **91.84%**, authority recovery@flip **100.00%**
+- evidence_gate mitigation (2026-03-10, seeded main):
+  - GSM8K: authority survival@5 **70.73%**, control survival@5 **90.24%**, authority fail@1 **12.20%**, authority recovery@flip **91.67%**
+  - ARC-Easy: authority survival@5 **30.61%**, control survival@5 **93.88%**, authority fail@1 **14.29%**, authority recovery@flip **100.00%**
 
 > 해석 주의: 위 수치는 아직 **2026-03-10 seed-1 기준선**이며, 논문 headline claim은 더 큰 샘플/다중 seed 확인 후 강화해야 합니다.
 

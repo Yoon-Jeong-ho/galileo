@@ -2,7 +2,7 @@
 """Summarize evidence-bearing vs grounded-correction runs from analysis CSV.
 
 Input: summary_by_arm.csv produced by scripts/analyze_baseline_suite.py
-Output: one row per dataset comparing authority/control metrics across run labels.
+Output: one row per dataset comparing authority/control metrics across two run labels.
 """
 
 from __future__ import annotations
@@ -29,8 +29,10 @@ def write_csv(path: Path, fieldnames: list[str], rows: list[dict]) -> None:
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--summary_csv", required=True)
-    ap.add_argument("--evidence_label", required=True)
-    ap.add_argument("--grounded_label", required=True)
+    ap.add_argument("--variant_a_label", required=True)
+    ap.add_argument("--variant_b_label", required=True)
+    ap.add_argument("--variant_a_name", required=True, help="column prefix label, e.g. evidence")
+    ap.add_argument("--variant_b_name", required=True, help="column prefix label, e.g. grounded")
     ap.add_argument("--out_csv", required=True)
     args = ap.parse_args()
 
@@ -39,51 +41,60 @@ def main() -> int:
     datasets = sorted({r["dataset"] for r in rows})
     out_rows = []
     for dataset in datasets:
-        ev_auth = keyed.get((args.evidence_label, dataset, "authority_claim"))
-        gr_auth = keyed.get((args.grounded_label, dataset, "authority_claim"))
-        ev_ctl = keyed.get((args.evidence_label, dataset, "control_reask"))
-        gr_ctl = keyed.get((args.grounded_label, dataset, "control_reask"))
-        if not (ev_auth and gr_auth and ev_ctl and gr_ctl):
+        a_auth = keyed.get((args.variant_a_label, dataset, "authority_claim"))
+        b_auth = keyed.get((args.variant_b_label, dataset, "authority_claim"))
+        a_ctl = keyed.get((args.variant_a_label, dataset, "control_reask"))
+        b_ctl = keyed.get((args.variant_b_label, dataset, "control_reask"))
+        if not (a_auth and b_auth and a_ctl and b_ctl):
             continue
-        out_rows.append(
-            {
-                "dataset": dataset,
-                "evidence_authority_survival_r5": ev_auth["survival_r5"],
-                "grounded_authority_survival_r5": gr_auth["survival_r5"],
-                "delta_authority_survival_r5": f"{float(gr_auth['survival_r5']) - float(ev_auth['survival_r5']):.6f}",
-                "evidence_authority_fail1": ev_auth["fail1"],
-                "grounded_authority_fail1": gr_auth["fail1"],
-                "delta_authority_fail1": f"{float(gr_auth['fail1']) - float(ev_auth['fail1']):.6f}",
-                "evidence_authority_recovery_rate": ev_auth["recovery_rate"],
-                "grounded_authority_recovery_rate": gr_auth["recovery_rate"],
-                "evidence_authority_post_recovery_acc": ev_auth["post_recovery_acc"],
-                "grounded_authority_post_recovery_acc": gr_auth["post_recovery_acc"],
-                "delta_authority_post_recovery_acc": f"{float(gr_auth['post_recovery_acc']) - float(ev_auth['post_recovery_acc']):.6f}",
-                "evidence_control_survival_r5": ev_ctl["survival_r5"],
-                "grounded_control_survival_r5": gr_ctl["survival_r5"],
-            }
-        )
+        row = {"dataset": dataset}
+        a_name = args.variant_a_name
+        b_name = args.variant_b_name
+        row[f"{a_name}_authority_survival_r5"] = a_auth["survival_r5"]
+        row[f"{b_name}_authority_survival_r5"] = b_auth["survival_r5"]
+        row["delta_authority_survival_r5"] = f"{float(b_auth['survival_r5']) - float(a_auth['survival_r5']):.6f}"
+        row[f"{a_name}_authority_fail1"] = a_auth["fail1"]
+        row[f"{b_name}_authority_fail1"] = b_auth["fail1"]
+        row["delta_authority_fail1"] = f"{float(b_auth['fail1']) - float(a_auth['fail1']):.6f}"
+        row[f"{a_name}_authority_recovery_rate"] = a_auth["recovery_rate"]
+        row[f"{b_name}_authority_recovery_rate"] = b_auth["recovery_rate"]
+        row[f"{a_name}_authority_post_recovery_acc"] = a_auth["post_recovery_acc"]
+        row[f"{b_name}_authority_post_recovery_acc"] = b_auth["post_recovery_acc"]
+        row["delta_authority_post_recovery_acc"] = f"{float(b_auth['post_recovery_acc']) - float(a_auth['post_recovery_acc']):.6f}"
+        row[f"{a_name}_control_survival_r5"] = a_ctl["survival_r5"]
+        row[f"{b_name}_control_survival_r5"] = b_ctl["survival_r5"]
+        out_rows.append(row)
 
-    write_csv(
-        Path(args.out_csv),
-        [
-            "dataset",
-            "evidence_authority_survival_r5",
-            "grounded_authority_survival_r5",
-            "delta_authority_survival_r5",
-            "evidence_authority_fail1",
-            "grounded_authority_fail1",
-            "delta_authority_fail1",
-            "evidence_authority_recovery_rate",
-            "grounded_authority_recovery_rate",
-            "evidence_authority_post_recovery_acc",
-            "grounded_authority_post_recovery_acc",
-            "delta_authority_post_recovery_acc",
-            "evidence_control_survival_r5",
-            "grounded_control_survival_r5",
-        ],
-        out_rows,
-    )
+    fieldnames = ["dataset"]
+    for prefix in [args.variant_a_name, args.variant_b_name]:
+        fieldnames.extend(
+            [
+                f"{prefix}_authority_survival_r5",
+                f"{prefix}_authority_fail1",
+                f"{prefix}_authority_recovery_rate",
+                f"{prefix}_authority_post_recovery_acc",
+                f"{prefix}_control_survival_r5",
+            ]
+        )
+    # Reorder with deltas near compared metrics.
+    fieldnames = [
+        "dataset",
+        f"{args.variant_a_name}_authority_survival_r5",
+        f"{args.variant_b_name}_authority_survival_r5",
+        "delta_authority_survival_r5",
+        f"{args.variant_a_name}_authority_fail1",
+        f"{args.variant_b_name}_authority_fail1",
+        "delta_authority_fail1",
+        f"{args.variant_a_name}_authority_recovery_rate",
+        f"{args.variant_b_name}_authority_recovery_rate",
+        f"{args.variant_a_name}_authority_post_recovery_acc",
+        f"{args.variant_b_name}_authority_post_recovery_acc",
+        "delta_authority_post_recovery_acc",
+        f"{args.variant_a_name}_control_survival_r5",
+        f"{args.variant_b_name}_control_survival_r5",
+    ]
+
+    write_csv(Path(args.out_csv), fieldnames, out_rows)
     print(f"Wrote: {args.out_csv} ({len(out_rows)} rows)")
     return 0
 
