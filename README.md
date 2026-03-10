@@ -25,7 +25,8 @@
 - `scripts/remote_run/nlp8_smoke.sh`, `scripts/run_multiseed_tmux.sh`, `scripts/run_multiseed_families_tmux.sh`도 **스크립트 위치 기준으로 repo root를 추론**하도록 정비했습니다. 기존 원격 SSOT 경로를 그대로 쓰고 싶으면 `REPO_DIR=...`로 명시하면 됩니다.
 - 비-GPU smoke 성격 검증은 `python -m unittest tests/test_non_gpu_core.py`로 수행할 수 있습니다.
 - Recovery 프롬프트에는 기존 baseline 계열 외에 **`grounded_correction` / `evidence_bearing`** 변형을 추가했습니다. 데이터에 `correction_evidence`/`evidence`/`supporting_facts`/`explanation` 등이 있으면 그 근거를 사용하고, 없으면 verified answer를 명시하는 answer-bearing correction으로 동작합니다.
-- **GPU 5 가용 메모리가 부분 점유된 경우** `--gpu_memory_utilization 0.6`으로도 single-GPU sanity를 통과시킬 수 있음을 2026-03-10에 확인했습니다.
+- 기본적으로 **GPU를 단독 점유할 때는** `gpu_memory_utilization=0.9`를 사용합니다.
+- 다만 **외부 프로세스가 이미 GPU 5 메모리를 일부 점유한 경우** `--gpu_memory_utilization 0.6`으로 single-GPU sanity/main을 복구할 수 있음을 2026-03-10에 확인했습니다.
 - **중요 수정(2026-03-10 late):** generation seed가 Phase 1/2/3에 명시적으로 전달되도록 수정했습니다. 이 수정 전에는 `evidence_bearing` vs `grounded_correction` 비교에서 recovery variant만 바뀌어도 Phase 2 dynamics가 run-to-run stochasticity로 달라질 수 있었습니다. 현재는 seeded sanity에서 phase-2 결과가 일치하는 것을 확인했습니다.
 
 ---
