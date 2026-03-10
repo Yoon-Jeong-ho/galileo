@@ -6,16 +6,17 @@ set -euo pipefail
 # - writes paper_exports + metadata + runner_metadata
 # - runs validator at the end
 
-GPU=${GPU:-0}
+GPU=${GPU:-7}
 MODEL=${MODEL:-Qwen/Qwen2.5-7B-Instruct}
-DATA_DIR=${DATA_DIR:-/data_x/aa007878/galileo/data_all_strict}
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+REPO_DIR=${REPO_DIR:-"$(cd "${SCRIPT_DIR}/../.." && pwd)"}
+DATA_DIR=${DATA_DIR:-${REPO_DIR}/data_all_strict}
 NUM_SAMPLES=${NUM_SAMPLES:-40}
 SEED=${SEED:-1}
 TP=${TP:-1}
 MAX_MODEL_LEN=${MAX_MODEL_LEN:-8192}
 MAX_TOKENS=${MAX_TOKENS:-1024}
 
-REPO_DIR=${REPO_DIR:-/data_x/aa007878/galileo}
 PY=${PY:-/data_x/aa007878/miniconda3/envs/galileo/bin/python}
 
 cd "$REPO_DIR"

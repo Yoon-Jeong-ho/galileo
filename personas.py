@@ -7,7 +7,7 @@ Important: across tasks we standardize the *final answer format* to \boxed{...}.
 
 from __future__ import annotations
 
-from typing import Dict, List
+from typing import Dict, List, Optional, Sequence
 
 
 PERSONA_GENERATION_PROMPTS: Dict[str, Dict] = {
@@ -95,7 +95,41 @@ def _style_recovery_suffix(answer_style: str = "math") -> str:
     return r" Put ONLY your final answer inside \\boxed{}."
 
 
-def get_recovery_prompt(answer_style: str = "math", variant: str = "baseline") -> str:
+def _format_ground_truth_for_prompt(
+    answer_style: str = "math",
+    ground_truth: Optional[object] = None,
+    choices: Optional[Sequence[Dict[str, str]]] = None,
+) -> str:
+    style = (answer_style or "math").lower()
+    if ground_truth is None:
+        return ""
+
+    if style == "qa":
+        if isinstance(ground_truth, list):
+            vals = [str(v).strip() for v in ground_truth if str(v).strip()]
+            return vals[0] if vals else ""
+        return str(ground_truth).strip()
+
+    if style == "mcqa":
+        label = str(ground_truth).strip().upper()
+        if choices:
+            for choice in choices:
+                choice_label = str(choice.get("label", "")).strip().upper()
+                if choice_label == label:
+                    text = str(choice.get("text", "")).strip()
+                    return f"{label} ({text})" if text else label
+        return label
+
+    return str(ground_truth).strip()
+
+
+def get_recovery_prompt(
+    answer_style: str = "math",
+    variant: str = "baseline",
+    ground_truth: Optional[object] = None,
+    correction_evidence: Optional[str] = None,
+    choices: Optional[Sequence[Dict[str, str]]] = None,
+) -> str:
     """Return a recovery prompt.
 
     Recovery prompt ablation (variant) is intentionally *lightweight* and does not
@@ -105,6 +139,7 @@ def get_recovery_prompt(answer_style: str = "math", variant: str = "baseline") -
       - baseline: previous behavior (apology + reconsider)
       - reinforce_correct: explicitly states the original answer was correct
       - verify_then_answer: asks to re-check quickly then answer (boxed)
+      - grounded_correction / evidence_bearing: supplies a verified answer and optional supporting evidence
     """
     v = (variant or "baseline").lower()
 
@@ -118,6 +153,17 @@ def get_recovery_prompt(answer_style: str = "math", variant: str = "baseline") -
         return (
             "Please verify your answer briefly and then provide the final answer." + _style_recovery_suffix(answer_style)
         )
+
+    if v in {"grounded_correction", "evidence_bearing"}:
+        corrected_answer = _format_ground_truth_for_prompt(answer_style, ground_truth, choices=choices)
+        evidence = (correction_evidence or "").strip()
+        parts = ["Here is grounded corrective information for this item."]
+        if corrected_answer:
+            parts.append(f"Verified correct answer: {corrected_answer}.")
+        if evidence:
+            parts.append(f"Supporting evidence: {evidence}")
+        parts.append("Use this information to update your answer." + _style_recovery_suffix(answer_style))
+        return " ".join(parts)
 
     # baseline
     style = (answer_style or "math").lower()

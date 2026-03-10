@@ -1,3 +1,11 @@
+# codex
+AGENTS.md
+.omx/
+.codex/
+.agents/
+.conda/
+
+
 # Python
 __pycache__/
 *.pyc

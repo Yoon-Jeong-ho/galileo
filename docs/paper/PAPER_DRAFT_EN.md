@@ -52,6 +52,11 @@ Single-turn accuracy does not answer:
 - **Accuracy@r (marginal)**: the fraction correct *at* round *r* (ignoring whether the example was incorrect at any earlier round). We do **not** use this as a primary robustness metric because it can hide intermediate flips (incorrect→correct oscillations) that Survival@r and TTF make explicit.
 - **Flip**: a correct→incorrect transition at some point during the **multi-turn phase** (rounds 1..R). The final neutral **recovery turn** is *not* counted when defining flips/TTF.
 - **TTF (time-to-first-failure)**: the *first* round (within 1..R) where an initially-correct example becomes incorrect (right-censored if it never fails within the multi-turn horizon). **Fail@1** is \(\Pr(\mathrm{TTF}=1)\). *(Terminology note: we use **TTF** to avoid confusion with related multi-turn metrics such as SYCON-Bench’s **Turn of Flip (ToF)** and other “number of flips” style measures; in GALILEO, we reserve TTF specifically for the **first** incorrect round on a ground-truth task.)*
+- **NoF (number of flips; auxiliary)**: the number of correctness **state changes** (correct→incorrect or incorrect→correct) across the challenged rounds, capturing oscillation beyond the first failure. Concretely, with correctness indicators \(y_{i,t}\in\{0,1\}\),
+  \[
+  \mathrm{NoF}(i)=\sum_{t=1}^{R}\lvert y_{i,t}-y_{i,t-1}\rvert.
+  \]
+  We treat **NoF** as an appendix diagnostic and can analogously report drift-corrected gaps \(\Delta\mathrm{NoF}\) (persona − NRC) on the same conditioning set.
 - **Recovery@flip**: the probability of returning to the correct answer on the final neutral recovery prompt (round \(R{+}1\)), **conditional on having flipped at least once during rounds 1..R**:
   \[
   \Pr\big(y_{i,R+1}=1\mid y_{i,0}=1\ \wedge\ \exists t\in\{1,\dots,R\}:\ y_{i,t}=0\big).
@@ -539,7 +544,11 @@ Separately, work on **self-verification / verify-then-answer** (e.g., Chain-of-V
 ---
 
 
-**Interpretation guardrails (avoid reviewer confusion).** We report two matched-set modes: (i) a *shared* initially-correct set $C$ (used when directly comparing personas to each other), and (ii) persona-matched sets $C_p$ (used for within-persona attribution). Unless otherwise stated, persona–control gaps are computed on the same matched conditioning set (persona vs NRC on $C_p$), so control baselines can differ across personas because the underlying $C_p$ differs. Table~\ref{tab:tablew} reports pooled persona aggregates (persona-weighted and persona-unweighted) and is therefore not expected to numerically equal any single persona-wise row; the intended evidence is the *within-persona persona–NRC delta* and its consistency across seeds.
+**Interpretation guardrails (avoid reviewer confusion).** We report two matched-set modes: (i) a *shared* initially-correct set $C$ (used when directly comparing personas to each other), and (ii) persona-matched sets $C_p$ (used for within-persona attribution).
+
+**Key takeaway:** compare **persona \(\Delta=\) persona − NRC** deltas; do *not* compare raw NRC rows across personas unless the conditioning set is shared.
+
+Unless otherwise stated, persona–control gaps are computed on the same matched conditioning set (persona vs NRC on $C_p$), so control baselines can differ across personas because the underlying $C_p$ differs. Table~\ref{tab:tablew} reports pooled persona aggregates (persona-weighted and persona-unweighted) and is therefore not expected to numerically equal any single persona-wise row; the intended evidence is the *within-persona persona–NRC delta* and its consistency across seeds.
 ## 7. Results
 
 Unless stated otherwise, results are reported as mean±std over **seeds 1–4** (Qwen2.5-7B-Instruct; 80 samples/seed) from **auditable green** runs, with paper-ready exports under `results/<run>/paper_exports/` and small, tracked summary artifacts under `docs/paper/artifacts/`. When discussing flips, we treat aggregate flip rates as a *robustness* signal rather than a direct measure of semantic belief change. In extractive QA in particular, strict EM can over-count near-misses (boundary/overanswer; partial-overlap), so we additionally interpret flips via a qualitative taxonomy (diagnostic only) and report semantic-change cases separately (Appendix~A.2). Importantly, taxonomy labels are computed post-hoc from flip samples and are **not** used to recompute survival/TTF/recovery; our primary metrics remain defined on the standard evaluator outputs for reproducibility.

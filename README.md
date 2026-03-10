@@ -15,6 +15,17 @@
 
 - 이전 README는 보존했습니다: `README_prev_20260217.md` (그리고 더 오래된 요약: `Prev_README.md`).
 
+### 0.1 현재 로컬 코드 상태 (2026-03-10 확인)
+
+아래는 **이 체크아웃에서 직접 확인한 사실**입니다.
+
+- 현재 워킹트리에는 `data/`, `results/`, `results_paper/` 디렉터리가 **없습니다**. 따라서 로컬에서 `run_experiment.py`를 기본값으로 바로 실행하면 데이터 경로를 명시적으로 넘기거나, 먼저 데이터 디렉터리를 준비해야 합니다.
+- 코드 기본 경로는 이제 **하드코딩된 `/data_x/.../galileo`** 대신 **현재 레포 루트 기준(`./data`, `./results`)** 또는 환경변수(`GALILEO_DATA_DIR`, `GALILEO_RESULTS_DIR`)를 사용하도록 정비했습니다.
+- 기본 GPU 가시성도 이제 **단일 GPU 안전 기본값**을 따르며, 실제 실험에서는 반드시 `CUDA_VISIBLE_DEVICES`를 명시적으로 설정하는 것을 권장합니다.
+- `scripts/remote_run/nlp8_smoke.sh`, `scripts/run_multiseed_tmux.sh`, `scripts/run_multiseed_families_tmux.sh`도 **스크립트 위치 기준으로 repo root를 추론**하도록 정비했습니다. 기존 원격 SSOT 경로를 그대로 쓰고 싶으면 `REPO_DIR=...`로 명시하면 됩니다.
+- 비-GPU smoke 성격 검증은 `python -m unittest tests/test_non_gpu_core.py`로 수행할 수 있습니다.
+- Recovery 프롬프트에는 기존 baseline 계열 외에 **`grounded_correction` / `evidence_bearing`** 변형을 추가했습니다. 데이터에 `correction_evidence`/`evidence`/`supporting_facts`/`explanation` 등이 있으면 그 근거를 사용하고, 없으면 verified answer를 명시하는 answer-bearing correction으로 동작합니다.
+
 ---
 
 ## 1) 현재까지 한 일 (요약)
@@ -163,6 +174,70 @@ pip install -r requirements.txt
 
 > torch/vLLM은 CUDA/드라이버에 강하게 의존하므로 환경에 맞게 별도 설치를 권장합니다.
 
+현재 실무 권장(이 레포의 최근 작업 기준):
+
+```bash
+source /data_x/aa007878/miniconda3/etc/profile.d/conda.sh
+conda activate galileo
+```
+
+### 5.1.1 로컬 코드 하드닝 상태 (2026-03-10 확인)
+
+검증된 사실:
+
+- `config.py` 기본 경로는 이제 **레포 기준 상대 경로**(`data/`, `results/`)를 사용하며,
+  필요 시 `GALILEO_DATA_DIR`, `GALILEO_RESULTS_DIR`로 override 가능
+- `run_experiment.py` / `config.py`는 더 이상 `CUDA_VISIBLE_DEVICES`를 **암묵적으로 강제하지 않음**
+- `scripts/run_multiseed_tmux.sh`, `scripts/run_multiseed_families_tmux.sh`, `scripts/remote_run/nlp8_smoke.sh`
+  의 안전 기본값은 현재 **GPU 7 / TP=1** 기준으로 맞춰 둠 (필요 시 env override)
+- 데이터셋 row에 `correction_evidence` / `supporting_evidence` / `supporting_facts` / `explanation` / `rationale`
+  중 하나가 있으면 evidence-bearing correction arm에서 사용할 수 있도록 로더가 보존함
+- recovery variant로 `grounded_correction` / `evidence_bearing`를 사용할 수 있음
+- 현재 로컬 checkout에는 `data/`, `results/`, `results_paper/`가 없을 수 있으므로, 실험 재개 시 경로를 명시하거나 remote SSOT를 사용해야 함
+- **GPU 5 smoke run (2026-03-10)**: `Qwen/Qwen2.5-7B-Instruct`, `tensor_parallel_size=1`,
+  `tmp/smoke_data/{smoke_math,smoke_mcqa}.jsonl`, personas=`control_reask,authority_claim`,
+  recovery=`evidence_bearing` 경로로 end-to-end 실행 성공
+  - raw results: `tmp/results/smoke_gpu5_20260310_184715/`
+  - paper exports + validator: `tmp/results/smoke_gpu5_20260310_184715/paper_exports/` / `[OK] runner_metadata parity`
+
+비-GPU 코드 검증(로컬에서 즉시 가능):
+
+```bash
+python -m py_compile \
+  config.py data_loader.py evaluation.py inference.py personas.py run_experiment.py tasks.py \
+  scripts/paper_export.py scripts/write_runner_metadata.py scripts/validate_paper_exports.py
+
+python -m unittest discover -s tests -v
+```
+
+단일 GPU 실험을 재개할 때는 항상 명시적으로:
+
+```bash
+CUDA_VISIBLE_DEVICES=7 python run_experiment.py ...
+```
+
+또는 데이터/결과 경로를 함께 명시:
+
+```bash
+CUDA_VISIBLE_DEVICES=7 \
+GALILEO_DATA_DIR=/path/to/data \
+GALILEO_RESULTS_DIR=/path/to/results \
+python run_experiment.py ...
+```
+
+evidence-bearing correction arm을 켜려면 예를 들어:
+
+```bash
+CUDA_VISIBLE_DEVICES=7 \
+python run_experiment.py \
+  --data_file /path/to/smoke.jsonl \
+  --results_dir /path/to/results \
+  --tensor_parallel_size 1 \
+  --recovery_variant evidence_bearing
+```
+
+> 주의: 위 variant는 **코드 경로만 구현/검증**된 상태이며, headline 실험 결과는 아직 다시 생성하지 않았습니다.
+
 ### 5.2 (원격) 필수 런북(SSOT)
 
 - 실험 런북: `docs/paper/REMOTE_EXPERIMENTS_RUNBOOK.md`
@@ -257,4 +332,3 @@ bash scripts/check_pdf_figures.sh
 - 정리된 선행연구/포지셔닝(KO): `docs/paper/LITERATURE_REVIEW_AND_POSITIONING_KO.md`
 - 정량 결과 분석 노트(KO): `docs/paper/PAPER_RESULTS_ANALYSIS_KO.md`
 - 정성 예시(KO): `docs/paper/PAPER_RESULTS_QUAL_EXAMPLES_KO.md`
-

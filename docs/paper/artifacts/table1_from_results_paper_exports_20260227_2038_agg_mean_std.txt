@@ -1,0 +1,18 @@
+Source CSV: docs/paper/artifacts/table1_from_results_paper_exports_20260227_2038.csv
+
+Aggregation: mean±std over seed-level rows present in the CSV (grouped by `model`). Values are raw decimals (0-1), matching the artifact.
+
+## Llama-3.2-3B-Instruct (n=2 seeds)
+- nrc_survival_r5/persona_survival_r5/delta_survival_r5: 0.094862±0.000000 / 0.045159±0.002655 / -0.049703±0.002655
+- nrc_fail1/persona_fail1/delta_fail1: 0.546442±0.013975 / 0.663933±0.000140 / 0.117490±0.014114
+- nrc_recovery/persona_recovery/delta_recovery: 0.504913±0.025474 / 0.455642±0.004615 / -0.049271±0.030090
+
+## Mistral-7B-Instruct-v0.3 (n=2 seeds)
+- nrc_survival_r5/persona_survival_r5/delta_survival_r5: 0.396505±0.037953 / 0.109210±0.001051 / -0.287295±0.039003
+- nrc_fail1/persona_fail1/delta_fail1: 0.395070±0.034452 / 0.634551±0.007438 / 0.239480±0.027013
+- nrc_recovery/persona_recovery/delta_recovery: 0.352757±0.027469 / 0.349569±0.005413 / -0.003187±0.032882
+
+## Mistral-Nemo-Instruct-2407 (n=2 seeds)
+- nrc_survival_r5/persona_survival_r5/delta_survival_r5: 0.305417±0.008915 / 0.168912±0.006581 / -0.136505±0.002334
+- nrc_fail1/persona_fail1/delta_fail1: 0.439453±0.018411 / 0.525227±0.003936 / 0.085775±0.014475
+- nrc_recovery/persona_recovery/delta_recovery: 0.526707±0.016032 / 0.570563±0.015743 / 0.043856±0.000288

@@ -13,12 +13,32 @@ If you see max-length errors, reduce MAX_TOKENS and/or MAX_MODEL_LEN.
 
 import os
 from dataclasses import dataclass, field
+from pathlib import Path
 from typing import List
 
+REPO_ROOT = Path(__file__).resolve().parent
+
+
+def _split_visible_devices(raw: str | None) -> List[str]:
+    if not raw:
+        return []
+    return [part.strip() for part in str(raw).split(",") if part.strip()]
+
+
+def infer_tensor_parallel_size(raw_visible_devices: str | None) -> int:
+    visible = _split_visible_devices(raw_visible_devices)
+    return max(1, len(visible) or 1)
+
+
 # GPU configuration
-# If not set by the caller, default to these GPUs.
-os.environ.setdefault("CUDA_VISIBLE_DEVICES", "4,5,6,7")
-TENSOR_PARALLEL_SIZE = 4
+# Shared-server safety: do not silently bind GPUs here. Experiment launch
+# scripts should set CUDA_VISIBLE_DEVICES explicitly for auditable runs.
+TENSOR_PARALLEL_SIZE = int(
+    os.environ.get(
+        "GALILEO_TENSOR_PARALLEL_SIZE",
+        str(infer_tensor_parallel_size(os.environ.get("CUDA_VISIBLE_DEVICES"))),
+    )
+)
 
 # Models to evaluate
 # Keep the default list small; pass --model to override.
@@ -65,8 +85,8 @@ INSTRUCTION_TEMPLATE = (
 )
 
 # Paths
-DATA_DIR = "/data_x/aa007878/galileo/data"
-RESULTS_DIR = "/data_x/aa007878/galileo/results"
+DATA_DIR = os.environ.get("GALILEO_DATA_DIR", str(REPO_ROOT / "data"))
+RESULTS_DIR = os.environ.get("GALILEO_RESULTS_DIR", str(REPO_ROOT / "results"))
 
 
 @dataclass
@@ -106,6 +126,7 @@ class ExperimentConfig:
 
     # Reproducibility
     seed: int = 42
+    recovery_variant: str = "baseline"
 
     def __post_init__(self):
         if not self.data_files and os.path.exists(DATA_DIR):
@@ -114,3 +135,4 @@ class ExperimentConfig:
                 for f in os.listdir(DATA_DIR)
                 if f.endswith(".jsonl")
             ]
+            self.data_files.sort()
