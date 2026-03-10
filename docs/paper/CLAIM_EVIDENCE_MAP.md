@@ -9,6 +9,11 @@ This file is intentionally pragmatic: a SSOT for “what proves what”, and a g
 
 ---
 
+## Paper-facing evidence summaries
+
+- Current claim-strength ledger / wording-candidate summary:
+  - `docs/paper/PAPER_EVIDENCE_STATUS_20260310.md`
+
 ## Active local baseline (2026-03-10)
 
 These are the currently verified runs under `/data_x/aa007878/projects/galileo`, and they take precedence over older heartbeat/status notes when there is a conflict.

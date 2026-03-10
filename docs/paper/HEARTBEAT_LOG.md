@@ -280,3 +280,18 @@ This file is intentionally kept short to reduce token burn.
 - Audited `docs/paper/claim_evidence_map.md` versus `docs/paper/CLAIM_EVIDENCE_MAP.md`.
 - Confirmed the lowercase path was only a symlink to the uppercase SSOT file and found no active non-archive references to the lowercase path in current README/docs/scripts.
 - Removed the redundant lowercase symlink to reduce duplicate-path drift risk; the uppercase `docs/paper/CLAIM_EVIDENCE_MAP.md` remains the only tracked claim-map SSOT.
+
+### 2026-03-11 00:55 KST — Paper evidence: added strong-vs-weak claim ledger for the March 10 package
+
+- Revalidated the weaker non-multiseed roots I might cite as directional-only context:
+  - `tmp/results/smoke_gpu5_20260310_184715/`
+  - `tmp/results/pilot50_gpu5_20260310_185825/`
+  - `tmp/results/main_arc_gpu6_20260310_191906/`
+- Reused the already-validated Qwen7B multiseed roots for evidence / grounded / evidence-gate and extracted stable Survival@5 proof points from the tracked CSV artifacts.
+- Added `docs/paper/PAPER_EVIDENCE_STATUS_20260310.md` to separate:
+  - reproducible supported claims,
+  - promising but insufficient observations,
+  - missing-evidence gaps,
+  - safe body-ready wording candidates.
+- Added a pointer to that new summary in `docs/paper/CLAIM_EVIDENCE_MAP.md`.
+- No paper-body edit was made; this cycle stays in the evidence/supporting-docs layer only.
