@@ -305,3 +305,17 @@ This file is intentionally kept short to reduce token burn.
   - current safe housekeeping notes.
 - Added a discoverability pointer to that inventory in `docs/paper/README.md`.
 - No raw results or generated artifacts were deleted in this cycle.
+
+### 2026-03-11 01:10 KST — Experiments: completed missing GSM8K evidence-bearing comparable main
+
+- Identified a real comparability gap: no validated **single-dataset GSM8K evidence-bearing main** existed to match the existing GSM8K grounded/evidence-gate mains.
+- First launch attempt inside the sandbox failed before inference with a CUDA/vLLM device-detection error (`RuntimeError: Device string must not be empty`); treated as an environment/sandbox issue rather than a repo-code failure.
+- Retried **once** with the exact same command outside the sandbox on **GPU 5**, which succeeded:
+  - output root: `tmp/results/qwen7b_gsm8k_control_authority_evidence_gpu5_20260311_010641/`
+  - validator: `[OK] runner_metadata parity`
+- Key GSM8K comparable metrics (single-dataset mains):
+  - evidence-bearing: control Survival@5 **87.80%**, authority Survival@5 **63.41%**, authority Recovery@flip **100.00%**
+  - grounded correction: control Survival@5 **92.68%**, authority Survival@5 **63.41%**, authority Recovery@flip **93.33%**
+  - evidence-gate: control Survival@5 **90.24%**, authority Survival@5 **70.73%**, authority Recovery@flip **91.67%**
+- Added summary doc:
+  - `docs/paper/QWEN7B_GSM8K_COMPARABLE_MAINS_20260311.md`

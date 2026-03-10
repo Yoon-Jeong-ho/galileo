@@ -110,6 +110,10 @@
     - `/data_x/aa007878/projects/galileo/docs/paper/artifacts/qwen7b_tradeoff_arc_multiseed_20260310.svg`
   - GSM8K: authority survival@5 **0.714 ± 0.086**, mean ΔSurvival@5 **-0.206** [95% CI -0.262, -0.119], mean ΔFail@1 **+0.048** [95% CI 0.000, 0.071], mean ΔPostRecoveryAcc **-0.0159**
   - ARC-Easy: authority survival@5 **0.361 ± 0.083**, mean ΔSurvival@5 **-0.592** [95% CI -0.674, -0.531], mean ΔFail@1 **+0.129** [95% CI 0.122, 0.143]
+- single-dataset GSM8K evidence-bearing comparable main (2026-03-11) complete:
+  - root: `/data_x/aa007878/projects/galileo/tmp/results/qwen7b_gsm8k_control_authority_evidence_gpu5_20260311_010641/`
+  - authority survival@5 **63.41%**, control survival@5 **87.80%**, authority recovery@flip **100.00%**
+  - this closes the missing GSM8K evidence-bearing single-dataset comparator against the existing grounded/evidence-gate GSM8K mains
 
 - manual qualitative labeling has started:
   - partial labeled sheet: `/data_x/aa007878/projects/galileo/tmp/analysis/manual_flip_taxonomy_partial_20260310.csv`
