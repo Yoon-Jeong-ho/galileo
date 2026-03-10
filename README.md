@@ -25,16 +25,38 @@
 - `scripts/remote_run/nlp8_smoke.sh`, `scripts/run_multiseed_tmux.sh`, `scripts/run_multiseed_families_tmux.sh`도 **스크립트 위치 기준으로 repo root를 추론**하도록 정비했습니다. 기존 원격 SSOT 경로를 그대로 쓰고 싶으면 `REPO_DIR=...`로 명시하면 됩니다.
 - 비-GPU smoke 성격 검증은 `python -m unittest tests/test_non_gpu_core.py`로 수행할 수 있습니다.
 - Recovery 프롬프트에는 기존 baseline 계열 외에 **`grounded_correction` / `evidence_bearing`** 변형을 추가했습니다. 데이터에 `correction_evidence`/`evidence`/`supporting_facts`/`explanation` 등이 있으면 그 근거를 사용하고, 없으면 verified answer를 명시하는 answer-bearing correction으로 동작합니다.
+- **GPU 5 가용 메모리가 부분 점유된 경우** `--gpu_memory_utilization 0.6`으로도 single-GPU sanity를 통과시킬 수 있음을 2026-03-10에 확인했습니다.
 
 ---
 
 ## 1) 현재까지 한 일 (요약)
 
-### 1.1 실험(Experiments): “paper-ready(=auditable green)” 파이프라인 확립
+### 1.1 실험(Experiments): 현재 기준선(2026-03-10 검증)
 
-**핵심 정책(SSOT):** EMNLP Main 실험은 원격에서 `ssh nlp8`, 레포 `/data_x/aa007878/galileo`, GPU는 **0–6 중에서 “진짜 idle + 타 유저 미사용 + CUDA alloc preflight OK”만** 사용, 모든 장기 작업은 `tmux`로 실행.
+현재 README가 기준으로 삼는 **직접 검증된 실험 기준선**은 아래입니다.
 
-> 주의: heartbeat 배너에 `nlp16`/`CUDA_VISIBLE_DEVICES=4,5,6,7`가 등장하는 경우가 있는데, **stale**한 문구입니다. 실험 SSOT는 nlp8 기준으로만 운영합니다.
+- **Synthetic smoke run**
+  - 결과: `/data_x/aa007878/projects/galileo/tmp/results/smoke_gpu5_20260310_184715/`
+  - 검증: `paper_exports/` 생성 + validator `[OK]`
+- **Real-data small pilot (math)**
+  - 결과: `/data_x/aa007878/projects/galileo/tmp/results/pilot_gpu5_real_20260310_185233/`
+  - 데이터: GSM8K + SVAMP, 각 5 샘플
+  - arms: `control_reask`, `authority_claim`, `evidence_bearing` recovery
+  - 검증: `paper_exports/` 생성 + validator `[OK]`
+- **Real-data pilot (math)**
+  - 결과: `/data_x/aa007878/projects/galileo/tmp/results/pilot50_gpu5_20260310_185825/`
+  - 데이터: GSM8K + SVAMP, 각 50 샘플
+  - arms: `control_reask`, `authority_claim`, `evidence_bearing` recovery
+  - 검증: `paper_exports/` 생성 + validator `[OK]`
+- **Non-math main (MCQA)**
+  - 결과: `/data_x/aa007878/projects/galileo/tmp/results/main_arc_gpu6_20260310_191906/`
+  - 데이터: ARC-Easy 50 샘플
+  - arms: `control_reask`, `authority_claim`, `evidence_bearing` recovery
+  - 검증: `paper_exports/` 생성 + validator `[OK]`
+- **논문 후보 승격(results_paper)**
+  - math: `/data_x/aa007878/projects/galileo/results_paper/qwen7b_math_control_authority_evidence_gsm8k_svamp_gpu5_20260310/`
+  - non-math: `/data_x/aa007878/projects/galileo/results_paper/qwen7b_nonmath_control_authority_evidence_arc_gpu6_20260310/`
+  - root validator: `[OK] runner_metadata parity`
 
 **Paper-ready(인용 가능) 판정 기준**
 
@@ -48,18 +70,14 @@
   - `python3 scripts/validate_paper_exports.py --results_root <RUN_DIR>`
   - (paper SSOT root) `python3 scripts/validate_paper_exports.py --results_root results_paper --check_runner_parity`
 
-**현재 확보된 실험 증거(요지)**
+**2026-03-10 기준 확인된 패턴(직접 실행 결과)**
 
-- Qwen2.5-7B-Instruct 기반 **multi-seed** + Control vs Persona 비교가 "auditable green"으로 고정되어 있고,
-  persona 유형별로 survival/TOF/recovery가 일관되게 변화함.
-- **Cross-family generalization (Tier-1, seeds 1–2)**를 최소 비용으로 확장:
-  - Llama 계열, Mistral 계열, Phi 계열 등에서 seeds 1–2 paper-ready 확보.
-- **Decoding sensitivity (Tier-1, seeds 1–2)**: greedy temperature(0.0 vs 0.7) 변화에 대해 요약 아티팩트와 그림을 생성하여
-  “결과가 디코딩 설정에 의해 완전히 뒤집히지 않음”을 확인.
-- **Recovery-variant ablation (verify_then_answer; seeds 1–2)**: recovery 측정이 프롬프트/절차에 민감할 수 있음을
-  통제된 방식으로 보여주는 ablation 아티팩트 확보.
+- GSM8K 50샘플 pilot에서 `Authority Claim` survival@5는 **58.14%**, `Control Re-asking` survival@5는 **88.37%**
+- SVAMP 50샘플 pilot에서 `Authority Claim` survival@5는 **75.00%**, `Control Re-asking` survival@5는 **93.75%**
+- ARC-Easy 50샘플 main run에서 `Authority Claim` survival@5는 **24.49%**, `Control Re-asking` survival@5는 **93.88%**
+- 위 세 run 모두에서 `evidence_bearing` recovery는 현재까지 **100%** recovery@flip을 보였음
 
-> 최신 상태/정확한 run alias 목록은 `docs/paper/STATUS.md`의 NOW 섹션을 SSOT로 봅니다.
+> 해석 주의: 위 수치는 아직 **2026-03-10 pilot/sanity 기준선**이며, 논문 headline claim은 더 큰 샘플/다중 seed 확인 후 강화해야 합니다.
 
 ### 1.2 코드(Code): “실험→export→검증→paper artifact/figure” 연결
 
@@ -129,7 +147,7 @@
 - **Recovery@flip**: flip된 케이스에 한정하여 정답으로 복귀한 비율
 - **Effect(Δ)**: Persona vs Control 간의 ΔSurvival@5, ΔFail@1, ΔRecovery@flip 등
 
-> 정의/용어 SSOT는 `docs/paper/FIGURE_CAPTIONS.md` 및 `docs/paper/STATUS.md`에도 반영되어 있습니다.
+> 정의/용어 SSOT는 `docs/paper/FIGURE_CAPTIONS.md`를 우선 기준으로 봅니다.
 
 ---
 
@@ -246,10 +264,11 @@ python run_experiment.py \
 
 > 주의: 위 variant는 **코드 경로만 구현/검증**된 상태이며, headline 실험 결과는 아직 다시 생성하지 않았습니다.
 
-### 5.2 (원격) 필수 런북(SSOT)
+### 5.2 (원격) 참고 런북(legacy support)
 
-- 실험 런북: `docs/paper/REMOTE_EXPERIMENTS_RUNBOOK.md`
-- 상태판(가장 최신): `docs/paper/STATUS.md`
+- 참고용 런북: `docs/paper/REMOTE_EXPERIMENTS_RUNBOOK.md`
+- 단, **현재 source of truth는 README + 실제 코드 + 2026-03-10 결과물**입니다.
+- `STATUS.md`, `HEARTBEAT_LOG.md` 등 과거 운영 문서는 현재 워크플로의 SSOT가 아닙니다.
 
 원격에서 매번 최소 확인:
 
@@ -315,22 +334,23 @@ bash scripts/check_pdf_figures.sh
 
 ---
 
-## 7) “지금까지” 진행 내역(타임라인을 찾는 법)
+## 7) 현재 활성 문서 우선순위
 
-- 롤링 상태(중복 없는 현재 상태): `docs/paper/STATUS.md`
-- Append-only 상세 타임라인: `docs/paper/HEARTBEAT_LOG.md`
+- 1순위: `/data_x/aa007878/projects/galileo/README.md`
+- 2순위: 현재 실제 코드 (`run_experiment.py`, `config.py`, `personas.py`, `scripts/*`)
+- 3순위: `/data_x/aa007878/projects/galileo/tmp/results/*20260310*/`
+- 4순위: `/data_x/aa007878/projects/galileo/docs/paper/PAPER_DRAFT_EN.md`
+- 5순위: `/data_x/aa007878/projects/galileo/docs/paper/CLAIM_EVIDENCE_MAP.md`
 
-> README에 모든 타임라인을 복붙하면 관리가 깨지므로,
-> 이 README는 **구조/재현/타당성/SSOT 링크**에 집중하고,
-> 이벤트 로그는 위 두 파일을 SSOT로 유지합니다.
+> `STATUS.md`, `HEARTBEAT_LOG.md` 등 과거 운영 문서는 **기본 워크플로에서 유지보수하지 않습니다.**
 
 ---
 
 ## 8) 다음 액션(추천; reviewer-risk 기준)
 
-1) **Abstract/Intro 문장별 proof-pointer(figure/table/artifact) 완성**
-2) **cross-family 결과를 Results에 더 “정량문장”으로 반영** (seeds 1–2 범위에서)
-3) **한 개 family 추가 or seed 확장 여부 결정** (CI가 흔들릴 때만 seed 확장)
+1) **math + non-math direct comparison evidence set 완성**
+2) **control vs authority vs evidence-bearing 결과를 표/문장으로 고정**
+3) **다중 seed(≥3) 확장 여부 결정**
 
 ---
 

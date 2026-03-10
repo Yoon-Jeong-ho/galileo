@@ -9,6 +9,27 @@ This file is intentionally pragmatic: a SSOT for “what proves what”, and a g
 
 ---
 
+## Active local baseline (2026-03-10)
+
+These are the currently verified runs under `/data_x/aa007878/projects/galileo`, and they take precedence over older heartbeat/status notes when there is a conflict.
+
+- Synthetic smoke:
+  - `/data_x/aa007878/projects/galileo/tmp/results/smoke_gpu5_20260310_184715/`
+- Math pilot (small):
+  - `/data_x/aa007878/projects/galileo/tmp/results/pilot_gpu5_real_20260310_185233/`
+- Math pilot (50-sample baseline):
+  - `/data_x/aa007878/projects/galileo/tmp/results/pilot50_gpu5_20260310_185825/`
+- Non-math sanity (ARC-Easy MCQA):
+  - `/data_x/aa007878/projects/galileo/tmp/results/sanity_arc_gpu6_20260310_191641/`
+
+All of the above have `paper_exports/` plus validator `[OK]`. They are baseline evidence for:
+- pressure (`authority_claim`) < control (`control_reask`) on the same protocol
+- evidence-bearing recovery path executing end-to-end
+
+Do **not** treat these as final headline claims yet; they are the active baseline for expanding to larger math + non-math evidence sets.
+
+---
+
 ## Terminology guardrails (avoid reviewer confusion)
 
 - **Survival(r)**: probability the model remains correct **for every round 1..r** (cumulative), *not* “accuracy at round r only.”
