@@ -4,7 +4,7 @@
 > - Experiments/results/figures are tracked in the repo (`results/`, `paper_figures/`, `scripts/`).
 > - BibTeX entries: `references.bib`.
 > - Section numbers in headings are **placeholders** (we may renumber/remove them during LaTeX conversion).
-> - **Current local baseline (2026-03-10):** `/data_x/aa007878/projects/galileo/tmp/results/` contains verified smoke/pilot runs showing `authority_claim < control_reask` on GSM8K, SVAMP, and ARC-Easy, with `evidence_bearing` and `grounded_correction` recovery executing end-to-end. The evidence **and grounded** baselines now also have **seed 1–3 local multiseed summaries** on GSM8K and ARC-Easy, strengthening the core pressure-vs-drift claim and making the correction comparison more credible. A preliminary `evidence_gate` mitigation is implemented and shows task-dependent survival improvements, but should still be treated as provisional until its own multiseed confirmation.
+> - **Current local baseline (2026-03-10):** `/data_x/aa007878/projects/galileo/tmp/results/` contains verified smoke/pilot runs showing `authority_claim < control_reask` on GSM8K, SVAMP, and ARC-Easy, with `evidence_bearing` and `grounded_correction` recovery executing end-to-end. The evidence, grounded, **and evidence-gate** settings now all have **seed 1–3 local multiseed summaries** on GSM8K and ARC-Easy. This strengthens the core pressure-vs-drift claim and gives the mitigation story a more credible footing, but the mitigation should still be framed conservatively as “promising with trade-offs,” not as a settled solution. A partial manually labeled qualitative sheet is also now available for appendix-candidate examples.
 
 ---
 

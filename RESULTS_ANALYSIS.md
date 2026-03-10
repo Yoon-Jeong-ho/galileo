@@ -52,6 +52,22 @@
   - Fail@1 delta:
     - GSM8K +0.096215 [95% CI 0.023256, 0.146341]
     - ARC-Easy +0.285715 [95% CI 0.265306, 0.326531]
+- Evidence-gate multiseed (seeds 1–3) summary:
+  - run root: `/data_x/aa007878/projects/galileo/tmp/results/qwen7b_evidencegate_multiseed_gpu5_20260310_234316/`
+  - artifacts:
+    - `/data_x/aa007878/projects/galileo/docs/paper/artifacts/qwen7b_evidencegate_multiseed_seed1-3_metrics_20260310.csv`
+    - `/data_x/aa007878/projects/galileo/docs/paper/artifacts/qwen7b_evidencegate_multiseed_seed1-3_deltas_20260310.csv`
+    - `/data_x/aa007878/projects/galileo/docs/paper/artifacts/qwen7b_threeway_multiseed_comparison_20260310.csv`
+    - `/data_x/aa007878/projects/galileo/docs/paper/artifacts/qwen7b_tradeoff_gsm8k_multiseed_20260310.svg`
+    - `/data_x/aa007878/projects/galileo/docs/paper/artifacts/qwen7b_tradeoff_arc_multiseed_20260310.svg`
+  - GSM8K: authority survival@5 0.714300 ± 0.085812, mean ΔSurvival@5 -0.206367 [95% CI -0.261900, -0.119100]
+  - ARC-Easy: authority survival@5 0.360567 ± 0.082503, mean ΔSurvival@5 -0.591833 [95% CI -0.673500, -0.530600]
+  - Fail@1 delta:
+    - GSM8K +0.047619 [95% CI 0.000000, 0.071429]
+    - ARC-Easy +0.129252 [95% CI 0.122449, 0.142857]
+  - PostRecoveryAcc delta:
+    - GSM8K -0.015873 [95% CI -0.047619, 0.000000]
+    - ARC-Easy 0.000000 [95% CI 0.000000, 0.000000]
 
 해석 메모:
 
@@ -65,6 +81,22 @@
   단, PostRecoveryAcc는 GSM8K에서 1.000000 → 0.975610로 소폭 감소하여, mitigation 효과는 **pressure robustness vs correction flexibility**의 trade-off로 해석해야 한다.
 - evidence baseline은 이제 seed 1–3까지 확보되었으므로, “authority pressure > neutral drift”는 로컬 기준으로 한층 더 방어 가능해졌다. 반면 grounded/evidence_gate는 아직 동일 수준의 multiseed가 아니므로, correction/mitigation 관련 주장은 계속 **provisional**로 유지해야 한다.
 - grounded baseline도 이제 seed 1–3까지 확보되었다. 현재 로컬 evidence는 “pressure > drift”라는 본 주장뿐 아니라, grounded correction에서도 authority gap이 남는다는 점을 보여준다. 다만 evidence vs grounded 차이는 아직 **우열**보다 **different dynamics**로 설명하는 편이 안전하다.
+- evidence-gate도 seed 1–3까지 확보되었다. 현재 로컬 evidence는 evidence-gate가 **pressure robustness를 올리고 Fail@1를 줄이는 방향**을 보인다는 점을 지지한다. 그러나 GSM8K에서 PostRecoveryAcc가 소폭 감소하므로, mitigation은 “robustness gain with possible correction-flexibility trade-off”로 서술하는 것이 가장 방어적이다.
+
+## Manual qualitative labeling (started)
+
+- Partial labeled sheet:
+  - `/data_x/aa007878/projects/galileo/tmp/analysis/manual_flip_taxonomy_partial_20260310.csv`
+- Labeling guide:
+  - `/data_x/aa007878/projects/galileo/tmp/analysis/manual_taxonomy_guidelines_20260310.md`
+
+Current status:
+- 12 representative cases have partial manual labels
+- labels currently used in the partial sheet:
+  - `authority_compliance`
+  - `reasoning_collapse`
+
+This is not yet a complete qualitative appendix, but it is sufficient to start assembling reviewer-facing example tables.
 
 ---
 

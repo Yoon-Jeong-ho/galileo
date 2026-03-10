@@ -42,8 +42,19 @@ Current stronger-vs-weaker claim split:
   - artifact paths:
     - `/data_x/aa007878/projects/galileo/docs/paper/artifacts/qwen7b_grounded_multiseed_seed1-3_metrics_20260310.csv`
     - `/data_x/aa007878/projects/galileo/docs/paper/artifacts/qwen7b_grounded_multiseed_seed1-3_deltas_20260310.csv`
-- **Provisional (seed-1 local only):**
-  - evidence_gate mitigation comparisons
+- **Provisional but stronger than seed-1 (local multiseed-backed mitigation):**
+  - evidence_gate mitigation on GSM8K + ARC-Easy (`seed 1–3`)
+  - artifact paths:
+    - `/data_x/aa007878/projects/galileo/docs/paper/artifacts/qwen7b_evidencegate_multiseed_seed1-3_metrics_20260310.csv`
+    - `/data_x/aa007878/projects/galileo/docs/paper/artifacts/qwen7b_evidencegate_multiseed_seed1-3_deltas_20260310.csv`
+    - `/data_x/aa007878/projects/galileo/docs/paper/artifacts/qwen7b_threeway_multiseed_comparison_20260310.csv`
+    - `/data_x/aa007878/projects/galileo/docs/paper/artifacts/qwen7b_tradeoff_gsm8k_multiseed_20260310.svg`
+    - `/data_x/aa007878/projects/galileo/docs/paper/artifacts/qwen7b_tradeoff_arc_multiseed_20260310.svg`
+  - still interpret as **promising mitigation with trade-offs**, not a final headline solution
+
+- **Qualitative support (partial manual labeling, provisional):**
+  - `/data_x/aa007878/projects/galileo/tmp/analysis/manual_flip_taxonomy_partial_20260310.csv`
+  - `/data_x/aa007878/projects/galileo/tmp/analysis/manual_taxonomy_guidelines_20260310.md`
 
 Do **not** treat these as final headline claims yet; they are the active baseline for expanding to larger math + non-math evidence sets.
 

@@ -100,8 +100,22 @@
   - delta artifact: `/data_x/aa007878/projects/galileo/docs/paper/artifacts/qwen7b_grounded_multiseed_seed1-3_deltas_20260310.csv`
   - GSM8K: authority survival@5 **0.704 ± 0.162**, control survival@5 **0.912 ± 0.030**, mean ΔSurvival@5 **-0.208** [95% CI -0.341, -0.070]
   - ARC-Easy: authority survival@5 **0.333 ± 0.072**, control survival@5 **0.946 ± 0.024**, mean ΔSurvival@5 **-0.612** [95% CI -0.653, -0.551]
+- evidence-gate multiseed (seeds 1–3) complete:
+  - root: `/data_x/aa007878/projects/galileo/tmp/results/qwen7b_evidencegate_multiseed_gpu5_20260310_234316/`
+  - artifact: `/data_x/aa007878/projects/galileo/docs/paper/artifacts/qwen7b_evidencegate_multiseed_seed1-3_metrics_20260310.csv`
+  - delta artifact: `/data_x/aa007878/projects/galileo/docs/paper/artifacts/qwen7b_evidencegate_multiseed_seed1-3_deltas_20260310.csv`
+  - three-way comparison: `/data_x/aa007878/projects/galileo/docs/paper/artifacts/qwen7b_threeway_multiseed_comparison_20260310.csv`
+  - trade-off figures:
+    - `/data_x/aa007878/projects/galileo/docs/paper/artifacts/qwen7b_tradeoff_gsm8k_multiseed_20260310.svg`
+    - `/data_x/aa007878/projects/galileo/docs/paper/artifacts/qwen7b_tradeoff_arc_multiseed_20260310.svg`
+  - GSM8K: authority survival@5 **0.714 ± 0.086**, mean ΔSurvival@5 **-0.206** [95% CI -0.262, -0.119], mean ΔFail@1 **+0.048** [95% CI 0.000, 0.071], mean ΔPostRecoveryAcc **-0.0159**
+  - ARC-Easy: authority survival@5 **0.361 ± 0.083**, mean ΔSurvival@5 **-0.592** [95% CI -0.674, -0.531], mean ΔFail@1 **+0.129** [95% CI 0.122, 0.143]
 
-> 해석 주의: evidence와 grounded는 이제 **seed 1–3 multiseed**까지 확보되었지만, evidence_gate는 아직 multiseed 진행 중이다. 따라서 mitigation 비교는 계속 보수적으로 해석해야 합니다.
+- manual qualitative labeling has started:
+  - partial labeled sheet: `/data_x/aa007878/projects/galileo/tmp/analysis/manual_flip_taxonomy_partial_20260310.csv`
+  - labeling guide: `/data_x/aa007878/projects/galileo/tmp/analysis/manual_taxonomy_guidelines_20260310.md`
+
+> 해석 주의: evidence, grounded, evidence-gate 모두 이제 **seed 1–3 multiseed**가 있지만, mitigation은 여전히 trade-off 관점에서 보수적으로 해석해야 합니다. 현재 evidence_gate는 pressure robustness를 개선하는 방향을 보이지만, GSM8K에서 PostRecoveryAcc가 소폭 하락해 legitimate revision flexibility 비용 가능성을 남깁니다.
 
 ### 1.2 코드(Code): “실험→export→검증→paper artifact/figure” 연결
 
