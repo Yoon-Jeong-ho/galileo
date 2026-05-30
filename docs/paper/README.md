@@ -15,6 +15,7 @@ This folder contains the **MD-only** paper-writing workflow for the GALILEO EMNL
 - `PAPER_RESULTS_ANALYSIS_KO.md`: quantitative results analysis notes
 - `PAPER_RESULTS_QUAL_EXAMPLES_KO.md`: qualitative examples (kept separate to avoid bloating the main analysis)
 - `SHORT_PAPER_README_KO.md`: readable Korean summary of whether/how this repo can support a 2-page short paper
+- `SHORT_PAPER_KO.md`: figure-free Korean short-paper draft in Markdown
 
 ## 5-minute reviewer audit (reproduce key paper artifacts)
 
